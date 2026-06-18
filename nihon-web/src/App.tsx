@@ -4,6 +4,9 @@ import {
   Route
 } from "react-router-dom";
 
+import ProtectedRoute
+from "./components/ProtectedRoute";
+import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import PracticePage from "./pages/PracticePage";
@@ -28,14 +31,25 @@ function App() {
 
         <Route
           path="/practice"
-          element={<PracticePage />}
+          element={
+            <ProtectedRoute>
+              <PracticePage />
+            </ProtectedRoute>
+          }
         />
 
         <Route
           path="/statistics"
-          element={<StatisticsPage />}
+          element={
+            <ProtectedRoute>
+              <StatisticsPage />
+            </ProtectedRoute>
+          }
         />
-
+        <Route
+          path="/"
+          element={<HomePage />}
+/>
       </Routes>
 
     </BrowserRouter>
