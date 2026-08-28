@@ -13,6 +13,9 @@ from "./routes/quiz.routes";
 import statisticsRoutes
 from "./routes/statistics.routes";
 
+import englishRoutes
+from "./routes/english.routes";
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -44,6 +47,11 @@ app.use(
 app.use(
   "/api/statistics",
   statisticsRoutes
+);
+
+app.use(
+  "/api/english",
+  englishRoutes
 );
 
 app.listen(5000, () => {
