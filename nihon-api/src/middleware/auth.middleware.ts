@@ -12,9 +12,7 @@ export function authenticate(
   next: NextFunction
 ) {
   try {
-
-    const authHeader =
-      req.headers.authorization;
+    const authHeader = req.headers.authorization;
 
     if (!authHeader) {
       return res.status(401).json({
@@ -22,23 +20,38 @@ export function authenticate(
       });
     }
 
-    const token =
-      authHeader.split(" ")[1];
+    const token = authHeader.split(" ")[1];
 
-    const decoded =
-      jwt.verify(
-        token,
-        process.env.JWT_SECRET!
-      );
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET!
+    );
 
     (req as any).user = decoded;
-
     next();
-
   } catch {
-
     return res.status(401).json({
       message: "Invalid token"
     });
   }
+}
+
+export function optionalAuthenticate(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const authHeader = req.headers.authorization;
+    if (authHeader) {
+      const token = authHeader.split(" ")[1];
+      if (token) {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET!);
+        (req as any).user = decoded;
+      }
+    }
+  } catch {
+    // Ignore invalid token for optional auth
+  }
+  next();
 }

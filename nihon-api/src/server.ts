@@ -26,20 +26,13 @@ app.use(
   authRoutes
 );
 
-app.listen(5000, () => {
-  console.log(
-    "Server running on port 5000"
-  );
-
 app.get(
   "/profile",
   authenticate,
   (req, res) => {
-
     res.json({
       user: (req as any).user
     });
-
   }
 );
 
@@ -52,4 +45,9 @@ app.use(
   "/api/statistics",
   statisticsRoutes
 );
+
+app.listen(5000, () => {
+  console.log(
+    "Server running on port 5000"
+  );
 });
