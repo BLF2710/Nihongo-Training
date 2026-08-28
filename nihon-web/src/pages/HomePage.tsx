@@ -53,54 +53,74 @@ export default function HomePage() {
 
           <button
             onClick={() =>
-              navigate("/practice")
+              navigate("/practice?type=hiragana")
             }
             className="
-              w-60
-              h-32
-              bg-green-500
+              w-64
+              h-36
+              bg-emerald-600
+              hover:bg-emerald-700
               text-white
               rounded-2xl
-              text-2xl
-              font-semibold
+              flex
+              flex-col
+              items-center
+              justify-center
               shadow-lg
+              hover:shadow-xl
               hover:scale-105
-              transition
+              transition-all
+              cursor-pointer
             "
           >
-            Hiragana
+            <span className="text-3xl font-bold">あ Hiragana</span>
+            <span className="text-sm text-emerald-100 mt-1">46 Base + Variations</span>
+          </button>
+
+          <button
+            onClick={() =>
+              navigate("/practice?type=katakana")
+            }
+            className="
+              w-64
+              h-36
+              bg-indigo-600
+              hover:bg-indigo-700
+              text-white
+              rounded-2xl
+              flex
+              flex-col
+              items-center
+              justify-center
+              shadow-lg
+              hover:shadow-xl
+              hover:scale-105
+              transition-all
+              cursor-pointer
+            "
+          >
+            <span className="text-3xl font-bold">ア Katakana</span>
+            <span className="text-sm text-indigo-100 mt-1">71 Characters Ready</span>
           </button>
 
           <button
             className="
-              w-60
-              h-32
-              bg-gray-300
+              w-64
+              h-36
+              bg-gray-200
+              text-gray-500
               rounded-2xl
-              text-2xl
-              font-semibold
+              flex
+              flex-col
+              items-center
+              justify-center
               cursor-not-allowed
+              border
+              border-gray-300
             "
           >
-            Katakana
-            <div className="text-sm mt-2">
-              Coming Soon
-            </div>
-          </button>
-
-          <button
-            className="
-              w-60
-              h-32
-              bg-gray-300
-              rounded-2xl
-              text-2xl
-              font-semibold
-              cursor-not-allowed
-            "
-          >
-            Kanji
-            <div className="text-sm mt-2">
+            <span className="text-3xl font-bold">漢 Kanji</span>
+            <div className="text-xs bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full mt-2 font-medium">
               Coming Soon
             </div>
           </button>

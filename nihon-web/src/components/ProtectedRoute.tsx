@@ -8,18 +8,15 @@ export default function ProtectedRoute({
   children
 }: Props) {
 
-  const token =
-    localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-  if (!token) {
-
+  if (!token || token === "undefined" || token === "null") {
     return (
       <Navigate
         to="/login"
         replace
       />
     );
-
   }
 
   return children;

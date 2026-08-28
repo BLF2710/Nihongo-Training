@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { getRandomKana, submitAnswer } from "../controllers/quiz.controller";
-import { authenticate } from "../middleware/auth.middleware";
-
+import { optionalAuthenticate } from "../middleware/auth.middleware";
 
 const router = Router();
 
@@ -12,9 +11,8 @@ router.get(
 
 router.post(
   "/answer",
-  authenticate,
+  optionalAuthenticate,
   submitAnswer
 );
-
 
 export default router;
