@@ -11,50 +11,68 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import PracticePage from "./pages/PracticePage";
 import StatisticsPage from "./pages/StatisticsPage";
+import EnglishArcadePage from "./pages/EnglishArcadePage";
+
+import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
-
   return (
-    <BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/login"
+            element={<LoginPage />}
+          />
 
-      <Routes>
+          <Route
+            path="/register"
+            element={<RegisterPage />}
+          />
 
-        <Route
-          path="/login"
-          element={<LoginPage />}
-        />
+          <Route
+            path="/practice"
+            element={
+              <ProtectedRoute>
+                <PracticePage />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/register"
-          element={<RegisterPage />}
-        />
+          <Route
+            path="/arcade"
+            element={
+              <ProtectedRoute>
+                <EnglishArcadePage />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/practice"
-          element={
-            <ProtectedRoute>
-              <PracticePage />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/games/english"
+            element={
+              <ProtectedRoute>
+                <EnglishArcadePage />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/statistics"
-          element={
-            <ProtectedRoute>
-              <StatisticsPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/"
-          element={<HomePage />}
-/>
-      </Routes>
-
-    </BrowserRouter>
+          <Route
+            path="/statistics"
+            element={
+              <ProtectedRoute>
+                <StatisticsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   );
-
 }
 
 export default App;
