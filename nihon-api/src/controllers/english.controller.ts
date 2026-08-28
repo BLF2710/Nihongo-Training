@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { pool } from "../config/db";
 
 export interface EnglishWord {
   id: number;
@@ -48,13 +49,13 @@ export async function getWordMatchGame(req: Request, res: Response) {
     const difficulty = (req.query.difficulty as string) || "all";
     const count = parseInt(req.query.count as string, 10) || 6;
 
-    let pool = [...ENGLISH_VOCABULARY];
+    let wordPool = [...ENGLISH_VOCABULARY];
     if (difficulty !== "all") {
-      pool = pool.filter((w) => w.difficulty === difficulty);
+      wordPool = wordPool.filter((w) => w.difficulty === difficulty);
     }
 
     // Shuffle and pick
-    const shuffled = pool.sort(() => 0.5 - Math.random());
+    const shuffled = wordPool.sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, Math.min(count, shuffled.length));
 
     return res.json({
@@ -108,13 +109,34 @@ export async function getWordScrambleGame(req: Request, res: Response) {
 
 export async function submitGameScore(req: Request, res: Response) {
   try {
-    const { gameType, score, accuracy, timeTakenSeconds } = req.body;
+    const { gameType, score, accuracy, timeTakenSeconds, difficulty, sessionId } = req.body;
     const userId = (req as any).user?.userId;
 
-    // Log score and return success
+    let recorded = false;
+
+    if (userId) {
+      const result = await pool.query(
+        `INSERT INTO user_game_scores
+          (user_id, game_type, score, accuracy, difficulty, time_taken_seconds, session_id)
+         VALUES ($1, $2, $3, $4, $5, $6, $7)
+         ON CONFLICT (user_id, session_id) WHERE session_id IS NOT NULL DO NOTHING
+         RETURNING id`,
+        [
+          userId,
+          gameType || "unknown",
+          score || 0,
+          accuracy || 0,
+          difficulty || "all",
+          timeTakenSeconds || 0,
+          typeof sessionId === "string" && sessionId.length > 0 ? sessionId : null
+        ]
+      );
+      recorded = (result.rowCount ?? 0) > 0;
+    }
+
     return res.json({
       success: true,
-      recordedForUser: !!userId,
+      recordedForUser: recorded,
       gameType,
       score,
       accuracy,

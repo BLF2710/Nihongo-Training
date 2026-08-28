@@ -95,7 +95,12 @@ export async function login(
     );
 
     return res.json({
-      token
+      token,
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email
+      }
     });
 
   } catch (error) {

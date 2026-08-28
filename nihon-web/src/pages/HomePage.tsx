@@ -4,7 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   const isJapanese = language === "japanese";
 
@@ -30,32 +30,7 @@ export default function HomePage() {
               : "Level up your English vocabulary, conquer tricky grammar rules, and play interactive word games."}
           </p>
 
-          {/* Large Language Track Switcher */}
-          <div className="inline-flex p-1.5 bg-white rounded-2xl border border-gray-200 shadow-md">
-            <button
-              onClick={() => setLanguage("japanese")}
-              className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-bold text-base transition-all cursor-pointer ${
-                isJapanese
-                  ? "bg-emerald-600 text-white shadow-sm scale-102"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-              }`}
-            >
-              <span className="text-xl">🇯🇵</span>
-              <span>Japanese Track</span>
-            </button>
-
-            <button
-              onClick={() => setLanguage("english")}
-              className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-bold text-base transition-all cursor-pointer ${
-                !isJapanese
-                  ? "bg-indigo-600 text-white shadow-sm scale-102"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-              }`}
-            >
-              <span className="text-xl">🇬🇧</span>
-              <span>English Track</span>
-            </button>
-          </div>
+          <p className="text-sm text-gray-400">Choose a language or game from the navigation menu.</p>
         </div>
 
         {/* Dynamic Content based on Active Track */}
@@ -204,7 +179,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => navigate("/statistics")}
+                  onClick={() => navigate("/statistics/japanese")}
                   className="bg-white hover:bg-emerald-50 text-emerald-900 font-bold px-6 py-3 rounded-xl transition shadow-md cursor-pointer whitespace-nowrap"
                 >
                   View Learning Stats →
@@ -357,7 +332,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => navigate("/statistics")}
+                  onClick={() => navigate("/statistics/english")}
                   className="bg-white hover:bg-indigo-50 text-indigo-900 font-bold px-6 py-3 rounded-xl transition shadow-md cursor-pointer whitespace-nowrap"
                 >
                   View Learning Stats →
