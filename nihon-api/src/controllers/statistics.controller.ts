@@ -116,6 +116,89 @@ export async function getStatistics(
       };
     });
 
+    // 6. English game statistics
+    let englishStats = null;
+    try {
+      // Check if the table exists first
+      const tableCheck = await pool.query(`
+        SELECT EXISTS (
+          SELECT FROM information_schema.tables
+          WHERE table_name = 'user_game_scores'
+        )
+      `);
+
+      if (tableCheck.rows[0].exists) {
+        // Overall English game summary
+        const engSummary = await pool.query(
+          `SELECT
+            COUNT(*) AS total_games,
+            COALESCE(SUM(score), 0) AS total_points,
+            COALESCE(AVG(accuracy), 0) AS avg_accuracy,
+            COALESCE(MAX(score), 0) AS best_score
+          FROM user_game_scores
+          WHERE user_id = $1`,
+          [userId]
+        );
+
+        // Per game-type breakdown
+        const engByType = await pool.query(
+          `SELECT
+            game_type,
+            COUNT(*) AS games_played,
+            COALESCE(MAX(score), 0) AS high_score,
+            COALESCE(AVG(accuracy), 0) AS avg_accuracy,
+            COALESCE(SUM(score), 0) AS total_points
+          FROM user_game_scores
+          WHERE user_id = $1
+          GROUP BY game_type
+          ORDER BY game_type`,
+          [userId]
+        );
+
+        // Recent game history (last 10)
+        const recentGames = await pool.query(
+          `SELECT
+            game_type,
+            score,
+            accuracy,
+            difficulty,
+            time_taken_seconds,
+            played_at
+          FROM user_game_scores
+          WHERE user_id = $1
+          ORDER BY played_at DESC
+          LIMIT 10`,
+          [userId]
+        );
+
+        const summary = engSummary.rows[0];
+        englishStats = {
+          totalGames: Number(summary.total_games),
+          totalPoints: Number(summary.total_points),
+          avgAccuracy: Number(Number(summary.avg_accuracy).toFixed(1)),
+          bestScore: Number(summary.best_score),
+          byGameType: engByType.rows.map((r) => ({
+            gameType: r.game_type,
+            gamesPlayed: Number(r.games_played),
+            highScore: Number(r.high_score),
+            avgAccuracy: Number(Number(r.avg_accuracy).toFixed(1)),
+            totalPoints: Number(r.total_points)
+          })),
+          recentGames: recentGames.rows.map((r) => ({
+            gameType: r.game_type,
+            score: Number(r.score),
+            accuracy: Number(r.accuracy),
+            difficulty: r.difficulty,
+            timeTakenSeconds: Number(r.time_taken_seconds),
+            playedAt: r.played_at
+          }))
+        };
+      }
+    } catch (engError) {
+      // Table might not exist yet, that's fine
+      console.log("English stats table not available yet:", engError);
+    }
+
     return res.json({
       totalCorrect,
       totalWrong,
@@ -134,7 +217,8 @@ export async function getStatistics(
         totalAnswers: kataTotal,
         accuracy: kataAccuracy,
         characters: katakanaList
-      }
+      },
+      english: englishStats
     });
   } catch (error) {
     console.error("Error in getStatistics:", error);

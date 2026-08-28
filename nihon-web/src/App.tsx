@@ -12,6 +12,8 @@ import RegisterPage from "./pages/RegisterPage";
 import PracticePage from "./pages/PracticePage";
 import StatisticsPage from "./pages/StatisticsPage";
 import EnglishArcadePage from "./pages/EnglishArcadePage";
+import LessonsPage from "./pages/LessonsPage";
+import JapaneseHelloLessonPage from "./pages/JapaneseHelloLessonPage";
 
 import { LanguageProvider } from "./context/LanguageContext";
 
@@ -62,6 +64,38 @@ function App() {
             element={
               <ProtectedRoute>
                 <StatisticsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/statistics/japanese"
+            element={
+              <ProtectedRoute>
+                <StatisticsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/statistics/english"
+            element={
+              <ProtectedRoute>
+                <StatisticsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/lessons"
+            element={
+              <ProtectedRoute>
+                <LessonsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/lessons/japanese/n5-unit-1-hello"
+            element={
+              <ProtectedRoute>
+                <JapaneseHelloLessonPage />
               </ProtectedRoute>
             }
           />

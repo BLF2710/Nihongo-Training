@@ -34,6 +34,8 @@ export default function LoginPage() {
         "token",
         response.data.token
       );
+      localStorage.setItem("user_name", response.data.user?.username || login);
+      localStorage.setItem("user_email", response.data.user?.email || "");
 
       navigate("/practice");
 

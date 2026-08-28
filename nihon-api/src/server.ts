@@ -16,6 +16,9 @@ from "./routes/statistics.routes";
 import englishRoutes
 from "./routes/english.routes";
 
+// Auto-create game scores table on startup
+import "./services/games.seed";
+
 const app = express();
 app.use(cors());
 app.use(express.json());
