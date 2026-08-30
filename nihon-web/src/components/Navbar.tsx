@@ -58,7 +58,7 @@ export default function Navbar() {
           <span className="w-12 h-12 rounded-full bg-linear-to-br from-emerald-500 to-indigo-600 text-white flex items-center justify-center text-lg font-black">{userName.charAt(0).toUpperCase()}</span>
           <div className="min-w-0"><p className="font-bold text-gray-900 truncate">{userName}</p><p className="text-xs text-gray-500 truncate">{userEmail || "Signed-in learner"}</p></div>
         </div>
-        <div className="mt-4 pt-3 border-t border-gray-100 text-xs text-gray-500">Account active • Learning progress is saved to this profile.</div>
+        <button onClick={() => go("/profile")} className="mt-4 w-full rounded-lg bg-emerald-600 py-2 text-sm font-bold text-white">View profile & settings</button>
       </div>}
 
       {sidebarOpen && <button className="fixed inset-0 bg-black/25 z-30 cursor-default" onClick={() => setSidebarOpen(false)} aria-label="Close navigation" />}

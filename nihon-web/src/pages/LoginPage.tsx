@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
 
@@ -37,7 +38,7 @@ export default function LoginPage() {
       localStorage.setItem("user_name", response.data.user?.username || login);
       localStorage.setItem("user_email", response.data.user?.email || "");
 
-      navigate("/practice");
+      navigate("/");
 
     } catch (error: any) {
 
@@ -131,6 +132,7 @@ export default function LoginPage() {
               : "Login"
           }
         </button>
+        <p className="mt-4 text-sm text-gray-600">New here? <Link className="text-emerald-700 font-semibold" to="/register">Create an account</Link></p>
 
       </div>
     </div>

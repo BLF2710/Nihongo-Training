@@ -7,7 +7,7 @@ export async function findUserByEmail(
     `
       SELECT *
       FROM users
-      WHERE email = $1
+      WHERE LOWER(email) = LOWER($1)
     `,
     [email]
   );
@@ -22,11 +22,16 @@ export async function findUserByLogin(
     `
     SELECT *
     FROM users
-    WHERE email = $1
-       OR username = $1
+    WHERE LOWER(email) = LOWER($1)
+       OR LOWER(username) = LOWER($1)
     `,
     [login]
   );
 
+  return result.rows[0];
+}
+
+export async function findUserByUsername(username: string) {
+  const result = await pool.query("SELECT * FROM users WHERE LOWER(username) = LOWER($1)", [username]);
   return result.rows[0];
 }

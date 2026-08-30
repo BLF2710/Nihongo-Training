@@ -15,6 +15,8 @@ from "./routes/statistics.routes";
 
 import englishRoutes
 from "./routes/english.routes";
+import profileRoutes from "./routes/profile.routes";
+import lessonRoutes from "./routes/lesson.routes";
 
 // Auto-create game scores table on startup
 import "./services/games.seed";
@@ -31,6 +33,8 @@ app.use(
   "/api/auth",
   authRoutes
 );
+app.use("/api/profile", profileRoutes);
+app.use("/api/lessons", lessonRoutes);
 
 app.get(
   "/profile",

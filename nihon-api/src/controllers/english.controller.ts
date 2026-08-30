@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { pool } from "../config/db";
+import { awardXP } from "../services/xp.service";
 
 export interface EnglishWord {
   id: number;
@@ -132,6 +133,9 @@ export async function submitGameScore(req: Request, res: Response) {
         ]
       );
       recorded = (result.rowCount ?? 0) > 0;
+      if (recorded) {
+        await awardXP(Number(userId), 10, "game", `game-score:${result.rows[0].id}`);
+      }
     }
 
     return res.json({

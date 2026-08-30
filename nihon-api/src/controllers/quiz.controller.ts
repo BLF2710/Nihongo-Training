@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { pool } from "../config/db";
+import { awardXP } from "../services/xp.service";
 
 export function isRomajiMatch(expected: string, given: string): boolean {
   const normExpected = expected.trim().toLowerCase();
@@ -171,6 +172,14 @@ export async function submitAnswer(
             id
           ]
         );
+      }
+
+      // XP is based on durable progress, not on frontend state. Each ten correct
+      // answers earns one unique event, even though these quizzes have no end screen.
+      if (correct) {
+        const totalResult = await pool.query(`SELECT COALESCE(SUM(correct_count), 0) AS total_correct FROM ${progressTable} WHERE user_id = $1`, [userId]);
+        const milestone = Math.floor(Number(totalResult.rows[0].total_correct) / 10);
+        if (milestone > 0) await awardXP(Number(userId), 10, "quiz", `${type}:correct-${milestone * 10}`);
       }
     }
 
