@@ -14,6 +14,8 @@ import StatisticsPage from "./pages/StatisticsPage";
 import EnglishArcadePage from "./pages/EnglishArcadePage";
 import LessonsPage from "./pages/LessonsPage";
 import JapaneseHelloLessonPage from "./pages/JapaneseHelloLessonPage";
+import JapaneseN5LessonPage from "./pages/JapaneseN5LessonPage";
+import ProfilePage from "./pages/ProfilePage";
 
 import { LanguageProvider } from "./context/LanguageContext";
 
@@ -99,6 +101,8 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/lessons/japanese/:lessonSlug" element={<ProtectedRoute><JapaneseN5LessonPage /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
           <Route
             path="/"
             element={<HomePage />}
