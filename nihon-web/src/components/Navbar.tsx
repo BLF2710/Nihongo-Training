@@ -77,7 +77,7 @@ export default function Navbar() {
             <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>🧠</span> Vocabulary <span className="ml-auto text-[10px]">Soon</span></button>
             <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>✍️</span> Grammar <span className="ml-auto text-[10px]">Soon</span></button>
             {language === "japanese" && <>
-              <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>あ</span> Kana <span className="ml-auto text-[10px]">Soon</span></button>
+              <button onClick={() => go("/learn/hiragana")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/learn/hiragana") || location.pathname.startsWith("/learn/katakana"))}`}><span>あ</span> Kana</button>
               <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>漢</span> Kanji <span className="ml-auto text-[10px]">Soon</span></button>
             </>}
           </div>}</div>

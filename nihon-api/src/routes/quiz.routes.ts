@@ -1,8 +1,10 @@
 import { Router } from "express";
-import { getRandomKana, submitAnswer } from "../controllers/quiz.controller";
+import { getKanaCharacters, getRandomKana, submitAnswer } from "../controllers/quiz.controller";
 import { optionalAuthenticate } from "../middleware/auth.middleware";
 
 const router = Router();
+
+router.get("/characters", getKanaCharacters);
 
 router.get(
   "/random",
