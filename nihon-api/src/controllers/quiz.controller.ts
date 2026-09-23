@@ -195,3 +195,15 @@ export async function submitAnswer(
     });
   }
 }
+
+export async function getKanaCharacters(req: Request, res: Response) {
+  try {
+    const type = req.query.type === "katakana" ? "katakana" : "hiragana";
+    const tableName = type === "katakana" ? "katakanas" : "hiraganas";
+    const result = await pool.query(`SELECT id, kana, romaji FROM ${tableName} ORDER BY id ASC`);
+    return res.json({ type, characters: result.rows });
+  } catch (error) {
+    console.error("Error in getKanaCharacters:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+}

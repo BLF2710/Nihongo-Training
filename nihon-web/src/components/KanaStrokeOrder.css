@@ -1,0 +1,11 @@
+.kana-stroke-reveal {
+  stroke-dasharray: 1;
+  animation: kana-reveal 850ms linear both;
+}
+@keyframes kana-reveal {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kana-stroke-reveal { animation: none; }
+}

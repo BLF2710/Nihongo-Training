@@ -16,6 +16,7 @@ import LessonsPage from "./pages/LessonsPage";
 import JapaneseHelloLessonPage from "./pages/JapaneseHelloLessonPage";
 import JapaneseN5LessonPage from "./pages/JapaneseN5LessonPage";
 import ProfilePage from "./pages/ProfilePage";
+import HiraganaLearningPage from "./pages/HiraganaLearningPage";
 
 import { LanguageProvider } from "./context/LanguageContext";
 
@@ -103,6 +104,10 @@ function App() {
           />
           <Route path="/lessons/japanese/:lessonSlug" element={<ProtectedRoute><JapaneseN5LessonPage /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+          <Route path="/learn/hiragana" element={<ProtectedRoute><HiraganaLearningPage /></ProtectedRoute>} />
+          <Route path="/learn/hiragana/:characterId" element={<ProtectedRoute><HiraganaLearningPage /></ProtectedRoute>} />
+          <Route path="/learn/katakana" element={<ProtectedRoute><HiraganaLearningPage key="katakana" script="katakana" /></ProtectedRoute>} />
+          <Route path="/learn/katakana/:characterId" element={<ProtectedRoute><HiraganaLearningPage key="katakana" script="katakana" /></ProtectedRoute>} />
           <Route
             path="/"
             element={<HomePage />}
