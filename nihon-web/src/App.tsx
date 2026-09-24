@@ -18,6 +18,8 @@ import JapaneseHelloLessonPage from "./pages/JapaneseHelloLessonPage";
 import JapaneseN5LessonPage from "./pages/JapaneseN5LessonPage";
 import ProfilePage from "./pages/ProfilePage";
 import HiraganaLearningPage from "./pages/HiraganaLearningPage";
+import StudyReferencePage from "./pages/StudyReferencePage";
+import { JAPANESE_UNIT_1_REFERENCE } from "./data/japaneseUnit1Reference";
 
 import { LanguageProvider } from "./context/LanguageProvider";
 
@@ -26,6 +28,8 @@ function App() {
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/vocabulary" element={<ProtectedRoute><StudyReferencePage key="vocabulary" kind="vocabulary" unit={JAPANESE_UNIT_1_REFERENCE} /></ProtectedRoute>} />
+          <Route path="/grammar" element={<ProtectedRoute><StudyReferencePage key="grammar" kind="grammar" unit={JAPANESE_UNIT_1_REFERENCE} /></ProtectedRoute>} />
           <Route path="/review/hiragana" element={<ProtectedRoute><ReviewPage key="hiragana-review" script="hiragana" /></ProtectedRoute>} />
           <Route path="/review/katakana" element={<ProtectedRoute><ReviewPage key="katakana-review" script="katakana" /></ProtectedRoute>} />
           <Route
