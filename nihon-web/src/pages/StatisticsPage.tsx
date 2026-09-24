@@ -1,18 +1,11 @@
 import { useEffect, useState, useCallback } from "react";
+import { isAxiosError } from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import api from "../api/axios";
+import type { CharacterStat } from "../lib/kanaReview";
 
-type CharacterStat = {
-  id: number;
-  kana: string;
-  romaji: string;
-  correctCount: number;
-  wrongCount: number;
-  total: number;
-  accuracy: number;
-  status: "mastered" | "learning" | "untested";
-};
+const EMPTY_CHARACTERS: CharacterStat[] = [];
 
 type ModeStats = {
   totalCorrect: number;
@@ -68,37 +61,34 @@ export default function StatisticsPage() {
 
   const langTab: "japanese" | "english" = location.pathname.endsWith("/english") ? "english" : "japanese";
   // Japanese sub-tab
-  const [jpTab, setJpTab] = useState<"hiragana" | "katakana">("hiragana");
+  const [jpTab, setJpTab] = useState<"hiragana" | "katakana">(() => new URLSearchParams(location.search).get("type") === "katakana" ? "katakana" : "hiragana");
   const [filterStatus, setFilterStatus] = useState<"all" | "mastered" | "learning" | "untested">("all");
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterStat | null>(null);
 
-  const fetchStatistics = async () => {
-    try {
-      setLoading(true);
-      setErrorMsg(null);
-      const res = await api.get("/statistics");
+  const fetchStatistics = useCallback(() => {
+    return api.get<StatisticsResponse>("/statistics").then((res) => {
       setStats(res.data);
-    } catch (error: any) {
+    }).catch((error: unknown) => {
       console.error(error);
-      if (error.response?.status === 401) {
+      if (isAxiosError(error) && error.response?.status === 401) {
         setErrorMsg("Your session has expired. Please sign in to view statistics.");
       } else {
         setErrorMsg(
-          error.response?.data?.message ||
+          (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
           "Failed to load statistics. Please ensure the backend is running."
         );
       }
-    } finally {
+    }).finally(() => {
       setLoading(false);
-    }
-  };
+    });
+  }, []);
 
   useEffect(() => {
     fetchStatistics();
-  }, []);
+  }, [fetchStatistics]);
 
   const currentModeData = jpTab === "hiragana" ? stats?.hiragana : stats?.katakana;
-  const characters = currentModeData?.characters || [];
+  const characters = currentModeData?.characters || EMPTY_CHARACTERS;
 
   const filteredCharacters = characters.filter((c) => {
     if (filterStatus === "all") return true;
@@ -178,7 +168,11 @@ export default function StatisticsPage() {
             <p className="font-semibold text-lg">{errorMsg}</p>
             <div className="mt-4 flex justify-center gap-4">
               <button
-                onClick={() => fetchStatistics()}
+                onClick={() => {
+                  setLoading(true);
+                  setErrorMsg(null);
+                  void fetchStatistics();
+                }}
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition cursor-pointer"
               >
                 Try Again
@@ -327,6 +321,9 @@ export default function StatisticsPage() {
                         <p className="text-sm text-gray-500 mt-0.5">
                           Click any character card to view detailed percentage, accuracy, and practice options.
                         </p>
+                        <button onClick={() => navigate(`/review/${jpTab}`)} className="mt-3 px-4 py-2 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">
+                          Review {jpTab === "hiragana" ? "Hiragana" : "Katakana"}
+                        </button>
                       </div>
                       <div className="flex flex-wrap gap-2 text-xs font-semibold">
                         <button

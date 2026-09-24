@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { isAxiosError } from "axios";
 import api from "../api/axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -41,10 +42,10 @@ export default function RegisterPage() {
       alert(response.data.message);
       navigate("/login");
 
-    } catch (error: any) {
+    } catch (error: unknown) {
 
       alert(
-        error.response?.data?.message ||
+        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
         "Register failed"
       );
 

@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import PracticePage from "./pages/PracticePage";
 import StatisticsPage from "./pages/StatisticsPage";
+import ReviewPage from "./pages/ReviewPage";
 import EnglishArcadePage from "./pages/EnglishArcadePage";
 import LessonsPage from "./pages/LessonsPage";
 import JapaneseHelloLessonPage from "./pages/JapaneseHelloLessonPage";
@@ -18,13 +19,15 @@ import JapaneseN5LessonPage from "./pages/JapaneseN5LessonPage";
 import ProfilePage from "./pages/ProfilePage";
 import HiraganaLearningPage from "./pages/HiraganaLearningPage";
 
-import { LanguageProvider } from "./context/LanguageContext";
+import { LanguageProvider } from "./context/LanguageProvider";
 
 function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/review/hiragana" element={<ProtectedRoute><ReviewPage key="hiragana-review" script="hiragana" /></ProtectedRoute>} />
+          <Route path="/review/katakana" element={<ProtectedRoute><ReviewPage key="katakana-review" script="katakana" /></ProtectedRoute>} />
           <Route
             path="/login"
             element={<LoginPage />}

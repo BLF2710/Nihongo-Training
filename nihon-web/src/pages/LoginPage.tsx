@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { isAxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import { Link } from "react-router-dom";
@@ -40,10 +41,10 @@ export default function LoginPage() {
 
       navigate("/");
 
-    } catch (error: any) {
+    } catch (error: unknown) {
 
       alert(
-        error.response?.data?.message ||
+        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
         "Login failed"
       );
 
