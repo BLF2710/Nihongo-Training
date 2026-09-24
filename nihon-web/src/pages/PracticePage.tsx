@@ -5,6 +5,7 @@ import {
   useCallback
 } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { isAxiosError } from "axios";
 import Navbar from "../components/Navbar";
 import api from "../api/axios";
 
@@ -21,42 +22,8 @@ type AnswerResult = {
   type?: "hiragana" | "katakana";
 };
 
-// Common romaji variations/aliases for Hepburn, Kunrei-shiki, and Nihon-shiki
-const ROMAJI_ALIASES: Record<string, string[]> = {
-  shi: ["si", "shi"],
-  si: ["si", "shi"],
-  chi: ["ti", "chi"],
-  ti: ["ti", "chi"],
-  tsu: ["tu", "tsu"],
-  tu: ["tu", "tsu"],
-  fu: ["hu", "fu"],
-  hu: ["hu", "fu"],
-  ji: ["zi", "ji"],
-  zi: ["zi", "ji"],
-  sha: ["sya", "sha"],
-  shu: ["syu", "shu"],
-  sho: ["syo", "sho"],
-  cha: ["tya", "cha"],
-  chu: ["tyu", "chu"],
-  cho: ["tyo", "cho"],
-  ja: ["zya", "ja", "jya"],
-  ju: ["zyu", "ju", "jyu"],
-  jo: ["zyo", "jo", "jyo"]
-};
-
-function isRomajiMatch(expected: string, given: string): boolean {
-  const normExpected = expected.trim().toLowerCase();
-  const normGiven = given.trim().toLowerCase();
-
-  if (normExpected === normGiven) return true;
-
-  const valid = ROMAJI_ALIASES[normExpected];
-  if (valid && valid.includes(normGiven)) {
-    return true;
-  }
-
-  return false;
-}
+// Shared without changing Speed Quiz matching behavior.
+import { isRomajiMatch } from "../lib/romaji";
 
 export default function PracticePage() {
   const navigate = useNavigate();
@@ -71,9 +38,17 @@ export default function PracticePage() {
   const [wrongCount, setWrongCount] = useState(0);
   const [streak, setStreak] = useState(0);
   const [answered, setAnswered] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [autoSubmit, setAutoSubmit] = useState(true);
+  const [previousType, setPreviousType] = useState(currentType);
+
+  // Reset request presentation when the URL changes, including browser navigation.
+  if (previousType !== currentType) {
+    setPreviousType(currentType);
+    setLoading(true);
+    setErrorMsg(null);
+  }
 
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -84,43 +59,45 @@ export default function PracticePage() {
     }, 50);
   };
 
-  const fetchKana = useCallback(async (typeToFetch = currentType) => {
-    try {
-      if (autoAdvanceTimeout.current) {
-        clearTimeout(autoAdvanceTimeout.current);
-        autoAdvanceTimeout.current = null;
-      }
+  const loadKana = useCallback((typeToFetch: "hiragana" | "katakana") => {
+    if (autoAdvanceTimeout.current) {
+      clearTimeout(autoAdvanceTimeout.current);
+      autoAdvanceTimeout.current = null;
+    }
 
-      setLoading(true);
-      setErrorMsg(null);
-
-      const res = await api.get("/quiz/random", {
-        params: { type: typeToFetch }
-      });
+    return api.get<Kana>("/quiz/random", {
+      params: { type: typeToFetch }
+    }).then((res) => {
       setCurrent(res.data);
       setAnswer("");
       setResult(null);
       setAnswered(false);
       focusInput();
-    } catch (error: any) {
+    }).catch((error: unknown) => {
       console.error(error);
       setErrorMsg(
-        error.response?.data?.message ||
+        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
         `Could not load ${typeToFetch}. Please check if the server is running.`
       );
-    } finally {
+    }).finally(() => {
       setLoading(false);
-    }
-  }, [currentType]);
+    });
+  }, []);
+
+  const fetchKana = (typeToFetch: "hiragana" | "katakana" = currentType) => {
+    setLoading(true);
+    setErrorMsg(null);
+    return loadKana(typeToFetch);
+  };
 
   useEffect(() => {
-    fetchKana(currentType);
+    void loadKana(currentType);
     return () => {
       if (autoAdvanceTimeout.current) {
         clearTimeout(autoAdvanceTimeout.current);
       }
     };
-  }, [currentType, fetchKana]);
+  }, [currentType, loadKana]);
 
   const switchMode = (newType: "hiragana" | "katakana") => {
     if (newType === currentType) return;
@@ -140,7 +117,7 @@ export default function PracticePage() {
     setAnswered(true);
 
     try {
-      const res = await api.post("/quiz/answer", {
+      const res = await api.post<AnswerResult>("/quiz/answer", {
         type: currentType,
         kanaId: current.id,
         answer: textToSubmit.trim()
@@ -161,11 +138,11 @@ export default function PracticePage() {
         setWrongCount((prev) => prev + 1);
         setStreak(0);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
       setAnswered(false);
       setErrorMsg(
-        error.response?.data?.message ||
+        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
         "Failed to submit answer. Please try again."
       );
     }
