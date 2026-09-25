@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -13,7 +14,6 @@ import PracticePage from "./pages/PracticePage";
 import StatisticsPage from "./pages/StatisticsPage";
 import ReviewPage from "./pages/ReviewPage";
 import EnglishArcadePage from "./pages/EnglishArcadePage";
-import LessonsPage from "./pages/LessonsPage";
 import JapaneseHelloLessonPage from "./pages/JapaneseHelloLessonPage";
 import JapaneseN5LessonPage from "./pages/JapaneseN5LessonPage";
 import ProfilePage from "./pages/ProfilePage";
@@ -23,11 +23,17 @@ import { JAPANESE_UNIT_1_REFERENCE } from "./data/japaneseUnit1Reference";
 
 import { LanguageProvider } from "./context/LanguageProvider";
 
+const QuizzesPage = lazy(() => import("./pages/QuizzesPage"));
+const LessonsPage = lazy(() => import("./pages/LessonsPage"));
+const UnitAssessmentPage = lazy(() => import("./pages/UnitAssessmentPage"));
+
 function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/quizzes" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading quizzes…</p>}><QuizzesPage /></Suspense></ProtectedRoute>} />
+          <Route path="/quizzes/:unitId" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading assessment…</p>}><UnitAssessmentPage /></Suspense></ProtectedRoute>} />
           <Route path="/vocabulary" element={<ProtectedRoute><StudyReferencePage key="vocabulary" kind="vocabulary" unit={JAPANESE_UNIT_1_REFERENCE} /></ProtectedRoute>} />
           <Route path="/grammar" element={<ProtectedRoute><StudyReferencePage key="grammar" kind="grammar" unit={JAPANESE_UNIT_1_REFERENCE} /></ProtectedRoute>} />
           <Route path="/review/hiragana" element={<ProtectedRoute><ReviewPage key="hiragana-review" script="hiragana" /></ProtectedRoute>} />
@@ -97,7 +103,7 @@ function App() {
             path="/lessons"
             element={
               <ProtectedRoute>
-                <LessonsPage />
+                <Suspense fallback={<p role="status" className="p-8">Loading lessons…</p>}><LessonsPage /></Suspense>
               </ProtectedRoute>
             }
           />
