@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import UnitSelector from "../components/UnitSelector";
 import UnitAssessmentCard from "../components/UnitAssessmentCard";
@@ -8,19 +8,34 @@ import type { CourseUnit } from "../api/units";
 
 export default function LessonsPage() {
   const navigate = useNavigate(); const [units, setUnits] = useState<CourseUnit[]>([]);
-  const [selectedId, setSelectedId] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedId = searchParams.get("unit");
+  const selectUnit = (id: string) => setSearchParams({ unit: id });
   const [error, setError] = useState("");
   useEffect(() => {
     const controller = new AbortController();
     fetchUnits(controller.signal).then(setUnits).catch(() => { if (!controller.signal.aborted) setError("Could not load lessons. Please refresh to try again."); });
     return () => controller.abort();
   }, []);
-  const unit = units.find(item => item.id === selectedId) ?? units[0];
+  const unit = units.find(item => item.id === selectedId);
   const lessons = unit?.lessons ?? [];
   return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><button onClick={() => navigate("/")} className="text-sm font-semibold text-gray-600 hover:text-gray-900">← Dashboard</button><div className="mt-6 mb-8"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">🇯🇵 Japanese • N5 Beginner</span><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">Build practical Japanese step by step.</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
-    {!unit && !error && <p role="status">Loading units…</p>}
+    {!units.length && !error && <p role="status">Loading units…</p>}
+    {!unit && units.length > 0 && <section aria-labelledby="choose-unit-heading">
+      <h2 id="choose-unit-heading" className="mb-2 text-2xl font-black text-gray-900">Choose a unit</h2>
+      <p className="mb-6 text-gray-600">Select an available unit to see its lessons and assessment.</p>
+      {selectedId && <p role="alert" className="mb-4 text-gray-600">That unit could not be found. Choose a unit below.</p>}
+      <div className="space-y-4">{units.map(item => <button key={item.id} disabled={!item.allowed} onClick={() => selectUnit(item.id)} className={`w-full rounded-3xl border bg-white p-6 text-left shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:p-8 ${item.allowed ? "border-emerald-200 hover:border-emerald-400 hover:shadow-md" : "cursor-not-allowed border-gray-200"}`}>
+        <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Unit {item.number}{item.isPlaceholder && " · Coming Soon"}</p>
+        <h3 className="mt-1 text-2xl font-black text-gray-900">{item.title}</h3>
+        <p className="mt-2 text-gray-600">{item.description}</p>
+        {!item.isPlaceholder && <p className="mt-3 text-sm text-gray-600">{item.completedLessons} / {item.totalLessons} lessons completed</p>}
+        <p className="mt-4 font-bold text-emerald-700">{!item.allowed ? `🔒 ${item.reasons.join(" + ")}` : item.completed ? "✓ Complete · View unit →" : "View unit →"}</p>
+      </button>)}</div>
+    </section>}
     {unit && <section className="mb-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <UnitSelector units={units} selectedId={unit.id} onChange={setSelectedId} />
+      <button onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold text-emerald-700 hover:text-emerald-900 focus-visible:outline-2 focus-visible:outline-emerald-600">← Choose a unit</button>
+      <UnitSelector units={units} selectedId={unit.id} onChange={selectUnit} />
       <p className="mt-6 text-xs font-bold uppercase tracking-wider text-emerald-700">Unit {unit.number}</p>
       <h2 className="mt-1 text-3xl font-black text-gray-900">{unit.title}</h2>
       <p className="mt-2 text-gray-600">{unit.description}</p>
