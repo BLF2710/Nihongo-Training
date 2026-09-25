@@ -1,14 +1,14 @@
 import { pool } from "../config/db";
 import { getLevelFromXP, getRankFromXP, RANK_THRESHOLDS } from "./progression.service";
 
-export type LessonDefinition = { id: string; title: string; unit: string; previousLessonId?: string; minimumLevel?: number; minimumRank?: string };
+export type LessonDefinition = { id: string; slug: string; title: string; unit: string; previousLessonId?: string; minimumLevel?: number; minimumRank?: string };
 export const LESSONS: LessonDefinition[] = [
-  { id: "japanese-n5-unit-1-hello", title: "How to Say Hello", unit: "Japanese N5 Unit 1" },
-  { id: "japanese-n5-unit-1-introductions", title: "Introducing Yourself", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-hello", minimumLevel: 2 },
-  { id: "japanese-n5-unit-1-origin", title: "Where Are You From?", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-introductions" },
-  { id: "japanese-n5-unit-1-questions", title: "Basic Questions", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-origin" },
-  { id: "japanese-n5-unit-1-numbers-age", title: "Numbers & Age", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-questions" },
-  { id: "japanese-n5-unit-1-demonstratives", title: "This, That & Those", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-numbers-age" }
+  { id: "japanese-n5-unit-1-hello", slug: "n5-unit-1-hello", title: "How to Say Hello", unit: "Japanese N5 Unit 1" },
+  { id: "japanese-n5-unit-1-introductions", slug: "n5-unit-1-introductions", title: "Introducing Yourself", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-hello", minimumLevel: 2 },
+  { id: "japanese-n5-unit-1-origin", slug: "n5-unit-1-origin", title: "Where Are You From?", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-introductions" },
+  { id: "japanese-n5-unit-1-questions", slug: "n5-unit-1-questions", title: "Basic Questions", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-origin" },
+  { id: "japanese-n5-unit-1-numbers-age", slug: "n5-unit-1-numbers-age", title: "Numbers & Age", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-questions" },
+  { id: "japanese-n5-unit-1-demonstratives", slug: "n5-unit-1-demonstratives", title: "This, That & Those", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-numbers-age" }
 ];
 export async function canUserAccessLesson(userId: number, lesson: LessonDefinition) {
   const user = await pool.query("SELECT xp FROM user_gamification WHERE user_id=$1", [userId]); const xp = Number(user.rows[0]?.xp ?? 0);

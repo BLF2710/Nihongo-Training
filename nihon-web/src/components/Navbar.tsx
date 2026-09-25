@@ -88,7 +88,7 @@ export default function Navbar() {
                 <button onClick={() => go("/practice?type=katakana")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/practice")}`}><span>ア</span> Katakana Speed Quiz</button>
               </>}
             </div>}</div>
-            <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>📝</span> Quizzes <span className="ml-auto text-[10px]">Soon</span></button>
+            <button onClick={() => language === "japanese" && go("/quizzes")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/quizzes"))}` : "text-gray-400 cursor-not-allowed"}`}><span>📝</span> Quizzes {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
             <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>🔄</span> Review <span className="ml-auto text-[10px]">Soon</span></button>
           </div>}</div>
         </div>
