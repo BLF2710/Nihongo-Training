@@ -10,6 +10,7 @@ export type VocabularyItem = {
   meaning: string;
   audioText?: string;
   note?: string;
+  kanjiFormId?: string;
 };
 
 export type GrammarPoint = {

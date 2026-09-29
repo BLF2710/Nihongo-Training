@@ -14,15 +14,21 @@ async function main() {
   const cache = new Map();
   let server;
   function load(filename) {
+    if (filename.endsWith('.json')) return JSON.parse(fs.readFileSync(filename, 'utf8'));
     if (cache.has(filename)) return cache.get(filename);
     const exports = {};
     cache.set(filename, exports);
     const compiled = ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true } }).outputText;
     vm.runInNewContext(compiled, { exports, console, process, require: name => {
-      if (name.endsWith('/config/db')) return { pool: client };
-      if (name.endsWith('/services/xp.service')) return { awardXP: () => { throw new Error('Assessment must not award XP'); } };
-      if (name.endsWith('/services/achievement.service')) return { evaluateAchievements: () => { throw new Error('Unexpected achievement write'); } };
-      return name.startsWith('.') ? load(path.resolve(path.dirname(filename), `${name}.ts`)) : require(name);
+      if (name.endsWith('/config/db')) return { pool: {
+        query: (...args) => client.query(...args),
+        connect: async () => ({
+          query: (sql, values) => client.query(sql === 'BEGIN' ? 'SAVEPOINT xp_award' : sql === 'COMMIT' ? 'RELEASE SAVEPOINT xp_award' : sql === 'ROLLBACK' ? 'ROLLBACK TO SAVEPOINT xp_award' : sql, values),
+          release: () => {},
+        }),
+      } };
+      if (name.endsWith('/services/achievement.service')) return { evaluateAchievements: async () => [] };
+      return name.startsWith('.') ? load(path.resolve(path.dirname(filename), name.endsWith('.json') ? name : `${name}.ts`)) : require(name);
     } });
     return exports;
   }
@@ -32,9 +38,10 @@ async function main() {
     // Fixtures are connection-local temporary tables; no real users/progress are edited.
     await client.query('CREATE TEMP TABLE users (id INTEGER PRIMARY KEY)');
     await client.query('INSERT INTO users VALUES (1), (2)');
-    await client.query('CREATE TEMP TABLE user_gamification (user_id INTEGER, xp INTEGER)');
-    await client.query('INSERT INTO user_gamification VALUES (1, 0), (2, 0)');
-    await client.query('CREATE TEMP TABLE lesson_progress (user_id INTEGER, lesson_id VARCHAR(120), PRIMARY KEY (user_id,lesson_id))');
+    await client.query('CREATE TEMP TABLE user_gamification (user_id INTEGER, xp INTEGER, updated_at TIMESTAMPTZ DEFAULT NOW())');
+    await client.query('INSERT INTO user_gamification (user_id,xp) VALUES (1, 0), (2, 0)');
+    await client.query('CREATE TEMP TABLE lesson_progress (user_id INTEGER, lesson_id VARCHAR(120), challenge_score INTEGER DEFAULT 0, updated_at TIMESTAMPTZ DEFAULT NOW(), PRIMARY KEY (user_id,lesson_id))');
+    await client.query('CREATE TEMP TABLE xp_events (id SERIAL, user_id INTEGER, amount INTEGER, source TEXT, reference_id TEXT, UNIQUE(user_id,source,reference_id))');
     const migration = fs.readFileSync(path.resolve(__dirname, '../migrations/003_unit_assessments.sql'), 'utf8');
     await client.query(migration.replace('CREATE TABLE IF NOT EXISTS', 'CREATE TEMP TABLE'));
     const { UNITS } = src('data/units.ts');
@@ -42,7 +49,7 @@ async function main() {
     const { getUnitAccess, getUnitProgress } = src('services/unit.service.ts');
     const { canUserAccessLesson, LESSONS } = src('services/lesson.service.ts');
     assert.equal(UNITS.length, 3);
-    assert.equal(UNIT_ASSESSMENTS.length, 1);
+    assert.equal(UNIT_ASSESSMENTS.length, 3);
     const unit = UNITS[0];
     const assessment = UNIT_ASSESSMENTS[0];
     assert.equal(unit.lessonIds.length, 6);
@@ -77,17 +84,17 @@ async function main() {
     assert.equal((await request(endpoint, { answers: correct }, {})).status, 401);
     let state = (await request('/units')).data.units[0];
     assert.equal(state.allowed, true); assert.equal(state.completedLessons, 0); assert.equal(state.completed, false);
-    for (const lesson of LESSONS) assert.equal(state.lessons.find(l => l.id === lesson.id).allowed, (await canUserAccessLesson(1, lesson)).allowed);
+    for (const lesson of LESSONS.filter(item => unit.lessonIds.includes(item.id))) assert.equal(state.lessons.find(l => l.id === lesson.id).allowed, (await canUserAccessLesson(1, lesson)).allowed);
     assert.equal((await request(`/lessons/${LESSONS[1].id}/complete`, { challengeScore: 100 })).status, 403);
     await client.query('UPDATE user_gamification SET xp=100 WHERE user_id=1');
-    for (const id of unit.lessonIds.slice(0, 5)) await client.query('INSERT INTO lesson_progress VALUES (1,$1)', [id]);
+    for (const id of unit.lessonIds.slice(0, 5)) await client.query('INSERT INTO lesson_progress (user_id,lesson_id) VALUES (1,$1)', [id]);
     state = (await request('/units')).data.units[0];
     assert.equal(state.completedLessons, 5); assert.equal(state.assessmentUnlocked, false);
     assert.equal((await request(endpoint)).status, 403); assert.equal((await post(15)).status, 403);
-    await client.query('INSERT INTO lesson_progress VALUES (1,$1)', [unit.lessonIds[5]]);
+    await client.query('INSERT INTO lesson_progress (user_id,lesson_id) VALUES (1,$1)', [unit.lessonIds[5]]);
     state = (await request('/units')).data.units[0];
     assert.equal(state.assessmentUnlocked, true); assert.equal(state.completed, false);
-    for (const lesson of LESSONS) assert.equal(state.lessons.find(l => l.id === lesson.id).allowed, (await canUserAccessLesson(1, lesson)).allowed);
+    for (const lesson of LESSONS.filter(item => unit.lessonIds.includes(item.id))) assert.equal(state.lessons.find(l => l.id === lesson.id).allowed, (await canUserAccessLesson(1, lesson)).allowed);
     const publicAssessment = await request(endpoint);
     assert.equal(publicAssessment.status, 200);
     assert.ok(publicAssessment.data.questions.every(q => !('correctIndex' in q) && !('correct' in q)));
@@ -108,32 +115,95 @@ async function main() {
     assert.equal((await request('/units', undefined, { ...headers, Authorization: `Bearer ${jwt.sign({ userId: 2 }, process.env.JWT_SECRET)}` })).data.units[0].completed, false);
     assert.equal((await client.query('SELECT count(*) FROM user_assessment_progress')).rows[0].count, '1');
     assert.equal((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp, 100);
-    for (const placeholder of UNITS.filter(item => item.isPlaceholder)) {
-      assert.equal(placeholder.placeholderLessons.length, 1);
-      assert.equal(placeholder.lessonIds.length, 0);
-      assert.equal(getUnitProgress({ ...placeholder, lessonIds: ['fake'], assessmentId: 'fake' }, new Set(['fake']), new Set(['fake'])).completed, false);
-      for (const [level, previousComplete, allowed] of [[1, false, false], [11, false, false], [1, true, false], [11, true, true]]) {
-        assert.equal(getUnitAccess(placeholder, level, new Set(previousComplete ? [placeholder.previousUnitId] : [])).allowed, allowed);
-      }
-      assert.equal((await request(`/units/${placeholder.id}/assessment`)).status, 403);
-      assert.equal((await request(`/units/${placeholder.id}/assessment`, { assessmentId: assessment.id, answers: correct })).status, 403);
-      assert.equal((await request(`/lessons/${placeholder.placeholderLessons[0].id}/complete`, { challengeScore: 100 })).status, 404);
-    }
     assert.equal((await request('/units')).data.units[1].allowed, false, 'Completion alone cannot bypass Level 3');
     await client.query('UPDATE user_gamification SET xp=700 WHERE user_id=1');
-    let allUnits = (await request('/units')).data.units;
-    assert.equal(allUnits[1].allowed, true);
-    assert.equal(allUnits[2].allowed, false, 'High level cannot bypass incomplete placeholder Unit 2');
+    assert.equal((await request('/units')).data.units[2].allowed, false, 'Enough XP cannot bypass Unit 2');
     await post(0);
-    assert.equal((await request('/units')).data.units[1].allowed, true, 'Failed retake must preserve Unit 2 access');
-    await client.query('INSERT INTO lesson_progress VALUES (1,$1)', [UNITS[1].placeholderLessons[0].id]);
-    await client.query("INSERT INTO user_assessment_progress (user_id,assessment_id,best_score,last_score,passed_at) VALUES (1,'japanese-n5-unit-2-assessment',100,100,NOW())");
-    allUnits = (await request('/units')).data.units;
-    assert.equal(allUnits[1].completed, false); assert.equal(allUnits[1].assessmentUnlocked, false); assert.equal(allUnits[1].completedLessons, 0);
-    assert.equal(allUnits[2].allowed, false);
-    assert.equal(allUnits[0].bestCorrect, 12);
-    console.log('PASS: three-unit catalog; placeholders cannot complete or be played; actual Unit 2/3 AND conditions; malformed placeholder progress ignored; retained Unit 2 access after failed retake.');
-    console.log('PASS: real PostgreSQL + authenticated HTTP routes; new user; 5/6 and 6/6 gates; hidden answer keys; payload validation; 11/15 fail; 12/15 pass; persistent pass after failed retakes; user isolation; unchanged lesson gates/XP; future level AND prerequisite rules.');
+    assert.equal((await request('/units')).data.units[1].allowed, true, 'Failed retake preserves Unit 2 access');
+
+    const frontendLessons = load(path.resolve(__dirname, '../../nihon-web/src/data/japaneseN5Lessons.ts')).N5_LESSONS;
+    const references = load(path.resolve(__dirname, '../../nihon-web/src/data/japaneseStudyUnits.ts')).JAPANESE_STUDY_UNITS;
+    assert.equal(frontendLessons.length, 17); // Unit 1 hello keeps its existing dedicated page.
+    assert.equal(references.length, 3);
+    for (const current of UNITS.slice(1)) {
+      assert.equal(current.lessonIds.length, 6);
+      assert.ok(!current.isPlaceholder);
+      for (const [level, previous, allowed] of [[1, false, false], [11, false, false], [1, true, false], [11, true, true]]) {
+        assert.equal(getUnitAccess(current, level, new Set(previous ? [current.previousUnitId] : [])).allowed, allowed);
+      }
+      const content = frontendLessons.filter(lesson => lesson.unitNumber === current.number);
+      assert.equal(content.length, 6);
+      assert.deepEqual(JSON.parse(JSON.stringify(content.map(l => l.id))), Array.from(current.lessonIds));
+      assert.deepEqual(JSON.parse(JSON.stringify(content.map(l => l.lessonNumber))), [1,2,3,4,5,6]);
+      const reference = references.find(item => item.id === current.id);
+      assert.equal(reference.lessons.length, 6);
+      for (const lesson of content) {
+        const definition = LESSONS.find(item => item.id === lesson.id);
+        assert.equal(definition.title, lesson.title);
+        assert.equal(definition.slug, lesson.slug);
+        assert.equal(lesson.practice.length, 5);
+        assert.equal(lesson.challenge.length, 5);
+        for (const q of [...lesson.practice, ...lesson.challenge]) {
+          assert.equal(q.options.length, 4);
+          assert.equal(new Set(q.options).size, 4);
+          assert.equal(q.options.filter(option => option === q.correct).length, 1);
+          assert.ok(q.explanation.trim().length > 0);
+        }
+        const study = reference.lessons.find(item => item.id === lesson.id);
+        assert.equal(study.vocabulary.length, lesson.vocabulary.length);
+        assert.equal(study.grammar.length, lesson.grammar.length);
+        study.vocabulary.forEach((word, i) => assert.equal(word.japanese, lesson.vocabulary[i][0]));
+      }
+      const exam = UNIT_ASSESSMENTS.find(item => item.id === current.assessmentId);
+      assert.equal(exam.questions.length, 15);
+      assert.equal(new Set(exam.questions.map(q => q.id)).size, 15);
+      exam.questions.forEach(q => {
+        assert.equal(q.options.length, 4);
+        assert.equal(new Set(q.options).size, 4);
+        assert.ok(q.correctIndex >= 0 && q.correctIndex < 4);
+      });
+      const examUrl = `/units/${current.id}/assessment`;
+      assert.equal((await request(examUrl)).status, 403);
+      // Neither a direct lesson URL nor a completion POST can skip prerequisites.
+      for (let index = 0; index < current.lessonIds.length; index++) {
+        const id = current.lessonIds[index];
+        if (index + 1 < current.lessonIds.length) {
+          const nextId = current.lessonIds[index + 1];
+          assert.equal((await request(`/lessons/${nextId}/access`)).status, 403);
+          assert.equal((await request(`/lessons/${nextId}/complete`, { challengeScore: 100 })).status, 403);
+        }
+        assert.equal((await request(`/lessons/${id}/access`)).status, 200);
+        const before = Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp);
+        let completion = await request(`/lessons/${id}/complete`, { challengeScore: 100 });
+        assert.equal(completion.status, 200);
+        assert.equal(completion.data.completion.awarded, true);
+        assert.equal(completion.data.challenge.awarded, true);
+        completion = await request(`/lessons/${id}/complete`, { challengeScore: 100 });
+        assert.equal(completion.data.completion.awarded, false);
+        assert.equal(completion.data.challenge.awarded, false);
+        assert.equal(Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp), before + 75);
+        const fresh = (await request('/units')).data.units.find(item => item.id === current.id);
+        assert.equal(fresh.completedLessons, index + 1);
+        assert.equal(fresh.assessmentUnlocked, index === 5);
+        assert.equal(fresh.completed, false);
+      }
+      assert.equal((await request(examUrl)).status, 200);
+      assert.ok((await request(examUrl)).data.questions.every(q => !('correctIndex' in q)));
+      const examAnswers = count => exam.questions.map((q, i) => i < count ? q.correctIndex : (q.correctIndex + 1) % 4);
+      const submit = count => request(examUrl, { assessmentId: exam.id, answers: examAnswers(count) });
+      const xpBefore = Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp);
+      assert.equal((await submit(11)).data.unitCompleted, false);
+      assert.equal((await submit(12)).data.unitCompleted, true);
+      const failedRetake = (await submit(0)).data;
+      assert.equal(failedRetake.passed, false);
+      assert.equal(failedRetake.unitCompleted, true);
+      assert.equal(failedRetake.bestScore, 80);
+      assert.equal(Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp), xpBefore);
+      assert.equal((await request('/units')).data.units.find(item => item.id === current.id).completed, true);
+    }
+    assert.equal((await client.query('SELECT count(*) FROM lesson_progress WHERE user_id=1')).rows[0].count, '18');
+    assert.equal((await client.query('SELECT count(*) FROM xp_events')).rows[0].count, '24');
+    console.log('PASS: Unit 1 regression; three implemented units; 12 new lessons/120 questions; reference parity; real lesson XP exactly once; sequential gates; all three 15-question assessments; 80% boundary; retained passes; user isolation.');
 
     if (process.argv.includes('--browser')) {
       const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright');
@@ -150,7 +220,7 @@ async function main() {
           await route.fulfill({ response });
         });
         const web = process.env.TEST_BASE_URL || 'http://127.0.0.1:5181';
-        await page.goto(`${web}/lessons`);
+        await page.goto(`${web}/lessons?unit=${unit.id}`);
         await page.getByText('5 / 6 lessons completed', { exact: true }).waitFor();
         assert.equal(await page.locator('select option').count(), 3);
         assert.equal(await page.locator('select option:disabled').count(), 2);
@@ -160,10 +230,10 @@ async function main() {
         assert.equal(await page.getByRole('link', { name: 'Start Unit 1 Assessment →', exact: true }).count(), 0);
         await page.goto(`${web}/quizzes/${unit.id}`);
         await page.getByRole('alert').waitFor(); assert.equal(await page.getByRole('radio').count(), 0);
-        await client.query('INSERT INTO lesson_progress VALUES (1,$1)', [unit.lessonIds[5]]);
+        await client.query('INSERT INTO lesson_progress (user_id,lesson_id) VALUES (1,$1)', [unit.lessonIds[5]]);
         await page.goto(`${web}/quizzes`);
-        await page.getByText('Coming Soon', { exact: true }).first().waitFor();
-        assert.equal(await page.getByText('Coming Soon', { exact: true }).count(), 2);
+        await page.getByRole('region', { name: 'Unit 2 Assessment', exact: true }).waitFor();
+        assert.equal(await page.getByText('Coming Soon', { exact: true }).count(), 0);
         await page.getByRole('link', { name: 'Start Unit 1 Assessment →', exact: true }).click();
         await page.getByRole('radio').first().waitFor();
         assert.equal(await page.getByRole('button', { name: 'Next →', exact: true }).isDisabled(), true);
@@ -185,10 +255,8 @@ async function main() {
         await page.reload(); await page.getByText('✓ Unit 1 Complete', { exact: true }).waitFor();
         await page.getByText('Best score: 12 / 15 · Accuracy: 80%', { exact: true }).waitFor();
         await page.getByRole('combobox', { name: 'Choose a unit' }).selectOption(UNITS[1].id);
-        await page.getByRole('heading', { name: 'Everyday Japanese', exact: true }).waitFor();
-        assert.equal(await page.getByRole('progressbar').count(), 0);
-        assert.equal(await page.getByRole('button', { name: /Lesson 1.*Coming Soon/ }).isDisabled(), true);
-        assert.equal(await page.getByRole('link', { name: /Start.*Assessment/ }).count(), 0);
+        await page.getByRole('heading', { name: UNITS[1].title, exact: true }).waitFor();
+        assert.equal(await page.getByRole('progressbar').count(), 1);
         assert.notEqual(await page.locator(`option[value="${UNITS[2].id}"]`).getAttribute('disabled'), null);
         await page.goto(`${web}/quizzes`);
         await page.getByRole('link', { name: 'Retake Assessment', exact: true }).click();
@@ -197,6 +265,55 @@ async function main() {
         await page.setViewportSize({ width: 390, height: 844 });
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
         assert.deepEqual(errors, []);
+        // Exercise each new lesson through the real reusable lesson page and API.
+        await client.query("DELETE FROM lesson_progress WHERE lesson_id LIKE 'japanese-n5-unit-2-%' OR lesson_id LIKE 'japanese-n5-unit-3-%'");
+        for (const current of UNITS.slice(1)) {
+          await page.goto(`${web}/lessons`);
+          await page.getByRole('heading', { name: 'Choose a unit', exact: true }).waitFor();
+          await page.getByRole('button', { name: new RegExp(current.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) }).click();
+          for (const lessonId of current.lessonIds) {
+            const content = frontendLessons.find(item => item.id === lessonId);
+            await page.getByRole('button', { name: new RegExp(content.title) }).click();
+            await page.getByText(`Unit ${current.number} • Lesson ${content.lessonNumber}`, { exact: true }).waitFor();
+            for (let step = 0; step < 5; step++) await page.getByRole('button', { name: 'Continue →', exact: true }).click();
+            assert.equal(await page.getByRole('button', { name: 'Complete practice', exact: true }).isDisabled(), true);
+            for (let i = 0; i < content.practice.length; i++) {
+              await page.locator('article').nth(i).getByRole('button', { name: content.practice[i].correct, exact: true }).click();
+            }
+            await page.getByRole('button', { name: 'Continue →', exact: true }).click();
+            assert.equal(await page.getByRole('button', { name: 'Check my score', exact: true }).isDisabled(), true);
+            for (let i = 0; i < content.challenge.length; i++) {
+              await page.locator('article').nth(i).getByRole('button', { name: content.challenge[i].correct, exact: true }).click();
+            }
+            await page.getByRole('button', { name: 'Check my score', exact: true }).click();
+            await page.getByRole('heading', { name: 'Lesson Complete!', exact: true }).waitFor();
+            await page.getByRole('button', { name: 'Back to Lessons', exact: true }).click();
+            assert.equal(new URL(page.url()).searchParams.get('unit'), current.id);
+            await page.getByText(`${content.lessonNumber} / 6 lessons completed`, { exact: true }).waitFor();
+          }
+          await page.getByRole('link', { name: `Start Unit ${current.number} Assessment →`, exact: true }).click();
+          const exam = UNIT_ASSESSMENTS.find(item => item.id === current.assessmentId);
+          for (let i = 0; i < exam.questions.length; i++) {
+            await page.getByRole('radio').nth(exam.questions[i].correctIndex).check();
+            await page.getByRole('button', { name: i === 14 ? 'Submit Assessment' : 'Next →', exact: true }).click();
+          }
+          await page.getByRole('heading', { name: `✓ Unit ${current.number} Assessment Passed`, exact: true }).waitFor();
+          await page.getByRole('link', { name: 'Back to Lessons', exact: true }).click();
+          await page.reload();
+          await page.getByText(`✓ Unit ${current.number} Complete`, { exact: true }).waitFor();
+          for (const kind of ['vocabulary', 'grammar']) {
+            await page.goto(`${web}/${kind}?unit=${current.id}`);
+            await page.getByText(`Unit ${current.number} ${kind}`, { exact: true }).waitFor();
+            assert.equal(await page.getByRole('button', { name: /^Lesson [1-6]$/ }).count(), 6);
+            await page.getByRole('button', { name: 'Lesson 2', exact: true }).click();
+            if (kind === 'vocabulary') {
+              await page.getByRole('button', { name: 'Flashcards', exact: true }).click();
+            }
+            assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+          }
+        }
+        assert.deepEqual(errors, []);
+        console.log('PASS: all 12 new lessons completed in browser; assessment unlocks/pass/persistence; correct unit return links; Unit 2/3 vocabulary/grammar filters and flashcards; mobile overflow.');
         console.log('PASS: browser unit selector, 5/6 locked listing + direct URL, 6/6 unlock, required answers, 15-question fail/pass/retake flow, saved completion after refresh, mobile summary, no browser errors.');
       } finally { await browser.close(); }
     }

@@ -1,3 +1,4 @@
+import { UNIT_2_3_ASSESSMENTS } from "./unit23-assessments";
 export type AssessmentQuestion = { id: string; prompt: string; options: string[]; correctIndex: number };
 export type UnitAssessment = { id: string; passPercent: number; questions: AssessmentQuestion[] };
 
@@ -22,3 +23,4 @@ export const UNIT_ASSESSMENTS: UnitAssessment[] = [{
     { id: "combined-reading", prompt: "Read: あの ひとは せんせいです。 Choose the meaning.", options: ["That person over there is a student", "That person over there is a teacher", "Is this a book?", "Where is that bag?"], correctIndex: 1 },
   ],
 }];
+UNIT_ASSESSMENTS.push(...UNIT_2_3_ASSESSMENTS);

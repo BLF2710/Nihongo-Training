@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import QuizChoices from "../components/QuizChoices";
 import api from "../api/axios";
 import { REVIEW_SIZES, reviewChoices, selectReviewCharacters } from "../lib/kanaReview";
 import type { CharacterStat, KanaScript, ReviewSize } from "../lib/kanaReview";
@@ -85,7 +86,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
           <progress className="w-full mt-3 accent-emerald-500" value={answers.length} max={questions.length} aria-label="Review progress" />
           <div lang="ja" className="text-center text-7xl sm:text-8xl py-10">{question.character.kana}</div>
           <h2 className="text-center font-semibold mb-5">Which romaji matches this character?</h2>
-          <div className="grid grid-cols-2 gap-3">{question.choices.map(choice => <button key={choice} disabled={selected !== null || busy} onClick={() => void answer(choice)} className={`${button} ${selected === choice ? "border-emerald-500 bg-emerald-50" : ""}`}>{choice}</button>)}</div>
+          <QuizChoices choices={question.choices} selected={selected} disabled={selected !== null || busy} onChoose={choice => void answer(choice)} />
           <div aria-live="polite" className="mt-5">
             {busy && <p>Saving answer…</p>}
             {result && <><p className={`rounded-xl p-4 font-semibold ${result.correct ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>{result.correct ? "Correct!" : `Incorrect. The correct answer is ${result.correctAnswer}.`}</p><button className={`${button} mt-4`} onClick={next}>{index + 1 === questions.length ? "View Summary" : "Next Question →"}</button></>}

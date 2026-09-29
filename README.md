@@ -11,12 +11,13 @@ These features exist in the repository; this is not a claim that every edge case
 - [x] Unit 1: six lessons, practice questions, lesson challenges, prerequisites, and saved completion.
 - [x] Unit chooser, progress display, and lock reasons.
 - [x] Unit 1 assessment: 15 questions, 80% passing score, and saved passes that survive failed retakes.
-- [x] Unit 2 and Unit 3 placeholders with level AND previous-unit completion requirements.
+- [x] Units 2 and 3: six lessons each, vocabulary/grammar references, and unit assessments with level AND previous-unit completion requirements.
 - [x] Unit 1 vocabulary and grammar references for Lessons 1–5.
 - [x] Vocabulary list and flashcards with lesson filters and shuffle.
 - [x] Hiragana and Katakana learning pages with pronunciation, stroke-order viewing, and writing practice.
 - [x] Hiragana and Katakana Speed Quizzes and character-performance statistics.
 - [x] Kana Review sessions using the existing character-statistics system.
+- [x] Course-linked Kanji reference, search/filters, per-user progress, shared flashcards, KanjiVG stroke animation, and meaning/reading/vocabulary practice (10 verified characters).
 - [x] Dashboard and English game section.
 
 ## Prioritized to-do list
@@ -54,10 +55,10 @@ These features exist in the repository; this is not a claim that every edge case
 
 ### 4. Expand the course deliberately
 
-- [ ] Define Unit 2 objectives and prerequisites before replacing its placeholder with reviewed lessons, references, and an assessment.
-- [ ] Develop Unit 3 after Unit 2, using the same data-driven architecture.
+- [ ] Have a Japanese teacher review the adapted Unit 2/3 curriculum, examples, and assessment distractors.
+- [ ] Gather learner feedback on the difficulty and pacing of Units 2–3 before planning further units.
 - [ ] Keep placeholder lessons and assessments non-playable and excluded from completion until real content is ready.
-- [ ] Plan introductory N5 Kanji learning with verified readings, examples, and stroke data.
+- [ ] Expand Kanji only with reviewed course vocabulary and verified stroke assets; preserve source attribution.
 - [ ] Add listening and reading practice tied to taught material, with real audio or clearly identified supported TTS.
 
 ### 5. Later enhancements

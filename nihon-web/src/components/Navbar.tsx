@@ -78,7 +78,7 @@ export default function Navbar() {
             <button onClick={() => language === "japanese" && go("/grammar")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/grammar"))}` : "text-gray-400 cursor-not-allowed"}`}><span>✍️</span> Grammar</button>
             {language === "japanese" && <>
               <button onClick={() => go("/learn/hiragana")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/learn/hiragana") || location.pathname.startsWith("/learn/katakana"))}`}><span>あ</span> Kana</button>
-              <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>漢</span> Kanji <span className="ml-auto text-[10px]">Soon</span></button>
+              <button onClick={() => language === "japanese" && go("/learn/kanji")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/learn/kanji"))}` : "text-gray-400 cursor-not-allowed"}`}><span>漢</span> Kanji {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
             </>}
           </div>}</div>
           <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
