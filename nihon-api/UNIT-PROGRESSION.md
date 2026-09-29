@@ -4,14 +4,12 @@ Unit 1 is fully implemented. Its six lesson IDs come from the existing lesson ca
 The unit is available at Level 1, using `getLevelFromXP` from the existing progression service.
 Lesson-level prerequisite, level, XP, and completion rules are unchanged.
 
-Unit 2 (Everyday Japanese) and Unit 3 (Building Conversations) are placeholders,
-requiring Levels 3 and 5 respectively, plus completion of their previous unit.
-Each has one display-only Coming Soon lesson in `placeholderLessons`, outside the
-real lesson catalog. They have no assessment ID or questions. `isPlaceholder`
-explicitly prevents completion, progress counting, and assessment access, including
-when old or malformed progress rows exist. Unit 3 therefore remains locked until
-real Unit 2 content and its assessment are implemented and completed.
-No new migration is required for these catalog entries.
+Unit 2 (People, Family, Possession & Daily Preferences) and Unit 3
+(Food, Places, Home & Locations) each have six real lessons and a 15-question assessment.
+They require Levels 3 and 5 respectively, plus completion of their previous unit.
+Every lesson after the first requires its predecessor. Their former placeholder
+entries are no longer in the catalogs. The generic placeholder guard remains for
+future use. No new migration is required for these content entries.
 
 `GET /api/units` derives lesson counts and unit completion from `lesson_progress`
 and `user_assessment_progress`. Unit completion requires every configured lesson
@@ -23,7 +21,7 @@ enforce this unit gate above the original lesson gate.
 unit access, and all unit lessons completed. The GET response omits answer keys.
 POST accepts `{ assessmentId, answers: number[] }`, in the returned question order.
 The server validates every option and grades the answers; supplied scores/user IDs
-are not trusted. Unit 1 needs 12 of 15 correct (80%). An atomic upsert retains the
+are not trusted. Each unit needs 12 of 15 correct (80%). An atomic upsert retains the
 first pass and best score across failed retakes and submission retries. Assessments
 do not award XP or update character statistics.
 
@@ -50,10 +48,15 @@ Saved passes and best scores are persisted on the server.
 Run `node scripts/verify-unit-assessments.cjs` for authenticated HTTP tests backed by
 temporary PostgreSQL tables, rolled back afterward. They cover initial availability,
 5/6 and 6/6 gates, payload validation, exact pass boundary, failed retakes, user isolation,
-unchanged XP/lesson gates, and a synthetic dependent-unit fixture testing AND logic.
+unchanged XP/lesson gates, and dependent-unit fixtures testing AND logic. Tests also
+complete all twelve new lessons through the API using the real XP award service,
+verify reward idempotency, and check frontend/backend/reference content alignment.
+Achievement awards are stubbed in this focused test; existing achievement behavior is unchanged.
 
 For browser coverage, start the frontend on port 5181 and add `--browser`. The script
 can use an existing Playwright installation through `PLAYWRIGHT_MODULE_PATH` and a
 browser through `BROWSER_EXECUTABLE`; neither adds a project dependency. Browser API
 requests are routed to the temporary test database. `TEST_BASE_URL` overrides the
 frontend address.
+Browser checks complete all new lessons and assessments and exercise reference filters
+and flashcards. See [curriculum notes](../docs/JAPANESE-CURRICULUM.md) for source mapping.

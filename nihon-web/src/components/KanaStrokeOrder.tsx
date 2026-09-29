@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import dataset from '../data/kanaStrokes.json';
 import './KanaStrokeOrder.css';
 
-const paths = dataset.paths as Record<string, string[]>;
-export default function KanaStrokeOrder({ character }: { character: string }) {
+const defaultPaths = dataset.paths as Record<string, string[]>;
+export default function KanaStrokeOrder({ character, paths = defaultPaths }: { character: string; paths?: Record<string, string[]> }) {
   const parts = [...character];
   const strokes = parts.flatMap((part, partIndex) => (paths[part] ?? []).map(d => ({ d, partIndex })));
   const [count, setCount] = useState(0);

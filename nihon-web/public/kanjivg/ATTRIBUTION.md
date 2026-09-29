@@ -1,4 +1,11 @@
-# KanjiVG kana stroke data
+# KanjiVG Kana and Kanji stroke data
+
+Kanji extension: 日 本 人 水 父 母 学 生 先 食 use unmodified SVGs from
+the same pinned revision below. `src/data/kanjiStrokes.json` extracts their
+ordered paths under the same CC BY-SA 3.0 license. Reproduce with
+`node scripts/import-kana-strokes.mjs --kanji`. The importer checks each exact
+character, sequential stroke IDs, and the existing KANJIDIC2 stroke count.
+No Kana geometry or assets are changed by this extension.
 
 Copyright © Ulrich Apel and KanjiVG contributors.
 Source: https://kanjivg.tagaini.net/ and https://github.com/KanjiVG/kanjivg

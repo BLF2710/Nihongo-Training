@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { GrammarPoint, StudyLesson, VocabularyItem } from "../data/japaneseUnit1Reference";
 import { speakJapanese, supportsJapaneseSpeech } from "../services/japaneseSpeech";
+import { VocabularyKanji } from "./KanjiReferences";
 
 function LessonReference({ lesson }: { lesson: StudyLesson }) {
   return <Link to={lesson.href} className="text-xs font-semibold text-emerald-700 hover:underline focus-visible:outline-2 focus-visible:outline-emerald-600">
@@ -23,6 +24,7 @@ export function VocabularyCard({ item, lesson }: { item: VocabularyItem; lesson:
     <h3 lang="ja" className="mt-4 text-2xl font-bold leading-relaxed text-gray-900 wrap-anywhere">{item.japanese}</h3>
     <p className="mt-1 font-mono text-sm text-indigo-700 wrap-anywhere">{item.romaji}</p>
     <p className="mt-3 font-semibold text-gray-700">{item.meaning}</p>
+    <VocabularyKanji item={item} />
     {item.note && <p className="mt-3 text-sm leading-6 text-gray-500">{item.note}</p>}
     <div className="mt-auto pt-5">
       <button type="button" onClick={listen} disabled={!speechAvailable} aria-label={`Listen to ${item.japanese}`} className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-800 enabled:hover:bg-emerald-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50">🔊 Listen</button>

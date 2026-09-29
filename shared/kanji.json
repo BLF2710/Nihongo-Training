@@ -1,0 +1,368 @@
+{
+  "source": {
+    "dataset": "KANJIDIC2 / JMdict via kanjiapi.dev",
+    "copyright": "© James William BREEN and the Electronic Dictionary Research and Development Group",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://www.edrdg.org/edrdg/licence.html",
+    "retrievedAt": "2026-09-29",
+    "jlptNote": "Modern official JLPT character lists are not published. Course placement is not an official JLPT classification."
+  },
+  "kanji": [
+    {
+      "id": "kanji-65e5",
+      "character": "日",
+      "meanings": [
+        "day",
+        "sun",
+        "Japan",
+        "counter for days"
+      ],
+      "onyomi": [
+        "ニチ",
+        "ジツ"
+      ],
+      "kunyomi": [
+        "ひ",
+        "-び",
+        "-か"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%97%A5"
+    },
+    {
+      "id": "kanji-672c",
+      "character": "本",
+      "meanings": [
+        "book",
+        "present",
+        "main",
+        "origin",
+        "true",
+        "real",
+        "counter for long cylindrical things"
+      ],
+      "onyomi": [
+        "ホン"
+      ],
+      "kunyomi": [
+        "もと"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%9C%AC"
+    },
+    {
+      "id": "kanji-4eba",
+      "character": "人",
+      "meanings": [
+        "person"
+      ],
+      "onyomi": [
+        "ジン",
+        "ニン"
+      ],
+      "kunyomi": [
+        "ひと",
+        "-り",
+        "-と"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 2,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BA%BA"
+    },
+    {
+      "id": "kanji-6c34",
+      "character": "水",
+      "meanings": [
+        "water"
+      ],
+      "onyomi": [
+        "スイ"
+      ],
+      "kunyomi": [
+        "みず",
+        "みず-"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%B0%B4"
+    },
+    {
+      "id": "kanji-7236",
+      "character": "父",
+      "meanings": [
+        "father"
+      ],
+      "onyomi": [
+        "フ"
+      ],
+      "kunyomi": [
+        "ちち"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%88%B6"
+    },
+    {
+      "id": "kanji-6bcd",
+      "character": "母",
+      "meanings": [
+        "mother"
+      ],
+      "onyomi": [
+        "ボ"
+      ],
+      "kunyomi": [
+        "はは",
+        "も"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%AF%8D"
+    },
+    {
+      "id": "kanji-5b66",
+      "character": "学",
+      "meanings": [
+        "study",
+        "learning",
+        "science"
+      ],
+      "onyomi": [
+        "ガク"
+      ],
+      "kunyomi": [
+        "まな.ぶ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%AD%A6"
+    },
+    {
+      "id": "kanji-751f",
+      "character": "生",
+      "meanings": [
+        "life",
+        "genuine",
+        "birth"
+      ],
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "い.きる",
+        "い.かす",
+        "い.ける",
+        "う.まれる",
+        "うま.れる",
+        "う.まれ",
+        "うまれ",
+        "う.む",
+        "お.う",
+        "は.える",
+        "は.やす",
+        "き",
+        "なま",
+        "なま-",
+        "な.る",
+        "な.す",
+        "む.す",
+        "-う"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%94%9F"
+    },
+    {
+      "id": "kanji-5148",
+      "character": "先",
+      "meanings": [
+        "before",
+        "ahead",
+        "previous",
+        "future",
+        "precedence"
+      ],
+      "onyomi": [
+        "セン"
+      ],
+      "kunyomi": [
+        "さき",
+        "ま.ず"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%85%88"
+    },
+    {
+      "id": "kanji-98df",
+      "character": "食",
+      "meanings": [
+        "eat",
+        "food"
+      ],
+      "onyomi": [
+        "ショク",
+        "ジキ"
+      ],
+      "kunyomi": [
+        "く.う",
+        "く.らう",
+        "た.べる",
+        "は.む"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%A3%9F"
+    }
+  ],
+  "vocabularyForms": [
+    {
+      "id": "form-65e5-672c",
+      "written": "日本",
+      "reading": "にほん",
+      "vocabularyIds": [
+        "japanese-n5-unit-1-origin:にほん",
+        "japanese-n5-unit-2-living:にほん"
+      ],
+      "kanjiIds": [
+        "kanji-65e5",
+        "kanji-672c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%97%A5"
+    },
+    {
+      "id": "form-672c",
+      "written": "本",
+      "reading": "ほん",
+      "vocabularyIds": [
+        "japanese-n5-unit-1-questions:ほん",
+        "japanese-n5-unit-2-belongings:ほん"
+      ],
+      "kanjiIds": [
+        "kanji-672c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9C%AC"
+    },
+    {
+      "id": "form-4eba",
+      "written": "人",
+      "reading": "ひと",
+      "vocabularyIds": [
+        "japanese-n5-unit-2-family:ひと"
+      ],
+      "kanjiIds": [
+        "kanji-4eba"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BA%BA"
+    },
+    {
+      "id": "form-6c34",
+      "written": "水",
+      "reading": "みず",
+      "vocabularyIds": [
+        "japanese-n5-unit-2-preferences:みず"
+      ],
+      "kanjiIds": [
+        "kanji-6c34"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%B0%B4"
+    },
+    {
+      "id": "form-7236",
+      "written": "父",
+      "reading": "ちち",
+      "vocabularyIds": [
+        "japanese-n5-unit-2-family:ちち"
+      ],
+      "kanjiIds": [
+        "kanji-7236"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%88%B6"
+    },
+    {
+      "id": "form-6bcd",
+      "written": "母",
+      "reading": "はは",
+      "vocabularyIds": [
+        "japanese-n5-unit-2-family:はは"
+      ],
+      "kanjiIds": [
+        "kanji-6bcd"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AF%8D"
+    },
+    {
+      "id": "form-5b66-751f",
+      "written": "学生",
+      "reading": "がくせい",
+      "vocabularyIds": [
+        "japanese-n5-unit-3-people-locations:がくせい"
+      ],
+      "kanjiIds": [
+        "kanji-5b66",
+        "kanji-751f"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%AD%A6"
+    },
+    {
+      "id": "form-5148-751f",
+      "written": "先生",
+      "reading": "せんせい",
+      "vocabularyIds": [
+        "japanese-n5-unit-3-people-locations:せんせい"
+      ],
+      "kanjiIds": [
+        "kanji-751f",
+        "kanji-5148"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%85%88"
+    },
+    {
+      "id": "form-98df-3079-7269",
+      "written": "食べ物",
+      "reading": "たべもの",
+      "vocabularyIds": [
+        "japanese-n5-unit-2-preferences:たべもの"
+      ],
+      "kanjiIds": [
+        "kanji-98df"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%A3%9F"
+    }
+  ],
+  "lessonIntroductions": [
+    {
+      "lessonId": "japanese-n5-unit-2-family",
+      "introducedKanji": [
+        "kanji-7236",
+        "kanji-6bcd",
+        "kanji-4eba"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-2-living",
+      "introducedKanji": [
+        "kanji-65e5",
+        "kanji-672c"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-2-preferences",
+      "introducedKanji": [
+        "kanji-6c34",
+        "kanji-98df"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-3-people-locations",
+      "introducedKanji": [
+        "kanji-5b66",
+        "kanji-751f",
+        "kanji-5148"
+      ]
+    }
+  ]
+}

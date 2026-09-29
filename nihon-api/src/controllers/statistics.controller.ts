@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { pool } from "../config/db";
+import { characterProgress } from "../services/character-progress";
 
 export async function getStatistics(
   req: Request,
@@ -68,17 +69,16 @@ export async function getStatistics(
     const hiraganaList = hiraDetails.rows.map((row) => {
       const c = Number(row.correct_count);
       const w = Number(row.wrong_count);
-      const t = c + w;
-      const acc = t === 0 ? 0 : Number(((c / t) * 100).toFixed(0));
+      const progress = characterProgress(c, w);
       return {
         id: row.id,
         kana: row.kana,
         romaji: row.romaji,
         correctCount: c,
         wrongCount: w,
-        total: t,
-        accuracy: acc,
-        status: t === 0 ? "untested" : acc >= 80 && c >= 3 ? "mastered" : "learning"
+        total: progress.total,
+        accuracy: progress.accuracy,
+        status: progress.status
       };
     });
 
@@ -102,17 +102,16 @@ export async function getStatistics(
     const katakanaList = kataDetails.rows.map((row) => {
       const c = Number(row.correct_count);
       const w = Number(row.wrong_count);
-      const t = c + w;
-      const acc = t === 0 ? 0 : Number(((c / t) * 100).toFixed(0));
+      const progress = characterProgress(c, w);
       return {
         id: row.id,
         kana: row.kana,
         romaji: row.romaji,
         correctCount: c,
         wrongCount: w,
-        total: t,
-        accuracy: acc,
-        status: t === 0 ? "untested" : acc >= 80 && c >= 3 ? "mastered" : "learning"
+        total: progress.total,
+        accuracy: progress.accuracy,
+        status: progress.status
       };
     });
 

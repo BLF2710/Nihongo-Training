@@ -8,7 +8,9 @@ const entries = [
   ...[...content.matchAll(/([ぁ-ゖ]+): e\(/gu)].map(match => match[1]),
   ...[...katakana.matchAll(/r\('[^']+', '([^']+)', '[^']+'\)/g)].flatMap(match => match[1].split(' ')),
 ];
-const chars = [...new Set(entries.join(''))];
+const kanjiMode = process.argv.includes('--kanji');
+const catalog = JSON.parse(await readFile(new URL('../../shared/kanji.json', import.meta.url), 'utf8'));
+const chars = kanjiMode ? catalog.kanji.map(item => item.character) : [...new Set(entries.join(''))];
 const directory = new URL('../public/kanjivg/', import.meta.url);
 await mkdir(directory, { recursive: true });
 const paths = {};
@@ -25,11 +27,13 @@ for (const character of chars) {
   if (!svg.includes(`kvg:element="${character}"`)) throw new Error(`Character mismatch: ${hex}`);
   const strokes = [...svg.matchAll(/<path\s+id="[^"]+-s(\d+)"[^>]*?\sd="([^"]+)"/g)];
   if (!strokes.length || strokes.some((stroke, index) => Number(stroke[1]) !== index + 1)) throw new Error(`Invalid stroke sequence: ${hex}`);
+  if (kanjiMode && strokes.length !== catalog.kanji.find(item => item.character === character).strokeCount) throw new Error(`Stroke count mismatch: ${character}`);
   paths[character] = strokes.map(stroke => stroke[2]);
   await writeFile(new URL(`${hex}.svg`, directory), svg);
 }
 const license = await fetch(`${source}/COPYING`);
 if (!license.ok) throw new Error('Could not retrieve license');
 await writeFile(new URL('COPYING', directory), await license.text());
-await writeFile(new URL('../src/data/kanaStrokes.json', import.meta.url), JSON.stringify({ revision, source, license: 'CC BY-SA 3.0', copyright: 'Ulrich Apel and KanjiVG contributors', paths }, null, 2) + '\n');
-console.log(JSON.stringify({ characters: chars.length, supported: Object.keys(paths).length, unsupported: chars.filter(c => !paths[c]), entries: entries.length, completeEntries: entries.filter(e => [...e].every(c => paths[c])).length }));
+await writeFile(new URL(`../src/data/${kanjiMode ? 'kanji' : 'kana'}Strokes.json`, import.meta.url), JSON.stringify({ revision, source, license: 'CC BY-SA 3.0', copyright: 'Ulrich Apel and KanjiVG contributors', paths }, null, 2) + '\n');
+const testedEntries = kanjiMode ? chars : entries;
+console.log(JSON.stringify({ characters: chars.length, supported: Object.keys(paths).length, unsupported: chars.filter(c => !paths[c]), entries: testedEntries.length, completeEntries: testedEntries.filter(e => [...e].every(c => paths[c])).length }));

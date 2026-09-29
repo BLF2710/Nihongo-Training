@@ -1,4 +1,5 @@
 import { pool } from "../config/db";
+import { UNIT_2_3_LESSONS } from "../data/unit23-lessons";
 import { getLevelFromXP, getRankFromXP, RANK_THRESHOLDS } from "./progression.service";
 
 export type LessonDefinition = { id: string; slug: string; title: string; unit: string; previousLessonId?: string; minimumLevel?: number; minimumRank?: string };
@@ -10,6 +11,7 @@ export const LESSONS: LessonDefinition[] = [
   { id: "japanese-n5-unit-1-numbers-age", slug: "n5-unit-1-numbers-age", title: "Numbers & Age", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-questions" },
   { id: "japanese-n5-unit-1-demonstratives", slug: "n5-unit-1-demonstratives", title: "This, That & Those", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-numbers-age" }
 ];
+LESSONS.push(...UNIT_2_3_LESSONS);
 export async function canUserAccessLesson(userId: number, lesson: LessonDefinition) {
   const user = await pool.query("SELECT xp FROM user_gamification WHERE user_id=$1", [userId]); const xp = Number(user.rows[0]?.xp ?? 0);
   const completed = lesson.previousLessonId ? await pool.query("SELECT 1 FROM lesson_progress WHERE user_id=$1 AND lesson_id=$2", [userId, lesson.previousLessonId]) : null;

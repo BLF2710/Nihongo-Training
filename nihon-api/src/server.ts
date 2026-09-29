@@ -18,6 +18,7 @@ from "./routes/english.routes";
 import profileRoutes from "./routes/profile.routes";
 import lessonRoutes from "./routes/lesson.routes";
 import unitRoutes from "./routes/unit.routes";
+import kanjiRoutes from "./routes/kanji.routes";
 
 // Auto-create game scores table on startup
 import "./services/games.seed";
@@ -37,6 +38,7 @@ app.use(
 app.use("/api/profile", profileRoutes);
 app.use("/api/lessons", lessonRoutes);
 app.use("/api/units", unitRoutes);
+app.use("/api/kanji", kanjiRoutes);
 
 app.get(
   "/profile",
