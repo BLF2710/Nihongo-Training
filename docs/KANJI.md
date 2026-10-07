@@ -32,6 +32,9 @@ and the monthly update procedure are in [shared/README.md](../shared/README.md).
 - `/learn/kanji/practice?kanji=<id>`: optional single-character focus.
 - Existing Vocabulary cards show additional written forms and character links.
 - Existing lessons retain their unit/prerequisite gates. Kanji is browseable reference.
+- Lesson introduction Kanji buttons open a modal reusing `KanjiStudyCard`, without
+  Mixed practice. Escape, Close, or the backdrop dismisses it and restores focus;
+  the lesson remains mounted. Stroke-order flipping is available inside the modal.
 - Kana Review and Kanji practice share the same answer-choice component; Kana behavior
   is unchanged.
 

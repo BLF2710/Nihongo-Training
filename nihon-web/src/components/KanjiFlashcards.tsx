@@ -7,7 +7,7 @@ import { KANJI } from "../data/kanji";
 import type { Kanji } from "../data/kanji";
 import strokes from "../data/kanjiStrokes.json";
 
-function KanjiStudyCard({ kanji }: { kanji: Kanji }) {
+export function KanjiStudyCard({ kanji, showPractice = true }: { kanji: Kanji; showPractice?: boolean }) {
   const [flipped, setFlipped] = useState(false);
   const frontButton = useRef<HTMLButtonElement>(null);
   const backButton = useRef<HTMLButtonElement>(null);
@@ -40,7 +40,7 @@ function KanjiStudyCard({ kanji }: { kanji: Kanji }) {
     {examples.length < 2 && <p className="mt-2 text-sm text-gray-500">{examples.length ? "Only one linked course word is available so far." : "No linked course vocabulary yet."}</p>}
     {examples.length > 4 && <details className="mt-3"><summary className="cursor-pointer font-semibold text-emerald-700 focus-visible:outline-2">View more vocabulary ({examples.length - 4})</summary>{exampleList(examples.slice(4))}</details>}
     <button ref={frontButton} type="button" onClick={() => flip(true)} className="mt-6 block rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 font-bold text-emerald-800 focus-visible:outline-2 focus-visible:outline-emerald-600">Stroke order · {kanji.strokeCount} strokes ↻</button>
-    <Link to={`/learn/kanji/practice?kanji=${kanji.id}`} className="mt-6 inline-block rounded-xl bg-emerald-600 px-4 py-2 font-bold text-white focus-visible:outline-2">Mixed practice →</Link>
+    {showPractice && <Link to={`/learn/kanji/practice?kanji=${kanji.id}`} className="mt-6 inline-block rounded-xl bg-emerald-600 px-4 py-2 font-bold text-white focus-visible:outline-2">Mixed practice →</Link>}
     </div>
     <div inert={!flipped} aria-hidden={!flipped} className="col-start-1 row-start-1 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-8">
       <button ref={backButton} type="button" onClick={() => flip(false)} className="rounded-xl border px-4 py-2 font-bold text-emerald-800 focus-visible:outline-2 focus-visible:outline-emerald-600">← Back to study card</button>
