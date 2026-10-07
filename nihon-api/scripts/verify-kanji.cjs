@@ -119,10 +119,10 @@ async function main() {
     assert.equal(wrong.data.progress.wrongCount, 1); assert.equal(wrong.data.progress.accuracy, 75);
     assert.equal(wrong.data.progress.status, 'learning');
     await client.query("UPDATE kanji_practice_questions SET expires_at=NOW()-INTERVAL '1 second' WHERE id=$1", [session.data.questions[1].id]);
-    assert.equal((await request('/answer', { questionId: session.data.questions[1].id, answerIndex: 0 })).status, 410);
+    assert.equal((await request('/answer', { questionId: session.data.questions[1].id, answerIndex: 0 })).status, 200);
     assert.ok((await request('/progress', undefined, 2)).data.progress.every(p => p.total === 0));
-    assert.equal((await request('/progress')).data.progress.find(p => p.kanjiId === chosen.id).total, 4);
-    console.log('PASS: 10 verified-record shapes; vocabulary/lesson references; 900 unambiguous questions; 10,201 unchanged Kana mastery cases; auth/user isolation; grading, persistence, mastery transitions, expiry and idempotent retries.');
+    assert.equal((await request('/progress')).data.progress.find(p => p.kanjiId === chosen.id).total, 5);
+    console.log('PASS: 10 verified-record shapes; vocabulary/lesson references; 900 unambiguous questions; 10,201 unchanged Kana mastery cases; auth/user isolation; grading, persistence, mastery transitions, durable resume and idempotent retries.');
 
     if (process.argv.includes('--browser')) {
       const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright');

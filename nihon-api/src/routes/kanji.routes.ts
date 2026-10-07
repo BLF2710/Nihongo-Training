@@ -35,8 +35,7 @@ router.post("/practice", async (req, res) => {
   const client = await pool.connect();
   try {
     await client.query("BEGIN");
-    // Old question tokens are expendable; durable totals remain in the progress table.
-    await client.query("DELETE FROM kanji_practice_questions WHERE user_id=$1 AND created_at < NOW() - INTERVAL '7 days'", [userId(req)]);
+    // Keep user-owned question tokens so browser-saved sessions can resume later.
     const kinds: PracticeKind[] = ["meaning", "reading", "vocabulary"];
     const questions = [];
     for (let i = 0; i < size; i++) {
@@ -68,9 +67,6 @@ router.post("/answer", async (req, res) => {
     if (!question) { await client.query("ROLLBACK"); return res.status(404).json({ message: "Question not found." }); }
     if (question.answer_index !== null && question.answer_index !== answerIndex) {
       await client.query("ROLLBACK"); return res.status(409).json({ message: "This question already has a saved answer." });
-    }
-    if (question.answer_index === null && question.expired) {
-      await client.query("ROLLBACK"); return res.status(410).json({ message: "Practice expired. Start a new session." });
     }
     const correct = answerIndex === question.correct_index;
     if (question.answer_index === null) {

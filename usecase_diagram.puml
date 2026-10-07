@@ -1,0 +1,193 @@
+@startuml NihonWeb_UseCaseDiagram
+
+title LingoHub (NihonWeb) — Use Case Diagram
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+skinparam usecaseFontSize 12
+skinparam defaultFontName Inter
+skinparam shadowing false
+
+skinparam usecase {
+  BackgroundColor #F0F4FF
+  BorderColor #6366F1
+  ArrowColor #374151
+}
+
+skinparam rectangle {
+  BackgroundColor #F9FAFB
+  BorderColor #D1D5DB
+}
+
+' ──────────────────────────── Actors ────────────────────────────
+actor "Guest\n(Unauthenticated)" as Guest #E5E7EB
+actor "Learner\n(Authenticated User)" as Learner #10B981
+actor "System\n(Backend / DB)" as System #6366F1
+
+' ──────────────────────────── Authentication ────────────────────
+rectangle "Authentication" {
+  usecase "Register Account" as UC_REGISTER
+  usecase "Login\n(Email or Username)" as UC_LOGIN
+  usecase "Logout" as UC_LOGOUT
+}
+
+' ──────────────────────────── Profile & Account ─────────────────
+rectangle "Profile & Account Management" {
+  usecase "View Profile" as UC_VIEW_PROFILE
+  usecase "Edit Profile\n(Display Name, Avatar, Bio,\nLanguage, Goals, Privacy)" as UC_EDIT_PROFILE
+  usecase "Change Password" as UC_CHANGE_PW
+  usecase "Deactivate Account" as UC_DEACTIVATE
+}
+
+' ──────────────────────────── Language Selection ────────────────
+rectangle "Language Selection" {
+  usecase "Switch Learning Language\n(Japanese / English)" as UC_SWITCH_LANG
+}
+
+' ──────────────────────────── Japanese Learning ─────────────────
+rectangle "Japanese Learning" {
+  usecase "Browse Lessons\n(Units & Lessons)" as UC_BROWSE_LESSONS
+  usecase "Take a Lesson\n(Interactive Steps)" as UC_TAKE_LESSON
+  usecase "Complete Lesson\n(with Challenge Score)" as UC_COMPLETE_LESSON
+
+  usecase "View Vocabulary\nReference Cards" as UC_VOCABULARY
+  usecase "View Grammar\nReference Cards" as UC_GRAMMAR
+
+  usecase "Learn Hiragana\n(Characters, Stroke Order,\nWriting Canvas)" as UC_LEARN_HIRAGANA
+  usecase "Learn Katakana\n(Characters, Stroke Order,\nWriting Canvas)" as UC_LEARN_KATAKANA
+  usecase "Learn Kanji\n(Flashcards, References,\nMeaning / Reading / Vocabulary)" as UC_LEARN_KANJI
+}
+
+' ──────────────────────────── Practice & Games ──────────────────
+rectangle "Practice & Games" {
+  usecase "Play Hiragana\nSpeed Quiz" as UC_HIRA_QUIZ
+  usecase "Play Katakana\nSpeed Quiz" as UC_KATA_QUIZ
+  usecase "Kanji Practice\n(Meaning / Reading /\nVocabulary Questions)" as UC_KANJI_PRACTICE
+  usecase "Take Unit Assessment\n(Pass / Fail)" as UC_UNIT_ASSESSMENT
+  usecase "Review Hiragana" as UC_REVIEW_HIRA
+  usecase "Review Katakana" as UC_REVIEW_KATA
+  usecase "Play English Arcade\n(Word Match, Word Scramble)" as UC_ENGLISH_ARCADE
+}
+
+' ──────────────────────────── Progression ───────────────────────
+rectangle "Progression & Gamification" {
+  usecase "Earn XP\n(Lessons, Quizzes, Games,\nAchievements, Streaks)" as UC_EARN_XP
+  usecase "Level Up / Rank Up" as UC_LEVEL_UP
+  usecase "Unlock Achievements\n(First Steps, Week Warrior,\nPerfect Score, ...)" as UC_ACHIEVEMENTS
+  usecase "Track Mastery\n(Untested > Learning > Mastered)" as UC_MASTERY
+}
+
+' ──────────────────────────── Statistics ────────────────────────
+rectangle "Statistics & Analytics" {
+  usecase "View Japanese Statistics\n(Hiragana / Katakana accuracy,\nPer-character breakdown)" as UC_JP_STATS
+  usecase "View English Statistics\n(Game scores, Accuracy,\nRecent history)" as UC_EN_STATS
+  usecase "View Kanji Progress" as UC_KANJI_STATS
+}
+
+' ──────────────────────────── System Concerns ──────────────────
+rectangle "System" as SystemRect {
+  usecase "Authenticate Requests\n(JWT Middleware)" as UC_JWT
+  usecase "Validate Lesson Access\n(Prerequisites, Level Req.)" as UC_VALIDATE_ACCESS
+  usecase "Store & Retrieve\nProgress Data" as UC_PERSIST
+  usecase "Deduplicate\nXP Awards" as UC_DEDUP_XP
+}
+
+' ═══════════════════════════ RELATIONSHIPS ═════════════════════
+
+' --- Guest ---
+Guest --> UC_REGISTER
+Guest --> UC_LOGIN
+
+' --- Learner: Auth ---
+Learner --> UC_LOGIN
+Learner --> UC_LOGOUT
+
+' --- Learner: Profile ---
+Learner --> UC_VIEW_PROFILE
+Learner --> UC_EDIT_PROFILE
+Learner --> UC_CHANGE_PW
+Learner --> UC_DEACTIVATE
+
+' --- Learner: Language ---
+Learner --> UC_SWITCH_LANG
+
+' --- Learner: Japanese Learning ---
+Learner --> UC_BROWSE_LESSONS
+Learner --> UC_TAKE_LESSON
+Learner --> UC_VOCABULARY
+Learner --> UC_GRAMMAR
+Learner --> UC_LEARN_HIRAGANA
+Learner --> UC_LEARN_KATAKANA
+Learner --> UC_LEARN_KANJI
+
+' --- Learner: Practice & Games ---
+Learner --> UC_HIRA_QUIZ
+Learner --> UC_KATA_QUIZ
+Learner --> UC_KANJI_PRACTICE
+Learner --> UC_UNIT_ASSESSMENT
+Learner --> UC_REVIEW_HIRA
+Learner --> UC_REVIEW_KATA
+Learner --> UC_ENGLISH_ARCADE
+
+' --- Learner: Stats ---
+Learner --> UC_JP_STATS
+Learner --> UC_EN_STATS
+Learner --> UC_KANJI_STATS
+
+' ─── Include / Extend relationships ───
+
+UC_TAKE_LESSON ..> UC_COMPLETE_LESSON : <<include>>
+UC_COMPLETE_LESSON ..> UC_EARN_XP : <<include>>
+UC_HIRA_QUIZ ..> UC_EARN_XP : <<include>>
+UC_KATA_QUIZ ..> UC_EARN_XP : <<include>>
+UC_ENGLISH_ARCADE ..> UC_EARN_XP : <<include>>
+UC_UNIT_ASSESSMENT ..> UC_EARN_XP : <<extend>>
+
+UC_EARN_XP ..> UC_LEVEL_UP : <<extend>>
+UC_COMPLETE_LESSON ..> UC_ACHIEVEMENTS : <<extend>>
+UC_EARN_XP ..> UC_ACHIEVEMENTS : <<extend>>
+
+UC_HIRA_QUIZ ..> UC_MASTERY : <<include>>
+UC_KATA_QUIZ ..> UC_MASTERY : <<include>>
+UC_KANJI_PRACTICE ..> UC_MASTERY : <<include>>
+
+UC_TAKE_LESSON ..> UC_VALIDATE_ACCESS : <<include>>
+UC_UNIT_ASSESSMENT ..> UC_VALIDATE_ACCESS : <<include>>
+
+' --- System actor ---
+System --> UC_JWT
+System --> UC_VALIDATE_ACCESS
+System --> UC_PERSIST
+System --> UC_DEDUP_XP
+
+UC_EARN_XP ..> UC_DEDUP_XP : <<include>>
+UC_COMPLETE_LESSON ..> UC_PERSIST : <<include>>
+UC_HIRA_QUIZ ..> UC_PERSIST : <<include>>
+UC_KATA_QUIZ ..> UC_PERSIST : <<include>>
+UC_KANJI_PRACTICE ..> UC_PERSIST : <<include>>
+UC_ENGLISH_ARCADE ..> UC_PERSIST : <<include>>
+UC_UNIT_ASSESSMENT ..> UC_PERSIST : <<include>>
+
+' ─── Notes ───
+note right of UC_MASTERY
+  Mastery levels:
+  * Untested: no recorded answers
+  * Learning: attempted but < 80% or < 3 correct
+  * Mastered: >= 3 correct and >= 80% accuracy
+end note
+
+note right of UC_EARN_XP
+  XP sources & amounts:
+  * Lesson completion: 50 XP
+  * Perfect challenge: 25 XP
+  * Speed quiz milestone: 10 XP
+  * English game: 10 XP
+  * Achievement: variable
+end note
+
+note bottom of UC_VALIDATE_ACCESS
+  Checks prerequisites, minimum
+  level requirements, and
+  unit assessment unlocking rules.
+end note
+
+@enduml

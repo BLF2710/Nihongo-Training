@@ -1,3 +1,4 @@
+import { useActivityState } from "../context/ActivityContext";
 import {
   useEffect,
   useState,
@@ -36,16 +37,20 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
   const currentType = searchParams.get("type") === "katakana" ? "katakana" : "hiragana";
 
-  const [current, setCurrent] = useState<Kana | null>(null);
-  const [answer, setAnswer] = useState("");
-  const [result, setResult] = useState<AnswerResult | null>(null);
-  const [correctCount, setCorrectCount] = useState(0);
-  const [wrongCount, setWrongCount] = useState(0);
-  const [streak, setStreak] = useState(0);
-  const [answered, setAnswered] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [current, setCurrent] = useActivityState<Kana | null>("current", null);
+  const [answer, setAnswer] = useActivityState("answer", "");
+  const [result, setResult] = useActivityState<AnswerResult | null>("result", null);
+  const [correctCount, setCorrectCount] = useActivityState("correctCount", 0);
+  const [wrongCount, setWrongCount] = useActivityState("wrongCount", 0);
+  const [streak, setStreak] = useActivityState("streak", 0);
+  const [answered, setAnswered] = useActivityState("answered", false);
+  const [submissionId, setSubmissionId] = useActivityState("submissionId", "");
+  const [sending, setSending] = useState(false);
+  const sendingRef = useRef(false);
+  const [loading, setLoading] = useState(!current);
+  const restored = useRef(!!current);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [autoSubmit, setAutoSubmit] = useState(true);
+  const [autoSubmit, setAutoSubmit] = useActivityState("autoSubmit", true);
   const [previousType, setPreviousType] = useState(currentType);
 
   // Reset request presentation when the URL changes, including browser navigation.
@@ -76,6 +81,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
       setAnswer("");
       setResult(null);
       setAnswered(false);
+      setSubmissionId(crypto.randomUUID());
       focusInput();
     }).catch((error: unknown) => {
       console.error(error);
@@ -86,7 +92,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
     }).finally(() => {
       setLoading(false);
     });
-  }, [characters]);
+  }, [characters, setCurrent, setAnswer, setResult, setAnswered, setSubmissionId]);
 
   const fetchKana = (typeToFetch: "hiragana" | "katakana" = currentType) => {
     setLoading(true);
@@ -96,7 +102,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
   useEffect(() => {
     active.current = true;
-    void loadKana(currentType);
+    if (!restored.current) void loadKana(currentType);
     return () => {
       active.current = false;
       if (autoAdvanceTimeout.current) {
@@ -108,9 +114,6 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
   const switchMode = (newType: "hiragana" | "katakana") => {
     if (newType === currentType) return;
     setSearchParams({ type: newType });
-    setCorrectCount(0);
-    setWrongCount(0);
-    setStreak(0);
   };
 
   const handleSubmit = async (overrideAnswer?: string) => {
@@ -118,15 +121,16 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
     if (!current) return;
     if (!textToSubmit.trim()) return;
-    if (answered) return;
+    if (result || sendingRef.current) return;
 
     setAnswered(true);
+    sendingRef.current = true; setSending(true);
 
     try {
       const res = await api.post<AnswerResult>("/quiz/answer", {
         type: currentType,
         kanaId: current.id,
-        answer: textToSubmit.trim()
+        answer: textToSubmit.trim(), submissionId
       });
 
       const data: AnswerResult = res.data;
@@ -148,12 +152,11 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
     } catch (error: unknown) {
       if (!active.current) return;
       console.error(error);
-      setAnswered(false);
       setErrorMsg(
         (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
         "Failed to submit answer. Please try again."
       );
-    }
+    } finally { sendingRef.current = false; if (active.current) setSending(false); }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -278,7 +281,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
           <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl text-center flex items-center justify-between">
             <span>{errorMsg}</span>
             <button
-              onClick={() => fetchKana(currentType)}
+              onClick={() => answered && !result ? void handleSubmit() : void fetchKana(currentType)}
               className="bg-red-600 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-red-700 font-medium"
             >
               Retry
@@ -328,7 +331,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
                   autoComplete="off"
                   autoCapitalize="off"
                   spellCheck="false"
-                  disabled={answered && result?.correct}
+                  disabled={answered}
                   className={`border-2 rounded-xl p-4 text-2xl text-center w-full font-semibold outline-none transition-all ${
                     result?.correct
                       ? "border-green-500 bg-green-50 text-green-800"
@@ -345,6 +348,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
               {/* Action Buttons / Results */}
               <div className="mt-6 flex flex-col items-center w-full max-w-xs gap-3">
+                {answered && !result && !sending && <button onClick={() => void handleSubmit()} className="rounded-xl border px-4 py-3 font-bold">Retry saving answer</button>}
                 {!result ? (
                   <button
                     disabled={answered || !answer.trim()}
@@ -364,6 +368,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
                     <p className="text-green-600 text-2xl font-bold">
                       Correct! ✅
                     </p>
+                    <button onClick={() => fetchKana(currentType)} className="mt-3 rounded-xl border px-4 py-2 text-sm font-bold">Next Kana →</button>
                   </div>
                 ) : (
                   <div className="text-center w-full">

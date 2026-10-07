@@ -1,3 +1,4 @@
+import { useActivity, useActivityState } from "../context/ActivityContext";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -6,21 +7,22 @@ import api from "../api/axios";
 import { REVIEW_SIZES, reviewChoices, selectReviewCharacters } from "../lib/kanaReview";
 import type { CharacterStat, KanaScript, ReviewSize } from "../lib/kanaReview";
 
-type Question = { character: CharacterStat; choices: string[] };
+type Question = { character: CharacterStat; choices: string[]; submissionId: string };
 type Answer = { correct: boolean; correctAnswer: string };
 const button = "rounded-xl border border-gray-200 px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed";
 
 export default function ReviewPage({ script }: { script: KanaScript }) {
+  const session = useActivity();
   const title = script === "hiragana" ? "Hiragana" : "Katakana";
-  const [size, setSize] = useState<ReviewSize>(10);
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [answers, setAnswers] = useState<Answer[]>([]);
-  const [index, setIndex] = useState(0);
-  const [phase, setPhase] = useState<"setup" | "quiz" | "summary">("setup");
+  const [size, setSize] = useActivityState<ReviewSize>("size", 10);
+  const [questions, setQuestions] = useActivityState<Question[]>("questions", []);
+  const [answers, setAnswers] = useActivityState<Answer[]>("answers", []);
+  const [index, setIndex] = useActivityState("index", 0);
+  const [phase, setPhase] = useActivityState<"setup" | "quiz" | "summary">("phase", "setup");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [selected, setSelected] = useState<string | null>(null);
-  const [latest, setLatest] = useState<CharacterStat[] | null>(null);
+  const [selected, setSelected] = useActivityState<string | null>("selected", null);
+  const [latest, setLatest] = useActivityState<CharacterStat[] | null>("latest", null);
   const guard = useRef(false);
   const question = questions[index];
   const result = answers[index];
@@ -34,24 +36,26 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
   }
   async function start() {
     if (guard.current) return;
+    if (!session.begin(true)) return;
+    setSize(size);
+    setPhase("setup"); setQuestions([]); setAnswers([]); setIndex(0); setSelected(null); setLatest(null);
     guard.current = true; setBusy(true); setError("");
     try {
       const characters = await loadCharacters();
-      setQuestions(selectReviewCharacters(characters, size).map(character => ({ character, choices: reviewChoices(character, characters) })));
+      setQuestions(selectReviewCharacters(characters, size).map(character => ({ character, choices: reviewChoices(character, characters), submissionId: crypto.randomUUID() })));
       setAnswers([]); setIndex(0); setSelected(null); setLatest(null); setPhase("quiz");
     } catch { setError("Could not load your character statistics. Please check your connection and try again."); }
     finally { guard.current = false; setBusy(false); }
   }
   async function answer(value: string) {
-    if (guard.current || result || selected !== null) return;
+    if (guard.current || result) return;
     guard.current = true; setSelected(value); setBusy(true); setError("");
     try {
-      const response = await api.post<Answer>("/quiz/answer", { type: script, kanaId: question.character.id, answer: value });
+      const response = await api.post<Answer>("/quiz/answer", { type: script, kanaId: question.character.id, answer: value, submissionId: question.submissionId });
       setAnswers(previous => [...previous, response.data]);
     } catch {
-      // A lost response may have been committed. Never automatically resend it.
-      setError("We could not confirm this answer was saved. To avoid counting it twice, this session has stopped. Return to Mastery to check your statistics, then start a new review.");
-    } finally { setBusy(false); }
+      setError("Could not confirm the save. Retry the same answer safely; it will only count once.");
+    } finally { guard.current = false; setBusy(false); }
   }
   async function refreshSummary() {
     setBusy(true); setError("");
@@ -61,7 +65,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
   }
   function next() {
     if (!result || busy) return;
-    if (index + 1 === questions.length) { setPhase("summary"); void refreshSummary(); }
+    if (index + 1 === questions.length) { setPhase("summary"); session.complete(); void refreshSummary(); }
     else { setIndex(index + 1); setSelected(null); guard.current = false; }
   }
   const reviewed = new Set(questions.map(q => q.character.id));
@@ -73,6 +77,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
     <main className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
       <Link className="text-sm font-semibold text-gray-600 hover:underline" to={`/statistics/japanese?type=${script}`}>← Back to {title} Mastery</Link>
       <h1 className="text-3xl font-bold mt-5 mb-6">{title} Review</h1>
+      {phase === "quiz" && <button className={`${button} mb-5`} disabled={busy} onClick={() => void start()}>Start new Review</button>}
       <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 sm:p-8">
         {error && <p role="alert" className="mb-5 rounded-xl bg-red-50 text-red-700 p-4">{error}</p>}
         {phase === "setup" && <>
@@ -89,6 +94,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
           <QuizChoices choices={question.choices} selected={selected} disabled={selected !== null || busy} onChoose={choice => void answer(choice)} />
           <div aria-live="polite" className="mt-5">
             {busy && <p>Saving answer…</p>}
+            {selected !== null && !result && !busy && <button className={button} onClick={() => void answer(selected)}>Retry saving answer</button>}
             {result && <><p className={`rounded-xl p-4 font-semibold ${result.correct ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>{result.correct ? "Correct!" : `Incorrect. The correct answer is ${result.correctAnswer}.`}</p><button className={`${button} mt-4`} onClick={next}>{index + 1 === questions.length ? "View Summary" : "Next Question →"}</button></>}
           </div>
         </>}

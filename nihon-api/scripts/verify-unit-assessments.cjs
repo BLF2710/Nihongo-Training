@@ -260,6 +260,8 @@ async function main() {
         assert.notEqual(await page.locator(`option[value="${UNITS[2].id}"]`).getAttribute('disabled'), null);
         await page.goto(`${web}/quizzes`);
         await page.getByRole('link', { name: 'Retake Assessment', exact: true }).click();
+        // Reopening an assessment preserves its result until an explicit retake.
+        await page.getByRole('button', { name: 'Retake Assessment', exact: true }).click();
         await finish(0);
         await page.getByText('✓ Unit 1 Complete — your earlier pass is still valid.', { exact: true }).waitFor();
         await page.setViewportSize({ width: 390, height: 844 });

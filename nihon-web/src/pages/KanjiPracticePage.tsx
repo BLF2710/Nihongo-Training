@@ -1,3 +1,4 @@
+import { useActivity, useActivityState } from "../context/ActivityContext";
 import { useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -13,13 +14,14 @@ export default function KanjiPracticePage() {
   return <PracticeSession key={params.get("kanji") ?? "all"} kanjiId={params.get("kanji") ?? undefined} />;
 }
 function PracticeSession({ kanjiId }: { kanjiId?: string }) {
+  const session = useActivity();
   const character = KANJI.find(k => k.id === kanjiId);
-  const [size, setSize] = useState(kanjiId ? 3 : 10);
-  const [questions, setQuestions] = useState<KanjiQuestion[]>([]);
-  const [answers, setAnswers] = useState<KanjiAnswer[]>([]);
-  const [index, setIndex] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
-  const [phase, setPhase] = useState<"setup" | "quiz" | "summary">("setup");
+  const [size, setSize] = useActivityState("size", kanjiId ? 3 : 10);
+  const [questions, setQuestions] = useActivityState<KanjiQuestion[]>("questions", []);
+  const [answers, setAnswers] = useActivityState<KanjiAnswer[]>("answers", []);
+  const [index, setIndex] = useActivityState("index", 0);
+  const [selected, setSelected] = useActivityState<number | null>("selected", null);
+  const [phase, setPhase] = useActivityState<"setup" | "quiz" | "summary">("phase", "setup");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const guard = useRef(false);
@@ -28,6 +30,9 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
   const back = kanjiId ? `/learn/kanji/${kanjiId}` : "/learn/kanji";
   async function start() {
     if (guard.current) return;
+    if (!session.begin(true)) return;
+    setSize(size);
+    setPhase("setup"); setQuestions([]); setAnswers([]); setSelected(null); setIndex(0);
     guard.current = true; setBusy(true); setError("");
     try {
       setQuestions(await startKanjiPractice(size, kanjiId));
@@ -42,12 +47,12 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
       const saved = await answerKanji(question.id, choice);
       setAnswers(previous => [...previous, saved]);
     } catch {
-      setError("Could not confirm the save. Retry the same answer safely; it will only count once. If this session has expired, return to Kanji and start again.");
+      setError("Could not confirm the save. Retry the same answer safely; it will only count once.");
     } finally { guard.current = false; setBusy(false); }
   }
   function next() {
     if (!result || busy) return;
-    if (index + 1 === questions.length) setPhase("summary");
+    if (index + 1 === questions.length) { setPhase("summary"); session.complete(); }
     else { setIndex(value => value + 1); setSelected(null); }
   }
   const correct = answers.filter(a => a.correct).length;
@@ -55,6 +60,7 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto max-w-4xl px-4 py-10">
     <Link className="text-sm font-semibold text-gray-600 hover:underline" to={back}>← Back to Kanji</Link>
     <h1 className="my-6 text-3xl font-black">Kanji Practice{character ? ` · ${character.character}` : ""}</h1>
+    {phase === "quiz" && <button className={`${button} mb-5`} disabled={busy} onClick={() => void start()}>Start new practice</button>}
     <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
       {error && <p role="alert" className="mb-5 rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
       {kanjiId && !character ? <p>Kanji not found. Choose a character from the Kanji page.</p> : <>
@@ -74,7 +80,7 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
           <div aria-live="polite" className="mt-5">
             {busy && <p>Saving answer…</p>}
             {result && <><p className={`rounded-xl p-4 font-semibold ${result.correct ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>{result.correct ? "Correct!" : `Incorrect. The correct answer is ${result.correctAnswer}.`}</p><button className={`${button} mt-4`} onClick={next}>{index + 1 === questions.length ? "View Summary" : "Next Question →"}</button></>}
-            {error && selected !== null && !result && <button className={`${button} mt-4`} disabled={busy} onClick={() => void answer(selected)}>Retry saving answer</button>}
+            {selected !== null && !result && !busy && <button className={`${button} mt-4`} onClick={() => void answer(selected)}>Retry saving answer</button>}
           </div>
         </>}
         {phase === "summary" && <>
