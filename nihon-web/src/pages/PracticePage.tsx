@@ -8,6 +8,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { isAxiosError } from "axios";
 import Navbar from "../components/Navbar";
 import api from "../api/axios";
+import KanaQuizSetup from "../components/KanaQuizSetup";
 
 type Kana = {
   id: number;
@@ -26,6 +27,10 @@ type AnswerResult = {
 import { isRomajiMatch } from "../lib/romaji";
 
 export default function PracticePage() {
+  return <KanaQuizSetup>{(characters, onChoose) => <PracticeGame characters={characters} onChoose={onChoose} />}</KanaQuizSetup>;
+}
+
+function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: () => void }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -52,6 +57,7 @@ export default function PracticePage() {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const active = useRef(true);
 
   const focusInput = () => {
     setTimeout(() => {
@@ -65,9 +71,7 @@ export default function PracticePage() {
       autoAdvanceTimeout.current = null;
     }
 
-    return api.get<Kana>("/quiz/random", {
-      params: { type: typeToFetch }
-    }).then((res) => {
+    return Promise.resolve({ data: characters[Math.floor(Math.random() * characters.length)] }).then((res) => {
       setCurrent(res.data);
       setAnswer("");
       setResult(null);
@@ -82,7 +86,7 @@ export default function PracticePage() {
     }).finally(() => {
       setLoading(false);
     });
-  }, []);
+  }, [characters]);
 
   const fetchKana = (typeToFetch: "hiragana" | "katakana" = currentType) => {
     setLoading(true);
@@ -91,8 +95,10 @@ export default function PracticePage() {
   };
 
   useEffect(() => {
+    active.current = true;
     void loadKana(currentType);
     return () => {
+      active.current = false;
       if (autoAdvanceTimeout.current) {
         clearTimeout(autoAdvanceTimeout.current);
       }
@@ -124,6 +130,7 @@ export default function PracticePage() {
       });
 
       const data: AnswerResult = res.data;
+      if (!active.current) return;
       setResult(data);
 
       if (data.correct) {
@@ -139,6 +146,7 @@ export default function PracticePage() {
         setStreak(0);
       }
     } catch (error: unknown) {
+      if (!active.current) return;
       console.error(error);
       setAnswered(false);
       setErrorMsg(
@@ -234,6 +242,7 @@ export default function PracticePage() {
         </div>
 
         {/* Stats Row */}
+        <button onClick={onChoose} className="mb-4 self-start rounded-xl border bg-white px-4 py-2 font-semibold text-gray-700">← Change characters</button>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm text-center">
             <div className="text-sm font-medium text-gray-500">Correct</div>

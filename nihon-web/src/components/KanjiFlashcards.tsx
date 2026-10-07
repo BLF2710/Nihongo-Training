@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
 import { StudyFlashcards } from "./VocabularyFlashcard";
 import KanaStrokeOrder from "./KanaStrokeOrder";
 import { kanjiExamples, kanjiStudyCards } from "../data/kanjiStudyCards";
@@ -7,6 +8,13 @@ import type { Kanji } from "../data/kanji";
 import strokes from "../data/kanjiStrokes.json";
 
 function KanjiStudyCard({ kanji }: { kanji: Kanji }) {
+  const [flipped, setFlipped] = useState(false);
+  const frontButton = useRef<HTMLButtonElement>(null);
+  const backButton = useRef<HTMLButtonElement>(null);
+  function flip(showBack: boolean) {
+    setFlipped(showBack);
+    requestAnimationFrame(() => (showBack ? backButton : frontButton).current?.focus({ preventScroll: true }));
+  }
   const examples = kanjiExamples(kanji.id);
   function exampleList(items: typeof examples) {
     return <ul className="mt-3 space-y-3">{items.map(item => <li key={item.id}>
@@ -17,7 +25,9 @@ function KanjiStudyCard({ kanji }: { kanji: Kanji }) {
       </Link>
     </li>)}</ul>;
   }
-  return <article aria-label={`Study ${kanji.character}`} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+  return <article aria-label={`Study ${kanji.character}`} className="[perspective:1200px]">
+    <div className="grid transition-transform duration-500 motion-reduce:transition-none [transform-style:preserve-3d]" style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}>
+    <div inert={flipped} aria-hidden={flipped} className="col-start-1 row-start-1 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm [backface-visibility:hidden] sm:p-8">
     <h2 lang="ja" className="text-center text-8xl font-bold text-gray-900">{kanji.character}</h2>
     <dl className="mt-6 grid gap-5 sm:grid-cols-2">
       <div className="sm:col-span-2"><dt className="font-bold">Meaning</dt><dd className="mt-1 text-gray-700">{kanji.meanings.join(" · ")}</dd></div>
@@ -29,11 +39,15 @@ function KanjiStudyCard({ kanji }: { kanji: Kanji }) {
     {exampleList(examples.slice(0, 4))}
     {examples.length < 2 && <p className="mt-2 text-sm text-gray-500">{examples.length ? "Only one linked course word is available so far." : "No linked course vocabulary yet."}</p>}
     {examples.length > 4 && <details className="mt-3"><summary className="cursor-pointer font-semibold text-emerald-700 focus-visible:outline-2">View more vocabulary ({examples.length - 4})</summary>{exampleList(examples.slice(4))}</details>}
-    <details className="mt-6 border-t border-gray-100 pt-4">
-      <summary className="cursor-pointer font-bold text-emerald-800 focus-visible:outline-2 focus-visible:outline-emerald-600">Stroke order · {kanji.strokeCount} strokes</summary>
-      <KanaStrokeOrder character={kanji.character} paths={strokes.paths} />
-    </details>
+    <button ref={frontButton} type="button" onClick={() => flip(true)} className="mt-6 block rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 font-bold text-emerald-800 focus-visible:outline-2 focus-visible:outline-emerald-600">Stroke order · {kanji.strokeCount} strokes ↻</button>
     <Link to={`/learn/kanji/practice?kanji=${kanji.id}`} className="mt-6 inline-block rounded-xl bg-emerald-600 px-4 py-2 font-bold text-white focus-visible:outline-2">Mixed practice →</Link>
+    </div>
+    <div inert={!flipped} aria-hidden={!flipped} className="col-start-1 row-start-1 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-8">
+      <button ref={backButton} type="button" onClick={() => flip(false)} className="rounded-xl border px-4 py-2 font-bold text-emerald-800 focus-visible:outline-2 focus-visible:outline-emerald-600">← Back to study card</button>
+      <h3 className="mt-5 text-center text-xl font-bold">Stroke order: <span lang="ja">{kanji.character}</span></h3>
+      {flipped && <KanaStrokeOrder character={kanji.character} paths={strokes.paths} />}
+    </div>
+    </div>
   </article>;
 }
 

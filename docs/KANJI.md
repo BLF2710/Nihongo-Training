@@ -106,7 +106,9 @@ front reset, session shuffle, bounded navigation and existing Japanese speech se
 Vocabulary adapts its existing records; Kanji adapts `shared/kanji.json` and joins the
 existing course vocabulary meanings. No separate word list or flashcard engine exists.
 Kanji now uses one unified study card with meaning, both reading groups, linked course
-vocabulary (up to four, with expandable extras), and expandable shared stroke animation.
+vocabulary (up to four, with expandable extras), and shared stroke animation on the
+back of the card. The Stroke order button flips the card; Back to study card returns
+to its front. Hidden faces are inert, and reduced-motion preferences are respected.
 It reuses the same deck/shuffle/navigation through an optional card renderer; Vocabulary
 keeps its flip-card UI. Where fewer than two linked words exist, no words are fabricated.
 The internal character→meaning, course word→reading, and meaning→written vocabulary
