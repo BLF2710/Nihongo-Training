@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/set-state-in-effect */
+import { useActivity, useActivityState, useActivityTitle } from "../context/ActivityContext";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -27,14 +27,16 @@ const challenge: Answer[] = [
 const steps = ["Welcome", "Words", "When to use", "Politeness", "Conversations", "Practice", "Challenge"];
 
 export default function JapaneseHelloLessonPage() {
+  const session = useActivity();
+  useActivityTitle("How to Say Hello");
   const navigate = useNavigate();
   const storageKey = `lesson-1-hello-${localStorage.getItem("user_name") || "guest"}`;
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
-  const [matching, setMatching] = useState<Record<string, string>>({});
-  const [selectedJapanese, setSelectedJapanese] = useState<string | null>(null);
-  const [challengeAnswers, setChallengeAnswers] = useState<Record<number, string>>({});
-  const [completedScore, setCompletedScore] = useState<number | null>(null);
+  const [step, setStep] = useActivityState("step", 0);
+  const [answers, setAnswers] = useActivityState<Record<number, string>>("answers", {});
+  const [matching, setMatching] = useActivityState<Record<string, string>>("matching", {});
+  const [selectedJapanese, setSelectedJapanese] = useActivityState<string | null>("selectedJapanese", null);
+  const [challengeAnswers, setChallengeAnswers] = useActivityState<Record<number, string>>("challengeAnswers", {});
+  const [completedScore, setCompletedScore] = useActivityState<number | null>("completedScore", null);
   const [saveError, setSaveError] = useState("");
   const [celebration, setCelebration] = useState("");
 
@@ -44,7 +46,6 @@ export default function JapaneseHelloLessonPage() {
       const progress = JSON.parse(saved) as { completed?: boolean; score?: number };
       if (progress.completed) {
         const score = progress.score ?? 0;
-        setCompletedScore(score);
         // Migrate a completion saved by the earlier client-only lesson into the
         // server progression system. XP events make this safe to retry.
         void api.post("/lessons/japanese-n5-unit-1-hello/complete", { challengeScore: score }).catch(() => undefined);
@@ -58,6 +59,7 @@ export default function JapaneseHelloLessonPage() {
     try {
       const { data } = await api.post("/lessons/japanese-n5-unit-1-hello/complete", { challengeScore: score });
       setCompletedScore(score);
+      session.complete();
       localStorage.setItem(storageKey, JSON.stringify({ completed: true, score, completedAt: new Date().toISOString() }));
       if (data.completion?.level > data.completion?.oldLevel) setCelebration(`LEVEL UP! Level ${data.completion.oldLevel} → Level ${data.completion.level}`);
       else if (data.completion?.rank !== data.completion?.oldRank) setCelebration(`RANK UP! ${data.completion.oldRank} → ${data.completion.rank}`);

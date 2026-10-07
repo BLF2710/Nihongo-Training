@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import api from "../api/axios";
+import { useActivity, useActivityState } from "../context/ActivityContext";
 import type { KanaApiCharacter } from "../data/hiraganaLearning";
 import { HIRAGANA_SECTIONS } from "../data/hiraganaLearning";
 import { KATAKANA_SECTIONS } from "../data/katakanaLearning";
@@ -14,9 +15,11 @@ export default function KanaQuizSetup({ children }: { children: (characters: Kan
 }
 
 function Selection({ script, children }: { script: "hiragana" | "katakana"; children: (characters: KanaApiCharacter[], onChoose: () => void) => ReactNode }) {
+  const activity = useActivity();
   const [characters, setCharacters] = useState<KanaApiCharacter[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
-  const [session, setSession] = useState<KanaApiCharacter[] | null>(null);
+  const [session, setSession] = useActivityState<KanaApiCharacter[] | null>("characters", null);
+  const [choosing, setChoosing] = useState(false);
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -27,7 +30,7 @@ function Selection({ script, children }: { script: "hiragana" | "katakana"; chil
       .catch(() => { if (!controller.signal.aborted) setError(true); });
     return () => controller.abort();
   }, [script, retry]);
-  if (session) return children(session, () => setSession(null));
+  if (session && !choosing) return children(session, () => setChoosing(true));
   const title = script === "katakana" ? "Katakana" : "Hiragana";
   const group = (item: KanaApiCharacter) => [...item.kana].length === 1 ? "Single" : /[ゃゅょャュョ]$/.test(item.kana) && /^[きしちにひみりぎじびぴキシチニヒミリギジビピ]/.test(item.kana) ? "Double" : "Extended";
   const chosen = characters.filter(item => selected.includes(item.id));
@@ -67,7 +70,7 @@ function Selection({ script, children }: { script: "hiragana" | "katakana"; chil
           {!items.length && <p className="mt-3 text-sm text-gray-500">These characters are not available in the quiz catalog yet.</p>}
         </section>;
       })}</div>
-      <div className="sticky bottom-0 mt-5 flex items-center justify-between gap-4 rounded-xl border bg-white p-4 shadow-sm"><span>{chosen.length} characters selected</span><button disabled={!chosen.length} onClick={() => setSession(chosen)} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white disabled:opacity-40">Start Quiz →</button></div>
+      <div className="sticky bottom-0 mt-5 flex items-center justify-between gap-4 rounded-xl border bg-white p-4 shadow-sm"><span>{chosen.length} characters selected</span><button disabled={!chosen.length} onClick={() => { if (activity.begin(true)) { setSession(chosen); setChoosing(false); } }} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white disabled:opacity-40">Start Quiz →</button></div>
     </>}
   </main></div>;
 }

@@ -29,7 +29,8 @@ async function main() {
       const page = await browser.newPage();
       const errors = []; const answers = [];
       page.on('pageerror', error => errors.push(error.message));
-      await page.addInitScript(() => { localStorage.setItem('token', 'selection-test'); localStorage.setItem('app_language','japanese'); });
+      await page.addInitScript(() => { localStorage.setItem('token', `fixture.${btoa(JSON.stringify({ userId: 1 }))}.fixture`); localStorage.setItem('app_language','japanese'); });
+      page.on('dialog', dialog => dialog.accept());
       await page.route('**/api/quiz/characters?*', route => {
         const type = new URL(route.request().url()).searchParams.get('type');
         return route.fulfill({ json: { type, characters: catalogs[type] } });
@@ -81,7 +82,9 @@ async function main() {
         await page.getByRole('status').filter({ hasText: /^1 selected$/ }).waitFor();
         await page.setViewportSize({ width: 390, height: 844 });
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-        await page.reload(); await start.waitFor(); assert.ok(await start.isDisabled());
+        // A refresh now restores the game, rather than discarding the selection.
+        await page.reload(); await page.getByText('Incorrect ❌', { exact: true }).waitFor();
+        assert.equal(await page.getByPlaceholder('Type romaji...').inputValue(), 'wrong');
       }
       assert.deepEqual(errors, []);
       console.log('PASS: both setup screens, empty guard, group deduplication, individual/double/extended selections, selected-only questions, same answer endpoint, correct/wrong feedback, change selection, refresh and mobile. Browser grading is stubbed; no user progress is written.');

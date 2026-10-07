@@ -56,9 +56,10 @@ All Kanji endpoints use the existing required JWT authentication:
 User IDs, claimed correctness, and client scores are not accepted as authority.
 Answer submission locks the user-owned question row and updates totals atomically.
 Retrying the same answer returns its saved result without another increment; changing
-an already-submitted answer is rejected. Fresh questions expire after one hour.
-Question records older than seven days are cleaned up for the current user when
-starting practice; durable progress is not deleted.
+an already-submitted answer is rejected. Issued questions remain valid for saved
+sessions across browser closures. The legacy expiry column is no longer enforced,
+and question records are not pruned on a new session (which would break resuming).
+They are removed with account deletion. Durable progress remains independent.
 
 Attempts and accuracy are derived from correct/wrong totals. The shared helper preserves
 the exact existing Kana behavior: Untested = zero attempts; Mastered = at least three

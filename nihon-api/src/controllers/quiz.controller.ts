@@ -75,7 +75,10 @@ export async function submitAnswer(
   req: Request,
   res: Response
 ) {
+  const client = await pool.connect();
+  let committed = false;
   try {
+    await client.query("BEGIN");
     const {
       hiraganaId,
       katakanaId,
@@ -93,11 +96,27 @@ export async function submitAnswer(
       });
     }
 
+    const userId = (req as Request & { user?: { userId: number } }).user?.userId;
+    const submissionId: unknown = req.body.submissionId;
+    if (submissionId !== undefined && (typeof submissionId !== "string" || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(submissionId))) {
+      return res.status(400).json({ message: "Invalid submission ID" });
+    }
+    if (userId && submissionId) {
+      await client.query("SELECT pg_advisory_xact_lock(hashtext($1))", [`kana:${userId}`]);
+      const saved = await client.query("SELECT * FROM quiz_answer_receipts WHERE user_id=$1 AND submission_id=$2", [userId, submissionId]);
+      if (saved.rows[0]) {
+        const row = saved.rows[0];
+        if (row.character_type !== type || row.kana_id !== Number(id) || row.answer !== String(answer)) return res.status(409).json({ message: "This submission was already saved with another answer." });
+        await client.query("COMMIT");
+        committed = true;
+        return res.json(row.response);
+      }
+    }
     const tableName = type === "katakana" ? "katakanas" : "hiraganas";
     const progressTable = type === "katakana" ? "user_katakana_progress" : "user_progress";
     const foreignKey = type === "katakana" ? "katakana_id" : "hiragana_id";
 
-    const result = await pool.query(
+    const result = await client.query(
       `
       SELECT *
       FROM ${tableName}
@@ -115,10 +134,8 @@ export async function submitAnswer(
     const kana = result.rows[0];
     const correct = isRomajiMatch(kana.romaji, String(answer));
 
-    const userId = (req as any).user?.userId;
-
     if (userId) {
-      const progressResult = await pool.query(
+      const progressResult = await client.query(
         `
         SELECT *
         FROM ${progressTable}
@@ -129,7 +146,7 @@ export async function submitAnswer(
       );
 
       if (progressResult.rows.length === 0) {
-        await pool.query(
+        await client.query(
           `
           INSERT INTO ${progressTable}
           (
@@ -154,7 +171,7 @@ export async function submitAnswer(
           ]
         );
       } else {
-        await pool.query(
+        await client.query(
           `
           UPDATE ${progressTable}
           SET
@@ -177,23 +194,22 @@ export async function submitAnswer(
       // XP is based on durable progress, not on frontend state. Each ten correct
       // answers earns one unique event, even though these quizzes have no end screen.
       if (correct) {
-        const totalResult = await pool.query(`SELECT COALESCE(SUM(correct_count), 0) AS total_correct FROM ${progressTable} WHERE user_id = $1`, [userId]);
+        const totalResult = await client.query(`SELECT COALESCE(SUM(correct_count), 0) AS total_correct FROM ${progressTable} WHERE user_id = $1`, [userId]);
         const milestone = Math.floor(Number(totalResult.rows[0].total_correct) / 10);
-        if (milestone > 0) await awardXP(Number(userId), 10, "quiz", `${type}:correct-${milestone * 10}`);
+        if (milestone > 0) await awardXP(Number(userId), 10, "quiz", `${type}:correct-${milestone * 10}`, client);
       }
     }
 
-    return res.json({
-      correct,
-      correctAnswer: kana.romaji,
-      type
-    });
+    const response = { correct, correctAnswer: kana.romaji, type };
+    if (userId && submissionId) await client.query("INSERT INTO quiz_answer_receipts (user_id,submission_id,character_type,kana_id,answer,response) VALUES ($1,$2,$3,$4,$5,$6)", [userId, submissionId, type, id, String(answer), JSON.stringify(response)]);
+    await client.query("COMMIT"); committed = true;
+    return res.json(response);
   } catch (error) {
     console.error("Error in submitAnswer:", error);
     return res.status(500).json({
       message: "Server error"
     });
-  }
+  } finally { if (!committed) await client.query("ROLLBACK"); client.release(); }
 }
 
 export async function getKanaCharacters(req: Request, res: Response) {

@@ -17,6 +17,7 @@ import EnglishArcadePage from "./pages/EnglishArcadePage";
 import JapaneseHelloLessonPage from "./pages/JapaneseHelloLessonPage";
 import ProfilePage from "./pages/ProfilePage";
 import HiraganaLearningPage from "./pages/HiraganaLearningPage";
+import ActivitySessionBoundary from "./components/ActivitySessionBoundary";
 
 import { LanguageProvider } from "./context/LanguageProvider";
 
@@ -32,7 +33,7 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <Routes>
+        <ActivitySessionBoundary><Routes>
           <Route path="/learn/kanji" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading Kanji…</p>}><KanjiPage /></Suspense></ProtectedRoute>} />
           <Route path="/learn/kanji/practice" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading practice…</p>}><KanjiPracticePage /></Suspense></ProtectedRoute>} />
           <Route path="/learn/kanji/:kanjiId" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading Kanji…</p>}><KanjiPage /></Suspense></ProtectedRoute>} />
@@ -129,7 +130,7 @@ function App() {
             path="/"
             element={<HomePage />}
           />
-        </Routes>
+        </Routes></ActivitySessionBoundary>
       </BrowserRouter>
     </LanguageProvider>
   );
