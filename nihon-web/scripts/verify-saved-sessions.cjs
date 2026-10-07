@@ -38,6 +38,7 @@ async function main() {
     const resumeDashboard = async () => {
       const before = await saved(); await page.goto(base);
       await page.getByRole('link', { name: 'Resume session →', exact: true }).waitFor();
+      assert.equal(await page.getByRole('link', { name: 'Choose a unit', exact: true }).count(), 0);
       assert.equal(await page.locator('#next-heading').textContent(), before.title);
       await page.getByRole('link', { name: 'Resume session →', exact: true }).click();
       return before;
@@ -139,6 +140,26 @@ async function main() {
     await page.getByRole('link', { name: 'Resume session →' }).waitFor(); assert.deepEqual(await saved(), userOne);
     await page.setViewportSize({ width: 390, height: 844 });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    for (const script of ['hiragana', 'katakana']) {
+      await fresh(`/practice?type=${script}`);
+      await page.getByRole('button', { name: 'Select all', exact: true }).click();
+      await page.getByRole('button', { name: 'Start Quiz →', exact: true }).click();
+      await page.getByPlaceholder('Type romaji...').fill('wrong');
+      await page.getByRole('button', { name: /Submit \(Enter/ }).click();
+      await page.getByText('Incorrect ❌', { exact: true }).waitFor();
+      const writesBeforeEnd = submissions.length;
+      await page.getByRole('button', { name: 'End session', exact: true }).click();
+      await page.getByRole('link', { name: 'Choose a unit', exact: true }).waitFor();
+      assert.equal(new URL(page.url()).pathname, '/');
+      assert.equal((await saved()).status, 'completed');
+      assert.equal((await saved()).data.wrongCount, 1);
+      assert.equal(submissions.length, writesBeforeEnd);
+      assert.equal(await page.getByRole('link', { name: 'Resume session →' }).count(), 0);
+      await page.reload(); await page.getByRole('link', { name: 'Choose a unit', exact: true }).waitFor();
+      await page.goto(base + `/practice?type=${script}`);
+      await page.getByRole('button', { name: 'Start Quiz →', exact: true }).waitFor();
+      assert.equal(await page.getByRole('button', { name: 'End session', exact: true }).count(), 0);
+    }
     assert.deepEqual(errors, []);
     console.log('PASS: refresh/closed-page recovery, both Reviews, interrupted idempotent retry, Kanji, assessment completion, lessons, Speed Quiz, dashboard, replacement cancel/accept, stale tabs, per-user isolation, mobile. Fixture APIs; no real progress writes.');
   } finally { await browser.close(); }

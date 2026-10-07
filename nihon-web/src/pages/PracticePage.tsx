@@ -1,4 +1,4 @@
-import { useActivityState } from "../context/ActivityContext";
+import { useActivity, useActivityState } from "../context/ActivityContext";
 import {
   useEffect,
   useState,
@@ -32,6 +32,7 @@ export default function PracticePage() {
 }
 
 function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: () => void }) {
+  const session = useActivity();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -63,6 +64,16 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const active = useRef(true);
+
+  const endSession = () => {
+    if (sendingRef.current) return;
+    active.current = false;
+    if (autoAdvanceTimeout.current) clearTimeout(autoAdvanceTimeout.current);
+    // Keep earned statistics; reopening Speed Quiz should show character selection.
+    session.patch({ characters: null });
+    session.complete();
+    navigate("/");
+  };
 
   const focusInput = () => {
     setTimeout(() => {
@@ -245,7 +256,10 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
         </div>
 
         {/* Stats Row */}
-        <button onClick={onChoose} className="mb-4 self-start rounded-xl border bg-white px-4 py-2 font-semibold text-gray-700">← Change characters</button>
+        <div className="mb-4 flex flex-wrap justify-between gap-3">
+          <button onClick={onChoose} className="rounded-xl border bg-white px-4 py-2 font-semibold text-gray-700">← Change characters</button>
+          <button onClick={endSession} disabled={sending} className="rounded-xl border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-40">End session</button>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm text-center">
             <div className="text-sm font-medium text-gray-500">Correct</div>
