@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import JapaneseDashboard from "./JapaneseDashboard";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function HomePage() {
@@ -7,6 +8,7 @@ export default function HomePage() {
   const { language } = useLanguage();
 
   const isJapanese = language === "japanese";
+  if (isJapanese) return <JapaneseDashboard />;
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -34,160 +36,7 @@ export default function HomePage() {
         </div>
 
         {/* Dynamic Content based on Active Track */}
-        {isJapanese ? (
-          /* ======================================= */
-          /*         JAPANESE LEARNING TRACK         */
-          /* ======================================= */
-          <div className="space-y-12 animate-in fade-in duration-300">
-            {/* Category 1: Character Games */}
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                    <span>🎮</span> Character Speed Trainers
-                  </h2>
-                  <p className="text-sm text-gray-500">
-                    Master the Japanese phonetic writing systems with instant auto-submit.
-                  </p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
-                  Interactive Games
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Hiragana Card */}
-                <div
-                  onClick={() => navigate("/practice?type=hiragana")}
-                  className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 hover:border-emerald-500 hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer group relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
-                  <div className="relative">
-                    <div className="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-3xl font-bold mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                      あ
-                    </div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-2xl font-bold text-gray-900">Hiragana Practice</h3>
-                      <span className="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">
-                        46+ chars
-                      </span>
-                    </div>
-                    <p className="text-gray-600 text-sm mb-6">
-                      Train on base Gojūon, Dakuten, and Handakuten characters with real-time romaji recognition.
-                    </p>
-                    <div className="flex items-center text-emerald-600 font-bold text-sm group-hover:translate-x-1 transition-transform">
-                      Start Hiragana Speed Run →
-                    </div>
-                  </div>
-                </div>
-
-                {/* Katakana Card */}
-                <div
-                  onClick={() => navigate("/practice?type=katakana")}
-                  className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 hover:border-indigo-500 hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer group relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
-                  <div className="relative">
-                    <div className="w-14 h-14 bg-indigo-100 text-indigo-700 rounded-2xl flex items-center justify-center text-3xl font-bold mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                      ア
-                    </div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-2xl font-bold text-gray-900">Katakana Practice</h3>
-                      <span className="text-xs bg-indigo-100 text-indigo-800 font-bold px-2.5 py-0.5 rounded-full">
-                        71 chars
-                      </span>
-                    </div>
-                    <p className="text-gray-600 text-sm mb-6">
-                      Master loanwords, foreign names, and onomatopoeia with full 71-character Katakana dataset.
-                    </p>
-                    <div className="flex items-center text-indigo-600 font-bold text-sm group-hover:translate-x-1 transition-transform">
-                      Start Katakana Speed Run →
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Category 2: Vocabulary & Kanji */}
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                    <span>📖</span> Vocabulary & Kanji
-                  </h2>
-                  <p className="text-sm text-gray-500">
-                    Build your core Japanese lexicon from JLPT N5 upwards.
-                  </p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-3 py-1 rounded-full">
-                  JLPT N5-N1
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md transition">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="text-2xl">🗣️</div>
-                    <span className="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">
-                      Ready for Phase 2
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">JLPT N5 Vocabulary Core</h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Learn essential daily verbs, adjectives, numbers, time, and conversation phrases.
-                  </p>
-                  <div className="text-xs text-gray-400 font-medium">800 Essential Words • Audio & Examples</div>
-                </div>
-
-                <div className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md transition">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="text-2xl">漢</div>
-                    <span className="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">
-                      Ready for Phase 2
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Kanji Stroke & Meaning Flashcards</h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Master On'yomi, Kun'yomi, stroke order, and radicals for beginner Kanji.
-                  </p>
-                  <div className="text-xs text-gray-400 font-medium">103 N5 Kanji • Stroke Order Animations</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Category 3: Grammar Guide */}
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                    <span>✍️</span> Grammar & Sentence Patterns
-                  </h2>
-                  <p className="text-sm text-gray-500">
-                    Understand particles, verb conjugations, and natural sentence structures.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-linear-to-r from-emerald-800 to-teal-900 text-white rounded-3xl p-8 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="max-w-xl">
-                  <span className="bg-emerald-700/60 text-emerald-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Grammar Drills
-                  </span>
-                  <h3 className="text-2xl font-bold mt-3 mb-2">Japanese Particles & Conjugations</h3>
-                  <p className="text-emerald-100 text-sm">
-                    Master essential particles like は (wa), が (ga), を (wo), に (ni), で (de) through interactive fill-in-the-blank challenges.
-                  </p>
-                </div>
-                <button
-                  onClick={() => navigate("/statistics/japanese")}
-                  className="bg-white hover:bg-emerald-50 text-emerald-900 font-bold px-6 py-3 rounded-xl transition shadow-md cursor-pointer whitespace-nowrap"
-                >
-                  View Learning Stats →
-                </button>
-              </div>
-            </div>
-          </div>
-        ) : (
+        {(
           /* ======================================= */
           /*          ENGLISH LEARNING TRACK         */
           /* ======================================= */

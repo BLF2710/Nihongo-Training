@@ -170,9 +170,12 @@ async function main() {
         await study.getByText('がくせい', { exact: true }).waitFor();
         assert.ok((await study.getByRole('link', { name: /学生/ }).getAttribute('href')).startsWith('/vocabulary?unit='));
         assert.equal(await page.getByRole('group', { name: 'Flashcard type' }).count(), 0);
-        await study.locator('summary').click();
+        await study.getByRole('button', { name: /Stroke order · 8 strokes/ }).click();
         await study.getByRole('button', { name: 'Next Stroke', exact: true }).click();
         await study.getByRole('img', { name: 'Stroke order for 学, 1 of 8 strokes', exact: true }).waitFor();
+        assert.equal(await study.getByRole('link', { name: 'Mixed practice →', exact: true }).count(), 0);
+        await study.getByRole('button', { name: '← Back to study card', exact: true }).press('Enter');
+        assert.equal(await study.getByRole('img').count(), 0);
         assert.equal(await study.getByRole('link', { name: 'Mixed practice →', exact: true }).getAttribute('href'), '/learn/kanji/practice?kanji=kanji-5b66');
         await page.setViewportSize({ width: 390, height: 844 });
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
