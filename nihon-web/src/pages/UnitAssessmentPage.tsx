@@ -1,9 +1,9 @@
 import { useActivity, useActivityState, useActivityTitle } from "../context/ActivityContext";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { isAxiosError } from "axios";
 import Navbar from "../components/Navbar";
-import api from "../api/axios";
+import { apiErrorMessage } from "../api/errors";
+import { fetchAssessment, submitAssessment } from "../api/units";
 import type { Assessment, AssessmentResult } from "../api/units";
 
 const buttonClass = "rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-bold text-gray-700 hover:border-emerald-400 disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-emerald-600";
@@ -25,8 +25,8 @@ function AssessmentSession({ unitId }: { unitId: string }) {
   const submitting = useRef(false);
   useEffect(() => {
     const controller = new AbortController();
-    api.get<Assessment>(`/units/${encodeURIComponent(unitId)}/assessment`, { signal: controller.signal }).then(({ data }) => { setAssessment(data); setAccessChecked(true); }).catch((error: unknown) => {
-      if (!controller.signal.aborted) setError((isAxiosError<{ message?: string }>(error) && error.response?.data?.message) || "Could not load this assessment. Please refresh to try again.");
+    fetchAssessment(unitId, controller.signal).then(data => { setAssessment(data); setAccessChecked(true); }).catch((error: unknown) => {
+      if (!controller.signal.aborted) setError(apiErrorMessage(error, "Could not load this assessment. Please refresh to try again."));
     });
     return () => controller.abort();
   }, [unitId, setAssessment]);
@@ -35,13 +35,10 @@ function AssessmentSession({ unitId }: { unitId: string }) {
     if (!assessment || submitting.current || assessment.questions.some(question => answers[question.id] === undefined)) return;
     submitting.current = true; setBusy(true); setError("");
     try {
-      const { data } = await api.post<AssessmentResult>(`/units/${encodeURIComponent(unitId)}/assessment`, {
-        assessmentId: assessment.assessmentId, answers: assessment.questions.map(question => answers[question.id]),
-      });
-      setResult(data);
+      setResult(await submitAssessment(unitId, assessment.assessmentId, assessment.questions.map(question => answers[question.id])));
       session.complete();
     } catch (error: unknown) {
-      setError((isAxiosError<{ message?: string }>(error) && error.response?.data?.message) || "Could not save your result. Please try submitting again.");
+      setError(apiErrorMessage(error, "Could not save your result. Please try submitting again."));
     } finally { submitting.current = false; setBusy(false); }
   }
 

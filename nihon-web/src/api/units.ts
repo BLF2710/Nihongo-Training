@@ -20,3 +20,9 @@ export async function fetchUnits(signal?: AbortSignal) {
   const { data } = await api.get<{ units: CourseUnit[] }>("/units", { signal });
   return data.units;
 }
+export async function fetchAssessment(unitId: string, signal?: AbortSignal) {
+  return (await api.get<Assessment>(`/units/${encodeURIComponent(unitId)}/assessment`, { signal })).data;
+}
+export async function submitAssessment(unitId: string, assessmentId: string, answers: number[]) {
+  return (await api.post<AssessmentResult>(`/units/${encodeURIComponent(unitId)}/assessment`, { assessmentId, answers })).data;
+}

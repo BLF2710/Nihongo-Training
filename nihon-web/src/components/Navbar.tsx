@@ -2,6 +2,7 @@ import BackButton from "./BackButton";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import { clearSession, getToken, getUserEmail, getUserName } from "../lib/authStorage";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -10,13 +11,13 @@ export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [sectionsOpen, setSectionsOpen] = useState({ language: true, learn: true, practice: true, games: true });
-  const token = localStorage.getItem("token");
-  const userName = localStorage.getItem("user_name") || "Learner";
-  const userEmail = localStorage.getItem("user_email") || "";
+  const token = getToken();
+  const userName = getUserName() || "Learner";
+  const userEmail = getUserEmail() || "";
 
   const go = (path: string) => { navigate(path); setSidebarOpen(false); };
   const selectLanguage = (id: string) => { setLanguage(id); go("/"); };
-  const logout = () => { localStorage.removeItem("token"); localStorage.removeItem("user_name"); localStorage.removeItem("user_email"); go("/"); };
+  const logout = () => { clearSession(); go("/"); };
   const active = (isActive: boolean) => isActive
     ? "bg-indigo-50 text-indigo-700 font-bold"
     : "text-gray-600 hover:bg-gray-100 hover:text-gray-900";

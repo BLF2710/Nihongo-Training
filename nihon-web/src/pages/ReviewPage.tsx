@@ -3,7 +3,8 @@ import { useRef, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import QuizChoices from "../components/QuizChoices";
-import api from "../api/axios";
+import { submitKanaAnswer } from "../api/quiz";
+import { fetchStatistics } from "../api/statistics";
 import { REVIEW_SIZES, reviewChoices, selectReviewCharacters } from "../lib/kanaReview";
 import type { CharacterStat, KanaScript, ReviewSize } from "../lib/kanaReview";
 
@@ -29,8 +30,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
   const correct = answers.filter(a => a.correct).length;
 
   async function loadCharacters() {
-    const response = await api.get<Record<KanaScript, { characters: CharacterStat[] }>>("/statistics");
-    const characters = response.data[script]?.characters;
+    const characters = (await fetchStatistics())[script]?.characters;
     if (!characters?.length) throw new Error("No characters available");
     return characters;
   }
@@ -51,8 +51,8 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
     if (guard.current || result) return;
     guard.current = true; setSelected(value); setBusy(true); setError("");
     try {
-      const response = await api.post<Answer>("/quiz/answer", { type: script, kanaId: question.character.id, answer: value, submissionId: question.submissionId });
-      setAnswers(previous => [...previous, response.data]);
+      const saved = await submitKanaAnswer({ type: script, kanaId: question.character.id, answer: value, submissionId: question.submissionId });
+      setAnswers(previous => [...previous, saved]);
     } catch {
       setError("Could not confirm the save. Retry the same answer safely; it will only count once.");
     } finally { guard.current = false; setBusy(false); }

@@ -1,5 +1,2 @@
-sửa lại routing
-katakana review chưa có game
 add admin page
 add Nghe, nói
-chỉnh lại confirmation cho new session

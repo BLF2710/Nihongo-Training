@@ -1,32 +1,17 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
 import Navbar from "../components/Navbar";
-import api from "../api/axios";
+import { fetchMatchPairs, fetchScrambleQuestions, submitGameScore } from "../api/english";
+import type { MatchPair, ScrambleQuestion } from "../api/english";
 import { useLanguage } from "../context/LanguageContext";
 
 // =====================
 // Types
 // =====================
-type MatchPair = {
-  id: number;
-  word: string;
-  definition: string;
-  category: string;
-  difficulty: string;
-};
-
-type ScrambleQuestion = {
-  id: number;
-  wordLength: number;
-  scrambledLetters: string[];
-  originalWord: string;
-  definition: string;
-  hint?: string;
-  category: string;
-  difficulty: string;
-};
-
 type GamePhase = "lobby" | "countdown" | "playing" | "gameover";
+
+const MATCH_PAIR_COUNT = 6;
+const SCRAMBLE_QUESTION_COUNT = 10;
 
 export default function EnglishArcadePage() {
 
@@ -94,7 +79,7 @@ export default function EnglishArcadePage() {
     scoreSubmittedRef.current = true;
 
     try {
-      await api.post("/english/games/score", {
+      await submitGameScore({
         gameType,
         sessionId: gameSessionIdRef.current,
         score,
@@ -131,10 +116,7 @@ export default function EnglishArcadePage() {
   // =====================
   const loadMatchData = useCallback(async (resetGame = true) => {
     try {
-      const res = await api.get("/english/games/match", {
-        params: { difficulty, count: 6 }
-      });
-      const pairs: MatchPair[] = res.data.pairs;
+      const pairs = await fetchMatchPairs(difficulty, MATCH_PAIR_COUNT);
       setMatchWords([...pairs].sort(() => 0.5 - Math.random()));
       setMatchDefs([...pairs].sort(() => 0.5 - Math.random()));
       setMatchedIds(new Set());
@@ -254,8 +236,7 @@ export default function EnglishArcadePage() {
   // =====================
   const loadScrambleData = useCallback(async () => {
     try {
-      const res = await api.get("/english/games/scramble", { params: { count: 10 } });
-      const qs: ScrambleQuestion[] = res.data.questions;
+      const qs = await fetchScrambleQuestions(SCRAMBLE_QUESTION_COUNT);
       setScrambleQuestions(qs);
       setCurrentScrambleIndex(0);
       setScrambleScore(0);

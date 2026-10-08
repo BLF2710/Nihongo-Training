@@ -1,4 +1,4 @@
-import { LESSONS } from "../services/lesson.service";
+import { LESSONS } from "./lessons";
 
 export type UnitDefinition = {
   id: string;

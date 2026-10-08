@@ -7,9 +7,10 @@ import {
   useCallback
 } from "react";
 import { useSearchParams } from "react-router-dom";
-import { isAxiosError } from "axios";
 import Navbar from "../components/Navbar";
-import api from "../api/axios";
+import { apiErrorMessage } from "../api/errors";
+import { submitKanaAnswer } from "../api/quiz";
+import type { KanaAnswerResult } from "../api/quiz";
 import KanaQuizSetup from "../components/KanaQuizSetup";
 
 type Kana = {
@@ -19,11 +20,7 @@ type Kana = {
   type?: "hiragana" | "katakana";
 };
 
-type AnswerResult = {
-  correct: boolean;
-  correctAnswer: string;
-  type?: "hiragana" | "katakana";
-};
+type AnswerResult = KanaAnswerResult;
 
 // Shared without changing Speed Quiz matching behavior.
 import { isRomajiMatch } from "../lib/romaji";
@@ -97,10 +94,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
       focusInput();
     }).catch((error: unknown) => {
       console.error(error);
-      setErrorMsg(
-        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
-        `Could not load ${typeToFetch}. Please check if the server is running.`
-      );
+      setErrorMsg(apiErrorMessage(error, `Could not load ${typeToFetch}. Please check if the server is running.`));
     }).finally(() => {
       setLoading(false);
     });
@@ -139,13 +133,11 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
     sendingRef.current = true; setSending(true);
 
     try {
-      const res = await api.post<AnswerResult>("/quiz/answer", {
+      const data = await submitKanaAnswer({
         type: currentType,
         kanaId: current.id,
         answer: textToSubmit.trim(), submissionId
       });
-
-      const data: AnswerResult = res.data;
       if (!active.current) return;
       setResult(data);
 
@@ -164,10 +156,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
     } catch (error: unknown) {
       if (!active.current) return;
       console.error(error);
-      setErrorMsg(
-        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
-        "Failed to submit answer. Please try again."
-      );
+      setErrorMsg(apiErrorMessage(error, "Failed to submit answer. Please try again."));
     } finally { sendingRef.current = false; if (active.current) setSending(false); }
   };
 

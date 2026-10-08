@@ -1,8 +1,12 @@
-import { pool } from "../config/db";
 import { UNITS, UnitDefinition } from "../data/units";
 import { UNIT_ASSESSMENTS } from "../data/unit-assessments";
+import { listAssessmentProgress } from "../repositories/assessment.repository";
+import { getXp } from "../repositories/gamification.repository";
+import { listCompletedLessonIds } from "../repositories/lesson-progress.repository";
 import { getLevelFromXP } from "./progression.service";
-import { LESSONS, LessonDefinition, canUserAccessLesson } from "./lesson.service";
+import { LessonDefinition, canUserAccessLesson, findLesson, getLessonAccess } from "./lesson.service";
+
+type Access = { allowed: boolean; reasons: string[] };
 
 // Completion is derived, never stored as a second copy of lesson progress.
 export function getUnitProgress(unit: UnitDefinition, completedLessonIds: Set<string>, passedAssessmentIds: Set<string>) {
@@ -13,7 +17,7 @@ export function getUnitProgress(unit: UnitDefinition, completedLessonIds: Set<st
   return { completedLessons, totalLessons: unit.lessonIds.length, allLessonsCompleted, assessmentPassed, completed: allLessonsCompleted && assessmentPassed };
 }
 
-export function getUnitAccess(unit: UnitDefinition, level: number, completedUnitIds: Set<string>, definitions = UNITS) {
+export function getUnitAccess(unit: UnitDefinition, level: number, completedUnitIds: Set<string>, definitions = UNITS): Access {
   const reasons: string[] = [];
   if (level < unit.requiredLevel) reasons.push(`Requires Level ${unit.requiredLevel}`);
   if (unit.previousUnitId && !completedUnitIds.has(unit.previousUnitId)) {
@@ -23,42 +27,50 @@ export function getUnitAccess(unit: UnitDefinition, level: number, completedUnit
   return { allowed: reasons.length === 0, reasons };
 }
 
+// A lesson is open only when both its unit and its own requirements allow it.
+function describeLessons(unit: UnitDefinition, unitAccess: Access, xp: number, completedLessonIds: Set<string>) {
+  return unit.lessonIds.map(id => {
+    const lesson = findLesson(id);
+    if (!lesson) throw new Error(`Missing lesson ${id}`);
+    const lessonAccess = getLessonAccess(lesson, xp, !!lesson.previousLessonId && completedLessonIds.has(lesson.previousLessonId));
+    return { ...lesson, isPlaceholder: false, description: "", completed: completedLessonIds.has(id), allowed: unitAccess.allowed && lessonAccess.allowed, reasons: [...unitAccess.reasons, ...lessonAccess.reasons] };
+  });
+}
+
+function describePlaceholderLessons(unit: UnitDefinition) {
+  return (unit.placeholderLessons ?? []).map(lesson => ({ ...lesson, isPlaceholder: Boolean(lesson.isPlaceholder), slug: "", completed: false, allowed: false, reasons: [lesson.description] }));
+}
+
 export async function getUserUnits(userId: number) {
-  const [game, progress, assessments] = await Promise.all([
-    pool.query("SELECT xp FROM user_gamification WHERE user_id=$1", [userId]),
-    pool.query("SELECT lesson_id FROM lesson_progress WHERE user_id=$1", [userId]),
-    pool.query("SELECT assessment_id, best_score, passed_at FROM user_assessment_progress WHERE user_id=$1", [userId]),
+  const [xp, completedLessons, assessments] = await Promise.all([
+    getXp(userId),
+    listCompletedLessonIds(userId),
+    listAssessmentProgress(userId),
   ]);
-  const level = getLevelFromXP(Number(game.rows[0]?.xp ?? 0));
-  const completedIds = new Set<string>(progress.rows.map(row => row.lesson_id));
-  const passedIds = new Set<string>(assessments.rows.filter(row => row.passed_at).map(row => row.assessment_id));
+  const level = getLevelFromXP(xp);
+  const completedIds = new Set<string>(completedLessons);
+  const passedIds = new Set<string>(assessments.filter(row => row.passed_at).map(row => row.assessment_id));
   const progressByUnit = new Map(UNITS.map(unit => [unit.id, getUnitProgress(unit, completedIds, passedIds)]));
   const completedUnitIds = new Set(UNITS.filter(unit => progressByUnit.get(unit.id)?.completed).map(unit => unit.id));
-  return Promise.all(UNITS.map(async unit => {
+  return UNITS.map(unit => {
     const progress = progressByUnit.get(unit.id)!;
     const access = getUnitAccess(unit, level, completedUnitIds);
     const assessment = UNIT_ASSESSMENTS.find(item => item.id === unit.assessmentId);
     if (!assessment && !unit.isPlaceholder) throw new Error(`Missing assessment for ${unit.id}`);
-    const saved = assessments.rows.find(row => row.assessment_id === unit.assessmentId);
-    const lessons = await Promise.all((unit.isPlaceholder ? [] : unit.lessonIds).map(async id => {
-      const lesson = LESSONS.find(item => item.id === id);
-      if (!lesson) throw new Error(`Missing lesson ${id}`);
-      const lessonAccess = await canUserAccessLesson(userId, lesson);
-      return { ...lesson, isPlaceholder: false, description: "", completed: completedIds.has(id), allowed: access.allowed && lessonAccess.allowed, reasons: [...access.reasons, ...lessonAccess.reasons] };
-    }));
+    const saved = assessments.find(row => row.assessment_id === unit.assessmentId);
     return {
       ...unit, ...progress, ...access,
-      lessons: unit.isPlaceholder ? (unit.placeholderLessons ?? []).map(lesson => ({ ...lesson, isPlaceholder: Boolean(lesson.isPlaceholder), slug: "", completed: false, allowed: false, reasons: [lesson.description] })) : lessons,
+      lessons: unit.isPlaceholder ? describePlaceholderLessons(unit) : describeLessons(unit, access, xp, completedIds),
       assessmentUnlocked: !unit.isPlaceholder && !!assessment && access.allowed && progress.allLessonsCompleted,
       questionCount: assessment?.questions.length ?? 0, passPercent: assessment?.passPercent ?? null,
       bestScore: !unit.isPlaceholder && saved ? Number(saved.best_score) : null,
       bestCorrect: !unit.isPlaceholder && saved && assessment ? Math.round(Number(saved.best_score) * assessment.questions.length / 100) : null,
     };
-  }));
+  });
 }
 
 // Adds unit availability above the existing lesson rules; Unit 1's rules are unchanged.
-export async function canAccessCourseLesson(userId: number, lesson: LessonDefinition) {
+export async function canAccessCourseLesson(userId: number, lesson: LessonDefinition): Promise<Access> {
   const unit = (await getUserUnits(userId)).find(item => item.lessonIds.includes(lesson.id));
   const access = unit?.lessons.find(item => item.id === lesson.id);
   return access ? { allowed: access.allowed, reasons: access.reasons } : canUserAccessLesson(userId, lesson);

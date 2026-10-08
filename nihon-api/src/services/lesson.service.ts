@@ -1,21 +1,30 @@
-import { pool } from "../config/db";
-import { UNIT_2_3_LESSONS } from "../data/unit23-lessons";
+import { LESSONS } from "../data/lessons";
+import type { LessonDefinition } from "../data/lessons";
+import { getXp } from "../repositories/gamification.repository";
+import { isLessonCompleted } from "../repositories/lesson-progress.repository";
 import { getLevelFromXP, getRankFromXP, RANK_THRESHOLDS } from "./progression.service";
 
-export type LessonDefinition = { id: string; slug: string; title: string; unit: string; previousLessonId?: string; minimumLevel?: number; minimumRank?: string };
-export const LESSONS: LessonDefinition[] = [
-  { id: "japanese-n5-unit-1-hello", slug: "n5-unit-1-hello", title: "How to Say Hello", unit: "Japanese N5 Unit 1" },
-  { id: "japanese-n5-unit-1-introductions", slug: "n5-unit-1-introductions", title: "Introducing Yourself", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-hello", minimumLevel: 2 },
-  { id: "japanese-n5-unit-1-origin", slug: "n5-unit-1-origin", title: "Where Are You From?", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-introductions" },
-  { id: "japanese-n5-unit-1-questions", slug: "n5-unit-1-questions", title: "Basic Questions", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-origin" },
-  { id: "japanese-n5-unit-1-numbers-age", slug: "n5-unit-1-numbers-age", title: "Numbers & Age", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-questions" },
-  { id: "japanese-n5-unit-1-demonstratives", slug: "n5-unit-1-demonstratives", title: "This, That & Those", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-numbers-age" }
-];
-LESSONS.push(...UNIT_2_3_LESSONS);
-export async function canUserAccessLesson(userId: number, lesson: LessonDefinition) {
-  const user = await pool.query("SELECT xp FROM user_gamification WHERE user_id=$1", [userId]); const xp = Number(user.rows[0]?.xp ?? 0);
-  const completed = lesson.previousLessonId ? await pool.query("SELECT 1 FROM lesson_progress WHERE user_id=$1 AND lesson_id=$2", [userId, lesson.previousLessonId]) : null;
-  const rank = getRankFromXP(xp); const requiredRankIndex = lesson.minimumRank ? RANK_THRESHOLDS.findIndex((item) => item.name === lesson.minimumRank) : -1; const rankIndex = RANK_THRESHOLDS.findIndex((item) => item.name === rank);
-  const reasons = [lesson.previousLessonId && !(completed?.rowCount) ? "Complete the previous lesson" : null, lesson.minimumLevel && getLevelFromXP(xp) < lesson.minimumLevel ? `Reach Level ${lesson.minimumLevel}` : null, requiredRankIndex >= 0 && rankIndex < requiredRankIndex ? `Reach ${lesson.minimumRank}` : null].filter(Boolean) as string[];
+export { LESSONS };
+export type { LessonDefinition };
+
+export const findLesson = (lessonId: unknown) => LESSONS.find(item => item.id === lessonId);
+
+const rankIndex = (name: string) => RANK_THRESHOLDS.findIndex(item => item.name === name);
+
+/** A lesson's own requirements: previous lesson, minimum level, and minimum rank. */
+export function getLessonAccess(lesson: LessonDefinition, xp: number, previousLessonCompleted: boolean) {
+  const reasons: string[] = [];
+  if (lesson.previousLessonId && !previousLessonCompleted) reasons.push("Complete the previous lesson");
+  if (lesson.minimumLevel && getLevelFromXP(xp) < lesson.minimumLevel) reasons.push(`Reach Level ${lesson.minimumLevel}`);
+  if (lesson.minimumRank) {
+    const requiredRankIndex = rankIndex(lesson.minimumRank);
+    if (requiredRankIndex >= 0 && rankIndex(getRankFromXP(xp)) < requiredRankIndex) reasons.push(`Reach ${lesson.minimumRank}`);
+  }
   return { allowed: reasons.length === 0, reasons };
+}
+
+export async function canUserAccessLesson(userId: number, lesson: LessonDefinition) {
+  const xp = await getXp(userId);
+  const previousLessonCompleted = lesson.previousLessonId ? await isLessonCompleted(userId, lesson.previousLessonId) : false;
+  return getLessonAccess(lesson, xp, previousLessonCompleted);
 }

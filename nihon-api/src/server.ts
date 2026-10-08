@@ -1,72 +1,11 @@
-import express from "express";
-import cors from "cors";
-import authRoutes
-from "./routes/auth.routes";
+import { createApp } from "./app";
+import { seedGameScoresTable } from "./services/games.seed";
 
-import {
-  authenticate
-} from "./middleware/auth.middleware";
-
-import quizRoutes
-from "./routes/quiz.routes";
-
-import statisticsRoutes
-from "./routes/statistics.routes";
-
-import englishRoutes
-from "./routes/english.routes";
-import profileRoutes from "./routes/profile.routes";
-import lessonRoutes from "./routes/lesson.routes";
-import unitRoutes from "./routes/unit.routes";
-import kanjiRoutes from "./routes/kanji.routes";
+const PORT = 5000;
 
 // Auto-create game scores table on startup
-import "./services/games.seed";
+seedGameScoresTable().catch(console.error);
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("API Running");
-});
-
-app.use(
-  "/api/auth",
-  authRoutes
-);
-app.use("/api/profile", profileRoutes);
-app.use("/api/lessons", lessonRoutes);
-app.use("/api/units", unitRoutes);
-app.use("/api/kanji", kanjiRoutes);
-
-app.get(
-  "/profile",
-  authenticate,
-  (req, res) => {
-    res.json({
-      user: (req as any).user
-    });
-  }
-);
-
-app.use(
-  "/api/quiz",
-  quizRoutes
-);
-
-app.use(
-  "/api/statistics",
-  statisticsRoutes
-);
-
-app.use(
-  "/api/english",
-  englishRoutes
-);
-
-app.listen(5000, () => {
-  console.log(
-    "Server running on port 5000"
-  );
+createApp().listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

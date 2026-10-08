@@ -26,6 +26,3 @@ export async function seedGameScoresTable() {
 
   console.log("✅ user_game_scores table created/verified.");
 }
-
-// Auto-run on import
-seedGameScoresTable().catch(console.error);

@@ -1,8 +1,9 @@
 import BackButton from "../components/BackButton";
 import { useState } from "react";
-import { isAxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-import api from "../api/axios";
+import { login as signIn } from "../api/auth";
+import { apiErrorMessage } from "../api/errors";
+import { saveSession } from "../lib/authStorage";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
@@ -24,30 +25,15 @@ export default function LoginPage() {
 
       setLoading(true);
 
-      const response =
-        await api.post(
-          "/auth/login",
-          {
-            login,
-            password
-          }
-        );
+      const { token, user } = await signIn(login, password);
+      const userRole = user?.role || "learner";
+      saveSession({ token, userName: user?.username || login, userEmail: user?.email || "", userRole });
 
-      localStorage.setItem(
-        "token",
-        response.data.token
-      );
-      localStorage.setItem("user_name", response.data.user?.username || login);
-      localStorage.setItem("user_email", response.data.user?.email || "");
-
-      navigate("/");
+      navigate(userRole === "admin" ? "/admin" : "/");
 
     } catch (error: unknown) {
 
-      alert(
-        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
-        "Login failed"
-      );
+      alert(apiErrorMessage(error, "Login failed"));
 
     } finally {
 
