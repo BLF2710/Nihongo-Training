@@ -1,3 +1,4 @@
+import { useBack } from "../lib/useBack";
 import { useActivity, useActivityState } from "../context/ActivityContext";
 import {
   useEffect,
@@ -5,7 +6,7 @@ import {
   useRef,
   useCallback
 } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { isAxiosError } from "axios";
 import Navbar from "../components/Navbar";
 import api from "../api/axios";
@@ -33,7 +34,7 @@ export default function PracticePage() {
 
 function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: () => void }) {
   const session = useActivity();
-  const navigate = useNavigate();
+  const goBack = useBack();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentType = searchParams.get("type") === "katakana" ? "katakana" : "hiragana";
@@ -72,7 +73,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
     // Keep earned statistics; reopening Speed Quiz should show character selection.
     session.patch({ characters: null });
     session.complete();
-    navigate("/");
+    goBack();
   };
 
   const focusInput = () => {
@@ -211,12 +212,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
         {/* Top Controls Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
-            <button
-              onClick={() => navigate("/")}
-              className="border border-gray-300 bg-white px-4 py-2 rounded-lg hover:bg-gray-100 transition font-medium text-gray-700 shadow-sm"
-            >
-              ← Home
-            </button>
+
 
             {/* Mode Switcher Tabs */}
             <div className="flex bg-gray-200 p-1 rounded-xl shadow-inner">

@@ -35,7 +35,6 @@ function Selection({ script, children }: { script: "hiragana" | "katakana"; chil
   const group = (item: KanaApiCharacter) => [...item.kana].length === 1 ? "Single" : /[ゃゅょャュョ]$/.test(item.kana) && /^[きしちにひみりぎじびぴキシチニヒミリギジビピ]/.test(item.kana) ? "Double" : "Extended";
   const chosen = characters.filter(item => selected.includes(item.id));
   return <div className="min-h-screen bg-gray-50"><Navbar /><main className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-    <Link to="/" className="font-semibold text-gray-600 hover:underline">← Dashboard</Link>
     <h1 className="mt-6 text-3xl font-black">{title} Speed Quiz</h1>
     <p className="mt-2 text-gray-600">Choose characters to practice, then start the game.</p>
     <nav aria-label="Quiz script" className="my-5 flex gap-3">{["hiragana", "katakana"].map(type => <Link key={type} to={`/practice?type=${type}`} aria-current={type === script ? "page" : undefined} className={`rounded-xl border px-4 py-2 font-bold ${type === script ? "bg-emerald-600 text-white" : "bg-white"}`}>{type === "hiragana" ? "Hiragana" : "Katakana"}</Link>)}</nav>
@@ -70,7 +69,7 @@ function Selection({ script, children }: { script: "hiragana" | "katakana"; chil
           {!items.length && <p className="mt-3 text-sm text-gray-500">These characters are not available in the quiz catalog yet.</p>}
         </section>;
       })}</div>
-      <div className="sticky bottom-0 mt-5 flex items-center justify-between gap-4 rounded-xl border bg-white p-4 shadow-sm"><span>{chosen.length} characters selected</span><button disabled={!chosen.length} onClick={() => { if (activity.begin(true)) { setSession(chosen); setChoosing(false); } }} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white disabled:opacity-40">Start Quiz →</button></div>
+      <div className="sticky bottom-0 mt-5 flex items-center justify-between gap-4 rounded-xl border bg-white p-4 shadow-sm"><span>{chosen.length} characters selected</span><button disabled={!chosen.length} onClick={async () => { if (await activity.begin(true)) { setSession(chosen); setChoosing(false); } }} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white disabled:opacity-40">Start Quiz →</button></div>
     </>}
   </main></div>;
 }

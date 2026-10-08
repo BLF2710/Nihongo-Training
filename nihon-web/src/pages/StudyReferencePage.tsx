@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { GrammarCard, VocabularyCard } from "../components/StudyReferenceCards";
 import VocabularyFlashcards from "../components/VocabularyFlashcard";
@@ -26,7 +26,7 @@ function StudyReferenceContent({ kind, unit, initialLesson, onUnitChange }: {
   return <div className="min-h-screen bg-gray-50 flex flex-col">
     <Navbar />
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6">
-      <Link to={`/lessons?unit=${unit.id}`} className="text-sm font-semibold text-gray-600 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-emerald-600">← Lessons</Link>
+
       <header className="mt-6 mb-8">
         <span className="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">🇯🇵 {unit.course}</span>
         <h1 className="mt-3 text-3xl font-black text-gray-900 sm:text-4xl">{title}</h1>

@@ -45,7 +45,7 @@ export default function KanjiPage() {
   });
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar />
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
-      <Link to={kanjiId ? "/learn/kanji" : "/"} className="text-sm font-semibold text-gray-600 hover:underline">{kanjiId ? "← Back to Kanji" : "← Dashboard"}</Link>
+
       {error && <div role="alert" className="mt-5 rounded-xl bg-red-50 p-4 text-red-700">{error} <button className="underline" onClick={() => setReload(value => value + 1)}>Retry loading progress</button></div>}
       {!progress && !error && <p role="status" className="mt-4">Loading progress…</p>}
       {kanjiId && !kanji ? <h1 className="mt-6 text-2xl font-bold">Kanji not found</h1> : kanji ? <>

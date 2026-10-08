@@ -1,3 +1,4 @@
+import BackButton from "../components/BackButton";
 import { useState } from "react";
 import { isAxiosError } from "axios";
 import api from "../api/axios";
@@ -74,6 +75,7 @@ export default function RegisterPage() {
           shadow
         "
       >
+        <BackButton className="mb-4 text-sm font-semibold text-gray-600 hover:underline" />
         <h1
           className="
             text-3xl

@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import type { Activity, SavedActivity } from "../lib/activitySession";
-export type ActivityControl = { activity: Activity | null; initial: SavedActivity | null; begin: (restart?: boolean) => boolean; patch: (data: Record<string, unknown>) => void; complete: () => void; title: (title: string) => void };
+export type ActivityControl = { activity: Activity | null; initial: SavedActivity | null; begin: (restart?: boolean) => Promise<boolean>; patch: (data: Record<string, unknown>) => void; complete: () => void; title: (title: string) => void };
 export const ActivityContext = createContext<ActivityControl | null>(null);
 export function useActivity() { const context = useContext(ActivityContext); if (!context) throw new Error("Missing activity session provider"); return context; }
 export function useActivityTitle(title: string) { const { title: updateTitle } = useActivity(); useEffect(() => { updateTitle(title); }, [title, updateTitle]); }

@@ -27,10 +27,9 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
   const guard = useRef(false);
   const question = questions[index];
   const result = answers[index];
-  const back = kanjiId ? `/learn/kanji/${kanjiId}` : "/learn/kanji";
   async function start() {
     if (guard.current) return;
-    if (!session.begin(true)) return;
+    if (!(await session.begin(true))) return;
     setSize(size);
     setPhase("setup"); setQuestions([]); setAnswers([]); setSelected(null); setIndex(0);
     guard.current = true; setBusy(true); setError("");
@@ -58,7 +57,7 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
   const correct = answers.filter(a => a.correct).length;
   const latest = [...new Map(answers.map(a => [a.progress.kanjiId, a.progress])).values()];
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto max-w-4xl px-4 py-10">
-    <Link className="text-sm font-semibold text-gray-600 hover:underline" to={back}>← Back to Kanji</Link>
+
     <h1 className="my-6 text-3xl font-black">Kanji Practice{character ? ` · ${character.character}` : ""}</h1>
     {phase === "quiz" && <button className={`${button} mb-5`} disabled={busy} onClick={() => void start()}>Start new practice</button>}
     <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
@@ -88,7 +87,7 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
           <dl className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">{[["Questions", answers.length], ["Correct", correct], ["Incorrect", answers.length - correct], ["Accuracy", `${Math.round(correct / answers.length * 100)}%`]].map(([label, value]) => <div key={label} className="rounded-xl bg-gray-50 p-4"><dt className="text-sm text-gray-500">{label}</dt><dd className="text-2xl font-bold">{value}</dd></div>)}</dl>
           <h3 className="font-semibold">Saved character progress</h3>
           <ul className="my-4 space-y-2">{latest.map(p => <li key={p.kanjiId}><Link className="font-semibold text-emerald-700 underline" to={`/learn/kanji/${p.kanjiId}`}>{KANJI.find(k => k.id === p.kanjiId)?.character}</Link> · {p.status} · {p.correctCount} correct / {p.total} attempts</li>)}</ul>
-          <div className="flex flex-wrap gap-3"><button className={button} onClick={() => { setPhase("setup"); setError(""); }}>Practice Again</button><Link className={button} to={back}>Back to Kanji</Link></div>
+          <div className="flex flex-wrap gap-3"><button className={button} onClick={() => { setPhase("setup"); setError(""); }}>Practice Again</button></div>
         </>}
       </>}
     </section><KanjiAttribution />

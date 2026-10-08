@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
 import api from "../api/axios";
 import { useLanguage } from "../context/LanguageContext";
@@ -29,7 +29,7 @@ type ScrambleQuestion = {
 type GamePhase = "lobby" | "countdown" | "playing" | "gameover";
 
 export default function EnglishArcadePage() {
-  const navigate = useNavigate();
+
   const { setLanguage } = useLanguage();
 
   useEffect(() => {
@@ -390,17 +390,7 @@ export default function EnglishArcadePage() {
         {/* ========================================================= */}
         {phase === "lobby" && (
           <div className="flex-1 flex flex-col items-center justify-center animate-in fade-in duration-300">
-            {/* Back to dashboard */}
-            <div className="w-full flex items-center mb-8">
-              <button
-                onClick={() => navigate("/")}
-                className="border border-gray-300 bg-white px-4 py-2 rounded-lg hover:bg-gray-100 transition font-medium text-gray-700 shadow-xs cursor-pointer"
-              >
-                ← Dashboard
-              </button>
-            </div>
-
-            <div className="bg-white rounded-3xl border border-gray-200 shadow-lg p-8 sm:p-12 max-w-xl w-full text-center">
+<div className="bg-white rounded-3xl border border-gray-200 shadow-lg p-8 sm:p-12 max-w-xl w-full text-center">
               {/* Game Mode Tabs */}
               <div className="flex bg-gray-200 p-1 rounded-xl shadow-inner mb-8 mx-auto max-w-xs">
                 <button
