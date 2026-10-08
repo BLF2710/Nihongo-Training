@@ -1,6 +1,6 @@
 import { useActivity, useActivityState } from "../context/ActivityContext";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
 import QuizChoices from "../components/QuizChoices";
 import api from "../api/axios";
@@ -36,7 +36,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
   }
   async function start() {
     if (guard.current) return;
-    if (!session.begin(true)) return;
+    if (!(await session.begin(true))) return;
     setSize(size);
     setPhase("setup"); setQuestions([]); setAnswers([]); setIndex(0); setSelected(null); setLatest(null);
     guard.current = true; setBusy(true); setError("");
@@ -75,7 +75,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
   return <div className="min-h-screen bg-gray-50 text-gray-900">
     <Navbar />
     <main className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
-      <Link className="text-sm font-semibold text-gray-600 hover:underline" to={`/statistics/japanese?type=${script}`}>← Back to {title} Mastery</Link>
+
       <h1 className="text-3xl font-bold mt-5 mb-6">{title} Review</h1>
       {phase === "quiz" && <button className={`${button} mb-5`} disabled={busy} onClick={() => void start()}>Start new Review</button>}
       <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 sm:p-8">
@@ -104,7 +104,7 @@ export default function ReviewPage({ script }: { script: KanaScript }) {
           {busy && <p role="status">Loading updated character progress…</p>}
           {latest && <div className="space-y-4 mb-6"><div><h3 className="font-semibold">Characters that reached Mastered</h3><p lang="ja" className="text-2xl mt-2">{newlyMastered?.map(c => c.kana).join(" · ") || "None this session"}</p></div><div><h3 className="font-semibold">Characters still Learning</h3><p lang="ja" className="text-2xl mt-2">{learning?.map(c => c.kana).join(" · ") || "None this session"}</p></div></div>}
           {error && <button className={button} disabled={busy} onClick={() => void refreshSummary()}>Retry loading progress</button>}
-          <div className="flex flex-wrap gap-3 mt-5"><button className={button} disabled={busy} onClick={() => { guard.current = false; setPhase("setup"); setError(""); }}>Review Again</button><Link className={button} to={`/statistics/japanese?type=${script}`}>Back to {title} Mastery</Link></div>
+          <div className="flex flex-wrap gap-3 mt-5"><button className={button} disabled={busy} onClick={() => { guard.current = false; setPhase("setup"); setError(""); }}>Review Again</button></div>
         </>}
       </section>
     </main>

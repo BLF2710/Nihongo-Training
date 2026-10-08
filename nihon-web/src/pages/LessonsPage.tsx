@@ -19,7 +19,7 @@ export default function LessonsPage() {
   }, []);
   const unit = units.find(item => item.id === selectedId);
   const lessons = unit?.lessons ?? [];
-  return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><button onClick={() => navigate("/")} className="text-sm font-semibold text-gray-600 hover:text-gray-900">← Dashboard</button><div className="mt-6 mb-8"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">🇯🇵 Japanese • N5 Beginner</span><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">Build practical Japanese step by step.</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
+  return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><div className="mt-6 mb-8"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">🇯🇵 Japanese • N5 Beginner</span><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">Build practical Japanese step by step.</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
     {!units.length && !error && <p role="status">Loading units…</p>}
     {!unit && units.length > 0 && <section aria-labelledby="choose-unit-heading">
       <h2 id="choose-unit-heading" className="mb-2 text-2xl font-black text-gray-900">Choose a unit</h2>
@@ -34,7 +34,7 @@ export default function LessonsPage() {
       </button>)}</div>
     </section>}
     {unit && <section className="mb-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <button onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold text-emerald-700 hover:text-emerald-900 focus-visible:outline-2 focus-visible:outline-emerald-600">← Choose a unit</button>
+      <button onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold text-emerald-700 hover:text-emerald-900 focus-visible:outline-2 focus-visible:outline-emerald-600">Choose another unit</button>
       <UnitSelector units={units} selectedId={unit.id} onChange={selectUnit} />
       <p className="mt-6 text-xs font-bold uppercase tracking-wider text-emerald-700">Unit {unit.number}</p>
       <h2 className="mt-1 text-3xl font-black text-gray-900">{unit.title}</h2>

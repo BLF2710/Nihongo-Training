@@ -150,12 +150,7 @@ export default function StatisticsPage() {
       <div className="max-w-6xl w-full mx-auto px-6 py-8 flex-1">
         {/* Navigation & Header */}
         <div className="flex items-center justify-between mb-8">
-          <button
-            onClick={() => navigate("/")}
-            className="border border-gray-300 bg-white px-4 py-2 rounded-lg hover:bg-gray-100 transition font-medium text-gray-700 shadow-sm cursor-pointer"
-          >
-            ← Home
-          </button>
+
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">

@@ -7,6 +7,7 @@ import {
 
 import ProtectedRoute
 from "./components/ProtectedRoute";
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -29,18 +30,22 @@ const JapaneseN5LessonPage = lazy(() => import("./pages/JapaneseN5LessonPage"));
 const LessonsPage = lazy(() => import("./pages/LessonsPage"));
 const UnitAssessmentPage = lazy(() => import("./pages/UnitAssessmentPage"));
 
+function LoadingPage({ label }: { label: string }) {
+  return <div className="min-h-screen bg-gray-50"><Navbar /><p role="status" className="mx-auto max-w-6xl p-8">{label}</p></div>;
+}
+
 function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
         <ActivitySessionBoundary><Routes>
-          <Route path="/learn/kanji" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading Kanji…</p>}><KanjiPage /></Suspense></ProtectedRoute>} />
-          <Route path="/learn/kanji/practice" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading practice…</p>}><KanjiPracticePage /></Suspense></ProtectedRoute>} />
-          <Route path="/learn/kanji/:kanjiId" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading Kanji…</p>}><KanjiPage /></Suspense></ProtectedRoute>} />
-          <Route path="/quizzes" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading quizzes…</p>}><QuizzesPage /></Suspense></ProtectedRoute>} />
-          <Route path="/quizzes/:unitId" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading assessment…</p>}><UnitAssessmentPage /></Suspense></ProtectedRoute>} />
-          <Route path="/vocabulary" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading vocabulary…</p>}><StudyReferencePage key="vocabulary" kind="vocabulary" /></Suspense></ProtectedRoute>} />
-          <Route path="/grammar" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading grammar…</p>}><StudyReferencePage key="grammar" kind="grammar" /></Suspense></ProtectedRoute>} />
+          <Route path="/learn/kanji" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading Kanji…" />}><KanjiPage /></Suspense></ProtectedRoute>} />
+          <Route path="/learn/kanji/practice" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading practice…" />}><KanjiPracticePage /></Suspense></ProtectedRoute>} />
+          <Route path="/learn/kanji/:kanjiId" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading Kanji…" />}><KanjiPage /></Suspense></ProtectedRoute>} />
+          <Route path="/quizzes" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading quizzes…" />}><QuizzesPage /></Suspense></ProtectedRoute>} />
+          <Route path="/quizzes/:unitId" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading assessment…" />}><UnitAssessmentPage /></Suspense></ProtectedRoute>} />
+          <Route path="/vocabulary" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading vocabulary…" />}><StudyReferencePage key="vocabulary" kind="vocabulary" /></Suspense></ProtectedRoute>} />
+          <Route path="/grammar" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading grammar…" />}><StudyReferencePage key="grammar" kind="grammar" /></Suspense></ProtectedRoute>} />
           <Route path="/review/hiragana" element={<ProtectedRoute><ReviewPage key="hiragana-review" script="hiragana" /></ProtectedRoute>} />
           <Route path="/review/katakana" element={<ProtectedRoute><ReviewPage key="katakana-review" script="katakana" /></ProtectedRoute>} />
           <Route
@@ -108,7 +113,7 @@ function App() {
             path="/lessons"
             element={
               <ProtectedRoute>
-                <Suspense fallback={<p role="status" className="p-8">Loading lessons…</p>}><LessonsPage /></Suspense>
+                <Suspense fallback={<LoadingPage label="Loading lessons…" />}><LessonsPage /></Suspense>
               </ProtectedRoute>
             }
           />
@@ -120,7 +125,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/lessons/japanese/:lessonSlug" element={<ProtectedRoute><Suspense fallback={<p role="status" className="p-8">Loading lesson…</p>}><JapaneseN5LessonPage /></Suspense></ProtectedRoute>} />
+          <Route path="/lessons/japanese/:lessonSlug" element={<ProtectedRoute><Suspense fallback={<LoadingPage label="Loading lesson…" />}><JapaneseN5LessonPage /></Suspense></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
           <Route path="/learn/hiragana" element={<ProtectedRoute><HiraganaLearningPage /></ProtectedRoute>} />
           <Route path="/learn/hiragana/:characterId" element={<ProtectedRoute><HiraganaLearningPage /></ProtectedRoute>} />
