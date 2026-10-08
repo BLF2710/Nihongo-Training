@@ -1,9 +1,11 @@
+import { getToken } from "./authStorage";
+
 export type ActivityKind = "lesson" | "assessment" | "speed" | "review" | "kanji";
 export type Activity = { key: string; href: string; title: string; kind: ActivityKind };
 export type SavedActivity = Activity & { version: 1; id: string; status: "active" | "completed"; updatedAt: string; data: Record<string, unknown> };
 const event = "learning-session-change";
 export function sessionStorageKey() {
-  const token = localStorage.getItem("token");
+  const token = getToken();
   if (!token) return null;
   try {
     const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))) as { userId?: number };

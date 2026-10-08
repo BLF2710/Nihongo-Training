@@ -1,4 +1,4 @@
-import type { LessonDefinition } from "../services/lesson.service";
+import type { LessonDefinition } from "./lessons";
 
 export const UNIT_2_3_LESSONS: LessonDefinition[] = [
   {

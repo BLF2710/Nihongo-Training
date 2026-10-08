@@ -1,22 +1,22 @@
-import { pool } from "../config/db";
 import type { PoolClient } from "pg";
+import { withTransaction } from "../db/transaction";
+import { addXp, insertXpEvent, lockXp } from "../repositories/gamification.repository";
 import { getLevelFromXP, getRankFromXP } from "./progression.service";
 
 export type XPSource = "lesson_completion" | "lesson_challenge" | "quiz" | "game" | "achievement" | "streak";
+
+async function applyAward(client: PoolClient, userId: number, amount: number, source: XPSource, referenceId: string) {
+  const oldXp = await lockXp(userId, client);
+  if (oldXp === null) throw new Error("Gamification profile not found");
+  // Each (source, reference) pays out once; a repeat reports the unchanged totals.
+  const awarded = await insertXpEvent(client, userId, amount, source, referenceId);
+  const xp = awarded ? await addXp(client, userId, amount) : oldXp;
+  return { awarded, oldXp, xp, oldLevel: getLevelFromXP(oldXp), level: getLevelFromXP(xp), oldRank: getRankFromXP(oldXp), rank: getRankFromXP(xp) };
+}
+
 export async function awardXP(userId: number, amount: number, source: XPSource, referenceId: string, transaction?: PoolClient) {
   if (!Number.isInteger(amount) || amount <= 0 || !referenceId) throw new Error("Invalid XP award");
   // Answer receipts and their reward can share one transaction when needed.
-  const client = transaction ?? await pool.connect();
-  try {
-    if (!transaction) await client.query("BEGIN");
-    const before = await client.query("SELECT xp FROM user_gamification WHERE user_id=$1 FOR UPDATE", [userId]);
-    if (!before.rows[0]) throw new Error("Gamification profile not found");
-    const event = await client.query("INSERT INTO xp_events (user_id, amount, source, reference_id) VALUES ($1,$2,$3,$4) ON CONFLICT (user_id,source,reference_id) DO NOTHING RETURNING id", [userId, amount, source, referenceId]);
-    const oldXp = Number(before.rows[0].xp);
-    if (!event.rowCount) { if (!transaction) await client.query("COMMIT"); return { awarded: false, oldXp, xp: oldXp, oldLevel: getLevelFromXP(oldXp), level: getLevelFromXP(oldXp), oldRank: getRankFromXP(oldXp), rank: getRankFromXP(oldXp) }; }
-    const updated = await client.query("UPDATE user_gamification SET xp=xp+$1, updated_at=NOW() WHERE user_id=$2 RETURNING xp", [amount, userId]);
-    const xp = Number(updated.rows[0].xp);
-    if (!transaction) await client.query("COMMIT");
-    return { awarded: true, oldXp, xp, oldLevel: getLevelFromXP(oldXp), level: getLevelFromXP(xp), oldRank: getRankFromXP(oldXp), rank: getRankFromXP(xp) };
-  } catch (error) { if (!transaction) await client.query("ROLLBACK"); throw error; } finally { if (!transaction) client.release(); }
+  if (transaction) return applyAward(transaction, userId, amount, source, referenceId);
+  return withTransaction(client => applyAward(client, userId, amount, source, referenceId));
 }

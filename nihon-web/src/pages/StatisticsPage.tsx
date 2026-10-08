@@ -1,55 +1,12 @@
 import { useEffect, useState, useCallback } from "react";
-import { isAxiosError } from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import api from "../api/axios";
+import { apiErrorMessage, isUnauthorized } from "../api/errors";
+import { fetchStatistics as loadStatistics } from "../api/statistics";
+import type { StatisticsResponse } from "../api/statistics";
 import type { CharacterStat } from "../lib/kanaReview";
 
 const EMPTY_CHARACTERS: CharacterStat[] = [];
-
-type ModeStats = {
-  totalCorrect: number;
-  totalWrong: number;
-  totalAnswers: number;
-  accuracy: number;
-  characters: CharacterStat[];
-};
-
-type GameTypeStats = {
-  gameType: string;
-  gamesPlayed: number;
-  highScore: number;
-  avgAccuracy: number;
-  totalPoints: number;
-};
-
-type RecentGame = {
-  gameType: string;
-  score: number;
-  accuracy: number;
-  difficulty: string;
-  timeTakenSeconds: number;
-  playedAt: string;
-};
-
-type EnglishStats = {
-  totalGames: number;
-  totalPoints: number;
-  avgAccuracy: number;
-  bestScore: number;
-  byGameType: GameTypeStats[];
-  recentGames: RecentGame[];
-};
-
-type StatisticsResponse = {
-  totalCorrect: number;
-  totalWrong: number;
-  totalAnswers: number;
-  accuracy: number;
-  hiragana?: ModeStats;
-  katakana?: ModeStats;
-  english?: EnglishStats | null;
-};
 
 export default function StatisticsPage() {
   const navigate = useNavigate();
@@ -66,17 +23,14 @@ export default function StatisticsPage() {
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterStat | null>(null);
 
   const fetchStatistics = useCallback(() => {
-    return api.get<StatisticsResponse>("/statistics").then((res) => {
-      setStats(res.data);
+    return loadStatistics().then((data) => {
+      setStats(data);
     }).catch((error: unknown) => {
       console.error(error);
-      if (isAxiosError(error) && error.response?.status === 401) {
+      if (isUnauthorized(error)) {
         setErrorMsg("Your session has expired. Please sign in to view statistics.");
       } else {
-        setErrorMsg(
-          (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
-          "Failed to load statistics. Please ensure the backend is running."
-        );
+        setErrorMsg(apiErrorMessage(error, "Failed to load statistics. Please ensure the backend is running."));
       }
     }).finally(() => {
       setLoading(false);

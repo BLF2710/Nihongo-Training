@@ -2,8 +2,10 @@ import { useActivity, useActivityState, useActivityTitle } from "../context/Acti
 import { useEffect, useMemo, useState } from "react";
 
 import Navbar from "../components/Navbar";
-import api from "../api/axios";
+import { completeLesson, completionCelebration } from "../api/lessons";
+import { getUserName } from "../lib/authStorage";
 
+const LESSON_ID = "japanese-n5-unit-1-hello";
 type Answer = { prompt: string; options: string[]; correct: string; explanation: string };
 const expressions = [
   ["おはよう", "Ohayou", "Good morning", "Casual"], ["おはようございます", "Ohayou gozaimasu", "Good morning", "Polite"],
@@ -30,7 +32,7 @@ export default function JapaneseHelloLessonPage() {
   const session = useActivity();
   useActivityTitle("How to Say Hello");
 
-  const storageKey = `lesson-1-hello-${localStorage.getItem("user_name") || "guest"}`;
+  const storageKey = `lesson-1-hello-${getUserName() || "guest"}`;
   const [step, setStep] = useActivityState("step", 0);
   const [answers, setAnswers] = useActivityState<Record<number, string>>("answers", {});
   const [matching, setMatching] = useActivityState<Record<string, string>>("matching", {});
@@ -48,7 +50,7 @@ export default function JapaneseHelloLessonPage() {
         const score = progress.score ?? 0;
         // Migrate a completion saved by the earlier client-only lesson into the
         // server progression system. XP events make this safe to retry.
-        void api.post("/lessons/japanese-n5-unit-1-hello/complete", { challengeScore: score }).catch(() => undefined);
+        void completeLesson(LESSON_ID, score).catch(() => undefined);
       }
     }
   }, [storageKey]);
@@ -57,13 +59,12 @@ export default function JapaneseHelloLessonPage() {
   const finishChallenge = async () => {
     const score = Math.round((challengeScore / challenge.length) * 100);
     try {
-      const { data } = await api.post("/lessons/japanese-n5-unit-1-hello/complete", { challengeScore: score });
+      const result = await completeLesson(LESSON_ID, score);
       setCompletedScore(score);
       session.complete();
       localStorage.setItem(storageKey, JSON.stringify({ completed: true, score, completedAt: new Date().toISOString() }));
-      if (data.completion?.level > data.completion?.oldLevel) setCelebration(`LEVEL UP! Level ${data.completion.oldLevel} → Level ${data.completion.level}`);
-      else if (data.completion?.rank !== data.completion?.oldRank) setCelebration(`RANK UP! ${data.completion.oldRank} → ${data.completion.rank}`);
-      else if (data.achievements?.length) setCelebration("Achievement unlocked!");
+      const message = completionCelebration(result);
+      if (message) setCelebration(message);
     } catch { setSaveError("Could not save lesson progress."); }
   };
   const matchPairs = [["おはようございます", "Good morning"], ["こんにちは", "Hello / Good afternoon"], ["こんばんは", "Good evening"], ["ありがとう", "Thank you"]];

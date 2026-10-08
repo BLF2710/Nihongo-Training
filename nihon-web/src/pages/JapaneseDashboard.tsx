@@ -1,16 +1,12 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import api from "../api/axios";
+import { fetchProfile } from "../api/profile";
+import type { Profile } from "../api/profile";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import { activityProgress, parseSession, sessionSnapshot, subscribeSession } from "../lib/activitySession";
 
-type AccountSummary = {
-  display_name: string; username: string; xp: number; level: number; rank: string;
-  current_streak: number; achievements_count: number;
-  xpProgress: { nextLevelXp: number | null; progressPercent: number };
-};
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600";
 const studyTools = [
   { title: "Vocabulary", mark: "言", href: "/vocabulary", description: "Revisit course words by unit and lesson, listen, or study with flashcards." },
@@ -33,14 +29,14 @@ export default function JapaneseDashboard() {
   const saved = parseSession(snapshot);
   const active = saved?.status === "active" ? saved : null;
   const [units, setUnits] = useState<CourseUnit[] | null>(null);
-  const [profile, setProfile] = useState<AccountSummary | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [courseError, setCourseError] = useState(false);
   const [profileError, setProfileError] = useState(false);
   const [retry, setRetry] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
     fetchUnits(controller.signal).then(data => { setUnits(data); setCourseError(false); }).catch(() => { if (!controller.signal.aborted) setCourseError(true); });
-    api.get<AccountSummary>("/profile/me", { signal: controller.signal }).then(({ data }) => { setProfile(data); setProfileError(false); }).catch(() => { if (!controller.signal.aborted) setProfileError(true); });
+    fetchProfile(controller.signal).then(data => { setProfile(data); setProfileError(false); }).catch(() => { if (!controller.signal.aborted) setProfileError(true); });
     return () => controller.abort();
   }, [retry]);
   const course = units?.filter(unit => !unit.isPlaceholder) ?? [];

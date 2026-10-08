@@ -1,17 +1,32 @@
-import { pool } from "../config/db";
+import { getAchievementReward, grantAchievement } from "../repositories/achievement.repository";
+import { getCurrentStreak } from "../repositories/gamification.repository";
+import { getLessonSummary } from "../repositories/lesson-progress.repository";
 import { awardXP } from "./xp.service";
 
-const definitions = ["first_steps", "week_warrior", "vocabulary_starter", "japanese_beginner", "perfect_score"] as const;
-export async function evaluateAchievements(userId: number) {
-  const progress = await pool.query(`SELECT COUNT(*)::int AS lessons, COALESCE(MAX(challenge_score), 0)::int AS best_score,
-    BOOL_OR(lesson_id = 'japanese-n5-unit-1-hello') AS completed_n5_unit_1 FROM lesson_progress WHERE user_id=$1`, [userId]);
-  const game = await pool.query("SELECT current_streak FROM user_gamification WHERE user_id=$1", [userId]);
+const FIRST_N5_LESSON_ID = "japanese-n5-unit-1-hello";
+
+type AchievementFacts = { lessons: number; bestScore: number; completedFirstN5Lesson: boolean; currentStreak: number };
+
+// Checked in this order; add an achievement by adding a rule.
+const ACHIEVEMENT_RULES: { id: string; earned: (facts: AchievementFacts) => boolean }[] = [
+  { id: "first_steps", earned: facts => facts.lessons > 0 },
+  { id: "week_warrior", earned: facts => facts.currentStreak >= 7 },
   // Vocabulary has no persisted vocabulary-item model yet; it remains unavailable until that existing curriculum data exists.
-  const checks: Record<string, boolean> = { first_steps: progress.rows[0].lessons > 0, japanese_beginner: progress.rows[0].completed_n5_unit_1 === true, perfect_score: progress.rows[0].best_score === 100, week_warrior: Number(game.rows[0]?.current_streak) >= 7, vocabulary_starter: false };
+  { id: "vocabulary_starter", earned: () => false },
+  { id: "japanese_beginner", earned: facts => facts.completedFirstN5Lesson },
+  { id: "perfect_score", earned: facts => facts.bestScore === 100 },
+];
+
+export async function evaluateAchievements(userId: number) {
+  const summary = await getLessonSummary(userId, FIRST_N5_LESSON_ID);
+  const currentStreak = await getCurrentStreak(userId);
+  const facts: AchievementFacts = { lessons: summary.lessons, bestScore: summary.bestScore, completedFirstN5Lesson: summary.completedLesson, currentStreak };
   const newlyEarned: string[] = [];
-  for (const id of definitions) if (checks[id]) {
-    const earned = await pool.query("INSERT INTO user_achievements (user_id, achievement_id) VALUES ($1,$2) ON CONFLICT DO NOTHING RETURNING achievement_id", [userId, id]);
-    if (earned.rowCount) { const reward = await pool.query("SELECT xp_reward FROM achievements WHERE id=$1", [id]); await awardXP(userId, Number(reward.rows[0].xp_reward), "achievement", id); newlyEarned.push(id); }
+  for (const rule of ACHIEVEMENT_RULES) {
+    if (!rule.earned(facts)) continue;
+    if (!(await grantAchievement(userId, rule.id))) continue;
+    await awardXP(userId, await getAchievementReward(rule.id), "achievement", rule.id);
+    newlyEarned.push(rule.id);
   }
   return newlyEarned;
 }

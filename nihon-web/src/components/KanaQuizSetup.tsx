@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "./Navbar";
-import api from "../api/axios";
+import { fetchKanaCharacters } from "../api/quiz";
 import { useActivity, useActivityState } from "../context/ActivityContext";
 import type { KanaApiCharacter } from "../data/hiraganaLearning";
 import { HIRAGANA_SECTIONS } from "../data/hiraganaLearning";
@@ -25,8 +25,8 @@ function Selection({ script, children }: { script: "hiragana" | "katakana"; chil
   const [retry, setRetry] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
-    api.get<{ characters: KanaApiCharacter[] }>("/quiz/characters", { params: { type: script }, signal: controller.signal })
-      .then(({ data }) => { setCharacters(data.characters); setError(false); setLoaded(true); })
+    fetchKanaCharacters(script, controller.signal)
+      .then(characters => { setCharacters(characters); setError(false); setLoaded(true); })
       .catch(() => { if (!controller.signal.aborted) setError(true); });
     return () => controller.abort();
   }, [script, retry]);

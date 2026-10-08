@@ -3,8 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import KanaStrokeOrder from "../components/KanaStrokeOrder";
 import KanaWritingCanvas from "../components/KanaWritingCanvas";
-import api from "../api/axios";
-import { enrichHiragana, HIRAGANA_SECTIONS, type KanaApiCharacter, type KanaLearningCharacter } from "../data/hiraganaLearning";
+import { fetchKanaCharacters } from "../api/quiz";
+import { enrichHiragana, HIRAGANA_SECTIONS, type KanaLearningCharacter } from "../data/hiraganaLearning";
 import { buildKatakanaCatalog, KATAKANA_SECTIONS } from "../data/katakanaLearning";
 import { speakJapanese, supportsJapaneseSpeech } from "../services/japaneseSpeech";
 
@@ -12,7 +12,7 @@ export default function HiraganaLearningPage({ script = "hiragana" }: { script?:
   const title = script === "katakana" ? "Katakana" : "Hiragana";
   const { characterId } = useParams(); const navigate = useNavigate();
   const [characters, setCharacters] = useState<KanaLearningCharacter[]>([]); const [loading, setLoading] = useState(true); const [error, setError] = useState("");
-  useEffect(() => { api.get("/quiz/characters", { params: { type: script } }).then(({ data }) => setCharacters(script === "katakana" ? buildKatakanaCatalog(data.characters as KanaApiCharacter[]) : (data.characters as KanaApiCharacter[]).map(enrichHiragana))).catch(() => setError(`Could not load ${title} characters. Please check that the API is running.`)).finally(() => setLoading(false)); }, [script, title]);
+  useEffect(() => { fetchKanaCharacters(script).then(loaded => setCharacters(script === "katakana" ? buildKatakanaCatalog(loaded) : loaded.map(enrichHiragana))).catch(() => setError(`Could not load ${title} characters. Please check that the API is running.`)).finally(() => setLoading(false)); }, [script, title]);
   const selected = useMemo(() => characters.find((item) => item.id === Number(characterId)), [characters, characterId]);
   return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar />{characterId ? <CharacterDetail characters={characters} character={selected} loading={loading} onOpen={(id) => navigate(`/learn/${script}/${id}`)} /> : <CharacterGrid title={title} characters={characters} loading={loading} error={error} onOpen={(id) => navigate(`/learn/${script}/${id}`)} />}</div>;
 }

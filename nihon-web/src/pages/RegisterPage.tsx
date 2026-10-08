@@ -1,7 +1,7 @@
 import BackButton from "../components/BackButton";
 import { useState } from "react";
-import { isAxiosError } from "axios";
-import api from "../api/axios";
+import { register } from "../api/auth";
+import { apiErrorMessage } from "../api/errors";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
@@ -28,27 +28,14 @@ export default function RegisterPage() {
 
       setLoading(true);
 
-      const response =
-        await api.post(
-          "/auth/register",
-          {
-            username,
-            displayName,
-            email,
-            password,
-            confirmPassword
-          }
-        );
+      const { message } = await register({ username, displayName, email, password, confirmPassword });
 
-      alert(response.data.message);
+      alert(message);
       navigate("/login");
 
     } catch (error: unknown) {
 
-      alert(
-        (isAxiosError<{ message?: string }>(error) && error.response?.data?.message) ||
-        "Register failed"
-      );
+      alert(apiErrorMessage(error, "Register failed"));
 
     } finally {
 
