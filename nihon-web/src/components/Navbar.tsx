@@ -35,7 +35,7 @@ export default function Navbar() {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <button onClick={() => setSidebarOpen((open) => !open)} className="w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label="Toggle navigation sidebar" aria-expanded={sidebarOpen}>☰</button>
+            {token && <button onClick={() => setSidebarOpen((open) => !open)} className="w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label="Toggle navigation sidebar" aria-expanded={sidebarOpen}>☰</button>}
             <button onClick={() => go("/")} className="flex items-center gap-2.5 text-xl sm:text-2xl font-black text-gray-900 tracking-tight cursor-pointer">
               <span className="w-9 h-9 bg-linear-to-br from-indigo-600 to-emerald-500 rounded-xl flex items-center justify-center text-white text-lg shadow-sm">🌐</span>
               <span>Lingo<span className="text-emerald-600">Hub</span></span>
@@ -64,7 +64,7 @@ export default function Navbar() {
       </div>}
 
       {sidebarOpen && <button className="fixed inset-0 bg-black/25 z-30 cursor-default" onClick={() => setSidebarOpen(false)} aria-label="Close navigation" />}
-      <aside className={`fixed top-18 left-0 bottom-0 z-40 w-72 bg-white border-r border-gray-200 shadow-xl transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
+      {token && <aside className={`fixed top-18 left-0 bottom-0 z-40 w-72 bg-white border-r border-gray-200 shadow-xl transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="h-full overflow-y-auto p-4 flex flex-col">
           <div className="mb-5"><p className="px-3 text-[11px] font-bold tracking-wider uppercase text-gray-400">Navigation</p>
             <button onClick={() => go("/")} className={`mt-2 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/")}`}><span>⌂</span> Dashboard</button>
@@ -94,7 +94,7 @@ export default function Navbar() {
             <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>🔄</span> Review <span className="ml-auto text-[10px]">Soon</span></button>
           </div>}</div>
         </div>
-      </aside>
+      </aside>}
       {location.pathname !== "/" && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}
     </>
   );
