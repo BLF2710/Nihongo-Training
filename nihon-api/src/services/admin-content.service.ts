@@ -10,7 +10,7 @@ export const CONTENT: ManagedContent[] = [
   {key:'hiragana',title:'Hiragana learning',category:'Kana & Kanji',paths:['/learn/hiragana'],source:'Existing character catalog'},
   {key:'katakana',title:'Katakana learning',category:'Kana & Kanji',paths:['/learn/katakana'],source:'Existing character catalog'},
   {key:'kanji',title:'Kanji learning & flashcards',category:'Kana & Kanji',paths:['/learn/kanji'],source:'Existing Kanji catalog'},
-  {key:'kana-practice',title:'Kana speed quizzes & review',category:'Games',paths:['/practice','/review/hiragana','/review/katakana'],source:'Shared Kana quiz engine'},
+  {key:'kana-practice',title:'Kana speed quizzes & review',category:'Games',paths:['/practice','/review/hiragana','/review/katakana','/guest/practice'],source:'Shared Kana quiz engine'},
   {key:'kanji-practice',title:'Kanji practice',category:'Games',paths:['/learn/kanji/practice'],source:'Existing Kanji quiz engine'},
   {key:'english-games',title:'English word match & scramble',category:'Games',paths:['/arcade','/games/english'],source:'Existing English arcade'},
 ];

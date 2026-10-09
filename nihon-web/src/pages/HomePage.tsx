@@ -1,9 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import GuestLandingPage from "./GuestLandingPage";
 import JapaneseDashboard from "./JapaneseDashboard";
 import { useLanguage } from "../context/LanguageContext";
+import { hasSession } from "../lib/authStorage";
 
 export default function HomePage() {
+  return hasSession() ? <LearnerHome /> : <GuestLandingPage />;
+}
+
+function LearnerHome() {
   const navigate = useNavigate();
   const { language } = useLanguage();
 
