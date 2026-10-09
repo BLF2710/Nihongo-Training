@@ -33,6 +33,7 @@ const StudyReferencePage = lazy(() => import("./pages/StudyReferencePage"));
 const JapaneseN5LessonPage = lazy(() => import("./pages/JapaneseN5LessonPage"));
 const LessonsPage = lazy(() => import("./pages/LessonsPage"));
 const UnitAssessmentPage = lazy(() => import("./pages/UnitAssessmentPage"));
+const SkillPracticePage = lazy(() => import("./pages/SkillPracticePage"));
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 
 function LoadingPage({ label }: { label: string }) {
@@ -58,6 +59,8 @@ function App() {
           <Route path="/grammar" element={signedInLazy("Loading grammar…", <StudyReferencePage key="grammar" kind="grammar" />)} />
           <Route path="/review/hiragana" element={signedIn(<ReviewPage key="hiragana-review" script="hiragana" />)} />
           <Route path="/review/katakana" element={signedIn(<ReviewPage key="katakana-review" script="katakana" />)} />
+          <Route path="/listening" element={signedInLazy("Loading listening…", <SkillPracticePage key="listening" skill="listening" />)} />
+          <Route path="/speaking" element={signedInLazy("Loading speaking…", <SkillPracticePage key="speaking" skill="speaking" />)} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/practice" element={signedIn(<PracticePage />)} />
