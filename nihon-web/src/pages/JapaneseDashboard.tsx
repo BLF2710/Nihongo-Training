@@ -21,6 +21,8 @@ const practiceTools = [
   { title: "Hiragana Review", href: "/review/hiragana", description: "A focused session that prioritizes characters you are still learning." },
   { title: "Katakana Review", href: "/review/katakana", description: "Review 5, 10, 15, or 20 characters using your existing quiz progress." },
   { title: "Kanji practice", href: "/learn/kanji/practice", description: "Mixed meaning, reading, and vocabulary questions build Kanji progress." },
+  { title: "Listening", href: "/listening", description: "Hear words, sentences, and dialogues from the units you have reached." },
+  { title: "Speaking", href: "/speaking", description: "Say them aloud and have your speech checked, unit by unit." },
   { title: "Unit assessments", href: "/quizzes", description: "Finish a unit’s lessons, then score at least 80% to complete the unit." },
 ];
 

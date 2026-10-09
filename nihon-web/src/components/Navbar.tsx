@@ -91,6 +91,8 @@ export default function Navbar() {
               </>}
             </div>}</div>
             <button onClick={() => language === "japanese" && go("/quizzes")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/quizzes"))}` : "text-gray-400 cursor-not-allowed"}`}><span>📝</span> Quizzes {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
+            <button onClick={() => language === "japanese" && go("/listening")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/listening"))}` : "text-gray-400 cursor-not-allowed"}`}><span>🎧</span> Listening {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
+            <button onClick={() => language === "japanese" && go("/speaking")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/speaking"))}` : "text-gray-400 cursor-not-allowed"}`}><span>🎤</span> Speaking {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
             <button disabled className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm text-gray-400 cursor-not-allowed"><span>🔄</span> Review <span className="ml-auto text-[10px]">Soon</span></button>
           </div>}</div>
         </div>
