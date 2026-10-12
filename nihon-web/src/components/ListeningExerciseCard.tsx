@@ -5,8 +5,8 @@ import { speakJapanese } from "../services/japaneseSpeech";
 
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 
-/** Plays the exercise audio and checks the chosen answer. The text stays hidden until the learner has answered. */
-export default function ListeningExerciseCard({ exercise, isLast, onDone }: { exercise: ListeningExercise; isLast: boolean; onDone: (correct: boolean) => void }) {
+/** Plays the exercise audio and checks the chosen answer. The text stays hidden until the learner has answered. `onSkip` offers a way out for learners who cannot listen right now. */
+export default function ListeningExerciseCard({ exercise, isLast, onDone, onSkip }: { exercise: ListeningExercise; isLast: boolean; onDone: (correct: boolean) => void; onSkip?: () => void }) {
   const [selected, setSelected] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
@@ -40,5 +40,6 @@ export default function ListeningExerciseCard({ exercise, isLast, onDone }: { ex
       </li>)}</ul>
       <button className={`${button} mt-5`} onClick={() => onDone(correct)}>{isLast ? "See results →" : "Next →"}</button>
     </div>}
+    {onSkip && selected === null && <button className="mt-5 block text-sm font-semibold text-gray-500 underline" onClick={onSkip}>Can't listen right now — give me another question</button>}
   </section>;
 }

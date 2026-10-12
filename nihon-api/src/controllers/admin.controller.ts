@@ -1,4 +1,5 @@
 import * as adminService from "../services/admin.service";
+import * as questionBankService from "../services/question-bank.service";
 import { action } from "../utils/action";
 import { getUserId } from "../utils/request-user";
 
@@ -29,6 +30,23 @@ export const updateSettings = action(async (req, res) => {
 export const listContent = action(async (_req, res) => {
   return res.json(await adminService.listContent());
 }, { label: "Admin content", message: "Could not load content." });
+
+export const listQuestions = action(async (_req, res) => {
+  return res.json(await questionBankService.getQuestionBank());
+}, { label: "Admin questions", message: "Could not load the question bank." });
+
+export const createQuestion = action(async (req, res) => {
+  return res.status(201).json(await questionBankService.addQuestion(getUserId(req), req.body ?? {}));
+}, { label: "Admin question create", message: "Could not save the question." });
+
+export const updateQuestion = action(async (req, res) => {
+  return res.json(await questionBankService.editQuestion(req.params.id, req.body ?? {}));
+}, { label: "Admin question update", message: "Could not save the question." });
+
+export const deleteQuestion = action(async (req, res) => {
+  await questionBankService.removeQuestion(req.params.id);
+  return res.json({ deleted: true });
+}, { label: "Admin question delete", message: "Could not delete the question." });
 
 export const updateContent = action(async (req, res) => {
   return res.json(await adminService.setContentEnabled(getUserId(req), String(req.params.key), req.body?.enabled));
