@@ -10,6 +10,7 @@ import kanjiRoutes from "./routes/kanji.routes";
 import lessonRoutes from "./routes/lesson.routes";
 import profileRoutes from "./routes/profile.routes";
 import quizRoutes from "./routes/quiz.routes";
+import reviewRoutes from "./routes/review.routes";
 import siteRoutes from "./routes/site.routes";
 import statisticsRoutes from "./routes/statistics.routes";
 import unitRoutes from "./routes/unit.routes";
@@ -42,6 +43,7 @@ export function createApp() {
   app.use("/api/quiz", quizRoutes);
   app.use("/api/statistics", statisticsRoutes);
   app.use("/api/english", englishRoutes);
+  app.use("/api/review", reviewRoutes);
 
   return app;
 }

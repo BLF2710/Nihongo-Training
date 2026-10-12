@@ -1,20 +1,11 @@
-import { randomInt } from "crypto";
 import catalog from "../../../shared/kanji.json";
-export { catalog };
+import { shuffled } from "../utils/random";
+export { catalog, shuffled };
 export type PracticeKind = "meaning" | "reading" | "vocabulary";
 
 type Kanji = typeof catalog.kanji[number];
 type VocabularyForm = typeof catalog.vocabularyForms[number];
 type QuestionParts = { correct: string; distractors: string[]; display: string; prompt: string };
-
-export function shuffled<T>(values: readonly T[]): T[] {
-  const copy = [...values];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = randomInt(i + 1);
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
 
 // One builder per question kind; `form` is a random course word written with the Kanji, when one exists.
 const QUESTION_BUILDERS: Record<PracticeKind, (kanji: Kanji, form: VocabularyForm | undefined) => QuestionParts> = {

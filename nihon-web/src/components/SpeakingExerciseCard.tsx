@@ -7,8 +7,8 @@ import { recognitionErrorMessage, recognizeJapanese } from "../services/japanese
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 type Attempt = { matched: boolean; heard: string };
 
-/** Shows a phrase to say aloud and checks the learner's speech against it. `canCheck` is false when the browser cannot recognise speech. */
-export default function SpeakingExerciseCard({ exercise, isLast, canCheck, onDone }: { exercise: SpeakingExercise; isLast: boolean; canCheck: boolean; onDone: (correct: boolean) => void }) {
+/** Shows a phrase to say aloud and checks the learner's speech against it. `canCheck` is false when the browser cannot recognise speech. With `onSkip`, skipping swaps the question instead of counting it as wrong. */
+export default function SpeakingExerciseCard({ exercise, isLast, canCheck, onDone, onSkip }: { exercise: SpeakingExercise; isLast: boolean; canCheck: boolean; onDone: (correct: boolean) => void; onSkip?: () => void }) {
   const [listening, setListening] = useState(false);
   const [attempt, setAttempt] = useState<Attempt | null>(null);
   const [error, setError] = useState("");
@@ -47,7 +47,9 @@ export default function SpeakingExerciseCard({ exercise, isLast, canCheck, onDon
     <div className="mt-6 flex flex-wrap gap-3">
       {attempt?.matched
         ? <button className={button} onClick={() => onDone(true)}>{isLast ? "See results →" : "Next →"}</button>
-        : <button className={`${button} text-gray-600`} disabled={listening} onClick={() => onDone(false)}>{isLast ? "Skip and see results →" : "Skip →"}</button>}
+        : onSkip
+          ? <button className="text-sm font-semibold text-gray-500 underline" disabled={listening} onClick={onSkip}>Can't speak right now — give me another question</button>
+          : <button className={`${button} text-gray-600`} disabled={listening} onClick={() => onDone(false)}>{isLast ? "Skip and see results →" : "Skip →"}</button>}
     </div>
   </section>;
 }
