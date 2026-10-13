@@ -33,20 +33,22 @@ async function main() {
   const src = name => load(path.resolve(__dirname, '../src', name));
   try {
     await client.query('BEGIN');
-    await client.query('CREATE TEMP TABLE users (id INTEGER PRIMARY KEY)');
-    await client.query('INSERT INTO users VALUES (1),(2)');
+    await client.query("CREATE TEMP TABLE users (id INTEGER PRIMARY KEY, status TEXT DEFAULT 'active', role TEXT DEFAULT 'learner')");
+    await client.query('INSERT INTO users (id) VALUES (1),(2)');
     await client.query(fs.readFileSync(path.resolve(__dirname, '../migrations/004_kanji_progress.sql'), 'utf8').replaceAll('CREATE TABLE IF NOT EXISTS', 'CREATE TEMP TABLE'));
     const { catalog, makeKanjiQuestion } = src('services/kanji.service.ts');
     const { characterProgress } = src('services/character-progress.ts');
     const references = load(path.resolve(__dirname, '../../nihon-web/src/data/japaneseStudyUnits.ts')).JAPANESE_STUDY_UNITS;
     const lessonIds = new Set(references.flatMap(unit => unit.lessons.map(l => l.id)));
     const words = references.flatMap(unit => unit.lessons.flatMap(l => l.vocabulary));
-    assert.equal(catalog.kanji.length, 10);
+    assert.ok(catalog.kanji.length >= 10);
     for (const k of catalog.kanji) {
-      assert.ok(k.meanings.length && k.onyomi.length && k.kunyomi.length && k.source);
+      assert.ok(k.meanings.length && Array.isArray(k.onyomi) && Array.isArray(k.kunyomi) && k.onyomi.length + k.kunyomi.length && k.source);
       assert.ok(Number.isInteger(k.strokeCount) && k.strokeCount > 0);
       assert.equal(k.jlptLevel, null);
-      for (const kind of ['meaning','reading','vocabulary']) for (let repeat = 0; repeat < 30; repeat++) {
+      // Reading and vocabulary questions exist only for Kanji that already have a course word.
+      const kinds = catalog.vocabularyForms.some(f => f.kanjiIds.includes(k.id)) ? ['meaning','reading','vocabulary'] : ['meaning'];
+      for (const kind of kinds) for (let repeat = 0; repeat < 30; repeat++) {
         const q = makeKanjiQuestion(k.id, kind);
         assert.equal(q.options.length, 4); assert.equal(new Set(q.options).size, 4);
         assert.ok(q.correctIndex >= 0 && q.correctIndex < 4);
@@ -92,7 +94,7 @@ async function main() {
     assert.equal((await request('/practice', { size: 3, kanjiId: '' })).status, 404);
     assert.equal((await request('/answer', { questionId: 'bad', answerIndex: 0 })).status, 400);
     let progress = (await request('/progress')).data.progress;
-    assert.equal(progress.length, 10); assert.ok(progress.every(p => p.total === 0 && p.status === 'untested' && p.lastPracticedAt === null));
+    assert.equal(progress.length, catalog.kanji.length); assert.ok(progress.every(p => p.total === 0 && p.status === 'untested' && p.lastPracticedAt === null));
     const chosen = catalog.kanji.find(k => k.character === '学');
     let session = await request('/practice', { size: 3, kanjiId: chosen.id });
     assert.equal(session.status, 200);

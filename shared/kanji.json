@@ -216,6 +216,415 @@
       "jlptLevel": null,
       "strokeCount": 9,
       "source": "https://kanjiapi.dev/v1/kanji/%E9%A3%9F"
+    },
+    {
+      "id": "kanji-6642",
+      "character": "時",
+      "meanings": [
+        "time",
+        "hour"
+      ],
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "とき",
+        "-どき"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%99%82"
+    },
+    {
+      "id": "kanji-5206",
+      "character": "分",
+      "meanings": [
+        "part",
+        "minute of time",
+        "segment",
+        "share",
+        "degree",
+        "one's lot",
+        "duty",
+        "understand",
+        "know",
+        "rate",
+        "1%",
+        "chances",
+        "shaku/100"
+      ],
+      "onyomi": [
+        "ブン",
+        "フン",
+        "ブ"
+      ],
+      "kunyomi": [
+        "わ.ける",
+        "わ.け",
+        "わ.かれる",
+        "わ.かる",
+        "わ.かつ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%88%86"
+    },
+    {
+      "id": "kanji-534a",
+      "character": "半",
+      "meanings": [
+        "half",
+        "middle",
+        "odd number",
+        "semi-",
+        "part-"
+      ],
+      "onyomi": [
+        "ハン"
+      ],
+      "kunyomi": [
+        "なか.ば"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%8D%8A"
+    },
+    {
+      "id": "kanji-4eca",
+      "character": "今",
+      "meanings": [
+        "now"
+      ],
+      "onyomi": [
+        "コン",
+        "キン"
+      ],
+      "kunyomi": [
+        "いま"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BB%8A"
+    },
+    {
+      "id": "kanji-6708",
+      "character": "月",
+      "meanings": [
+        "month",
+        "moon"
+      ],
+      "onyomi": [
+        "ゲツ",
+        "ガツ"
+      ],
+      "kunyomi": [
+        "つき"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%9C%88"
+    },
+    {
+      "id": "kanji-706b",
+      "character": "火",
+      "meanings": [
+        "fire"
+      ],
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [
+        "ひ",
+        "-び",
+        "ほ-"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%81%AB"
+    },
+    {
+      "id": "kanji-6728",
+      "character": "木",
+      "meanings": [
+        "tree",
+        "wood"
+      ],
+      "onyomi": [
+        "ボク",
+        "モク"
+      ],
+      "kunyomi": [
+        "き",
+        "こ-"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%9C%A8"
+    },
+    {
+      "id": "kanji-91d1",
+      "character": "金",
+      "meanings": [
+        "gold"
+      ],
+      "onyomi": [
+        "キン",
+        "コン",
+        "ゴン"
+      ],
+      "kunyomi": [
+        "かね",
+        "かな-",
+        "-がね"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%87%91"
+    },
+    {
+      "id": "kanji-571f",
+      "character": "土",
+      "meanings": [
+        "soil",
+        "earth",
+        "ground",
+        "Turkey"
+      ],
+      "onyomi": [
+        "ド",
+        "ト"
+      ],
+      "kunyomi": [
+        "つち"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 3,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%9C%9F"
+    },
+    {
+      "id": "kanji-5348",
+      "character": "午",
+      "meanings": [
+        "noon",
+        "sign of the horse",
+        "11AM-1PM",
+        "seventh sign of Chinese zodiac"
+      ],
+      "onyomi": [
+        "ゴ"
+      ],
+      "kunyomi": [
+        "うま"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%8D%88"
+    },
+    {
+      "id": "kanji-524d",
+      "character": "前",
+      "meanings": [
+        "in front",
+        "before"
+      ],
+      "onyomi": [
+        "ゼン"
+      ],
+      "kunyomi": [
+        "まえ",
+        "-まえ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%89%8D"
+    },
+    {
+      "id": "kanji-5f8c",
+      "character": "後",
+      "meanings": [
+        "behind",
+        "back",
+        "later"
+      ],
+      "onyomi": [
+        "ゴ",
+        "コウ"
+      ],
+      "kunyomi": [
+        "のち",
+        "うし.ろ",
+        "うしろ",
+        "あと",
+        "おく.れる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%BE%8C"
+    },
+    {
+      "id": "kanji-6bce",
+      "character": "毎",
+      "meanings": [
+        "every"
+      ],
+      "onyomi": [
+        "マイ"
+      ],
+      "kunyomi": [
+        "ごと",
+        "-ごと.に"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%AF%8E"
+    },
+    {
+      "id": "kanji-884c",
+      "character": "行",
+      "meanings": [
+        "going",
+        "journey",
+        "carry out",
+        "conduct",
+        "act",
+        "line",
+        "row",
+        "bank"
+      ],
+      "onyomi": [
+        "コウ",
+        "ギョウ",
+        "アン"
+      ],
+      "kunyomi": [
+        "い.く",
+        "ゆ.く",
+        "-ゆ.き",
+        "-ゆき",
+        "-い.き",
+        "-いき",
+        "おこな.う",
+        "おこ.なう"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%A1%8C"
+    },
+    {
+      "id": "kanji-6765",
+      "character": "来",
+      "meanings": [
+        "come",
+        "due",
+        "next",
+        "cause",
+        "become"
+      ],
+      "onyomi": [
+        "ライ",
+        "タイ"
+      ],
+      "kunyomi": [
+        "く.る",
+        "きた.る",
+        "きた.す",
+        "き.たす",
+        "き.たる",
+        "き",
+        "こ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%9D%A5"
+    },
+    {
+      "id": "kanji-96fb",
+      "character": "電",
+      "meanings": [
+        "electricity"
+      ],
+      "onyomi": [
+        "デン"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%9B%BB"
+    },
+    {
+      "id": "kanji-8eca",
+      "character": "車",
+      "meanings": [
+        "car"
+      ],
+      "onyomi": [
+        "シャ"
+      ],
+      "kunyomi": [
+        "くるま"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%BB%8A"
+    },
+    {
+      "id": "kanji-9031",
+      "character": "週",
+      "meanings": [
+        "week"
+      ],
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%80%B1"
+    },
+    {
+      "id": "kanji-4f11",
+      "character": "休",
+      "meanings": [
+        "rest",
+        "day off",
+        "retire",
+        "sleep"
+      ],
+      "onyomi": [
+        "キュウ"
+      ],
+      "kunyomi": [
+        "やす.む",
+        "やす.まる",
+        "やす.める"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BC%91"
+    },
+    {
+      "id": "kanji-898b",
+      "character": "見",
+      "meanings": [
+        "see",
+        "hopes",
+        "chances",
+        "idea",
+        "opinion",
+        "look at",
+        "visible"
+      ],
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "み.る",
+        "み.える",
+        "み.せる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%A6%8B"
     }
   ],
   "vocabularyForms": [
@@ -331,6 +740,175 @@
         "kanji-98df"
       ],
       "source": "https://kanjiapi.dev/v1/words/%E9%A3%9F"
+    },
+    {
+      "id": "form-4eca",
+      "written": "今",
+      "reading": "いま",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-telling-time:いま",
+        "japanese-n5-unit-4-review:いま"
+      ],
+      "kanjiIds": [
+        "kanji-4eca"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%8A"
+    },
+    {
+      "id": "form-534a",
+      "written": "半",
+      "reading": "はん",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-telling-time:はん"
+      ],
+      "kanjiIds": [
+        "kanji-534a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%8D%8A"
+    },
+    {
+      "id": "form-4eca-65e5",
+      "written": "今日",
+      "reading": "きょう",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-days-and-schedules:きょう",
+        "japanese-n5-unit-4-review:きょう"
+      ],
+      "kanjiIds": [
+        "kanji-4eca",
+        "kanji-65e5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%8A"
+    },
+    {
+      "id": "form-5348-524d",
+      "written": "午前",
+      "reading": "ごぜん",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-telling-time:ごぜん"
+      ],
+      "kanjiIds": [
+        "kanji-5348",
+        "kanji-524d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%8D%88"
+    },
+    {
+      "id": "form-5348-5f8c",
+      "written": "午後",
+      "reading": "ごご",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-telling-time:ごご"
+      ],
+      "kanjiIds": [
+        "kanji-5348",
+        "kanji-5f8c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%8D%88"
+    },
+    {
+      "id": "form-6bce-65e5",
+      "written": "毎日",
+      "reading": "まいにち",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-daily-routine:まいにち"
+      ],
+      "kanjiIds": [
+        "kanji-6bce",
+        "kanji-65e5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AF%8E"
+    },
+    {
+      "id": "form-96fb-8eca",
+      "written": "電車",
+      "reading": "でんしゃ",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-going-places:でんしゃ",
+        "japanese-n5-unit-4-review:でんしゃ"
+      ],
+      "kanjiIds": [
+        "kanji-96fb",
+        "kanji-8eca"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9B%BB"
+    },
+    {
+      "id": "form-8eca",
+      "written": "車",
+      "reading": "くるま",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-going-places:くるま"
+      ],
+      "kanjiIds": [
+        "kanji-8eca"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%BB%8A"
+    },
+    {
+      "id": "form-6bce-9031",
+      "written": "毎週",
+      "reading": "まいしゅう",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-my-week:まいしゅう"
+      ],
+      "kanjiIds": [
+        "kanji-6bce",
+        "kanji-9031"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AF%8E"
+    },
+    {
+      "id": "form-4eca-9031",
+      "written": "今週",
+      "reading": "こんしゅう",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-my-week:こんしゅう"
+      ],
+      "kanjiIds": [
+        "kanji-4eca",
+        "kanji-9031"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%8A"
+    },
+    {
+      "id": "form-6765-9031",
+      "written": "来週",
+      "reading": "らいしゅう",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-my-week:らいしゅう"
+      ],
+      "kanjiIds": [
+        "kanji-6765",
+        "kanji-9031"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9D%A5"
+    },
+    {
+      "id": "form-571f-65e5",
+      "written": "土日",
+      "reading": "どにち",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-my-week:どにち"
+      ],
+      "kanjiIds": [
+        "kanji-571f",
+        "kanji-65e5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9C%9F"
+    },
+    {
+      "id": "form-4f11",
+      "written": "休み",
+      "reading": "やすみ",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-days-and-schedules:やすみ",
+        "japanese-n5-unit-4-review:やすみ"
+      ],
+      "kanjiIds": [
+        "kanji-4f11"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BC%91"
     }
   ],
   "lessonIntroductions": [
@@ -362,6 +940,51 @@
         "kanji-5b66",
         "kanji-751f",
         "kanji-5148"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-4-telling-time",
+      "introducedKanji": [
+        "kanji-6642",
+        "kanji-5206",
+        "kanji-534a",
+        "kanji-4eca"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-4-days-and-schedules",
+      "introducedKanji": [
+        "kanji-6708",
+        "kanji-706b",
+        "kanji-6728",
+        "kanji-91d1",
+        "kanji-571f"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-4-daily-routine",
+      "introducedKanji": [
+        "kanji-5348",
+        "kanji-524d",
+        "kanji-5f8c",
+        "kanji-6bce"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-4-going-places",
+      "introducedKanji": [
+        "kanji-884c",
+        "kanji-6765",
+        "kanji-96fb",
+        "kanji-8eca"
+      ]
+    },
+    {
+      "lessonId": "japanese-n5-unit-4-my-week",
+      "introducedKanji": [
+        "kanji-9031",
+        "kanji-4f11",
+        "kanji-898b"
       ]
     }
   ]

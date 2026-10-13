@@ -1,3 +1,4 @@
+import RubyText from "../components/RubyText";
 import { useActivity, useActivityState, useActivityTitle } from "../context/ActivityContext";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -64,9 +65,9 @@ function AssessmentSession({ unitId }: { unitId: string }) {
     </section> : accessChecked && assessment && question && <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
       <p className="text-sm font-semibold text-emerald-700">Question {index + 1} / {assessment.questions.length}</p>
       <progress aria-label="Assessment progress" value={Object.keys(answers).length} max={assessment.questions.length} className="mt-3 w-full accent-emerald-600" />
-      <fieldset disabled={busy} className="mt-6"><legend className="mb-5 text-xl font-bold leading-relaxed text-gray-900">{question.prompt}</legend>
+      <fieldset disabled={busy} className="mt-6"><legend className="mb-5 text-xl font-bold leading-relaxed text-gray-900"><RubyText text={question.prompt} /></legend>
         <div className="space-y-3">{question.options.map((option, optionIndex) => <label key={`${question.id}:${optionIndex}`} className={`flex cursor-pointer items-start gap-3 rounded-xl border p-4 font-semibold ${answers[question.id] === optionIndex ? "border-emerald-500 bg-emerald-50" : "border-gray-200 hover:border-emerald-300"}`}>
-          <input type="radio" name={question.id} value={optionIndex} checked={answers[question.id] === optionIndex} onChange={() => setAnswers(previous => ({ ...previous, [question.id]: optionIndex }))} className="mt-1 accent-emerald-600" />{option}
+          <input type="radio" name={question.id} value={optionIndex} checked={answers[question.id] === optionIndex} onChange={() => setAnswers(previous => ({ ...previous, [question.id]: optionIndex }))} className="mt-1 accent-emerald-600" /><RubyText text={option} />
         </label>)}</div>
       </fieldset>
       <p className="mt-5 text-sm text-gray-500">Choose one answer. Your score is shown after you submit all questions.</p>

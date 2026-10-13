@@ -114,10 +114,10 @@ for (const item of catalog.kanji) {
 }
 for (const kind of ['meaning', 'reading', 'vocabulary']) {
   const cards = kanjiStudyCards(catalog.kanji.map(item => item.id), kind);
-  assert.equal(cards.length, kind === 'meaning' ? 10 : 9);
+  assert.equal(cards.length, kind === 'meaning' ? catalog.kanji.length : catalog.vocabularyForms.length);
   assert.equal(new Set(cards.map(card => card.id)).size, cards.length);
   assert.ok(cards.every(card => card.front && card.back && card.audioText));
   assert.equal(kanjiStudyCards([], kind).length, 0);
 }
 assert.equal(kanjiStudyCards(['kanji-5b66'], 'reading')[0].back, 'がくせい');
-console.log('PASS: all ten exact KanjiVG stroke geometries/counts, same Kana source revision, three shared flashcard modes, unique word cards and focused/empty decks.');
+console.log('PASS: exact KanjiVG stroke geometries/counts for every catalog Kanji, same Kana source revision, three shared flashcard modes, unique word cards and focused/empty decks.');

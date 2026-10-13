@@ -4,7 +4,7 @@ import {
 } from "../repositories/site.repository";
 import {
   countActiveAdmins, countUsersByState, countUsersMatching, findActiveAccount, isActiveAdmin,
-  lockAdministratorChanges, lockUserRoleAndStatus, searchUsers, updateAccount,
+  lockAdministratorChanges, lockUserRoleAndStatus, searchUsers, setAllLessonsUnlocked, updateAccount,
 } from "../repositories/user.repository";
 import { HttpError } from "../utils/http-error";
 import { EMAIL_PATTERN, USERNAME_PATTERN } from "../utils/validation";
@@ -74,6 +74,15 @@ export async function updateUser(actorId: number, id: number, edit: Record<strin
     if ((error as { code?: string }).code === UNIQUE_VIOLATION) throw new HttpError(409, "That username or email is already in use.");
     throw error;
   }
+}
+
+/** Opens (or restores normal progression for) every unit and lesson of one account. Progress and XP are not changed. */
+export async function setLessonAccess(rawId: unknown, unlocked: unknown) {
+  const id = Number(rawId);
+  if (typeof unlocked !== "boolean") throw new HttpError(400, "Choose whether all lessons are unlocked.");
+  const updated = Number.isSafeInteger(id) && id >= 1 ? await setAllLessonsUnlocked(id, unlocked) : null;
+  if (!updated) throw new HttpError(404, "User not found.");
+  return updated;
 }
 
 export async function getSystemSettings() {

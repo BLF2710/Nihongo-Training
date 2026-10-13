@@ -1,0 +1,114 @@
+{
+  "id": "japanese-n5-unit-4-days-and-schedules",
+  "slug": "n5-unit-4-days-and-schedules",
+  "unit": "Japanese N5 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Days & Schedules",
+  "title_jp": "なんようびですか",
+  "objectives": [
+    "I can say which day it is and when something starts and ends.",
+    "Name the seven days of the week",
+    "Ask なんようびですか",
+    "Give a start and an end with から and まで"
+  ],
+  "vocabulary": [
+    ["きょう", "kyou", "today"],
+    ["あした", "ashita", "tomorrow"],
+    ["げつようび", "getsuyoubi", "Monday"],
+    ["かようび", "kayoubi", "Tuesday"],
+    ["すいようび", "suiyoubi", "Wednesday"],
+    ["もくようび", "mokuyoubi", "Thursday"],
+    ["きんようび", "kin'youbi", "Friday"],
+    ["どようび", "doyoubi", "Saturday"],
+    ["にちようび", "nichiyoubi", "Sunday"],
+    ["なんようび", "nan'youbi", "what day of the week"],
+    ["やすみ", "yasumi", "day off / holiday"],
+    ["がっこう", "gakkou", "school"],
+    ["アルバイト", "arubaito", "part-time job"]
+  ],
+  "kanji_form": [
+    { "word_japanese": "今日", "word_reading": "きょう" }
+  ],
+  "concept": {
+    "title": "Seven days, one ending",
+    "text": "Every day of the week ends in ようび. Only the first part changes: げつ, か, すい, もく, きん, ど, にち. Each first part is written with a kanji for something in nature: moon, fire, water, tree, gold, earth and sun.\n\nTo give a schedule, use から for the start and まで for the end. They work with clock times and with days. You already know から from アメリカから きました, where it marks the place you started from.",
+    "examples": ["きょうは げつようびです。", "start から end までです"]
+  },
+  "grammar": [
+    {
+      "title": "Saying and asking the day",
+      "pattern": "N は 〜ようび です / なんようび ですか",
+      "explanation": "Name the topic with は, then give the day and です. きょう (today) and あした (tomorrow) are common topics. Ask with なんようび, which works like なんじ.",
+      "examples": [
+        { "japanese": "きょうは げつようびです。", "romaji": "Kyou wa getsuyoubi desu.", "meaning": "Today is Monday." },
+        { "japanese": "あしたは かようびです。", "romaji": "Ashita wa kayoubi desu.", "meaning": "Tomorrow is Tuesday." },
+        { "japanese": "きょうは なんようびですか。", "romaji": "Kyou wa nan'youbi desu ka.", "meaning": "What day is it today?" },
+        { "japanese": "やすみは どようびと にちようびです。", "romaji": "Yasumi wa doyoubi to nichiyoubi desu.", "meaning": "My days off are Saturday and Sunday." }
+      ],
+      "notes": [
+        "きょう and あした take は as a topic, but no other particle is needed after them.",
+        "Thursday is もくようび and Monday is げつようび. Learners often swap them."
+      ]
+    },
+    {
+      "title": "From … until …",
+      "pattern": "N は A から B まで です",
+      "explanation": "から marks the starting point and まで marks the end. Use them with times (くじから よじまで) or with days (げつようびから きんようびまで). Either half can be used alone.",
+      "examples": [
+        { "japanese": "がっこうは くじからです。", "romaji": "Gakkou wa kuji kara desu.", "meaning": "School starts at nine." },
+        { "japanese": "がっこうは くじから よじまでです。", "romaji": "Gakkou wa kuji kara yoji made desu.", "meaning": "School is from nine until four." },
+        { "japanese": "アルバイトは ごご ごじから はちじまでです。", "romaji": "Arubaito wa gogo goji kara hachiji made desu.", "meaning": "My part-time job is from 5 p.m. until 8." },
+        { "japanese": "がっこうは げつようびから きんようびまでです。", "romaji": "Gakkou wa getsuyoubi kara kin'youbi made desu.", "meaning": "School is from Monday to Friday." },
+        { "japanese": "やすみは なんようびから なんようびまでですか。", "romaji": "Yasumi wa nan'youbi kara nan'youbi made desu ka.", "meaning": "From what day until what day is the holiday?" }
+      ],
+      "notes": [
+        "から comes after the starting point, not before it as in English.",
+        "The same から marks a starting place in アメリカから きました."
+      ]
+    }
+  ],
+  "examples": [
+    ["きょうは すいようびです。", "Today is Wednesday."],
+    ["あしたは やすみです。", "Tomorrow is a day off."],
+    ["アルバイトは もくようびと どようびです。", "My part-time job is on Thursday and Saturday."],
+    ["がっこうは ごぜん くじから ごご よじまでです。", "School is from 9 a.m. until 4 p.m."]
+  ],
+  "dialogue": [
+    ["リン", "きょうは なんようびですか。", "さくら", "きんようびです。"],
+    ["リン", "あしたは がっこうですか。", "さくら", "いいえ、あしたは やすみです。"],
+    ["マリア", "アルバイトは なんじから なんじまでですか。", "けん", "ごご ろくじから くじまでです。"],
+    ["たなか", "やすみは なんようびですか。", "アナ", "かようびと にちようびです。"]
+  ],
+  "introduced_kanji": [
+    { "char": "月", "onyomi": ["ゲツ", "ガツ"], "kunyomi": ["つき"], "meaning_en": "moon, month", "stroke_count": 4, "example_words": [{ "word": "月曜日", "reading": "げつようび", "en": "Monday" }, { "word": "一月", "reading": "いちがつ", "en": "January" }], "mnemonic": "A crescent moon with two clouds drifting across it." },
+    { "char": "火", "onyomi": ["カ"], "kunyomi": ["ひ"], "meaning_en": "fire", "stroke_count": 4, "example_words": [{ "word": "火曜日", "reading": "かようび", "en": "Tuesday" }, { "word": "火", "reading": "ひ", "en": "fire" }], "mnemonic": "A campfire with sparks flying off both sides." },
+    { "char": "木", "onyomi": ["モク", "ボク"], "kunyomi": ["き"], "meaning_en": "tree, wood", "stroke_count": 4, "example_words": [{ "word": "木曜日", "reading": "もくようび", "en": "Thursday" }, { "word": "木", "reading": "き", "en": "tree" }], "mnemonic": "A trunk, two branches, and roots spreading below." },
+    { "char": "金", "onyomi": ["キン"], "kunyomi": ["かね"], "meaning_en": "gold, money", "stroke_count": 8, "example_words": [{ "word": "金曜日", "reading": "きんようび", "en": "Friday" }, { "word": "お金", "reading": "おかね", "en": "money" }], "mnemonic": "Nuggets of gold lying in the earth under a roof." },
+    { "char": "土", "onyomi": ["ド", "ト"], "kunyomi": ["つち"], "meaning_en": "earth, soil", "stroke_count": 3, "example_words": [{ "word": "土曜日", "reading": "どようび", "en": "Saturday" }, { "word": "土日", "reading": "どにち", "en": "Saturday and Sunday" }], "mnemonic": "A sprout pushing up through the ground." }
+  ],
+  "reading": { "genre": "", "text_jp": "", "en_translation": "", "questions": [] },
+  "practice": [
+    { "prompt": "Review: how do you say nine o'clock?", "options": ["くじ", "きゅうじ", "ここのじ", "くふん"], "correct": "くじ", "explanation": "Nine o'clock is the irregular くじ from the last lesson." },
+    { "prompt": "What does きょう mean?", "options": ["today", "tomorrow", "Monday", "day off"], "correct": "today", "explanation": "きょう is today. あした is tomorrow." },
+    { "prompt": "Which day is もくようび?", "options": ["Thursday", "Monday", "Tuesday", "Saturday"], "correct": "Thursday", "explanation": "もくようび is Thursday. Monday is げつようび." },
+    { "prompt": "Complete: がっこうは くじ ___ よじまでです。", "options": ["から", "まで", "は", "の"], "correct": "から", "explanation": "から marks the start: from nine until four." },
+    { "prompt": "Choose the question that asks the day of the week.", "options": ["きょうは なんようびですか。", "いま なんじですか。", "なんさいですか。", "これは なんですか。"], "correct": "きょうは なんようびですか。", "explanation": "なんようび asks which day of the week." },
+    { "prompt": "Today is Friday. What is あした?", "options": ["どようび", "もくようび", "にちようび", "きんようび"], "correct": "どようび", "explanation": "The day after Friday (きんようび) is Saturday, どようび." },
+    { "prompt": "Choose the meaning of あしたは やすみです。", "options": ["Tomorrow is a day off.", "Today is a day off.", "Tomorrow is school.", "Tomorrow is Sunday."], "correct": "Tomorrow is a day off.", "explanation": "あした is tomorrow and やすみ is a day off." }
+  ],
+  "challenge": [
+    { "prompt": "Read: アルバイトは ごご ごじから はちじまでです。 When does the job end?", "options": ["8 p.m.", "5 p.m.", "8 a.m.", "5 a.m."], "correct": "8 p.m.", "explanation": "まで marks the end: はちじ, and ごご covers the whole range." },
+    { "prompt": "Choose the sentence that means: School is from Monday to Friday.", "options": ["がっこうは げつようびから きんようびまでです。", "がっこうは きんようびから げつようびまでです。", "がっこうは げつようびまで きんようびからです。", "がっこうは もくようびから きんようびまでです。"], "correct": "がっこうは げつようびから きんようびまでです。", "explanation": "Start + から, end + まで. Monday is げつようび." },
+    { "prompt": "A friend asks: あしたは がっこうですか。 Tomorrow is your day off. What do you answer?", "options": ["いいえ、あしたは やすみです。", "はい、あしたは やすみです。", "いいえ、きょうは がっこうです。", "はい、にちようびです。"], "correct": "いいえ、あしたは やすみです。", "explanation": "You answer no, and say tomorrow is a day off." },
+    { "prompt": "Which pair of days means the weekend?", "options": ["どようびと にちようび", "げつようびと かようび", "すいようびと もくようび", "きんようびと げつようび"], "correct": "どようびと にちようび", "explanation": "どようび is Saturday and にちようび is Sunday." },
+    { "prompt": "Review: read あねは とうきょうに すんでいます。 Who lives in Tokyo?", "options": ["My older sister", "My older brother", "My mother", "My friend"], "correct": "My older sister", "explanation": "あね is my older sister, from Unit 2." }
+  ],
+  "recycled_from": ["japanese-n5-unit-4-telling-time", "japanese-n5-unit-1-origin", "japanese-n5-unit-1-questions", "japanese-n5-unit-2-family", "japanese-n5-unit-2-living"],
+  "skill_notes": "Weekday names are written in kana. Their kanji spellings use 曜, which is not taught at this level, so they are not shown as kanji forms.",
+  "review_flags": [
+    "VERIFY: second course words for 火 (ひ, planned for Unit 8) and 木 (き, planned for Unit 6) are not taught yet; 月 gets 一月 in Unit 5 and 金 gets お金 in Unit 7.",
+    "VERIFY: 土日 (どにち) is taught as vocabulary in lesson 5 of this unit."
+  ]
+}

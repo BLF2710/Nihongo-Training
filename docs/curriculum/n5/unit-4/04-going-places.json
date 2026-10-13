@@ -1,0 +1,129 @@
+{
+  "id": "japanese-n5-unit-4-going-places",
+  "slug": "n5-unit-4-going-places",
+  "unit": "Japanese N5 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Going Places",
+  "title_jp": "どこへ いきますか",
+  "objectives": [
+    "I can say where I go and how I get there.",
+    "Use いきます, きます and かえります with a destination and に or へ",
+    "Say the means of transport with で",
+    "Ask どこへ and なんで"
+  ],
+  "vocabulary": [
+    ["いきます", "ikimasu", "to go"],
+    ["きます", "kimasu", "to come"],
+    ["かえります", "kaerimasu", "to go home / to return"],
+    ["でんしゃ", "densha", "train"],
+    ["バス", "basu", "bus"],
+    ["くるま", "kuruma", "car"],
+    ["じてんしゃ", "jitensha", "bicycle"],
+    ["あるいて", "aruite", "on foot"],
+    ["えき", "eki", "station"],
+    ["うち", "uchi", "home / my place"],
+    ["スーパー", "suupaa", "supermarket"],
+    ["としょかん", "toshokan", "library"]
+  ],
+  "kanji_form": [
+    { "word_japanese": "電車", "word_reading": "でんしゃ" },
+    { "word_japanese": "車", "word_reading": "くるま" }
+  ],
+  "concept": {
+    "title": "Destination に or へ, transport で",
+    "text": "The three movement verbs are いきます (go), きます (come) and かえります (return to where you belong, usually home). The place you move toward takes に or へ. As a particle, へ is pronounced e. Both are correct with these verbs.\n\nThe vehicle you use takes で: でんしゃで いきます. Walking is different: say あるいて いきます, with no で.",
+    "examples": ["place に / へ いきます", "transport で いきます", "あるいて いきます"]
+  },
+  "grammar": [
+    {
+      "title": "Going, coming and returning",
+      "pattern": "place に / へ いきます ・ きます ・ かえります",
+      "explanation": "Mark the destination with に or へ. いきます moves away from where the speaker is, きます moves toward it, and かえります is for going back home or to your own country. A time or day comes earlier in the sentence.",
+      "examples": [
+        { "japanese": "がっこうに いきます。", "romaji": "Gakkou ni ikimasu.", "meaning": "I go to school." },
+        { "japanese": "あした とうきょうへ いきます。", "romaji": "Ashita Toukyou e ikimasu.", "meaning": "I will go to Tokyo tomorrow." },
+        { "japanese": "ともだちは にちようびに うちに きます。", "romaji": "Tomodachi wa nichiyoubi ni uchi ni kimasu.", "meaning": "My friend will come to my place on Sunday." },
+        { "japanese": "まいにち ろくじに うちへ かえります。", "romaji": "Mainichi rokuji ni uchi e kaerimasu.", "meaning": "I go home at six every day." },
+        { "japanese": "きょうは としょかんに いきません。", "romaji": "Kyou wa toshokan ni ikimasen.", "meaning": "I am not going to the library today." }
+      ],
+      "notes": [
+        "The particle へ is read e, not he.",
+        "Do not use を for the destination: がっこうを いきます is wrong.",
+        "Use かえります, not いきます, for going back to your own home."
+      ]
+    },
+    {
+      "title": "By train, by bus: で",
+      "pattern": "transport で いきます / あるいて いきます",
+      "explanation": "で after a vehicle means by that vehicle. It usually comes before the destination. For walking, use あるいて without で.",
+      "examples": [
+        { "japanese": "バスで いきます。", "romaji": "Basu de ikimasu.", "meaning": "I go by bus." },
+        { "japanese": "でんしゃで かいしゃに いきます。", "romaji": "Densha de kaisha ni ikimasu.", "meaning": "I go to the office by train." },
+        { "japanese": "じてんしゃで スーパーへ いきます。", "romaji": "Jitensha de suupaa e ikimasu.", "meaning": "I go to the supermarket by bicycle." },
+        { "japanese": "あるいて えきに いきます。", "romaji": "Aruite eki ni ikimasu.", "meaning": "I walk to the station." },
+        { "japanese": "ちちは くるまで うちに かえります。", "romaji": "Chichi wa kuruma de uchi ni kaerimasu.", "meaning": "My father comes home by car." }
+      ],
+      "notes": [
+        "Wrong: あるいてで いきます. あるいて never takes で.",
+        "じてんしゃ (bicycle) and でんしゃ (train) sound similar. Listen for the extra じ."
+      ]
+    },
+    {
+      "title": "Where to? How?",
+      "pattern": "どこへ いきますか / なんで いきますか",
+      "explanation": "Replace the destination with どこ to ask where someone is going. Replace the vehicle with なん to ask how: なんで いきますか.",
+      "examples": [
+        { "japanese": "どこへ いきますか。", "romaji": "Doko e ikimasu ka.", "meaning": "Where are you going?" },
+        { "japanese": "あした どこに いきますか。", "romaji": "Ashita doko ni ikimasu ka.", "meaning": "Where will you go tomorrow?" },
+        { "japanese": "なんで いきますか。", "romaji": "Nan de ikimasu ka.", "meaning": "How will you get there?" },
+        { "japanese": "なんで がっこうに きますか。", "romaji": "Nan de gakkou ni kimasu ka.", "meaning": "How do you come to school?" }
+      ],
+      "notes": [
+        "In casual speech なんで can also mean why, so the situation tells you which is meant."
+      ]
+    }
+  ],
+  "examples": [
+    ["わたしは まいにち でんしゃで がっこうに いきます。", "I go to school by train every day."],
+    ["あねは じてんしゃで えきへ いきます。", "My older sister goes to the station by bicycle."],
+    ["どようびに ともだちが うちに きます。", "A friend is coming to my place on Saturday."],
+    ["ははは しちじに うちに かえります。", "My mother comes home at seven."]
+  ],
+  "dialogue": [
+    ["アナ", "あした どこへ いきますか。", "けん", "としょかんに いきます。"],
+    ["アナ", "なんで いきますか。", "けん", "じてんしゃで いきます。"],
+    ["たなか", "まいにち なんで かいしゃに きますか。", "リン", "でんしゃと バスで きます。"],
+    ["たなか", "なんじに うちに かえりますか。", "リン", "しちじはんに かえります。"]
+  ],
+  "introduced_kanji": [
+    { "char": "行", "onyomi": ["コウ", "ギョウ"], "kunyomi": ["い.く"], "meaning_en": "go", "stroke_count": 6, "example_words": [{ "word": "行きます", "reading": "いきます", "en": "to go" }, { "word": "旅行", "reading": "りょこう", "en": "trip" }], "mnemonic": "A crossroads seen from above: the place you go through." },
+    { "char": "来", "onyomi": ["ライ"], "kunyomi": ["く.る"], "meaning_en": "come", "stroke_count": 7, "example_words": [{ "word": "来ます", "reading": "きます", "en": "to come" }, { "word": "来週", "reading": "らいしゅう", "en": "next week" }], "mnemonic": "A tree (木) heavy with grain: the harvest is coming." },
+    { "char": "電", "onyomi": ["デン"], "kunyomi": [], "meaning_en": "electricity", "stroke_count": 13, "example_words": [{ "word": "電車", "reading": "でんしゃ", "en": "train" }, { "word": "電話", "reading": "でんわ", "en": "telephone" }], "mnemonic": "Rain (雨) above and a flash of lightning below." },
+    { "char": "車", "onyomi": ["シャ"], "kunyomi": ["くるま"], "meaning_en": "car, vehicle", "stroke_count": 7, "example_words": [{ "word": "車", "reading": "くるま", "en": "car" }, { "word": "電車", "reading": "でんしゃ", "en": "train" }], "mnemonic": "A cart seen from above: a wheel on each side of the axle." }
+  ],
+  "reading": { "genre": "", "text_jp": "", "en_translation": "", "questions": [] },
+  "practice": [
+    { "prompt": "Review: complete しちじ ___ おきます。", "options": ["に", "で", "を", "へ"], "correct": "に", "explanation": "に marks the clock time of an action." },
+    { "prompt": "What does かえります mean?", "options": ["to go home / to return", "to go", "to come", "to get up"], "correct": "to go home / to return", "explanation": "かえります is to return to where you belong, usually home." },
+    { "prompt": "Complete: がっこう ___ いきます。", "options": ["に", "を", "で", "と"], "correct": "に", "explanation": "The destination takes に (or へ), never を." },
+    { "prompt": "Complete: バス ___ いきます。", "options": ["で", "に", "を", "へ"], "correct": "で", "explanation": "で marks the vehicle: by bus." },
+    { "prompt": "How do you say: I walk to the station?", "options": ["あるいて えきに いきます。", "あるいてで えきに いきます。", "えきを あるいて いきます。", "あるいて えきで いきます。"], "correct": "あるいて えきに いきます。", "explanation": "あるいて takes no で, and the destination takes に." },
+    { "prompt": "How is the particle へ pronounced in とうきょうへ いきます?", "options": ["e", "he", "wa", "o"], "correct": "e", "explanation": "As a particle, へ is pronounced e." },
+    { "prompt": "Choose the meaning of なんで いきますか。", "options": ["How will you get there?", "Where are you going?", "What time are you going?", "Who are you going with?"], "correct": "How will you get there?", "explanation": "なんで asks about the means of transport." }
+  ],
+  "challenge": [
+    { "prompt": "Someone asks: あした どこへ いきますか。 You are going to the library. What do you say?", "options": ["としょかんに いきます。", "としょかんで いきます。", "としょかんを いきます。", "としょかんに きます。"], "correct": "としょかんに いきます。", "explanation": "The destination takes に, and you are going, so いきます." },
+    { "prompt": "Choose the sentence that means: I go to the office by train.", "options": ["でんしゃで かいしゃに いきます。", "でんしゃに かいしゃで いきます。", "じてんしゃで かいしゃに いきます。", "でんしゃを かいしゃに いきます。"], "correct": "でんしゃで かいしゃに いきます。", "explanation": "Transport + で, destination + に. でんしゃ is train; じてんしゃ is bicycle." },
+    { "prompt": "Read: ははは しちじに うちに かえります。 What does the first に mark, and what does the second に mark?", "options": ["Time, then destination", "Destination, then time", "Time, then time", "Destination, then destination"], "correct": "Time, then destination", "explanation": "しちじに is the time and うちに is where she returns to." },
+    { "prompt": "Your friend is coming to your home on Sunday. Which sentence do you say?", "options": ["にちようびに ともだちが うちに きます。", "にちようびに ともだちが うちに いきます。", "にちようびに ともだちが うちで きます。", "にちようびを ともだちが うちに きます。"], "correct": "にちようびに ともだちが うちに きます。", "explanation": "Movement toward where you are is きます." },
+    { "prompt": "Review: read がっこうは げつようびから きんようびまでです。 Which day is there no school?", "options": ["どようび", "げつようび", "すいようび", "きんようび"], "correct": "どようび", "explanation": "School runs Monday to Friday, so Saturday (どようび) has none." }
+  ],
+  "recycled_from": ["japanese-n5-unit-4-daily-routine", "japanese-n5-unit-4-days-and-schedules", "japanese-n5-unit-2-family", "japanese-n5-unit-2-living", "japanese-n5-unit-3-people-locations"],
+  "skill_notes": "へ is written in every へ-particle sentence without spaces around the place name changing; the browser voice reads it as e in context.",
+  "review_flags": [
+    "VERIFY: 行きます and 来ます are polite forms, which the dictionary source lists only as 行く and 来る, so they are not linked as kanji spellings until the dictionary forms are taught in Unit 9.",
+    "VERIFY: second course words for 行 (旅行, Unit 6) and 電 (電話, planned for Unit 8) are taught later."
+  ]
+}

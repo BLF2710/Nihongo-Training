@@ -1,3 +1,4 @@
+import { IMPORTED_LESSONS } from "./imported-course";
 import { UNIT_2_3_LESSONS } from "./unit23-lessons";
 
 export type LessonDefinition = { id: string; slug: string; title: string; unit: string; previousLessonId?: string; minimumLevel?: number; minimumRank?: string };
@@ -11,4 +12,4 @@ const UNIT_1_LESSONS: LessonDefinition[] = [
   { id: "japanese-n5-unit-1-demonstratives", slug: "n5-unit-1-demonstratives", title: "This, That & Those", unit: "Japanese N5 Unit 1", previousLessonId: "japanese-n5-unit-1-numbers-age" }
 ];
 
-export const LESSONS: LessonDefinition[] = [...UNIT_1_LESSONS, ...UNIT_2_3_LESSONS];
+export const LESSONS: LessonDefinition[] = [...UNIT_1_LESSONS, ...UNIT_2_3_LESSONS, ...IMPORTED_LESSONS];

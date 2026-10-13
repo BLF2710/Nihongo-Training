@@ -1,0 +1,1583 @@
+{
+  "時": {
+    "meanings": [
+      "time",
+      "hour"
+    ],
+    "onyomi": [
+      "ジ"
+    ],
+    "kunyomi": [
+      "とき",
+      "-どき"
+    ],
+    "strokeCount": 10,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%99%82"
+  },
+  "分": {
+    "meanings": [
+      "part",
+      "minute of time",
+      "segment",
+      "share",
+      "degree",
+      "one's lot",
+      "duty",
+      "understand",
+      "know",
+      "rate",
+      "1%",
+      "chances",
+      "shaku/100"
+    ],
+    "onyomi": [
+      "ブン",
+      "フン",
+      "ブ"
+    ],
+    "kunyomi": [
+      "わ.ける",
+      "わ.け",
+      "わ.かれる",
+      "わ.かる",
+      "わ.かつ"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%88%86"
+  },
+  "半": {
+    "meanings": [
+      "half",
+      "middle",
+      "odd number",
+      "semi-",
+      "part-"
+    ],
+    "onyomi": [
+      "ハン"
+    ],
+    "kunyomi": [
+      "なか.ば"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8D%8A"
+  },
+  "今": {
+    "meanings": [
+      "now"
+    ],
+    "onyomi": [
+      "コン",
+      "キン"
+    ],
+    "kunyomi": [
+      "いま"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%BB%8A"
+  },
+  "月": {
+    "meanings": [
+      "month",
+      "moon"
+    ],
+    "onyomi": [
+      "ゲツ",
+      "ガツ"
+    ],
+    "kunyomi": [
+      "つき"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%9C%88"
+  },
+  "火": {
+    "meanings": [
+      "fire"
+    ],
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "ひ",
+      "-び",
+      "ほ-"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%81%AB"
+  },
+  "木": {
+    "meanings": [
+      "tree",
+      "wood"
+    ],
+    "onyomi": [
+      "ボク",
+      "モク"
+    ],
+    "kunyomi": [
+      "き",
+      "こ-"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%9C%A8"
+  },
+  "金": {
+    "meanings": [
+      "gold"
+    ],
+    "onyomi": [
+      "キン",
+      "コン",
+      "ゴン"
+    ],
+    "kunyomi": [
+      "かね",
+      "かな-",
+      "-がね"
+    ],
+    "strokeCount": 8,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%87%91"
+  },
+  "土": {
+    "meanings": [
+      "soil",
+      "earth",
+      "ground",
+      "Turkey"
+    ],
+    "onyomi": [
+      "ド",
+      "ト"
+    ],
+    "kunyomi": [
+      "つち"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%9C%9F"
+  },
+  "午": {
+    "meanings": [
+      "noon",
+      "sign of the horse",
+      "11AM-1PM",
+      "seventh sign of Chinese zodiac"
+    ],
+    "onyomi": [
+      "ゴ"
+    ],
+    "kunyomi": [
+      "うま"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8D%88"
+  },
+  "前": {
+    "meanings": [
+      "in front",
+      "before"
+    ],
+    "onyomi": [
+      "ゼン"
+    ],
+    "kunyomi": [
+      "まえ",
+      "-まえ"
+    ],
+    "strokeCount": 9,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%89%8D"
+  },
+  "後": {
+    "meanings": [
+      "behind",
+      "back",
+      "later"
+    ],
+    "onyomi": [
+      "ゴ",
+      "コウ"
+    ],
+    "kunyomi": [
+      "のち",
+      "うし.ろ",
+      "うしろ",
+      "あと",
+      "おく.れる"
+    ],
+    "strokeCount": 9,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%BE%8C"
+  },
+  "毎": {
+    "meanings": [
+      "every"
+    ],
+    "onyomi": [
+      "マイ"
+    ],
+    "kunyomi": [
+      "ごと",
+      "-ごと.に"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%AF%8E"
+  },
+  "行": {
+    "meanings": [
+      "going",
+      "journey",
+      "carry out",
+      "conduct",
+      "act",
+      "line",
+      "row",
+      "bank"
+    ],
+    "onyomi": [
+      "コウ",
+      "ギョウ",
+      "アン"
+    ],
+    "kunyomi": [
+      "い.く",
+      "ゆ.く",
+      "-ゆ.き",
+      "-ゆき",
+      "-い.き",
+      "-いき",
+      "おこな.う",
+      "おこ.なう"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%A1%8C"
+  },
+  "来": {
+    "meanings": [
+      "come",
+      "due",
+      "next",
+      "cause",
+      "become"
+    ],
+    "onyomi": [
+      "ライ",
+      "タイ"
+    ],
+    "kunyomi": [
+      "く.る",
+      "きた.る",
+      "きた.す",
+      "き.たす",
+      "き.たる",
+      "き",
+      "こ"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%9D%A5"
+  },
+  "電": {
+    "meanings": [
+      "electricity"
+    ],
+    "onyomi": [
+      "デン"
+    ],
+    "kunyomi": [],
+    "strokeCount": 13,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%9B%BB"
+  },
+  "車": {
+    "meanings": [
+      "car"
+    ],
+    "onyomi": [
+      "シャ"
+    ],
+    "kunyomi": [
+      "くるま"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%BB%8A"
+  },
+  "週": {
+    "meanings": [
+      "week"
+    ],
+    "onyomi": [
+      "シュウ"
+    ],
+    "kunyomi": [],
+    "strokeCount": 11,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%80%B1"
+  },
+  "休": {
+    "meanings": [
+      "rest",
+      "day off",
+      "retire",
+      "sleep"
+    ],
+    "onyomi": [
+      "キュウ"
+    ],
+    "kunyomi": [
+      "やす.む",
+      "やす.まる",
+      "やす.める"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%BC%91"
+  },
+  "見": {
+    "meanings": [
+      "see",
+      "hopes",
+      "chances",
+      "idea",
+      "opinion",
+      "look at",
+      "visible"
+    ],
+    "onyomi": [
+      "ケン"
+    ],
+    "kunyomi": [
+      "み.る",
+      "み.える",
+      "み.せる"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%A6%8B"
+  },
+  "何": {
+    "meanings": [
+      "what"
+    ],
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "なに",
+      "なん",
+      "なに-",
+      "なん-"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%BD%95"
+  },
+  "年": {
+    "meanings": [
+      "year",
+      "counter for years"
+    ],
+    "onyomi": [
+      "ネン"
+    ],
+    "kunyomi": [
+      "とし"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%B9%B4"
+  },
+  "聞": {
+    "meanings": [
+      "hear",
+      "ask",
+      "listen"
+    ],
+    "onyomi": [
+      "ブン",
+      "モン"
+    ],
+    "kunyomi": [
+      "き.く",
+      "き.こえる"
+    ],
+    "strokeCount": 14,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%81%9E"
+  },
+  "天": {
+    "meanings": [
+      "heavens",
+      "sky",
+      "imperial"
+    ],
+    "onyomi": [
+      "テン"
+    ],
+    "kunyomi": [
+      "あまつ",
+      "あめ",
+      "あま-"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%A4%A9"
+  },
+  "気": {
+    "meanings": [
+      "spirit",
+      "mind",
+      "air",
+      "atmosphere",
+      "mood"
+    ],
+    "onyomi": [
+      "キ",
+      "ケ"
+    ],
+    "kunyomi": [
+      "いき",
+      "き"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%B0%97"
+  },
+  "雨": {
+    "meanings": [
+      "rain"
+    ],
+    "onyomi": [
+      "ウ"
+    ],
+    "kunyomi": [
+      "あめ",
+      "あま-",
+      "-さめ"
+    ],
+    "strokeCount": 8,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%9B%A8"
+  },
+  "友": {
+    "meanings": [
+      "friend"
+    ],
+    "onyomi": [
+      "ユウ"
+    ],
+    "kunyomi": [
+      "とも"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8F%8B"
+  },
+  "会": {
+    "meanings": [
+      "meeting",
+      "meet",
+      "party",
+      "association",
+      "interview",
+      "join"
+    ],
+    "onyomi": [
+      "カイ",
+      "エ"
+    ],
+    "kunyomi": [
+      "あ.う",
+      "あ.わせる",
+      "あつ.まる"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%BC%9A"
+  },
+  "社": {
+    "meanings": [
+      "company",
+      "firm",
+      "office",
+      "association",
+      "shrine"
+    ],
+    "onyomi": [
+      "シャ"
+    ],
+    "kunyomi": [
+      "やしろ"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%A4%BE"
+  },
+  "一": {
+    "meanings": [
+      "one",
+      "one radical (no.1)"
+    ],
+    "onyomi": [
+      "イチ",
+      "イツ"
+    ],
+    "kunyomi": [
+      "ひと-",
+      "ひと.つ"
+    ],
+    "strokeCount": 1,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%80"
+  },
+  "二": {
+    "meanings": [
+      "two",
+      "two radical (no. 7)"
+    ],
+    "onyomi": [
+      "ニ",
+      "ジ"
+    ],
+    "kunyomi": [
+      "ふた",
+      "ふた.つ",
+      "ふたたび"
+    ],
+    "strokeCount": 2,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%BA%8C"
+  },
+  "三": {
+    "meanings": [
+      "three"
+    ],
+    "onyomi": [
+      "サン",
+      "ゾウ"
+    ],
+    "kunyomi": [
+      "み",
+      "み.つ",
+      "みっ.つ"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%89"
+  },
+  "四": {
+    "meanings": [
+      "four"
+    ],
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "よ",
+      "よ.つ",
+      "よっ.つ",
+      "よん"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%9B%9B"
+  },
+  "五": {
+    "meanings": [
+      "five"
+    ],
+    "onyomi": [
+      "ゴ"
+    ],
+    "kunyomi": [
+      "いつ",
+      "いつ.つ"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%BA%94"
+  },
+  "六": {
+    "meanings": [
+      "six"
+    ],
+    "onyomi": [
+      "ロク",
+      "リク"
+    ],
+    "kunyomi": [
+      "む",
+      "む.つ",
+      "むっ.つ",
+      "むい"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%85%AD"
+  },
+  "七": {
+    "meanings": [
+      "seven"
+    ],
+    "onyomi": [
+      "シチ"
+    ],
+    "kunyomi": [
+      "なな",
+      "なな.つ",
+      "なの"
+    ],
+    "strokeCount": 2,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%83"
+  },
+  "八": {
+    "meanings": [
+      "eight",
+      "eight radical (no. 12)"
+    ],
+    "onyomi": [
+      "ハチ",
+      "ハツ"
+    ],
+    "kunyomi": [
+      "や",
+      "や.つ",
+      "やっ.つ",
+      "よう"
+    ],
+    "strokeCount": 2,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%85%AB"
+  },
+  "九": {
+    "meanings": [
+      "nine"
+    ],
+    "onyomi": [
+      "キュウ",
+      "ク"
+    ],
+    "kunyomi": [
+      "ここの",
+      "ここの.つ"
+    ],
+    "strokeCount": 2,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B9%9D"
+  },
+  "十": {
+    "meanings": [
+      "ten"
+    ],
+    "onyomi": [
+      "ジュウ",
+      "ジッ",
+      "ジュッ"
+    ],
+    "kunyomi": [
+      "とお",
+      "と",
+      "そ"
+    ],
+    "strokeCount": 2,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8D%81"
+  },
+  "大": {
+    "meanings": [
+      "large",
+      "big"
+    ],
+    "onyomi": [
+      "ダイ",
+      "タイ"
+    ],
+    "kunyomi": [
+      "おお-",
+      "おお.きい",
+      "-おお.いに"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%A4%A7"
+  },
+  "小": {
+    "meanings": [
+      "little",
+      "small"
+    ],
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "ちい.さい",
+      "こ-",
+      "お-",
+      "さ-"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%B0%8F"
+  },
+  "高": {
+    "meanings": [
+      "tall",
+      "high",
+      "expensive"
+    ],
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "たか.い",
+      "たか",
+      "-だか",
+      "たか.まる",
+      "たか.める"
+    ],
+    "strokeCount": 10,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%AB%98"
+  },
+  "安": {
+    "meanings": [
+      "relax",
+      "cheap",
+      "low",
+      "quiet",
+      "rested",
+      "contented",
+      "peaceful"
+    ],
+    "onyomi": [
+      "アン"
+    ],
+    "kunyomi": [
+      "やす.い",
+      "やす.まる",
+      "やす",
+      "やす.らか"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%AE%89"
+  },
+  "新": {
+    "meanings": [
+      "new"
+    ],
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "あたら.しい",
+      "あら.た",
+      "あら-",
+      "にい-"
+    ],
+    "strokeCount": 13,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%96%B0"
+  },
+  "古": {
+    "meanings": [
+      "old"
+    ],
+    "onyomi": [
+      "コ"
+    ],
+    "kunyomi": [
+      "ふる.い",
+      "ふる-",
+      "-ふる.す"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8F%A4"
+  },
+  "名": {
+    "meanings": [
+      "name",
+      "noted",
+      "distinguished",
+      "reputation"
+    ],
+    "onyomi": [
+      "メイ",
+      "ミョウ"
+    ],
+    "kunyomi": [
+      "な",
+      "-な"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%90%8D"
+  },
+  "山": {
+    "meanings": [
+      "mountain"
+    ],
+    "onyomi": [
+      "サン",
+      "セン"
+    ],
+    "kunyomi": [
+      "やま"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%B1%B1"
+  },
+  "川": {
+    "meanings": [
+      "stream",
+      "river",
+      "river or three-stroke river radical (no. 47)"
+    ],
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "かわ"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%B7%9D"
+  },
+  "長": {
+    "meanings": [
+      "long",
+      "leader",
+      "superior",
+      "senior"
+    ],
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "なが.い",
+      "おさ"
+    ],
+    "strokeCount": 8,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%95%B7"
+  },
+  "多": {
+    "meanings": [
+      "many",
+      "frequent",
+      "much"
+    ],
+    "onyomi": [
+      "タ"
+    ],
+    "kunyomi": [
+      "おお.い",
+      "まさ.に",
+      "まさ.る"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%A4%9A"
+  },
+  "少": {
+    "meanings": [
+      "few",
+      "little"
+    ],
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "すく.ない",
+      "すこ.し"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%B0%91"
+  },
+  "白": {
+    "meanings": [
+      "white"
+    ],
+    "onyomi": [
+      "ハク",
+      "ビャク"
+    ],
+    "kunyomi": [
+      "しろ",
+      "しら-",
+      "しろ.い"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%99%BD"
+  },
+  "店": {
+    "meanings": [
+      "store",
+      "shop"
+    ],
+    "onyomi": [
+      "テン"
+    ],
+    "kunyomi": [
+      "みせ",
+      "たな"
+    ],
+    "strokeCount": 8,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%BA%97"
+  },
+  "駅": {
+    "meanings": [
+      "station"
+    ],
+    "onyomi": [
+      "エキ"
+    ],
+    "kunyomi": [],
+    "strokeCount": 14,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%A7%85"
+  },
+  "国": {
+    "meanings": [
+      "country"
+    ],
+    "onyomi": [
+      "コク"
+    ],
+    "kunyomi": [
+      "くに"
+    ],
+    "strokeCount": 8,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%9B%BD"
+  },
+  "百": {
+    "meanings": [
+      "hundred"
+    ],
+    "onyomi": [
+      "ヒャク",
+      "ビャク"
+    ],
+    "kunyomi": [
+      "もも"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%99%BE"
+  },
+  "千": {
+    "meanings": [
+      "thousand"
+    ],
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "ち"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8D%83"
+  },
+  "万": {
+    "meanings": [
+      "ten thousand",
+      "10,000"
+    ],
+    "onyomi": [
+      "マン",
+      "バン"
+    ],
+    "kunyomi": [
+      "よろず"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%87"
+  },
+  "円": {
+    "meanings": [
+      "circle",
+      "yen",
+      "round"
+    ],
+    "onyomi": [
+      "エン"
+    ],
+    "kunyomi": [
+      "まる.い",
+      "まる",
+      "まど",
+      "まど.か",
+      "まろ.やか"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%86%86"
+  },
+  "子": {
+    "meanings": [
+      "child",
+      "sign of the rat",
+      "11PM-1AM",
+      "first sign of Chinese zodiac"
+    ],
+    "onyomi": [
+      "シ",
+      "ス",
+      "ツ"
+    ],
+    "kunyomi": [
+      "こ",
+      "-こ",
+      "ね"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%AD%90"
+  },
+  "男": {
+    "meanings": [
+      "male"
+    ],
+    "onyomi": [
+      "ダン",
+      "ナン"
+    ],
+    "kunyomi": [
+      "おとこ",
+      "お"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%94%B7"
+  },
+  "女": {
+    "meanings": [
+      "woman",
+      "female"
+    ],
+    "onyomi": [
+      "ジョ",
+      "ニョ",
+      "ニョウ"
+    ],
+    "kunyomi": [
+      "おんな",
+      "め"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%A5%B3"
+  },
+  "買": {
+    "meanings": [
+      "buy"
+    ],
+    "onyomi": [
+      "バイ"
+    ],
+    "kunyomi": [
+      "か.う"
+    ],
+    "strokeCount": 12,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%B2%B7"
+  },
+  "飲": {
+    "meanings": [
+      "drink",
+      "smoke",
+      "take"
+    ],
+    "onyomi": [
+      "イン",
+      "オン"
+    ],
+    "kunyomi": [
+      "の.む",
+      "-の.み"
+    ],
+    "strokeCount": 12,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%A3%B2"
+  },
+  "上": {
+    "meanings": [
+      "above",
+      "up"
+    ],
+    "onyomi": [
+      "ジョウ",
+      "ショウ",
+      "シャン"
+    ],
+    "kunyomi": [
+      "うえ",
+      "-うえ",
+      "うわ-",
+      "かみ",
+      "あ.げる",
+      "-あ.げる",
+      "あ.がる",
+      "-あ.がる",
+      "あ.がり",
+      "-あ.がり",
+      "のぼ.る",
+      "のぼ.り",
+      "のぼ.せる",
+      "のぼ.す",
+      "たてまつ.る"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%8A"
+  },
+  "下": {
+    "meanings": [
+      "below",
+      "down",
+      "descend",
+      "give",
+      "low",
+      "inferior"
+    ],
+    "onyomi": [
+      "カ",
+      "ゲ"
+    ],
+    "kunyomi": [
+      "した",
+      "しも",
+      "もと",
+      "さ.げる",
+      "さ.がる",
+      "くだ.る",
+      "くだ.り",
+      "くだ.す",
+      "-くだ.す",
+      "くだ.さる",
+      "お.ろす",
+      "お.りる"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%8B"
+  },
+  "中": {
+    "meanings": [
+      "in",
+      "inside",
+      "middle",
+      "mean",
+      "center"
+    ],
+    "onyomi": [
+      "チュウ"
+    ],
+    "kunyomi": [
+      "なか",
+      "うち",
+      "あた.る"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%AD"
+  },
+  "右": {
+    "meanings": [
+      "right"
+    ],
+    "onyomi": [
+      "ウ",
+      "ユウ"
+    ],
+    "kunyomi": [
+      "みぎ"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8F%B3"
+  },
+  "左": {
+    "meanings": [
+      "left"
+    ],
+    "onyomi": [
+      "サ",
+      "シャ"
+    ],
+    "kunyomi": [
+      "ひだり"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%B7%A6"
+  },
+  "入": {
+    "meanings": [
+      "enter",
+      "insert"
+    ],
+    "onyomi": [
+      "ニュウ",
+      "ジュ"
+    ],
+    "kunyomi": [
+      "い.る",
+      "-い.る",
+      "-い.り",
+      "い.れる",
+      "-い.れ",
+      "はい.る"
+    ],
+    "strokeCount": 2,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%85%A5"
+  },
+  "出": {
+    "meanings": [
+      "exit",
+      "leave",
+      "go out",
+      "come out",
+      "put out",
+      "protrude"
+    ],
+    "onyomi": [
+      "シュツ",
+      "スイ"
+    ],
+    "kunyomi": [
+      "で.る",
+      "-で",
+      "だ.す",
+      "-だ.す",
+      "い.でる",
+      "い.だす"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%87%BA"
+  },
+  "口": {
+    "meanings": [
+      "mouth"
+    ],
+    "onyomi": [
+      "コウ",
+      "ク"
+    ],
+    "kunyomi": [
+      "くち"
+    ],
+    "strokeCount": 3,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8F%A3"
+  },
+  "外": {
+    "meanings": [
+      "outside"
+    ],
+    "onyomi": [
+      "ガイ",
+      "ゲ"
+    ],
+    "kunyomi": [
+      "そと",
+      "ほか",
+      "はず.す",
+      "はず.れる",
+      "と-"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%A4%96"
+  },
+  "言": {
+    "meanings": [
+      "say",
+      "word"
+    ],
+    "onyomi": [
+      "ゲン",
+      "ゴン"
+    ],
+    "kunyomi": [
+      "い.う",
+      "こと"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%A8%80"
+  },
+  "話": {
+    "meanings": [
+      "tale",
+      "talk"
+    ],
+    "onyomi": [
+      "ワ"
+    ],
+    "kunyomi": [
+      "はな.す",
+      "はなし"
+    ],
+    "strokeCount": 13,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%A9%B1"
+  },
+  "語": {
+    "meanings": [
+      "word",
+      "speech",
+      "language"
+    ],
+    "onyomi": [
+      "ゴ"
+    ],
+    "kunyomi": [
+      "かた.る",
+      "かた.らう"
+    ],
+    "strokeCount": 14,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%AA%9E"
+  },
+  "読": {
+    "meanings": [
+      "read"
+    ],
+    "onyomi": [
+      "ドク",
+      "トク",
+      "トウ"
+    ],
+    "kunyomi": [
+      "よ.む",
+      "-よ.み"
+    ],
+    "strokeCount": 14,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%AA%AD"
+  },
+  "書": {
+    "meanings": [
+      "write"
+    ],
+    "onyomi": [
+      "ショ"
+    ],
+    "kunyomi": [
+      "か.く",
+      "-が.き",
+      "-がき"
+    ],
+    "strokeCount": 10,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%9B%B8"
+  },
+  "立": {
+    "meanings": [
+      "stand up",
+      "rise",
+      "set up",
+      "erect"
+    ],
+    "onyomi": [
+      "リツ",
+      "リュウ",
+      "リットル"
+    ],
+    "kunyomi": [
+      "た.つ",
+      "-た.つ",
+      "た.ち-",
+      "た.てる",
+      "-た.てる",
+      "た.て-",
+      "たて-",
+      "-た.て",
+      "-だ.て",
+      "-だ.てる"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%AB%8B"
+  },
+  "手": {
+    "meanings": [
+      "hand"
+    ],
+    "onyomi": [
+      "シュ",
+      "ズ"
+    ],
+    "kunyomi": [
+      "て",
+      "て-",
+      "-て",
+      "た-"
+    ],
+    "strokeCount": 4,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%89%8B"
+  },
+  "足": {
+    "meanings": [
+      "leg",
+      "foot",
+      "be sufficient",
+      "counter for pairs of footwear"
+    ],
+    "onyomi": [
+      "ソク"
+    ],
+    "kunyomi": [
+      "あし",
+      "た.りる",
+      "た.る",
+      "た.す"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%B6%B3"
+  },
+  "間": {
+    "meanings": [
+      "interval",
+      "space"
+    ],
+    "onyomi": [
+      "カン",
+      "ケン"
+    ],
+    "kunyomi": [
+      "あいだ",
+      "ま",
+      "あい"
+    ],
+    "strokeCount": 12,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%96%93"
+  },
+  "目": {
+    "meanings": [
+      "eye",
+      "class",
+      "look",
+      "insight",
+      "experience",
+      "care",
+      "favor"
+    ],
+    "onyomi": [
+      "モク",
+      "ボク"
+    ],
+    "kunyomi": [
+      "め",
+      "-め",
+      "ま-"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%9B%AE"
+  },
+  "耳": {
+    "meanings": [
+      "ear"
+    ],
+    "onyomi": [
+      "ジ"
+    ],
+    "kunyomi": [
+      "みみ"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%80%B3"
+  },
+  "校": {
+    "meanings": [
+      "exam",
+      "school",
+      "printing",
+      "proof",
+      "correction"
+    ],
+    "onyomi": [
+      "コウ",
+      "キョウ"
+    ],
+    "kunyomi": [],
+    "strokeCount": 10,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%A0%A1"
+  },
+  "空": {
+    "meanings": [
+      "empty",
+      "sky",
+      "void",
+      "vacant",
+      "vacuum"
+    ],
+    "onyomi": [
+      "クウ"
+    ],
+    "kunyomi": [
+      "そら",
+      "あ.く",
+      "あ.き",
+      "あ.ける",
+      "から",
+      "す.く",
+      "す.かす",
+      "むな.しい"
+    ],
+    "strokeCount": 8,
+    "source": "https://kanjiapi.dev/v1/kanji/%E7%A9%BA"
+  },
+  "東": {
+    "meanings": [
+      "east"
+    ],
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "ひがし"
+    ],
+    "strokeCount": 8,
+    "source": "https://kanjiapi.dev/v1/kanji/%E6%9D%B1"
+  },
+  "西": {
+    "meanings": [
+      "west",
+      "Spain"
+    ],
+    "onyomi": [
+      "セイ",
+      "サイ",
+      "ス"
+    ],
+    "kunyomi": [
+      "にし"
+    ],
+    "strokeCount": 6,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%A5%BF"
+  },
+  "南": {
+    "meanings": [
+      "south"
+    ],
+    "onyomi": [
+      "ナン",
+      "ナ"
+    ],
+    "kunyomi": [
+      "みなみ"
+    ],
+    "strokeCount": 9,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8D%97"
+  },
+  "北": {
+    "meanings": [
+      "north"
+    ],
+    "onyomi": [
+      "ホク"
+    ],
+    "kunyomi": [
+      "きた"
+    ],
+    "strokeCount": 5,
+    "source": "https://kanjiapi.dev/v1/kanji/%E5%8C%97"
+  },
+  "花": {
+    "meanings": [
+      "flower"
+    ],
+    "onyomi": [
+      "カ",
+      "ケ"
+    ],
+    "kunyomi": [
+      "はな"
+    ],
+    "strokeCount": 7,
+    "source": "https://kanjiapi.dev/v1/kanji/%E8%8A%B1"
+  },
+  "魚": {
+    "meanings": [
+      "fish"
+    ],
+    "onyomi": [
+      "ギョ"
+    ],
+    "kunyomi": [
+      "うお",
+      "さかな",
+      "-ざかな"
+    ],
+    "strokeCount": 11,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%AD%9A"
+  },
+  "道": {
+    "meanings": [
+      "road-way",
+      "street",
+      "district",
+      "journey",
+      "course",
+      "moral",
+      "teachings"
+    ],
+    "onyomi": [
+      "ドウ",
+      "トウ"
+    ],
+    "kunyomi": [
+      "みち",
+      "いう"
+    ],
+    "strokeCount": 12,
+    "source": "https://kanjiapi.dev/v1/kanji/%E9%81%93"
+  }
+}

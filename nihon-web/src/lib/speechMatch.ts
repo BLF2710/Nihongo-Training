@@ -1,3 +1,5 @@
+import { toReading } from "./furigana";
+
 // Speech recognition returns standard Japanese writing (私は田中です), while course material is written
 // in kana (わたしは たなかです). Both sides are reduced to kana with the course's own words before comparing.
 
@@ -39,7 +41,7 @@ const strip = (text: string) => text.normalize("NFKC").toLowerCase().replace(/[\
 
 /** Kana-only spellings of a phrase; more than one when a written form has several readings. */
 export function kanaCandidates(text: string): string[] {
-  let candidates = [strip(text)];
+  let candidates = [strip(toReading(text))];
   for (const [written, ...readings] of BY_LENGTH) {
     if (!candidates.some(candidate => candidate.includes(written))) continue;
     candidates = candidates.flatMap(candidate => readings.map(reading => candidate.split(written).join(reading))).slice(0, MAX_CANDIDATES);

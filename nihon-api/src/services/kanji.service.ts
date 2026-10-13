@@ -35,6 +35,9 @@ const QUESTION_BUILDERS: Record<PracticeKind, (kanji: Kanji, form: VocabularyFor
   },
 };
 
+/** Reading and vocabulary questions need a course word written with the Kanji; newly introduced Kanji may not have one yet. */
+export const hasCourseWords = (kanjiId: string) => catalog.vocabularyForms.some(form => form.kanjiIds.includes(kanjiId));
+
 export function makeKanjiQuestion(kanjiId: string, kind: PracticeKind) {
   const kanji = catalog.kanji.find(item => item.id === kanjiId);
   if (!kanji) throw new Error("Unknown Kanji");

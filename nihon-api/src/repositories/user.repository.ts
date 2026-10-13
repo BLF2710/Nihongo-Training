@@ -38,6 +38,11 @@ export async function findActiveAccount(userId: number) {
   return result.rows[0];
 }
 
+export async function hasAllLessonsUnlocked(userId: number): Promise<boolean> {
+  const result = await pool.query("SELECT all_lessons_unlocked FROM users WHERE id=$1", [userId]);
+  return result.rows[0]?.all_lessons_unlocked === true;
+}
+
 export async function findPasswordHash(userId: number): Promise<string | undefined> {
   const result = await pool.query("SELECT password FROM users WHERE id=$1", [userId]);
   return result.rows[0]?.password;
@@ -84,7 +89,7 @@ export async function countUsersMatching(search: string): Promise<number> {
 
 export async function searchUsers(search: string, limit: number, offset: number) {
   const result = await pool.query(
-    `SELECT id,username,email,role,status,created_at,last_login_at FROM users WHERE ${SEARCH_FILTER} ORDER BY id LIMIT $2 OFFSET $3`,
+    `SELECT id,username,email,role,status,all_lessons_unlocked,created_at,last_login_at FROM users WHERE ${SEARCH_FILTER} ORDER BY id LIMIT $2 OFFSET $3`,
     [search, limit, offset]
   );
   return result.rows;
@@ -108,6 +113,12 @@ export async function lockUserRoleAndStatus(userId: number, db: Queryable): Prom
 export async function countActiveAdmins(db: Queryable): Promise<number> {
   const result = await db.query("SELECT COUNT(*)::int AS count FROM users WHERE role='admin' AND status='active'");
   return result.rows[0].count;
+}
+
+/** Null when the account does not exist. */
+export async function setAllLessonsUnlocked(userId: number, unlocked: boolean): Promise<{ id: number; all_lessons_unlocked: boolean } | null> {
+  const result = await pool.query("UPDATE users SET all_lessons_unlocked=$1, updated_at=NOW() WHERE id=$2 RETURNING id, all_lessons_unlocked", [unlocked, userId]);
+  return result.rows[0] ?? null;
 }
 
 export async function updateAccount(db: Queryable, edit: AccountEdit) {

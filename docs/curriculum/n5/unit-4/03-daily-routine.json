@@ -1,0 +1,115 @@
+{
+  "id": "japanese-n5-unit-4-daily-routine",
+  "slug": "n5-unit-4-daily-routine",
+  "unit": "Japanese N5 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "My Daily Routine",
+  "title_jp": "わたしの いちにち",
+  "objectives": [
+    "I can describe my daily routine with polite verbs.",
+    "Use the ます and ません forms for things you regularly do or do not do",
+    "Say what time you do something with に",
+    "Ask なんじに and なにを しますか"
+  ],
+  "vocabulary": [
+    ["おきます", "okimasu", "to get up"],
+    ["ねます", "nemasu", "to go to bed / to sleep"],
+    ["します", "shimasu", "to do"],
+    ["べんきょうします", "benkyou shimasu", "to study"],
+    ["はたらきます", "hatarakimasu", "to work"],
+    ["まいにち", "mainichi", "every day"],
+    ["あさ", "asa", "morning"],
+    ["よる", "yoru", "night / evening"],
+    ["まいあさ", "maiasa", "every morning"],
+    ["まいばん", "maiban", "every night"],
+    ["しごと", "shigoto", "work / job"],
+    ["にほんご", "nihongo", "Japanese (language)"]
+  ],
+  "kanji_form": [
+    { "word_japanese": "午前", "word_reading": "ごぜん" },
+    { "word_japanese": "午後", "word_reading": "ごご" },
+    { "word_japanese": "毎日", "word_reading": "まいにち" }
+  ],
+  "concept": {
+    "title": "ます for what you do, ません for what you do not",
+    "text": "Polite verbs end in ます. This one form covers habits (I get up at seven) and the future (I will get up at seven); there is no separate future tense. Change ます to ません to make the negative. You already use this pair with たべます and のみます.\n\nThe verb always comes last. A clock time is marked with に, placed before the verb: しちじに おきます. Words such as きょう, あした, まいにち, まいあさ and いま do not take に.",
+    "examples": ["V-ます / V-ません", "time に V-ます", "まいにち しちじに おきます。"]
+  },
+  "grammar": [
+    {
+      "title": "Polite verbs: ます and ません",
+      "pattern": "N は (N を) V-ます / V-ません",
+      "explanation": "ます states what someone does regularly or will do. ません is its negative. The object of the action is marked with を, as in パンを たべます. します (to do) joins with nouns to make verbs such as べんきょうします.",
+      "examples": [
+        { "japanese": "わたしは まいにち べんきょうします。", "romaji": "Watashi wa mainichi benkyou shimasu.", "meaning": "I study every day." },
+        { "japanese": "ちちは まいにち はたらきます。", "romaji": "Chichi wa mainichi hatarakimasu.", "meaning": "My father works every day." },
+        { "japanese": "あには あさごはんを たべません。", "romaji": "Ani wa asagohan o tabemasen.", "meaning": "My older brother does not eat breakfast." },
+        { "japanese": "にちようびは はたらきません。", "romaji": "Nichiyoubi wa hatarakimasen.", "meaning": "I do not work on Sundays." },
+        { "japanese": "あねは まいばん にほんごを べんきょうします。", "romaji": "Ane wa maiban nihongo o benkyou shimasu.", "meaning": "My older sister studies Japanese every night." }
+      ],
+      "notes": [
+        "The verb goes at the end of the sentence.",
+        "The negative is ません, not ますじゃない or ないます.",
+        "を is written with the kana を but pronounced o."
+      ]
+    },
+    {
+      "title": "At a time: に",
+      "pattern": "time に V-ます",
+      "explanation": "Put に after a clock time to say when an action happens. Days of the week may also take に. Do not add に after きょう, あした, いま, まいにち, まいあさ or まいばん. Ask with なんじに.",
+      "examples": [
+        { "japanese": "しちじに おきます。", "romaji": "Shichiji ni okimasu.", "meaning": "I get up at seven." },
+        { "japanese": "まいばん じゅうじはんに ねます。", "romaji": "Maiban juuji han ni nemasu.", "meaning": "I go to bed at 10:30 every night." },
+        { "japanese": "なんじに おきますか。", "romaji": "Nanji ni okimasu ka.", "meaning": "What time do you get up?" },
+        { "japanese": "どようびに アルバイトを します。", "romaji": "Doyoubi ni arubaito o shimasu.", "meaning": "I do my part-time job on Saturday." },
+        { "japanese": "あした ろくじに おきます。", "romaji": "Ashita rokuji ni okimasu.", "meaning": "I will get up at six tomorrow." }
+      ],
+      "notes": [
+        "Wrong: まいにちに おきます. Right: まいにち おきます.",
+        "This に marks a point in time. The に in つくえの うえに あります marks a location."
+      ]
+    }
+  ],
+  "examples": [
+    ["わたしは まいあさ ろくじはんに おきます。", "I get up at 6:30 every morning."],
+    ["ははは ごぜん くじから ごご ごじまで はたらきます。", "My mother works from 9 a.m. until 5 p.m."],
+    ["よる、にほんごを べんきょうします。", "At night I study Japanese."],
+    ["あしたは しごとを しません。", "I will not work tomorrow."]
+  ],
+  "dialogue": [
+    ["ゆき", "まいあさ なんじに おきますか。", "リー", "ろくじに おきます。"],
+    ["ゆき", "あさごはんを たべますか。", "リー", "はい、まいあさ パンを たべます。"],
+    ["けん", "よるは なにを しますか。", "マリア", "にほんごを べんきょうします。"],
+    ["けん", "なんじに ねますか。", "マリア", "じゅういちじに ねます。"]
+  ],
+  "introduced_kanji": [
+    { "char": "午", "onyomi": ["ゴ"], "kunyomi": ["うま"], "meaning_en": "noon", "stroke_count": 4, "example_words": [{ "word": "午前", "reading": "ごぜん", "en": "a.m." }, { "word": "午後", "reading": "ごご", "en": "p.m." }], "mnemonic": "The midday point that splits the day into before and after." },
+    { "char": "前", "onyomi": ["ゼン"], "kunyomi": ["まえ"], "meaning_en": "before, in front", "stroke_count": 9, "example_words": [{ "word": "午前", "reading": "ごぜん", "en": "a.m." }, { "word": "前", "reading": "まえ", "en": "front / before" }], "mnemonic": "What comes first is in front of you." },
+    { "char": "後", "onyomi": ["ゴ", "コウ"], "kunyomi": ["うし.ろ", "あと"], "meaning_en": "after, behind", "stroke_count": 9, "example_words": [{ "word": "午後", "reading": "ごご", "en": "p.m." }, { "word": "後ろ", "reading": "うしろ", "en": "behind" }], "mnemonic": "Someone walking with slow steps falls behind." },
+    { "char": "毎", "onyomi": ["マイ"], "kunyomi": ["ごと"], "meaning_en": "every", "stroke_count": 6, "example_words": [{ "word": "毎日", "reading": "まいにち", "en": "every day" }, { "word": "毎週", "reading": "まいしゅう", "en": "every week" }], "mnemonic": "The same thing, again and again, every time." }
+  ],
+  "reading": { "genre": "", "text_jp": "", "en_translation": "", "questions": [] },
+  "practice": [
+    { "prompt": "Review: what does がっこうは くじからです mean?", "options": ["School starts at nine.", "School ends at nine.", "School is on Monday.", "School is nine minutes away."], "correct": "School starts at nine.", "explanation": "から marks the starting time." },
+    { "prompt": "What does おきます mean?", "options": ["to get up", "to go to bed", "to work", "to study"], "correct": "to get up", "explanation": "おきます is to get up. ねます is to go to bed." },
+    { "prompt": "Choose the negative of はたらきます.", "options": ["はたらきません", "はたらきますじゃない", "はたらきます", "はたらきないます"], "correct": "はたらきません", "explanation": "Change ます to ません to make the polite negative." },
+    { "prompt": "Complete: しちじ ___ おきます。", "options": ["に", "を", "は", "の"], "correct": "に", "explanation": "に marks the clock time of an action." },
+    { "prompt": "Complete: にほんご ___ べんきょうします。", "options": ["を", "に", "から", "まで"], "correct": "を", "explanation": "を marks what is studied, the object." },
+    { "prompt": "Which sentence is correct?", "options": ["まいにち べんきょうします。", "まいにちに べんきょうします。", "べんきょうします まいにち。", "まいにちを べんきょうします。"], "correct": "まいにち べんきょうします。", "explanation": "まいにち takes no particle, and the verb comes last." },
+    { "prompt": "Choose the meaning of ちちは まいにち はたらきます。", "options": ["My father works every day.", "My father does not work every day.", "My father studies every day.", "My mother works every day."], "correct": "My father works every day.", "explanation": "ちち is my father, まいにち is every day, and はたらきます is works." }
+  ],
+  "challenge": [
+    { "prompt": "Someone asks: なんじに ねますか。 You go to bed at 10:30. What do you say?", "options": ["じゅうじはんに ねます。", "じゅうじはんを ねます。", "じゅうじはんに おきます。", "じゅうじはん ねません。"], "correct": "じゅうじはんに ねます。", "explanation": "The time takes に and ねます is to go to bed." },
+    { "prompt": "Choose the sentence that means: I do not work on Sundays.", "options": ["にちようびは はたらきません。", "にちようびは はたらきます。", "どようびは はたらきません。", "にちようびは ねません。"], "correct": "にちようびは はたらきません。", "explanation": "にちようび is Sunday and はたらきません is do not work." },
+    { "prompt": "Read: ははは ごぜん くじから ごご ごじまで はたらきます。 When does she finish work?", "options": ["5 p.m.", "9 a.m.", "5 a.m.", "9 p.m."], "correct": "5 p.m.", "explanation": "ごご ごじまで means until 5 p.m." },
+    { "prompt": "Which word can NOT be followed by に?", "options": ["まいあさ", "しちじ", "くじはん", "どようび"], "correct": "まいあさ", "explanation": "まいあさ (every morning) takes no particle. Clock times and days can take に." },
+    { "prompt": "Review: complete あには コーヒーを あまり ___。", "options": ["のみません", "のみます", "たべません", "のみ"], "correct": "のみません", "explanation": "あまり is used with a negative verb, and coffee is drunk: のみません." }
+  ],
+  "recycled_from": ["japanese-n5-unit-4-days-and-schedules", "japanese-n5-unit-4-telling-time", "japanese-n5-unit-2-eat-drink", "japanese-n5-unit-2-family", "japanese-n5-unit-3-locations"],
+  "skill_notes": "じゅういちじ (eleven o'clock) appears in the dialogue; it is built from じゅう and いち as explained in lesson 1.",
+  "review_flags": [
+    "VERIFY: 前 (まえ) and 後ろ (うしろ) are Unit 3 words; their kanji spellings are not linked automatically because Unit 3 is not imported content."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "japanese-n5-unit-4-my-week",
+  "slug": "n5-unit-4-my-week",
+  "unit": "Japanese N5 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "My Week",
+  "title_jp": "わたしの いっしゅうかん",
+  "objectives": [
+    "I can say how often I do things and where I do them.",
+    "Use the full set of frequency words, from まいにち to ぜんぜん",
+    "Mark the place where an action happens with で",
+    "Talk about this week, next week and the weekend"
+  ],
+  "vocabulary": [
+    ["まいしゅう", "maishuu", "every week"],
+    ["こんしゅう", "konshuu", "this week"],
+    ["らいしゅう", "raishuu", "next week"],
+    ["しゅうまつ", "shuumatsu", "weekend"],
+    ["どにち", "donichi", "Saturday and Sunday"],
+    ["ときどき", "tokidoki", "sometimes"],
+    ["ぜんぜん", "zenzen", "not at all (with a negative)"],
+    ["みます", "mimasu", "to watch / to see"],
+    ["やすみます", "yasumimasu", "to rest / to take time off"],
+    ["テレビ", "terebi", "television"],
+    ["えいが", "eiga", "film / movie"]
+  ],
+  "kanji_form": [
+    { "word_japanese": "毎週", "word_reading": "まいしゅう" },
+    { "word_japanese": "今週", "word_reading": "こんしゅう" },
+    { "word_japanese": "来週", "word_reading": "らいしゅう" },
+    { "word_japanese": "土日", "word_reading": "どにち" },
+    { "word_japanese": "休み", "word_reading": "やすみ" }
+  ],
+  "concept": {
+    "title": "How often, and where",
+    "text": "Frequency words go before the verb and need no particle. From most to least often: まいにち, いつも, よく, ときどき, あまり, ぜんぜん. The last two must be used with a negative verb, as you learned with あまり in Unit 2.\n\nThe place where an action happens takes で: うちで テレビを みます. Compare this with に for a destination (うちに かえります) and に for where something exists (うちに います).",
+    "examples": ["ときどき えいがを みます。", "ぜんぜん みません。", "place で V-ます"]
+  },
+  "grammar": [
+    {
+      "title": "How often",
+      "pattern": "frequency word + V-ます / あまり ・ ぜんぜん + V-ません",
+      "explanation": "いつも (always), よく (often) and ときどき (sometimes) are used with ます. あまり (not much) and ぜんぜん (not at all) are used with ません. Time words such as まいしゅう and しゅうまつ also come before the verb without a particle.",
+      "examples": [
+        { "japanese": "わたしは ときどき えいがを みます。", "romaji": "Watashi wa tokidoki eiga o mimasu.", "meaning": "I sometimes watch films." },
+        { "japanese": "ははは よく テレビを みます。", "romaji": "Haha wa yoku terebi o mimasu.", "meaning": "My mother often watches television." },
+        { "japanese": "あには あまり テレビを みません。", "romaji": "Ani wa amari terebi o mimasen.", "meaning": "My older brother does not watch much television." },
+        { "japanese": "おとうとは ぜんぜん べんきょうしません。", "romaji": "Otouto wa zenzen benkyou shimasen.", "meaning": "My younger brother does not study at all." },
+        { "japanese": "まいしゅう どようびに としょかんに いきます。", "romaji": "Maishuu doyoubi ni toshokan ni ikimasu.", "meaning": "I go to the library every Saturday." }
+      ],
+      "notes": [
+        "Wrong: ぜんぜん みます. ぜんぜん and あまり need ません.",
+        "ときどき means sometimes; do not confuse it with とけい (clock)."
+      ]
+    },
+    {
+      "title": "Where an action happens: で",
+      "pattern": "place で (N を) V-ます",
+      "explanation": "で marks the place where you do something. It is the same で you used for transport, with the same idea of the setting or means of the action. Use に, not で, for destinations with いきます and for existence with あります and います. Ask with どこで.",
+      "examples": [
+        { "japanese": "うちで テレビを みます。", "romaji": "Uchi de terebi o mimasu.", "meaning": "I watch television at home." },
+        { "japanese": "としょかんで べんきょうします。", "romaji": "Toshokan de benkyou shimasu.", "meaning": "I study at the library." },
+        { "japanese": "しょくどうで ごはんを たべます。", "romaji": "Shokudou de gohan o tabemasu.", "meaning": "I eat a meal in the cafeteria." },
+        { "japanese": "どこで べんきょうしますか。", "romaji": "Doko de benkyou shimasu ka.", "meaning": "Where do you study?" },
+        { "japanese": "ちちは とうきょうの かいしゃで はたらきます。", "romaji": "Chichi wa Toukyou no kaisha de hatarakimasu.", "meaning": "My father works at a company in Tokyo." }
+      ],
+      "notes": [
+        "としょかんに いきます (destination) but としょかんで べんきょうします (action).",
+        "せんせいは きょうしつに います uses に because います describes where someone is, not an action."
+      ]
+    }
+  ],
+  "examples": [
+    ["しゅうまつは うちで やすみます。", "On weekends I rest at home."],
+    ["こんしゅうは まいにち アルバイトを します。", "This week I work my part-time job every day."],
+    ["らいしゅうの きんようびに うちで えいがを みます。", "Next Friday I will watch a film at home."],
+    ["どにちは ぜんぜん べんきょうしません。", "I do not study at all on Saturdays and Sundays."]
+  ],
+  "dialogue": [
+    ["マイ", "しゅうまつは なにを しますか。", "ゆき", "うちで えいがを みます。"],
+    ["マイ", "よく えいがを みますか。", "ゆき", "はい、まいしゅう みます。"],
+    ["リー", "どこで にほんごを べんきょうしますか。", "アナ", "がっこうの としょかんで べんきょうします。"],
+    ["けん", "らいしゅうは アルバイトを しますか。", "さくら", "いいえ、らいしゅうは やすみます。"]
+  ],
+  "introduced_kanji": [
+    { "char": "週", "onyomi": ["シュウ"], "kunyomi": [], "meaning_en": "week", "stroke_count": 11, "example_words": [{ "word": "毎週", "reading": "まいしゅう", "en": "every week" }, { "word": "今週", "reading": "こんしゅう", "en": "this week" }, { "word": "来週", "reading": "らいしゅう", "en": "next week" }], "mnemonic": "A full circuit (周) on the road: one lap of the seven days." },
+    { "char": "休", "onyomi": ["キュウ"], "kunyomi": ["やす.む"], "meaning_en": "rest", "stroke_count": 6, "example_words": [{ "word": "休み", "reading": "やすみ", "en": "day off" }, { "word": "休みます", "reading": "やすみます", "en": "to rest" }], "mnemonic": "A person (人) leaning against a tree (木) to rest." },
+    { "char": "見", "onyomi": ["ケン"], "kunyomi": ["み.る"], "meaning_en": "see, watch", "stroke_count": 7, "example_words": [{ "word": "見ます", "reading": "みます", "en": "to watch" }, { "word": "花見", "reading": "はなみ", "en": "flower viewing" }], "mnemonic": "An eye (目) on two legs, walking around to look." }
+  ],
+  "reading": { "genre": "", "text_jp": "", "en_translation": "", "questions": [] },
+  "practice": [
+    { "prompt": "Review: complete バス ___ がっこうに いきます。", "options": ["で", "に", "を", "は"], "correct": "で", "explanation": "で marks the vehicle: by bus." },
+    { "prompt": "What does ときどき mean?", "options": ["sometimes", "always", "every week", "not at all"], "correct": "sometimes", "explanation": "ときどき means sometimes." },
+    { "prompt": "Complete: おとうとは ぜんぜん べんきょう ___。", "options": ["しません", "します", "です", "しますか"], "correct": "しません", "explanation": "ぜんぜん must be used with a negative verb." },
+    { "prompt": "Complete: うち ___ テレビを みます。", "options": ["で", "に", "を", "へ"], "correct": "で", "explanation": "で marks the place where the action happens." },
+    { "prompt": "Which word means next week?", "options": ["らいしゅう", "こんしゅう", "まいしゅう", "しゅうまつ"], "correct": "らいしゅう", "explanation": "らいしゅう is next week. こんしゅう is this week." },
+    { "prompt": "Choose the correct sentence.", "options": ["としょかんで べんきょうします。", "としょかんに べんきょうします。", "としょかんを べんきょうします。", "としょかんへ べんきょうします。"], "correct": "としょかんで べんきょうします。", "explanation": "Studying is an action, so its place takes で." },
+    { "prompt": "Choose the meaning of ははは よく テレビを みます。", "options": ["My mother often watches television.", "My mother never watches television.", "My mother sometimes watches films.", "My mother watches television every week."], "correct": "My mother often watches television.", "explanation": "よく means often." }
+  ],
+  "challenge": [
+    { "prompt": "Someone asks: しゅうまつは なにを しますか。 You rest at home. What do you say?", "options": ["うちで やすみます。", "うちに やすみます。", "うちを やすみます。", "うちで やすみません。"], "correct": "うちで やすみます。", "explanation": "Resting is an action, so the place takes で." },
+    { "prompt": "Which sentence correctly says you do not watch television much?", "options": ["あまり テレビを みません。", "あまり テレビを みます。", "よく テレビを みません。", "ときどき テレビを みません。"], "correct": "あまり テレビを みません。", "explanation": "あまり pairs with a negative verb to mean not much." },
+    { "prompt": "Choose the pair with the right particles: としょかん ___ いきます。 としょかん ___ べんきょうします。", "options": ["に / で", "で / に", "を / で", "に / を"], "correct": "に / で", "explanation": "に for the destination, で for where the action happens." },
+    { "prompt": "Read: らいしゅうの きんようびに うちで えいがを みます。 When is this?", "options": ["Next Friday", "This Friday", "Every Friday", "Next Thursday"], "correct": "Next Friday", "explanation": "らいしゅうの きんようび is the Friday of next week." },
+    { "prompt": "Review: read いすは つくえの まえに あります。 Where is the chair?", "options": ["In front of the desk", "Behind the desk", "On the desk", "Under the desk"], "correct": "In front of the desk", "explanation": "まえ means in front, from Unit 3." }
+  ],
+  "recycled_from": ["japanese-n5-unit-4-going-places", "japanese-n5-unit-4-daily-routine", "japanese-n5-unit-4-days-and-schedules", "japanese-n5-unit-2-eat-drink", "japanese-n5-unit-2-family", "japanese-n5-unit-3-locations", "japanese-n5-unit-3-people-locations"],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 見ます and 休みます are polite forms and are not linked as kanji spellings until dictionary forms are taught in Unit 9; 花見 is planned for Unit 9."
+  ]
+}

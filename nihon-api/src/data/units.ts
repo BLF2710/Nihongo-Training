@@ -1,3 +1,4 @@
+import { IMPORTED_UNITS } from "./imported-course";
 import { LESSONS } from "./lessons";
 
 export type UnitDefinition = {
@@ -31,4 +32,4 @@ export const UNITS: UnitDefinition[] = [{
   previousUnitId: "japanese-n5-unit-2",
   lessonIds: LESSONS.filter(lesson => lesson.unit === "Japanese N5 Unit 3").map(lesson => lesson.id),
   assessmentId: "japanese-n5-unit-3-assessment",
-}];
+}, ...IMPORTED_UNITS];

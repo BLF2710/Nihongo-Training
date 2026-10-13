@@ -5,7 +5,7 @@ import {
 } from "../repositories/kanji.repository";
 import { HttpError } from "../utils/http-error";
 import { characterProgress } from "./character-progress";
-import { catalog, makeKanjiQuestion, shuffled, PracticeKind } from "./kanji.service";
+import { catalog, hasCourseWords, makeKanjiQuestion, shuffled, PracticeKind } from "./kanji.service";
 
 export const PRACTICE_SIZES = [3, 5, 10];
 const PRACTICE_KINDS: PracticeKind[] = ["meaning", "reading", "vocabulary"];
@@ -25,7 +25,10 @@ export async function startKanjiPractice(userId: number, size: number, kanjiId: 
   return withTransaction(async client => {
     const questions = [];
     for (let i = 0; i < size; i++) {
-      const { correctIndex, ...question } = makeKanjiQuestion(available[i % available.length].id, PRACTICE_KINDS[i % PRACTICE_KINDS.length]);
+      const kanjiId = available[i % available.length].id;
+      // A Kanji without course words yet is practised by meaning only.
+      const kind = hasCourseWords(kanjiId) ? PRACTICE_KINDS[i % PRACTICE_KINDS.length] : "meaning";
+      const { correctIndex, ...question } = makeKanjiQuestion(kanjiId, kind);
       const id = randomUUID();
       await insertPracticeQuestion(client, { id, userId, kanjiId: question.kanjiId, kind: question.kind, options: question.options, correctIndex });
       questions.push({ id, ...question });

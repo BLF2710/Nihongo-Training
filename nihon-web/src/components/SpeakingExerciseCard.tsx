@@ -1,3 +1,4 @@
+import RubyText from "./RubyText";
 import { useEffect, useRef, useState } from "react";
 import type { SpeakingExercise } from "../lib/skillRounds";
 import { matchSpeech } from "../lib/speechMatch";
@@ -28,11 +29,11 @@ export default function SpeakingExerciseCard({ exercise, isLast, canCheck, onDon
   return <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
     {exercise.lead && <div className="mb-5 rounded-xl bg-gray-50 p-4">
       <p className="text-sm font-semibold text-gray-500">{exercise.lead.speaker} says</p>
-      <p lang="ja" className="mt-1 text-xl font-semibold text-gray-900">{exercise.lead.japanese}</p>
+      <p lang="ja" className="mt-1 text-xl font-semibold text-gray-900"><RubyText text={exercise.lead.japanese} /></p>
       <button className={`${button} mt-3 text-sm`} onClick={() => speakJapanese(exercise.lead!.japanese)}>🔊 Hear {exercise.lead.speaker}</button>
     </div>}
     <p className="text-sm font-semibold text-emerald-700">{exercise.lead ? `Answer as ${exercise.speaker}` : "Say this aloud"}</p>
-    <p lang="ja" className="mt-2 text-3xl font-black text-gray-900">{exercise.japanese}</p>
+    <p lang="ja" className="mt-2 text-3xl font-black text-gray-900"><RubyText text={exercise.japanese} /></p>
     {exercise.romaji && <p className="mt-1 text-gray-500">{exercise.romaji}</p>}
     {exercise.meaning && <p className="mt-1 text-gray-600">{exercise.meaning}</p>}
     <div className="mt-6 flex flex-wrap gap-3">

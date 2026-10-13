@@ -7,6 +7,12 @@ ordered paths under the same CC BY-SA 3.0 license. Reproduce with
 character, sequential stroke IDs, and the existing KANJIDIC2 stroke count.
 No Kana geometry or assets are changed by this extension.
 
+Course kanji beyond those ten are added the same way: `scripts/fetch-kanji-assets.mjs`
+downloads the unmodified SVG for each kanji a curriculum blueprint schedules, from
+the same pinned revision, and `scripts/import-course.mjs` rebuilds
+`src/data/kanjiStrokes.json` when a lesson introduces them. Both check the exact
+character, sequential stroke IDs, and the KANJIDIC2 stroke count.
+
 Copyright © Ulrich Apel and KanjiVG contributors.
 Source: https://kanjivg.tagaini.net/ and https://github.com/KanjiVG/kanjivg
 Pinned revision: 422b5538595676da918c288a4230cb5e22a1ee7e

@@ -1,0 +1,21 @@
+{
+  "id": "japanese-n5-unit-4-assessment",
+  "passPercent": 80,
+  "questions": [
+    { "id": "time-four-oclock", "prompt": "Which is the correct way to say four o'clock?", "options": ["よんじ", "よじ", "しじ", "よっじ"], "correctIndex": 1, "explanation": "Four o'clock is the irregular よじ." },
+    { "id": "time-half-past-seven-pm", "prompt": "Choose the Japanese for 7:30 p.m.", "options": ["しちじはん ごご", "ごぜん しちじはん", "ごご ななじはん", "ごご しちじはん"], "correctIndex": 3, "explanation": "ごご comes first, seven o'clock is しちじ, and はん is half past." },
+    { "id": "time-ask", "prompt": "You want to ask a stranger the time. What do you say?", "options": ["すみません、いま なんじですか。", "すみません、いま なんさいですか。", "すみません、きょうは なんようびですか。", "すみません、どこへ いきますか。"], "correctIndex": 0, "explanation": "なんじ asks what time it is." },
+    { "id": "days-thursday", "prompt": "Which day is もくようび?", "options": ["Monday", "Tuesday", "Thursday", "Saturday"], "correctIndex": 2, "explanation": "もくようび is Thursday." },
+    { "id": "days-tomorrow", "prompt": "きょうは かようびです。 What day is あした?", "options": ["げつようび", "もくようび", "きんようび", "すいようび"], "correctIndex": 3, "explanation": "The day after Tuesday (かようび) is Wednesday, すいようび." },
+    { "id": "schedule-from-until", "prompt": "Complete: アルバイトは ごじ ___ くじ ___ です。", "options": ["まで / から", "から / まで", "に / で", "を / に"], "correctIndex": 1, "explanation": "から marks the start and まで marks the end." },
+    { "id": "routine-time-particle", "prompt": "Complete: まいあさ ろくじ ___ おきます。", "options": ["に", "で", "を", "へ"], "correctIndex": 0, "explanation": "A clock time takes に." },
+    { "id": "routine-negative", "prompt": "Choose the sentence that means: I do not work on Sundays.", "options": ["にちようびは はたらきます。", "にちようびは はたらきますじゃない。", "にちようびは はたらきません。", "にちようびは ねません。"], "correctIndex": 2, "explanation": "The polite negative changes ます to ません." },
+    { "id": "routine-no-particle", "prompt": "Which sentence is correct?", "options": ["まいにちに べんきょうします。", "まいにち べんきょうします。", "まいにちを べんきょうします。", "べんきょうします まいにち。"], "correctIndex": 1, "explanation": "まいにち takes no particle and the verb comes last." },
+    { "id": "places-destination", "prompt": "Complete: あした としょかん ___ いきます。", "options": ["を", "で", "と", "に"], "correctIndex": 3, "explanation": "The destination of いきます takes に (or へ)." },
+    { "id": "places-transport", "prompt": "Choose the sentence that means: I go to the station by bicycle.", "options": ["じてんしゃに えきで いきます。", "でんしゃで えきに いきます。", "じてんしゃで えきに いきます。", "じてんしゃを えきに いきます。"], "correctIndex": 2, "explanation": "Transport + で, destination + に. じてんしゃ is bicycle; でんしゃ is train." },
+    { "id": "places-go-home", "prompt": "Read: ははは しちじに うちに かえります。 What does she do at seven?", "options": ["Goes home", "Leaves home", "Gets up", "Goes to work"], "correctIndex": 0, "explanation": "かえります means to return home." },
+    { "id": "week-frequency", "prompt": "Complete: おとうとは ぜんぜん テレビを ___。", "options": ["みます", "みますか", "みますじゃない", "みません"], "correctIndex": 3, "explanation": "ぜんぜん is used with a negative verb." },
+    { "id": "week-action-place", "prompt": "Complete: うち ___ えいがを みます。", "options": ["に", "で", "へ", "を"], "correctIndex": 1, "explanation": "The place where an action happens takes で." },
+    { "id": "week-combined-reading", "prompt": "Read: しゅうまつは ときどき としょかんで べんきょうします。 What does this person do?", "options": ["Sometimes studies at the library on weekends", "Studies at the library every weekend", "Never studies on weekends", "Sometimes goes to the library on weekdays"], "correctIndex": 0, "explanation": "ときどき is sometimes, and としょかんで べんきょうします is studies at the library." }
+  ]
+}
