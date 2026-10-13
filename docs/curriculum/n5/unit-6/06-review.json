@@ -1,0 +1,339 @@
+{
+  "id": "japanese-n5-unit-6-review",
+  "slug": "n5-unit-6-review",
+  "unit": "Japanese N5 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 6 Review",
+  "title_jp": "ユニット6の ふくしゅう",
+  "objectives": [
+    "I can describe places, things and experiences.",
+    "Choose the right ending for い- and な-adjectives",
+    "Describe in the present and in the past",
+    "Read a short post about a trip"
+  ],
+  "vocabulary": [
+    [
+      "おおきい",
+      "ookii",
+      "big"
+    ],
+    [
+      "やすい",
+      "yasui",
+      "cheap"
+    ],
+    [
+      "おいしい",
+      "oishii",
+      "tasty"
+    ],
+    [
+      "たのしい",
+      "tanoshii",
+      "enjoyable"
+    ],
+    [
+      "いい",
+      "ii",
+      "good"
+    ],
+    [
+      "ふるい",
+      "furui",
+      "old (things)"
+    ],
+    [
+      "にぎやか",
+      "nigiyaka",
+      "lively"
+    ],
+    [
+      "きれい",
+      "kirei",
+      "pretty / clean"
+    ],
+    [
+      "ホテル",
+      "hoteru",
+      "hotel"
+    ],
+    [
+      "とても",
+      "totemo",
+      "very"
+    ],
+    [
+      "たくさん",
+      "takusan",
+      "a lot"
+    ],
+    [
+      "でも",
+      "demo",
+      "but"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Two families of adjectives",
+    "text": "い-adjectives change their own ending: やすいです, やすくないです, やすかったです, やすくなかったです. な-adjectives borrow the noun endings: しずかです, しずかじゃないです, しずかでした, しずかじゃなかったです.\n\nBefore a noun: やすい みせ, しずかな みせ. Remember the three look-alikes that are な-adjectives (きれい, きらい, ゆうめい) and the irregular いい (よくない, よかった).",
+    "examples": [
+      "い-adj: 〜い / 〜くない / 〜かった / 〜くなかった",
+      "な-adj: です / じゃないです / でした / じゃなかったです",
+      "い-adj N / な-adj な N"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "おおさかは おおきい まちです。",
+      "Osaka is a big city."
+    ],
+    [
+      "たべものは やすかったです。そして、おいしかったです。",
+      "The food was cheap. And it was tasty."
+    ],
+    [
+      "ホテルは ふるかったですが、きれいでした。",
+      "The hotel was old, but it was clean."
+    ],
+    [
+      "てんきは あまり よくなかったです。",
+      "The weather was not very good."
+    ],
+    [
+      "えきの ちかくに みせが たくさん あります。",
+      "There are a lot of shops near the station."
+    ],
+    [
+      "とても にぎやかな ところでした。",
+      "It was a very lively place."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "しゅうまつは どこに いきましたか。",
+      "アナ",
+      "ともだちと おおさかに いきました。"
+    ],
+    [
+      "たなか",
+      "どんな ところでしたか。",
+      "アナ",
+      "とても にぎやかな ところでした。"
+    ],
+    [
+      "たなか",
+      "たべものは どうでしたか。",
+      "アナ",
+      "やすかったです。そして、おいしかったです。"
+    ],
+    [
+      "たなか",
+      "ホテルは よかったですか。",
+      "アナ",
+      "ふるかったですが、きれいでした。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Social media post",
+    "text_jp": "せんしゅうの どようびに ともだちと おおさかに いきました。おおさかは おおきい まちです。えきの ちかくに みせが たくさん あります。とても にぎやかでした。たべものは やすかったです。そして、おいしかったです。ホテルは ふるかったですが、へやは きれいでした。てんきは あまり よくなかったです。でも、りょこうは とても たのしかったです。",
+    "en_translation": "Last Saturday I went to Osaka with a friend. Osaka is a big city. There are a lot of shops near the station. It was very lively. The food was cheap. And it was tasty. The hotel was old, but the room was clean. The weather was not very good. But the trip was very enjoyable.",
+    "questions": [
+      {
+        "prompt": "Who did the writer go to Osaka with?",
+        "options": [
+          "Family",
+          "A friend",
+          "Nobody",
+          "A teacher"
+        ],
+        "correct": "A friend",
+        "explanation": "ともだちと: with a friend."
+      },
+      {
+        "prompt": "What does the writer say about the food?",
+        "options": [
+          "It was expensive but tasty.",
+          "It was cheap but not tasty.",
+          "It was cheap and tasty.",
+          "It was not mentioned."
+        ],
+        "correct": "It was cheap and tasty.",
+        "explanation": "やすかったです。そして、おいしかったです。"
+      },
+      {
+        "prompt": "What was not very good?",
+        "options": [
+          "The hotel room",
+          "The food",
+          "The trip",
+          "The weather"
+        ],
+        "correct": "The weather",
+        "explanation": "てんきは あまり よくなかったです。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Choose the negative of やすいです.",
+      "options": [
+        "やすいじゃないです",
+        "やすじゃないです",
+        "やすくないです",
+        "やすいくないです"
+      ],
+      "correct": "やすくないです",
+      "explanation": "い-adjectives use くないです."
+    },
+    {
+      "prompt": "Choose the negative of にぎやかです.",
+      "options": [
+        "にぎやかくないです",
+        "にぎやくないです",
+        "にぎやかないです",
+        "にぎやかじゃないです"
+      ],
+      "correct": "にぎやかじゃないです",
+      "explanation": "な-adjectives use じゃないです."
+    },
+    {
+      "prompt": "Choose the past of ふるいです.",
+      "options": [
+        "ふるかったです",
+        "ふるいでした",
+        "ふるでした",
+        "ふるくでした"
+      ],
+      "correct": "ふるかったです",
+      "explanation": "Drop い and add かったです."
+    },
+    {
+      "prompt": "Choose the past of きれいです.",
+      "options": [
+        "きれかったです",
+        "きれいでした",
+        "きれいかったです",
+        "きれくでした"
+      ],
+      "correct": "きれいでした",
+      "explanation": "きれい is a な-adjective: でした."
+    },
+    {
+      "prompt": "Complete: にぎやか ___ ところでした。",
+      "options": [
+        "い",
+        "の",
+        "な",
+        "に"
+      ],
+      "correct": "な",
+      "explanation": "な-adjectives take な before a noun."
+    },
+    {
+      "prompt": "Complete: ___ ところでしたか。 — にぎやかな ところでした。",
+      "options": [
+        "どう",
+        "どこ",
+        "いつ",
+        "どんな"
+      ],
+      "correct": "どんな",
+      "explanation": "どんな comes before a noun and asks what kind."
+    },
+    {
+      "prompt": "Choose the past negative of いいです.",
+      "options": [
+        "よくなかったです",
+        "いくなかったです",
+        "いいじゃなかったです",
+        "よいじゃなかったです"
+      ],
+      "correct": "よくなかったです",
+      "explanation": "いい → よくなかったです."
+    },
+    {
+      "prompt": "Choose the meaning of えきの ちかくに みせが たくさん あります。",
+      "options": [
+        "There is a big shop inside the station.",
+        "There are a lot of shops near the station.",
+        "There are few shops near the station.",
+        "The station is near a lot of shops and hotels."
+      ],
+      "correct": "There are a lot of shops near the station.",
+      "explanation": "N の ちかく is near N; たくさん is a lot."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: ホテルは よかったですか。 It was old but clean. What do you say?",
+      "options": [
+        "ふるかったですが、きれいでした。",
+        "ふるいでしたが、きれかったです。",
+        "ふるかったですが、きれかったです。",
+        "ふるくないですが、きれいでした。"
+      ],
+      "correct": "ふるかったですが、きれいでした。",
+      "explanation": "ふるい is an い-adjective (かったです); きれい is a な-adjective (でした)."
+    },
+    {
+      "prompt": "Choose the pair of sentences that makes sense.",
+      "options": [
+        "てんきは よくなかったです。そして、りょこうは たのしかったです。",
+        "てんきは よくなかったです。でも、りょこうは たのしかったです。",
+        "てんきは よかったです。でも、りょこうは たのしかったです。",
+        "てんきは いくなかったです。でも、りょこうは たのしかったです。"
+      ],
+      "correct": "てんきは よくなかったです。でも、りょこうは たのしかったです。",
+      "explanation": "A bad point followed by a good point needs でも."
+    },
+    {
+      "prompt": "Which phrase is correct?",
+      "options": [
+        "おおきいな まち",
+        "おおきいの まち",
+        "おおきい まち",
+        "おおきく まち"
+      ],
+      "correct": "おおきい まち",
+      "explanation": "い-adjectives attach directly to a noun."
+    },
+    {
+      "prompt": "Read: たべものは やすかったです。そして、おいしかったです。 Choose the sentence with the same meaning.",
+      "options": [
+        "たべものは たかかったです。そして、おいしかったです。",
+        "たべものは やすかったですが、おいしくなかったです。",
+        "たべものは やすくなかったです。でも、おいしかったです。",
+        "たべものは たかくなかったです。そして、おいしかったです。"
+      ],
+      "correct": "たべものは たかくなかったです。そして、おいしかったです。",
+      "explanation": "Cheap means not expensive: たかくなかったです."
+    },
+    {
+      "prompt": "Review: change あいます into let's meet.",
+      "options": [
+        "あいましょう",
+        "あいません",
+        "あいました",
+        "あいますか"
+      ],
+      "correct": "あいましょう",
+      "explanation": "ましょう means let's."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-6-i-adjectives",
+    "japanese-n5-unit-6-na-adjectives",
+    "japanese-n5-unit-6-what-kind",
+    "japanese-n5-unit-6-how-was-the-trip",
+    "japanese-n5-unit-6-my-town",
+    "japanese-n5-unit-5-invitations"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

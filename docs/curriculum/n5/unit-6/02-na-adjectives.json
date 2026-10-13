@@ -1,0 +1,439 @@
+{
+  "id": "japanese-n5-unit-6-na-adjectives",
+  "slug": "n5-unit-6-na-adjectives",
+  "unit": "Japanese N5 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Quiet, Pretty, Famous",
+  "title_jp": "しずか・きれい・ゆうめい",
+  "objectives": [
+    "I can describe things with な-adjectives.",
+    "Use a な-adjective with です",
+    "Make the negative with じゃないです",
+    "Soften a negative with あまり"
+  ],
+  "vocabulary": [
+    [
+      "しずか",
+      "shizuka",
+      "quiet"
+    ],
+    [
+      "にぎやか",
+      "nigiyaka",
+      "lively"
+    ],
+    [
+      "きれい",
+      "kirei",
+      "pretty / clean"
+    ],
+    [
+      "ゆうめい",
+      "yuumei",
+      "famous"
+    ],
+    [
+      "げんき",
+      "genki",
+      "well / energetic"
+    ],
+    [
+      "べんり",
+      "benri",
+      "convenient"
+    ],
+    [
+      "しんせつ",
+      "shinsetsu",
+      "kind"
+    ],
+    [
+      "きらい",
+      "kirai",
+      "disliked"
+    ],
+    [
+      "たいへん",
+      "taihen",
+      "hard / tough"
+    ],
+    [
+      "かんたん",
+      "kantan",
+      "easy / simple"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "新しい",
+      "word_reading": "あたらしい"
+    },
+    {
+      "word_japanese": "古い",
+      "word_reading": "ふるい"
+    }
+  ],
+  "concept": {
+    "title": "The second kind of adjective",
+    "text": "な-adjectives behave like nouns. Before です they do not change, and the negative is じゃないです: しずかです → しずかじゃないです. You already use two of them: すき and ひま.\n\nMost do not end in い, but three common ones do: きれい, きらい and ゆうめい. Treat them as な-adjectives: きれいじゃないです, never きれくないです.",
+    "examples": [
+      "N は な-adj です",
+      "な-adj じゃないです",
+      "きれい・きらい・ゆうめい are な-adjectives"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Describing with a な-adjective",
+      "pattern": "N は な-adj です / じゃないです",
+      "explanation": "Use the adjective as it is before です. For the negative add じゃないです. As with すき, the thing you dislike takes が: にくが きらいです.",
+      "examples": [
+        {
+          "japanese": "この まちは しずかです。",
+          "romaji": "Kono machi wa shizuka desu.",
+          "meaning": "This town is quiet."
+        },
+        {
+          "japanese": "せんせいは しんせつです。",
+          "romaji": "Sensei wa shinsetsu desu.",
+          "meaning": "The teacher is kind."
+        },
+        {
+          "japanese": "この へやは きれいじゃないです。",
+          "romaji": "Kono heya wa kirei ja nai desu.",
+          "meaning": "This room is not clean."
+        },
+        {
+          "japanese": "でんしゃは べんりです。",
+          "romaji": "Densha wa benri desu.",
+          "meaning": "Trains are convenient."
+        },
+        {
+          "japanese": "わたしは さかなが きらいです。",
+          "romaji": "Watashi wa sakana ga kirai desu.",
+          "meaning": "I dislike fish."
+        }
+      ],
+      "notes": [
+        "Wrong: きれくないです. きれい is a な-adjective: きれいじゃないです.",
+        "げんきですか is the usual way to ask how someone is."
+      ]
+    },
+    {
+      "title": "Not very…",
+      "pattern": "あまり + negative adjective",
+      "explanation": "あまり before a negative adjective means not very. It works with both kinds of adjective.",
+      "examples": [
+        {
+          "japanese": "この こうえんは あまり しずかじゃないです。",
+          "romaji": "Kono kouen wa amari shizuka ja nai desu.",
+          "meaning": "This park is not very quiet."
+        },
+        {
+          "japanese": "その レストランは あまり ゆうめいじゃないです。",
+          "romaji": "Sono resutoran wa amari yuumei ja nai desu.",
+          "meaning": "That restaurant is not very famous."
+        },
+        {
+          "japanese": "テストは あまり かんたんじゃないです。",
+          "romaji": "Tesuto wa amari kantan ja nai desu.",
+          "meaning": "The test is not very easy."
+        },
+        {
+          "japanese": "この みせは あまり やすくないです。",
+          "romaji": "Kono mise wa amari yasukunai desu.",
+          "meaning": "This shop is not very cheap."
+        },
+        {
+          "japanese": "きょうは あまり げんきじゃないです。",
+          "romaji": "Kyou wa amari genki ja nai desu.",
+          "meaning": "I am not feeling very well today."
+        }
+      ],
+      "notes": [
+        "あまり always needs a negative ending.",
+        "い-adjective: くないです. な-adjective: じゃないです."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "とうきょうは にぎやかです。",
+      "Tokyo is lively."
+    ],
+    [
+      "この としょかんは しずかです。そして きれいです。",
+      "This library is quiet. And it is clean."
+    ],
+    [
+      "まいにちの しごとは たいへんです。",
+      "The daily work is tough."
+    ],
+    [
+      "この まちの ひとは しんせつです。",
+      "The people of this town are kind."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "アナさん、げんきですか。",
+      "アナ",
+      "はい、げんきです。"
+    ],
+    [
+      "たなか",
+      "しごとは どうですか。",
+      "アナ",
+      "たいへんです。でも たのしいです。"
+    ],
+    [
+      "リー",
+      "この まちは しずかですか。",
+      "ゆき",
+      "いいえ、しずかじゃないです。にぎやかです。"
+    ],
+    [
+      "マリア",
+      "いえは どうですか。べんりですか。",
+      "けん",
+      "あまり べんりじゃないです。でも しずかです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "新",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "あたら.しい",
+        "あら.た",
+        "あら-",
+        "にい-"
+      ],
+      "meaning_en": "new",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "新しい",
+          "reading": "あたらしい",
+          "en": "new"
+        },
+        {
+          "word": "新聞",
+          "reading": "しんぶん",
+          "en": "newspaper"
+        }
+      ],
+      "mnemonic": "A freshly cut tree (木) and an axe (斤): something new."
+    },
+    {
+      "char": "古",
+      "onyomi": [
+        "コ"
+      ],
+      "kunyomi": [
+        "ふる.い",
+        "ふる-",
+        "-ふる.す"
+      ],
+      "meaning_en": "old",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "古い",
+          "reading": "ふるい",
+          "en": "old (things)"
+        },
+        {
+          "word": "中古",
+          "reading": "ちゅうこ",
+          "en": "second-hand"
+        }
+      ],
+      "mnemonic": "A story passed through ten (十) mouths (口): old."
+    },
+    {
+      "char": "名",
+      "onyomi": [
+        "メイ",
+        "ミョウ"
+      ],
+      "kunyomi": [
+        "な",
+        "-な"
+      ],
+      "meaning_en": "name",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "名前",
+          "reading": "なまえ",
+          "en": "name"
+        },
+        {
+          "word": "有名",
+          "reading": "ゆうめい",
+          "en": "famous"
+        }
+      ],
+      "mnemonic": "Calling out with the mouth (口) in the evening (夕): a name."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the negative of おおきいです.",
+      "options": [
+        "おおきいじゃないです",
+        "おおきじゃないです",
+        "おおきくないです",
+        "おおきいくないです"
+      ],
+      "correct": "おおきくないです",
+      "explanation": "い-adjectives use くないです."
+    },
+    {
+      "prompt": "What does にぎやか mean?",
+      "options": [
+        "quiet",
+        "kind",
+        "convenient",
+        "lively"
+      ],
+      "correct": "lively",
+      "explanation": "にぎやか is lively. しずか is quiet."
+    },
+    {
+      "prompt": "Choose the negative of しずかです.",
+      "options": [
+        "しずかじゃないです",
+        "しずかくないです",
+        "しずくないです",
+        "しずかないです"
+      ],
+      "correct": "しずかじゃないです",
+      "explanation": "な-adjectives use じゃないです."
+    },
+    {
+      "prompt": "Choose the negative of きれいです.",
+      "options": [
+        "きれくないです",
+        "きれいじゃないです",
+        "きれいくないです",
+        "きれじゃないです"
+      ],
+      "correct": "きれいじゃないです",
+      "explanation": "きれい is a な-adjective."
+    },
+    {
+      "prompt": "Complete: わたしは にく ___ きらいです。",
+      "options": [
+        "を",
+        "に",
+        "が",
+        "で"
+      ],
+      "correct": "が",
+      "explanation": "The thing disliked takes が, like すき."
+    },
+    {
+      "prompt": "Complete: この まちは ___ ゆうめいじゃないです。",
+      "options": [
+        "いつも",
+        "まいにち",
+        "いっしょに",
+        "あまり"
+      ],
+      "correct": "あまり",
+      "explanation": "あまり with a negative means not very."
+    },
+    {
+      "prompt": "Choose the meaning of せんせいは しんせつです。",
+      "options": [
+        "The teacher is kind.",
+        "The teacher is famous.",
+        "The teacher is well.",
+        "The teacher is not kind."
+      ],
+      "correct": "The teacher is kind.",
+      "explanation": "しんせつ is kind."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend asks: げんきですか。 You are fine. What do you say?",
+      "options": [
+        "はい、げんきです。",
+        "はい、げんきくないです。",
+        "はい、げんきが あります。",
+        "はい、げんきを します。"
+      ],
+      "correct": "はい、げんきです。",
+      "explanation": "Answer with げんきです."
+    },
+    {
+      "prompt": "Which word is a な-adjective even though it ends in い?",
+      "options": [
+        "たかい",
+        "ゆうめい",
+        "ふるい",
+        "さむい"
+      ],
+      "correct": "ゆうめい",
+      "explanation": "ゆうめい takes じゃないです. The others are い-adjectives."
+    },
+    {
+      "prompt": "Choose the sentence that means: This shop is not very cheap.",
+      "options": [
+        "この みせは あまり やすいです。",
+        "この みせは あまり やすいじゃないです。",
+        "この みせは あまり やすくないです。",
+        "この みせは あまり やすじゃないです。"
+      ],
+      "correct": "この みせは あまり やすくないです。",
+      "explanation": "やすい is an い-adjective, so its negative is やすくないです."
+    },
+    {
+      "prompt": "Read: しごとは たいへんです。でも たのしいです。 How does the speaker feel about work?",
+      "options": [
+        "It is easy and enjoyable.",
+        "It is tough and boring.",
+        "It is easy but not enjoyable.",
+        "It is tough but enjoyable."
+      ],
+      "correct": "It is tough but enjoyable.",
+      "explanation": "たいへん is tough; たのしい is enjoyable."
+    },
+    {
+      "prompt": "Review: complete えきで ともだち ___ あいました。",
+      "options": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "correct": "に",
+      "explanation": "The person you meet takes に."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-6-i-adjectives",
+    "japanese-n5-unit-5-where-with-how",
+    "japanese-n5-unit-2-preferences",
+    "japanese-n5-unit-2-living",
+    "japanese-n5-unit-4-going-places"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 名前 and 有名 are not linked as kanji spellings because 前 and 有 are outside the N5 kanji list."
+  ]
+}

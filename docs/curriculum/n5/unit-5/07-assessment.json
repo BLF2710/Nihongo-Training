@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n5-unit-5-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "past-verb",
+      "prompt": "Choose the past form of たべます.",
+      "options": [
+        "たべます",
+        "たべました",
+        "たべません",
+        "たべましょう"
+      ],
+      "correctIndex": 1,
+      "explanation": "Change ます to ました."
+    },
+    {
+      "id": "past-negative",
+      "prompt": "Choose the sentence that means: I did not study yesterday.",
+      "options": [
+        "きのうは べんきょうしません。",
+        "きのうは べんきょうじゃなかったです。",
+        "あしたは べんきょうしませんでした。",
+        "きのうは べんきょうしませんでした。"
+      ],
+      "correctIndex": 3,
+      "explanation": "The past negative of a verb is ませんでした."
+    },
+    {
+      "id": "past-nothing",
+      "prompt": "Someone asks: きのう なにを しましたか。 You did nothing. What do you say?",
+      "options": [
+        "なにも しませんでした。",
+        "なにも しました。",
+        "なにを しませんでした。",
+        "なにも しません。"
+      ],
+      "correctIndex": 0,
+      "explanation": "なにも with a past negative means did nothing."
+    },
+    {
+      "id": "noun-past",
+      "prompt": "Complete: きのうは あめ ___。",
+      "options": [
+        "ました",
+        "ませんでした",
+        "でした",
+        "です"
+      ],
+      "correctIndex": 2,
+      "explanation": "After a noun, the past of です is でした."
+    },
+    {
+      "id": "noun-past-negative",
+      "prompt": "Choose the correct past negative.",
+      "options": [
+        "やすみじゃないでした",
+        "やすみませんでした",
+        "やすみじゃないです",
+        "やすみじゃなかったです"
+      ],
+      "correctIndex": 3,
+      "explanation": "じゃないです becomes じゃなかったです."
+    },
+    {
+      "id": "weather-question",
+      "prompt": "Which question asks how the weather was yesterday?",
+      "options": [
+        "きのうの てんきは どうですか。",
+        "きのうの てんきは どうでしたか。",
+        "きのうの てんきは なんじでしたか。",
+        "きょうの てんきは どうでしたか。"
+      ],
+      "correctIndex": 1,
+      "explanation": "きのう with どうでしたか asks about yesterday's weather."
+    },
+    {
+      "id": "with-person",
+      "prompt": "Complete: かぞく ___ ばんごはんを たべました。",
+      "options": [
+        "と",
+        "で",
+        "を",
+        "に"
+      ],
+      "correctIndex": 0,
+      "explanation": "と after people means together with."
+    },
+    {
+      "id": "alone",
+      "prompt": "Choose the sentence that means: I went to the park alone.",
+      "options": [
+        "ひとりと こうえんに いきました。",
+        "ひとりで こうえんを いきました。",
+        "ひとりで こうえんに いきました。",
+        "ともだちと こうえんに いきました。"
+      ],
+      "correctIndex": 2,
+      "explanation": "ひとりで means alone, and the destination takes に."
+    },
+    {
+      "id": "meet-particle",
+      "prompt": "Complete: えきで ともだち ___ あいました。",
+      "options": [
+        "を",
+        "に",
+        "で",
+        "が"
+      ],
+      "correctIndex": 1,
+      "explanation": "The person you meet takes に."
+    },
+    {
+      "id": "month-irregular",
+      "prompt": "How do you say September?",
+      "options": [
+        "きゅうがつ",
+        "ここのがつ",
+        "しちがつ",
+        "くがつ"
+      ],
+      "correctIndex": 3,
+      "explanation": "September is the irregular くがつ."
+    },
+    {
+      "id": "day-irregular",
+      "prompt": "Which date is 1 April?",
+      "options": [
+        "しがつ いちにち",
+        "よんがつ ついたち",
+        "しがつ ついたち",
+        "ついたち しがつ"
+      ],
+      "correctIndex": 2,
+      "explanation": "April is しがつ and the 1st is ついたち; the month comes first."
+    },
+    {
+      "id": "when-question",
+      "prompt": "Choose the correct question.",
+      "options": [
+        "いつ にほんに きましたか。",
+        "いつに にほんに きましたか。",
+        "いつ にほんを きましたか。",
+        "いつで にほんに きましたか。"
+      ],
+      "correctIndex": 0,
+      "explanation": "いつ takes no particle."
+    },
+    {
+      "id": "invite",
+      "prompt": "You want to invite a friend to watch a film. What do you say?",
+      "options": [
+        "いっしょに えいがを みましたか。",
+        "いっしょに えいがを みません。",
+        "いっしょに えいがを みますか。",
+        "いっしょに えいがを みませんか。"
+      ],
+      "correctIndex": 3,
+      "explanation": "ませんか makes a polite invitation."
+    },
+    {
+      "id": "lets",
+      "prompt": "Complete: じゃあ、ろくじに えきで あい ___。",
+      "options": [
+        "ませんでした",
+        "ましょう",
+        "でした",
+        "ますか"
+      ],
+      "correctIndex": 1,
+      "explanation": "ましょう means let's."
+    },
+    {
+      "id": "decline",
+      "prompt": "A friend invites you, but you cannot go. Which reply is polite?",
+      "options": [
+        "いいえ、いきません。",
+        "いいですね。ぜひ。",
+        "すみません、あしたは ちょっと…。",
+        "はい、いきましょう。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Declining softly with ちょっと… is the polite pattern."
+    }
+  ]
+}

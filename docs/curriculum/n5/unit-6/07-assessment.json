@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n5-unit-6-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "i-adj-negative",
+      "prompt": "Choose the negative of おおきいです.",
+      "options": [
+        "おおきいじゃないです",
+        "おおきくないです",
+        "おおきじゃないです",
+        "おおきいくないです"
+      ],
+      "correctIndex": 1,
+      "explanation": "い-adjectives: drop い and add くないです."
+    },
+    {
+      "id": "ii-negative",
+      "prompt": "Choose the negative of いいです.",
+      "options": [
+        "いくないです",
+        "いいじゃないです",
+        "いいくないです",
+        "よくないです"
+      ],
+      "correctIndex": 3,
+      "explanation": "いい is irregular: よくないです."
+    },
+    {
+      "id": "na-adj-negative",
+      "prompt": "Choose the negative of しずかです.",
+      "options": [
+        "しずかじゃないです",
+        "しずかくないです",
+        "しずくないです",
+        "しずかないです"
+      ],
+      "correctIndex": 0,
+      "explanation": "な-adjectives use じゃないです."
+    },
+    {
+      "id": "kirei-type",
+      "prompt": "Which word is a な-adjective?",
+      "options": [
+        "おいしい",
+        "たのしい",
+        "きれい",
+        "あたらしい"
+      ],
+      "correctIndex": 2,
+      "explanation": "きれい ends in い but takes な and じゃないです."
+    },
+    {
+      "id": "na-before-noun",
+      "prompt": "Complete: しずか ___ まちです。",
+      "options": [
+        "い",
+        "の",
+        "が",
+        "な"
+      ],
+      "correctIndex": 3,
+      "explanation": "な-adjectives take な before a noun."
+    },
+    {
+      "id": "i-before-noun",
+      "prompt": "Which phrase is correct?",
+      "options": [
+        "あたらしいな かばん",
+        "あたらしい かばん",
+        "あたらしいの かばん",
+        "あたらしく かばん"
+      ],
+      "correctIndex": 1,
+      "explanation": "い-adjectives attach directly to a noun."
+    },
+    {
+      "id": "donna",
+      "prompt": "Complete: ___ へやですか。 — ひろい へやです。",
+      "options": [
+        "どんな",
+        "どう",
+        "どこ",
+        "だれ"
+      ],
+      "correctIndex": 0,
+      "explanation": "どんな asks what kind of."
+    },
+    {
+      "id": "ga-but",
+      "prompt": "Complete: この ホテルは ふるいです ___、きれいです。",
+      "options": [
+        "と",
+        "を",
+        "が",
+        "も"
+      ],
+      "correctIndex": 2,
+      "explanation": "が joins two contrasting statements."
+    },
+    {
+      "id": "i-adj-past",
+      "prompt": "Choose the past of おいしいです.",
+      "options": [
+        "おいしいでした",
+        "おいしかったです",
+        "おいしでした",
+        "おいしくでした"
+      ],
+      "correctIndex": 1,
+      "explanation": "Drop い and add かったです."
+    },
+    {
+      "id": "na-adj-past",
+      "prompt": "Choose the past of にぎやかです.",
+      "options": [
+        "にぎやかかったです",
+        "にぎやかったです",
+        "にぎやかいでした",
+        "にぎやかでした"
+      ],
+      "correctIndex": 3,
+      "explanation": "な-adjectives take でした."
+    },
+    {
+      "id": "i-adj-past-negative",
+      "prompt": "Choose the sentence that means: The test was not difficult.",
+      "options": [
+        "テストは むずかしいじゃなかったです。",
+        "テストは むずかしくないでした。",
+        "テストは むずかしくなかったです。",
+        "テストは むずかしかったです。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Past negative of an い-adjective: くなかったです."
+    },
+    {
+      "id": "amari",
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "この みせは あまり やすくないです。",
+        "この みせは あまり やすいです。",
+        "この みせは あまり やすいじゃないです。",
+        "この みせは あまり やすかったです。"
+      ],
+      "correctIndex": 0,
+      "explanation": "あまり needs a negative, and やすい becomes やすくない."
+    },
+    {
+      "id": "soshite-demo",
+      "prompt": "Complete: この レストランは たかいです。___、おいしくないです。",
+      "options": [
+        "でも",
+        "とても",
+        "たくさん",
+        "そして"
+      ],
+      "correctIndex": 3,
+      "explanation": "Both points are negative, so the second is added with そして."
+    },
+    {
+      "id": "takusan",
+      "prompt": "Choose the sentence that means: There are a lot of shops in this town.",
+      "options": [
+        "この まちに みせが すこし あります。",
+        "この まちに みせが たくさん あります。",
+        "この まちに みせが たくさん います。",
+        "この まちで みせを たくさん あります。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Things take あります, and たくさん is a lot."
+    },
+    {
+      "id": "describe-trip",
+      "prompt": "Someone asks: りょこうは どうでしたか。 It was very enjoyable. What do you say?",
+      "options": [
+        "とても たのしいでした。",
+        "あまり たのしかったです。",
+        "とても たのしかったです。",
+        "とても たのしくないです。"
+      ],
+      "correctIndex": 2,
+      "explanation": "たのしい → たのしかったです."
+    }
+  ]
+}

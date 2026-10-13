@@ -1,0 +1,464 @@
+{
+  "id": "japanese-n5-unit-9-things-i-can-do",
+  "slug": "n5-unit-9-things-i-can-do",
+  "unit": "Japanese N5 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Things I Can Do",
+  "title_jp": "できます",
+  "objectives": [
+    "I can talk about abilities and hobbies.",
+    "Make the dictionary form of a verb",
+    "Say what you can do with ことが できます",
+    "Describe a hobby with ことです"
+  ],
+  "vocabulary": [
+    [
+      "できます",
+      "dekimasu",
+      "can do"
+    ],
+    [
+      "しゅみ",
+      "shumi",
+      "hobby"
+    ],
+    [
+      "ピアノ",
+      "piano",
+      "piano"
+    ],
+    [
+      "ギター",
+      "gitaa",
+      "guitar"
+    ],
+    [
+      "ひきます",
+      "hikimasu",
+      "to play (an instrument)"
+    ],
+    [
+      "え",
+      "e",
+      "picture"
+    ],
+    [
+      "つり",
+      "tsuri",
+      "fishing"
+    ],
+    [
+      "はなみ",
+      "hanami",
+      "cherry-blossom viewing"
+    ],
+    [
+      "うんてんします",
+      "unten shimasu",
+      "to drive"
+    ],
+    [
+      "さかな",
+      "sakana",
+      "fish"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "花",
+      "word_reading": "はな"
+    },
+    {
+      "word_japanese": "花見",
+      "word_reading": "はなみ"
+    },
+    {
+      "word_japanese": "魚",
+      "word_reading": "さかな"
+    }
+  ],
+  "concept": {
+    "title": "The dictionary form",
+    "text": "The dictionary form is the plain form of a verb, the one listed in dictionaries. It is needed before こと.\n\nGroup 2: ます → る (たべます → たべる, みます → みる).\nGroup 3: します → する, きます → くる.\nGroup 1: the い-sound before ます becomes the う-sound: かきます → かく, よみます → よむ, はなします → はなす, およぎます → およぐ, かいます → かう, まちます → まつ, つくります → つくる.\n\nこと turns a verb into a noun: およぐ こと is swimming. Add が できます for can, or use it to name a hobby.",
+    "examples": [
+      "Group 2: 〜る / Group 3: する, くる / Group 1: い-sound → う-sound",
+      "V-dictionary ことが できます",
+      "しゅみは V-dictionary ことです"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Dictionary form",
+      "pattern": "〜ます → dictionary form",
+      "explanation": "Find the group, then apply the change. The dictionary form is also used on its own in casual speech, which you will meet in Lesson 5.",
+      "examples": [
+        {
+          "japanese": "たべます → たべる",
+          "romaji": "tabemasu → taberu",
+          "meaning": "to eat (Group 2)"
+        },
+        {
+          "japanese": "します → する",
+          "romaji": "shimasu → suru",
+          "meaning": "to do (Group 3)"
+        },
+        {
+          "japanese": "きます → くる",
+          "romaji": "kimasu → kuru",
+          "meaning": "to come (Group 3)"
+        },
+        {
+          "japanese": "かきます → かく",
+          "romaji": "kakimasu → kaku",
+          "meaning": "to write (Group 1)"
+        },
+        {
+          "japanese": "およぎます → およぐ",
+          "romaji": "oyogimasu → oyogu",
+          "meaning": "to swim (Group 1)"
+        },
+        {
+          "japanese": "ひきます → ひく",
+          "romaji": "hikimasu → hiku",
+          "meaning": "to play an instrument (Group 1)"
+        }
+      ],
+      "notes": [
+        "Group 1 かえります → かえる and はいります → はいる end in る but are not Group 2.",
+        "かいます → かう and うたいます → うたう: い becomes う."
+      ]
+    },
+    {
+      "title": "Can do",
+      "pattern": "N が できます / V-dictionary ことが できます",
+      "explanation": "できます follows a noun with が, or a verb in the dictionary form with ことが. The negative is できません.",
+      "examples": [
+        {
+          "japanese": "にほんごを はなす ことが できます。",
+          "romaji": "Nihongo o hanasu koto ga dekimasu.",
+          "meaning": "I can speak Japanese."
+        },
+        {
+          "japanese": "ピアノを ひく ことが できます。",
+          "romaji": "Piano o hiku koto ga dekimasu.",
+          "meaning": "I can play the piano."
+        },
+        {
+          "japanese": "くるまを うんてんする ことが できますか。",
+          "romaji": "Kuruma o unten suru koto ga dekimasu ka.",
+          "meaning": "Can you drive a car?"
+        },
+        {
+          "japanese": "いいえ、できません。",
+          "romaji": "Iie, dekimasen.",
+          "meaning": "No, I cannot."
+        },
+        {
+          "japanese": "あねは えいごが できます。",
+          "romaji": "Ane wa eigo ga dekimasu.",
+          "meaning": "My older sister can speak English."
+        }
+      ],
+      "notes": [
+        "Wrong: はなします ことが できます. Use the dictionary form before こと.",
+        "すこし できます means I can do it a little."
+      ]
+    },
+    {
+      "title": "My hobby is…",
+      "pattern": "しゅみは N です / V-dictionary ことです",
+      "explanation": "Name a hobby with a noun, or with a dictionary-form verb and こと.",
+      "examples": [
+        {
+          "japanese": "しゅみは つりです。",
+          "romaji": "Shumi wa tsuri desu.",
+          "meaning": "My hobby is fishing."
+        },
+        {
+          "japanese": "しゅみは えを かく ことです。",
+          "romaji": "Shumi wa e o kaku koto desu.",
+          "meaning": "My hobby is drawing pictures."
+        },
+        {
+          "japanese": "しゅみは おんがくを きく ことです。",
+          "romaji": "Shumi wa ongaku o kiku koto desu.",
+          "meaning": "My hobby is listening to music."
+        },
+        {
+          "japanese": "しゅみは なんですか。",
+          "romaji": "Shumi wa nan desu ka.",
+          "meaning": "What is your hobby?"
+        }
+      ],
+      "notes": [
+        "Wrong: しゅみは えを かくです. こと is needed to make the verb a noun.",
+        "えを かきます means to draw or paint a picture."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "しがつに ともだちと はなみに いきます。",
+      "In April I am going cherry-blossom viewing with friends."
+    ],
+    [
+      "ちちは かわで つりを します。さかなが すきです。",
+      "My father goes fishing in the river. He likes fish."
+    ],
+    [
+      "わたしは ギターを ひく ことが できません。",
+      "I cannot play the guitar."
+    ],
+    [
+      "この こうえんは はなが きれいです。",
+      "The flowers in this park are beautiful."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "けんさんの しゅみは なんですか。",
+      "けん",
+      "ギターを ひく ことです。"
+    ],
+    [
+      "アナ",
+      "すごいですね。ピアノも ひく ことが できますか。",
+      "けん",
+      "いいえ、ピアノは できません。"
+    ],
+    [
+      "たなか",
+      "リーさんは くるまを うんてんする ことが できますか。",
+      "リー",
+      "はい、できます。くにで まいにち うんてんしました。"
+    ],
+    [
+      "ゆき",
+      "しゅうまつに はなみに いきませんか。",
+      "マイ",
+      "いいですね。こうえんで えを かきたいです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "花",
+      "onyomi": [
+        "カ",
+        "ケ"
+      ],
+      "kunyomi": [
+        "はな"
+      ],
+      "meaning_en": "flower",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "花",
+          "reading": "はな",
+          "en": "flower"
+        },
+        {
+          "word": "花見",
+          "reading": "はなみ",
+          "en": "cherry-blossom viewing"
+        }
+      ],
+      "mnemonic": "The grass radical (艹) above change (化): a bud changing into a flower."
+    },
+    {
+      "char": "魚",
+      "onyomi": [
+        "ギョ"
+      ],
+      "kunyomi": [
+        "うお",
+        "さかな",
+        "-ざかな"
+      ],
+      "meaning_en": "fish",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "魚",
+          "reading": "さかな",
+          "en": "fish"
+        },
+        {
+          "word": "金魚",
+          "reading": "きんぎょ",
+          "en": "goldfish"
+        }
+      ],
+      "mnemonic": "A head, a scaly body and a tail."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: change たべます into I want to eat.",
+      "options": [
+        "たべますたいです",
+        "たべてたいです",
+        "たべたいです",
+        "たべるたいです"
+      ],
+      "correct": "たべたいです",
+      "explanation": "Remove ます and add たいです."
+    },
+    {
+      "prompt": "What does しゅみ mean?",
+      "options": [
+        "fishing",
+        "picture",
+        "ability",
+        "hobby"
+      ],
+      "correct": "hobby",
+      "explanation": "しゅみ is a hobby."
+    },
+    {
+      "prompt": "Choose the dictionary form of みます.",
+      "options": [
+        "みる",
+        "みう",
+        "みむ",
+        "みす"
+      ],
+      "correct": "みる",
+      "explanation": "Group 2: ます → る."
+    },
+    {
+      "prompt": "Choose the dictionary form of よみます.",
+      "options": [
+        "よみる",
+        "よむ",
+        "よる",
+        "よぬ"
+      ],
+      "correct": "よむ",
+      "explanation": "Group 1: み → む."
+    },
+    {
+      "prompt": "Choose the dictionary form of します.",
+      "options": [
+        "しる",
+        "す",
+        "する",
+        "しう"
+      ],
+      "correct": "する",
+      "explanation": "します is irregular: する."
+    },
+    {
+      "prompt": "Complete: ピアノを ___ ことが できます。",
+      "options": [
+        "ひきます",
+        "ひいて",
+        "ひき",
+        "ひく"
+      ],
+      "correct": "ひく",
+      "explanation": "Use the dictionary form before こと."
+    },
+    {
+      "prompt": "Complete: あねは えいご ___ できます。",
+      "options": [
+        "が",
+        "を",
+        "に",
+        "で"
+      ],
+      "correct": "が",
+      "explanation": "A noun before できます takes が."
+    },
+    {
+      "prompt": "Choose the meaning of しゅみは えを かく ことです。",
+      "options": [
+        "I can draw pictures.",
+        "My hobby is drawing pictures.",
+        "I want to draw a picture.",
+        "I am drawing a picture."
+      ],
+      "correct": "My hobby is drawing pictures.",
+      "explanation": "V-dictionary ことです names a hobby."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: くるまを うんてんする ことが できますか。 You cannot. What do you say?",
+      "options": [
+        "いいえ、できません。",
+        "いいえ、できないます。",
+        "いいえ、うんてんする ことです。",
+        "いいえ、できませんでした ことです。"
+      ],
+      "correct": "いいえ、できません。",
+      "explanation": "The negative of できます is できません."
+    },
+    {
+      "prompt": "Choose the sentence that means: I can speak Japanese.",
+      "options": [
+        "にほんごを はなします ことが できます。",
+        "にほんごを はなす ことが できます。",
+        "にほんごを はなして ことが できます。",
+        "にほんごを はなす ことを できます。"
+      ],
+      "correct": "にほんごを はなす ことが できます。",
+      "explanation": "Dictionary form + ことが できます."
+    },
+    {
+      "prompt": "Which dictionary form is NOT correct?",
+      "options": [
+        "かく for かきます",
+        "くる for きます",
+        "かえる for かいます",
+        "およぐ for およぎます"
+      ],
+      "correct": "かえる for かいます",
+      "explanation": "かいます → かう. かえる is the dictionary form of かえります."
+    },
+    {
+      "prompt": "Read: ピアノは できません。ギターを ひく ことが できます。 Which instrument can the speaker play?",
+      "options": [
+        "The piano",
+        "Both",
+        "Neither",
+        "The guitar"
+      ],
+      "correct": "The guitar",
+      "explanation": "ギターを ひく ことが できます。"
+    },
+    {
+      "prompt": "Review: complete デパートに くつを ___ いきます。",
+      "options": [
+        "かいに",
+        "かいますに",
+        "かうを",
+        "かって に"
+      ],
+      "correct": "かいに",
+      "explanation": "Stem + に shows the purpose."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-9-i-want-to-go",
+    "japanese-n5-unit-8-please-do",
+    "japanese-n5-unit-8-right-now",
+    "japanese-n5-unit-6-what-kind",
+    "japanese-n5-unit-5-what-did-you-do",
+    "japanese-n5-unit-2-food"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: さかな (Unit 2) is listed again so that the kanji spelling 魚 can be linked.",
+    "VERIFY: the six dictionary-form grammar examples are conversion pairs, not sentences; listening and speaking practice does not use them."
+  ]
+}

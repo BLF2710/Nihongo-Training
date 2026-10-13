@@ -1,0 +1,383 @@
+{
+  "id": "japanese-n5-unit-9-please-dont",
+  "slug": "n5-unit-9-please-dont",
+  "unit": "Japanese N5 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Please Don't",
+  "title_jp": "〜ないで ください",
+  "objectives": [
+    "I can ask someone not to do something.",
+    "Make the ない-form of each verb group",
+    "Ask with ないで ください",
+    "Reassure someone with しんぱいしないで ください"
+  ],
+  "vocabulary": [
+    [
+      "みち",
+      "michi",
+      "road / way"
+    ],
+    [
+      "わたります",
+      "watarimasu",
+      "to cross"
+    ],
+    [
+      "とめます",
+      "tomemasu",
+      "to park / to stop (something)"
+    ],
+    [
+      "さわります",
+      "sawarimasu",
+      "to touch"
+    ],
+    [
+      "わすれます",
+      "wasuremasu",
+      "to forget"
+    ],
+    [
+      "おします",
+      "oshimasu",
+      "to push"
+    ],
+    [
+      "しんぱいします",
+      "shinpai shimasu",
+      "to worry"
+    ],
+    [
+      "あぶない",
+      "abunai",
+      "dangerous"
+    ],
+    [
+      "だいじょうぶ",
+      "daijoubu",
+      "all right / fine"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "道",
+      "word_reading": "みち"
+    }
+  ],
+  "concept": {
+    "title": "The ない-form",
+    "text": "The ない-form is the plain negative of a verb.\n\nGroup 2: ます → ない (たべます → たべない, わすれます → わすれない).\nGroup 3: します → しない, きます → こない.\nGroup 1: the い-sound before ます becomes the あ-sound, then ない: かきます → かかない, のみます → のまない, はなします → はなさない, わたります → わたらない. If the sound is い itself, it becomes わ: かいます → かわない, すいます → すわない.\n\nAdd で ください to ask someone not to do something. It is softer than ては いけません.",
+    "examples": [
+      "Group 2: 〜ない / Group 3: しない, こない",
+      "Group 1: い-sound → あ-sound + ない",
+      "V-ないで ください"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "ない-form",
+      "pattern": "〜ます → 〜ない",
+      "explanation": "Group 2 and Group 3 are simple. For Group 1, change the vowel before ます from い to あ.",
+      "examples": [
+        {
+          "japanese": "たべます → たべない",
+          "romaji": "tabemasu → tabenai",
+          "meaning": "not eat (Group 2)"
+        },
+        {
+          "japanese": "します → しない",
+          "romaji": "shimasu → shinai",
+          "meaning": "not do (Group 3)"
+        },
+        {
+          "japanese": "きます → こない",
+          "romaji": "kimasu → konai",
+          "meaning": "not come (Group 3)"
+        },
+        {
+          "japanese": "いきます → いかない",
+          "romaji": "ikimasu → ikanai",
+          "meaning": "not go (Group 1)"
+        },
+        {
+          "japanese": "さわります → さわらない",
+          "romaji": "sawarimasu → sawaranai",
+          "meaning": "not touch (Group 1)"
+        },
+        {
+          "japanese": "かいます → かわない",
+          "romaji": "kaimasu → kawanai",
+          "meaning": "not buy (Group 1)"
+        }
+      ],
+      "notes": [
+        "Wrong: かあない. い on its own becomes わ: かわない.",
+        "The ない-form of あります is simply ない."
+      ]
+    },
+    {
+      "title": "Please do not…",
+      "pattern": "V-ないで ください",
+      "explanation": "Add で ください to the ない-form. Use it for polite requests, warnings and kind reassurance.",
+      "examples": [
+        {
+          "japanese": "ここに くるまを とめないで ください。",
+          "romaji": "Koko ni kuruma o tomenaide kudasai.",
+          "meaning": "Please do not park here."
+        },
+        {
+          "japanese": "えに さわらないで ください。",
+          "romaji": "E ni sawaranaide kudasai.",
+          "meaning": "Please do not touch the pictures."
+        },
+        {
+          "japanese": "かさを わすれないで ください。",
+          "romaji": "Kasa o wasurenaide kudasai.",
+          "meaning": "Please do not forget your umbrella."
+        },
+        {
+          "japanese": "ここで みちを わたらないで ください。あぶないです。",
+          "romaji": "Koko de michi o wataranaide kudasai. Abunai desu.",
+          "meaning": "Please do not cross the road here. It is dangerous."
+        },
+        {
+          "japanese": "しんぱいしないで ください。だいじょうぶです。",
+          "romaji": "Shinpai shinaide kudasai. Daijoubu desu.",
+          "meaning": "Please do not worry. It is all right."
+        }
+      ],
+      "notes": [
+        "Wrong: わすれないて ください. It is ないで, not ないて.",
+        "さわります marks the thing touched with に."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "この みちは くるまが おおいです。あぶないです。",
+      "This road has a lot of cars. It is dangerous."
+    ],
+    [
+      "おさないで ください。",
+      "Please do not push."
+    ],
+    [
+      "あしたの テストを わすれないで ください。",
+      "Please do not forget tomorrow's test."
+    ],
+    [
+      "わたしは だいじょうぶです。",
+      "I am all right."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "ここに くるまを とめても いいですか。",
+      "てんいん",
+      "すみません、ここに とめないで ください。"
+    ],
+    [
+      "マイ",
+      "この えは きれいですね。",
+      "てんいん",
+      "すみません、さわらないで ください。"
+    ],
+    [
+      "はは",
+      "あめですから、かさを わすれないで ください。",
+      "リン",
+      "はい、だいじょうぶです。"
+    ],
+    [
+      "アナ",
+      "あした テストが あります。しんぱいです。",
+      "ゆき",
+      "しんぱいしないで ください。アナさんは だいじょうぶです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "道",
+      "onyomi": [
+        "ドウ",
+        "トウ"
+      ],
+      "kunyomi": [
+        "みち",
+        "いう"
+      ],
+      "meaning_en": "road, way",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "道",
+          "reading": "みち",
+          "en": "road / way"
+        },
+        {
+          "word": "北海道",
+          "reading": "ほっかいどう",
+          "en": "Hokkaido"
+        }
+      ],
+      "mnemonic": "A head (首) moving along a path (辶)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the dictionary form of かきます.",
+      "options": [
+        "かきる",
+        "かる",
+        "かう",
+        "かく"
+      ],
+      "correct": "かく",
+      "explanation": "Group 1: き → く."
+    },
+    {
+      "prompt": "What does あぶない mean?",
+      "options": [
+        "dangerous",
+        "all right",
+        "busy",
+        "slow"
+      ],
+      "correct": "dangerous",
+      "explanation": "あぶない is dangerous. だいじょうぶ is all right."
+    },
+    {
+      "prompt": "Choose the ない-form of わすれます.",
+      "options": [
+        "わすらない",
+        "わすれない",
+        "わすれらない",
+        "わすない"
+      ],
+      "correct": "わすれない",
+      "explanation": "Group 2: ます → ない."
+    },
+    {
+      "prompt": "Choose the ない-form of のみます.",
+      "options": [
+        "のみない",
+        "のめない",
+        "のまない",
+        "のむない"
+      ],
+      "correct": "のまない",
+      "explanation": "Group 1: み → ま + ない."
+    },
+    {
+      "prompt": "Choose the ない-form of きます (to come).",
+      "options": [
+        "きない",
+        "くない",
+        "かない",
+        "こない"
+      ],
+      "correct": "こない",
+      "explanation": "きます is irregular: こない."
+    },
+    {
+      "prompt": "Complete: えに ___ ください。",
+      "options": [
+        "さわらないで",
+        "さわりないで",
+        "さわらないて",
+        "さわってないで"
+      ],
+      "correct": "さわらないで",
+      "explanation": "さわります → さわらない + で ください."
+    },
+    {
+      "prompt": "Choose the meaning of かさを わすれないで ください。",
+      "options": [
+        "Please forget your umbrella.",
+        "Please do not forget your umbrella.",
+        "You must not use an umbrella.",
+        "I did not forget my umbrella."
+      ],
+      "correct": "Please do not forget your umbrella.",
+      "explanation": "ないで ください: please do not."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend is worried about a test. How do you reassure them?",
+      "options": [
+        "しんぱいしないて ください。",
+        "しんぱいしないで ください。",
+        "しんぱいして ください。",
+        "しんぱいしません ください。"
+      ],
+      "correct": "しんぱいしないで ください。",
+      "explanation": "します → しない + で ください."
+    },
+    {
+      "prompt": "Which ない-form is NOT correct?",
+      "options": [
+        "いかない for いきます",
+        "しない for します",
+        "かあない for かいます",
+        "たべない for たべます"
+      ],
+      "correct": "かあない for かいます",
+      "explanation": "かいます → かわない."
+    },
+    {
+      "prompt": "Choose the request that means: Please do not park here.",
+      "options": [
+        "ここに くるまを とめて ください。",
+        "ここに くるまを とまらないで ください。",
+        "ここに くるまを とめないで います。",
+        "ここに くるまを とめないで ください。"
+      ],
+      "correct": "ここに くるまを とめないで ください。",
+      "explanation": "とめます → とめない + で ください."
+    },
+    {
+      "prompt": "Read: ここで みちを わたらないで ください。あぶないです。 Why should you not cross here?",
+      "options": [
+        "It is dangerous.",
+        "It is far.",
+        "There is no road.",
+        "It is all right."
+      ],
+      "correct": "It is dangerous.",
+      "explanation": "あぶないです: it is dangerous."
+    },
+    {
+      "prompt": "Review: complete ここで たばこを すって ___ いけません。",
+      "options": [
+        "も",
+        "は",
+        "を",
+        "が"
+      ],
+      "correct": "は",
+      "explanation": "ては いけません is a prohibition."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-9-things-i-can-do",
+    "japanese-n5-unit-8-permission-and-rules",
+    "japanese-n5-unit-8-reasons-and-states",
+    "japanese-n5-unit-5-how-was-it",
+    "japanese-n5-unit-4-going-places"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: しんぱいです (I am worried) is used once in the dialogue as a な-adjective-like noun.",
+    "VERIFY: the six ない-form grammar examples are conversion pairs, not sentences."
+  ]
+}

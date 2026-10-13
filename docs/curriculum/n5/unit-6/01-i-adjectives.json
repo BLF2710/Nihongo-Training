@@ -1,0 +1,493 @@
+{
+  "id": "japanese-n5-unit-6-i-adjectives",
+  "slug": "n5-unit-6-i-adjectives",
+  "unit": "Japanese N5 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Big, Cheap, Tasty",
+  "title_jp": "おおきい・やすい・おいしい",
+  "objectives": [
+    "I can describe things with い-adjectives.",
+    "Use an い-adjective with です",
+    "Make the negative with くないです",
+    "Use the irregular いい → よくないです"
+  ],
+  "vocabulary": [
+    [
+      "おおきい",
+      "ookii",
+      "big"
+    ],
+    [
+      "ちいさい",
+      "chiisai",
+      "small"
+    ],
+    [
+      "たかい",
+      "takai",
+      "expensive / tall"
+    ],
+    [
+      "やすい",
+      "yasui",
+      "cheap"
+    ],
+    [
+      "あたらしい",
+      "atarashii",
+      "new"
+    ],
+    [
+      "ふるい",
+      "furui",
+      "old (things)"
+    ],
+    [
+      "いい",
+      "ii",
+      "good"
+    ],
+    [
+      "おいしい",
+      "oishii",
+      "tasty"
+    ],
+    [
+      "おもしろい",
+      "omoshiroi",
+      "interesting / fun"
+    ],
+    [
+      "むずかしい",
+      "muzukashii",
+      "difficult"
+    ],
+    [
+      "たのしい",
+      "tanoshii",
+      "enjoyable"
+    ],
+    [
+      "あつい",
+      "atsui",
+      "hot"
+    ],
+    [
+      "さむい",
+      "samui",
+      "cold (weather)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "大きい",
+      "word_reading": "おおきい"
+    },
+    {
+      "word_japanese": "小さい",
+      "word_reading": "ちいさい"
+    },
+    {
+      "word_japanese": "高い",
+      "word_reading": "たかい"
+    },
+    {
+      "word_japanese": "安い",
+      "word_reading": "やすい"
+    }
+  ],
+  "concept": {
+    "title": "Words that end in い",
+    "text": "Japanese has two kinds of describing words. This lesson covers い-adjectives: they all end in い, such as おおきい and やすい. Put one before です to describe something: この かばんは おおきいです.\n\nThe adjective itself changes to make a negative. Drop the last い and add くないです: おおきい → おおきくないです. Do not use じゃないです with these words. One adjective is irregular: いい becomes よくないです.",
+    "examples": [
+      "N は い-adj です",
+      "〜い → 〜くないです",
+      "いい → よくないです"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Describing with an い-adjective",
+      "pattern": "N は い-adj です",
+      "explanation": "Place the adjective directly before です. Ask for an opinion with どうですか.",
+      "examples": [
+        {
+          "japanese": "この かばんは おおきいです。",
+          "romaji": "Kono kaban wa ookii desu.",
+          "meaning": "This bag is big."
+        },
+        {
+          "japanese": "その とけいは たかいです。",
+          "romaji": "Sono tokei wa takai desu.",
+          "meaning": "That watch is expensive."
+        },
+        {
+          "japanese": "きょうは あついです。",
+          "romaji": "Kyou wa atsui desu.",
+          "meaning": "It is hot today."
+        },
+        {
+          "japanese": "にほんごは どうですか。",
+          "romaji": "Nihongo wa dou desu ka.",
+          "meaning": "How is Japanese?"
+        },
+        {
+          "japanese": "むずかしいです。でも おもしろいです。",
+          "romaji": "Muzukashii desu. Demo omoshiroi desu.",
+          "meaning": "It is difficult. But it is interesting."
+        }
+      ],
+      "notes": [
+        "たかい means both expensive and tall; the topic tells you which.",
+        "ふるい is for things, not for people's ages."
+      ]
+    },
+    {
+      "title": "Not big, not good",
+      "pattern": "い-adj: 〜い → 〜くないです",
+      "explanation": "Replace the final い with くないです. いい is the only irregular one: its negative is よくないです.",
+      "examples": [
+        {
+          "japanese": "この へやは おおきくないです。",
+          "romaji": "Kono heya wa ookikunai desu.",
+          "meaning": "This room is not big."
+        },
+        {
+          "japanese": "この カレーは たかくないです。",
+          "romaji": "Kono karee wa takakunai desu.",
+          "meaning": "This curry is not expensive."
+        },
+        {
+          "japanese": "きょうは さむくないです。",
+          "romaji": "Kyou wa samukunai desu.",
+          "meaning": "It is not cold today."
+        },
+        {
+          "japanese": "きょうの てんきは よくないです。",
+          "romaji": "Kyou no tenki wa yokunai desu.",
+          "meaning": "The weather today is not good."
+        },
+        {
+          "japanese": "この えいがは あまり おもしろくないです。",
+          "romaji": "Kono eiga wa amari omoshirokunai desu.",
+          "meaning": "This film is not very interesting."
+        }
+      ],
+      "notes": [
+        "Wrong: おおきいじゃないです. い-adjectives use くないです.",
+        "Wrong: いくないです. Say よくないです."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "この みせの パンは おいしいです。",
+      "This shop's bread is tasty."
+    ],
+    [
+      "わたしの じてんしゃは ふるいです。",
+      "My bicycle is old."
+    ],
+    [
+      "あの レストランは やすくないです。",
+      "That restaurant is not cheap."
+    ],
+    [
+      "にほんごの べんきょうは たのしいです。",
+      "Studying Japanese is enjoyable."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リン",
+      "その かばんは あたらしいですか。",
+      "ゆき",
+      "いいえ、あたらしくないです。ふるいです。"
+    ],
+    [
+      "けん",
+      "この みせの うどんは どうですか。",
+      "マイ",
+      "おいしいです。そして やすいです。"
+    ],
+    [
+      "アナ",
+      "きょうは さむいですか。",
+      "たなか",
+      "いいえ、さむくないです。きょうは はれです。"
+    ],
+    [
+      "リー",
+      "にほんごの テストは むずかしいですか。",
+      "さくら",
+      "はい、むずかしいです。でも おもしろいです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "大",
+      "onyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "kunyomi": [
+        "おお-",
+        "おお.きい",
+        "-おお.いに"
+      ],
+      "meaning_en": "big",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "大きい",
+          "reading": "おおきい",
+          "en": "big"
+        },
+        {
+          "word": "大学",
+          "reading": "だいがく",
+          "en": "university"
+        }
+      ],
+      "mnemonic": "A person stretching arms and legs wide: big."
+    },
+    {
+      "char": "小",
+      "onyomi": [
+        "ショウ"
+      ],
+      "kunyomi": [
+        "ちい.さい",
+        "こ-",
+        "お-",
+        "さ-"
+      ],
+      "meaning_en": "small",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "小さい",
+          "reading": "ちいさい",
+          "en": "small"
+        },
+        {
+          "word": "小学校",
+          "reading": "しょうがっこう",
+          "en": "primary school"
+        }
+      ],
+      "mnemonic": "A hook with a small dot on each side."
+    },
+    {
+      "char": "高",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "たか.い",
+        "たか",
+        "-だか",
+        "たか.まる",
+        "たか.める"
+      ],
+      "meaning_en": "tall, expensive",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "高い",
+          "reading": "たかい",
+          "en": "expensive / tall"
+        },
+        {
+          "word": "高校",
+          "reading": "こうこう",
+          "en": "high school"
+        }
+      ],
+      "mnemonic": "A tall tower with a roof and windows."
+    },
+    {
+      "char": "安",
+      "onyomi": [
+        "アン"
+      ],
+      "kunyomi": [
+        "やす.い",
+        "やす.まる",
+        "やす",
+        "やす.らか"
+      ],
+      "meaning_en": "cheap, calm",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "安い",
+          "reading": "やすい",
+          "en": "cheap"
+        },
+        {
+          "word": "安心",
+          "reading": "あんしん",
+          "en": "relief"
+        }
+      ],
+      "mnemonic": "A woman (女) under a roof: calm, and easy on the purse."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: change いきます into an invitation.",
+      "options": [
+        "いきました",
+        "いきませんか",
+        "いきません",
+        "いきますか"
+      ],
+      "correct": "いきませんか",
+      "explanation": "ませんか invites the listener."
+    },
+    {
+      "prompt": "What does やすい mean?",
+      "options": [
+        "expensive",
+        "small",
+        "cheap",
+        "new"
+      ],
+      "correct": "cheap",
+      "explanation": "やすい is cheap. たかい is expensive."
+    },
+    {
+      "prompt": "Which word is the opposite of おおきい?",
+      "options": [
+        "ふるい",
+        "たかい",
+        "あつい",
+        "ちいさい"
+      ],
+      "correct": "ちいさい",
+      "explanation": "ちいさい is small."
+    },
+    {
+      "prompt": "Choose the negative of たかいです.",
+      "options": [
+        "たかくないです",
+        "たかいじゃないです",
+        "たかいくないです",
+        "たかじゃないです"
+      ],
+      "correct": "たかくないです",
+      "explanation": "Drop い and add くないです."
+    },
+    {
+      "prompt": "Choose the negative of いいです.",
+      "options": [
+        "いくないです",
+        "よくないです",
+        "いいじゃないです",
+        "いいくないです"
+      ],
+      "correct": "よくないです",
+      "explanation": "いい is irregular: よくないです."
+    },
+    {
+      "prompt": "Complete: この ほんは ___ です。",
+      "options": [
+        "おもしろく",
+        "おもしろくない じゃ",
+        "おもしろい",
+        "おもしろいの"
+      ],
+      "correct": "おもしろい",
+      "explanation": "The adjective goes directly before です."
+    },
+    {
+      "prompt": "Choose the meaning of きょうは さむくないです。",
+      "options": [
+        "It is cold today.",
+        "It is not hot today.",
+        "It was cold today.",
+        "It is not cold today."
+      ],
+      "correct": "It is not cold today.",
+      "explanation": "さむくないです is the negative of さむいです."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: その かばんは あたらしいですか。 It is old. What do you say?",
+      "options": [
+        "いいえ、あたらしいじゃないです。ふるいです。",
+        "はい、あたらしくないです。ふるいです。",
+        "いいえ、ふるくないです。あたらしいです。",
+        "いいえ、あたらしくないです。ふるいです。"
+      ],
+      "correct": "いいえ、あたらしくないです。ふるいです。",
+      "explanation": "Negative with くないです, then the opposite ふるい."
+    },
+    {
+      "prompt": "Choose the sentence that means: The weather today is not good.",
+      "options": [
+        "きょうの てんきは よくないです。",
+        "きょうの てんきは いくないです。",
+        "きょうの てんきは いいです。",
+        "きのうの てんきは よくないです。"
+      ],
+      "correct": "きょうの てんきは よくないです。",
+      "explanation": "The negative of いい is よくない."
+    },
+    {
+      "prompt": "Read: この みせの うどんは おいしいです。そして やすいです。 What is said about the udon?",
+      "options": [
+        "It is tasty but expensive.",
+        "It is tasty and cheap.",
+        "It is cheap but not tasty.",
+        "It is big and cheap."
+      ],
+      "correct": "It is tasty and cheap.",
+      "explanation": "おいしい is tasty, and やすい is cheap."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "この えいがは あまり おもしろいです。",
+        "この えいがは あまり おもしろいじゃないです。",
+        "この えいがは あまり おもしろくないです。",
+        "この えいがは あまり おもしろくです。"
+      ],
+      "correct": "この えいがは あまり おもしろくないです。",
+      "explanation": "あまり goes with a negative, and the negative is くないです."
+    },
+    {
+      "prompt": "Review: complete きのうは あめ ___。",
+      "options": [
+        "ました",
+        "くないです",
+        "ましょう",
+        "でした"
+      ],
+      "correct": "でした",
+      "explanation": "After a noun, the past of です is でした."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-5-invitations",
+    "japanese-n5-unit-5-how-was-it",
+    "japanese-n5-unit-3-classroom-objects",
+    "japanese-n5-unit-2-food",
+    "japanese-n5-unit-4-going-places"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: でも (but) and そして (and) appear in examples before they are listed as vocabulary in Lesson 5; both are glossed in the translations.",
+    "VERIFY: 大学 and 高校 are example words taught as vocabulary in Unit 8."
+  ]
+}

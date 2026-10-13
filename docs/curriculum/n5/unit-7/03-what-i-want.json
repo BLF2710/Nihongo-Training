@@ -1,0 +1,398 @@
+{
+  "id": "japanese-n5-unit-7-what-i-want",
+  "slug": "n5-unit-7-what-i-want",
+  "unit": "Japanese N5 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "What I Want",
+  "title_jp": "なにが ほしいですか",
+  "objectives": [
+    "I can say what I want and point out which one.",
+    "Use が ほしいです for things you want",
+    "Ask and answer with どれ and どの",
+    "Describe an item with an adjective when buying"
+  ],
+  "vocabulary": [
+    [
+      "ほしい",
+      "hoshii",
+      "want (a thing)"
+    ],
+    [
+      "どれ",
+      "dore",
+      "which one"
+    ],
+    [
+      "どの",
+      "dono",
+      "which (+ noun)"
+    ],
+    [
+      "くつ",
+      "kutsu",
+      "shoes"
+    ],
+    [
+      "シャツ",
+      "shatsu",
+      "shirt"
+    ],
+    [
+      "ぼうし",
+      "boushi",
+      "hat"
+    ],
+    [
+      "プレゼント",
+      "purezento",
+      "present"
+    ],
+    [
+      "さいふ",
+      "saifu",
+      "wallet"
+    ],
+    [
+      "おみやげ",
+      "omiyage",
+      "souvenir"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Wanting a thing",
+    "text": "ほしい is an い-adjective meaning wanted. The thing you want takes が, as with すき: あたらしい くつが ほしいです. The negative is ほしくないです.\n\nUse ほしい about yourself, or in a question to the listener. It is for things; wanting to do something uses a verb form you will learn in Unit 9.\n\nどれ asks which one of three or more things. どの does the same job before a noun: どの ぼうしですか.",
+    "examples": [
+      "(わたしは) N が ほしいです",
+      "どれですか / どの N ですか",
+      "この・その・あの + adjective + N"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I want…",
+      "pattern": "N が ほしいです / ほしくないです",
+      "explanation": "ほしい follows the い-adjective rules: ほしくないです, ほしかったです. Ask with なにが ほしいですか.",
+      "examples": [
+        {
+          "japanese": "あたらしい くつが ほしいです。",
+          "romaji": "Atarashii kutsu ga hoshii desu.",
+          "meaning": "I want new shoes."
+        },
+        {
+          "japanese": "たんじょうびに なにが ほしいですか。",
+          "romaji": "Tanjoubi ni nani ga hoshii desu ka.",
+          "meaning": "What do you want for your birthday?"
+        },
+        {
+          "japanese": "おおきい かばんが ほしいです。",
+          "romaji": "Ookii kaban ga hoshii desu.",
+          "meaning": "I want a big bag."
+        },
+        {
+          "japanese": "いまは なにも ほしくないです。",
+          "romaji": "Ima wa nani mo hoshikunai desu.",
+          "meaning": "I do not want anything now."
+        },
+        {
+          "japanese": "くろい さいふが ほしかったです。",
+          "romaji": "Kuroi saifu ga hoshikatta desu.",
+          "meaning": "I wanted a black wallet."
+        }
+      ],
+      "notes": [
+        "Wrong: くつを ほしいです. The thing wanted takes が.",
+        "Avoid asking a teacher or senior directly with ほしいですか; it can sound too direct."
+      ]
+    },
+    {
+      "title": "Which one?",
+      "pattern": "どれですか / どの N ですか",
+      "explanation": "どれ stands alone. どの must be followed by a noun. Answer by pointing with これ, それ, あれ or with この, その, あの and a description.",
+      "examples": [
+        {
+          "japanese": "マイさんの かばんは どれですか。",
+          "romaji": "Mai-san no kaban wa dore desu ka.",
+          "meaning": "Which one is your bag, Mai?"
+        },
+        {
+          "japanese": "あれです。あの あかい かばんです。",
+          "romaji": "Are desu. Ano akai kaban desu.",
+          "meaning": "That one over there. That red bag."
+        },
+        {
+          "japanese": "どの ぼうしが ほしいですか。",
+          "romaji": "Dono boushi ga hoshii desu ka.",
+          "meaning": "Which hat do you want?"
+        },
+        {
+          "japanese": "その しろい ぼうしが ほしいです。",
+          "romaji": "Sono shiroi boushi ga hoshii desu.",
+          "meaning": "I want that white hat."
+        },
+        {
+          "japanese": "どの シャツが いちまい せんえんですか。",
+          "romaji": "Dono shatsu ga ichimai sen en desu ka.",
+          "meaning": "Which shirts are 1,000 yen each?"
+        }
+      ],
+      "notes": [
+        "Wrong: どの ですか. どの needs a noun after it.",
+        "A question word as the subject takes が, never は: どれが…, どの N が…."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "ははに プレゼントを かいました。",
+      "I bought a present for my mother."
+    ],
+    [
+      "がいこくの ともだちに おみやげを かいます。",
+      "I will buy a souvenir for a friend abroad."
+    ],
+    [
+      "この あおい シャツを ください。",
+      "This blue shirt, please."
+    ],
+    [
+      "あたらしい じてんしゃが ほしいですが、おかねが ありません。",
+      "I want a new bicycle, but I have no money."
+    ]
+  ],
+  "dialogue": [
+    [
+      "ゆき",
+      "たんじょうびに なにが ほしいですか。",
+      "リー",
+      "あたらしい さいふが ほしいです。"
+    ],
+    [
+      "てんいん",
+      "どの ぼうしですか。",
+      "アナ",
+      "その くろい ぼうしです。いくらですか。"
+    ],
+    [
+      "てんいん",
+      "にせんえんです。",
+      "アナ",
+      "じゃあ、それを ください。"
+    ],
+    [
+      "けん",
+      "マイさんの くつは どれですか。",
+      "マイ",
+      "あれです。あの しろい くつです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "買",
+      "onyomi": [
+        "バイ"
+      ],
+      "kunyomi": [
+        "か.う"
+      ],
+      "meaning_en": "buy",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "買います",
+          "reading": "かいます",
+          "en": "to buy"
+        },
+        {
+          "word": "買い物",
+          "reading": "かいもの",
+          "en": "shopping"
+        }
+      ],
+      "mnemonic": "A net (罒) full of shells (貝), the money of long ago."
+    },
+    {
+      "char": "飲",
+      "onyomi": [
+        "イン",
+        "オン"
+      ],
+      "kunyomi": [
+        "の.む",
+        "-の.み"
+      ],
+      "meaning_en": "drink",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "飲みます",
+          "reading": "のみます",
+          "en": "to drink"
+        },
+        {
+          "word": "飲み物",
+          "reading": "のみもの",
+          "en": "a drink"
+        }
+      ],
+      "mnemonic": "The food radical (食) beside an open mouth."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete きっぷを ___ ください。 (two tickets)",
+      "options": [
+        "ふたり",
+        "にほん",
+        "ふつか",
+        "にまい"
+      ],
+      "correct": "にまい",
+      "explanation": "Tickets are flat, so the counter is まい."
+    },
+    {
+      "prompt": "What does おみやげ mean?",
+      "options": [
+        "souvenir",
+        "wallet",
+        "hat",
+        "shoes"
+      ],
+      "correct": "souvenir",
+      "explanation": "おみやげ is a souvenir brought back from a trip."
+    },
+    {
+      "prompt": "Complete: あたらしい くつ ___ ほしいです。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "で"
+      ],
+      "correct": "が",
+      "explanation": "The thing wanted takes が."
+    },
+    {
+      "prompt": "Choose the negative of ほしいです.",
+      "options": [
+        "ほしいじゃないです",
+        "ほしじゃないです",
+        "ほしくないです",
+        "ほしいくないです"
+      ],
+      "correct": "ほしくないです",
+      "explanation": "ほしい is an い-adjective."
+    },
+    {
+      "prompt": "Complete: ___ ぼうしが ほしいですか。",
+      "options": [
+        "どれ",
+        "どう",
+        "なに",
+        "どの"
+      ],
+      "correct": "どの",
+      "explanation": "Before a noun, use どの."
+    },
+    {
+      "prompt": "Complete: リーさんの かばんは ___ ですか。",
+      "options": [
+        "どれ",
+        "どの",
+        "どんな",
+        "いくつの"
+      ],
+      "correct": "どれ",
+      "explanation": "どれ stands alone before ですか."
+    },
+    {
+      "prompt": "Choose the meaning of その しろい ぼうしが ほしいです。",
+      "options": [
+        "I bought that white hat.",
+        "I want that white hat.",
+        "I want this black hat.",
+        "That white hat is mine."
+      ],
+      "correct": "I want that white hat.",
+      "explanation": "しろい is white, and ほしいです is I want."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: たんじょうびに なにが ほしいですか。 You want a new wallet. What do you say?",
+      "options": [
+        "あたらしい さいふを ほしいです。",
+        "あたらしい さいふが ほしいです。",
+        "あたらしいな さいふが ほしいです。",
+        "あたらしい さいふが ほしいじゃないです。"
+      ],
+      "correct": "あたらしい さいふが ほしいです。",
+      "explanation": "が marks the thing wanted, and あたらしい attaches directly to the noun."
+    },
+    {
+      "prompt": "A shop assistant asks: どの くつですか。 Which answer fits?",
+      "options": [
+        "あれの くろい くつです。",
+        "あの くろいな くつです。",
+        "あの くろい くつです。",
+        "くろいが ほしいです。"
+      ],
+      "correct": "あの くろい くつです。",
+      "explanation": "あの + adjective + noun points the item out."
+    },
+    {
+      "prompt": "Read: あたらしい じてんしゃが ほしいですが、おかねが ありません。 What is the problem?",
+      "options": [
+        "The speaker has no bicycle shop nearby.",
+        "The speaker does not want a bicycle.",
+        "The bicycle is old.",
+        "The speaker has no money."
+      ],
+      "correct": "The speaker has no money.",
+      "explanation": "おかねが ありません: there is no money."
+    },
+    {
+      "prompt": "Which question is correct?",
+      "options": [
+        "どれが リーさんの かさですか。",
+        "どれは リーさんの かさですか。",
+        "どの リーさんの かさですか。",
+        "どのが リーさんの かさですか。"
+      ],
+      "correct": "どれが リーさんの かさですか。",
+      "explanation": "A question word as subject takes が; どの cannot stand alone."
+    },
+    {
+      "prompt": "Review: how much is さんぜんはっぴゃくえん?",
+      "options": [
+        "3,080 yen",
+        "3,800 yen",
+        "8,300 yen",
+        "38,000 yen"
+      ],
+      "correct": "3,800 yen",
+      "explanation": "さんぜん is 3,000 and はっぴゃく is 800."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-7-counting",
+    "japanese-n5-unit-7-numbers-and-prices",
+    "japanese-n5-unit-6-how-was-the-trip",
+    "japanese-n5-unit-6-i-adjectives",
+    "japanese-n5-unit-5-where-with-how",
+    "japanese-n5-unit-2-preferences"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 買います and 飲みます are polite forms and 買い物 / 飲み物 contain 物, so no kanji spelling is linked in this lesson.",
+    "VERIFY: に after a person with かいます (buy for someone) is shown in examples without a separate grammar point."
+  ]
+}

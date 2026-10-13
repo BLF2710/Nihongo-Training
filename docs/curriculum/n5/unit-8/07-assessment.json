@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n5-unit-8-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "te-group2",
+      "prompt": "Choose the て-form of おしえます.",
+      "options": [
+        "おしえって",
+        "おしえて",
+        "おしえんで",
+        "おしいて"
+      ],
+      "correctIndex": 1,
+      "explanation": "Group 2: replace ます with て."
+    },
+    {
+      "id": "te-tte",
+      "prompt": "Choose the て-form of かえります.",
+      "options": [
+        "かえりて",
+        "かえんで",
+        "かえいて",
+        "かえって"
+      ],
+      "correctIndex": 3,
+      "explanation": "Group 1 with り: って."
+    },
+    {
+      "id": "te-nde",
+      "prompt": "Choose the て-form of あそびます.",
+      "options": [
+        "あそんで",
+        "あそびて",
+        "あそって",
+        "あそいで"
+      ],
+      "correctIndex": 0,
+      "explanation": "Group 1 with び: んで."
+    },
+    {
+      "id": "te-ite",
+      "prompt": "Choose the て-form of みがきます.",
+      "options": [
+        "みがきて",
+        "みがって",
+        "みがいて",
+        "みがんで"
+      ],
+      "correctIndex": 2,
+      "explanation": "Group 1 with き: いて."
+    },
+    {
+      "id": "te-iku",
+      "prompt": "Choose the て-form of いきます.",
+      "options": [
+        "いきて",
+        "いいて",
+        "いんで",
+        "いって"
+      ],
+      "correctIndex": 3,
+      "explanation": "いきます is the exception: いって."
+    },
+    {
+      "id": "request",
+      "prompt": "You want someone to speak slowly. What do you say?",
+      "options": [
+        "ゆっくり はなします ください。",
+        "ゆっくり はなして ください。",
+        "ゆっくり はなしても いいですか。",
+        "ゆっくり はなしています。"
+      ],
+      "correctIndex": 1,
+      "explanation": "て ください makes a polite request."
+    },
+    {
+      "id": "progressive",
+      "prompt": "Complete: いま メールを ___。 (am writing)",
+      "options": [
+        "かいています",
+        "かきています",
+        "かいて ください",
+        "かきます"
+      ],
+      "correctIndex": 0,
+      "explanation": "かきます → かいて + います."
+    },
+    {
+      "id": "progressive-negative",
+      "prompt": "Choose the sentence that means: I am not studying now.",
+      "options": [
+        "いま べんきょうしませんでした。",
+        "いま べんきょうしては いけません。",
+        "いま べんきょうしていません。",
+        "いま べんきょうして ください。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Only います changes: していません."
+    },
+    {
+      "id": "permission",
+      "prompt": "Complete: ここで しゃしんを とって ___ いいですか。",
+      "options": [
+        "は",
+        "も",
+        "を",
+        "が"
+      ],
+      "correctIndex": 1,
+      "explanation": "ても いいですか asks permission."
+    },
+    {
+      "id": "prohibition",
+      "prompt": "Which sentence means: You must not smoke here.",
+      "options": [
+        "ここで たばこを すっても いいです。",
+        "ここで たばこを すって ください。",
+        "ここで たばこを すっています。",
+        "ここで たばこを すっては いけません。"
+      ],
+      "correctIndex": 3,
+      "explanation": "ては いけません states a prohibition."
+    },
+    {
+      "id": "sequence",
+      "prompt": "Choose the correct sentence: I got up and took a shower.",
+      "options": [
+        "おきました、シャワーを あびて。",
+        "おきって、シャワーを あびました。",
+        "おきて、シャワーを あびました。",
+        "おきて、シャワーを あびます でした。"
+      ],
+      "correctIndex": 2,
+      "explanation": "The て-form joins the actions; the last verb shows the past."
+    },
+    {
+      "id": "te-kara",
+      "prompt": "Complete: はを みがいて ___、ねます。",
+      "options": [
+        "から",
+        "まで",
+        "より",
+        "も"
+      ],
+      "correctIndex": 0,
+      "explanation": "てから means after doing."
+    },
+    {
+      "id": "reason",
+      "prompt": "Complete: ねむいです ___、コーヒーを のみます。",
+      "options": [
+        "が",
+        "より",
+        "と",
+        "から"
+      ],
+      "correctIndex": 3,
+      "explanation": "から after a sentence gives the reason."
+    },
+    {
+      "id": "why",
+      "prompt": "Someone asks: どうして いきませんか。 You are busy. What do you say?",
+      "options": [
+        "いそがしいですが。",
+        "いそがしいですから。",
+        "いそがしいですか。",
+        "いそがしくて ください。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Answer どうして with a reason and から."
+    },
+    {
+      "id": "state-know",
+      "prompt": "Someone asks: たなかさんを しっていますか。 You do not know Tanaka. What do you say?",
+      "options": [
+        "いいえ、しっていません。",
+        "いいえ、しりていません。",
+        "いいえ、しりません。",
+        "いいえ、しっては いけません。"
+      ],
+      "correctIndex": 2,
+      "explanation": "The negative of しっています is しりません."
+    }
+  ]
+}

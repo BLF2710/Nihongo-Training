@@ -1,0 +1,339 @@
+{
+  "id": "japanese-n5-unit-8-review",
+  "slug": "n5-unit-8-review",
+  "unit": "Japanese N5 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 8 Review",
+  "title_jp": "ユニット8の ふくしゅう",
+  "objectives": [
+    "I can make requests, follow rules and describe actions in order.",
+    "Produce the て-form of all three groups",
+    "Choose between ください, ています, ても いいですか and ては いけません",
+    "Read a notice with rules"
+  ],
+  "vocabulary": [
+    [
+      "はなします",
+      "hanashimasu",
+      "to speak / to talk"
+    ],
+    [
+      "まちます",
+      "machimasu",
+      "to wait"
+    ],
+    [
+      "みせます",
+      "misemasu",
+      "to show"
+    ],
+    [
+      "ゆっくり",
+      "yukkuri",
+      "slowly"
+    ],
+    [
+      "でんわ",
+      "denwa",
+      "telephone"
+    ],
+    [
+      "すわります",
+      "suwarimasu",
+      "to sit"
+    ],
+    [
+      "つかいます",
+      "tsukaimasu",
+      "to use"
+    ],
+    [
+      "どうぞ",
+      "douzo",
+      "go ahead / please"
+    ],
+    [
+      "それから",
+      "sorekara",
+      "after that"
+    ],
+    [
+      "でかけます",
+      "dekakemasu",
+      "to go out"
+    ],
+    [
+      "どうして",
+      "doushite",
+      "why"
+    ],
+    [
+      "いそがしい",
+      "isogashii",
+      "busy"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "One form, many uses",
+    "text": "Everything in this unit is built on the て-form.\n\nて ください: please do. て います: doing now, or a continuing state. ても いいですか: may I? ては いけません: must not. て、: and then. てから: after doing.\n\nGroup 2 drops ます and adds て. します → して, きます → きて. Group 1: い・ち・り → って, み・び・に → んで, き → いて, ぎ → いで, し → して, and いきます → いって.",
+    "examples": [
+      "V-て ください / V-て います",
+      "V-ても いいですか / V-ては いけません",
+      "V-て、V-ます / V-てから、V-ます"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "すみません、ゆっくり はなして ください。",
+      "Excuse me, please speak slowly."
+    ],
+    [
+      "いま でんわで はなしています。ちょっと まって ください。",
+      "I am on the phone now. Please wait a moment."
+    ],
+    [
+      "ここに すわっても いいですか。",
+      "May I sit here?"
+    ],
+    [
+      "としょかんの なかで たべては いけません。",
+      "You must not eat inside the library."
+    ],
+    [
+      "しゅくだいを してから、でかけます。",
+      "I go out after doing my homework."
+    ],
+    [
+      "いそがしいですから、きょうは いきません。",
+      "I am busy, so I am not going today."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リー",
+      "すみません、ここに すわっても いいですか。",
+      "さくら",
+      "はい、どうぞ。"
+    ],
+    [
+      "リー",
+      "いま なにを していますか。",
+      "さくら",
+      "しゅくだいを しています。あした テストが ありますから。"
+    ],
+    [
+      "リー",
+      "ここで でんわを つかっても いいですか。",
+      "さくら",
+      "いいえ、としょかんの なかで はなしては いけません。そとで はなして ください。"
+    ],
+    [
+      "リー",
+      "じゃあ、そとに でて、でんわを します。それから、ここで べんきょうします。",
+      "さくら",
+      "はい。かばんは ここに どうぞ。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Library rules notice",
+    "text_jp": "さくらとしょかん\nじかん：ごぜん くじから ごご ろくじまで（げつようびは やすみです）\n・としょかんの なかで たべては いけません。\n・でんわで はなしては いけません。そとで はなして ください。\n・にかいの へやで べんきょうしても いいです。\n・かばんは いりぐちで みせて ください。",
+    "en_translation": "Sakura Library\nHours: 9 a.m. to 6 p.m. (closed on Mondays)\n- You must not eat inside the library.\n- You must not talk on the phone. Please talk outside.\n- You may study in the room on the second floor.\n- Please show your bag at the entrance.",
+    "questions": [
+      {
+        "prompt": "What must you NOT do inside the library?",
+        "options": [
+          "Study",
+          "Eat",
+          "Read",
+          "Sit"
+        ],
+        "correct": "Eat",
+        "explanation": "なかで たべては いけません。"
+      },
+      {
+        "prompt": "Where may you study?",
+        "options": [
+          "Outside",
+          "At the entrance",
+          "In the room on the second floor",
+          "It is not allowed"
+        ],
+        "correct": "In the room on the second floor",
+        "explanation": "にかいの へやで べんきょうしても いいです。"
+      },
+      {
+        "prompt": "What should you do at the entrance?",
+        "options": [
+          "Leave your phone",
+          "Write your name",
+          "Wash your hands",
+          "Show your bag"
+        ],
+        "correct": "Show your bag",
+        "explanation": "かばんは いりぐちで みせて ください。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Choose the て-form of はなします.",
+      "options": [
+        "はなって",
+        "はなしって",
+        "はなして",
+        "はないて"
+      ],
+      "correct": "はなして",
+      "explanation": "Group 1 with し: して."
+    },
+    {
+      "prompt": "Choose the て-form of すわります.",
+      "options": [
+        "すわりて",
+        "すわんで",
+        "すわいて",
+        "すわって"
+      ],
+      "correct": "すわって",
+      "explanation": "Group 1 with り: って."
+    },
+    {
+      "prompt": "Choose the て-form of みせます.",
+      "options": [
+        "みせて",
+        "みせって",
+        "みして",
+        "みせんで"
+      ],
+      "correct": "みせて",
+      "explanation": "Group 2: replace ます with て."
+    },
+    {
+      "prompt": "Complete: ちょっと ___ ください。",
+      "options": [
+        "まちて",
+        "まって",
+        "まちます",
+        "まんで"
+      ],
+      "correct": "まって",
+      "explanation": "まちます → まって."
+    },
+    {
+      "prompt": "Complete: いま しゅくだいを ___。 (am doing)",
+      "options": [
+        "しって います",
+        "します います",
+        "しています",
+        "してください"
+      ],
+      "correct": "しています",
+      "explanation": "します → して + います."
+    },
+    {
+      "prompt": "Complete: ここで でんわを つかって ___ いいですか。",
+      "options": [
+        "は",
+        "を",
+        "が",
+        "も"
+      ],
+      "correct": "も",
+      "explanation": "ても いいですか asks permission."
+    },
+    {
+      "prompt": "Complete: しゅくだいを して ___、でかけます。",
+      "options": [
+        "から",
+        "より",
+        "も",
+        "まで"
+      ],
+      "correct": "から",
+      "explanation": "てから: after doing."
+    },
+    {
+      "prompt": "Choose the meaning of としょかんの なかで はなしては いけません。",
+      "options": [
+        "You may talk inside the library.",
+        "You must not talk inside the library.",
+        "Please talk inside the library.",
+        "Nobody is talking inside the library."
+      ],
+      "correct": "You must not talk inside the library.",
+      "explanation": "ては いけません: must not."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to use the phone here. What do you ask?",
+      "options": [
+        "ここで でんわを つかっても いいですか。",
+        "ここで でんわを つかっては いけません。",
+        "ここで でんわを つかって ください。",
+        "ここで でんわを つかいても いいですか。"
+      ],
+      "correct": "ここで でんわを つかっても いいですか。",
+      "explanation": "つかって + も いいですか asks permission."
+    },
+    {
+      "prompt": "Read: そとに でて、でんわを します。それから、ここで べんきょうします。 What does the speaker do first?",
+      "options": [
+        "Makes a phone call",
+        "Goes outside",
+        "Studies",
+        "Sits down"
+      ],
+      "correct": "Goes outside",
+      "explanation": "The first て-form verb is でて: goes out."
+    },
+    {
+      "prompt": "Someone asks: どうして いま しゅくだいを していますか。 Which answer fits?",
+      "options": [
+        "あした テストが ありますが。",
+        "あした テストが あっても いいです。",
+        "あした テストが ありますから。",
+        "あした テストを して ください。"
+      ],
+      "correct": "あした テストが ありますから。",
+      "explanation": "A reason ends with から."
+    },
+    {
+      "prompt": "Which sentence is a polite request?",
+      "options": [
+        "そとで はなしています。",
+        "そとで はなしても いいですか。",
+        "そとで はなしては いけません。",
+        "そとで はなして ください。"
+      ],
+      "correct": "そとで はなして ください。",
+      "explanation": "て ください asks someone to do something."
+    },
+    {
+      "prompt": "Review: complete バスと でんしゃと ___ が はやいですか。",
+      "options": [
+        "どちら",
+        "どの",
+        "いちばん",
+        "より"
+      ],
+      "correct": "どちら",
+      "explanation": "どちら asks which of two."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-8-please-do",
+    "japanese-n5-unit-8-right-now",
+    "japanese-n5-unit-8-permission-and-rules",
+    "japanese-n5-unit-8-first-then",
+    "japanese-n5-unit-8-reasons-and-states",
+    "japanese-n5-unit-7-comparing"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

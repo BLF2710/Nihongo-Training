@@ -1,0 +1,535 @@
+{
+  "id": "japanese-n5-unit-7-in-the-store",
+  "slug": "n5-unit-7-in-the-store",
+  "unit": "Japanese N5 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "In the Store",
+  "title_jp": "うりばは なんがいですか",
+  "objectives": [
+    "I can ask where something is in a store and follow the answer.",
+    "Say floors with かい and がい",
+    "Ask なんがいですか",
+    "Give a position with うえ, した, なか, みぎ and ひだり"
+  ],
+  "vocabulary": [
+    [
+      "うえ",
+      "ue",
+      "on / above"
+    ],
+    [
+      "した",
+      "shita",
+      "under / below"
+    ],
+    [
+      "なか",
+      "naka",
+      "inside"
+    ],
+    [
+      "みぎ",
+      "migi",
+      "right"
+    ],
+    [
+      "ひだり",
+      "hidari",
+      "left"
+    ],
+    [
+      "いっかい",
+      "ikkai",
+      "first floor (ground level)"
+    ],
+    [
+      "にかい",
+      "nikai",
+      "second floor"
+    ],
+    [
+      "さんがい",
+      "sangai",
+      "third floor"
+    ],
+    [
+      "なんがい",
+      "nangai",
+      "which floor"
+    ],
+    [
+      "うりば",
+      "uriba",
+      "sales counter / department"
+    ],
+    [
+      "エレベーター",
+      "erebeetaa",
+      "lift"
+    ],
+    [
+      "かいだん",
+      "kaidan",
+      "stairs"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "上",
+      "word_reading": "うえ"
+    },
+    {
+      "word_japanese": "下",
+      "word_reading": "した"
+    },
+    {
+      "word_japanese": "中",
+      "word_reading": "なか"
+    },
+    {
+      "word_japanese": "右",
+      "word_reading": "みぎ"
+    },
+    {
+      "word_japanese": "左",
+      "word_reading": "ひだり"
+    }
+  ],
+  "concept": {
+    "title": "Finding your way inside",
+    "text": "Floors are counted with かい: いっかい, にかい, よんかい, ごかい. The third floor is さんがい, and the question word is なんがい. In Japan the ground floor is いっかい.\n\nA department is N の うりば: くつの うりば is the shoe department.\n\nFor exact positions, reuse the pattern from Unit 3: N の うえ / した / なか / みぎ / ひだり. This lesson also gives you the kanji for these five words.",
+    "examples": [
+      "N は なんがいですか",
+      "N は 〜かいです / 〜かいに あります",
+      "N の みぎ / ひだり / うえ / した / なか"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Which floor?",
+      "pattern": "N は なんがいですか / 〜かいです",
+      "explanation": "Answer with the floor and です, or with に あります. Only さんがい and なんがい use がい.",
+      "examples": [
+        {
+          "japanese": "くつの うりばは なんがいですか。",
+          "romaji": "Kutsu no uriba wa nangai desu ka.",
+          "meaning": "Which floor is the shoe department?"
+        },
+        {
+          "japanese": "にかいです。",
+          "romaji": "Nikai desu.",
+          "meaning": "It is on the second floor."
+        },
+        {
+          "japanese": "レストランは さんがいに あります。",
+          "romaji": "Resutoran wa sangai ni arimasu.",
+          "meaning": "The restaurant is on the third floor."
+        },
+        {
+          "japanese": "ほんやは いっかいです。",
+          "romaji": "Hon'ya wa ikkai desu.",
+          "meaning": "The bookshop is on the first floor."
+        },
+        {
+          "japanese": "トイレは なんがいに ありますか。",
+          "romaji": "Toire wa nangai ni arimasu ka.",
+          "meaning": "Which floor are the toilets on?"
+        }
+      ],
+      "notes": [
+        "Not さんかい in standard speech for the third floor: say さんがい.",
+        "いっかい is the floor at street level."
+      ]
+    },
+    {
+      "title": "Exactly where?",
+      "pattern": "N1 は N2 の position に あります / です",
+      "explanation": "Name the landmark, add の and the position word. Use に あります or simply です.",
+      "examples": [
+        {
+          "japanese": "エレベーターは かいだんの みぎに あります。",
+          "romaji": "Erebeetaa wa kaidan no migi ni arimasu.",
+          "meaning": "The lift is to the right of the stairs."
+        },
+        {
+          "japanese": "トイレは エレベーターの ひだりです。",
+          "romaji": "Toire wa erebeetaa no hidari desu.",
+          "meaning": "The toilets are to the left of the lift."
+        },
+        {
+          "japanese": "さいふは かばんの なかに あります。",
+          "romaji": "Saifu wa kaban no naka ni arimasu.",
+          "meaning": "The wallet is inside the bag."
+        },
+        {
+          "japanese": "ぼうしの うりばは この うえです。",
+          "romaji": "Boushi no uriba wa kono ue desu.",
+          "meaning": "The hat department is above here."
+        },
+        {
+          "japanese": "カフェは ほんやの したに あります。",
+          "romaji": "Kafe wa hon'ya no shita ni arimasu.",
+          "meaning": "The café is below the bookshop."
+        }
+      ],
+      "notes": [
+        "The landmark comes first: かいだんの みぎ, not みぎの かいだん.",
+        "この うえ and この した mean the floor above and below here."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "すみません、シャツの うりばは なんがいですか。",
+      "Excuse me, which floor is the shirt department?"
+    ],
+    [
+      "エレベーターは あそこです。",
+      "The lift is over there."
+    ],
+    [
+      "かいだんで にかいに いきます。",
+      "I go to the second floor by the stairs."
+    ],
+    [
+      "この デパートの なかに ゆうびんきょくが あります。",
+      "There is a post office inside this department store."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リン",
+      "すみません、くつの うりばは なんがいですか。",
+      "てんいん",
+      "さんがいです。"
+    ],
+    [
+      "リン",
+      "エレベーターは どこですか。",
+      "てんいん",
+      "あの かいだんの みぎに あります。"
+    ],
+    [
+      "マリア",
+      "トイレは この かいに ありますか。",
+      "てんいん",
+      "いいえ、この うえです。にかいに あります。"
+    ],
+    [
+      "けん",
+      "わたしの さいふは どこですか。",
+      "マイ",
+      "かばんの なかに あります。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "上",
+      "onyomi": [
+        "ジョウ",
+        "ショウ",
+        "シャン"
+      ],
+      "kunyomi": [
+        "うえ",
+        "-うえ",
+        "うわ-",
+        "かみ",
+        "あ.げる",
+        "-あ.げる",
+        "あ.がる",
+        "-あ.がる",
+        "あ.がり",
+        "-あ.がり",
+        "のぼ.る",
+        "のぼ.り",
+        "のぼ.せる",
+        "のぼ.す",
+        "たてまつ.る"
+      ],
+      "meaning_en": "up, above",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "上",
+          "reading": "うえ",
+          "en": "on / above"
+        },
+        {
+          "word": "上手",
+          "reading": "じょうず",
+          "en": "skilful"
+        }
+      ],
+      "mnemonic": "A mark above the base line."
+    },
+    {
+      "char": "下",
+      "onyomi": [
+        "カ",
+        "ゲ"
+      ],
+      "kunyomi": [
+        "した",
+        "しも",
+        "もと",
+        "さ.げる",
+        "さ.がる",
+        "くだ.る",
+        "くだ.り",
+        "くだ.す",
+        "-くだ.す",
+        "くだ.さる",
+        "お.ろす",
+        "お.りる"
+      ],
+      "meaning_en": "down, below",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "下",
+          "reading": "した",
+          "en": "under / below"
+        },
+        {
+          "word": "地下",
+          "reading": "ちか",
+          "en": "basement"
+        }
+      ],
+      "mnemonic": "A mark below the base line."
+    },
+    {
+      "char": "中",
+      "onyomi": [
+        "チュウ"
+      ],
+      "kunyomi": [
+        "なか",
+        "うち",
+        "あた.る"
+      ],
+      "meaning_en": "middle, inside",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "中",
+          "reading": "なか",
+          "en": "inside"
+        },
+        {
+          "word": "中国",
+          "reading": "ちゅうごく",
+          "en": "China"
+        }
+      ],
+      "mnemonic": "A line through the centre of a box."
+    },
+    {
+      "char": "右",
+      "onyomi": [
+        "ウ",
+        "ユウ"
+      ],
+      "kunyomi": [
+        "みぎ"
+      ],
+      "meaning_en": "right",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "右",
+          "reading": "みぎ",
+          "en": "right"
+        },
+        {
+          "word": "右手",
+          "reading": "みぎて",
+          "en": "right hand"
+        }
+      ],
+      "mnemonic": "The hand that brings food to the mouth (口)."
+    },
+    {
+      "char": "左",
+      "onyomi": [
+        "サ",
+        "シャ"
+      ],
+      "kunyomi": [
+        "ひだり"
+      ],
+      "meaning_en": "left",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "左",
+          "reading": "ひだり",
+          "en": "left"
+        },
+        {
+          "word": "左手",
+          "reading": "ひだりて",
+          "en": "left hand"
+        }
+      ],
+      "mnemonic": "The hand that holds the tool (工)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete あたらしい くつ ___ ほしいです。",
+      "options": [
+        "が",
+        "を",
+        "に",
+        "と"
+      ],
+      "correct": "が",
+      "explanation": "The thing wanted takes が."
+    },
+    {
+      "prompt": "How do you say the third floor?",
+      "options": [
+        "さんまい",
+        "さんがい",
+        "さんぼん",
+        "みっか"
+      ],
+      "correct": "さんがい",
+      "explanation": "The third floor is さんがい."
+    },
+    {
+      "prompt": "What does かいだん mean?",
+      "options": [
+        "lift",
+        "floor",
+        "stairs",
+        "entrance"
+      ],
+      "correct": "stairs",
+      "explanation": "かいだん is stairs. エレベーター is a lift."
+    },
+    {
+      "prompt": "Complete: くつの うりばは ___ ですか。 — にかいです。",
+      "options": [
+        "なんにん",
+        "いくら",
+        "なんまい",
+        "なんがい"
+      ],
+      "correct": "なんがい",
+      "explanation": "なんがい asks which floor."
+    },
+    {
+      "prompt": "Complete: エレベーターは かいだん ___ みぎに あります。",
+      "options": [
+        "の",
+        "に",
+        "を",
+        "が"
+      ],
+      "correct": "の",
+      "explanation": "Landmark + の + position word."
+    },
+    {
+      "prompt": "Which word means inside?",
+      "options": [
+        "うえ",
+        "なか",
+        "した",
+        "ひだり"
+      ],
+      "correct": "なか",
+      "explanation": "なか is inside."
+    },
+    {
+      "prompt": "Choose the meaning of トイレは エレベーターの ひだりです。",
+      "options": [
+        "The toilets are to the right of the lift.",
+        "The lift is to the left of the toilets.",
+        "The toilets are to the left of the lift.",
+        "The toilets are above the lift."
+      ],
+      "correct": "The toilets are to the left of the lift.",
+      "explanation": "ひだり is left, and the landmark is the lift."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You are looking for the hat department. What do you ask?",
+      "options": [
+        "ぼうしの うりばは なんにんですか。",
+        "ぼうしの うりばは いくらですか。",
+        "ぼうしの うりばは なんがいですか。",
+        "ぼうしの うりばを なんがいですか。"
+      ],
+      "correct": "ぼうしの うりばは なんがいですか。",
+      "explanation": "N は なんがいですか asks which floor."
+    },
+    {
+      "prompt": "Read: カフェは ほんやの したに あります。ほんやは さんがいです。 Which floor is the café on?",
+      "options": [
+        "The third floor",
+        "The fourth floor",
+        "The first floor",
+        "The second floor"
+      ],
+      "correct": "The second floor",
+      "explanation": "The café is below the bookshop, which is on the third floor."
+    },
+    {
+      "prompt": "Choose the sentence that means: The lift is to the right of the stairs.",
+      "options": [
+        "エレベーターは かいだんの みぎに あります。",
+        "かいだんは エレベーターの みぎに あります。",
+        "エレベーターは みぎの かいだんに あります。",
+        "エレベーターは かいだんの ひだりに あります。"
+      ],
+      "correct": "エレベーターは かいだんの みぎに あります。",
+      "explanation": "Topic first, then landmark + の + みぎ."
+    },
+    {
+      "prompt": "Which floor is NOT said correctly?",
+      "options": [
+        "いっかい",
+        "さんかい",
+        "にかい",
+        "よんかい"
+      ],
+      "correct": "さんかい",
+      "explanation": "The third floor is さんがい."
+    },
+    {
+      "prompt": "Review: complete こどもが ___ います。 (two)",
+      "options": [
+        "にまい",
+        "にほん",
+        "ふたり",
+        "ふたつ"
+      ],
+      "correct": "ふたり",
+      "explanation": "People are counted ひとり, ふたり."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-7-what-i-want",
+    "japanese-n5-unit-7-counting",
+    "japanese-n5-unit-3-home-rooms",
+    "japanese-n5-unit-3-classroom-objects",
+    "japanese-n5-unit-6-my-town"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: うえ, した, なか, みぎ and ひだり were taught in Unit 3 and are listed again so that their kanji spellings can be linked.",
+    "VERIFY: 上手, 地下 and 中国 are kanji example words not taught as vocabulary in N5 Units 1–9."
+  ]
+}

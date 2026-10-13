@@ -1,0 +1,395 @@
+{
+  "id": "japanese-n5-unit-9-talking-with-friends",
+  "slug": "n5-unit-9-talking-with-friends",
+  "unit": "Japanese N5 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Talking with Friends",
+  "title_jp": "ともだちと はなす",
+  "objectives": [
+    "I can follow and use simple casual speech with friends.",
+    "Use plain verb forms in place of ます forms",
+    "Drop です after adjectives and nouns",
+    "Ask and answer with もう and まだ"
+  ],
+  "vocabulary": [
+    [
+      "うん",
+      "un",
+      "yes (casual)"
+    ],
+    [
+      "ううん",
+      "uun",
+      "no (casual)"
+    ],
+    [
+      "ほんとう",
+      "hontou",
+      "really / true"
+    ],
+    [
+      "すごい",
+      "sugoi",
+      "amazing"
+    ],
+    [
+      "あとで",
+      "ato de",
+      "later"
+    ],
+    [
+      "じゃあね",
+      "jaa ne",
+      "see you"
+    ],
+    [
+      "もう",
+      "mou",
+      "already"
+    ],
+    [
+      "まだ",
+      "mada",
+      "not yet / still"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Plain style",
+    "text": "With friends and family, Japanese uses the plain style. You already have the pieces.\n\nVerbs: いきます → いく, いきません → いかない, いきました → いった, いきませんでした → いかなかった.\nい-adjectives: drop です (おいしい, おいしくない, おいしかった).\nな-adjectives and nouns: です becomes だ, and だ is usually dropped in questions (ひま？ — うん、ひま。). The past is だった and the negative is じゃない.\n\nQuestions drop か and rise at the end, written with ？. はい and いいえ become うん and ううん. Keep the polite style with teachers, strangers and at work.",
+    "examples": [
+      "V-ます → dictionary form / ない-form / た-form",
+      "い-adj (no です) / N・な-adj + だ",
+      "もう V-ましたか。 — いいえ、まだです。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Plain verbs",
+      "pattern": "V-dictionary / V-ない / V-た / V-なかった",
+      "explanation": "Use the dictionary form for the present and future, the ない-form for the negative and the た-form for the past. The past negative replaces ない with なかった.",
+      "examples": [
+        {
+          "japanese": "あした がっこうに いく？",
+          "romaji": "Ashita gakkou ni iku?",
+          "meaning": "Are you going to school tomorrow?"
+        },
+        {
+          "japanese": "うん、いく。",
+          "romaji": "Un, iku.",
+          "meaning": "Yes, I am."
+        },
+        {
+          "japanese": "ううん、いかない。",
+          "romaji": "Uun, ikanai.",
+          "meaning": "No, I am not."
+        },
+        {
+          "japanese": "きのう なにを した？",
+          "romaji": "Kinou nani o shita?",
+          "meaning": "What did you do yesterday?"
+        },
+        {
+          "japanese": "えいがを みた。でも、しゅくだいは しなかった。",
+          "romaji": "Eiga o mita. Demo, shukudai wa shinakatta.",
+          "meaning": "I watched a film. But I did not do my homework."
+        }
+      ],
+      "notes": [
+        "Do not add か to a plain question in everyday speech; raise your voice at the end.",
+        "Particles such as を and は are often dropped in fast speech, but keep them while learning."
+      ]
+    },
+    {
+      "title": "Plain adjectives and nouns",
+      "pattern": "い-adj / な-adj・N (+ だ)",
+      "explanation": "い-adjectives simply lose です. な-adjectives and nouns take だ in statements, だった in the past and じゃない in the negative.",
+      "examples": [
+        {
+          "japanese": "この カレー、おいしいね。",
+          "romaji": "Kono karee, oishii ne.",
+          "meaning": "This curry is tasty, isn't it?"
+        },
+        {
+          "japanese": "きのうの テストは むずかしかった。",
+          "romaji": "Kinou no tesuto wa muzukashikatta.",
+          "meaning": "Yesterday's test was difficult."
+        },
+        {
+          "japanese": "あした、ひま？",
+          "romaji": "Ashita, hima?",
+          "meaning": "Are you free tomorrow?"
+        },
+        {
+          "japanese": "うん、ひまだよ。",
+          "romaji": "Un, hima da yo.",
+          "meaning": "Yes, I am free."
+        },
+        {
+          "japanese": "きのうは あめだった。",
+          "romaji": "Kinou wa ame datta.",
+          "meaning": "It rained yesterday."
+        }
+      ],
+      "notes": [
+        "Wrong: おいしいだ. い-adjectives never take だ.",
+        "ね seeks agreement and よ gives new information; both are common in casual talk."
+      ]
+    },
+    {
+      "title": "Already / not yet",
+      "pattern": "もう V-ましたか / まだです",
+      "explanation": "もう with a past verb asks or says that something is already done. Answer no with まだです (not yet). Casual: もう たべた？ — ううん、まだ。",
+      "examples": [
+        {
+          "japanese": "もう ばんごはんを たべましたか。",
+          "romaji": "Mou bangohan o tabemashita ka.",
+          "meaning": "Have you already eaten dinner?"
+        },
+        {
+          "japanese": "はい、もう たべました。",
+          "romaji": "Hai, mou tabemashita.",
+          "meaning": "Yes, I already have."
+        },
+        {
+          "japanese": "いいえ、まだです。",
+          "romaji": "Iie, mada desu.",
+          "meaning": "No, not yet."
+        },
+        {
+          "japanese": "もう しゅくだいを した？",
+          "romaji": "Mou shukudai o shita?",
+          "meaning": "Have you done your homework yet?"
+        },
+        {
+          "japanese": "ううん、まだ。あとで する。",
+          "romaji": "Uun, mada. Ato de suru.",
+          "meaning": "No, not yet. I will do it later."
+        }
+      ],
+      "notes": [
+        "Wrong: まだ たべませんでした for not yet. Say まだです.",
+        "もういちど (once more) uses a different もう."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "ほんとう？ すごいね。",
+      "Really? That is amazing."
+    ],
+    [
+      "あとで でんわするね。",
+      "I will call you later."
+    ],
+    [
+      "じゃあね。また あした。",
+      "See you. Until tomorrow."
+    ],
+    [
+      "きょうは いそがしいから、いかない。",
+      "I am busy today, so I am not going."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "しゅうまつ、なにを した？",
+      "マイ",
+      "ともだちと ふじさんに のぼった。"
+    ],
+    [
+      "けん",
+      "ほんとう？ すごいね。たいへんだった？",
+      "マイ",
+      "うん、たいへんだった。でも、たのしかった。"
+    ],
+    [
+      "けん",
+      "もう ひるごはんを たべた？",
+      "マイ",
+      "ううん、まだ。いっしょに たべる？"
+    ],
+    [
+      "けん",
+      "うん、たべる。あとで カフェに いく？",
+      "マイ",
+      "いいね。いく。"
+    ],
+    [
+      "けん",
+      "じゃあね。",
+      "マイ",
+      "うん、じゃあね。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the た-form of のります.",
+      "options": [
+        "のりた",
+        "のった",
+        "のんだ",
+        "のいた"
+      ],
+      "correct": "のった",
+      "explanation": "のって → のった."
+    },
+    {
+      "prompt": "What does まだ mean?",
+      "options": [
+        "already",
+        "later",
+        "not yet",
+        "really"
+      ],
+      "correct": "not yet",
+      "explanation": "まだ is not yet. もう is already."
+    },
+    {
+      "prompt": "What is the casual word for はい?",
+      "options": [
+        "ううん",
+        "じゃあね",
+        "もう",
+        "うん"
+      ],
+      "correct": "うん",
+      "explanation": "うん is yes; ううん is no."
+    },
+    {
+      "prompt": "Choose the plain form of いきません.",
+      "options": [
+        "いかない",
+        "いかなかった",
+        "いく",
+        "いった"
+      ],
+      "correct": "いかない",
+      "explanation": "The plain negative is the ない-form."
+    },
+    {
+      "prompt": "Choose the plain form of たべました.",
+      "options": [
+        "たべる",
+        "たべた",
+        "たべない",
+        "たべて"
+      ],
+      "correct": "たべた",
+      "explanation": "The plain past is the た-form."
+    },
+    {
+      "prompt": "Choose the plain form of しませんでした.",
+      "options": [
+        "しない",
+        "した",
+        "しなかった",
+        "しません"
+      ],
+      "correct": "しなかった",
+      "explanation": "The plain past negative is なかった."
+    },
+    {
+      "prompt": "Choose the plain form of あめでした.",
+      "options": [
+        "あめかった",
+        "あめだ",
+        "あめじゃない",
+        "あめだった"
+      ],
+      "correct": "あめだった",
+      "explanation": "Nouns: でした → だった."
+    },
+    {
+      "prompt": "Choose the meaning of ううん、まだ。あとで する。",
+      "options": [
+        "No, not yet. I will do it later.",
+        "Yes, already. I did it earlier.",
+        "No, I will not do it.",
+        "Yes, I am doing it now."
+      ],
+      "correct": "No, not yet. I will do it later.",
+      "explanation": "まだ is not yet, and あとで is later."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend asks: もう ひるごはんを たべた？ You have not eaten yet. What do you say?",
+      "options": [
+        "うん、まだ。",
+        "ううん、もう。",
+        "ううん、たべた。",
+        "ううん、まだ。"
+      ],
+      "correct": "ううん、まだ。",
+      "explanation": "ううん is no, and まだ is not yet."
+    },
+    {
+      "prompt": "Which sentence is in plain style?",
+      "options": [
+        "きのう えいがを みた。",
+        "きのう えいがを みました。",
+        "きのう えいがを みませんでした。",
+        "きのう えいがを みましたか。"
+      ],
+      "correct": "きのう えいがを みた。",
+      "explanation": "みた is the plain past of みます."
+    },
+    {
+      "prompt": "Which plain sentence is NOT correct?",
+      "options": [
+        "この カレーは おいしい。",
+        "この カレーは おいしいだ。",
+        "きょうは ひまだ。",
+        "きのうは あめだった。"
+      ],
+      "correct": "この カレーは おいしいだ。",
+      "explanation": "い-adjectives never take だ."
+    },
+    {
+      "prompt": "Your teacher asks if you have eaten. Which answer is appropriate?",
+      "options": [
+        "ううん、まだ。",
+        "うん、たべた。",
+        "いいえ、まだです。",
+        "まだ。あとで たべる。"
+      ],
+      "correct": "いいえ、まだです。",
+      "explanation": "Use the polite style with a teacher."
+    },
+    {
+      "prompt": "Review: complete しんかんせんに ___ ことが あります。",
+      "options": [
+        "のる",
+        "のって",
+        "のります",
+        "のった"
+      ],
+      "correct": "のった",
+      "explanation": "Experience uses the た-form before ことが あります."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-9-have-you-ever",
+    "japanese-n5-unit-9-please-dont",
+    "japanese-n5-unit-9-things-i-can-do",
+    "japanese-n5-unit-8-reasons-and-states",
+    "japanese-n5-unit-6-how-was-the-trip",
+    "japanese-n5-unit-5-what-did-you-do"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: the sentence-final particles ね and よ and the greeting また あした appear in examples with a short note only.",
+    "VERIFY: this lesson introduces no new kanji, as planned in the blueprint."
+  ]
+}

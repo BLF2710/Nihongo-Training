@@ -1,0 +1,480 @@
+{
+  "id": "japanese-n5-unit-6-what-kind",
+  "slug": "n5-unit-6-what-kind",
+  "unit": "Japanese N5 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "What Kind of Place?",
+  "title_jp": "どんな ところ",
+  "objectives": [
+    "I can describe a noun and ask what something is like.",
+    "Put い- and な-adjectives before nouns",
+    "Ask どんな",
+    "Join two contrasting statements with が"
+  ],
+  "vocabulary": [
+    [
+      "やま",
+      "yama",
+      "mountain"
+    ],
+    [
+      "かわ",
+      "kawa",
+      "river"
+    ],
+    [
+      "うみ",
+      "umi",
+      "sea"
+    ],
+    [
+      "き",
+      "ki",
+      "tree"
+    ],
+    [
+      "はな",
+      "hana",
+      "flower"
+    ],
+    [
+      "ながい",
+      "nagai",
+      "long"
+    ],
+    [
+      "みじかい",
+      "mijikai",
+      "short"
+    ],
+    [
+      "ひろい",
+      "hiroi",
+      "spacious / wide"
+    ],
+    [
+      "せまい",
+      "semai",
+      "cramped / narrow"
+    ],
+    [
+      "ホテル",
+      "hoteru",
+      "hotel"
+    ],
+    [
+      "たてもの",
+      "tatemono",
+      "building"
+    ],
+    [
+      "ところ",
+      "tokoro",
+      "place"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "山",
+      "word_reading": "やま"
+    },
+    {
+      "word_japanese": "川",
+      "word_reading": "かわ"
+    },
+    {
+      "word_japanese": "長い",
+      "word_reading": "ながい"
+    }
+  ],
+  "concept": {
+    "title": "Adjective + noun",
+    "text": "An い-adjective goes straight in front of a noun: おおきい やま (a big mountain). A な-adjective needs な between it and the noun, which is where its name comes from: しずかな まち (a quiet town).\n\nTo ask what kind, use どんな before a noun. To put two opposite points in one sentence, end the first with が: ふるいですが、きれいです (it is old, but it is clean).",
+    "examples": [
+      "い-adj + N",
+      "な-adj + な + N",
+      "どんな N ですか"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Adjectives before nouns",
+      "pattern": "い-adj N / な-adj な N",
+      "explanation": "い-adjectives attach directly. な-adjectives add な. Before です, neither adds anything.",
+      "examples": [
+        {
+          "japanese": "たかい やまが あります。",
+          "romaji": "Takai yama ga arimasu.",
+          "meaning": "There is a tall mountain."
+        },
+        {
+          "japanese": "ながい かわです。",
+          "romaji": "Nagai kawa desu.",
+          "meaning": "It is a long river."
+        },
+        {
+          "japanese": "きれいな はなですね。",
+          "romaji": "Kirei na hana desu ne.",
+          "meaning": "What pretty flowers."
+        },
+        {
+          "japanese": "しずかな ホテルに いきました。",
+          "romaji": "Shizuka na hoteru ni ikimashita.",
+          "meaning": "I went to a quiet hotel."
+        },
+        {
+          "japanese": "あたらしい かばんを かいました。",
+          "romaji": "Atarashii kaban o kaimashita.",
+          "meaning": "I bought a new bag."
+        }
+      ],
+      "notes": [
+        "Wrong: おおきいな やま. い-adjectives never take な.",
+        "Wrong: しずか まち. な-adjectives need な before a noun."
+      ]
+    },
+    {
+      "title": "What kind of…?",
+      "pattern": "どんな N ですか",
+      "explanation": "どんな asks for a description. Answer with an adjective and the noun.",
+      "examples": [
+        {
+          "japanese": "どんな まちですか。",
+          "romaji": "Donna machi desu ka.",
+          "meaning": "What kind of town is it?"
+        },
+        {
+          "japanese": "にぎやかな まちです。",
+          "romaji": "Nigiyaka na machi desu.",
+          "meaning": "It is a lively town."
+        },
+        {
+          "japanese": "どんな へやですか。",
+          "romaji": "Donna heya desu ka.",
+          "meaning": "What kind of room is it?"
+        },
+        {
+          "japanese": "ひろい へやです。",
+          "romaji": "Hiroi heya desu.",
+          "meaning": "It is a spacious room."
+        },
+        {
+          "japanese": "せんせいは どんな ひとですか。",
+          "romaji": "Sensei wa donna hito desu ka.",
+          "meaning": "What kind of person is the teacher?"
+        }
+      ],
+      "notes": [
+        "どんな always comes before a noun.",
+        "どう asks how something is; どんな asks what kind of thing it is."
+      ]
+    },
+    {
+      "title": "…, but…",
+      "pattern": "Sentence 1 が、Sentence 2",
+      "explanation": "が after です or ます joins two statements that contrast. It is softer than starting a new sentence with でも.",
+      "examples": [
+        {
+          "japanese": "この ホテルは ふるいですが、きれいです。",
+          "romaji": "Kono hoteru wa furui desu ga, kirei desu.",
+          "meaning": "This hotel is old, but it is clean."
+        },
+        {
+          "japanese": "へやは せまいですが、やすいです。",
+          "romaji": "Heya wa semai desu ga, yasui desu.",
+          "meaning": "The room is cramped, but it is cheap."
+        },
+        {
+          "japanese": "にほんごは むずかしいですが、おもしろいです。",
+          "romaji": "Nihongo wa muzukashii desu ga, omoshiroi desu.",
+          "meaning": "Japanese is difficult, but it is interesting."
+        },
+        {
+          "japanese": "にくは すきですが、さかなは きらいです。",
+          "romaji": "Niku wa suki desu ga, sakana wa kirai desu.",
+          "meaning": "I like meat, but I dislike fish."
+        }
+      ],
+      "notes": [
+        "This が is not the subject marker. It comes at the end of a clause.",
+        "Both halves stay in the polite form."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "うちの ちかくに おおきい きが あります。",
+      "There is a big tree near my house."
+    ],
+    [
+      "ここに きれいな うみが あります。",
+      "There is a beautiful sea here."
+    ],
+    [
+      "あの たかい たてものは ホテルです。",
+      "That tall building is a hotel."
+    ],
+    [
+      "みじかい てがみを かきました。",
+      "I wrote a short letter."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リン",
+      "さくらさんの まちは どんな ところですか。",
+      "さくら",
+      "しずかな ところです。やまと かわが あります。"
+    ],
+    [
+      "リン",
+      "いいですね。べんりですか。",
+      "さくら",
+      "あまり べんりじゃないですが、きれいな まちです。"
+    ],
+    [
+      "けん",
+      "どんな ホテルですか。",
+      "マイ",
+      "ふるいですが、へやは ひろいです。"
+    ],
+    [
+      "アナ",
+      "あの たてものは なんですか。",
+      "たなか",
+      "ゆうめいな ホテルです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "山",
+      "onyomi": [
+        "サン",
+        "セン"
+      ],
+      "kunyomi": [
+        "やま"
+      ],
+      "meaning_en": "mountain",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "山",
+          "reading": "やま",
+          "en": "mountain"
+        },
+        {
+          "word": "富士山",
+          "reading": "ふじさん",
+          "en": "Mt Fuji"
+        }
+      ],
+      "mnemonic": "Three peaks, the middle one tallest."
+    },
+    {
+      "char": "川",
+      "onyomi": [
+        "セン"
+      ],
+      "kunyomi": [
+        "かわ"
+      ],
+      "meaning_en": "river",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "川",
+          "reading": "かわ",
+          "en": "river"
+        },
+        {
+          "word": "小川",
+          "reading": "おがわ",
+          "en": "stream"
+        }
+      ],
+      "mnemonic": "Three lines of flowing water."
+    },
+    {
+      "char": "長",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "なが.い",
+        "おさ"
+      ],
+      "meaning_en": "long, chief",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "長い",
+          "reading": "ながい",
+          "en": "long"
+        },
+        {
+          "word": "社長",
+          "reading": "しゃちょう",
+          "en": "company president"
+        }
+      ],
+      "mnemonic": "Long hair flowing from an elder's head."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the negative of べんりです.",
+      "options": [
+        "べんりくないです",
+        "べんくないです",
+        "べんりないです",
+        "べんりじゃないです"
+      ],
+      "correct": "べんりじゃないです",
+      "explanation": "な-adjectives use じゃないです."
+    },
+    {
+      "prompt": "What does うみ mean?",
+      "options": [
+        "sea",
+        "mountain",
+        "river",
+        "tree"
+      ],
+      "correct": "sea",
+      "explanation": "うみ is the sea."
+    },
+    {
+      "prompt": "Complete: しずか ___ まちです。",
+      "options": [
+        "の",
+        "な",
+        "い",
+        "が"
+      ],
+      "correct": "な",
+      "explanation": "な-adjectives take な before a noun."
+    },
+    {
+      "prompt": "Which phrase is correct?",
+      "options": [
+        "おおきいな やま",
+        "おおきな い やま",
+        "おおきい やま",
+        "おおきいの やま"
+      ],
+      "correct": "おおきい やま",
+      "explanation": "い-adjectives attach directly to the noun."
+    },
+    {
+      "prompt": "Complete: ___ まちですか。 — にぎやかな まちです。",
+      "options": [
+        "どう",
+        "どこ",
+        "だれ",
+        "どんな"
+      ],
+      "correct": "どんな",
+      "explanation": "どんな asks what kind of."
+    },
+    {
+      "prompt": "Complete: へやは せまいです ___、やすいです。",
+      "options": [
+        "が",
+        "と",
+        "を",
+        "に"
+      ],
+      "correct": "が",
+      "explanation": "が joins two contrasting statements."
+    },
+    {
+      "prompt": "Choose the meaning of ながい かわです。",
+      "options": [
+        "It is a wide river.",
+        "It is a long river.",
+        "It is a short river.",
+        "The river is not long."
+      ],
+      "correct": "It is a long river.",
+      "explanation": "ながい is long, and かわ is river."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: どんな へやですか。 Your room is spacious. What do you say?",
+      "options": [
+        "ひろいな へやです。",
+        "ひろい へやです。",
+        "ひろく へやです。",
+        "ひろいの へやです。"
+      ],
+      "correct": "ひろい へやです。",
+      "explanation": "ひろい is an い-adjective and attaches directly."
+    },
+    {
+      "prompt": "Choose the sentence that means: I went to a quiet hotel.",
+      "options": [
+        "しずか ホテルに いきました。",
+        "しずかい ホテルに いきました。",
+        "しずかな ホテルに いきました。",
+        "しずかな ホテルで いきました。"
+      ],
+      "correct": "しずかな ホテルに いきました。",
+      "explanation": "しずか needs な before a noun; the destination takes に."
+    },
+    {
+      "prompt": "Read: この ホテルは ふるいですが、きれいです。 What is the hotel like?",
+      "options": [
+        "New and clean",
+        "Old and not clean",
+        "New but cramped",
+        "Old but clean"
+      ],
+      "correct": "Old but clean",
+      "explanation": "ふるい is old; が introduces the contrast きれい."
+    },
+    {
+      "prompt": "Which phrase is correct?",
+      "options": [
+        "ゆうめいな たてもの",
+        "ゆうめい たてもの",
+        "ゆうめいい たてもの",
+        "ゆうめく たてもの"
+      ],
+      "correct": "ゆうめいな たてもの",
+      "explanation": "ゆうめい is a な-adjective."
+    },
+    {
+      "prompt": "Review: how do you say 1 April?",
+      "options": [
+        "よんがつ ついたち",
+        "しがつ ついたち",
+        "しがつ いちにち",
+        "ついたち しがつ"
+      ],
+      "correct": "しがつ ついたち",
+      "explanation": "April is しがつ and the 1st is ついたち."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-6-na-adjectives",
+    "japanese-n5-unit-6-i-adjectives",
+    "japanese-n5-unit-5-dates-and-birthdays",
+    "japanese-n5-unit-3-home-rooms",
+    "japanese-n5-unit-2-living"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: ちかく (nearby) is used in one example before it is listed as vocabulary in Lesson 5.",
+    "VERIFY: 富士山 is taught as vocabulary in Unit 9."
+  ]
+}

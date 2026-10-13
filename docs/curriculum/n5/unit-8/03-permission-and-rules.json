@@ -1,0 +1,450 @@
+{
+  "id": "japanese-n5-unit-8-permission-and-rules",
+  "slug": "n5-unit-8-permission-and-rules",
+  "unit": "Japanese N5 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "May I? You Must Not",
+  "title_jp": "〜ても いいですか",
+  "objectives": [
+    "I can ask permission and understand a prohibition.",
+    "Ask with ても いいですか",
+    "Give and refuse permission politely",
+    "Understand ては いけません"
+  ],
+  "vocabulary": [
+    [
+      "たちます",
+      "tachimasu",
+      "to stand"
+    ],
+    [
+      "すわります",
+      "suwarimasu",
+      "to sit"
+    ],
+    [
+      "つかいます",
+      "tsukaimasu",
+      "to use"
+    ],
+    [
+      "とります",
+      "torimasu",
+      "to take"
+    ],
+    [
+      "すいます",
+      "suimasu",
+      "to smoke / to inhale"
+    ],
+    [
+      "あらいます",
+      "araimasu",
+      "to wash"
+    ],
+    [
+      "たばこ",
+      "tabako",
+      "cigarette / tobacco"
+    ],
+    [
+      "て",
+      "te",
+      "hand"
+    ],
+    [
+      "あし",
+      "ashi",
+      "foot / leg"
+    ],
+    [
+      "どうぞ",
+      "douzo",
+      "go ahead / please"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "手",
+      "word_reading": "て"
+    },
+    {
+      "word_japanese": "足",
+      "word_reading": "あし"
+    }
+  ],
+  "concept": {
+    "title": "Permission and rules",
+    "text": "て-form + も いいですか asks whether an action is all right: はいっても いいですか (may I come in?). To allow it, say はい、どうぞ. To refuse, be indirect: すみません、ちょっと….\n\nて-form + は いけません states a rule: you must not. It is strong, so it is used on signs and by teachers, parents and officials rather than between friends. The は here is the particle, pronounced わ.\n\nAll six new verbs are Group 1: たって, すわって, つかって, とって, すって, あらって.",
+    "examples": [
+      "V-ても いいですか",
+      "はい、どうぞ。 / すみません、ちょっと…。",
+      "V-ては いけません"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "May I…?",
+      "pattern": "V-ても いいですか / V-ても いいです",
+      "explanation": "Add も いいですか to the て-form to ask permission. Without か it gives permission: つかっても いいです (you may use it).",
+      "examples": [
+        {
+          "japanese": "ここに すわっても いいですか。",
+          "romaji": "Koko ni suwatte mo ii desu ka.",
+          "meaning": "May I sit here?"
+        },
+        {
+          "japanese": "はい、どうぞ。",
+          "romaji": "Hai, douzo.",
+          "meaning": "Yes, go ahead."
+        },
+        {
+          "japanese": "この ペンを つかっても いいですか。",
+          "romaji": "Kono pen o tsukatte mo ii desu ka.",
+          "meaning": "May I use this pen?"
+        },
+        {
+          "japanese": "ここで しゃしんを とっても いいですか。",
+          "romaji": "Koko de shashin o totte mo ii desu ka.",
+          "meaning": "May I take a photo here?"
+        },
+        {
+          "japanese": "この へやで たべても いいです。",
+          "romaji": "Kono heya de tabete mo ii desu.",
+          "meaning": "You may eat in this room."
+        }
+      ],
+      "notes": [
+        "Sit on a place takes に: ここに すわります.",
+        "しゃしんを とります means to take a photo."
+      ]
+    },
+    {
+      "title": "You must not…",
+      "pattern": "V-ては いけません",
+      "explanation": "Add は いけません to the て-form for a prohibition. A softer personal refusal is すみません、ちょっと….",
+      "examples": [
+        {
+          "japanese": "ここで たばこを すっては いけません。",
+          "romaji": "Koko de tabako o sutte wa ikemasen.",
+          "meaning": "You must not smoke here."
+        },
+        {
+          "japanese": "としょかんで たべては いけません。",
+          "romaji": "Toshokan de tabete wa ikemasen.",
+          "meaning": "You must not eat in the library."
+        },
+        {
+          "japanese": "ここで しゃしんを とっては いけません。",
+          "romaji": "Koko de shashin o totte wa ikemasen.",
+          "meaning": "You must not take photos here."
+        },
+        {
+          "japanese": "この へやに はいっては いけません。",
+          "romaji": "Kono heya ni haitte wa ikemasen.",
+          "meaning": "You must not enter this room."
+        },
+        {
+          "japanese": "テストですから、はなしては いけません。",
+          "romaji": "Tesuto desu kara, hanashite wa ikemasen.",
+          "meaning": "It is a test, so you must not talk."
+        }
+      ],
+      "notes": [
+        "ては is pronounced tewa.",
+        "Between equals, prefer ちょっと… to いけません."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "てを あらって ください。",
+      "Please wash your hands."
+    ],
+    [
+      "でんしゃの なかで たっています。",
+      "I am standing on the train."
+    ],
+    [
+      "あしが ながいですね。",
+      "You have long legs."
+    ],
+    [
+      "すみません、この いすを つかっても いいですか。",
+      "Excuse me, may I use this chair?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、ここに すわっても いいですか。",
+      "たなか",
+      "はい、どうぞ。"
+    ],
+    [
+      "リー",
+      "ここで しゃしんを とっても いいですか。",
+      "てんいん",
+      "すみません、ここは ちょっと…。"
+    ],
+    [
+      "マイ",
+      "せんせい、えいごで はなしても いいですか。",
+      "せんせい",
+      "いいえ、にほんごで はなして ください。"
+    ],
+    [
+      "けん",
+      "ここで たばこを すっても いいですか。",
+      "てんいん",
+      "いいえ、ここで すっては いけません。そとで おねがいします。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "立",
+      "onyomi": [
+        "リツ",
+        "リュウ",
+        "リットル"
+      ],
+      "kunyomi": [
+        "た.つ",
+        "-た.つ",
+        "た.ち-",
+        "た.てる",
+        "-た.てる",
+        "た.て-",
+        "たて-",
+        "-た.て",
+        "-だ.て",
+        "-だ.てる"
+      ],
+      "meaning_en": "stand",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "立ちます",
+          "reading": "たちます",
+          "en": "to stand"
+        },
+        {
+          "word": "国立",
+          "reading": "こくりつ",
+          "en": "national"
+        }
+      ],
+      "mnemonic": "A person standing on the ground."
+    },
+    {
+      "char": "手",
+      "onyomi": [
+        "シュ",
+        "ズ"
+      ],
+      "kunyomi": [
+        "て",
+        "て-",
+        "-て",
+        "た-"
+      ],
+      "meaning_en": "hand",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "手",
+          "reading": "て",
+          "en": "hand"
+        },
+        {
+          "word": "右手",
+          "reading": "みぎて",
+          "en": "right hand"
+        }
+      ],
+      "mnemonic": "The lines of an open hand."
+    },
+    {
+      "char": "足",
+      "onyomi": [
+        "ソク"
+      ],
+      "kunyomi": [
+        "あし",
+        "た.りる",
+        "た.る",
+        "た.す"
+      ],
+      "meaning_en": "foot, leg",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "足",
+          "reading": "あし",
+          "en": "foot / leg"
+        },
+        {
+          "word": "手足",
+          "reading": "てあし",
+          "en": "hands and feet"
+        }
+      ],
+      "mnemonic": "A kneecap (口) above a foot."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete いま ほんを ___。 (am reading)",
+      "options": [
+        "よみます",
+        "よみています",
+        "よんでください",
+        "よんでいます"
+      ],
+      "correct": "よんでいます",
+      "explanation": "て-form + います shows an action in progress."
+    },
+    {
+      "prompt": "What does すわります mean?",
+      "options": [
+        "to sit",
+        "to stand",
+        "to use",
+        "to wash"
+      ],
+      "correct": "to sit",
+      "explanation": "すわります is to sit. たちます is to stand."
+    },
+    {
+      "prompt": "Choose the て-form of つかいます.",
+      "options": [
+        "つかいて",
+        "つかって",
+        "つかんで",
+        "つかして"
+      ],
+      "correct": "つかって",
+      "explanation": "Group 1 with い: って."
+    },
+    {
+      "prompt": "Complete: ここに すわって ___ いいですか。",
+      "options": [
+        "は",
+        "を",
+        "も",
+        "が"
+      ],
+      "correct": "も",
+      "explanation": "ても いいですか asks permission."
+    },
+    {
+      "prompt": "Complete: ここで たばこを すって ___ いけません。",
+      "options": [
+        "も",
+        "を",
+        "に",
+        "は"
+      ],
+      "correct": "は",
+      "explanation": "ては いけません is a prohibition."
+    },
+    {
+      "prompt": "Someone asks ここに すわっても いいですか。 How do you say yes?",
+      "options": [
+        "はい、どうぞ。",
+        "はい、いけません。",
+        "はい、ください。",
+        "はい、ちょっと…。"
+      ],
+      "correct": "はい、どうぞ。",
+      "explanation": "どうぞ gives permission."
+    },
+    {
+      "prompt": "Choose the meaning of ここで しゃしんを とっては いけません。",
+      "options": [
+        "You may take photos here.",
+        "You must not take photos here.",
+        "Please take a photo here.",
+        "I am taking a photo here."
+      ],
+      "correct": "You must not take photos here.",
+      "explanation": "ては いけません: must not."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to use a classmate's pen. What do you say?",
+      "options": [
+        "この ペンを つかっては いけませんか。",
+        "この ペンを つかっても いいですか。",
+        "この ペンを つかいても いいですか。",
+        "この ペンを つかって いますか。"
+      ],
+      "correct": "この ペンを つかっても いいですか。",
+      "explanation": "つかいます → つかって + も いいですか."
+    },
+    {
+      "prompt": "A sign in a library means no eating. Which sentence matches it?",
+      "options": [
+        "ここで たべても いいです。",
+        "ここで たべて ください。",
+        "ここで たべては いけません。",
+        "ここで たべています。"
+      ],
+      "correct": "ここで たべては いけません。",
+      "explanation": "ては いけません states a prohibition."
+    },
+    {
+      "prompt": "A shop assistant replies: すみません、ここは ちょっと…。 What does this mean?",
+      "options": [
+        "Go ahead.",
+        "Please wait a little here.",
+        "It is a little further.",
+        "It is not allowed here."
+      ],
+      "correct": "It is not allowed here.",
+      "explanation": "Trailing off with ちょっと… is a polite refusal."
+    },
+    {
+      "prompt": "Which sentence gives permission?",
+      "options": [
+        "この へやで たべても いいです。",
+        "この へやで たべては いけません。",
+        "この へやで たべても いいですか。",
+        "この へやで たべません。"
+      ],
+      "correct": "この へやで たべても いいです。",
+      "explanation": "ても いいです, without か, grants permission."
+    },
+    {
+      "prompt": "Review: choose the て-form of いきます.",
+      "options": [
+        "いきて",
+        "いって",
+        "いいて",
+        "いんで"
+      ],
+      "correct": "いって",
+      "explanation": "いきます is the exception: いって."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-8-right-now",
+    "japanese-n5-unit-8-please-do",
+    "japanese-n5-unit-5-invitations",
+    "japanese-n5-unit-7-comparing",
+    "japanese-n5-unit-2-living"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: から (so) appears in one example before it is taught in Lesson 5."
+  ]
+}

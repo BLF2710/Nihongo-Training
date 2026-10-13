@@ -1,0 +1,469 @@
+{
+  "id": "japanese-n5-unit-9-i-want-to-go",
+  "slug": "n5-unit-9-i-want-to-go",
+  "unit": "Japanese N5 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "I Want to Go",
+  "title_jp": "いきたいです",
+  "objectives": [
+    "I can say what I want to do and why I am going somewhere.",
+    "Use たいです for things you want to do",
+    "Give the purpose of a trip with に いきます",
+    "Use the four compass directions"
+  ],
+  "vocabulary": [
+    [
+      "ひがし",
+      "higashi",
+      "east"
+    ],
+    [
+      "にし",
+      "nishi",
+      "west"
+    ],
+    [
+      "みなみ",
+      "minami",
+      "south"
+    ],
+    [
+      "きた",
+      "kita",
+      "north"
+    ],
+    [
+      "きょうと",
+      "Kyouto",
+      "Kyoto"
+    ],
+    [
+      "ほっかいどう",
+      "Hokkaidou",
+      "Hokkaido"
+    ],
+    [
+      "おんせん",
+      "onsen",
+      "hot spring"
+    ],
+    [
+      "おてら",
+      "otera",
+      "temple"
+    ],
+    [
+      "のぼります",
+      "noborimasu",
+      "to climb"
+    ],
+    [
+      "とまります",
+      "tomarimasu",
+      "to stay (overnight)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "東",
+      "word_reading": "ひがし"
+    },
+    {
+      "word_japanese": "西",
+      "word_reading": "にし"
+    },
+    {
+      "word_japanese": "南",
+      "word_reading": "みなみ"
+    },
+    {
+      "word_japanese": "北",
+      "word_reading": "きた"
+    }
+  ],
+  "concept": {
+    "title": "Wanting to do something",
+    "text": "ほしい is for things. For actions, take ます off the verb and add たいです: いきます → いきたいです (I want to go). The result behaves like an い-adjective, so the negative is いきたくないです.\n\nUse たい about yourself, or to ask the listener. The object can keep を.\n\nThe same verb stem also shows purpose. Stem + に いきます means go in order to do: えいがを みに いきます (I am going to see a film). Some nouns work the same way: かいものに いきます.",
+    "examples": [
+      "V-stem + たいです / たくないです",
+      "place に V-stem に いきます",
+      "やまに のぼります / ホテルに とまります"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I want to…",
+      "pattern": "V-stem + たいです / たくないです",
+      "explanation": "Remove ます and add たいです. It changes like an い-adjective: たくないです, たかったです.",
+      "examples": [
+        {
+          "japanese": "きょうとに いきたいです。",
+          "romaji": "Kyouto ni ikitai desu.",
+          "meaning": "I want to go to Kyoto."
+        },
+        {
+          "japanese": "おんせんに はいりたいです。",
+          "romaji": "Onsen ni hairitai desu.",
+          "meaning": "I want to bathe in a hot spring."
+        },
+        {
+          "japanese": "なにを たべたいですか。",
+          "romaji": "Nani o tabetai desu ka.",
+          "meaning": "What do you want to eat?"
+        },
+        {
+          "japanese": "きょうは なにも したくないです。",
+          "romaji": "Kyou wa nani mo shitakunai desu.",
+          "meaning": "I do not want to do anything today."
+        },
+        {
+          "japanese": "ふるい おてらを みたいです。",
+          "romaji": "Furui otera o mitai desu.",
+          "meaning": "I want to see old temples."
+        }
+      ],
+      "notes": [
+        "Wrong: いきますたいです. Remove ます first.",
+        "Do not use たいですか to invite someone; use ませんか."
+      ]
+    },
+    {
+      "title": "Going in order to…",
+      "pattern": "place に V-stem / N に いきます",
+      "explanation": "The destination takes に, and the purpose also takes に. The verb at the end is いきます, きます or かえります.",
+      "examples": [
+        {
+          "japanese": "デパートに くつを かいに いきます。",
+          "romaji": "Depaato ni kutsu o kai ni ikimasu.",
+          "meaning": "I am going to the department store to buy shoes."
+        },
+        {
+          "japanese": "きょうとに おてらを みに いきました。",
+          "romaji": "Kyouto ni otera o mi ni ikimashita.",
+          "meaning": "I went to Kyoto to see temples."
+        },
+        {
+          "japanese": "ともだちが うちに あそびに きます。",
+          "romaji": "Tomodachi ga uchi ni asobi ni kimasu.",
+          "meaning": "A friend is coming to my house to visit."
+        },
+        {
+          "japanese": "スーパーに かいものに いきます。",
+          "romaji": "Suupaa ni kaimono ni ikimasu.",
+          "meaning": "I am going shopping at the supermarket."
+        },
+        {
+          "japanese": "ほっかいどうに りょこうに いきたいです。",
+          "romaji": "Hokkaidou ni ryokou ni ikitai desu.",
+          "meaning": "I want to go on a trip to Hokkaido."
+        }
+      ],
+      "notes": [
+        "Wrong: みますに いきます. Use the stem: みに いきます.",
+        "The two に have different jobs: destination and purpose."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "ほっかいどうは にほんの きたに あります。",
+      "Hokkaido is in the north of Japan."
+    ],
+    [
+      "らいねん ふじさんに のぼりたいです。",
+      "I want to climb Mt Fuji next year."
+    ],
+    [
+      "おんせんの ホテルに とまりました。",
+      "I stayed at a hot-spring hotel."
+    ],
+    [
+      "えきの ひがしに おおきい こうえんが あります。",
+      "There is a big park to the east of the station."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "やすみに どこに いきたいですか。",
+      "アナ",
+      "きょうとに いきたいです。"
+    ],
+    [
+      "たなか",
+      "きょうとで なにを したいですか。",
+      "アナ",
+      "ふるい おてらを みたいです。"
+    ],
+    [
+      "リー",
+      "しゅうまつは なにを しますか。",
+      "ゆき",
+      "ほっかいどうに おんせんに はいりに いきます。"
+    ],
+    [
+      "リー",
+      "いいですね。わたしも いきたいです。",
+      "ゆき",
+      "じゃあ、こんど いっしょに いきましょう。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "東",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "ひがし"
+      ],
+      "meaning_en": "east",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "東",
+          "reading": "ひがし",
+          "en": "east"
+        },
+        {
+          "word": "東京",
+          "reading": "とうきょう",
+          "en": "Tokyo"
+        }
+      ],
+      "mnemonic": "The sun (日) rising behind a tree (木)."
+    },
+    {
+      "char": "西",
+      "onyomi": [
+        "セイ",
+        "サイ",
+        "ス"
+      ],
+      "kunyomi": [
+        "にし"
+      ],
+      "meaning_en": "west",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "西",
+          "reading": "にし",
+          "en": "west"
+        },
+        {
+          "word": "西口",
+          "reading": "にしぐち",
+          "en": "west exit"
+        }
+      ],
+      "mnemonic": "A bird settling on its nest as the sun goes down."
+    },
+    {
+      "char": "南",
+      "onyomi": [
+        "ナン",
+        "ナ"
+      ],
+      "kunyomi": [
+        "みなみ"
+      ],
+      "meaning_en": "south",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "南",
+          "reading": "みなみ",
+          "en": "south"
+        },
+        {
+          "word": "南口",
+          "reading": "みなみぐち",
+          "en": "south exit"
+        }
+      ],
+      "mnemonic": "A warm greenhouse facing south."
+    },
+    {
+      "char": "北",
+      "onyomi": [
+        "ホク"
+      ],
+      "kunyomi": [
+        "きた"
+      ],
+      "meaning_en": "north",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "北",
+          "reading": "きた",
+          "en": "north"
+        },
+        {
+          "word": "北口",
+          "reading": "きたぐち",
+          "en": "north exit"
+        }
+      ],
+      "mnemonic": "Two people sitting back to back, away from the cold."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete ねむいです ___、コーヒーを のみます。",
+      "options": [
+        "が",
+        "から",
+        "より",
+        "まで"
+      ],
+      "correct": "から",
+      "explanation": "から after a sentence gives the reason."
+    },
+    {
+      "prompt": "What does みなみ mean?",
+      "options": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "correct": "south",
+      "explanation": "みなみ is south. きた is north."
+    },
+    {
+      "prompt": "Change いきます into I want to go.",
+      "options": [
+        "いきますたいです",
+        "いってたいです",
+        "いくたいです",
+        "いきたいです"
+      ],
+      "correct": "いきたいです",
+      "explanation": "Remove ます and add たいです."
+    },
+    {
+      "prompt": "Choose the negative of たべたいです.",
+      "options": [
+        "たべたくないです",
+        "たべたいじゃないです",
+        "たべたくじゃないです",
+        "たべないたいです"
+      ],
+      "correct": "たべたくないです",
+      "explanation": "たい changes like an い-adjective: たくないです."
+    },
+    {
+      "prompt": "Complete: デパートに くつを ___ いきます。",
+      "options": [
+        "かいますに",
+        "かいに",
+        "かって",
+        "かうを"
+      ],
+      "correct": "かいに",
+      "explanation": "Stem + に shows the purpose."
+    },
+    {
+      "prompt": "Complete: ふじさん ___ のぼりたいです。",
+      "options": [
+        "を",
+        "で",
+        "に",
+        "と"
+      ],
+      "correct": "に",
+      "explanation": "The mountain you climb takes に."
+    },
+    {
+      "prompt": "Choose the meaning of きょうとに おてらを みに いきました。",
+      "options": [
+        "I want to go to Kyoto to see temples.",
+        "I saw temples and then went to Kyoto.",
+        "I went to a temple from Kyoto.",
+        "I went to Kyoto to see temples."
+      ],
+      "correct": "I went to Kyoto to see temples.",
+      "explanation": "みに いきました: went in order to see."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: やすみに どこに いきたいですか。 You want to go to Hokkaido. What do you say?",
+      "options": [
+        "ほっかいどうに いきたいでした。",
+        "ほっかいどうが いきたいです。",
+        "ほっかいどうに いきますたいです。",
+        "ほっかいどうに いきたいです。"
+      ],
+      "correct": "ほっかいどうに いきたいです。",
+      "explanation": "Destination + に, then the stem + たいです."
+    },
+    {
+      "prompt": "Choose the sentence that means: A friend is coming to my house to visit.",
+      "options": [
+        "ともだちが うちに あそびに きます。",
+        "ともだちが うちに あそびますに きます。",
+        "ともだちが うちで あそびに いきます。",
+        "ともだちが うちに あそんで きたいです。"
+      ],
+      "correct": "ともだちが うちに あそびに きます。",
+      "explanation": "Stem + に + きます shows the purpose of coming."
+    },
+    {
+      "prompt": "Read: ほっかいどうは にほんの きたに あります。 Where is Hokkaido?",
+      "options": [
+        "In the south of Japan",
+        "In the north of Japan",
+        "In the east of Japan",
+        "To the west of Japan"
+      ],
+      "correct": "In the north of Japan",
+      "explanation": "きた is north."
+    },
+    {
+      "prompt": "You want to invite a friend to an onsen. Which sentence is appropriate?",
+      "options": [
+        "いっしょに おんせんに いきたいですか。",
+        "いっしょに おんせんに いきたくないです。",
+        "いっしょに おんせんに いきませんか。",
+        "いっしょに おんせんを いきませんか。"
+      ],
+      "correct": "いっしょに おんせんに いきませんか。",
+      "explanation": "Invitations use ませんか, not たいですか."
+    },
+    {
+      "prompt": "Review: change まちます into a polite request.",
+      "options": [
+        "まちて ください",
+        "まんで ください",
+        "まちたい ください",
+        "まって ください"
+      ],
+      "correct": "まって ください",
+      "explanation": "まちます → まって, then ください."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-8-reasons-and-states",
+    "japanese-n5-unit-8-please-do",
+    "japanese-n5-unit-7-comparing",
+    "japanese-n5-unit-5-invitations",
+    "japanese-n5-unit-6-what-kind",
+    "japanese-n5-unit-7-what-i-want"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: ふじさん appears in one example and is listed as vocabulary in Lesson 4.",
+    "VERIFY: 東京 and the station-exit words are kanji example words; they contain kanji or readings not linked at N5."
+  ]
+}

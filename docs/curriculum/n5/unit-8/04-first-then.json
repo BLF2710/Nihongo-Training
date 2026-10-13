@@ -1,0 +1,443 @@
+{
+  "id": "japanese-n5-unit-8-first-then",
+  "slug": "n5-unit-8-first-then",
+  "unit": "Japanese N5 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "First… Then…",
+  "title_jp": "〜て、〜てから",
+  "objectives": [
+    "I can describe actions in order.",
+    "Join actions with the て-form",
+    "Say after doing with てから",
+    "Order a routine with まず and それから"
+  ],
+  "vocabulary": [
+    [
+      "まず",
+      "mazu",
+      "first of all"
+    ],
+    [
+      "それから",
+      "sorekara",
+      "after that"
+    ],
+    [
+      "あびます",
+      "abimasu",
+      "to take (a shower)"
+    ],
+    [
+      "シャワー",
+      "shawaa",
+      "shower"
+    ],
+    [
+      "みがきます",
+      "migakimasu",
+      "to brush / to polish"
+    ],
+    [
+      "は",
+      "ha",
+      "tooth"
+    ],
+    [
+      "め",
+      "me",
+      "eye"
+    ],
+    [
+      "みみ",
+      "mimi",
+      "ear"
+    ],
+    [
+      "かお",
+      "kao",
+      "face"
+    ],
+    [
+      "でかけます",
+      "dekakemasu",
+      "to go out"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "時間",
+      "word_reading": "じかん"
+    },
+    {
+      "word_japanese": "目",
+      "word_reading": "め"
+    },
+    {
+      "word_japanese": "耳",
+      "word_reading": "みみ"
+    }
+  ],
+  "concept": {
+    "title": "One sentence, several actions",
+    "text": "The て-form joins actions in the order they happen: あさ おきて、かおを あらって、あさごはんを たべます. Only the last verb shows the tense, so the same sentence in the past ends in たべました.\n\nてから makes the order explicit: A-てから、B means after doing A, B.\n\nまず (first) and それから (after that) organise a longer sequence. あびます and でかけます are Group 2: あびて, でかけて. みがきます is Group 1: みがいて.",
+    "examples": [
+      "V1-て、V2-て、V3-ます",
+      "V1-てから、V2-ます",
+      "まず 〜。それから 〜。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "And then (て、)",
+      "pattern": "V1-て、V2-ます",
+      "explanation": "Put every verb except the last into the て-form. The final verb gives the tense and politeness for the whole sentence.",
+      "examples": [
+        {
+          "japanese": "あさ おきて、シャワーを あびます。",
+          "romaji": "Asa okite, shawaa o abimasu.",
+          "meaning": "In the morning I get up and take a shower."
+        },
+        {
+          "japanese": "かおを あらって、はを みがきます。",
+          "romaji": "Kao o aratte, ha o migakimasu.",
+          "meaning": "I wash my face and brush my teeth."
+        },
+        {
+          "japanese": "きのう デパートに いって、くつを かいました。",
+          "romaji": "Kinou depaato ni itte, kutsu o kaimashita.",
+          "meaning": "Yesterday I went to a department store and bought shoes."
+        },
+        {
+          "japanese": "うちに かえって、ばんごはんを つくって、たべました。",
+          "romaji": "Uchi ni kaette, bangohan o tsukutte, tabemashita.",
+          "meaning": "I went home, made dinner and ate it."
+        },
+        {
+          "japanese": "としょかんに いって、べんきょうしましょう。",
+          "romaji": "Toshokan ni itte, benkyou shimashou.",
+          "meaning": "Let's go to the library and study."
+        }
+      ],
+      "notes": [
+        "Wrong: おきました、あびました joined with て. Only the last verb is past.",
+        "と joins nouns, not actions: use the て-form for verbs."
+      ]
+    },
+    {
+      "title": "After doing",
+      "pattern": "V1-てから、V2-ます",
+      "explanation": "てから stresses that the second action happens only after the first is finished.",
+      "examples": [
+        {
+          "japanese": "てを あらってから、たべます。",
+          "romaji": "Te o aratte kara, tabemasu.",
+          "meaning": "I eat after washing my hands."
+        },
+        {
+          "japanese": "はを みがいてから、ねます。",
+          "romaji": "Ha o migaite kara, nemasu.",
+          "meaning": "I go to bed after brushing my teeth."
+        },
+        {
+          "japanese": "しゅくだいを してから、あそびます。",
+          "romaji": "Shukudai o shite kara, asobimasu.",
+          "meaning": "I play after doing my homework."
+        },
+        {
+          "japanese": "あさごはんを たべてから、でかけます。",
+          "romaji": "Asagohan o tabete kara, dekakemasu.",
+          "meaning": "I go out after eating breakfast."
+        },
+        {
+          "japanese": "にほんに きてから、にほんごを べんきょうしました。",
+          "romaji": "Nihon ni kite kara, Nihongo o benkyou shimashita.",
+          "meaning": "I studied Japanese after coming to Japan."
+        }
+      ],
+      "notes": [
+        "This から follows a て-form and means after. から after です or ます gives a reason (next lesson).",
+        "Use てから once in a sentence, for the key step."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "まず かおを あらいます。それから、あさごはんを たべます。",
+      "First I wash my face. After that, I eat breakfast."
+    ],
+    [
+      "まいあさ しちじに でかけます。",
+      "I go out at seven every morning."
+    ],
+    [
+      "めが あかいですね。",
+      "Your eyes are red."
+    ],
+    [
+      "きょうは じかんが ありません。",
+      "I have no time today."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リン",
+      "まいあさ なにを しますか。",
+      "けん",
+      "ろくじに おきて、シャワーを あびます。"
+    ],
+    [
+      "リン",
+      "それから、なにを しますか。",
+      "けん",
+      "あさごはんを たべてから、はを みがきます。それから、でかけます。"
+    ],
+    [
+      "ゆき",
+      "きのうは なにを しましたか。",
+      "マイ",
+      "ともだちに あって、いっしょに えいがを みました。"
+    ],
+    [
+      "はは",
+      "てを あらってから、たべて ください。",
+      "こども",
+      "はい。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "間",
+      "onyomi": [
+        "カン",
+        "ケン"
+      ],
+      "kunyomi": [
+        "あいだ",
+        "ま",
+        "あい"
+      ],
+      "meaning_en": "interval, between",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "時間",
+          "reading": "じかん",
+          "en": "time"
+        },
+        {
+          "word": "一時間",
+          "reading": "いちじかん",
+          "en": "one hour"
+        }
+      ],
+      "mnemonic": "The sun (日) seen through a gate (門): a gap."
+    },
+    {
+      "char": "目",
+      "onyomi": [
+        "モク",
+        "ボク"
+      ],
+      "kunyomi": [
+        "め",
+        "-め",
+        "ま-"
+      ],
+      "meaning_en": "eye",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "目",
+          "reading": "め",
+          "en": "eye"
+        },
+        {
+          "word": "目上",
+          "reading": "めうえ",
+          "en": "one's senior"
+        }
+      ],
+      "mnemonic": "An eye turned on its side."
+    },
+    {
+      "char": "耳",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "みみ"
+      ],
+      "meaning_en": "ear",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "耳",
+          "reading": "みみ",
+          "en": "ear"
+        },
+        {
+          "word": "右耳",
+          "reading": "みぎみみ",
+          "en": "right ear"
+        }
+      ],
+      "mnemonic": "The shape of an ear."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete ここに すわって ___ いいですか。",
+      "options": [
+        "も",
+        "は",
+        "を",
+        "に"
+      ],
+      "correct": "も",
+      "explanation": "ても いいですか asks permission."
+    },
+    {
+      "prompt": "What does でかけます mean?",
+      "options": [
+        "to come home",
+        "to go out",
+        "to take a shower",
+        "to brush"
+      ],
+      "correct": "to go out",
+      "explanation": "でかけます is to go out."
+    },
+    {
+      "prompt": "Choose the て-form of あびます.",
+      "options": [
+        "あんで",
+        "あびって",
+        "あびて",
+        "あいて"
+      ],
+      "correct": "あびて",
+      "explanation": "あびます is Group 2: あびて."
+    },
+    {
+      "prompt": "Complete: あさ ___、シャワーを あびます。",
+      "options": [
+        "おきます",
+        "おきました",
+        "おきって",
+        "おきて"
+      ],
+      "correct": "おきて",
+      "explanation": "Join actions with the て-form."
+    },
+    {
+      "prompt": "Complete: てを あらって ___、たべます。",
+      "options": [
+        "から",
+        "まで",
+        "より",
+        "も"
+      ],
+      "correct": "から",
+      "explanation": "てから means after doing."
+    },
+    {
+      "prompt": "Complete: まず かおを あらいます。___、あさごはんを たべます。",
+      "options": [
+        "でも",
+        "それから",
+        "どうぞ",
+        "いちばん"
+      ],
+      "correct": "それから",
+      "explanation": "それから means after that."
+    },
+    {
+      "prompt": "Choose the meaning of はを みがいてから、ねます。",
+      "options": [
+        "I brush my teeth after going to bed.",
+        "I brushed my teeth and went to bed.",
+        "I go to bed after brushing my teeth.",
+        "I am brushing my teeth now."
+      ],
+      "correct": "I go to bed after brushing my teeth.",
+      "explanation": "A-てから、B: B after A."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Choose the sentence that means: Yesterday I went to a department store and bought shoes.",
+      "options": [
+        "きのう デパートに いきて、くつを かいました。",
+        "きのう デパートに いって、くつを かいます。",
+        "きのう デパートに いって、くつを かいました。",
+        "きのう デパートに いきましたて、くつを かいました。"
+      ],
+      "correct": "きのう デパートに いって、くつを かいました。",
+      "explanation": "いきます → いって, and the last verb carries the past."
+    },
+    {
+      "prompt": "Read: あさごはんを たべてから、はを みがきます。それから、でかけます。 What does the speaker do last?",
+      "options": [
+        "Eats breakfast",
+        "Brushes teeth",
+        "Takes a shower",
+        "Goes out"
+      ],
+      "correct": "Goes out",
+      "explanation": "それから、でかけます comes last."
+    },
+    {
+      "prompt": "A parent says: てを あらってから、たべて ください。 What should the child do first?",
+      "options": [
+        "Wash hands",
+        "Eat",
+        "Brush teeth",
+        "Go out"
+      ],
+      "correct": "Wash hands",
+      "explanation": "てから marks the action that comes first."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "うちに かえりて、ばんごはんを つくりました。",
+        "うちに かえって、ばんごはんを つくりました。",
+        "うちに かえっと、ばんごはんを つくりました。",
+        "うちに かえってから、ばんごはんを つくって。"
+      ],
+      "correct": "うちに かえって、ばんごはんを つくりました。",
+      "explanation": "かえります → かえって, and the sentence ends with a ます-form verb."
+    },
+    {
+      "prompt": "Review: complete ここで たばこを すって ___ いけません。",
+      "options": [
+        "も",
+        "を",
+        "は",
+        "が"
+      ],
+      "correct": "は",
+      "explanation": "ては いけません is a prohibition."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-8-permission-and-rules",
+    "japanese-n5-unit-8-please-do",
+    "japanese-n5-unit-5-where-with-how",
+    "japanese-n5-unit-4-daily-routine",
+    "japanese-n5-unit-5-how-was-it"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: は (tooth) is written the same as the particle は in kana; sentences use はを to keep it clear.",
+    "VERIFY: 目上 and 右耳 are kanji example words not taught as vocabulary."
+  ]
+}

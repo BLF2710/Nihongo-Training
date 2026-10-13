@@ -1,0 +1,456 @@
+{
+  "id": "japanese-n5-unit-5-what-did-you-do",
+  "slug": "n5-unit-5-what-did-you-do",
+  "unit": "Japanese N5 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "What Did You Do?",
+  "title_jp": "なにを しましたか",
+  "objectives": [
+    "I can say what I did and did not do.",
+    "Use the past forms ました and ませんでした",
+    "Use past time words such as きのう and せんしゅう",
+    "Ask なにを しましたか"
+  ],
+  "vocabulary": [
+    [
+      "きのう",
+      "kinou",
+      "yesterday"
+    ],
+    [
+      "せんしゅう",
+      "senshuu",
+      "last week"
+    ],
+    [
+      "けさ",
+      "kesa",
+      "this morning"
+    ],
+    [
+      "きょねん",
+      "kyonen",
+      "last year"
+    ],
+    [
+      "ことし",
+      "kotoshi",
+      "this year"
+    ],
+    [
+      "らいねん",
+      "rainen",
+      "next year"
+    ],
+    [
+      "ききます",
+      "kikimasu",
+      "to listen / to ask"
+    ],
+    [
+      "おんがく",
+      "ongaku",
+      "music"
+    ],
+    [
+      "よみます",
+      "yomimasu",
+      "to read"
+    ],
+    [
+      "かきます",
+      "kakimasu",
+      "to write"
+    ],
+    [
+      "てがみ",
+      "tegami",
+      "letter"
+    ],
+    [
+      "しんぶん",
+      "shinbun",
+      "newspaper"
+    ],
+    [
+      "かいもの",
+      "kaimono",
+      "shopping"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "今年",
+      "word_reading": "ことし"
+    },
+    {
+      "word_japanese": "来年",
+      "word_reading": "らいねん"
+    },
+    {
+      "word_japanese": "何時",
+      "word_reading": "なんじ"
+    }
+  ],
+  "concept": {
+    "title": "ました for the past",
+    "text": "To talk about a finished action, change ます to ました. The negative ません becomes ませんでした. Nothing else in the sentence changes: particles and word order stay the same.\n\nPast time words such as きのう, けさ, せんしゅう and きょねん take no particle, just like きょう and あした.",
+    "examples": [
+      "V-ます → V-ました",
+      "V-ません → V-ませんでした",
+      "きのう えいがを みました。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Past actions",
+      "pattern": "V-ました / V-ませんでした",
+      "explanation": "ました says that something was done. ませんでした says that it was not done. Use them with a past time word, which needs no particle.",
+      "examples": [
+        {
+          "japanese": "きのう えいがを みました。",
+          "romaji": "Kinou eiga o mimashita.",
+          "meaning": "I watched a film yesterday."
+        },
+        {
+          "japanese": "けさ ろくじに おきました。",
+          "romaji": "Kesa rokuji ni okimashita.",
+          "meaning": "I got up at six this morning."
+        },
+        {
+          "japanese": "せんしゅう としょかんに いきました。",
+          "romaji": "Senshuu toshokan ni ikimashita.",
+          "meaning": "I went to the library last week."
+        },
+        {
+          "japanese": "きのうは べんきょうしませんでした。",
+          "romaji": "Kinou wa benkyou shimasen deshita.",
+          "meaning": "I did not study yesterday."
+        },
+        {
+          "japanese": "きょねん にほんに きました。",
+          "romaji": "Kyonen Nihon ni kimashita.",
+          "meaning": "I came to Japan last year."
+        }
+      ],
+      "notes": [
+        "The past negative is ませんでした, not ませんました.",
+        "Clock times still take に: けさ ろくじに おきました."
+      ]
+    },
+    {
+      "title": "Asking what someone did",
+      "pattern": "(time は) なにを しましたか",
+      "explanation": "Ask with なにを しましたか. Answer with the action in the past. To say you did nothing, use なにも with the negative: なにも しませんでした.",
+      "examples": [
+        {
+          "japanese": "きのう なにを しましたか。",
+          "romaji": "Kinou nani o shimashita ka.",
+          "meaning": "What did you do yesterday?"
+        },
+        {
+          "japanese": "おんがくを ききました。",
+          "romaji": "Ongaku o kikimashita.",
+          "meaning": "I listened to music."
+        },
+        {
+          "japanese": "しゅうまつは なにを しましたか。",
+          "romaji": "Shuumatsu wa nani o shimashita ka.",
+          "meaning": "What did you do at the weekend?"
+        },
+        {
+          "japanese": "ともだちに てがみを かきました。",
+          "romaji": "Tomodachi ni tegami o kakimashita.",
+          "meaning": "I wrote a letter to a friend."
+        },
+        {
+          "japanese": "なにも しませんでした。",
+          "romaji": "Nani mo shimasen deshita.",
+          "meaning": "I did not do anything."
+        }
+      ],
+      "notes": [
+        "なにも is always followed by a negative verb.",
+        "に after a person marks who receives the letter."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "きのう スーパーで かいものを しました。",
+      "I did some shopping at the supermarket yesterday."
+    ],
+    [
+      "けさ しんぶんは よみませんでした。",
+      "I did not read the newspaper this morning."
+    ],
+    [
+      "せんしゅうの どようびに えいがを みました。",
+      "I watched a film last Saturday."
+    ],
+    [
+      "ことしは まいにち にほんごを べんきょうします。",
+      "This year I study Japanese every day."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "きのう なにを しましたか。",
+      "けん",
+      "うちで おんがくを ききました。"
+    ],
+    [
+      "アナ",
+      "べんきょうしましたか。",
+      "けん",
+      "いいえ、べんきょうしませんでした。"
+    ],
+    [
+      "リン",
+      "しゅうまつは どこに いきましたか。",
+      "ゆき",
+      "としょかんに いきました。ほんを よみました。"
+    ],
+    [
+      "たなか",
+      "きょねん にほんに きましたか。",
+      "マイ",
+      "はい、きょねん きました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "何",
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [
+        "なに",
+        "なん",
+        "なに-",
+        "なん-"
+      ],
+      "meaning_en": "what",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "何",
+          "reading": "なに",
+          "en": "what"
+        },
+        {
+          "word": "何時",
+          "reading": "なんじ",
+          "en": "what time"
+        }
+      ],
+      "mnemonic": "A person (亻) carrying a load, asking: what is it?"
+    },
+    {
+      "char": "年",
+      "onyomi": [
+        "ネン"
+      ],
+      "kunyomi": [
+        "とし"
+      ],
+      "meaning_en": "year",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "今年",
+          "reading": "ことし",
+          "en": "this year"
+        },
+        {
+          "word": "来年",
+          "reading": "らいねん",
+          "en": "next year"
+        }
+      ],
+      "mnemonic": "One full cycle of the seasons: a year."
+    },
+    {
+      "char": "聞",
+      "onyomi": [
+        "ブン",
+        "モン"
+      ],
+      "kunyomi": [
+        "き.く",
+        "き.こえる"
+      ],
+      "meaning_en": "hear, ask",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "聞きます",
+          "reading": "ききます",
+          "en": "to listen"
+        },
+        {
+          "word": "新聞",
+          "reading": "しんぶん",
+          "en": "newspaper"
+        }
+      ],
+      "mnemonic": "An ear (耳) at the gate (門), listening."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete うち ___ テレビを みます。",
+      "options": [
+        "に",
+        "で",
+        "を",
+        "へ"
+      ],
+      "correct": "で",
+      "explanation": "で marks the place where an action happens."
+    },
+    {
+      "prompt": "What does きのう mean?",
+      "options": [
+        "tomorrow",
+        "today",
+        "yesterday",
+        "last week"
+      ],
+      "correct": "yesterday",
+      "explanation": "きのう is yesterday. あした is tomorrow."
+    },
+    {
+      "prompt": "Choose the past form of いきます.",
+      "options": [
+        "いきます",
+        "いきません",
+        "いきましたです",
+        "いきました"
+      ],
+      "correct": "いきました",
+      "explanation": "Change ます to ました."
+    },
+    {
+      "prompt": "Choose the past negative of みます.",
+      "options": [
+        "みませんでした",
+        "みません",
+        "みましたません",
+        "みませんました"
+      ],
+      "correct": "みませんでした",
+      "explanation": "ません becomes ませんでした."
+    },
+    {
+      "prompt": "Complete: きのう なにを ___ か。",
+      "options": [
+        "します",
+        "しました",
+        "しません",
+        "です"
+      ],
+      "correct": "しました",
+      "explanation": "きのう is past, so the verb is しました."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "けさに ろくじに おきました。",
+        "けさ ろくじを おきました。",
+        "けさ ろくじに おきました。",
+        "けさ ろくじに おきます。"
+      ],
+      "correct": "けさ ろくじに おきました。",
+      "explanation": "けさ takes no particle, the clock time takes に, and the verb is past."
+    },
+    {
+      "prompt": "Choose the meaning of なにも しませんでした。",
+      "options": [
+        "I did everything.",
+        "What did you do?",
+        "I will not do anything.",
+        "I did not do anything."
+      ],
+      "correct": "I did not do anything.",
+      "explanation": "なにも with a negative means nothing."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: しゅうまつは なにを しましたか。 You listened to music at home. What do you say?",
+      "options": [
+        "うちで おんがくを ききます。",
+        "うちに おんがくを ききました。",
+        "うちで おんがくを よみました。",
+        "うちで おんがくを ききました。"
+      ],
+      "correct": "うちで おんがくを ききました。",
+      "explanation": "Past tense, で for the place of action, and ききます for listening."
+    },
+    {
+      "prompt": "Choose the sentence that means: I came to Japan last year.",
+      "options": [
+        "きょねん にほんに きました。",
+        "らいねん にほんに きました。",
+        "きょねん にほんに いきました。",
+        "ことし にほんに きます。"
+      ],
+      "correct": "きょねん にほんに きました。",
+      "explanation": "きょねん is last year, and きました is came."
+    },
+    {
+      "prompt": "Read: けさ しんぶんは よみませんでした。 What happened this morning?",
+      "options": [
+        "The speaker read the newspaper.",
+        "The speaker did not read the newspaper.",
+        "The speaker did not buy a newspaper.",
+        "The speaker will read the newspaper."
+      ],
+      "correct": "The speaker did not read the newspaper.",
+      "explanation": "よみませんでした is did not read."
+    },
+    {
+      "prompt": "Which time word is about the future?",
+      "options": [
+        "きょねん",
+        "けさ",
+        "らいねん",
+        "せんしゅう"
+      ],
+      "correct": "らいねん",
+      "explanation": "らいねん is next year. The others are past."
+    },
+    {
+      "prompt": "Review: read がっこうは くじから よじまでです。 When does school end?",
+      "options": [
+        "Nine o'clock",
+        "Seven o'clock",
+        "Half past four",
+        "Four o'clock"
+      ],
+      "correct": "Four o'clock",
+      "explanation": "まで marks the end: よじ."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-4-my-week",
+    "japanese-n5-unit-4-daily-routine",
+    "japanese-n5-unit-4-going-places",
+    "japanese-n5-unit-4-days-and-schedules",
+    "japanese-n5-unit-2-family"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 聞きます is a polite form, so it is not linked as a kanji spelling until Unit 9."
+  ]
+}

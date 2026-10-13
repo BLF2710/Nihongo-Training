@@ -1,0 +1,339 @@
+{
+  "id": "japanese-n5-unit-7-review",
+  "slug": "n5-unit-7-review",
+  "unit": "Japanese N5 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 7 Review",
+  "title_jp": "ユニット7の ふくしゅう",
+  "objectives": [
+    "I can shop: ask prices, quantities, floors and compare items.",
+    "Read prices up to 10,000 yen",
+    "Use the right counter",
+    "Read a store notice"
+  ],
+  "vocabulary": [
+    [
+      "いくら",
+      "ikura",
+      "how much"
+    ],
+    [
+      "えん",
+      "en",
+      "yen"
+    ],
+    [
+      "せん",
+      "sen",
+      "thousand"
+    ],
+    [
+      "にまい",
+      "nimai",
+      "two (flat things)"
+    ],
+    [
+      "ふたり",
+      "futari",
+      "two people"
+    ],
+    [
+      "ほしい",
+      "hoshii",
+      "want (a thing)"
+    ],
+    [
+      "どの",
+      "dono",
+      "which (+ noun)"
+    ],
+    [
+      "シャツ",
+      "shatsu",
+      "shirt"
+    ],
+    [
+      "うりば",
+      "uriba",
+      "sales counter / department"
+    ],
+    [
+      "さんがい",
+      "sangai",
+      "third floor"
+    ],
+    [
+      "どちら",
+      "dochira",
+      "which (of two)"
+    ],
+    [
+      "いちばん",
+      "ichiban",
+      "the most / number one"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "A shopping trip from start to finish",
+    "text": "Find the department: N の うりばは なんがいですか. Choose: どの N ですか, A と B と どちらが やすいですか. Ask the price: いくらですか. Buy: N を number + counter ください.\n\nRemember the sound changes: さんびゃく, ろっぴゃく, はっぴゃく, さんぜん, はっせん; ひとり, ふたり, よにん; いっぽん, さんぼん; さんがい.",
+    "examples": [
+      "N を number + counter ください",
+      "A は B より adj です / A の ほうが adj です",
+      "N は 〜かいです"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "シャツの うりばは にかいです。",
+      "The shirt department is on the second floor."
+    ],
+    [
+      "この シャツは いちまい せんえんです。",
+      "These shirts are 1,000 yen each."
+    ],
+    [
+      "あおい シャツと しろい シャツと どちらが ほしいですか。",
+      "Which do you want, the blue shirt or the white shirt?"
+    ],
+    [
+      "しろい シャツの ほうが ほしいです。",
+      "I want the white shirt more."
+    ],
+    [
+      "この シャツを にまい ください。",
+      "Two of these shirts, please."
+    ],
+    [
+      "この みせの なかで この くつが いちばん やすいです。",
+      "In this shop, these shoes are the cheapest."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リー",
+      "すみません、シャツの うりばは なんがいですか。",
+      "てんいん",
+      "にかいです。エレベーターは いりぐちの みぎに あります。"
+    ],
+    [
+      "リー",
+      "この しろい シャツは いくらですか。",
+      "てんいん",
+      "いちまい せんえんです。"
+    ],
+    [
+      "リー",
+      "あの あおい シャツと どちらが やすいですか。",
+      "てんいん",
+      "しろい シャツの ほうが やすいです。"
+    ],
+    [
+      "リー",
+      "じゃあ、しろい シャツを にまい ください。",
+      "てんいん",
+      "はい、にせんえんです。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Store notice",
+    "text_jp": "さくらデパート\nいっかい：くつ・かばんの うりば\nにかい：シャツ・ぼうしの うりば\nさんがい：ほんや・カフェ\nエレベーターは いりぐちの みぎに あります。かいだんは いりぐちの ひだりです。\nこんしゅうは にかいの シャツが やすいです。いちまい せんえんです。",
+    "en_translation": "Sakura Department Store\n1st floor: shoes and bags\n2nd floor: shirts and hats\n3rd floor: bookshop and café\nThe lift is to the right of the entrance. The stairs are to the left of the entrance.\nThis week the shirts on the 2nd floor are cheap. They are 1,000 yen each.",
+    "questions": [
+      {
+        "prompt": "Which floor sells hats?",
+        "options": [
+          "The first floor",
+          "The second floor",
+          "The third floor",
+          "It does not say"
+        ],
+        "correct": "The second floor",
+        "explanation": "にかい：シャツ・ぼうしの うりば."
+      },
+      {
+        "prompt": "Where is the lift?",
+        "options": [
+          "To the left of the entrance",
+          "Next to the café",
+          "To the right of the entrance",
+          "On the third floor only"
+        ],
+        "correct": "To the right of the entrance",
+        "explanation": "エレベーターは いりぐちの みぎに あります。"
+      },
+      {
+        "prompt": "How much are two shirts this week?",
+        "options": [
+          "1,000 yen",
+          "3,000 yen",
+          "200 yen",
+          "2,000 yen"
+        ],
+        "correct": "2,000 yen",
+        "explanation": "One shirt is せんえん, so two are 2,000 yen."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "How much is はっぴゃくえん?",
+      "options": [
+        "8,000 yen",
+        "600 yen",
+        "800 yen",
+        "100 yen"
+      ],
+      "correct": "800 yen",
+      "explanation": "はっぴゃく is 800."
+    },
+    {
+      "prompt": "Complete: シャツを ___ ください。 (two)",
+      "options": [
+        "ふたり",
+        "にほん",
+        "にかい",
+        "にまい"
+      ],
+      "correct": "にまい",
+      "explanation": "Shirts are flat, so use まい."
+    },
+    {
+      "prompt": "Complete: あたらしい くつ ___ ほしいです。",
+      "options": [
+        "が",
+        "を",
+        "に",
+        "で"
+      ],
+      "correct": "が",
+      "explanation": "The thing wanted takes が."
+    },
+    {
+      "prompt": "Complete: シャツの うりばは ___ ですか。 — にかいです。",
+      "options": [
+        "いくら",
+        "なんがい",
+        "どれ",
+        "なんにん"
+      ],
+      "correct": "なんがい",
+      "explanation": "なんがい asks which floor."
+    },
+    {
+      "prompt": "Complete: しろい シャツの ___ が やすいです。",
+      "options": [
+        "より",
+        "いちばん",
+        "ほう",
+        "なか"
+      ],
+      "correct": "ほう",
+      "explanation": "A の ほうが picks one of two."
+    },
+    {
+      "prompt": "Complete: ___ シャツが ほしいですか。",
+      "options": [
+        "どれ",
+        "どう",
+        "いくら",
+        "どの"
+      ],
+      "correct": "どの",
+      "explanation": "Before a noun, use どの."
+    },
+    {
+      "prompt": "How do you say three people?",
+      "options": [
+        "さんにん",
+        "さんぼん",
+        "さんがい",
+        "みっか"
+      ],
+      "correct": "さんにん",
+      "explanation": "People are counted with にん from three up."
+    },
+    {
+      "prompt": "Choose the meaning of この くつが いちばん やすいです。",
+      "options": [
+        "These shoes are cheaper than those.",
+        "These shoes are the cheapest.",
+        "These shoes are the most expensive.",
+        "These shoes are not cheap."
+      ],
+      "correct": "These shoes are the cheapest.",
+      "explanation": "いちばん やすい: the cheapest."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You have chosen a white shirt and want two. What do you say?",
+      "options": [
+        "しろい シャツを にまい ください。",
+        "しろい シャツが にまい ほしい ください。",
+        "しろいな シャツを にまい ください。",
+        "にまいを しろい シャツ ください。"
+      ],
+      "correct": "しろい シャツを にまい ください。",
+      "explanation": "Adjective + noun + を, then number + counter, then ください."
+    },
+    {
+      "prompt": "Read: エレベーターは いりぐちの みぎに あります。かいだんは いりぐちの ひだりです。 What is to the left of the entrance?",
+      "options": [
+        "The lift",
+        "The stairs",
+        "The café",
+        "The exit"
+      ],
+      "correct": "The stairs",
+      "explanation": "かいだんは いりぐちの ひだりです。"
+    },
+    {
+      "prompt": "Choose the sentence that means: The white shirt is cheaper than the blue shirt.",
+      "options": [
+        "あおい シャツは しろい シャツより やすいです。",
+        "しろい シャツは あおい シャツの ほうが やすいです。",
+        "しろい シャツは あおい シャツより やすいです。",
+        "しろい シャツと あおい シャツは いちばん やすいです。"
+      ],
+      "correct": "しろい シャツは あおい シャツより やすいです。",
+      "explanation": "A は B より: A is more… than B."
+    },
+    {
+      "prompt": "A shirt is 1,000 yen and a hat is 2,800 yen. How much are both together?",
+      "options": [
+        "さんぜんはちひゃくえん",
+        "さんせんはっぴゃくえん",
+        "にせんはっぴゃくえん",
+        "さんぜんはっぴゃくえん"
+      ],
+      "correct": "さんぜんはっぴゃくえん",
+      "explanation": "3,800 is さんぜん + はっぴゃく."
+    },
+    {
+      "prompt": "Review: choose the past of にぎやかです.",
+      "options": [
+        "にぎやかでした",
+        "にぎやかかったです",
+        "にぎやかったです",
+        "にぎやかいでした"
+      ],
+      "correct": "にぎやかでした",
+      "explanation": "な-adjectives take でした."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-7-numbers-and-prices",
+    "japanese-n5-unit-7-counting",
+    "japanese-n5-unit-7-what-i-want",
+    "japanese-n5-unit-7-in-the-store",
+    "japanese-n5-unit-7-comparing",
+    "japanese-n5-unit-6-how-was-the-trip"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

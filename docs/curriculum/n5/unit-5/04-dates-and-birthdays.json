@@ -1,0 +1,531 @@
+{
+  "id": "japanese-n5-unit-5-dates-and-birthdays",
+  "slug": "n5-unit-5-dates-and-birthdays",
+  "unit": "Japanese N5 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Dates & Birthdays",
+  "title_jp": "なんがつ なんにち",
+  "objectives": [
+    "I can give dates and say when my birthday is.",
+    "Name the months with がつ",
+    "Use the special words for the 1st, 2nd, 3rd and 20th",
+    "Ask いつ and なんがつ なんにち"
+  ],
+  "vocabulary": [
+    [
+      "たんじょうび",
+      "tanjoubi",
+      "birthday"
+    ],
+    [
+      "いつ",
+      "itsu",
+      "when"
+    ],
+    [
+      "なんがつ",
+      "nangatsu",
+      "what month"
+    ],
+    [
+      "なんにち",
+      "nannichi",
+      "what day of the month"
+    ],
+    [
+      "いちがつ",
+      "ichigatsu",
+      "January"
+    ],
+    [
+      "しがつ",
+      "shigatsu",
+      "April"
+    ],
+    [
+      "しちがつ",
+      "shichigatsu",
+      "July"
+    ],
+    [
+      "くがつ",
+      "kugatsu",
+      "September"
+    ],
+    [
+      "ついたち",
+      "tsuitachi",
+      "the 1st"
+    ],
+    [
+      "ふつか",
+      "futsuka",
+      "the 2nd"
+    ],
+    [
+      "みっか",
+      "mikka",
+      "the 3rd"
+    ],
+    [
+      "はつか",
+      "hatsuka",
+      "the 20th"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "一月",
+      "word_reading": "いちがつ"
+    },
+    {
+      "word_japanese": "四月",
+      "word_reading": "しがつ"
+    },
+    {
+      "word_japanese": "一日",
+      "word_reading": "ついたち"
+    },
+    {
+      "word_japanese": "二日",
+      "word_reading": "ふつか"
+    },
+    {
+      "word_japanese": "三日",
+      "word_reading": "みっか"
+    },
+    {
+      "word_japanese": "何月",
+      "word_reading": "なんがつ"
+    },
+    {
+      "word_japanese": "何日",
+      "word_reading": "なんにち"
+    },
+    {
+      "word_japanese": "四時",
+      "word_reading": "よじ"
+    },
+    {
+      "word_japanese": "五分",
+      "word_reading": "ごふん"
+    }
+  ],
+  "concept": {
+    "title": "Month first, then day",
+    "text": "Months are simply number + がつ: いちがつ (January), にがつ (February), and so on to じゅうにがつ (December). Three are irregular in the same way as the hours: しがつ (April), しちがつ (July) and くがつ (September).\n\nDays of the month are less regular. The 1st to the 10th have special words; this lesson teaches ついたち (1st), ふつか (2nd), みっか (3rd) and the special はつか (20th). Most other days are number + にち, such as じゅういちにち (11th). The month always comes before the day.",
+    "examples": [
+      "number + がつ",
+      "しがつ ついたち (1 April)",
+      "たんじょうびは いつですか。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Saying a date",
+      "pattern": "〜がつ 〜にち です",
+      "explanation": "Give the month, then the day, then です. Ask with なんがつ なんにち. The irregular months are しがつ, しちがつ and くがつ.",
+      "examples": [
+        {
+          "japanese": "きょうは しがつ ついたちです。",
+          "romaji": "Kyou wa shigatsu tsuitachi desu.",
+          "meaning": "Today is the first of April."
+        },
+        {
+          "japanese": "たんじょうびは いちがつ みっかです。",
+          "romaji": "Tanjoubi wa ichigatsu mikka desu.",
+          "meaning": "My birthday is the third of January."
+        },
+        {
+          "japanese": "テストは くがつ はつかです。",
+          "romaji": "Tesuto wa kugatsu hatsuka desu.",
+          "meaning": "The test is on the twentieth of September."
+        },
+        {
+          "japanese": "きょうは なんがつ なんにちですか。",
+          "romaji": "Kyou wa nangatsu nannichi desu ka.",
+          "meaning": "What is the date today?"
+        },
+        {
+          "japanese": "やすみは しちがつ ふつかからです。",
+          "romaji": "Yasumi wa shichigatsu futsuka kara desu.",
+          "meaning": "The holiday is from the second of July."
+        }
+      ],
+      "notes": [
+        "Not よんがつ, なながつ or きゅうがつ: say しがつ, しちがつ, くがつ.",
+        "ついたち is the first day of a month; いちにち means one whole day."
+      ]
+    },
+    {
+      "title": "When? いつ",
+      "pattern": "いつ V-ますか / date に V-ます",
+      "explanation": "いつ asks when and takes no particle. A date in the answer takes に, like a clock time.",
+      "examples": [
+        {
+          "japanese": "たんじょうびは いつですか。",
+          "romaji": "Tanjoubi wa itsu desu ka.",
+          "meaning": "When is your birthday?"
+        },
+        {
+          "japanese": "いつ にほんに きましたか。",
+          "romaji": "Itsu Nihon ni kimashita ka.",
+          "meaning": "When did you come to Japan?"
+        },
+        {
+          "japanese": "しちがつ ふつかに きました。",
+          "romaji": "Shichigatsu futsuka ni kimashita.",
+          "meaning": "I came on the second of July."
+        },
+        {
+          "japanese": "いつ りょこうに いきますか。",
+          "romaji": "Itsu ryokou ni ikimasu ka.",
+          "meaning": "When are you going on your trip?"
+        },
+        {
+          "japanese": "くがつ ついたちに いきます。",
+          "romaji": "Kugatsu tsuitachi ni ikimasu.",
+          "meaning": "I am going on the first of September."
+        }
+      ],
+      "notes": [
+        "Wrong: いつに きましたか. いつ never takes に.",
+        "りょこうに いきます means to go on a trip."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "わたしの たんじょうびは しがつ はつかです。",
+      "My birthday is the twentieth of April."
+    ],
+    [
+      "ちちの たんじょうびは くがつ みっかです。",
+      "My father's birthday is the third of September."
+    ],
+    [
+      "いちがつ ついたちは やすみです。",
+      "The first of January is a holiday."
+    ],
+    [
+      "しちがつ はつかに ともだちと コンサートに いきます。",
+      "On the twentieth of July I am going to a concert with a friend."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リー",
+      "たんじょうびは いつですか。",
+      "さくら",
+      "しちがつ みっかです。"
+    ],
+    [
+      "リー",
+      "らいしゅうですか。",
+      "さくら",
+      "はい、らいしゅうの どようびです。"
+    ],
+    [
+      "マリア",
+      "きょうは なんがつ なんにちですか。",
+      "けん",
+      "くがつ ふつかです。"
+    ],
+    [
+      "たなか",
+      "いつ にほんに きましたか。",
+      "アナ",
+      "きょねんの しがつに きました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "一",
+      "onyomi": [
+        "イチ",
+        "イツ"
+      ],
+      "kunyomi": [
+        "ひと-",
+        "ひと.つ"
+      ],
+      "meaning_en": "one",
+      "stroke_count": 1,
+      "example_words": [
+        {
+          "word": "一月",
+          "reading": "いちがつ",
+          "en": "January"
+        },
+        {
+          "word": "一日",
+          "reading": "ついたち",
+          "en": "the 1st"
+        }
+      ],
+      "mnemonic": "One line for one."
+    },
+    {
+      "char": "二",
+      "onyomi": [
+        "ニ",
+        "ジ"
+      ],
+      "kunyomi": [
+        "ふた",
+        "ふた.つ",
+        "ふたたび"
+      ],
+      "meaning_en": "two",
+      "stroke_count": 2,
+      "example_words": [
+        {
+          "word": "二日",
+          "reading": "ふつか",
+          "en": "the 2nd"
+        },
+        {
+          "word": "二月",
+          "reading": "にがつ",
+          "en": "February"
+        }
+      ],
+      "mnemonic": "Two lines for two."
+    },
+    {
+      "char": "三",
+      "onyomi": [
+        "サン",
+        "ゾウ"
+      ],
+      "kunyomi": [
+        "み",
+        "み.つ",
+        "みっ.つ"
+      ],
+      "meaning_en": "three",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "三日",
+          "reading": "みっか",
+          "en": "the 3rd"
+        },
+        {
+          "word": "三月",
+          "reading": "さんがつ",
+          "en": "March"
+        }
+      ],
+      "mnemonic": "Three lines for three."
+    },
+    {
+      "char": "四",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "よ",
+        "よ.つ",
+        "よっ.つ",
+        "よん"
+      ],
+      "meaning_en": "four",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "四月",
+          "reading": "しがつ",
+          "en": "April"
+        },
+        {
+          "word": "四時",
+          "reading": "よじ",
+          "en": "four o'clock"
+        }
+      ],
+      "mnemonic": "A box with two legs inside: four walls."
+    },
+    {
+      "char": "五",
+      "onyomi": [
+        "ゴ"
+      ],
+      "kunyomi": [
+        "いつ",
+        "いつ.つ"
+      ],
+      "meaning_en": "five",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "五分",
+          "reading": "ごふん",
+          "en": "five minutes"
+        },
+        {
+          "word": "五月",
+          "reading": "ごがつ",
+          "en": "May"
+        }
+      ],
+      "mnemonic": "Four strokes crossing like the fingers of one hand: five."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete ともだち ___ こうえんに いきました。",
+      "options": [
+        "と",
+        "を",
+        "で",
+        "が"
+      ],
+      "correct": "と",
+      "explanation": "と after a person means together with."
+    },
+    {
+      "prompt": "How do you say April?",
+      "options": [
+        "よんがつ",
+        "しがつ",
+        "よがつ",
+        "しちがつ"
+      ],
+      "correct": "しがつ",
+      "explanation": "April is the irregular しがつ."
+    },
+    {
+      "prompt": "How do you say the first of the month?",
+      "options": [
+        "いちにち",
+        "ふつか",
+        "ついたち",
+        "はつか"
+      ],
+      "correct": "ついたち",
+      "explanation": "The 1st is ついたち."
+    },
+    {
+      "prompt": "Which word means the 20th?",
+      "options": [
+        "ふつか",
+        "みっか",
+        "ついたち",
+        "はつか"
+      ],
+      "correct": "はつか",
+      "explanation": "はつか is the 20th. ふつか is the 2nd."
+    },
+    {
+      "prompt": "Complete: たんじょうびは ___ ですか。",
+      "options": [
+        "いつ",
+        "どこ",
+        "だれ",
+        "なんじ"
+      ],
+      "correct": "いつ",
+      "explanation": "いつ asks when."
+    },
+    {
+      "prompt": "Choose the correct order for 3 January.",
+      "options": [
+        "みっか いちがつ",
+        "いちがつ みっか",
+        "さんがつ ついたち",
+        "いちがつ ふつか"
+      ],
+      "correct": "いちがつ みっか",
+      "explanation": "The month comes first; みっか is the 3rd."
+    },
+    {
+      "prompt": "Choose the meaning of きょうは なんがつ なんにちですか。",
+      "options": [
+        "What day of the week is it today?",
+        "What time is it now?",
+        "What is the date today?",
+        "When is your birthday?"
+      ],
+      "correct": "What is the date today?",
+      "explanation": "なんがつ なんにち asks the month and the day."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: たんじょうびは いつですか。 Your birthday is 2 September. What do you say?",
+      "options": [
+        "きゅうがつ ふつかです。",
+        "くがつ はつかです。",
+        "くがつ ふつかです。",
+        "ふつか くがつです。"
+      ],
+      "correct": "くがつ ふつかです。",
+      "explanation": "September is くがつ, and the 2nd is ふつか."
+    },
+    {
+      "prompt": "Choose the correct question.",
+      "options": [
+        "いつに にほんに きましたか。",
+        "いつを にほんに きましたか。",
+        "いつ にほんを きましたか。",
+        "いつ にほんに きましたか。"
+      ],
+      "correct": "いつ にほんに きましたか。",
+      "explanation": "いつ takes no particle, and the destination takes に."
+    },
+    {
+      "prompt": "Read: やすみは しちがつ ふつかからです。 When does the holiday begin?",
+      "options": [
+        "2 July",
+        "20 July",
+        "2 April",
+        "7 February"
+      ],
+      "correct": "2 July",
+      "explanation": "しちがつ is July and ふつか is the 2nd."
+    },
+    {
+      "prompt": "Which month is NOT said correctly?",
+      "options": [
+        "いちがつ",
+        "なながつ",
+        "しがつ",
+        "くがつ"
+      ],
+      "correct": "なながつ",
+      "explanation": "July is しちがつ."
+    },
+    {
+      "prompt": "Review: complete きのうは はれ ___。あめでした。",
+      "options": [
+        "じゃないでした",
+        "ませんでした",
+        "じゃなかったです",
+        "でした"
+      ],
+      "correct": "じゃなかったです",
+      "explanation": "The past negative after a noun is じゃなかったです."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-5-where-with-how",
+    "japanese-n5-unit-5-how-was-it",
+    "japanese-n5-unit-5-what-did-you-do",
+    "japanese-n5-unit-4-telling-time",
+    "japanese-n5-unit-4-my-week",
+    "japanese-n5-unit-1-numbers-age"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: にがつ, さんがつ and ごがつ appear only as kanji example words; all months are covered by the rule number + がつ in the concept text."
+  ]
+}

@@ -184,5 +184,935 @@
         "explanation": "ときどき is sometimes, and としょかんで べんきょうします is studies at the library."
       }
     ]
+  },
+  {
+    "id": "japanese-n5-unit-5-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "past-verb",
+        "prompt": "Choose the past form of たべます.",
+        "options": [
+          "たべます",
+          "たべました",
+          "たべません",
+          "たべましょう"
+        ],
+        "correctIndex": 1,
+        "explanation": "Change ます to ました."
+      },
+      {
+        "id": "past-negative",
+        "prompt": "Choose the sentence that means: I did not study yesterday.",
+        "options": [
+          "きのうは べんきょうしません。",
+          "きのうは べんきょうじゃなかったです。",
+          "あしたは べんきょうしませんでした。",
+          "きのうは べんきょうしませんでした。"
+        ],
+        "correctIndex": 3,
+        "explanation": "The past negative of a verb is ませんでした."
+      },
+      {
+        "id": "past-nothing",
+        "prompt": "Someone asks: きのう なにを しましたか。 You did nothing. What do you say?",
+        "options": [
+          "なにも しませんでした。",
+          "なにも しました。",
+          "なにを しませんでした。",
+          "なにも しません。"
+        ],
+        "correctIndex": 0,
+        "explanation": "なにも with a past negative means did nothing."
+      },
+      {
+        "id": "noun-past",
+        "prompt": "Complete: きのうは あめ ___。",
+        "options": [
+          "ました",
+          "ませんでした",
+          "でした",
+          "です"
+        ],
+        "correctIndex": 2,
+        "explanation": "After a noun, the past of です is でした."
+      },
+      {
+        "id": "noun-past-negative",
+        "prompt": "Choose the correct past negative.",
+        "options": [
+          "やすみじゃないでした",
+          "やすみませんでした",
+          "やすみじゃないです",
+          "やすみじゃなかったです"
+        ],
+        "correctIndex": 3,
+        "explanation": "じゃないです becomes じゃなかったです."
+      },
+      {
+        "id": "weather-question",
+        "prompt": "Which question asks how the weather was yesterday?",
+        "options": [
+          "きのうの てんきは どうですか。",
+          "きのうの てんきは どうでしたか。",
+          "きのうの てんきは なんじでしたか。",
+          "きょうの てんきは どうでしたか。"
+        ],
+        "correctIndex": 1,
+        "explanation": "きのう with どうでしたか asks about yesterday's weather."
+      },
+      {
+        "id": "with-person",
+        "prompt": "Complete: かぞく ___ ばんごはんを たべました。",
+        "options": [
+          "と",
+          "で",
+          "を",
+          "に"
+        ],
+        "correctIndex": 0,
+        "explanation": "と after people means together with."
+      },
+      {
+        "id": "alone",
+        "prompt": "Choose the sentence that means: I went to the park alone.",
+        "options": [
+          "ひとりと こうえんに いきました。",
+          "ひとりで こうえんを いきました。",
+          "ひとりで こうえんに いきました。",
+          "ともだちと こうえんに いきました。"
+        ],
+        "correctIndex": 2,
+        "explanation": "ひとりで means alone, and the destination takes に."
+      },
+      {
+        "id": "meet-particle",
+        "prompt": "Complete: えきで ともだち ___ あいました。",
+        "options": [
+          "を",
+          "に",
+          "で",
+          "が"
+        ],
+        "correctIndex": 1,
+        "explanation": "The person you meet takes に."
+      },
+      {
+        "id": "month-irregular",
+        "prompt": "How do you say September?",
+        "options": [
+          "きゅうがつ",
+          "ここのがつ",
+          "しちがつ",
+          "くがつ"
+        ],
+        "correctIndex": 3,
+        "explanation": "September is the irregular くがつ."
+      },
+      {
+        "id": "day-irregular",
+        "prompt": "Which date is 1 April?",
+        "options": [
+          "しがつ いちにち",
+          "よんがつ ついたち",
+          "しがつ ついたち",
+          "ついたち しがつ"
+        ],
+        "correctIndex": 2,
+        "explanation": "April is しがつ and the 1st is ついたち; the month comes first."
+      },
+      {
+        "id": "when-question",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "いつ にほんに きましたか。",
+          "いつに にほんに きましたか。",
+          "いつ にほんを きましたか。",
+          "いつで にほんに きましたか。"
+        ],
+        "correctIndex": 0,
+        "explanation": "いつ takes no particle."
+      },
+      {
+        "id": "invite",
+        "prompt": "You want to invite a friend to watch a film. What do you say?",
+        "options": [
+          "いっしょに えいがを みましたか。",
+          "いっしょに えいがを みません。",
+          "いっしょに えいがを みますか。",
+          "いっしょに えいがを みませんか。"
+        ],
+        "correctIndex": 3,
+        "explanation": "ませんか makes a polite invitation."
+      },
+      {
+        "id": "lets",
+        "prompt": "Complete: じゃあ、ろくじに えきで あい ___。",
+        "options": [
+          "ませんでした",
+          "ましょう",
+          "でした",
+          "ますか"
+        ],
+        "correctIndex": 1,
+        "explanation": "ましょう means let's."
+      },
+      {
+        "id": "decline",
+        "prompt": "A friend invites you, but you cannot go. Which reply is polite?",
+        "options": [
+          "いいえ、いきません。",
+          "いいですね。ぜひ。",
+          "すみません、あしたは ちょっと…。",
+          "はい、いきましょう。"
+        ],
+        "correctIndex": 2,
+        "explanation": "Declining softly with ちょっと… is the polite pattern."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-6-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "i-adj-negative",
+        "prompt": "Choose the negative of おおきいです.",
+        "options": [
+          "おおきいじゃないです",
+          "おおきくないです",
+          "おおきじゃないです",
+          "おおきいくないです"
+        ],
+        "correctIndex": 1,
+        "explanation": "い-adjectives: drop い and add くないです."
+      },
+      {
+        "id": "ii-negative",
+        "prompt": "Choose the negative of いいです.",
+        "options": [
+          "いくないです",
+          "いいじゃないです",
+          "いいくないです",
+          "よくないです"
+        ],
+        "correctIndex": 3,
+        "explanation": "いい is irregular: よくないです."
+      },
+      {
+        "id": "na-adj-negative",
+        "prompt": "Choose the negative of しずかです.",
+        "options": [
+          "しずかじゃないです",
+          "しずかくないです",
+          "しずくないです",
+          "しずかないです"
+        ],
+        "correctIndex": 0,
+        "explanation": "な-adjectives use じゃないです."
+      },
+      {
+        "id": "kirei-type",
+        "prompt": "Which word is a な-adjective?",
+        "options": [
+          "おいしい",
+          "たのしい",
+          "きれい",
+          "あたらしい"
+        ],
+        "correctIndex": 2,
+        "explanation": "きれい ends in い but takes な and じゃないです."
+      },
+      {
+        "id": "na-before-noun",
+        "prompt": "Complete: しずか ___ まちです。",
+        "options": [
+          "い",
+          "の",
+          "が",
+          "な"
+        ],
+        "correctIndex": 3,
+        "explanation": "な-adjectives take な before a noun."
+      },
+      {
+        "id": "i-before-noun",
+        "prompt": "Which phrase is correct?",
+        "options": [
+          "あたらしいな かばん",
+          "あたらしい かばん",
+          "あたらしいの かばん",
+          "あたらしく かばん"
+        ],
+        "correctIndex": 1,
+        "explanation": "い-adjectives attach directly to a noun."
+      },
+      {
+        "id": "donna",
+        "prompt": "Complete: ___ へやですか。 — ひろい へやです。",
+        "options": [
+          "どんな",
+          "どう",
+          "どこ",
+          "だれ"
+        ],
+        "correctIndex": 0,
+        "explanation": "どんな asks what kind of."
+      },
+      {
+        "id": "ga-but",
+        "prompt": "Complete: この ホテルは ふるいです ___、きれいです。",
+        "options": [
+          "と",
+          "を",
+          "が",
+          "も"
+        ],
+        "correctIndex": 2,
+        "explanation": "が joins two contrasting statements."
+      },
+      {
+        "id": "i-adj-past",
+        "prompt": "Choose the past of おいしいです.",
+        "options": [
+          "おいしいでした",
+          "おいしかったです",
+          "おいしでした",
+          "おいしくでした"
+        ],
+        "correctIndex": 1,
+        "explanation": "Drop い and add かったです."
+      },
+      {
+        "id": "na-adj-past",
+        "prompt": "Choose the past of にぎやかです.",
+        "options": [
+          "にぎやかかったです",
+          "にぎやかったです",
+          "にぎやかいでした",
+          "にぎやかでした"
+        ],
+        "correctIndex": 3,
+        "explanation": "な-adjectives take でした."
+      },
+      {
+        "id": "i-adj-past-negative",
+        "prompt": "Choose the sentence that means: The test was not difficult.",
+        "options": [
+          "テストは むずかしいじゃなかったです。",
+          "テストは むずかしくないでした。",
+          "テストは むずかしくなかったです。",
+          "テストは むずかしかったです。"
+        ],
+        "correctIndex": 2,
+        "explanation": "Past negative of an い-adjective: くなかったです."
+      },
+      {
+        "id": "amari",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "この みせは あまり やすくないです。",
+          "この みせは あまり やすいです。",
+          "この みせは あまり やすいじゃないです。",
+          "この みせは あまり やすかったです。"
+        ],
+        "correctIndex": 0,
+        "explanation": "あまり needs a negative, and やすい becomes やすくない."
+      },
+      {
+        "id": "soshite-demo",
+        "prompt": "Complete: この レストランは たかいです。___、おいしくないです。",
+        "options": [
+          "でも",
+          "とても",
+          "たくさん",
+          "そして"
+        ],
+        "correctIndex": 3,
+        "explanation": "Both points are negative, so the second is added with そして."
+      },
+      {
+        "id": "takusan",
+        "prompt": "Choose the sentence that means: There are a lot of shops in this town.",
+        "options": [
+          "この まちに みせが すこし あります。",
+          "この まちに みせが たくさん あります。",
+          "この まちに みせが たくさん います。",
+          "この まちで みせを たくさん あります。"
+        ],
+        "correctIndex": 1,
+        "explanation": "Things take あります, and たくさん is a lot."
+      },
+      {
+        "id": "describe-trip",
+        "prompt": "Someone asks: りょこうは どうでしたか。 It was very enjoyable. What do you say?",
+        "options": [
+          "とても たのしいでした。",
+          "あまり たのしかったです。",
+          "とても たのしかったです。",
+          "とても たのしくないです。"
+        ],
+        "correctIndex": 2,
+        "explanation": "たのしい → たのしかったです."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-7-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "price-300",
+        "prompt": "How do you say 300 yen?",
+        "options": [
+          "さんひゃくえん",
+          "さんびゃくえん",
+          "さんぜんえん",
+          "さんぴゃくえん"
+        ],
+        "correctIndex": 1,
+        "explanation": "300 is the irregular さんびゃく."
+      },
+      {
+        "id": "price-read",
+        "prompt": "How much is せんはっぴゃくえん?",
+        "options": [
+          "1,080 yen",
+          "8,100 yen",
+          "18,000 yen",
+          "1,800 yen"
+        ],
+        "correctIndex": 3,
+        "explanation": "せん is 1,000 and はっぴゃく is 800."
+      },
+      {
+        "id": "ask-price",
+        "prompt": "Complete: この かばんは ___ ですか。 — さんぜんえんです。",
+        "options": [
+          "いくら",
+          "どれ",
+          "なんがい",
+          "なんにん"
+        ],
+        "correctIndex": 0,
+        "explanation": "いくら asks the price."
+      },
+      {
+        "id": "count-people",
+        "prompt": "How do you say two people?",
+        "options": [
+          "ににん",
+          "にまい",
+          "ふたり",
+          "ふつか"
+        ],
+        "correctIndex": 2,
+        "explanation": "Two people is ふたり."
+      },
+      {
+        "id": "count-four-people",
+        "prompt": "Complete: かぞくは ___ です。 (four people)",
+        "options": [
+          "よんにん",
+          "しにん",
+          "よんまい",
+          "よにん"
+        ],
+        "correctIndex": 3,
+        "explanation": "Four people is よにん."
+      },
+      {
+        "id": "counter-flat",
+        "prompt": "You want two tickets. What do you say?",
+        "options": [
+          "きっぷを にほん ください。",
+          "きっぷを にまい ください。",
+          "きっぷを ふたり ください。",
+          "にまいを きっぷ ください。"
+        ],
+        "correctIndex": 1,
+        "explanation": "Flat things take まい, and the number follows を."
+      },
+      {
+        "id": "counter-long",
+        "prompt": "Choose the correct way to say three pens.",
+        "options": [
+          "ペンを さんぼん",
+          "ペンを さんほん",
+          "ペンを さんまい",
+          "ペンを さんにん"
+        ],
+        "correctIndex": 0,
+        "explanation": "ほん becomes ぼん after さん."
+      },
+      {
+        "id": "hoshii-particle",
+        "prompt": "Complete: おおきい かばん ___ ほしいです。",
+        "options": [
+          "を",
+          "に",
+          "が",
+          "で"
+        ],
+        "correctIndex": 2,
+        "explanation": "The thing wanted takes が."
+      },
+      {
+        "id": "dono-dore",
+        "prompt": "Complete: ___ ぼうしですか。 — その くろい ぼうしです。",
+        "options": [
+          "どれ",
+          "どの",
+          "どう",
+          "どちらが"
+        ],
+        "correctIndex": 1,
+        "explanation": "Before a noun, use どの."
+      },
+      {
+        "id": "floor",
+        "prompt": "Which floor is さんがい?",
+        "options": [
+          "The first floor",
+          "The second floor",
+          "The basement",
+          "The third floor"
+        ],
+        "correctIndex": 3,
+        "explanation": "さんがい is the third floor."
+      },
+      {
+        "id": "position",
+        "prompt": "Choose the sentence that means: The lift is to the left of the stairs.",
+        "options": [
+          "エレベーターは かいだんの みぎに あります。",
+          "かいだんは エレベーターの ひだりに あります。",
+          "エレベーターは かいだんの ひだりに あります。",
+          "エレベーターは ひだりの かいだんに あります。"
+        ],
+        "correctIndex": 2,
+        "explanation": "Topic, then landmark + の + ひだり."
+      },
+      {
+        "id": "yori",
+        "prompt": "Complete: でんしゃは バス ___ はやいです。",
+        "options": [
+          "より",
+          "ほう",
+          "いちばん",
+          "どちら"
+        ],
+        "correctIndex": 0,
+        "explanation": "より means than."
+      },
+      {
+        "id": "dochira-answer",
+        "prompt": "Someone asks: バスと でんしゃと どちらが やすいですか。 The bus is cheaper. What do you say?",
+        "options": [
+          "バスより やすいです。",
+          "バスが どちら やすいです。",
+          "バスは でんしゃが やすいです。",
+          "バスの ほうが やすいです。"
+        ],
+        "correctIndex": 3,
+        "explanation": "A の ほうが answers a どちら question."
+      },
+      {
+        "id": "ichiban",
+        "prompt": "Choose the sentence that means: Of all drinks, I like tea the most.",
+        "options": [
+          "のみものの なかで おちゃより すきです。",
+          "のみものの なかで おちゃが いちばん すきです。",
+          "のみものより おちゃの ほうが いちばんです。",
+          "のみものの なかに おちゃが いちばん すきです。"
+        ],
+        "correctIndex": 1,
+        "explanation": "の なかで names the group; いちばん marks the top."
+      },
+      {
+        "id": "enter-leave",
+        "prompt": "Complete: ろくじに かいしゃ ___ でます。",
+        "options": [
+          "に",
+          "で",
+          "を",
+          "と"
+        ],
+        "correctIndex": 2,
+        "explanation": "The place you leave takes を."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-8-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "te-group2",
+        "prompt": "Choose the て-form of おしえます.",
+        "options": [
+          "おしえって",
+          "おしえて",
+          "おしえんで",
+          "おしいて"
+        ],
+        "correctIndex": 1,
+        "explanation": "Group 2: replace ます with て."
+      },
+      {
+        "id": "te-tte",
+        "prompt": "Choose the て-form of かえります.",
+        "options": [
+          "かえりて",
+          "かえんで",
+          "かえいて",
+          "かえって"
+        ],
+        "correctIndex": 3,
+        "explanation": "Group 1 with り: って."
+      },
+      {
+        "id": "te-nde",
+        "prompt": "Choose the て-form of あそびます.",
+        "options": [
+          "あそんで",
+          "あそびて",
+          "あそって",
+          "あそいで"
+        ],
+        "correctIndex": 0,
+        "explanation": "Group 1 with び: んで."
+      },
+      {
+        "id": "te-ite",
+        "prompt": "Choose the て-form of みがきます.",
+        "options": [
+          "みがきて",
+          "みがって",
+          "みがいて",
+          "みがんで"
+        ],
+        "correctIndex": 2,
+        "explanation": "Group 1 with き: いて."
+      },
+      {
+        "id": "te-iku",
+        "prompt": "Choose the て-form of いきます.",
+        "options": [
+          "いきて",
+          "いいて",
+          "いんで",
+          "いって"
+        ],
+        "correctIndex": 3,
+        "explanation": "いきます is the exception: いって."
+      },
+      {
+        "id": "request",
+        "prompt": "You want someone to speak slowly. What do you say?",
+        "options": [
+          "ゆっくり はなします ください。",
+          "ゆっくり はなして ください。",
+          "ゆっくり はなしても いいですか。",
+          "ゆっくり はなしています。"
+        ],
+        "correctIndex": 1,
+        "explanation": "て ください makes a polite request."
+      },
+      {
+        "id": "progressive",
+        "prompt": "Complete: いま メールを ___。 (am writing)",
+        "options": [
+          "かいています",
+          "かきています",
+          "かいて ください",
+          "かきます"
+        ],
+        "correctIndex": 0,
+        "explanation": "かきます → かいて + います."
+      },
+      {
+        "id": "progressive-negative",
+        "prompt": "Choose the sentence that means: I am not studying now.",
+        "options": [
+          "いま べんきょうしませんでした。",
+          "いま べんきょうしては いけません。",
+          "いま べんきょうしていません。",
+          "いま べんきょうして ください。"
+        ],
+        "correctIndex": 2,
+        "explanation": "Only います changes: していません."
+      },
+      {
+        "id": "permission",
+        "prompt": "Complete: ここで しゃしんを とって ___ いいですか。",
+        "options": [
+          "は",
+          "も",
+          "を",
+          "が"
+        ],
+        "correctIndex": 1,
+        "explanation": "ても いいですか asks permission."
+      },
+      {
+        "id": "prohibition",
+        "prompt": "Which sentence means: You must not smoke here.",
+        "options": [
+          "ここで たばこを すっても いいです。",
+          "ここで たばこを すって ください。",
+          "ここで たばこを すっています。",
+          "ここで たばこを すっては いけません。"
+        ],
+        "correctIndex": 3,
+        "explanation": "ては いけません states a prohibition."
+      },
+      {
+        "id": "sequence",
+        "prompt": "Choose the correct sentence: I got up and took a shower.",
+        "options": [
+          "おきました、シャワーを あびて。",
+          "おきって、シャワーを あびました。",
+          "おきて、シャワーを あびました。",
+          "おきて、シャワーを あびます でした。"
+        ],
+        "correctIndex": 2,
+        "explanation": "The て-form joins the actions; the last verb shows the past."
+      },
+      {
+        "id": "te-kara",
+        "prompt": "Complete: はを みがいて ___、ねます。",
+        "options": [
+          "から",
+          "まで",
+          "より",
+          "も"
+        ],
+        "correctIndex": 0,
+        "explanation": "てから means after doing."
+      },
+      {
+        "id": "reason",
+        "prompt": "Complete: ねむいです ___、コーヒーを のみます。",
+        "options": [
+          "が",
+          "より",
+          "と",
+          "から"
+        ],
+        "correctIndex": 3,
+        "explanation": "から after a sentence gives the reason."
+      },
+      {
+        "id": "why",
+        "prompt": "Someone asks: どうして いきませんか。 You are busy. What do you say?",
+        "options": [
+          "いそがしいですが。",
+          "いそがしいですから。",
+          "いそがしいですか。",
+          "いそがしくて ください。"
+        ],
+        "correctIndex": 1,
+        "explanation": "Answer どうして with a reason and から."
+      },
+      {
+        "id": "state-know",
+        "prompt": "Someone asks: たなかさんを しっていますか。 You do not know Tanaka. What do you say?",
+        "options": [
+          "いいえ、しっていません。",
+          "いいえ、しりていません。",
+          "いいえ、しりません。",
+          "いいえ、しっては いけません。"
+        ],
+        "correctIndex": 2,
+        "explanation": "The negative of しっています is しりません."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-9-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "tai",
+        "prompt": "Change たべます into I want to eat.",
+        "options": [
+          "たべますたいです",
+          "たべたいです",
+          "たべるたいです",
+          "たべてたいです"
+        ],
+        "correctIndex": 1,
+        "explanation": "Remove ます and add たいです."
+      },
+      {
+        "id": "tai-negative",
+        "prompt": "Choose the negative of いきたいです.",
+        "options": [
+          "いきたいじゃないです",
+          "いきたくじゃないです",
+          "いかないたいです",
+          "いきたくないです"
+        ],
+        "correctIndex": 3,
+        "explanation": "たい changes like an い-adjective."
+      },
+      {
+        "id": "purpose",
+        "prompt": "Complete: きょうとに おてらを ___ いきます。",
+        "options": [
+          "みに",
+          "みますに",
+          "みて",
+          "みるを"
+        ],
+        "correctIndex": 0,
+        "explanation": "Stem + に shows the purpose of going."
+      },
+      {
+        "id": "direction",
+        "prompt": "What does きた mean?",
+        "options": [
+          "south",
+          "east",
+          "north",
+          "west"
+        ],
+        "correctIndex": 2,
+        "explanation": "きた is north."
+      },
+      {
+        "id": "dictionary-form",
+        "prompt": "Choose the dictionary form of はなします.",
+        "options": [
+          "はなしる",
+          "はなる",
+          "はなさ",
+          "はなす"
+        ],
+        "correctIndex": 3,
+        "explanation": "Group 1: し → す."
+      },
+      {
+        "id": "ability",
+        "prompt": "Choose the sentence that means: I can play the piano.",
+        "options": [
+          "ピアノを ひきます ことが できます。",
+          "ピアノを ひく ことが できます。",
+          "ピアノを ひいた ことが あります。",
+          "ピアノを ひく ことを できます。"
+        ],
+        "correctIndex": 1,
+        "explanation": "Dictionary form + ことが できます."
+      },
+      {
+        "id": "hobby",
+        "prompt": "Complete: しゅみは えを ___ ことです。",
+        "options": [
+          "かく",
+          "かきます",
+          "かいて",
+          "かいた"
+        ],
+        "correctIndex": 0,
+        "explanation": "Use the dictionary form before ことです."
+      },
+      {
+        "id": "nai-form",
+        "prompt": "Choose the ない-form of かいます (to buy).",
+        "options": [
+          "かあない",
+          "かいない",
+          "かわない",
+          "かえない"
+        ],
+        "correctIndex": 2,
+        "explanation": "い on its own becomes わ: かわない."
+      },
+      {
+        "id": "please-dont",
+        "prompt": "You want to ask someone not to park here. What do you say?",
+        "options": [
+          "ここに くるまを とめて ください。",
+          "ここに くるまを とめないで ください。",
+          "ここに くるまを とめないて ください。",
+          "ここに くるまを とめたいです。"
+        ],
+        "correctIndex": 1,
+        "explanation": "ない-form + で ください."
+      },
+      {
+        "id": "ta-form",
+        "prompt": "Choose the た-form of よみます.",
+        "options": [
+          "よんた",
+          "よみた",
+          "よった",
+          "よんだ"
+        ],
+        "correctIndex": 3,
+        "explanation": "よんで → よんだ."
+      },
+      {
+        "id": "experience",
+        "prompt": "Choose the sentence that means: I have never eaten natto.",
+        "options": [
+          "なっとうを たべる ことが できません。",
+          "なっとうを たべない ことが あります。",
+          "なっとうを たべた ことが ありません。",
+          "なっとうを たべませんでした ことです。"
+        ],
+        "correctIndex": 2,
+        "explanation": "た-form + ことが ありません: have never."
+      },
+      {
+        "id": "experience-time",
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "きのう しんかんせんに のりました。",
+          "きのう しんかんせんに のった ことが あります。",
+          "きのう しんかんせんを のりました。",
+          "きのう しんかんせんに のる ことが あります。"
+        ],
+        "correctIndex": 0,
+        "explanation": "A specific past time takes ました, and the vehicle takes に."
+      },
+      {
+        "id": "plain-negative",
+        "prompt": "Choose the plain form of いきません.",
+        "options": [
+          "いく",
+          "いった",
+          "いかなかった",
+          "いかない"
+        ],
+        "correctIndex": 3,
+        "explanation": "The plain negative is the ない-form."
+      },
+      {
+        "id": "plain-past",
+        "prompt": "Choose the plain form of たのしかったです.",
+        "options": [
+          "たのしいだった",
+          "たのしかった",
+          "たのしかっただ",
+          "たのしいだ"
+        ],
+        "correctIndex": 1,
+        "explanation": "い-adjectives simply drop です."
+      },
+      {
+        "id": "mou-mada",
+        "prompt": "Someone asks: もう ばんごはんを たべましたか。 You have not eaten yet. What do you say?",
+        "options": [
+          "いいえ、もうです。",
+          "はい、まだです。",
+          "いいえ、まだです。",
+          "いいえ、いちどもです。"
+        ],
+        "correctIndex": 2,
+        "explanation": "まだです means not yet."
+      }
+    ]
   }
 ]

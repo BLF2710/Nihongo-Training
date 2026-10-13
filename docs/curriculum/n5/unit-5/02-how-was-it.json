@@ -1,0 +1,443 @@
+{
+  "id": "japanese-n5-unit-5-how-was-it",
+  "slug": "n5-unit-5-how-was-it",
+  "unit": "Japanese N5 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "How Was It?",
+  "title_jp": "どうでしたか",
+  "objectives": [
+    "I can say what something was, and talk about the weather.",
+    "Use でした and じゃなかったです after nouns",
+    "Name four kinds of weather",
+    "Ask どうですか and どうでしたか about the weather"
+  ],
+  "vocabulary": [
+    [
+      "てんき",
+      "tenki",
+      "weather"
+    ],
+    [
+      "はれ",
+      "hare",
+      "sunny / clear"
+    ],
+    [
+      "あめ",
+      "ame",
+      "rain"
+    ],
+    [
+      "くもり",
+      "kumori",
+      "cloudy"
+    ],
+    [
+      "ゆき",
+      "yuki",
+      "snow"
+    ],
+    [
+      "どう",
+      "dou",
+      "how"
+    ],
+    [
+      "パーティー",
+      "paatii",
+      "party"
+    ],
+    [
+      "テスト",
+      "tesuto",
+      "test"
+    ],
+    [
+      "りょこう",
+      "ryokou",
+      "trip"
+    ],
+    [
+      "コンサート",
+      "konsaato",
+      "concert"
+    ],
+    [
+      "しゅくだい",
+      "shukudai",
+      "homework"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "天気",
+      "word_reading": "てんき"
+    },
+    {
+      "word_japanese": "雨",
+      "word_reading": "あめ"
+    }
+  ],
+  "concept": {
+    "title": "です in the past",
+    "text": "After a noun, the past of です is でした. The negative じゃないです becomes じゃなかったです. You already know じゃないです from すきじゃないです.\n\nJapanese describes weather with nouns: はれ, あめ, くもり, ゆき. So it rained is あめでした, literally it was rain. Ask about the weather with どう: てんきは どうですか (now) or どうでしたか (past).",
+    "examples": [
+      "N です → N でした",
+      "N じゃないです → N じゃなかったです",
+      "きのうは あめでした。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "It was / it was not",
+      "pattern": "N は N でした / N じゃなかったです",
+      "explanation": "でした states what something was. じゃなかったです denies it. Both follow a noun directly.",
+      "examples": [
+        {
+          "japanese": "きのうは あめでした。",
+          "romaji": "Kinou wa ame deshita.",
+          "meaning": "It rained yesterday."
+        },
+        {
+          "japanese": "せんしゅうは やすみでした。",
+          "romaji": "Senshuu wa yasumi deshita.",
+          "meaning": "Last week was a holiday."
+        },
+        {
+          "japanese": "きのうは はれじゃなかったです。",
+          "romaji": "Kinou wa hare ja nakatta desu.",
+          "meaning": "It was not sunny yesterday."
+        },
+        {
+          "japanese": "テストは げつようびじゃなかったです。かようびでした。",
+          "romaji": "Tesuto wa getsuyoubi ja nakatta desu. Kayoubi deshita.",
+          "meaning": "The test was not on Monday. It was on Tuesday."
+        },
+        {
+          "japanese": "きのうの パーティーは ろくじからでした。",
+          "romaji": "Kinou no paatii wa rokuji kara deshita.",
+          "meaning": "Yesterday's party was from six."
+        }
+      ],
+      "notes": [
+        "Wrong: あめじゃないでした. The past negative is じゃなかったです.",
+        "でした follows nouns. Verbs use ました."
+      ]
+    },
+    {
+      "title": "How is the weather?",
+      "pattern": "(place / time の) てんきは どうですか / どうでしたか",
+      "explanation": "どう means how. Use どうですか for now and どうでしたか for the past. Answer with a weather noun and です or でした.",
+      "examples": [
+        {
+          "japanese": "きょうの てんきは どうですか。",
+          "romaji": "Kyou no tenki wa dou desu ka.",
+          "meaning": "How is the weather today?"
+        },
+        {
+          "japanese": "くもりです。",
+          "romaji": "Kumori desu.",
+          "meaning": "It is cloudy."
+        },
+        {
+          "japanese": "きのうの てんきは どうでしたか。",
+          "romaji": "Kinou no tenki wa dou deshita ka.",
+          "meaning": "How was the weather yesterday?"
+        },
+        {
+          "japanese": "ゆきでした。",
+          "romaji": "Yuki deshita.",
+          "meaning": "It snowed."
+        },
+        {
+          "japanese": "おおさかの てんきは どうでしたか。",
+          "romaji": "Oosaka no tenki wa dou deshita ka.",
+          "meaning": "How was the weather in Osaka?"
+        }
+      ],
+      "notes": [
+        "Use の to link a place or a day to てんき: とうきょうの てんき.",
+        "どう also asks for an opinion. Words for giving opinions come in Unit 6."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "きょうは はれです。",
+      "It is sunny today."
+    ],
+    [
+      "あしたは あめです。",
+      "It will rain tomorrow."
+    ],
+    [
+      "せんしゅうの どようびは コンサートでした。",
+      "Last Saturday was the concert."
+    ],
+    [
+      "きのうは やすみじゃなかったです。がっこうに いきました。",
+      "Yesterday was not a day off. I went to school."
+    ]
+  ],
+  "dialogue": [
+    [
+      "ゆき",
+      "きょうの てんきは どうですか。",
+      "リー",
+      "あめです。"
+    ],
+    [
+      "ゆき",
+      "きのうも あめでしたか。",
+      "リー",
+      "いいえ、きのうは はれでした。"
+    ],
+    [
+      "マリア",
+      "テストは きのうでしたか。",
+      "けん",
+      "いいえ、きのうじゃなかったです。あしたです。"
+    ],
+    [
+      "アナ",
+      "りょこうは いつでしたか… せんしゅうでしたか。",
+      "たなか",
+      "はい、せんしゅうでした。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "天",
+      "onyomi": [
+        "テン"
+      ],
+      "kunyomi": [
+        "あまつ",
+        "あめ",
+        "あま-"
+      ],
+      "meaning_en": "heaven, sky",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "天気",
+          "reading": "てんき",
+          "en": "weather"
+        },
+        {
+          "word": "天気予報",
+          "reading": "てんきよほう",
+          "en": "weather forecast"
+        }
+      ],
+      "mnemonic": "The big (大) sky stretching above everything."
+    },
+    {
+      "char": "気",
+      "onyomi": [
+        "キ",
+        "ケ"
+      ],
+      "kunyomi": [
+        "いき",
+        "き"
+      ],
+      "meaning_en": "spirit, air",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "天気",
+          "reading": "てんき",
+          "en": "weather"
+        },
+        {
+          "word": "元気",
+          "reading": "げんき",
+          "en": "well / energetic"
+        }
+      ],
+      "mnemonic": "Steam rising: the air and mood around us."
+    },
+    {
+      "char": "雨",
+      "onyomi": [
+        "ウ"
+      ],
+      "kunyomi": [
+        "あめ",
+        "あま-",
+        "-さめ"
+      ],
+      "meaning_en": "rain",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "雨",
+          "reading": "あめ",
+          "en": "rain"
+        },
+        {
+          "word": "大雨",
+          "reading": "おおあめ",
+          "en": "heavy rain"
+        }
+      ],
+      "mnemonic": "Drops falling from a cloud seen through a window."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the past form of かきます.",
+      "options": [
+        "かきます",
+        "かきませんでした",
+        "かきました",
+        "かきました です"
+      ],
+      "correct": "かきました",
+      "explanation": "Change ます to ました."
+    },
+    {
+      "prompt": "What does くもり mean?",
+      "options": [
+        "sunny",
+        "rain",
+        "snow",
+        "cloudy"
+      ],
+      "correct": "cloudy",
+      "explanation": "くもり is cloudy. はれ is sunny."
+    },
+    {
+      "prompt": "Complete: きのうは あめ ___。",
+      "options": [
+        "でした",
+        "ました",
+        "です",
+        "じゃない"
+      ],
+      "correct": "でした",
+      "explanation": "After a noun, the past of です is でした."
+    },
+    {
+      "prompt": "Choose the past negative of やすみです.",
+      "options": [
+        "やすみじゃないでした",
+        "やすみじゃなかったです",
+        "やすみませんでした",
+        "やすみじゃないです"
+      ],
+      "correct": "やすみじゃなかったです",
+      "explanation": "じゃないです becomes じゃなかったです."
+    },
+    {
+      "prompt": "Complete: きのうの てんきは ___ でしたか。",
+      "options": [
+        "なに",
+        "だれ",
+        "どう",
+        "どこ"
+      ],
+      "correct": "どう",
+      "explanation": "どう asks how something was."
+    },
+    {
+      "prompt": "It is snowing now. How do you answer きょうの てんきは どうですか。?",
+      "options": [
+        "ゆきでした。",
+        "はれです。",
+        "ゆきじゃなかったです。",
+        "ゆきです。"
+      ],
+      "correct": "ゆきです。",
+      "explanation": "It is happening now, so use です with ゆき."
+    },
+    {
+      "prompt": "Choose the meaning of せんしゅうは やすみでした。",
+      "options": [
+        "Last week was a holiday.",
+        "Next week is a holiday.",
+        "Last week was not a holiday.",
+        "This week is a holiday."
+      ],
+      "correct": "Last week was a holiday.",
+      "explanation": "せんしゅう is last week, and でした is was."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read: テストは げつようびじゃなかったです。かようびでした。 When was the test?",
+      "options": [
+        "Tuesday",
+        "Monday",
+        "Thursday",
+        "Saturday"
+      ],
+      "correct": "Tuesday",
+      "explanation": "It was not Monday; かようび is Tuesday."
+    },
+    {
+      "prompt": "Choose the sentence that means: It was not sunny yesterday.",
+      "options": [
+        "きのうは はれでした。",
+        "きのうは はれじゃなかったです。",
+        "きのうは はれじゃないです。",
+        "あしたは はれじゃなかったです。"
+      ],
+      "correct": "きのうは はれじゃなかったです。",
+      "explanation": "Past negative after a noun: じゃなかったです."
+    },
+    {
+      "prompt": "A friend asks about your city: とうきょうの てんきは どうですか。 It is cloudy. What do you say?",
+      "options": [
+        "くもりでした。",
+        "くもりを します。",
+        "くもりです。",
+        "くもりに いきます。"
+      ],
+      "correct": "くもりです。",
+      "explanation": "Present tense with the weather noun."
+    },
+    {
+      "prompt": "Which sentence correctly uses a verb, not a noun?",
+      "options": [
+        "きのう がっこうに いきでした。",
+        "きのう がっこうに でした。",
+        "きのう がっこうに いきますでした。",
+        "きのう がっこうに いきました。"
+      ],
+      "correct": "きのう がっこうに いきました。",
+      "explanation": "Verbs take ました; でした follows nouns only."
+    },
+    {
+      "prompt": "Review: complete あした ともだちが うち ___ きます。",
+      "options": [
+        "に",
+        "で",
+        "を",
+        "から"
+      ],
+      "correct": "に",
+      "explanation": "The destination of きます takes に."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-5-what-did-you-do",
+    "japanese-n5-unit-4-days-and-schedules",
+    "japanese-n5-unit-4-going-places",
+    "japanese-n5-unit-2-preferences",
+    "japanese-n5-unit-2-living"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: second course words for 天 and 雨 beyond 天気 and 雨 are not taught in N5; 元気 (げんき) is taught in Unit 6."
+  ]
+}

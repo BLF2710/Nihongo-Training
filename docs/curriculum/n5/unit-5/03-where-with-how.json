@@ -1,0 +1,427 @@
+{
+  "id": "japanese-n5-unit-5-where-with-how",
+  "slug": "n5-unit-5-where-with-how",
+  "unit": "Japanese N5 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Where, With Whom & How",
+  "title_jp": "だれと どこで",
+  "objectives": [
+    "I can say who I did something with, and where.",
+    "Use と for together with",
+    "Use ひとりで and いっしょに",
+    "Combine person, place and action in the past"
+  ],
+  "vocabulary": [
+    [
+      "あいます",
+      "aimasu",
+      "to meet"
+    ],
+    [
+      "かいます",
+      "kaimasu",
+      "to buy"
+    ],
+    [
+      "つくります",
+      "tsukurimasu",
+      "to make / to cook"
+    ],
+    [
+      "いっしょに",
+      "issho ni",
+      "together"
+    ],
+    [
+      "ひとりで",
+      "hitori de",
+      "alone / by oneself"
+    ],
+    [
+      "こうえん",
+      "kouen",
+      "park"
+    ],
+    [
+      "デパート",
+      "depaato",
+      "department store"
+    ],
+    [
+      "ひるごはん",
+      "hirugohan",
+      "lunch"
+    ],
+    [
+      "ばんごはん",
+      "bangohan",
+      "dinner"
+    ],
+    [
+      "かいしゃいん",
+      "kaishain",
+      "company employee"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "With whom: と",
+    "text": "You know と as and between two nouns: ちちと はは. After a person and before a verb it means together with: ともだちと いきました. いっしょに (together) often follows it for emphasis.\n\nTo say you did something alone, use ひとりで. The place of the action still takes で, and the person you meet takes に: ともだちに あいました.",
+    "examples": [
+      "person と V",
+      "ひとりで V",
+      "person に あいます"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Together with someone",
+      "pattern": "person と (いっしょに) V",
+      "explanation": "と after a person shows who shares the action. Ask with だれと. The usual order is time, person と, place で, object を, verb.",
+      "examples": [
+        {
+          "japanese": "ともだちと えいがを みました。",
+          "romaji": "Tomodachi to eiga o mimashita.",
+          "meaning": "I watched a film with a friend."
+        },
+        {
+          "japanese": "かぞくと ばんごはんを たべました。",
+          "romaji": "Kazoku to bangohan o tabemashita.",
+          "meaning": "I ate dinner with my family."
+        },
+        {
+          "japanese": "だれと いきましたか。",
+          "romaji": "Dare to ikimashita ka.",
+          "meaning": "Who did you go with?"
+        },
+        {
+          "japanese": "あねと デパートで かいものを しました。",
+          "romaji": "Ane to depaato de kaimono o shimashita.",
+          "meaning": "I went shopping at a department store with my older sister."
+        },
+        {
+          "japanese": "ともだちと いっしょに べんきょうしました。",
+          "romaji": "Tomodachi to issho ni benkyou shimashita.",
+          "meaning": "I studied together with a friend."
+        }
+      ],
+      "notes": [
+        "ちちと はは uses と for and; ちちと いきました uses と for with. The verb tells you which.",
+        "Do not use で for the person: ともだちで is wrong."
+      ]
+    },
+    {
+      "title": "Alone, and meeting people",
+      "pattern": "ひとりで V / person に あいます",
+      "explanation": "ひとりで means by oneself and takes no other particle. あいます (to meet) marks the person you meet with に, not を.",
+      "examples": [
+        {
+          "japanese": "ひとりで こうえんに いきました。",
+          "romaji": "Hitori de kouen ni ikimashita.",
+          "meaning": "I went to the park alone."
+        },
+        {
+          "japanese": "きのう ひとりで ばんごはんを つくりました。",
+          "romaji": "Kinou hitori de bangohan o tsukurimashita.",
+          "meaning": "Yesterday I made dinner by myself."
+        },
+        {
+          "japanese": "こうえんで ともだちに あいました。",
+          "romaji": "Kouen de tomodachi ni aimashita.",
+          "meaning": "I met a friend in the park."
+        },
+        {
+          "japanese": "あした えきで あねに あいます。",
+          "romaji": "Ashita eki de ane ni aimasu.",
+          "meaning": "Tomorrow I will meet my older sister at the station."
+        },
+        {
+          "japanese": "デパートで かばんを かいました。",
+          "romaji": "Depaato de kaban o kaimashita.",
+          "meaning": "I bought a bag at the department store."
+        }
+      ],
+      "notes": [
+        "Wrong: ともだちを あいました. The person met takes に.",
+        "かいます (buy) and かきます (write) differ by one sound."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "どようびに ともだちと こうえんで ひるごはんを たべました。",
+      "On Saturday I ate lunch in the park with a friend."
+    ],
+    [
+      "ちちは かいしゃいんです。まいにち でんしゃで かいしゃに いきます。",
+      "My father is a company employee. He goes to the office by train every day."
+    ],
+    [
+      "きのうは ひとりで えいがを みました。",
+      "Yesterday I watched a film alone."
+    ],
+    [
+      "ははと いっしょに ばんごはんを つくりました。",
+      "I made dinner together with my mother."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "しゅうまつは なにを しましたか。",
+      "マイ",
+      "ともだちと デパートに いきました。"
+    ],
+    [
+      "けん",
+      "なにを かいましたか。",
+      "マイ",
+      "かさを かいました。"
+    ],
+    [
+      "リン",
+      "きのう だれと ひるごはんを たべましたか。",
+      "アナ",
+      "ひとりで たべました。"
+    ],
+    [
+      "ゆき",
+      "どこで たなかさんに あいましたか。",
+      "リー",
+      "えきで あいました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "友",
+      "onyomi": [
+        "ユウ"
+      ],
+      "kunyomi": [
+        "とも"
+      ],
+      "meaning_en": "friend",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "友だち",
+          "reading": "ともだち",
+          "en": "friend"
+        },
+        {
+          "word": "友人",
+          "reading": "ゆうじん",
+          "en": "friend (formal)"
+        }
+      ],
+      "mnemonic": "Two hands reaching toward each other."
+    },
+    {
+      "char": "会",
+      "onyomi": [
+        "カイ",
+        "エ"
+      ],
+      "kunyomi": [
+        "あ.う",
+        "あ.わせる",
+        "あつ.まる"
+      ],
+      "meaning_en": "meet",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "会います",
+          "reading": "あいます",
+          "en": "to meet"
+        },
+        {
+          "word": "会社",
+          "reading": "かいしゃ",
+          "en": "company"
+        }
+      ],
+      "mnemonic": "People gathering under one roof."
+    },
+    {
+      "char": "社",
+      "onyomi": [
+        "シャ"
+      ],
+      "kunyomi": [
+        "やしろ"
+      ],
+      "meaning_en": "company, shrine",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "会社",
+          "reading": "かいしゃ",
+          "en": "company"
+        },
+        {
+          "word": "会社員",
+          "reading": "かいしゃいん",
+          "en": "company employee"
+        }
+      ],
+      "mnemonic": "An altar (礻) on the land (土): a place where people come together."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete きのうは あめ ___。",
+      "options": [
+        "ました",
+        "です",
+        "ません",
+        "でした"
+      ],
+      "correct": "でした",
+      "explanation": "After a noun, the past of です is でした."
+    },
+    {
+      "prompt": "What does ひとりで mean?",
+      "options": [
+        "alone",
+        "together",
+        "with a friend",
+        "one person is here"
+      ],
+      "correct": "alone",
+      "explanation": "ひとりで means by oneself."
+    },
+    {
+      "prompt": "Complete: ともだち ___ えいがを みました。",
+      "options": [
+        "で",
+        "と",
+        "を",
+        "に"
+      ],
+      "correct": "と",
+      "explanation": "と after a person means together with."
+    },
+    {
+      "prompt": "Complete: えきで あね ___ あいます。",
+      "options": [
+        "を",
+        "で",
+        "に",
+        "と いっしょ"
+      ],
+      "correct": "に",
+      "explanation": "The person you meet takes に."
+    },
+    {
+      "prompt": "Choose the question that asks who you went with.",
+      "options": [
+        "どこに いきましたか。",
+        "なんで いきましたか。",
+        "いつ いきましたか。",
+        "だれと いきましたか。"
+      ],
+      "correct": "だれと いきましたか。",
+      "explanation": "だれと asks with whom."
+    },
+    {
+      "prompt": "Which word means to buy?",
+      "options": [
+        "かいます",
+        "かきます",
+        "あいます",
+        "つくります"
+      ],
+      "correct": "かいます",
+      "explanation": "かいます is buy. かきます is write."
+    },
+    {
+      "prompt": "Choose the meaning of ははと いっしょに ばんごはんを つくりました。",
+      "options": [
+        "My mother made dinner alone.",
+        "I made dinner together with my mother.",
+        "I ate dinner with my mother.",
+        "I will make dinner with my mother."
+      ],
+      "correct": "I made dinner together with my mother.",
+      "explanation": "と いっしょに is together with, and つくりました is made."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: きのう だれと ひるごはんを たべましたか。 You ate alone. What do you say?",
+      "options": [
+        "ひとりと たべました。",
+        "ひとりで たべました。",
+        "ひとりに たべました。",
+        "ひとりで たべます。"
+      ],
+      "correct": "ひとりで たべました。",
+      "explanation": "ひとりで is a fixed expression, and the answer is in the past."
+    },
+    {
+      "prompt": "Choose the sentence that means: I went shopping at a department store with my older sister.",
+      "options": [
+        "あねで デパートと かいものを しました。",
+        "あねと デパートに かいものを しました。",
+        "あねと デパートで かいものを しました。",
+        "あにと デパートで かいものを しました。"
+      ],
+      "correct": "あねと デパートで かいものを しました。",
+      "explanation": "Person + と, place of action + で. あね is older sister."
+    },
+    {
+      "prompt": "Read: こうえんで ともだちに あいました。 Where did the speaker meet the friend?",
+      "options": [
+        "At the station",
+        "At a department store",
+        "At home",
+        "In the park"
+      ],
+      "correct": "In the park",
+      "explanation": "こうえんで is in the park."
+    },
+    {
+      "prompt": "Which sentence uses と to mean and, not with?",
+      "options": [
+        "あねと いもうとが います。",
+        "あねと いきました。",
+        "あねと たべました。",
+        "あねと あいました。"
+      ],
+      "correct": "あねと いもうとが います。",
+      "explanation": "Between two nouns that are both in the same role, と means and."
+    },
+    {
+      "prompt": "Review: complete ぜんぜん テレビを ___。",
+      "options": [
+        "みます",
+        "みません",
+        "みました",
+        "みましょう"
+      ],
+      "correct": "みません",
+      "explanation": "ぜんぜん is used with a negative verb."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-5-how-was-it",
+    "japanese-n5-unit-5-what-did-you-do",
+    "japanese-n5-unit-4-my-week",
+    "japanese-n5-unit-4-going-places",
+    "japanese-n5-unit-2-family",
+    "japanese-n5-unit-3-people-locations"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 友だち and 会社 are Unit 2–3 words, so their kanji spellings are not linked automatically; 会います is a polite form."
+  ]
+}
