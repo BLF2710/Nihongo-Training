@@ -1,0 +1,518 @@
+{
+  "id": "japanese-n5-unit-5-invitations",
+  "slug": "n5-unit-5-invitations",
+  "unit": "Japanese N5 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Shall We?",
+  "title_jp": "いっしょに いきませんか",
+  "objectives": [
+    "I can invite someone and accept or decline politely.",
+    "Invite with ませんか",
+    "Suggest and agree with ましょう, and offer choices with ましょうか",
+    "Accept with いいですね and decline softly with ちょっと…"
+  ],
+  "vocabulary": [
+    [
+      "えいがかん",
+      "eigakan",
+      "cinema"
+    ],
+    [
+      "カフェ",
+      "kafe",
+      "café"
+    ],
+    [
+      "しょくじ",
+      "shokuji",
+      "a meal"
+    ],
+    [
+      "ひま",
+      "hima",
+      "free (not busy)"
+    ],
+    [
+      "いいですね",
+      "ii desu ne",
+      "that sounds good"
+    ],
+    [
+      "ざんねん",
+      "zannen",
+      "a pity"
+    ],
+    [
+      "こんど",
+      "kondo",
+      "next time / this time"
+    ],
+    [
+      "じゃあ",
+      "jaa",
+      "well then"
+    ],
+    [
+      "ぜひ",
+      "zehi",
+      "by all means"
+    ],
+    [
+      "やくそく",
+      "yakusoku",
+      "appointment / promise"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "七月",
+      "word_reading": "しちがつ"
+    },
+    {
+      "word_japanese": "九月",
+      "word_reading": "くがつ"
+    },
+    {
+      "word_japanese": "二十日",
+      "word_reading": "はつか"
+    },
+    {
+      "word_japanese": "七時",
+      "word_reading": "しちじ"
+    },
+    {
+      "word_japanese": "九時",
+      "word_reading": "くじ"
+    },
+    {
+      "word_japanese": "十分",
+      "word_reading": "じゅっぷん"
+    }
+  ],
+  "concept": {
+    "title": "Inviting without pushing",
+    "text": "ませんか is a negative question, but it is the standard polite invitation: いきませんか means won't you go? or would you like to go? It leaves the other person free to refuse.\n\nましょう means let's, and is used once you both agree. ましょうか asks shall we, usually to settle a detail such as the time or place. To refuse, do not say いいえ directly. Say すみません and trail off with ちょっと…, which you learned for food you do not like.",
+    "examples": [
+      "V-ませんか (invite)",
+      "V-ましょう (let's)",
+      "V-ましょうか (shall we?)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Would you like to…?",
+      "pattern": "(いっしょに) V-ませんか",
+      "explanation": "Change ます to ませんか to invite someone. いっしょに makes it clear you mean together. Accept with いいですね; decline with すみません、〜は ちょっと….",
+      "examples": [
+        {
+          "japanese": "いっしょに えいがを みませんか。",
+          "romaji": "Issho ni eiga o mimasen ka.",
+          "meaning": "Would you like to watch a film together?"
+        },
+        {
+          "japanese": "どようびに カフェに いきませんか。",
+          "romaji": "Doyoubi ni kafe ni ikimasen ka.",
+          "meaning": "Would you like to go to a café on Saturday?"
+        },
+        {
+          "japanese": "きょう いっしょに ばんごはんを たべませんか。",
+          "romaji": "Kyou issho ni bangohan o tabemasen ka.",
+          "meaning": "Shall we have dinner together today?"
+        },
+        {
+          "japanese": "いいですね。ぜひ。",
+          "romaji": "Ii desu ne. Zehi.",
+          "meaning": "That sounds good. I'd love to."
+        },
+        {
+          "japanese": "すみません、どようびは ちょっと…。",
+          "romaji": "Sumimasen, doyoubi wa chotto….",
+          "meaning": "Sorry, Saturday is a bit difficult."
+        }
+      ],
+      "notes": [
+        "いきませんか is an invitation. いきますか only asks whether someone is going.",
+        "Leaving ちょっと… unfinished is the polite way to refuse."
+      ]
+    },
+    {
+      "title": "Let's / shall we?",
+      "pattern": "V-ましょう / V-ましょうか",
+      "explanation": "ましょう proposes or confirms doing something together. Adding か turns it into a question for deciding details with どこ, なんじ or なに.",
+      "examples": [
+        {
+          "japanese": "いきましょう。",
+          "romaji": "Ikimashou.",
+          "meaning": "Let's go."
+        },
+        {
+          "japanese": "ろくじに えきで あいましょう。",
+          "romaji": "Rokuji ni eki de aimashou.",
+          "meaning": "Let's meet at the station at six."
+        },
+        {
+          "japanese": "どこで あいましょうか。",
+          "romaji": "Doko de aimashou ka.",
+          "meaning": "Where shall we meet?"
+        },
+        {
+          "japanese": "なんじに あいましょうか。",
+          "romaji": "Nanji ni aimashou ka.",
+          "meaning": "What time shall we meet?"
+        },
+        {
+          "japanese": "じゃあ、にちようびに いきましょう。",
+          "romaji": "Jaa, nichiyoubi ni ikimashou.",
+          "meaning": "Well then, let's go on Sunday."
+        }
+      ],
+      "notes": [
+        "Use ましょう after the other person has agreed, or the plan is already shared.",
+        "ましょう is not used to ask someone to do something alone."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "あした いっしょに しょくじを しませんか。",
+      "Would you like to have a meal together tomorrow?"
+    ],
+    [
+      "にちようびは ひまですか。",
+      "Are you free on Sunday?"
+    ],
+    [
+      "ざんねんです。じゃあ、こんど いきましょう。",
+      "That is a pity. Well then, let's go next time."
+    ],
+    [
+      "きんようびは やくそくが あります。",
+      "I have an appointment on Friday."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "どようびは ひまですか。",
+      "マイ",
+      "はい、ひまです。"
+    ],
+    [
+      "けん",
+      "いっしょに えいがを みませんか。",
+      "マイ",
+      "いいですね。ぜひ いきましょう。"
+    ],
+    [
+      "けん",
+      "なんじに あいましょうか。",
+      "マイ",
+      "ごご にじに えいがかんで あいましょう。"
+    ],
+    [
+      "アナ",
+      "あした カフェに いきませんか。",
+      "ゆき",
+      "すみません、あしたは ちょっと…。やくそくが あります。"
+    ],
+    [
+      "アナ",
+      "ざんねんです。じゃあ、こんど。",
+      "ゆき",
+      "はい、こんど ぜひ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "六",
+      "onyomi": [
+        "ロク",
+        "リク"
+      ],
+      "kunyomi": [
+        "む",
+        "む.つ",
+        "むっ.つ",
+        "むい"
+      ],
+      "meaning_en": "six",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "六月",
+          "reading": "ろくがつ",
+          "en": "June"
+        },
+        {
+          "word": "六時",
+          "reading": "ろくじ",
+          "en": "six o'clock"
+        }
+      ],
+      "mnemonic": "A lid and two legs: six."
+    },
+    {
+      "char": "七",
+      "onyomi": [
+        "シチ"
+      ],
+      "kunyomi": [
+        "なな",
+        "なな.つ",
+        "なの"
+      ],
+      "meaning_en": "seven",
+      "stroke_count": 2,
+      "example_words": [
+        {
+          "word": "七月",
+          "reading": "しちがつ",
+          "en": "July"
+        },
+        {
+          "word": "七時",
+          "reading": "しちじ",
+          "en": "seven o'clock"
+        }
+      ],
+      "mnemonic": "A bent line crossing: seven."
+    },
+    {
+      "char": "八",
+      "onyomi": [
+        "ハチ",
+        "ハツ"
+      ],
+      "kunyomi": [
+        "や",
+        "や.つ",
+        "やっ.つ",
+        "よう"
+      ],
+      "meaning_en": "eight",
+      "stroke_count": 2,
+      "example_words": [
+        {
+          "word": "八月",
+          "reading": "はちがつ",
+          "en": "August"
+        },
+        {
+          "word": "八時",
+          "reading": "はちじ",
+          "en": "eight o'clock"
+        }
+      ],
+      "mnemonic": "Two strokes spreading apart."
+    },
+    {
+      "char": "九",
+      "onyomi": [
+        "キュウ",
+        "ク"
+      ],
+      "kunyomi": [
+        "ここの",
+        "ここの.つ"
+      ],
+      "meaning_en": "nine",
+      "stroke_count": 2,
+      "example_words": [
+        {
+          "word": "九月",
+          "reading": "くがつ",
+          "en": "September"
+        },
+        {
+          "word": "九時",
+          "reading": "くじ",
+          "en": "nine o'clock"
+        }
+      ],
+      "mnemonic": "Almost ten: a hooked stroke."
+    },
+    {
+      "char": "十",
+      "onyomi": [
+        "ジュウ",
+        "ジッ",
+        "ジュッ"
+      ],
+      "kunyomi": [
+        "とお",
+        "と",
+        "そ"
+      ],
+      "meaning_en": "ten",
+      "stroke_count": 2,
+      "example_words": [
+        {
+          "word": "十分",
+          "reading": "じゅっぷん",
+          "en": "ten minutes"
+        },
+        {
+          "word": "二十日",
+          "reading": "はつか",
+          "en": "the 20th"
+        }
+      ],
+      "mnemonic": "A cross: ten."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: how do you say the 2nd of the month?",
+      "options": [
+        "はつか",
+        "ふつか",
+        "ににち",
+        "みっか"
+      ],
+      "correct": "ふつか",
+      "explanation": "The 2nd is ふつか."
+    },
+    {
+      "prompt": "What does ひま mean?",
+      "options": [
+        "busy",
+        "a pity",
+        "free, not busy",
+        "together"
+      ],
+      "correct": "free, not busy",
+      "explanation": "ひまです means I am free."
+    },
+    {
+      "prompt": "Change いきます into an invitation.",
+      "options": [
+        "いきますか",
+        "いきません",
+        "いきました",
+        "いきませんか"
+      ],
+      "correct": "いきませんか",
+      "explanation": "ませんか invites the listener."
+    },
+    {
+      "prompt": "Choose the form that means let's eat.",
+      "options": [
+        "たべましょう",
+        "たべません",
+        "たべました",
+        "たべますか"
+      ],
+      "correct": "たべましょう",
+      "explanation": "ましょう means let's."
+    },
+    {
+      "prompt": "Complete: なんじに あい ___ か。",
+      "options": [
+        "ません でした",
+        "ましょう",
+        "ました",
+        "ます ません"
+      ],
+      "correct": "ましょう",
+      "explanation": "ましょうか asks shall we, to decide a detail."
+    },
+    {
+      "prompt": "Which reply accepts an invitation?",
+      "options": [
+        "すみません、ちょっと…。",
+        "ざんねんです。",
+        "いいですね。ぜひ。",
+        "いいえ、いきません。"
+      ],
+      "correct": "いいですね。ぜひ。",
+      "explanation": "いいですね and ぜひ accept warmly."
+    },
+    {
+      "prompt": "Choose the meaning of どこで あいましょうか。",
+      "options": [
+        "Where did we meet?",
+        "Shall we meet?",
+        "Who shall we meet?",
+        "Where shall we meet?"
+      ],
+      "correct": "Where shall we meet?",
+      "explanation": "どこで is where, and ましょうか is shall we."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to invite a friend to a café on Saturday. What do you say?",
+      "options": [
+        "どようびに カフェに いきましたか。",
+        "どようびに カフェに いきません。",
+        "どようびに カフェで いきませんか。",
+        "どようびに カフェに いきませんか。"
+      ],
+      "correct": "どようびに カフェに いきませんか。",
+      "explanation": "ませんか invites, and the destination takes に."
+    },
+    {
+      "prompt": "A friend invites you, but you already have plans. Which reply is polite?",
+      "options": [
+        "すみません、あしたは ちょっと…。",
+        "いいえ、いきません。",
+        "いいですね。",
+        "あしたは ひまです。"
+      ],
+      "correct": "すみません、あしたは ちょっと…。",
+      "explanation": "Trailing off with ちょっと… declines without a blunt no."
+    },
+    {
+      "prompt": "Read: ごご にじに えいがかんで あいましょう。 Where and when will they meet?",
+      "options": [
+        "At the station at 2 p.m.",
+        "At the cinema at 2 p.m.",
+        "At the cinema at 2 a.m.",
+        "At a café at 12 noon."
+      ],
+      "correct": "At the cinema at 2 p.m.",
+      "explanation": "ごご にじ is 2 p.m., and えいがかんで is at the cinema."
+    },
+    {
+      "prompt": "Which sentence only asks a fact, and is NOT an invitation?",
+      "options": [
+        "あした えいがを みませんか。",
+        "あした えいがを みましょう。",
+        "あした えいがを みますか。",
+        "あした いっしょに えいがを みませんか。"
+      ],
+      "correct": "あした えいがを みますか。",
+      "explanation": "みますか asks whether you will watch. ませんか and ましょう invite."
+    },
+    {
+      "prompt": "Review: complete きのう デパートで かばんを ___。",
+      "options": [
+        "かきました",
+        "あいました",
+        "かいます",
+        "かいました"
+      ],
+      "correct": "かいました",
+      "explanation": "かいました is bought; the action was yesterday."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-5-dates-and-birthdays",
+    "japanese-n5-unit-5-where-with-how",
+    "japanese-n5-unit-4-days-and-schedules",
+    "japanese-n5-unit-4-telling-time",
+    "japanese-n5-unit-2-preferences"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: ろくがつ and はちがつ appear only as kanji example words; months follow the number + がつ rule taught in the previous lesson."
+  ]
+}

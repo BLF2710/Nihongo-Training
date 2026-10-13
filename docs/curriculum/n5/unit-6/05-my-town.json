@@ -1,0 +1,446 @@
+{
+  "id": "japanese-n5-unit-6-my-town",
+  "slug": "n5-unit-6-my-town",
+  "unit": "Japanese N5 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "My Town",
+  "title_jp": "わたしの まち",
+  "objectives": [
+    "I can describe my town in a few connected sentences.",
+    "Name common places in a town",
+    "Link sentences with そして and でも",
+    "Say there are many or few of something"
+  ],
+  "vocabulary": [
+    [
+      "ほんや",
+      "hon'ya",
+      "bookshop"
+    ],
+    [
+      "びょういん",
+      "byouin",
+      "hospital"
+    ],
+    [
+      "ぎんこう",
+      "ginkou",
+      "bank"
+    ],
+    [
+      "ゆうびんきょく",
+      "yuubinkyoku",
+      "post office"
+    ],
+    [
+      "コンビニ",
+      "konbini",
+      "convenience store"
+    ],
+    [
+      "みせ",
+      "mise",
+      "shop"
+    ],
+    [
+      "くに",
+      "kuni",
+      "country"
+    ],
+    [
+      "がいこく",
+      "gaikoku",
+      "foreign country"
+    ],
+    [
+      "ちかく",
+      "chikaku",
+      "nearby / vicinity"
+    ],
+    [
+      "たくさん",
+      "takusan",
+      "a lot"
+    ],
+    [
+      "そして",
+      "soshite",
+      "and / and then"
+    ],
+    [
+      "でも",
+      "demo",
+      "but"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "店",
+      "word_reading": "みせ"
+    },
+    {
+      "word_japanese": "駅",
+      "word_reading": "えき"
+    },
+    {
+      "word_japanese": "国",
+      "word_reading": "くに"
+    }
+  ],
+  "concept": {
+    "title": "From sentences to a description",
+    "text": "A description needs linked sentences. そして starts a sentence that adds something similar. でも starts a sentence that contrasts. Both come first in the sentence and are followed by a comma in writing.\n\nTo say what a town has, use the pattern you know: place に N が あります. Add たくさん before あります for a lot. N の ちかく means near N.",
+    "examples": [
+      "Sentence 1。そして、Sentence 2。",
+      "Sentence 1。でも、Sentence 2。",
+      "place に N が たくさん あります"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "And… / But…",
+      "pattern": "そして、〜。 / でも、〜。",
+      "explanation": "そして adds a point in the same direction. でも adds a point in the opposite direction. Compare が, which joins the two halves into one sentence.",
+      "examples": [
+        {
+          "japanese": "この まちは しずかです。そして、きれいです。",
+          "romaji": "Kono machi wa shizuka desu. Soshite, kirei desu.",
+          "meaning": "This town is quiet. And it is clean."
+        },
+        {
+          "japanese": "この みせは やすいです。そして、おいしいです。",
+          "romaji": "Kono mise wa yasui desu. Soshite, oishii desu.",
+          "meaning": "This shop is cheap. And the food is good."
+        },
+        {
+          "japanese": "えきは ちいさいです。でも、べんりです。",
+          "romaji": "Eki wa chiisai desu. Demo, benri desu.",
+          "meaning": "The station is small. But it is convenient."
+        },
+        {
+          "japanese": "わたしの くには あついです。でも、にほんは さむいです。",
+          "romaji": "Watashi no kuni wa atsui desu. Demo, Nihon wa samui desu.",
+          "meaning": "My country is hot. But Japan is cold."
+        },
+        {
+          "japanese": "ほんやに いきました。そして、ほんを かいました。",
+          "romaji": "Hon'ya ni ikimashita. Soshite, hon o kaimashita.",
+          "meaning": "I went to the bookshop. And then I bought a book."
+        }
+      ],
+      "notes": [
+        "Do not use そして for a contrast: やすいです。そして、おいしくないです is odd.",
+        "と joins nouns only. Use そして between sentences."
+      ]
+    },
+    {
+      "title": "What the town has",
+      "pattern": "place に N が (たくさん) あります / N の ちかく",
+      "explanation": "たくさん goes just before the verb. ちかく is a position word like まえ and うしろ: えきの ちかく is near the station.",
+      "examples": [
+        {
+          "japanese": "えきの ちかくに ぎんこうが あります。",
+          "romaji": "Eki no chikaku ni ginkou ga arimasu.",
+          "meaning": "There is a bank near the station."
+        },
+        {
+          "japanese": "この まちに みせが たくさん あります。",
+          "romaji": "Kono machi ni mise ga takusan arimasu.",
+          "meaning": "There are a lot of shops in this town."
+        },
+        {
+          "japanese": "うちの ちかくに コンビニが あります。",
+          "romaji": "Uchi no chikaku ni konbini ga arimasu.",
+          "meaning": "There is a convenience store near my house."
+        },
+        {
+          "japanese": "びょういんは ゆうびんきょくの まえです。",
+          "romaji": "Byouin wa yuubinkyoku no mae desu.",
+          "meaning": "The hospital is in front of the post office."
+        },
+        {
+          "japanese": "この まちに がいこくの ひとが たくさん います。",
+          "romaji": "Kono machi ni gaikoku no hito ga takusan imasu.",
+          "meaning": "There are a lot of people from abroad in this town."
+        }
+      ],
+      "notes": [
+        "People and animals take います, not あります.",
+        "たくさん does not take a particle here."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "わたしの まちは ちいさいですが、えきの ちかくは にぎやかです。",
+      "My town is small, but the area near the station is lively."
+    ],
+    [
+      "ほんやと ぎんこうは えきの まえに あります。",
+      "The bookshop and the bank are in front of the station."
+    ],
+    [
+      "きのう ゆうびんきょくに いきました。",
+      "Yesterday I went to the post office."
+    ],
+    [
+      "わたしの くにに たかい やまが たくさん あります。",
+      "There are a lot of tall mountains in my country."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "マイさんの まちは どんな ところですか。",
+      "マイ",
+      "ちいさい まちです。でも、みせが たくさん あります。"
+    ],
+    [
+      "たなか",
+      "えきの ちかくに なにが ありますか。",
+      "マイ",
+      "ほんやと ぎんこうが あります。そして、おおきい びょういんも あります。"
+    ],
+    [
+      "リー",
+      "この ちかくに コンビニが ありますか。",
+      "ゆき",
+      "はい、ゆうびんきょくの まえに あります。"
+    ],
+    [
+      "アナ",
+      "リンさんの くには どこですか。",
+      "リン",
+      "わたしの くには ベトナムです。あつい くにです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "店",
+      "onyomi": [
+        "テン"
+      ],
+      "kunyomi": [
+        "みせ",
+        "たな"
+      ],
+      "meaning_en": "shop",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "店",
+          "reading": "みせ",
+          "en": "shop"
+        },
+        {
+          "word": "店員",
+          "reading": "てんいん",
+          "en": "shop assistant"
+        }
+      ],
+      "mnemonic": "A stall set up under a roof (广)."
+    },
+    {
+      "char": "駅",
+      "onyomi": [
+        "エキ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "station",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "駅",
+          "reading": "えき",
+          "en": "station"
+        },
+        {
+          "word": "駅前",
+          "reading": "えきまえ",
+          "en": "in front of the station"
+        }
+      ],
+      "mnemonic": "The horse (馬) radical: once a place to change horses."
+    },
+    {
+      "char": "国",
+      "onyomi": [
+        "コク"
+      ],
+      "kunyomi": [
+        "くに"
+      ],
+      "meaning_en": "country",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "国",
+          "reading": "くに",
+          "en": "country"
+        },
+        {
+          "word": "外国",
+          "reading": "がいこく",
+          "en": "foreign country"
+        }
+      ],
+      "mnemonic": "A jewel (玉) kept safe inside borders."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the past of たのしいです.",
+      "options": [
+        "たのしいでした",
+        "たのしかったです",
+        "たのしでした",
+        "たのしくでした"
+      ],
+      "correct": "たのしかったです",
+      "explanation": "い-adjectives: drop い and add かったです."
+    },
+    {
+      "prompt": "Where do you go to see a doctor?",
+      "options": [
+        "ぎんこう",
+        "ほんや",
+        "びょういん",
+        "ゆうびんきょく"
+      ],
+      "correct": "びょういん",
+      "explanation": "びょういん is a hospital."
+    },
+    {
+      "prompt": "What does たくさん mean?",
+      "options": [
+        "a little",
+        "nearby",
+        "but",
+        "a lot"
+      ],
+      "correct": "a lot",
+      "explanation": "たくさん is a lot."
+    },
+    {
+      "prompt": "Complete: この まちは しずかです。___、きれいです。",
+      "options": [
+        "そして",
+        "でも",
+        "どんな",
+        "あまり"
+      ],
+      "correct": "そして",
+      "explanation": "Both points are positive, so add with そして."
+    },
+    {
+      "prompt": "Complete: えきは ちいさいです。___、べんりです。",
+      "options": [
+        "そして",
+        "でも",
+        "とても",
+        "たくさん"
+      ],
+      "correct": "でも",
+      "explanation": "The second sentence contrasts, so use でも."
+    },
+    {
+      "prompt": "Complete: えき ___ ちかくに ぎんこうが あります。",
+      "options": [
+        "に",
+        "を",
+        "の",
+        "が"
+      ],
+      "correct": "の",
+      "explanation": "N の ちかく means near N."
+    },
+    {
+      "prompt": "Choose the meaning of この まちに みせが たくさん あります。",
+      "options": [
+        "There are few shops in this town.",
+        "This town has a big shop.",
+        "There is a shop near this town.",
+        "There are a lot of shops in this town."
+      ],
+      "correct": "There are a lot of shops in this town.",
+      "explanation": "たくさん あります is there are a lot."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: この ちかくに コンビニが ありますか。 There is one in front of the post office. What do you say?",
+      "options": [
+        "はい、ゆうびんきょくの まえに います。",
+        "はい、ゆうびんきょくの まえで あります。",
+        "はい、ゆうびんきょくが まえに あります。",
+        "はい、ゆうびんきょくの まえに あります。"
+      ],
+      "correct": "はい、ゆうびんきょくの まえに あります。",
+      "explanation": "Things take あります, and the location takes に."
+    },
+    {
+      "prompt": "Choose the pair of sentences that makes sense.",
+      "options": [
+        "この みせは やすいです。そして、おいしいです。",
+        "この みせは やすいです。でも、たかくないです。",
+        "この みせは やすいです。そして、おいしくないです。",
+        "この みせは たかいです。そして、やすいです。"
+      ],
+      "correct": "この みせは やすいです。そして、おいしいです。",
+      "explanation": "Two good points are joined with そして."
+    },
+    {
+      "prompt": "Read: えきの ちかくに ほんやと ぎんこうが あります。そして、おおきい びょういんも あります。 What is NOT mentioned?",
+      "options": [
+        "A bookshop",
+        "A post office",
+        "A bank",
+        "A hospital"
+      ],
+      "correct": "A post office",
+      "explanation": "ゆうびんきょく does not appear."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "この まちに がいこくの ひとが たくさん あります。",
+        "この まちに がいこくの ひとを たくさん います。",
+        "この まちに がいこくの ひとが たくさん います。",
+        "この まちで がいこくの ひとが たくさんを います。"
+      ],
+      "correct": "この まちに がいこくの ひとが たくさん います。",
+      "explanation": "People take います, and たくさん has no particle."
+    },
+    {
+      "prompt": "Review: complete へやは せまいです ___、やすいです。",
+      "options": [
+        "を",
+        "と",
+        "も",
+        "が"
+      ],
+      "correct": "が",
+      "explanation": "が joins two contrasting statements in one sentence."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-6-how-was-the-trip",
+    "japanese-n5-unit-6-what-kind",
+    "japanese-n5-unit-3-people-locations",
+    "japanese-n5-unit-3-home-rooms",
+    "japanese-n5-unit-4-going-places"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: みせ (Unit 2) is listed again so that the kanji spelling 店 can be linked.",
+    "VERIFY: ベトナム (Vietnam) is a place name used once in the dialogue."
+  ]
+}

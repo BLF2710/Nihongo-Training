@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n5-unit-9-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "tai",
+      "prompt": "Change たべます into I want to eat.",
+      "options": [
+        "たべますたいです",
+        "たべたいです",
+        "たべるたいです",
+        "たべてたいです"
+      ],
+      "correctIndex": 1,
+      "explanation": "Remove ます and add たいです."
+    },
+    {
+      "id": "tai-negative",
+      "prompt": "Choose the negative of いきたいです.",
+      "options": [
+        "いきたいじゃないです",
+        "いきたくじゃないです",
+        "いかないたいです",
+        "いきたくないです"
+      ],
+      "correctIndex": 3,
+      "explanation": "たい changes like an い-adjective."
+    },
+    {
+      "id": "purpose",
+      "prompt": "Complete: きょうとに おてらを ___ いきます。",
+      "options": [
+        "みに",
+        "みますに",
+        "みて",
+        "みるを"
+      ],
+      "correctIndex": 0,
+      "explanation": "Stem + に shows the purpose of going."
+    },
+    {
+      "id": "direction",
+      "prompt": "What does きた mean?",
+      "options": [
+        "south",
+        "east",
+        "north",
+        "west"
+      ],
+      "correctIndex": 2,
+      "explanation": "きた is north."
+    },
+    {
+      "id": "dictionary-form",
+      "prompt": "Choose the dictionary form of はなします.",
+      "options": [
+        "はなしる",
+        "はなる",
+        "はなさ",
+        "はなす"
+      ],
+      "correctIndex": 3,
+      "explanation": "Group 1: し → す."
+    },
+    {
+      "id": "ability",
+      "prompt": "Choose the sentence that means: I can play the piano.",
+      "options": [
+        "ピアノを ひきます ことが できます。",
+        "ピアノを ひく ことが できます。",
+        "ピアノを ひいた ことが あります。",
+        "ピアノを ひく ことを できます。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dictionary form + ことが できます."
+    },
+    {
+      "id": "hobby",
+      "prompt": "Complete: しゅみは えを ___ ことです。",
+      "options": [
+        "かく",
+        "かきます",
+        "かいて",
+        "かいた"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use the dictionary form before ことです."
+    },
+    {
+      "id": "nai-form",
+      "prompt": "Choose the ない-form of かいます (to buy).",
+      "options": [
+        "かあない",
+        "かいない",
+        "かわない",
+        "かえない"
+      ],
+      "correctIndex": 2,
+      "explanation": "い on its own becomes わ: かわない."
+    },
+    {
+      "id": "please-dont",
+      "prompt": "You want to ask someone not to park here. What do you say?",
+      "options": [
+        "ここに くるまを とめて ください。",
+        "ここに くるまを とめないで ください。",
+        "ここに くるまを とめないて ください。",
+        "ここに くるまを とめたいです。"
+      ],
+      "correctIndex": 1,
+      "explanation": "ない-form + で ください."
+    },
+    {
+      "id": "ta-form",
+      "prompt": "Choose the た-form of よみます.",
+      "options": [
+        "よんた",
+        "よみた",
+        "よった",
+        "よんだ"
+      ],
+      "correctIndex": 3,
+      "explanation": "よんで → よんだ."
+    },
+    {
+      "id": "experience",
+      "prompt": "Choose the sentence that means: I have never eaten natto.",
+      "options": [
+        "なっとうを たべる ことが できません。",
+        "なっとうを たべない ことが あります。",
+        "なっとうを たべた ことが ありません。",
+        "なっとうを たべませんでした ことです。"
+      ],
+      "correctIndex": 2,
+      "explanation": "た-form + ことが ありません: have never."
+    },
+    {
+      "id": "experience-time",
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "きのう しんかんせんに のりました。",
+        "きのう しんかんせんに のった ことが あります。",
+        "きのう しんかんせんを のりました。",
+        "きのう しんかんせんに のる ことが あります。"
+      ],
+      "correctIndex": 0,
+      "explanation": "A specific past time takes ました, and the vehicle takes に."
+    },
+    {
+      "id": "plain-negative",
+      "prompt": "Choose the plain form of いきません.",
+      "options": [
+        "いく",
+        "いった",
+        "いかなかった",
+        "いかない"
+      ],
+      "correctIndex": 3,
+      "explanation": "The plain negative is the ない-form."
+    },
+    {
+      "id": "plain-past",
+      "prompt": "Choose the plain form of たのしかったです.",
+      "options": [
+        "たのしいだった",
+        "たのしかった",
+        "たのしかっただ",
+        "たのしいだ"
+      ],
+      "correctIndex": 1,
+      "explanation": "い-adjectives simply drop です."
+    },
+    {
+      "id": "mou-mada",
+      "prompt": "Someone asks: もう ばんごはんを たべましたか。 You have not eaten yet. What do you say?",
+      "options": [
+        "いいえ、もうです。",
+        "はい、まだです。",
+        "いいえ、まだです。",
+        "いいえ、いちどもです。"
+      ],
+      "correctIndex": 2,
+      "explanation": "まだです means not yet."
+    }
+  ]
+}

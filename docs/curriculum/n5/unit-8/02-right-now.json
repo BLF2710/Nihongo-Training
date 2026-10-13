@@ -1,0 +1,405 @@
+{
+  "id": "japanese-n5-unit-8-right-now",
+  "slug": "n5-unit-8-right-now",
+  "unit": "Japanese N5 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Right Now",
+  "title_jp": "いま なにを していますか",
+  "objectives": [
+    "I can say what someone is doing at the moment.",
+    "Use ています for an action in progress",
+    "Ask なにを していますか",
+    "Say that something is not happening with ていません"
+  ],
+  "vocabulary": [
+    [
+      "ざっし",
+      "zasshi",
+      "magazine"
+    ],
+    [
+      "メール",
+      "meeru",
+      "e-mail"
+    ],
+    [
+      "うた",
+      "uta",
+      "song"
+    ],
+    [
+      "うたいます",
+      "utaimasu",
+      "to sing"
+    ],
+    [
+      "あそびます",
+      "asobimasu",
+      "to play / to have fun"
+    ],
+    [
+      "はしります",
+      "hashirimasu",
+      "to run"
+    ],
+    [
+      "およぎます",
+      "oyogimasu",
+      "to swim"
+    ],
+    [
+      "そうじします",
+      "souji shimasu",
+      "to clean"
+    ],
+    [
+      "せんたくします",
+      "sentaku shimasu",
+      "to do the laundry"
+    ],
+    [
+      "りょうりします",
+      "ryouri shimasu",
+      "to cook"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "In the middle of doing",
+    "text": "て-form + います shows an action that is going on now: たべています (is eating). The ます-form alone describes a habit or the future: まいにち たべます, あした たべます.\n\nOnly います changes for the negative, the question and the past: していません, していますか, していました.\n\nNew て-forms: うたいます → うたって, あそびます → あそんで, はしります → はしって, およぎます → およいで.",
+    "examples": [
+      "V-て います (doing now)",
+      "V-て いません (not doing)",
+      "いま なにを していますか。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Doing now",
+      "pattern": "V-て います",
+      "explanation": "Make the て-form and add います. いま (now) often comes first. In writing the two parts are usually joined.",
+      "examples": [
+        {
+          "japanese": "いま ほんを よんでいます。",
+          "romaji": "Ima hon o yondeimasu.",
+          "meaning": "I am reading a book now."
+        },
+        {
+          "japanese": "あねは へやで ざっしを よんでいます。",
+          "romaji": "Ane wa heya de zasshi o yondeimasu.",
+          "meaning": "My older sister is reading a magazine in her room."
+        },
+        {
+          "japanese": "こどもが こうえんで あそんでいます。",
+          "romaji": "Kodomo ga kouen de asondeimasu.",
+          "meaning": "Children are playing in the park."
+        },
+        {
+          "japanese": "ちちは だいどころで りょうりしています。",
+          "romaji": "Chichi wa daidokoro de ryouri shiteimasu.",
+          "meaning": "My father is cooking in the kitchen."
+        },
+        {
+          "japanese": "ともだちが うみで およいでいます。",
+          "romaji": "Tomodachi ga umi de oyoideimasu.",
+          "meaning": "My friend is swimming in the sea."
+        }
+      ],
+      "notes": [
+        "およぎます has ぎ before ます, so the て-form ends in いで: およいで.",
+        "あそびます has び before ます: あそんで."
+      ]
+    },
+    {
+      "title": "Asking, and saying not now",
+      "pattern": "なにを していますか / V-て いません",
+      "explanation": "Ask what someone is doing with なにを していますか. The negative ていません says the action is not going on now.",
+      "examples": [
+        {
+          "japanese": "いま なにを していますか。",
+          "romaji": "Ima nani o shiteimasu ka.",
+          "meaning": "What are you doing now?"
+        },
+        {
+          "japanese": "メールを かいています。",
+          "romaji": "Meeru o kaiteimasu.",
+          "meaning": "I am writing an e-mail."
+        },
+        {
+          "japanese": "いま べんきょうしていますか。",
+          "romaji": "Ima benkyou shiteimasu ka.",
+          "meaning": "Are you studying now?"
+        },
+        {
+          "japanese": "いいえ、べんきょうしていません。テレビを みています。",
+          "romaji": "Iie, benkyou shiteimasen. Terebi o miteimasu.",
+          "meaning": "No, I am not studying. I am watching television."
+        },
+        {
+          "japanese": "だれが うたを うたっていますか。",
+          "romaji": "Dare ga uta o utatteimasu ka.",
+          "meaning": "Who is singing?"
+        }
+      ],
+      "notes": [
+        "Wrong: よみています. Use the て-form: よんでいます.",
+        "まいにち はしります is a habit; いま はしっています is right now."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "ははは いま せんたくしています。",
+      "My mother is doing the laundry now."
+    ],
+    [
+      "おとこのこが こうえんで はしっています。",
+      "A boy is running in the park."
+    ],
+    [
+      "いま へやを そうじしています。ちょっと まって ください。",
+      "I am cleaning my room now. Please wait a moment."
+    ],
+    [
+      "けんさんは でんわで はなしています。",
+      "Ken is talking on the phone."
+    ]
+  ],
+  "dialogue": [
+    [
+      "ゆき",
+      "もしもし、いま なにを していますか。",
+      "リー",
+      "うちで ばんごはんを つくっています。"
+    ],
+    [
+      "たなか",
+      "マイさんは どこですか。",
+      "アナ",
+      "きょうしつで メールを かいています。"
+    ],
+    [
+      "たなか",
+      "けんさんも べんきょうしていますか。",
+      "アナ",
+      "いいえ、していません。そとで はしっています。"
+    ],
+    [
+      "リン",
+      "だれが うたっていますか。",
+      "さくら",
+      "あねです。まいにち うたを うたいます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "読",
+      "onyomi": [
+        "ドク",
+        "トク",
+        "トウ"
+      ],
+      "kunyomi": [
+        "よ.む",
+        "-よ.み"
+      ],
+      "meaning_en": "read",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "読みます",
+          "reading": "よみます",
+          "en": "to read"
+        },
+        {
+          "word": "読書",
+          "reading": "どくしょ",
+          "en": "reading (as a hobby)"
+        }
+      ],
+      "mnemonic": "Words (言) that are sold (売) in books, to be read."
+    },
+    {
+      "char": "書",
+      "onyomi": [
+        "ショ"
+      ],
+      "kunyomi": [
+        "か.く",
+        "-が.き",
+        "-がき"
+      ],
+      "meaning_en": "write",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "書きます",
+          "reading": "かきます",
+          "en": "to write"
+        },
+        {
+          "word": "図書館",
+          "reading": "としょかん",
+          "en": "library"
+        }
+      ],
+      "mnemonic": "A brush in the hand above a page."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the て-form of のみます.",
+      "options": [
+        "のみて",
+        "のって",
+        "のんで",
+        "のいて"
+      ],
+      "correct": "のんで",
+      "explanation": "Group 1 with み: んで."
+    },
+    {
+      "prompt": "What does あそびます mean?",
+      "options": [
+        "to swim",
+        "to run",
+        "to sing",
+        "to play"
+      ],
+      "correct": "to play",
+      "explanation": "あそびます is to play or have fun."
+    },
+    {
+      "prompt": "Choose the て-form of およぎます.",
+      "options": [
+        "およいで",
+        "およいて",
+        "およぎて",
+        "およんで"
+      ],
+      "correct": "およいで",
+      "explanation": "Group 1 with ぎ: いで."
+    },
+    {
+      "prompt": "Complete: いま ほんを ___。",
+      "options": [
+        "よみています",
+        "よんでいます",
+        "よんでます います",
+        "よんでです"
+      ],
+      "correct": "よんでいます",
+      "explanation": "て-form + います shows an action in progress."
+    },
+    {
+      "prompt": "Complete: いま なにを ___ か。",
+      "options": [
+        "しますでした",
+        "していて",
+        "しています",
+        "しいます"
+      ],
+      "correct": "しています",
+      "explanation": "します → して + います."
+    },
+    {
+      "prompt": "Choose the negative: I am not studying now.",
+      "options": [
+        "いま べんきょうしませんでした。",
+        "いま べんきょうしないです います。",
+        "いま べんきょうしていませんでした。",
+        "いま べんきょうしていません。"
+      ],
+      "correct": "いま べんきょうしていません。",
+      "explanation": "Only います changes: していません."
+    },
+    {
+      "prompt": "Choose the meaning of こどもが こうえんで あそんでいます。",
+      "options": [
+        "Children are playing in the park.",
+        "Children play in the park every day.",
+        "Children played in the park.",
+        "Children are running to the park."
+      ],
+      "correct": "Children are playing in the park.",
+      "explanation": "あそんでいます is are playing, now."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend phones and asks: いま なにを していますか。 You are cooking dinner. What do you say?",
+      "options": [
+        "ばんごはんを つくっています。",
+        "ばんごはんを つくります。",
+        "ばんごはんを つくりています。",
+        "ばんごはんを つくりました。"
+      ],
+      "correct": "ばんごはんを つくっています。",
+      "explanation": "つくります → つくって + います for an action in progress."
+    },
+    {
+      "prompt": "Which sentence describes a habit, not something happening now?",
+      "options": [
+        "いま こうえんで はしっています。",
+        "まいあさ こうえんで はしります。",
+        "いま ざっしを よんでいます。",
+        "ははは いま せんたくしています。"
+      ],
+      "correct": "まいあさ こうえんで はしります。",
+      "explanation": "まいあさ with the ます-form is a habit."
+    },
+    {
+      "prompt": "Read: けんさんは べんきょうしていません。そとで はしっています。 What is Ken doing?",
+      "options": [
+        "Studying outside",
+        "Studying in the classroom",
+        "Running outside",
+        "Playing in the park"
+      ],
+      "correct": "Running outside",
+      "explanation": "そとで はしっています: running outside."
+    },
+    {
+      "prompt": "Which ています form is correct?",
+      "options": [
+        "うたいています",
+        "うたんでいます",
+        "うたいっています",
+        "うたっています"
+      ],
+      "correct": "うたっています",
+      "explanation": "うたいます is Group 1 with い: うたって."
+    },
+    {
+      "prompt": "Review: change まちます into a polite request.",
+      "options": [
+        "まって ください",
+        "まちて ください",
+        "まちます ください",
+        "まんで ください"
+      ],
+      "correct": "まって ください",
+      "explanation": "まちます → まって, then ください."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-8-please-do",
+    "japanese-n5-unit-5-where-with-how",
+    "japanese-n5-unit-3-home-rooms",
+    "japanese-n5-unit-7-counting",
+    "japanese-n5-unit-4-daily-routine"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: もしもし (hello on the phone) is used once in the dialogue.",
+    "VERIFY: 読みます and 書きます are polite forms and 図書館 contains untaught kanji, so no kanji spelling is linked in this lesson."
+  ]
+}

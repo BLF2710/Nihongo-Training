@@ -1,0 +1,419 @@
+{
+  "id": "japanese-n5-unit-8-reasons-and-states",
+  "slug": "n5-unit-8-reasons-and-states",
+  "unit": "Japanese N5 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Reasons & States",
+  "title_jp": "どうしてですか",
+  "objectives": [
+    "I can give a reason and describe a lasting state.",
+    "Give a reason with から",
+    "Ask どうして",
+    "Use ています for states such as living, knowing and being married"
+  ],
+  "vocabulary": [
+    [
+      "どうして",
+      "doushite",
+      "why"
+    ],
+    [
+      "しっています",
+      "shitteimasu",
+      "to know"
+    ],
+    [
+      "けっこんしています",
+      "kekkon shiteimasu",
+      "to be married"
+    ],
+    [
+      "こうこう",
+      "koukou",
+      "high school"
+    ],
+    [
+      "だいがく",
+      "daigaku",
+      "university"
+    ],
+    [
+      "そら",
+      "sora",
+      "sky"
+    ],
+    [
+      "いそがしい",
+      "isogashii",
+      "busy"
+    ],
+    [
+      "ねむい",
+      "nemui",
+      "sleepy"
+    ],
+    [
+      "びょうき",
+      "byouki",
+      "illness / ill"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "学校",
+      "word_reading": "がっこう"
+    },
+    {
+      "word_japanese": "高校",
+      "word_reading": "こうこう"
+    },
+    {
+      "word_japanese": "大学",
+      "word_reading": "だいがく"
+    },
+    {
+      "word_japanese": "空",
+      "word_reading": "そら"
+    }
+  ],
+  "concept": {
+    "title": "Because, and states that continue",
+    "text": "から after a sentence gives the reason for what follows: いそがしいですから、いきません (I am busy, so I am not going). The reason comes first. Asked どうしてですか, you can answer with the reason alone: いそがしいですから.\n\nています does not only mean doing now. With some verbs it describes a state that continues: すんでいます (live), はたらいています (work, as a job), けっこんしています (be married), しっています (know). The negative of しっています is special: しりません.",
+    "examples": [
+      "reason から、result",
+      "どうして 〜か。 — 〜から(です)。",
+      "V-て います (state) / しりません"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Because / so",
+      "pattern": "Sentence 1 から、Sentence 2",
+      "explanation": "Put から after です or ます in the reason. The result follows. Do not confuse it with から after a time or place (from).",
+      "examples": [
+        {
+          "japanese": "いそがしいですから、パーティーに いきません。",
+          "romaji": "Isogashii desu kara, paatii ni ikimasen.",
+          "meaning": "I am busy, so I am not going to the party."
+        },
+        {
+          "japanese": "びょうきですから、がっこうを やすみます。",
+          "romaji": "Byouki desu kara, gakkou o yasumimasu.",
+          "meaning": "I am ill, so I will take the day off school."
+        },
+        {
+          "japanese": "ねむいですから、コーヒーを のみます。",
+          "romaji": "Nemui desu kara, koohii o nomimasu.",
+          "meaning": "I am sleepy, so I will drink coffee."
+        },
+        {
+          "japanese": "どうして いきませんか。",
+          "romaji": "Doushite ikimasen ka.",
+          "meaning": "Why are you not going?"
+        },
+        {
+          "japanese": "テストが ありますから。",
+          "romaji": "Tesuto ga arimasu kara.",
+          "meaning": "Because I have a test."
+        }
+      ],
+      "notes": [
+        "The order is reason から、result. English because often reverses it.",
+        "がっこうを やすみます means to be absent from school."
+      ]
+    },
+    {
+      "title": "States with ています",
+      "pattern": "V-て います (state) / しりません",
+      "explanation": "These verbs describe how things are, not an action in progress. Use しっていますか to ask, and しりません to say you do not know.",
+      "examples": [
+        {
+          "japanese": "あには ぎんこうで はたらいています。",
+          "romaji": "Ani wa ginkou de hataraiteimasu.",
+          "meaning": "My older brother works at a bank."
+        },
+        {
+          "japanese": "あねは けっこんしています。",
+          "romaji": "Ane wa kekkon shiteimasu.",
+          "meaning": "My older sister is married."
+        },
+        {
+          "japanese": "たなかさんを しっていますか。",
+          "romaji": "Tanaka-san o shitteimasu ka.",
+          "meaning": "Do you know Tanaka?"
+        },
+        {
+          "japanese": "いいえ、しりません。",
+          "romaji": "Iie, shirimasen.",
+          "meaning": "No, I do not."
+        },
+        {
+          "japanese": "いもうとは だいがくで えいごを べんきょうしています。",
+          "romaji": "Imouto wa daigaku de eigo o benkyou shiteimasu.",
+          "meaning": "My younger sister studies English at university."
+        }
+      ],
+      "notes": [
+        "Wrong: しっていません. Say しりません.",
+        "すんでいます takes に for the place; はたらいています takes で."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "おとうとは こうこうの がくせいです。",
+      "My younger brother is a high-school student."
+    ],
+    [
+      "きょうは そらが あおいです。いい てんきです。",
+      "The sky is blue today. It is fine weather."
+    ],
+    [
+      "こんしゅうは いそがしいですから、らいしゅう あいましょう。",
+      "I am busy this week, so let's meet next week."
+    ],
+    [
+      "あの ひとの なまえを しっていますか。",
+      "Do you know that person's name?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "あした いっしょに えいがを みませんか。",
+      "アナ",
+      "すみません、あしたは ちょっと…。"
+    ],
+    [
+      "けん",
+      "どうしてですか。",
+      "アナ",
+      "だいがくの テストが ありますから。"
+    ],
+    [
+      "リー",
+      "さくらさんの おにいさんを しっていますか。",
+      "ゆき",
+      "はい、しっています。ぎんこうで はたらいています。"
+    ],
+    [
+      "リー",
+      "けっこんしていますか。",
+      "ゆき",
+      "それは しりません。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "校",
+      "onyomi": [
+        "コウ",
+        "キョウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "school",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "学校",
+          "reading": "がっこう",
+          "en": "school"
+        },
+        {
+          "word": "高校",
+          "reading": "こうこう",
+          "en": "high school"
+        }
+      ],
+      "mnemonic": "A wooden (木) building where people meet (交)."
+    },
+    {
+      "char": "空",
+      "onyomi": [
+        "クウ"
+      ],
+      "kunyomi": [
+        "そら",
+        "あ.く",
+        "あ.き",
+        "あ.ける",
+        "から",
+        "す.く",
+        "す.かす",
+        "むな.しい"
+      ],
+      "meaning_en": "sky, empty",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "空",
+          "reading": "そら",
+          "en": "sky"
+        },
+        {
+          "word": "空気",
+          "reading": "くうき",
+          "en": "air"
+        }
+      ],
+      "mnemonic": "An opening (穴) with space beneath it: the open sky."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete てを あらって ___、たべます。",
+      "options": [
+        "まで",
+        "から",
+        "も",
+        "は"
+      ],
+      "correct": "から",
+      "explanation": "てから means after doing."
+    },
+    {
+      "prompt": "What does ねむい mean?",
+      "options": [
+        "busy",
+        "ill",
+        "sleepy",
+        "sad"
+      ],
+      "correct": "sleepy",
+      "explanation": "ねむい is sleepy. いそがしい is busy."
+    },
+    {
+      "prompt": "Complete: いそがしいです ___、いきません。",
+      "options": [
+        "が",
+        "より",
+        "まで",
+        "から"
+      ],
+      "correct": "から",
+      "explanation": "から after a sentence gives the reason."
+    },
+    {
+      "prompt": "Complete: ___ いきませんか。 — テストが ありますから。",
+      "options": [
+        "どうして",
+        "どちら",
+        "どんな",
+        "いくら"
+      ],
+      "correct": "どうして",
+      "explanation": "どうして asks why."
+    },
+    {
+      "prompt": "How do you say I do not know?",
+      "options": [
+        "しっていません",
+        "しりません",
+        "しりていません",
+        "しっていないです"
+      ],
+      "correct": "しりません",
+      "explanation": "The negative of しっています is しりません."
+    },
+    {
+      "prompt": "Complete: あには ぎんこう ___ はたらいています。",
+      "options": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "correct": "で",
+      "explanation": "The place of work takes で with はたらきます."
+    },
+    {
+      "prompt": "Choose the meaning of あねは けっこんしています。",
+      "options": [
+        "My older sister is getting married now.",
+        "My older sister was married.",
+        "My older sister wants to marry.",
+        "My older sister is married."
+      ],
+      "correct": "My older sister is married.",
+      "explanation": "けっこんしています describes the state of being married."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: どうして がっこうを やすみますか。 You are ill. What do you say?",
+      "options": [
+        "びょうきですが。",
+        "びょうきですか。",
+        "びょうきより。",
+        "びょうきですから。"
+      ],
+      "correct": "びょうきですから。",
+      "explanation": "Reason + から answers どうして."
+    },
+    {
+      "prompt": "Choose the sentence that means: I am sleepy, so I will drink coffee.",
+      "options": [
+        "ねむいですから、コーヒーを のみます。",
+        "コーヒーを のみますから、ねむいです。",
+        "ねむいですが、コーヒーを のみます。",
+        "ねむいですから、コーヒーを のみません。"
+      ],
+      "correct": "ねむいですから、コーヒーを のみます。",
+      "explanation": "The reason comes first, followed by から."
+    },
+    {
+      "prompt": "Read: こんしゅうは いそがしいですから、らいしゅう あいましょう。 When will they meet?",
+      "options": [
+        "This week",
+        "Next week",
+        "Tomorrow",
+        "They will not meet"
+      ],
+      "correct": "Next week",
+      "explanation": "らいしゅう あいましょう: let's meet next week."
+    },
+    {
+      "prompt": "In which sentence does から mean from, not because?",
+      "options": [
+        "びょうきですから、やすみます。",
+        "ねむいですから、ねます。",
+        "がっこうは くじからです。",
+        "テストが ありますから、べんきょうします。"
+      ],
+      "correct": "がっこうは くじからです。",
+      "explanation": "After a time, から means from."
+    },
+    {
+      "prompt": "Review: complete あさ ___、シャワーを あびます。",
+      "options": [
+        "おきます",
+        "おきって",
+        "おきました",
+        "おきて"
+      ],
+      "correct": "おきて",
+      "explanation": "Join actions with the て-form."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-8-first-then",
+    "japanese-n5-unit-8-right-now",
+    "japanese-n5-unit-5-invitations",
+    "japanese-n5-unit-4-days-and-schedules",
+    "japanese-n5-unit-2-living",
+    "japanese-n5-unit-2-family"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: おにいさん (someone else's older brother) is used once in the dialogue; it belongs to the Unit 2 family set.",
+    "VERIFY: しっています and けっこんしています are listed in their ています form because that is how they are used at this level."
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n5-unit-7-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "price-300",
+      "prompt": "How do you say 300 yen?",
+      "options": [
+        "さんひゃくえん",
+        "さんびゃくえん",
+        "さんぜんえん",
+        "さんぴゃくえん"
+      ],
+      "correctIndex": 1,
+      "explanation": "300 is the irregular さんびゃく."
+    },
+    {
+      "id": "price-read",
+      "prompt": "How much is せんはっぴゃくえん?",
+      "options": [
+        "1,080 yen",
+        "8,100 yen",
+        "18,000 yen",
+        "1,800 yen"
+      ],
+      "correctIndex": 3,
+      "explanation": "せん is 1,000 and はっぴゃく is 800."
+    },
+    {
+      "id": "ask-price",
+      "prompt": "Complete: この かばんは ___ ですか。 — さんぜんえんです。",
+      "options": [
+        "いくら",
+        "どれ",
+        "なんがい",
+        "なんにん"
+      ],
+      "correctIndex": 0,
+      "explanation": "いくら asks the price."
+    },
+    {
+      "id": "count-people",
+      "prompt": "How do you say two people?",
+      "options": [
+        "ににん",
+        "にまい",
+        "ふたり",
+        "ふつか"
+      ],
+      "correctIndex": 2,
+      "explanation": "Two people is ふたり."
+    },
+    {
+      "id": "count-four-people",
+      "prompt": "Complete: かぞくは ___ です。 (four people)",
+      "options": [
+        "よんにん",
+        "しにん",
+        "よんまい",
+        "よにん"
+      ],
+      "correctIndex": 3,
+      "explanation": "Four people is よにん."
+    },
+    {
+      "id": "counter-flat",
+      "prompt": "You want two tickets. What do you say?",
+      "options": [
+        "きっぷを にほん ください。",
+        "きっぷを にまい ください。",
+        "きっぷを ふたり ください。",
+        "にまいを きっぷ ください。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Flat things take まい, and the number follows を."
+    },
+    {
+      "id": "counter-long",
+      "prompt": "Choose the correct way to say three pens.",
+      "options": [
+        "ペンを さんぼん",
+        "ペンを さんほん",
+        "ペンを さんまい",
+        "ペンを さんにん"
+      ],
+      "correctIndex": 0,
+      "explanation": "ほん becomes ぼん after さん."
+    },
+    {
+      "id": "hoshii-particle",
+      "prompt": "Complete: おおきい かばん ___ ほしいです。",
+      "options": [
+        "を",
+        "に",
+        "が",
+        "で"
+      ],
+      "correctIndex": 2,
+      "explanation": "The thing wanted takes が."
+    },
+    {
+      "id": "dono-dore",
+      "prompt": "Complete: ___ ぼうしですか。 — その くろい ぼうしです。",
+      "options": [
+        "どれ",
+        "どの",
+        "どう",
+        "どちらが"
+      ],
+      "correctIndex": 1,
+      "explanation": "Before a noun, use どの."
+    },
+    {
+      "id": "floor",
+      "prompt": "Which floor is さんがい?",
+      "options": [
+        "The first floor",
+        "The second floor",
+        "The basement",
+        "The third floor"
+      ],
+      "correctIndex": 3,
+      "explanation": "さんがい is the third floor."
+    },
+    {
+      "id": "position",
+      "prompt": "Choose the sentence that means: The lift is to the left of the stairs.",
+      "options": [
+        "エレベーターは かいだんの みぎに あります。",
+        "かいだんは エレベーターの ひだりに あります。",
+        "エレベーターは かいだんの ひだりに あります。",
+        "エレベーターは ひだりの かいだんに あります。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Topic, then landmark + の + ひだり."
+    },
+    {
+      "id": "yori",
+      "prompt": "Complete: でんしゃは バス ___ はやいです。",
+      "options": [
+        "より",
+        "ほう",
+        "いちばん",
+        "どちら"
+      ],
+      "correctIndex": 0,
+      "explanation": "より means than."
+    },
+    {
+      "id": "dochira-answer",
+      "prompt": "Someone asks: バスと でんしゃと どちらが やすいですか。 The bus is cheaper. What do you say?",
+      "options": [
+        "バスより やすいです。",
+        "バスが どちら やすいです。",
+        "バスは でんしゃが やすいです。",
+        "バスの ほうが やすいです。"
+      ],
+      "correctIndex": 3,
+      "explanation": "A の ほうが answers a どちら question."
+    },
+    {
+      "id": "ichiban",
+      "prompt": "Choose the sentence that means: Of all drinks, I like tea the most.",
+      "options": [
+        "のみものの なかで おちゃより すきです。",
+        "のみものの なかで おちゃが いちばん すきです。",
+        "のみものより おちゃの ほうが いちばんです。",
+        "のみものの なかに おちゃが いちばん すきです。"
+      ],
+      "correctIndex": 1,
+      "explanation": "の なかで names the group; いちばん marks the top."
+    },
+    {
+      "id": "enter-leave",
+      "prompt": "Complete: ろくじに かいしゃ ___ でます。",
+      "options": [
+        "に",
+        "で",
+        "を",
+        "と"
+      ],
+      "correctIndex": 2,
+      "explanation": "The place you leave takes を."
+    }
+  ]
+}

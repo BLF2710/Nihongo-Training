@@ -1,0 +1,505 @@
+{
+  "id": "japanese-n5-unit-7-numbers-and-prices",
+  "slug": "n5-unit-7-numbers-and-prices",
+  "unit": "Japanese N5 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Numbers & Prices",
+  "title_jp": "いくらですか",
+  "objectives": [
+    "I can ask a price and understand the answer.",
+    "Count from 20 up to 10,000",
+    "Say the irregular hundreds and thousands",
+    "Ask いくらですか and buy with を ください"
+  ],
+  "vocabulary": [
+    [
+      "いくら",
+      "ikura",
+      "how much"
+    ],
+    [
+      "えん",
+      "en",
+      "yen"
+    ],
+    [
+      "おかね",
+      "okane",
+      "money"
+    ],
+    [
+      "にじゅう",
+      "nijuu",
+      "twenty"
+    ],
+    [
+      "ひゃく",
+      "hyaku",
+      "hundred"
+    ],
+    [
+      "さんびゃく",
+      "sanbyaku",
+      "three hundred"
+    ],
+    [
+      "ろっぴゃく",
+      "roppyaku",
+      "six hundred"
+    ],
+    [
+      "はっぴゃく",
+      "happyaku",
+      "eight hundred"
+    ],
+    [
+      "せん",
+      "sen",
+      "thousand"
+    ],
+    [
+      "さんぜん",
+      "sanzen",
+      "three thousand"
+    ],
+    [
+      "はっせん",
+      "hassen",
+      "eight thousand"
+    ],
+    [
+      "いちまん",
+      "ichiman",
+      "ten thousand"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "円",
+      "word_reading": "えん"
+    },
+    {
+      "word_japanese": "百",
+      "word_reading": "ひゃく"
+    },
+    {
+      "word_japanese": "千",
+      "word_reading": "せん"
+    },
+    {
+      "word_japanese": "一万",
+      "word_reading": "いちまん"
+    },
+    {
+      "word_japanese": "二十",
+      "word_reading": "にじゅう"
+    },
+    {
+      "word_japanese": "三百",
+      "word_reading": "さんびゃく"
+    },
+    {
+      "word_japanese": "六百",
+      "word_reading": "ろっぴゃく"
+    },
+    {
+      "word_japanese": "八百",
+      "word_reading": "はっぴゃく"
+    },
+    {
+      "word_japanese": "三千",
+      "word_reading": "さんぜん"
+    },
+    {
+      "word_japanese": "八千",
+      "word_reading": "はっせん"
+    }
+  ],
+  "concept": {
+    "title": "Building big numbers",
+    "text": "Tens are number + じゅう: にじゅう (20), さんじゅう (30), よんじゅう (40). Add the units after: にじゅうご (25).\n\nHundreds are number + ひゃく, and thousands are number + せん. A few change their sound: さんびゃく (300), ろっぴゃく (600), はっぴゃく (800), さんぜん (3,000), はっせん (8,000). One hundred and one thousand are just ひゃく and せん, but ten thousand needs いち: いちまん.\n\nRead from the largest part down: せんごひゃくえん is 1,500 yen.",
+    "examples": [
+      "number + じゅう / ひゃく / せん / まん",
+      "せんごひゃくえん = 1,500 yen",
+      "これは いくらですか。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Saying a price",
+      "pattern": "number + えん です",
+      "explanation": "Say the number from the largest unit down and add えん. Watch the five irregular readings.",
+      "examples": [
+        {
+          "japanese": "ひゃくえんです。",
+          "romaji": "Hyaku en desu.",
+          "meaning": "It is 100 yen."
+        },
+        {
+          "japanese": "さんびゃくごじゅうえんです。",
+          "romaji": "Sanbyaku gojuu en desu.",
+          "meaning": "It is 350 yen."
+        },
+        {
+          "japanese": "せんはっぴゃくえんです。",
+          "romaji": "Sen happyaku en desu.",
+          "meaning": "It is 1,800 yen."
+        },
+        {
+          "japanese": "さんぜんえんです。",
+          "romaji": "Sanzen en desu.",
+          "meaning": "It is 3,000 yen."
+        },
+        {
+          "japanese": "いちまんえんです。",
+          "romaji": "Ichiman en desu.",
+          "meaning": "It is 10,000 yen."
+        }
+      ],
+      "notes": [
+        "Not さんひゃく, ろくひゃく or はちひゃく: say さんびゃく, ろっぴゃく, はっぴゃく.",
+        "Before えん, four is よ: よえん. In larger numbers use よん: よんひゃくえん."
+      ]
+    },
+    {
+      "title": "How much is it?",
+      "pattern": "N は いくらですか / (じゃあ、) N を ください",
+      "explanation": "Ask the price with いくらですか. When you have decided, ask for the item with を ください, which you learned for ordering food.",
+      "examples": [
+        {
+          "japanese": "これは いくらですか。",
+          "romaji": "Kore wa ikura desu ka.",
+          "meaning": "How much is this?"
+        },
+        {
+          "japanese": "この かばんは いくらですか。",
+          "romaji": "Kono kaban wa ikura desu ka.",
+          "meaning": "How much is this bag?"
+        },
+        {
+          "japanese": "その かさは はっぴゃくえんです。",
+          "romaji": "Sono kasa wa happyaku en desu.",
+          "meaning": "That umbrella is 800 yen."
+        },
+        {
+          "japanese": "じゃあ、これを ください。",
+          "romaji": "Jaa, kore o kudasai.",
+          "meaning": "Well then, I will take this."
+        },
+        {
+          "japanese": "コーヒーは いくらでしたか。",
+          "romaji": "Koohii wa ikura deshita ka.",
+          "meaning": "How much was the coffee?"
+        }
+      ],
+      "notes": [
+        "いくら asks a price. いくつ, which you may hear, asks how many.",
+        "A price is a noun, so the past is でした: いくらでしたか."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "この とけいは たかいです。はっせんえんです。",
+      "This watch is expensive. It is 8,000 yen."
+    ],
+    [
+      "ひるごはんは ろっぴゃくえんでした。やすかったです。",
+      "Lunch was 600 yen. It was cheap."
+    ],
+    [
+      "きょうは おかねが ありません。",
+      "I have no money today."
+    ],
+    [
+      "あの ほんは せんにひゃくえんです。",
+      "That book is 1,200 yen."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、この かさは いくらですか。",
+      "てんいん",
+      "はっぴゃくえんです。"
+    ],
+    [
+      "アナ",
+      "その おおきい かさは いくらですか。",
+      "てんいん",
+      "せんごひゃくえんです。"
+    ],
+    [
+      "アナ",
+      "じゃあ、この ちいさい かさを ください。",
+      "てんいん",
+      "はい、はっぴゃくえんです。"
+    ],
+    [
+      "けん",
+      "その かばんは たかかったですか。",
+      "マイ",
+      "いいえ、さんぜんえんでした。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "百",
+      "onyomi": [
+        "ヒャク",
+        "ビャク"
+      ],
+      "kunyomi": [
+        "もも"
+      ],
+      "meaning_en": "hundred",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "百",
+          "reading": "ひゃく",
+          "en": "hundred"
+        },
+        {
+          "word": "三百",
+          "reading": "さんびゃく",
+          "en": "three hundred"
+        }
+      ],
+      "mnemonic": "One (一) above white (白): one hundred."
+    },
+    {
+      "char": "千",
+      "onyomi": [
+        "セン"
+      ],
+      "kunyomi": [
+        "ち"
+      ],
+      "meaning_en": "thousand",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "千",
+          "reading": "せん",
+          "en": "thousand"
+        },
+        {
+          "word": "三千",
+          "reading": "さんぜん",
+          "en": "three thousand"
+        }
+      ],
+      "mnemonic": "Ten (十) with a stroke on top: a thousand."
+    },
+    {
+      "char": "万",
+      "onyomi": [
+        "マン",
+        "バン"
+      ],
+      "kunyomi": [
+        "よろず"
+      ],
+      "meaning_en": "ten thousand",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "一万",
+          "reading": "いちまん",
+          "en": "ten thousand"
+        },
+        {
+          "word": "二万",
+          "reading": "にまん",
+          "en": "twenty thousand"
+        }
+      ],
+      "mnemonic": "A simple shape for a very large number."
+    },
+    {
+      "char": "円",
+      "onyomi": [
+        "エン"
+      ],
+      "kunyomi": [
+        "まる.い",
+        "まる",
+        "まど",
+        "まど.か",
+        "まろ.やか"
+      ],
+      "meaning_en": "yen, circle",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "円",
+          "reading": "えん",
+          "en": "yen"
+        },
+        {
+          "word": "百円",
+          "reading": "ひゃくえん",
+          "en": "100 yen"
+        }
+      ],
+      "mnemonic": "A window in a bank counter where yen are paid."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the past of やすいです.",
+      "options": [
+        "やすいでした",
+        "やすかったです",
+        "やすでした",
+        "やすくでした"
+      ],
+      "correct": "やすかったです",
+      "explanation": "い-adjectives: drop い and add かったです."
+    },
+    {
+      "prompt": "What does いくら mean?",
+      "options": [
+        "how many people",
+        "what kind",
+        "how much",
+        "which"
+      ],
+      "correct": "how much",
+      "explanation": "いくら asks a price."
+    },
+    {
+      "prompt": "How do you say 300?",
+      "options": [
+        "さんひゃく",
+        "さんぴゃく",
+        "さんぜん",
+        "さんびゃく"
+      ],
+      "correct": "さんびゃく",
+      "explanation": "300 is the irregular さんびゃく."
+    },
+    {
+      "prompt": "How do you say 8,000?",
+      "options": [
+        "はっせん",
+        "はちせん",
+        "はっぴゃく",
+        "はちまん"
+      ],
+      "correct": "はっせん",
+      "explanation": "8,000 is the irregular はっせん."
+    },
+    {
+      "prompt": "How much is せんごひゃくえん?",
+      "options": [
+        "1,050 yen",
+        "1,500 yen",
+        "5,100 yen",
+        "15,000 yen"
+      ],
+      "correct": "1,500 yen",
+      "explanation": "せん is 1,000 and ごひゃく is 500."
+    },
+    {
+      "prompt": "Complete: これは ___ ですか。 — ろっぴゃくえんです。",
+      "options": [
+        "どんな",
+        "どこ",
+        "いくら",
+        "いつ"
+      ],
+      "correct": "いくら",
+      "explanation": "The answer is a price, so the question is いくら."
+    },
+    {
+      "prompt": "How do you say 10,000 yen?",
+      "options": [
+        "まんえん",
+        "じゅうせんえん",
+        "いちせんえん",
+        "いちまんえん"
+      ],
+      "correct": "いちまんえん",
+      "explanation": "Ten thousand needs いち: いちまん."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to know the price of an umbrella near the shop assistant. What do you say?",
+      "options": [
+        "その かさは どんなですか。",
+        "その かさは いくらを ですか。",
+        "その かさを いくら ください。",
+        "その かさは いくらですか。"
+      ],
+      "correct": "その かさは いくらですか。",
+      "explanation": "N は いくらですか asks the price."
+    },
+    {
+      "prompt": "Read: この とけいは はっせんえんです。 How much is the watch?",
+      "options": [
+        "8,000 yen",
+        "800 yen",
+        "80,000 yen",
+        "3,000 yen"
+      ],
+      "correct": "8,000 yen",
+      "explanation": "はっせん is 8,000."
+    },
+    {
+      "prompt": "Which price is 2,600 yen?",
+      "options": [
+        "にせんろくひゃくえん",
+        "にせんろっぴゃくえん",
+        "にひゃくろくじゅうえん",
+        "ろくせんにひゃくえん"
+      ],
+      "correct": "にせんろっぴゃくえん",
+      "explanation": "600 is ろっぴゃく."
+    },
+    {
+      "prompt": "You have decided to buy this one. What do you say?",
+      "options": [
+        "じゃあ、これは いくらですか。",
+        "じゃあ、これが ください。",
+        "じゃあ、これを ください。",
+        "じゃあ、これを かいました。"
+      ],
+      "correct": "じゃあ、これを ください。",
+      "explanation": "N を ください asks for the item."
+    },
+    {
+      "prompt": "Review: complete しずか ___ ホテルです。",
+      "options": [
+        "い",
+        "の",
+        "が",
+        "な"
+      ],
+      "correct": "な",
+      "explanation": "な-adjectives take な before a noun."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-6-how-was-the-trip",
+    "japanese-n5-unit-6-what-kind",
+    "japanese-n5-unit-1-numbers-age",
+    "japanese-n5-unit-2-restaurant",
+    "japanese-n5-unit-3-classroom-objects"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: てんいん (shop assistant) is used only as a speaker label in dialogues.",
+    "VERIFY: the dictionary reading of 八百 may be listed differently; the importer links it only if はっぴゃく is present."
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "id": "japanese-n5-unit-9-review",
+  "slug": "n5-unit-9-review",
+  "unit": "Japanese N5 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 9 Review",
+  "title_jp": "ユニット9の ふくしゅう",
+  "objectives": [
+    "I can talk about wishes, abilities, experiences and plans.",
+    "Choose the right plain form before こと",
+    "Use たい, ないで ください and た ことが あります",
+    "Read a short travel plan"
+  ],
+  "vocabulary": [
+    [
+      "きた",
+      "kita",
+      "north"
+    ],
+    [
+      "ほっかいどう",
+      "Hokkaidou",
+      "Hokkaido"
+    ],
+    [
+      "おんせん",
+      "onsen",
+      "hot spring"
+    ],
+    [
+      "のぼります",
+      "noborimasu",
+      "to climb"
+    ],
+    [
+      "できます",
+      "dekimasu",
+      "can do"
+    ],
+    [
+      "しゅみ",
+      "shumi",
+      "hobby"
+    ],
+    [
+      "うんてんします",
+      "unten shimasu",
+      "to drive"
+    ],
+    [
+      "さかな",
+      "sakana",
+      "fish"
+    ],
+    [
+      "わすれます",
+      "wasuremasu",
+      "to forget"
+    ],
+    [
+      "いちど",
+      "ichido",
+      "once"
+    ],
+    [
+      "のります",
+      "norimasu",
+      "to ride / to get on"
+    ],
+    [
+      "まだ",
+      "mada",
+      "not yet / still"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Four verb forms",
+    "text": "You now have four forms built from the ます-form.\n\nStem (take off ます): たいです, and purpose に いきます.\nDictionary form: ことが できます, しゅみは 〜ことです.\nない-form: ないで ください.\nた-form: た ことが あります.\n\nThe same forms, used alone, make the plain style: いく, いかない, いった, いかなかった.",
+    "examples": [
+      "V-stem たいです / V-stem に いきます",
+      "V-dictionary ことが できます",
+      "V-ないで ください / V-た ことが あります"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "しちがつに ほっかいどうに いきたいです。",
+      "I want to go to Hokkaido in July."
+    ],
+    [
+      "ほっかいどうに いった ことが ありません。",
+      "I have never been to Hokkaido."
+    ],
+    [
+      "ともだちは くるまを うんてんする ことが できます。",
+      "My friend can drive a car."
+    ],
+    [
+      "おんせんに はいりに いきます。",
+      "I am going in order to bathe in a hot spring."
+    ],
+    [
+      "きっぷを わすれないで ください。",
+      "Please do not forget the tickets."
+    ],
+    [
+      "きっぷは まだです。あとで かいます。",
+      "I do not have the tickets yet. I will buy them later."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リー",
+      "ゆきさんは ほっかいどうに いった ことが ありますか。",
+      "ゆき",
+      "はい、いちど あります。おんせんに はいりました。"
+    ],
+    [
+      "リー",
+      "いいですね。わたしも いきたいです。",
+      "ゆき",
+      "じゃあ、しちがつに いっしょに いきませんか。"
+    ],
+    [
+      "リー",
+      "ぜひ。ゆきさんは くるまを うんてんする ことが できますか。",
+      "ゆき",
+      "はい、できます。くるまで いきましょう。"
+    ],
+    [
+      "リー",
+      "ホテルは だいじょうぶですか。",
+      "ゆき",
+      "まだです。あとで でんわします。しんぱいしないで ください。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Travel plan (message to a friend)",
+    "text_jp": "しちがつに ともだちと ほっかいどうに いきます。ほっかいどうは にほんの きたに あります。わたしは ほっかいどうに いった ことが ありません。まず、おおきい こうえんを みに いきます。それから、おんせんに はいりたいです。ほっかいどうは さかなが おいしいですから、たくさん たべたいです。ともだちは くるまを うんてんする ことが できますから、くるまで いきます。",
+    "en_translation": "In July I am going to Hokkaido with a friend. Hokkaido is in the north of Japan. I have never been to Hokkaido. First, we will go to see a big park. After that, I want to bathe in a hot spring. The fish in Hokkaido is delicious, so I want to eat a lot. My friend can drive, so we will go by car.",
+    "questions": [
+      {
+        "prompt": "Has the writer been to Hokkaido before?",
+        "options": [
+          "Yes, once",
+          "No, never",
+          "Yes, many times",
+          "It does not say"
+        ],
+        "correct": "No, never",
+        "explanation": "いった ことが ありません。"
+      },
+      {
+        "prompt": "What does the writer want to do after seeing the park?",
+        "options": [
+          "Climb a mountain",
+          "Go fishing",
+          "Bathe in a hot spring",
+          "Drive a car"
+        ],
+        "correct": "Bathe in a hot spring",
+        "explanation": "それから、おんせんに はいりたいです。"
+      },
+      {
+        "prompt": "Why are they going by car?",
+        "options": [
+          "The train is slow.",
+          "The writer likes cars.",
+          "The car is new.",
+          "The friend can drive."
+        ],
+        "correct": "The friend can drive.",
+        "explanation": "ともだちは くるまを うんてんする ことが できますから。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Change のぼります into I want to climb.",
+      "options": [
+        "のぼるたいです",
+        "のぼってたいです",
+        "のぼりたいです",
+        "のぼりますたいです"
+      ],
+      "correct": "のぼりたいです",
+      "explanation": "Stem + たいです."
+    },
+    {
+      "prompt": "Choose the dictionary form of うんてんします.",
+      "options": [
+        "うんてんしる",
+        "うんてんす",
+        "うんてんくる",
+        "うんてんする"
+      ],
+      "correct": "うんてんする",
+      "explanation": "します → する."
+    },
+    {
+      "prompt": "Choose the ない-form of わすれます.",
+      "options": [
+        "わすれない",
+        "わすらない",
+        "わすれらない",
+        "わすない"
+      ],
+      "correct": "わすれない",
+      "explanation": "Group 2: ます → ない."
+    },
+    {
+      "prompt": "Choose the た-form of のります.",
+      "options": [
+        "のりた",
+        "のった",
+        "のんだ",
+        "のいた"
+      ],
+      "correct": "のった",
+      "explanation": "のって → のった."
+    },
+    {
+      "prompt": "Complete: ほっかいどうに ___ ことが ありません。",
+      "options": [
+        "いく",
+        "いって",
+        "いった",
+        "いきます"
+      ],
+      "correct": "いった",
+      "explanation": "Experience uses the た-form."
+    },
+    {
+      "prompt": "Complete: くるまを ___ ことが できます。",
+      "options": [
+        "うんてんした",
+        "うんてんして",
+        "うんてんします",
+        "うんてんする"
+      ],
+      "correct": "うんてんする",
+      "explanation": "Ability uses the dictionary form."
+    },
+    {
+      "prompt": "Complete: きっぷを ___ ください。 (please do not forget)",
+      "options": [
+        "わすれないで",
+        "わすれないて",
+        "わすれて",
+        "わすれなくて"
+      ],
+      "correct": "わすれないで",
+      "explanation": "ない-form + で ください."
+    },
+    {
+      "prompt": "Choose the meaning of いいえ、まだです。",
+      "options": [
+        "No, never.",
+        "No, not yet.",
+        "Yes, already.",
+        "No, later."
+      ],
+      "correct": "No, not yet.",
+      "explanation": "まだです: not yet."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: ほっかいどうに いった ことが ありますか。 You went once. What do you say?",
+      "options": [
+        "はい、いちど あります。",
+        "はい、いちども あります。",
+        "はい、いちど いきたいです。",
+        "はい、いちど できます。"
+      ],
+      "correct": "はい、いちど あります。",
+      "explanation": "いちど あります: once."
+    },
+    {
+      "prompt": "Choose the sentence that means: I am going to Hokkaido to bathe in a hot spring.",
+      "options": [
+        "ほっかいどうに おんせんに はいって いきます ことです。",
+        "ほっかいどうに おんせんに はいりに いきます。",
+        "ほっかいどうに おんせんに はいりますに いきます。",
+        "ほっかいどうに おんせんに はいる ことが あります。"
+      ],
+      "correct": "ほっかいどうに おんせんに はいりに いきます。",
+      "explanation": "Stem + に いきます shows purpose."
+    },
+    {
+      "prompt": "Which sentence correctly reassures someone?",
+      "options": [
+        "しんぱいしないて ください。",
+        "しんぱいしたいです。",
+        "しんぱいしないで ください。",
+        "しんぱいした ことが あります。"
+      ],
+      "correct": "しんぱいしないで ください。",
+      "explanation": "しない + で ください."
+    },
+    {
+      "prompt": "Read: ともだちは くるまを うんてんする ことが できますから、くるまで いきます。 How will they travel?",
+      "options": [
+        "By train",
+        "By bus",
+        "On foot",
+        "By car"
+      ],
+      "correct": "By car",
+      "explanation": "くるまで いきます: go by car."
+    },
+    {
+      "prompt": "Review: complete はを みがいて ___、ねます。",
+      "options": [
+        "から",
+        "より",
+        "も",
+        "まで"
+      ],
+      "correct": "から",
+      "explanation": "てから means after doing."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-9-i-want-to-go",
+    "japanese-n5-unit-9-things-i-can-do",
+    "japanese-n5-unit-9-please-dont",
+    "japanese-n5-unit-9-have-you-ever",
+    "japanese-n5-unit-9-talking-with-friends",
+    "japanese-n5-unit-8-first-then"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

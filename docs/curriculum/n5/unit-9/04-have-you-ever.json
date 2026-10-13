@@ -1,0 +1,352 @@
+{
+  "id": "japanese-n5-unit-9-have-you-ever",
+  "slug": "n5-unit-9-have-you-ever",
+  "unit": "Japanese N5 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Have You Ever?",
+  "title_jp": "〜た ことが あります",
+  "objectives": [
+    "I can talk about my experiences.",
+    "Make the た-form from the て-form",
+    "Say what you have done with た ことが あります",
+    "Say how often: once, many times, never"
+  ],
+  "vocabulary": [
+    [
+      "いちど",
+      "ichido",
+      "once"
+    ],
+    [
+      "いちども",
+      "ichido mo",
+      "not even once"
+    ],
+    [
+      "なんかいも",
+      "nankai mo",
+      "many times"
+    ],
+    [
+      "ふじさん",
+      "Fujisan",
+      "Mt Fuji"
+    ],
+    [
+      "しんかんせん",
+      "shinkansen",
+      "bullet train"
+    ],
+    [
+      "きもの",
+      "kimono",
+      "kimono"
+    ],
+    [
+      "のります",
+      "norimasu",
+      "to ride / to get on"
+    ],
+    [
+      "すもう",
+      "sumou",
+      "sumo"
+    ],
+    [
+      "なっとう",
+      "nattou",
+      "natto (fermented soybeans)"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "The た-form",
+    "text": "The た-form is the plain past of a verb. If you know the て-form, you know it already: change て to た and で to だ. たべて → たべた, いって → いった, よんで → よんだ, して → した, きて → きた.\n\nた-form + ことが あります describes an experience at some time in your life: いった ことが あります (I have been). Use ありません for never. It is not used with a specific past time such as きのう; for that, use ました.",
+    "examples": [
+      "て → た / で → だ",
+      "V-た ことが あります",
+      "いちど / なんかいも / いちども 〜ありません"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "た-form",
+      "pattern": "V-て → V-た",
+      "explanation": "Make the て-form, then change the last sound. Nothing else changes.",
+      "examples": [
+        {
+          "japanese": "たべて → たべた",
+          "romaji": "tabete → tabeta",
+          "meaning": "ate"
+        },
+        {
+          "japanese": "いって → いった",
+          "romaji": "itte → itta",
+          "meaning": "went"
+        },
+        {
+          "japanese": "のって → のった",
+          "romaji": "notte → notta",
+          "meaning": "rode"
+        },
+        {
+          "japanese": "よんで → よんだ",
+          "romaji": "yonde → yonda",
+          "meaning": "read"
+        },
+        {
+          "japanese": "して → した",
+          "romaji": "shite → shita",
+          "meaning": "did"
+        }
+      ],
+      "notes": [
+        "Wrong: よんた. で becomes だ: よんだ.",
+        "のります is Group 1: のって, のった. The vehicle takes に."
+      ]
+    },
+    {
+      "title": "I have done…",
+      "pattern": "V-た ことが あります / ありません",
+      "explanation": "Add ことが あります to the た-form. いちど and なんかいも go before あります. いちども goes with ありません.",
+      "examples": [
+        {
+          "japanese": "ふじさんに のぼった ことが あります。",
+          "romaji": "Fujisan ni nobotta koto ga arimasu.",
+          "meaning": "I have climbed Mt Fuji."
+        },
+        {
+          "japanese": "しんかんせんに のった ことが ありますか。",
+          "romaji": "Shinkansen ni notta koto ga arimasu ka.",
+          "meaning": "Have you ever ridden the bullet train?"
+        },
+        {
+          "japanese": "はい、いちど あります。",
+          "romaji": "Hai, ichido arimasu.",
+          "meaning": "Yes, once."
+        },
+        {
+          "japanese": "なっとうを たべた ことが ありません。",
+          "romaji": "Nattou o tabeta koto ga arimasen.",
+          "meaning": "I have never eaten natto."
+        },
+        {
+          "japanese": "きょうとに なんかいも いった ことが あります。",
+          "romaji": "Kyouto ni nankai mo itta koto ga arimasu.",
+          "meaning": "I have been to Kyoto many times."
+        },
+        {
+          "japanese": "すもうを いちども みた ことが ありません。",
+          "romaji": "Sumou o ichido mo mita koto ga arimasen.",
+          "meaning": "I have never once seen sumo."
+        }
+      ],
+      "notes": [
+        "Wrong: きのう いった ことが あります. With きのう, say いきました.",
+        "Wrong: いきました ことが あります. Use the た-form."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "にほんの きものを みた ことが あります。",
+      "I have seen a Japanese kimono."
+    ],
+    [
+      "きょねん しんかんせんで おおさかに いきました。",
+      "Last year I went to Osaka by bullet train."
+    ],
+    [
+      "ふじさんは にほんで いちばん たかい やまです。",
+      "Mt Fuji is the tallest mountain in Japan."
+    ],
+    [
+      "おんせんに はいった ことが ありますか。",
+      "Have you ever bathed in a hot spring?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "リーさんは ふじさんに のぼった ことが ありますか。",
+      "リー",
+      "いいえ、ありません。でも、のぼりたいです。"
+    ],
+    [
+      "たなか",
+      "しんかんせんに のった ことが ありますか。",
+      "リー",
+      "はい、なんかいも あります。とても はやいです。"
+    ],
+    [
+      "アナ",
+      "なっとうを たべた ことが ありますか。",
+      "マイ",
+      "はい、いちど あります。あまり おいしくなかったです。"
+    ],
+    [
+      "ゆき",
+      "すもうを みた ことが ありますか。",
+      "けん",
+      "テレビで みた ことが あります。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: choose the ない-form of いきます.",
+      "options": [
+        "いかない",
+        "いきない",
+        "いくない",
+        "いこない"
+      ],
+      "correct": "いかない",
+      "explanation": "Group 1: き → か + ない."
+    },
+    {
+      "prompt": "What does なんかいも mean?",
+      "options": [
+        "once",
+        "many times",
+        "never",
+        "how many times"
+      ],
+      "correct": "many times",
+      "explanation": "なんかいも is many times."
+    },
+    {
+      "prompt": "Choose the た-form of たべます.",
+      "options": [
+        "たべった",
+        "たべだ",
+        "たべた",
+        "たべいた"
+      ],
+      "correct": "たべた",
+      "explanation": "たべて → たべた."
+    },
+    {
+      "prompt": "Choose the た-form of よみます.",
+      "options": [
+        "よんた",
+        "よみた",
+        "よった",
+        "よんだ"
+      ],
+      "correct": "よんだ",
+      "explanation": "よんで → よんだ."
+    },
+    {
+      "prompt": "Choose the た-form of いきます.",
+      "options": [
+        "いった",
+        "いきた",
+        "いいた",
+        "いんだ"
+      ],
+      "correct": "いった",
+      "explanation": "いって → いった."
+    },
+    {
+      "prompt": "Complete: しんかんせんに ___ ことが あります。",
+      "options": [
+        "のります",
+        "のった",
+        "のって",
+        "のる"
+      ],
+      "correct": "のった",
+      "explanation": "Use the た-form before ことが あります."
+    },
+    {
+      "prompt": "Choose the meaning of なっとうを たべた ことが ありません。",
+      "options": [
+        "I did not eat natto yesterday.",
+        "I do not eat natto.",
+        "I have never eaten natto.",
+        "I have eaten natto once."
+      ],
+      "correct": "I have never eaten natto.",
+      "explanation": "た ことが ありません: have never."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: ふじさんに のぼった ことが ありますか。 You have, once. What do you say?",
+      "options": [
+        "はい、いちども あります。",
+        "はい、いちど ありません。",
+        "はい、いちど あります。",
+        "はい、いちど のぼります ことです。"
+      ],
+      "correct": "はい、いちど あります。",
+      "explanation": "いちど goes with あります."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "きのう きょうとに いった ことが あります。",
+        "きのう きょうとに いきました ことが あります。",
+        "きのう きょうとに いく ことが ありました。",
+        "きのう きょうとに いきました。"
+      ],
+      "correct": "きのう きょうとに いきました。",
+      "explanation": "With a specific time such as きのう, use ました."
+    },
+    {
+      "prompt": "Choose the sentence that means: I have never once seen sumo.",
+      "options": [
+        "すもうを いちども みた ことが ありません。",
+        "すもうを いちども みた ことが あります。",
+        "すもうを いちど みた ことが あります。",
+        "すもうを なんかいも みた ことが ありません。"
+      ],
+      "correct": "すもうを いちども みた ことが ありません。",
+      "explanation": "いちども with ありません: not even once."
+    },
+    {
+      "prompt": "Read: しんかんせんに なんかいも のった ことが あります。とても はやいです。 What do we learn?",
+      "options": [
+        "The speaker has never ridden the bullet train.",
+        "The speaker has ridden the bullet train many times.",
+        "The speaker rode the bullet train once.",
+        "The speaker wants to ride the bullet train."
+      ],
+      "correct": "The speaker has ridden the bullet train many times.",
+      "explanation": "なんかいも あります: many times."
+    },
+    {
+      "prompt": "Review: complete ピアノを ___ ことが できます。",
+      "options": [
+        "ひきます",
+        "ひいた",
+        "ひく",
+        "ひいて"
+      ],
+      "correct": "ひく",
+      "explanation": "Ability uses the dictionary form before ことが できます."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-9-please-dont",
+    "japanese-n5-unit-9-things-i-can-do",
+    "japanese-n5-unit-9-i-want-to-go",
+    "japanese-n5-unit-8-please-do",
+    "japanese-n5-unit-7-comparing",
+    "japanese-n5-unit-6-how-was-the-trip"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: the five た-form grammar examples are conversion pairs, not sentences.",
+    "VERIFY: this lesson introduces no new kanji, as planned in the blueprint."
+  ]
+}

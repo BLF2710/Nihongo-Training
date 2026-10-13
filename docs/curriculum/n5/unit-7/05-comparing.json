@@ -1,0 +1,521 @@
+{
+  "id": "japanese-n5-unit-7-comparing",
+  "slug": "n5-unit-7-comparing",
+  "unit": "Japanese N5 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Comparing",
+  "title_jp": "どちらが やすいですか",
+  "objectives": [
+    "I can compare two things and name the best of a group.",
+    "Compare with より",
+    "Ask どちらが and answer with の ほうが",
+    "Say the most with いちばん"
+  ],
+  "vocabulary": [
+    [
+      "どちら",
+      "dochira",
+      "which (of two)"
+    ],
+    [
+      "ほう",
+      "hou",
+      "side / the one that is more"
+    ],
+    [
+      "いちばん",
+      "ichiban",
+      "the most / number one"
+    ],
+    [
+      "はやい",
+      "hayai",
+      "fast / early"
+    ],
+    [
+      "おそい",
+      "osoi",
+      "slow / late"
+    ],
+    [
+      "いりぐち",
+      "iriguchi",
+      "entrance"
+    ],
+    [
+      "でぐち",
+      "deguchi",
+      "exit"
+    ],
+    [
+      "そと",
+      "soto",
+      "outside"
+    ],
+    [
+      "はいります",
+      "hairimasu",
+      "to enter"
+    ],
+    [
+      "でます",
+      "demasu",
+      "to leave / to go out"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "入口",
+      "word_reading": "いりぐち"
+    },
+    {
+      "word_japanese": "出口",
+      "word_reading": "でぐち"
+    },
+    {
+      "word_japanese": "外",
+      "word_reading": "そと"
+    },
+    {
+      "word_japanese": "外国",
+      "word_reading": "がいこく"
+    }
+  ],
+  "concept": {
+    "title": "More, and most",
+    "text": "Japanese adjectives have no -er or -est form. To compare, mark the standard with より (than): でんしゃは バスより はやいです.\n\nTo ask which of two, use A と B と どちらが…. Answer with A の ほうが…. For the top of three or more, name the group with の なかで and put いちばん before the adjective.\n\nTwo new verbs for buildings: place に はいります (enter) and place を でます (leave).",
+    "examples": [
+      "A は B より adj です",
+      "A と B と どちらが adj ですか → A の ほうが adj です",
+      "group の なかで A が いちばん adj です"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "A is more… than B",
+      "pattern": "A は B より adj です",
+      "explanation": "より follows the thing being compared against. The adjective does not change.",
+      "examples": [
+        {
+          "japanese": "でんしゃは バスより はやいです。",
+          "romaji": "Densha wa basu yori hayai desu.",
+          "meaning": "The train is faster than the bus."
+        },
+        {
+          "japanese": "この くつは その くつより やすいです。",
+          "romaji": "Kono kutsu wa sono kutsu yori yasui desu.",
+          "meaning": "These shoes are cheaper than those."
+        },
+        {
+          "japanese": "とうきょうは わたしの まちより にぎやかです。",
+          "romaji": "Toukyou wa watashi no machi yori nigiyaka desu.",
+          "meaning": "Tokyo is livelier than my town."
+        },
+        {
+          "japanese": "きょうは きのうより さむいです。",
+          "romaji": "Kyou wa kinou yori samui desu.",
+          "meaning": "Today is colder than yesterday."
+        }
+      ],
+      "notes": [
+        "より goes after B, the lesser one: A は B より….",
+        "Do not add もっと; the adjective alone is enough."
+      ]
+    },
+    {
+      "title": "Which of the two?",
+      "pattern": "A と B と どちらが adj ですか / A の ほうが adj です",
+      "explanation": "どちら is used for a choice between two, for things, places or people. Answer with の ほうが.",
+      "examples": [
+        {
+          "japanese": "バスと でんしゃと どちらが はやいですか。",
+          "romaji": "Basu to densha to dochira ga hayai desu ka.",
+          "meaning": "Which is faster, the bus or the train?"
+        },
+        {
+          "japanese": "でんしゃの ほうが はやいです。",
+          "romaji": "Densha no hou ga hayai desu.",
+          "meaning": "The train is faster."
+        },
+        {
+          "japanese": "にくと さかなと どちらが すきですか。",
+          "romaji": "Niku to sakana to dochira ga suki desu ka.",
+          "meaning": "Which do you like better, meat or fish?"
+        },
+        {
+          "japanese": "さかなの ほうが すきです。",
+          "romaji": "Sakana no hou ga suki desu.",
+          "meaning": "I like fish better."
+        },
+        {
+          "japanese": "この あかい ぼうしの ほうが やすいです。",
+          "romaji": "Kono akai boushi no hou ga yasui desu.",
+          "meaning": "This red hat is cheaper."
+        }
+      ],
+      "notes": [
+        "Wrong: どちらは. A question word as subject takes が.",
+        "For three or more, ask with どれが, not どちらが."
+      ]
+    },
+    {
+      "title": "The most",
+      "pattern": "group の なかで A が いちばん adj です",
+      "explanation": "いちばん goes directly before the adjective. の なかで names the group you are choosing from.",
+      "examples": [
+        {
+          "japanese": "のみものの なかで おちゃが いちばん すきです。",
+          "romaji": "Nomimono no naka de ocha ga ichiban suki desu.",
+          "meaning": "Of all drinks, I like tea the most."
+        },
+        {
+          "japanese": "この みせの なかで この かばんが いちばん たかいです。",
+          "romaji": "Kono mise no naka de kono kaban ga ichiban takai desu.",
+          "meaning": "In this shop, this bag is the most expensive."
+        },
+        {
+          "japanese": "かぞくの なかで ちちが いちばん げんきです。",
+          "romaji": "Kazoku no naka de chichi ga ichiban genki desu.",
+          "meaning": "In my family, my father is the most energetic."
+        },
+        {
+          "japanese": "どれが いちばん やすいですか。",
+          "romaji": "Dore ga ichiban yasui desu ka.",
+          "meaning": "Which one is the cheapest?"
+        }
+      ],
+      "notes": [
+        "いちばん also means number one.",
+        "With a place you can say にほんで いちばん…: the most… in Japan."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "いりぐちは あの かいだんの ひだりです。",
+      "The entrance is to the left of those stairs."
+    ],
+    [
+      "ろくじに かいしゃを でます。",
+      "I leave the office at six."
+    ],
+    [
+      "そとは さむいです。みせに はいりましょう。",
+      "It is cold outside. Let's go into the shop."
+    ],
+    [
+      "この バスは おそいですが、やすいです。",
+      "This bus is slow, but it is cheap."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "バスと でんしゃと どちらが はやいですか。",
+      "たなか",
+      "でんしゃの ほうが はやいです。"
+    ],
+    [
+      "アナ",
+      "どちらが やすいですか。",
+      "たなか",
+      "バスの ほうが やすいです。でんしゃは バスより ひゃくえん たかいです。"
+    ],
+    [
+      "けん",
+      "この みせで どれが いちばん おいしいですか。",
+      "マイ",
+      "カレーが いちばん おいしいです。"
+    ],
+    [
+      "リー",
+      "すみません、でぐちは どこですか。",
+      "てんいん",
+      "エレベーターの みぎです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "入",
+      "onyomi": [
+        "ニュウ",
+        "ジュ"
+      ],
+      "kunyomi": [
+        "い.る",
+        "-い.る",
+        "-い.り",
+        "い.れる",
+        "-い.れ",
+        "はい.る"
+      ],
+      "meaning_en": "enter",
+      "stroke_count": 2,
+      "example_words": [
+        {
+          "word": "入口",
+          "reading": "いりぐち",
+          "en": "entrance"
+        },
+        {
+          "word": "入ります",
+          "reading": "はいります",
+          "en": "to enter"
+        }
+      ],
+      "mnemonic": "Two strokes leaning in, like a tent opening you enter."
+    },
+    {
+      "char": "出",
+      "onyomi": [
+        "シュツ",
+        "スイ"
+      ],
+      "kunyomi": [
+        "で.る",
+        "-で",
+        "だ.す",
+        "-だ.す",
+        "い.でる",
+        "い.だす"
+      ],
+      "meaning_en": "go out",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "出口",
+          "reading": "でぐち",
+          "en": "exit"
+        },
+        {
+          "word": "出ます",
+          "reading": "でます",
+          "en": "to leave"
+        }
+      ],
+      "mnemonic": "A plant pushing up and out of the ground."
+    },
+    {
+      "char": "口",
+      "onyomi": [
+        "コウ",
+        "ク"
+      ],
+      "kunyomi": [
+        "くち"
+      ],
+      "meaning_en": "mouth, opening",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "入口",
+          "reading": "いりぐち",
+          "en": "entrance"
+        },
+        {
+          "word": "出口",
+          "reading": "でぐち",
+          "en": "exit"
+        }
+      ],
+      "mnemonic": "An open mouth, or any opening."
+    },
+    {
+      "char": "外",
+      "onyomi": [
+        "ガイ",
+        "ゲ"
+      ],
+      "kunyomi": [
+        "そと",
+        "ほか",
+        "はず.す",
+        "はず.れる",
+        "と-"
+      ],
+      "meaning_en": "outside",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "外",
+          "reading": "そと",
+          "en": "outside"
+        },
+        {
+          "word": "外国",
+          "reading": "がいこく",
+          "en": "foreign country"
+        }
+      ],
+      "mnemonic": "Evening (夕) and a mark: stepping outside at dusk."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete くつの うりばは ___ ですか。 — さんがいです。",
+      "options": [
+        "いくら",
+        "なんがい",
+        "なんにん",
+        "どれ"
+      ],
+      "correct": "なんがい",
+      "explanation": "なんがい asks which floor."
+    },
+    {
+      "prompt": "What does でぐち mean?",
+      "options": [
+        "entrance",
+        "outside",
+        "exit",
+        "stairs"
+      ],
+      "correct": "exit",
+      "explanation": "でぐち is the exit. いりぐち is the entrance."
+    },
+    {
+      "prompt": "Complete: でんしゃは バス ___ はやいです。",
+      "options": [
+        "ほう",
+        "いちばん",
+        "どちら",
+        "より"
+      ],
+      "correct": "より",
+      "explanation": "より marks what you compare against."
+    },
+    {
+      "prompt": "Complete: バスと でんしゃと ___ が はやいですか。",
+      "options": [
+        "どちら",
+        "どれの",
+        "どんな",
+        "いくら"
+      ],
+      "correct": "どちら",
+      "explanation": "どちら asks which of two."
+    },
+    {
+      "prompt": "Complete: でんしゃの ___ が はやいです。",
+      "options": [
+        "より",
+        "ほう",
+        "なか",
+        "いちばん"
+      ],
+      "correct": "ほう",
+      "explanation": "A の ほうが answers a どちら question."
+    },
+    {
+      "prompt": "Complete: のみものの なかで おちゃが ___ すきです。",
+      "options": [
+        "より",
+        "どちら",
+        "いちばん",
+        "ほう"
+      ],
+      "correct": "いちばん",
+      "explanation": "いちばん means the most."
+    },
+    {
+      "prompt": "Complete: ろくじに かいしゃ ___ でます。",
+      "options": [
+        "に",
+        "で",
+        "と",
+        "を"
+      ],
+      "correct": "を",
+      "explanation": "The place you leave takes を with でます."
+    },
+    {
+      "prompt": "Choose the meaning of きょうは きのうより さむいです。",
+      "options": [
+        "Today is colder than yesterday.",
+        "Yesterday was colder than today.",
+        "Today is as cold as yesterday.",
+        "Today is the coldest day."
+      ],
+      "correct": "Today is colder than yesterday.",
+      "explanation": "きのうより: than yesterday."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: にくと さかなと どちらが すきですか。 You prefer fish. What do you say?",
+      "options": [
+        "さかなより すきです。",
+        "さかなが どちら すきです。",
+        "さかなの なかで すきです。",
+        "さかなの ほうが すきです。"
+      ],
+      "correct": "さかなの ほうが すきです。",
+      "explanation": "A の ほうが names your choice between two."
+    },
+    {
+      "prompt": "Read: でんしゃは バスより ひゃくえん たかいです。 Which statement is true?",
+      "options": [
+        "The bus is cheaper.",
+        "The train is cheaper.",
+        "They cost the same.",
+        "The bus costs 100 yen."
+      ],
+      "correct": "The bus is cheaper.",
+      "explanation": "The train is 100 yen more expensive than the bus."
+    },
+    {
+      "prompt": "Choose the sentence that means: In this shop, this bag is the most expensive.",
+      "options": [
+        "この みせの なかで この かばんより たかいです。",
+        "この みせの なかで この かばんが いちばん たかいです。",
+        "この みせの なかで この かばんの ほうが たかいです。",
+        "この みせの なかに この かばんが いちばん たかいです。"
+      ],
+      "correct": "この みせの なかで この かばんが いちばん たかいです。",
+      "explanation": "の なかで names the group, and いちばん marks the top."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "みせを はいりましょう。",
+        "みせで はいりましょう。",
+        "みせに はいりましょう。",
+        "みせと はいりましょう。"
+      ],
+      "correct": "みせに はいりましょう。",
+      "explanation": "The place you enter takes に."
+    },
+    {
+      "prompt": "Review: complete どの ぼうし ___ ほしいですか。",
+      "options": [
+        "は",
+        "を",
+        "に",
+        "が"
+      ],
+      "correct": "が",
+      "explanation": "The thing wanted takes が, and a question word never takes は."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-7-in-the-store",
+    "japanese-n5-unit-7-what-i-want",
+    "japanese-n5-unit-7-numbers-and-prices",
+    "japanese-n5-unit-6-i-adjectives",
+    "japanese-n5-unit-4-going-places",
+    "japanese-n5-unit-2-preferences"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 入口 / 出口 are also written 入り口 / 出口; the importer links only the spelling found in the dictionary source.",
+    "VERIFY: 入ります and 出ます are polite forms and are not linked as kanji spellings."
+  ]
+}

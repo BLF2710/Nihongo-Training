@@ -1,0 +1,441 @@
+{
+  "id": "japanese-n5-unit-6-how-was-the-trip",
+  "slug": "n5-unit-6-how-was-the-trip",
+  "unit": "Japanese N5 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "How Was the Trip?",
+  "title_jp": "りょこうは どうでしたか",
+  "objectives": [
+    "I can describe how something was.",
+    "Put い-adjectives in the past with かったです",
+    "Put な-adjectives in the past with でした",
+    "Use とても and すこし to say how much"
+  ],
+  "vocabulary": [
+    [
+      "とても",
+      "totemo",
+      "very"
+    ],
+    [
+      "すこし",
+      "sukoshi",
+      "a little"
+    ],
+    [
+      "おおい",
+      "ooi",
+      "many / a lot"
+    ],
+    [
+      "すくない",
+      "sukunai",
+      "few / little"
+    ],
+    [
+      "しろい",
+      "shiroi",
+      "white"
+    ],
+    [
+      "くろい",
+      "kuroi",
+      "black"
+    ],
+    [
+      "あかい",
+      "akai",
+      "red"
+    ],
+    [
+      "あおい",
+      "aoi",
+      "blue"
+    ],
+    [
+      "いろ",
+      "iro",
+      "colour"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "多い",
+      "word_reading": "おおい"
+    },
+    {
+      "word_japanese": "少ない",
+      "word_reading": "すくない"
+    },
+    {
+      "word_japanese": "白い",
+      "word_reading": "しろい"
+    },
+    {
+      "word_japanese": "少し",
+      "word_reading": "すこし"
+    }
+  ],
+  "concept": {
+    "title": "Adjectives in the past",
+    "text": "For an い-adjective, the adjective itself carries the past. Drop い and add かったです: おいしい → おいしかったです. The negative is くなかったです. Do not say おいしいでした. いい is irregular again: よかったです, よくなかったです.\n\nA な-adjective works like a noun: しずかでした, しずかじゃなかったです.\n\nとても (very) and すこし (a little) go before an adjective in a positive sentence. あまり goes with a negative.",
+    "examples": [
+      "〜い → 〜かったです / 〜くなかったです",
+      "な-adj でした / じゃなかったです",
+      "いい → よかったです"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "It was tasty",
+      "pattern": "い-adj: 〜かったです / 〜くなかったです",
+      "explanation": "Replace い with かったです for the past, and with くなかったです for the past negative. Ask with どうでしたか.",
+      "examples": [
+        {
+          "japanese": "りょこうは たのしかったです。",
+          "romaji": "Ryokou wa tanoshikatta desu.",
+          "meaning": "The trip was enjoyable."
+        },
+        {
+          "japanese": "きのうは とても さむかったです。",
+          "romaji": "Kinou wa totemo samukatta desu.",
+          "meaning": "It was very cold yesterday."
+        },
+        {
+          "japanese": "テストは むずかしくなかったです。",
+          "romaji": "Tesuto wa muzukashikunakatta desu.",
+          "meaning": "The test was not difficult."
+        },
+        {
+          "japanese": "てんきは よかったです。",
+          "romaji": "Tenki wa yokatta desu.",
+          "meaning": "The weather was good."
+        },
+        {
+          "japanese": "えいがは あまり おもしろくなかったです。",
+          "romaji": "Eiga wa amari omoshirokunakatta desu.",
+          "meaning": "The film was not very interesting."
+        }
+      ],
+      "notes": [
+        "Wrong: おいしいでした. Say おいしかったです.",
+        "Wrong: いかったです. Say よかったです."
+      ]
+    },
+    {
+      "title": "It was quiet",
+      "pattern": "な-adj でした / じゃなかったです",
+      "explanation": "な-adjectives take でした and じゃなかったです, exactly like nouns.",
+      "examples": [
+        {
+          "japanese": "ホテルは しずかでした。",
+          "romaji": "Hoteru wa shizuka deshita.",
+          "meaning": "The hotel was quiet."
+        },
+        {
+          "japanese": "へやは きれいでした。",
+          "romaji": "Heya wa kirei deshita.",
+          "meaning": "The room was clean."
+        },
+        {
+          "japanese": "テストは かんたんじゃなかったです。",
+          "romaji": "Tesuto wa kantan ja nakatta desu.",
+          "meaning": "The test was not easy."
+        },
+        {
+          "japanese": "まちは とても にぎやかでした。",
+          "romaji": "Machi wa totemo nigiyaka deshita.",
+          "meaning": "The town was very lively."
+        },
+        {
+          "japanese": "せんしゅうは すこし たいへんでした。",
+          "romaji": "Senshuu wa sukoshi taihen deshita.",
+          "meaning": "Last week was a little tough."
+        }
+      ],
+      "notes": [
+        "Wrong: きれかったです. きれい is a な-adjective: きれいでした.",
+        "とても and すこし come just before the adjective."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "こうえんは ひとが おおかったです。",
+      "There were a lot of people in the park."
+    ],
+    [
+      "この まちは みせが すくないです。",
+      "This town has few shops."
+    ],
+    [
+      "しろい はなと あかい はなが あります。",
+      "There are white flowers and red flowers."
+    ],
+    [
+      "うみの いろは あおかったです。とても きれいでした。",
+      "The colour of the sea was blue. It was very beautiful."
+    ]
+  ],
+  "dialogue": [
+    [
+      "ゆき",
+      "りょこうは どうでしたか。",
+      "リー",
+      "とても たのしかったです。"
+    ],
+    [
+      "ゆき",
+      "てんきは よかったですか。",
+      "リー",
+      "いいえ、あまり よくなかったです。すこし さむかったです。"
+    ],
+    [
+      "ゆき",
+      "ホテルは どうでしたか。",
+      "リー",
+      "ふるかったですが、しずかでした。"
+    ],
+    [
+      "けん",
+      "きのうの パーティーは ひとが おおかったですか。",
+      "マイ",
+      "いいえ、すくなかったです。でも たのしかったです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "多",
+      "onyomi": [
+        "タ"
+      ],
+      "kunyomi": [
+        "おお.い",
+        "まさ.に",
+        "まさ.る"
+      ],
+      "meaning_en": "many",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "多い",
+          "reading": "おおい",
+          "en": "many / a lot"
+        },
+        {
+          "word": "多分",
+          "reading": "たぶん",
+          "en": "probably"
+        }
+      ],
+      "mnemonic": "Evening (夕) piled on evening: many."
+    },
+    {
+      "char": "少",
+      "onyomi": [
+        "ショウ"
+      ],
+      "kunyomi": [
+        "すく.ない",
+        "すこ.し"
+      ],
+      "meaning_en": "few, little",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "少ない",
+          "reading": "すくない",
+          "en": "few / little"
+        },
+        {
+          "word": "少し",
+          "reading": "すこし",
+          "en": "a little"
+        }
+      ],
+      "mnemonic": "Small (小) with one more stroke taken off: few."
+    },
+    {
+      "char": "白",
+      "onyomi": [
+        "ハク",
+        "ビャク"
+      ],
+      "kunyomi": [
+        "しろ",
+        "しら-",
+        "しろ.い"
+      ],
+      "meaning_en": "white",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "白い",
+          "reading": "しろい",
+          "en": "white"
+        },
+        {
+          "word": "白黒",
+          "reading": "しろくろ",
+          "en": "black and white"
+        }
+      ],
+      "mnemonic": "A ray of light above the sun (日): white."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete きれい ___ はなですね。",
+      "options": [
+        "な",
+        "い",
+        "の",
+        "が"
+      ],
+      "correct": "な",
+      "explanation": "きれい is a な-adjective, so it takes な before a noun."
+    },
+    {
+      "prompt": "What does すこし mean?",
+      "options": [
+        "very",
+        "a little",
+        "many",
+        "not at all"
+      ],
+      "correct": "a little",
+      "explanation": "すこし is a little. とても is very."
+    },
+    {
+      "prompt": "Choose the past of おいしいです.",
+      "options": [
+        "おいしいでした",
+        "おいしでした",
+        "おいしかったです",
+        "おいしくでした"
+      ],
+      "correct": "おいしかったです",
+      "explanation": "Drop い and add かったです."
+    },
+    {
+      "prompt": "Choose the past of しずかです.",
+      "options": [
+        "しずかかったです",
+        "しずかったです",
+        "しずかいでした",
+        "しずかでした"
+      ],
+      "correct": "しずかでした",
+      "explanation": "な-adjectives take でした."
+    },
+    {
+      "prompt": "Choose the past of いいです.",
+      "options": [
+        "よかったです",
+        "いかったです",
+        "いいでした",
+        "よいでした"
+      ],
+      "correct": "よかったです",
+      "explanation": "いい is irregular: よかったです."
+    },
+    {
+      "prompt": "Choose the past negative of むずかしいです.",
+      "options": [
+        "むずかしいじゃなかったです",
+        "むずかしくなかったです",
+        "むずかしくないでした",
+        "むずかしなかったです"
+      ],
+      "correct": "むずかしくなかったです",
+      "explanation": "Drop い and add くなかったです."
+    },
+    {
+      "prompt": "Choose the meaning of こうえんは ひとが おおかったです。",
+      "options": [
+        "There were few people in the park.",
+        "The park was very big.",
+        "There were a lot of people in the park.",
+        "There are a lot of people in the park."
+      ],
+      "correct": "There were a lot of people in the park.",
+      "explanation": "おおかったです is the past of おおい, many."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone asks: りょこうは どうでしたか。 It was very enjoyable. What do you say?",
+      "options": [
+        "とても たのしいでした。",
+        "あまり たのしかったです。",
+        "とても たのしかったです。",
+        "とても たのしくなかったです。"
+      ],
+      "correct": "とても たのしかったです。",
+      "explanation": "たのしい → たのしかったです, with とても for very."
+    },
+    {
+      "prompt": "Choose the sentence that means: The room was not clean.",
+      "options": [
+        "へやは きれくなかったです。",
+        "へやは きれいじゃないです。",
+        "へやは きれいくなかったです。",
+        "へやは きれいじゃなかったです。"
+      ],
+      "correct": "へやは きれいじゃなかったです。",
+      "explanation": "きれい is a な-adjective; past negative is じゃなかったです."
+    },
+    {
+      "prompt": "Read: ホテルは ふるかったですが、しずかでした。 What was the hotel like?",
+      "options": [
+        "Old but quiet",
+        "New and quiet",
+        "Old and lively",
+        "Quiet but expensive"
+      ],
+      "correct": "Old but quiet",
+      "explanation": "ふるかったです is was old; しずかでした is was quiet."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "えいがは あまり おもしろくないでした。",
+        "えいがは あまり おもしろくなかったです。",
+        "えいがは あまり おもしろかったです。",
+        "えいがは あまり おもしろいでした。"
+      ],
+      "correct": "えいがは あまり おもしろくなかったです。",
+      "explanation": "あまり goes with the negative くなかったです."
+    },
+    {
+      "prompt": "Review: complete かぞく ___ ばんごはんを たべました。",
+      "options": [
+        "を",
+        "で",
+        "と",
+        "に"
+      ],
+      "correct": "と",
+      "explanation": "と after people means together with."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-6-what-kind",
+    "japanese-n5-unit-6-na-adjectives",
+    "japanese-n5-unit-6-i-adjectives",
+    "japanese-n5-unit-5-how-was-it",
+    "japanese-n5-unit-5-where-with-how"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 多分 and 白黒 are kanji example words that are not taught as vocabulary in N5."
+  ]
+}

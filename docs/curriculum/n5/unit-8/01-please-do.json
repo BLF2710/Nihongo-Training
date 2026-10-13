@@ -1,0 +1,453 @@
+{
+  "id": "japanese-n5-unit-8-please-do",
+  "slug": "n5-unit-8-please-do",
+  "unit": "Japanese N5 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Please Do This",
+  "title_jp": "〜て ください",
+  "objectives": [
+    "I can politely ask someone to do something.",
+    "Sort verbs into three groups",
+    "Make the て-form of each group",
+    "Ask with て ください"
+  ],
+  "vocabulary": [
+    [
+      "いいます",
+      "iimasu",
+      "to say"
+    ],
+    [
+      "はなします",
+      "hanashimasu",
+      "to speak / to talk"
+    ],
+    [
+      "まちます",
+      "machimasu",
+      "to wait"
+    ],
+    [
+      "おしえます",
+      "oshiemasu",
+      "to teach / to tell"
+    ],
+    [
+      "みせます",
+      "misemasu",
+      "to show"
+    ],
+    [
+      "てつだいます",
+      "tetsudaimasu",
+      "to help"
+    ],
+    [
+      "もういちど",
+      "mou ichido",
+      "once more"
+    ],
+    [
+      "ゆっくり",
+      "yukkuri",
+      "slowly"
+    ],
+    [
+      "でんわ",
+      "denwa",
+      "telephone"
+    ],
+    [
+      "えいご",
+      "eigo",
+      "English"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "電話",
+      "word_reading": "でんわ"
+    },
+    {
+      "word_japanese": "日本語",
+      "word_reading": "にほんご"
+    }
+  ],
+  "concept": {
+    "title": "The て-form",
+    "text": "The て-form is a verb form that links to other words. With ください it makes a polite request: みて ください (please look). To make it, first find the verb's group from the sound before ます.\n\nGroup 2: the sound before ます is an え-sound (たべます, ねます, おしえます, みせます, でます), plus a few with an い-sound that you must remember: みます, おきます, います. Change ます to て: たべて, みて.\n\nGroup 3: します → して and きます → きて.\n\nGroup 1: all the rest. The sound before ます decides the ending:\nい・ち・り → って (かいます → かって, まちます → まって, かえります → かえって)\nみ・び・に → んで (のみます → のんで, よみます → よんで)\nき → いて (かきます → かいて), ぎ → いで\nし → して (はなします → はなして)\nOne exception: いきます → いって.",
+    "examples": [
+      "Group 2: 〜ます → 〜て",
+      "Group 3: します → して, きます → きて",
+      "Group 1: って / んで / いて / して"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Requests with Group 2 and Group 3 verbs",
+      "pattern": "V-て ください (〜ます → 〜て)",
+      "explanation": "For Group 2 and the two irregular verbs, simply replace ます with て, then add ください.",
+      "examples": [
+        {
+          "japanese": "これを みて ください。",
+          "romaji": "Kore o mite kudasai.",
+          "meaning": "Please look at this."
+        },
+        {
+          "japanese": "えいごを おしえて ください。",
+          "romaji": "Eigo o oshiete kudasai.",
+          "meaning": "Please teach me English."
+        },
+        {
+          "japanese": "しゃしんを みせて ください。",
+          "romaji": "Shashin o misete kudasai.",
+          "meaning": "Please show me the photo."
+        },
+        {
+          "japanese": "あした くじに きて ください。",
+          "romaji": "Ashita kuji ni kite kudasai.",
+          "meaning": "Please come at nine tomorrow."
+        },
+        {
+          "japanese": "まいにち べんきょうして ください。",
+          "romaji": "Mainichi benkyou shite kudasai.",
+          "meaning": "Please study every day."
+        }
+      ],
+      "notes": [
+        "て ください is polite but still a request. Add すみません first to soften it.",
+        "N を ください asks for a thing; V-て ください asks for an action."
+      ]
+    },
+    {
+      "title": "Requests with Group 1 verbs",
+      "pattern": "V-て ください (って / んで / いて / して)",
+      "explanation": "Group 1 verbs change according to the sound before ます. Learn each new verb together with its て-form.",
+      "examples": [
+        {
+          "japanese": "ちょっと まって ください。",
+          "romaji": "Chotto matte kudasai.",
+          "meaning": "Please wait a moment."
+        },
+        {
+          "japanese": "もういちど いって ください。",
+          "romaji": "Mou ichido itte kudasai.",
+          "meaning": "Please say it once more."
+        },
+        {
+          "japanese": "ゆっくり はなして ください。",
+          "romaji": "Yukkuri hanashite kudasai.",
+          "meaning": "Please speak slowly."
+        },
+        {
+          "japanese": "ここに なまえを かいて ください。",
+          "romaji": "Koko ni namae o kaite kudasai.",
+          "meaning": "Please write your name here."
+        },
+        {
+          "japanese": "この ほんを よんで ください。",
+          "romaji": "Kono hon o yonde kudasai.",
+          "meaning": "Please read this book."
+        },
+        {
+          "japanese": "すみません、てつだって ください。",
+          "romaji": "Sumimasen, tetsudatte kudasai.",
+          "meaning": "Excuse me, please help me."
+        }
+      ],
+      "notes": [
+        "いって is the て-form of both いいます (say) and いきます (go); the context shows which.",
+        "Wrong: かきて ください. き changes to いて: かいて ください."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "すみません、もういちど ゆっくり いって ください。",
+      "Excuse me, please say it once more slowly."
+    ],
+    [
+      "あした でんわを して ください。",
+      "Please telephone tomorrow."
+    ],
+    [
+      "にほんごで はなして ください。",
+      "Please speak in Japanese."
+    ],
+    [
+      "ろくじに えきに きて ください。",
+      "Please come to the station at six."
+    ]
+  ],
+  "dialogue": [
+    [
+      "せんせい",
+      "この ほんを よんで ください。",
+      "リー",
+      "すみません、もういちど いって ください。"
+    ],
+    [
+      "せんせい",
+      "この ほんを よんで ください。",
+      "リー",
+      "はい、よみます。"
+    ],
+    [
+      "アナ",
+      "すみません、ちょっと てつだって ください。",
+      "けん",
+      "はい、いいですよ。"
+    ],
+    [
+      "マイ",
+      "たなかさん、えいごを おしえて ください。",
+      "たなか",
+      "いいですよ。じゃあ、あした きて ください。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "言",
+      "onyomi": [
+        "ゲン",
+        "ゴン"
+      ],
+      "kunyomi": [
+        "い.う",
+        "こと"
+      ],
+      "meaning_en": "say",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "言います",
+          "reading": "いいます",
+          "en": "to say"
+        },
+        {
+          "word": "言葉",
+          "reading": "ことば",
+          "en": "word / language"
+        }
+      ],
+      "mnemonic": "Lines of sound rising from a mouth (口)."
+    },
+    {
+      "char": "話",
+      "onyomi": [
+        "ワ"
+      ],
+      "kunyomi": [
+        "はな.す",
+        "はなし"
+      ],
+      "meaning_en": "talk",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "話します",
+          "reading": "はなします",
+          "en": "to speak"
+        },
+        {
+          "word": "電話",
+          "reading": "でんわ",
+          "en": "telephone"
+        }
+      ],
+      "mnemonic": "Words (言) and a tongue (舌): talking."
+    },
+    {
+      "char": "語",
+      "onyomi": [
+        "ゴ"
+      ],
+      "kunyomi": [
+        "かた.る",
+        "かた.らう"
+      ],
+      "meaning_en": "language",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "日本語",
+          "reading": "にほんご",
+          "en": "Japanese"
+        },
+        {
+          "word": "英語",
+          "reading": "えいご",
+          "en": "English"
+        }
+      ],
+      "mnemonic": "Words (言) that I (吾) speak: a language."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete でんしゃは バス ___ はやいです。",
+      "options": [
+        "ほう",
+        "より",
+        "いちばん",
+        "どちら"
+      ],
+      "correct": "より",
+      "explanation": "より means than."
+    },
+    {
+      "prompt": "What does ゆっくり mean?",
+      "options": [
+        "once more",
+        "quickly",
+        "slowly",
+        "a little"
+      ],
+      "correct": "slowly",
+      "explanation": "ゆっくり is slowly. もういちど is once more."
+    },
+    {
+      "prompt": "Choose the て-form of たべます.",
+      "options": [
+        "たべって",
+        "たべんで",
+        "たべいて",
+        "たべて"
+      ],
+      "correct": "たべて",
+      "explanation": "Group 2: replace ます with て."
+    },
+    {
+      "prompt": "Choose the て-form of まちます.",
+      "options": [
+        "まって",
+        "まちて",
+        "まんで",
+        "まいて"
+      ],
+      "correct": "まって",
+      "explanation": "Group 1 with ち: って."
+    },
+    {
+      "prompt": "Choose the て-form of よみます.",
+      "options": [
+        "よみて",
+        "よんで",
+        "よって",
+        "よいて"
+      ],
+      "correct": "よんで",
+      "explanation": "Group 1 with み: んで."
+    },
+    {
+      "prompt": "Choose the て-form of かきます.",
+      "options": [
+        "かきて",
+        "かって",
+        "かいて",
+        "かんで"
+      ],
+      "correct": "かいて",
+      "explanation": "Group 1 with き: いて."
+    },
+    {
+      "prompt": "Choose the て-form of します.",
+      "options": [
+        "しって",
+        "すて",
+        "しいて",
+        "して"
+      ],
+      "correct": "して",
+      "explanation": "します is irregular: して."
+    },
+    {
+      "prompt": "Choose the meaning of ゆっくり はなして ください。",
+      "options": [
+        "Please speak slowly.",
+        "Please speak once more.",
+        "Please wait a little.",
+        "Please listen slowly."
+      ],
+      "correct": "Please speak slowly.",
+      "explanation": "はなして ください is please speak."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You did not catch what the teacher said. What do you say?",
+      "options": [
+        "すみません、もういちど いいて ください。",
+        "すみません、もういちど いきます ください。",
+        "すみません、もういちどを ください。",
+        "すみません、もういちど いって ください。"
+      ],
+      "correct": "すみません、もういちど いって ください。",
+      "explanation": "いいます → いって, then ください."
+    },
+    {
+      "prompt": "Which verb has the て-form いって?",
+      "options": [
+        "いきます",
+        "います",
+        "みます",
+        "きます"
+      ],
+      "correct": "いきます",
+      "explanation": "いきます is the exception: いって."
+    },
+    {
+      "prompt": "Choose the correct request: Please show me the photo.",
+      "options": [
+        "しゃしんを みせって ください。",
+        "しゃしんを みせて ください。",
+        "しゃしんを みて ください。",
+        "しゃしんが みせて ください。"
+      ],
+      "correct": "しゃしんを みせて ください。",
+      "explanation": "みせます is Group 2: みせて. みて ください would mean please look."
+    },
+    {
+      "prompt": "Which て-form is NOT correct?",
+      "options": [
+        "のんで",
+        "おしえて",
+        "かえりて",
+        "はなして"
+      ],
+      "correct": "かえりて",
+      "explanation": "かえります is Group 1 with り: かえって."
+    },
+    {
+      "prompt": "Review: complete きっぷを ___ ください。 (two)",
+      "options": [
+        "ふたり",
+        "にほん",
+        "にかい",
+        "にまい"
+      ],
+      "correct": "にまい",
+      "explanation": "Tickets are flat, so use まい."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-7-comparing",
+    "japanese-n5-unit-7-counting",
+    "japanese-n5-unit-5-what-did-you-do",
+    "japanese-n5-unit-4-daily-routine",
+    "japanese-n5-unit-2-restaurant"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: the ぎ → いで pattern is stated here and first practised with およぎます in the next lesson.",
+    "VERIFY: せんせい is used as a speaker label; いいですよ (that's fine) is a fixed reply shown in dialogue only."
+  ]
+}

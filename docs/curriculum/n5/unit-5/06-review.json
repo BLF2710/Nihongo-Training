@@ -1,0 +1,313 @@
+{
+  "id": "japanese-n5-unit-5-review",
+  "slug": "n5-unit-5-review",
+  "unit": "Japanese N5 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 5 Review",
+  "title_jp": "ユニット5の ふくしゅう",
+  "objectives": [
+    "I can talk about a past weekend and arrange an outing.",
+    "Combine past tense with time, place and companions",
+    "Give dates and describe the weather",
+    "Invite, accept and decline"
+  ],
+  "vocabulary": [
+    [
+      "きのう",
+      "kinou",
+      "yesterday"
+    ],
+    [
+      "せんしゅう",
+      "senshuu",
+      "last week"
+    ],
+    [
+      "てんき",
+      "tenki",
+      "weather"
+    ],
+    [
+      "あめ",
+      "ame",
+      "rain"
+    ],
+    [
+      "はれ",
+      "hare",
+      "sunny / clear"
+    ],
+    [
+      "りょこう",
+      "ryokou",
+      "trip"
+    ],
+    [
+      "いっしょに",
+      "issho ni",
+      "together"
+    ],
+    [
+      "ひとりで",
+      "hitori de",
+      "alone / by oneself"
+    ],
+    [
+      "かいます",
+      "kaimasu",
+      "to buy"
+    ],
+    [
+      "たんじょうび",
+      "tanjoubi",
+      "birthday"
+    ],
+    [
+      "いつ",
+      "itsu",
+      "when"
+    ],
+    [
+      "ひま",
+      "hima",
+      "free (not busy)"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Past, plans and people",
+    "text": "For something finished, verbs end in ました or ませんでした and nouns take でした or じゃなかったです. For plans together, use ませんか to invite and ましょう to agree.\n\nA full sentence can carry a time, a companion, a place and an object, in that order: せんしゅうの どようびに ともだちと こうえんで ひるごはんを たべました。 Remember which words take no particle: きのう, けさ, せんしゅう, きょねん, いつ and ひとりで.",
+    "examples": [
+      "time + person と + place で + N を + V-ました",
+      "N でした / N じゃなかったです",
+      "V-ませんか → いいですね。V-ましょう。"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "せんしゅうの どようびは はれでした。",
+      "Last Saturday was sunny."
+    ],
+    [
+      "ともだちと こうえんで ひるごはんを たべました。",
+      "I ate lunch in the park with a friend."
+    ],
+    [
+      "にちようびは あめでした。ひとりで うちで えいがを みました。",
+      "Sunday was rainy. I watched a film at home alone."
+    ],
+    [
+      "しちがつ はつかは あねの たんじょうびです。",
+      "The twentieth of July is my older sister's birthday."
+    ],
+    [
+      "きのう デパートで プレゼントを かいました。",
+      "Yesterday I bought a present at the department store."
+    ],
+    [
+      "たんじょうびに かぞくと いっしょに しょくじを します。",
+      "On her birthday we will have a meal together as a family."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リン",
+      "しゅうまつは なにを しましたか。",
+      "けん",
+      "どようびに ともだちと こうえんに いきました。"
+    ],
+    [
+      "リン",
+      "てんきは どうでしたか。",
+      "けん",
+      "はれでした。にちようびは あめでした。"
+    ],
+    [
+      "マイ",
+      "あねの たんじょうびは しちがつ はつかです。",
+      "さくら",
+      "らいしゅうですね。"
+    ],
+    [
+      "マイ",
+      "プレゼントを かいます。いっしょに デパートに いきませんか。",
+      "さくら",
+      "いいですね。いつ いきましょうか。"
+    ],
+    [
+      "マイ",
+      "きんようびは ひまですか。",
+      "さくら",
+      "すみません、きんようびは ちょっと…。どようびは どうですか。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Complete: きのう ともだち ___ えいがを みました。",
+      "options": [
+        "で",
+        "に",
+        "と",
+        "を"
+      ],
+      "correct": "と",
+      "explanation": "と after a person means together with."
+    },
+    {
+      "prompt": "Choose the past negative of いきます.",
+      "options": [
+        "いきません",
+        "いきじゃなかったです",
+        "いきませんました",
+        "いきませんでした"
+      ],
+      "correct": "いきませんでした",
+      "explanation": "ません becomes ませんでした."
+    },
+    {
+      "prompt": "Complete: にちようびは あめ ___。",
+      "options": [
+        "でした",
+        "ました",
+        "ませんでした",
+        "じゃない"
+      ],
+      "correct": "でした",
+      "explanation": "A noun in the past takes でした."
+    },
+    {
+      "prompt": "How do you say 20 July?",
+      "options": [
+        "なながつ はつか",
+        "しちがつ はつか",
+        "しちがつ ふつか",
+        "はつか しちがつ"
+      ],
+      "correct": "しちがつ はつか",
+      "explanation": "July is しちがつ, and the 20th is はつか."
+    },
+    {
+      "prompt": "Which word takes no particle?",
+      "options": [
+        "ろくじ",
+        "えき",
+        "せんしゅう",
+        "ともだち"
+      ],
+      "correct": "せんしゅう",
+      "explanation": "Past time words such as せんしゅう stand alone."
+    },
+    {
+      "prompt": "Choose the invitation.",
+      "options": [
+        "いっしょに いきましたか。",
+        "いっしょに いきません。",
+        "いっしょに いきました。",
+        "いっしょに いきませんか。"
+      ],
+      "correct": "いっしょに いきませんか。",
+      "explanation": "ませんか invites."
+    },
+    {
+      "prompt": "Complete: いつ いき ___ か。",
+      "options": [
+        "ましょう",
+        "ません でした",
+        "でした",
+        "じゃなかった"
+      ],
+      "correct": "ましょう",
+      "explanation": "ましょうか asks shall we, to settle when."
+    },
+    {
+      "prompt": "Choose the meaning of ひとりで うちで えいがを みました。",
+      "options": [
+        "I watched a film at home with one person.",
+        "I watched a film at home alone.",
+        "I will watch a film at home alone.",
+        "One person watched me at home."
+      ],
+      "correct": "I watched a film at home alone.",
+      "explanation": "ひとりで is alone, and みました is past."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read: どようびは はれでした。にちようびは あめでした。 What was the weather on Sunday?",
+      "options": [
+        "Rainy",
+        "Sunny",
+        "Cloudy",
+        "Snowy"
+      ],
+      "correct": "Rainy",
+      "explanation": "にちようびは あめでした: Sunday was rainy."
+    },
+    {
+      "prompt": "Choose the sentence that means: I ate lunch in the park with a friend.",
+      "options": [
+        "ともだちで こうえんと ひるごはんを たべました。",
+        "ともだちと こうえんで ひるごはんを たべました。",
+        "ともだちと こうえんに ひるごはんを たべました。",
+        "ともだちと こうえんで ばんごはんを たべました。"
+      ],
+      "correct": "ともだちと こうえんで ひるごはんを たべました。",
+      "explanation": "Person + と, place of action + で, and ひるごはん is lunch."
+    },
+    {
+      "prompt": "A friend says: きんようびは ひまですか。 You are busy on Friday but free on Saturday. Which reply fits?",
+      "options": [
+        "いいですね。きんようびに いきましょう。",
+        "いいえ、ひまじゃなかったです。",
+        "すみません、きんようびは ちょっと…。どようびは どうですか。",
+        "はい、きんようびは ひまです。"
+      ],
+      "correct": "すみません、きんようびは ちょっと…。どようびは どうですか。",
+      "explanation": "Decline softly with ちょっと… and offer Saturday."
+    },
+    {
+      "prompt": "Read: しちがつ はつかは あねの たんじょうびです。 Whose birthday is it, and when?",
+      "options": [
+        "The speaker's older brother, 20 July",
+        "The speaker's older sister, 2 July",
+        "The speaker, 20 September",
+        "The speaker's older sister, 20 July"
+      ],
+      "correct": "The speaker's older sister, 20 July",
+      "explanation": "あね is older sister; しちがつ はつか is 20 July."
+    },
+    {
+      "prompt": "Review: complete でんしゃ ___ かいしゃに いきます。",
+      "options": [
+        "で",
+        "に",
+        "を",
+        "と"
+      ],
+      "correct": "で",
+      "explanation": "で marks the means of transport."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-5-what-did-you-do",
+    "japanese-n5-unit-5-how-was-it",
+    "japanese-n5-unit-5-where-with-how",
+    "japanese-n5-unit-5-dates-and-birthdays",
+    "japanese-n5-unit-5-invitations",
+    "japanese-n5-unit-4-going-places"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: プレゼント (present) is used in two sentences and is formally taught in Unit 7; it is a loanword glossed by the translation."
+  ]
+}

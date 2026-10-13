@@ -1,0 +1,485 @@
+{
+  "id": "japanese-n5-unit-7-counting",
+  "slug": "n5-unit-7-counting",
+  "unit": "Japanese N5 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Counting People & Things",
+  "title_jp": "ふたり・にまい・さんぼん",
+  "objectives": [
+    "I can say how many people or things there are.",
+    "Count people with ひとり, ふたり and にん",
+    "Count flat things with まい and long things with ほん",
+    "Put the number after the particle"
+  ],
+  "vocabulary": [
+    [
+      "ひとり",
+      "hitori",
+      "one person"
+    ],
+    [
+      "ふたり",
+      "futari",
+      "two people"
+    ],
+    [
+      "さんにん",
+      "sannin",
+      "three people"
+    ],
+    [
+      "なんにん",
+      "nannin",
+      "how many people"
+    ],
+    [
+      "こども",
+      "kodomo",
+      "child"
+    ],
+    [
+      "おとこのこ",
+      "otoko no ko",
+      "boy"
+    ],
+    [
+      "おんなのこ",
+      "onna no ko",
+      "girl"
+    ],
+    [
+      "いちまい",
+      "ichimai",
+      "one (flat thing)"
+    ],
+    [
+      "にまい",
+      "nimai",
+      "two (flat things)"
+    ],
+    [
+      "いっぽん",
+      "ippon",
+      "one (long thing)"
+    ],
+    [
+      "さんぼん",
+      "sanbon",
+      "three (long things)"
+    ],
+    [
+      "きっぷ",
+      "kippu",
+      "ticket"
+    ],
+    [
+      "かみ",
+      "kami",
+      "paper"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "子ども",
+      "word_reading": "こども"
+    },
+    {
+      "word_japanese": "男の子",
+      "word_reading": "おとこのこ"
+    },
+    {
+      "word_japanese": "女の子",
+      "word_reading": "おんなのこ"
+    },
+    {
+      "word_japanese": "一人",
+      "word_reading": "ひとり"
+    },
+    {
+      "word_japanese": "二人",
+      "word_reading": "ふたり"
+    },
+    {
+      "word_japanese": "三人",
+      "word_reading": "さんにん"
+    },
+    {
+      "word_japanese": "何人",
+      "word_reading": "なんにん"
+    },
+    {
+      "word_japanese": "一本",
+      "word_reading": "いっぽん"
+    },
+    {
+      "word_japanese": "三本",
+      "word_reading": "さんぼん"
+    }
+  ],
+  "concept": {
+    "title": "Counters",
+    "text": "Japanese adds a counter word to a number, chosen by what is being counted. You already know ひとつ, ふたつ for general things.\n\nPeople: ひとり (1), ふたり (2), then number + にん: さんにん, よにん, ごにん.\nFlat things such as tickets, paper and shirts: number + まい.\nLong, thin things such as pens, umbrellas and bottles: number + ほん, with sound changes: いっぽん, にほん, さんぼん.\n\nThe number comes after the noun and its particle, with no particle of its own: きっぷを にまい ください.",
+    "examples": [
+      "N が + number + います / あります",
+      "N を + number + V",
+      "きっぷを にまい ください。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Counting people",
+      "pattern": "N が 〜にん います",
+      "explanation": "Only one and two are irregular: ひとり, ふたり. Four people is よにん. Ask with なんにん.",
+      "examples": [
+        {
+          "japanese": "こどもが ふたり います。",
+          "romaji": "Kodomo ga futari imasu.",
+          "meaning": "There are two children."
+        },
+        {
+          "japanese": "きょうしつに がくせいが さんにん います。",
+          "romaji": "Kyoushitsu ni gakusei ga sannin imasu.",
+          "meaning": "There are three students in the classroom."
+        },
+        {
+          "japanese": "かぞくは なんにんですか。",
+          "romaji": "Kazoku wa nannin desu ka.",
+          "meaning": "How many people are in your family?"
+        },
+        {
+          "japanese": "よにんです。",
+          "romaji": "Yonin desu.",
+          "meaning": "Four."
+        },
+        {
+          "japanese": "おとこのこが ひとりと おんなのこが ふたり います。",
+          "romaji": "Otoko no ko ga hitori to onna no ko ga futari imasu.",
+          "meaning": "There is one boy and there are two girls."
+        }
+      ],
+      "notes": [
+        "Not いちにん or ににん: say ひとり, ふたり.",
+        "Four people is よにん, not よんにん or しにん."
+      ]
+    },
+    {
+      "title": "Counting things",
+      "pattern": "N を 〜まい / 〜ほん V",
+      "explanation": "まい is regular. ほん changes to ぽん after いっ and to ぼん after さん. The number follows を directly.",
+      "examples": [
+        {
+          "japanese": "きっぷを にまい ください。",
+          "romaji": "Kippu o nimai kudasai.",
+          "meaning": "Two tickets, please."
+        },
+        {
+          "japanese": "かみを いちまい ください。",
+          "romaji": "Kami o ichimai kudasai.",
+          "meaning": "One sheet of paper, please."
+        },
+        {
+          "japanese": "ペンを さんぼん かいました。",
+          "romaji": "Pen o sanbon kaimashita.",
+          "meaning": "I bought three pens."
+        },
+        {
+          "japanese": "かさが いっぽん あります。",
+          "romaji": "Kasa ga ippon arimasu.",
+          "meaning": "There is one umbrella."
+        },
+        {
+          "japanese": "シャツを にまい かいました。",
+          "romaji": "Shatsu o nimai kaimashita.",
+          "meaning": "I bought two shirts."
+        }
+      ],
+      "notes": [
+        "Wrong: にまいを きっぷ ください. The noun and を come first.",
+        "いっぽん, にほん, さんぼん: the counter changes, not the meaning."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "うちに こどもが さんにん います。",
+      "There are three children at home."
+    ],
+    [
+      "えいがの きっぷを にまい かいました。",
+      "I bought two cinema tickets."
+    ],
+    [
+      "この クラスに おんなのこが なんにん いますか。",
+      "How many girls are there in this class?"
+    ],
+    [
+      "つくえの うえに かみが いちまい あります。",
+      "There is one sheet of paper on the desk."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "リーさんの かぞくは なんにんですか。",
+      "リー",
+      "よにんです。ちちと ははと あねが います。"
+    ],
+    [
+      "てんいん",
+      "なんまいですか。",
+      "マイ",
+      "きっぷを にまい ください。"
+    ],
+    [
+      "てんいん",
+      "せんえんです。",
+      "マイ",
+      "はい、せんえんです。"
+    ],
+    [
+      "さくら",
+      "こうえんに こどもが たくさん いますね。",
+      "けん",
+      "はい。おとこのこが さんにんと おんなのこが ふたり います。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "子",
+      "onyomi": [
+        "シ",
+        "ス",
+        "ツ"
+      ],
+      "kunyomi": [
+        "こ",
+        "-こ",
+        "ね"
+      ],
+      "meaning_en": "child",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "子ども",
+          "reading": "こども",
+          "en": "child"
+        },
+        {
+          "word": "男の子",
+          "reading": "おとこのこ",
+          "en": "boy"
+        }
+      ],
+      "mnemonic": "A baby wrapped up with arms out."
+    },
+    {
+      "char": "男",
+      "onyomi": [
+        "ダン",
+        "ナン"
+      ],
+      "kunyomi": [
+        "おとこ",
+        "お"
+      ],
+      "meaning_en": "man",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "男の子",
+          "reading": "おとこのこ",
+          "en": "boy"
+        },
+        {
+          "word": "男の人",
+          "reading": "おとこのひと",
+          "en": "man"
+        }
+      ],
+      "mnemonic": "Strength (力) in the rice field (田)."
+    },
+    {
+      "char": "女",
+      "onyomi": [
+        "ジョ",
+        "ニョ",
+        "ニョウ"
+      ],
+      "kunyomi": [
+        "おんな",
+        "め"
+      ],
+      "meaning_en": "woman",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "女の子",
+          "reading": "おんなのこ",
+          "en": "girl"
+        },
+        {
+          "word": "女の人",
+          "reading": "おんなのひと",
+          "en": "woman"
+        }
+      ],
+      "mnemonic": "A person sitting with arms crossed."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: how do you say 600?",
+      "options": [
+        "ろくひゃく",
+        "ろっせん",
+        "ろっぴゃく",
+        "ろくびゃく"
+      ],
+      "correct": "ろっぴゃく",
+      "explanation": "600 is the irregular ろっぴゃく."
+    },
+    {
+      "prompt": "How do you say two people?",
+      "options": [
+        "ににん",
+        "ふつか",
+        "にまい",
+        "ふたり"
+      ],
+      "correct": "ふたり",
+      "explanation": "Two people is ふたり."
+    },
+    {
+      "prompt": "Which counter is used for tickets and paper?",
+      "options": [
+        "まい",
+        "ほん",
+        "にん",
+        "えん"
+      ],
+      "correct": "まい",
+      "explanation": "Flat things take まい."
+    },
+    {
+      "prompt": "How do you say three pens?",
+      "options": [
+        "ペンを さんほん",
+        "ペンを さんぼん",
+        "ペンを さんまい",
+        "ペンを さんにん"
+      ],
+      "correct": "ペンを さんぼん",
+      "explanation": "Long things take ほん, which becomes ぼん after さん."
+    },
+    {
+      "prompt": "Complete: きっぷ ___ にまい ください。",
+      "options": [
+        "に",
+        "が",
+        "を",
+        "と"
+      ],
+      "correct": "を",
+      "explanation": "The noun takes を, then the number follows."
+    },
+    {
+      "prompt": "Complete: かぞくは ___ ですか。 — よにんです。",
+      "options": [
+        "いくら",
+        "なんまい",
+        "だれ",
+        "なんにん"
+      ],
+      "correct": "なんにん",
+      "explanation": "なんにん asks how many people."
+    },
+    {
+      "prompt": "Choose the meaning of こどもが ふたり います。",
+      "options": [
+        "There are two children.",
+        "There is one child.",
+        "There are two tickets.",
+        "The child is two years old."
+      ],
+      "correct": "There are two children.",
+      "explanation": "ふたり is two people."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want two tickets. What do you say?",
+      "options": [
+        "きっぷを にまい ください。",
+        "にまいを きっぷ ください。",
+        "きっぷを ふたり ください。",
+        "きっぷを にほん ください。"
+      ],
+      "correct": "きっぷを にまい ください。",
+      "explanation": "Noun + を, then the number with まい for flat things."
+    },
+    {
+      "prompt": "Read: おとこのこが さんにんと おんなのこが ふたり います。 How many children are there altogether?",
+      "options": [
+        "Three",
+        "Five",
+        "Two",
+        "Six"
+      ],
+      "correct": "Five",
+      "explanation": "Three boys and two girls make five."
+    },
+    {
+      "prompt": "Which is NOT said correctly?",
+      "options": [
+        "ひとり",
+        "ふたり",
+        "よんにん",
+        "さんにん"
+      ],
+      "correct": "よんにん",
+      "explanation": "Four people is よにん."
+    },
+    {
+      "prompt": "Choose the sentence that means: There is one umbrella.",
+      "options": [
+        "かさが いちまい あります。",
+        "かさが ひとり あります。",
+        "かさが いっぽん います。",
+        "かさが いっぽん あります。"
+      ],
+      "correct": "かさが いっぽん あります。",
+      "explanation": "An umbrella is long (ほん) and is a thing (あります)."
+    },
+    {
+      "prompt": "Review: complete えきの ちかく ___ ぎんこうが あります。",
+      "options": [
+        "に",
+        "を",
+        "で",
+        "と"
+      ],
+      "correct": "に",
+      "explanation": "The place where something exists takes に."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-7-numbers-and-prices",
+    "japanese-n5-unit-6-my-town",
+    "japanese-n5-unit-2-family",
+    "japanese-n5-unit-3-people-locations",
+    "japanese-n5-unit-2-restaurant"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: なんまい (how many flat things) appears once in the dialogue; it follows the なん + counter rule shown with なんにん.",
+    "VERIFY: シャツ is used in one grammar example and is listed as vocabulary in the next lesson."
+  ]
+}
