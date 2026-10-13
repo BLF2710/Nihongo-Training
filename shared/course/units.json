@@ -1,0 +1,116 @@
+[
+  {
+    "id": "japanese-n5-unit-4",
+    "level": "N5",
+    "number": 4,
+    "sequence": 4,
+    "title": "Time & Daily Routine",
+    "titleJp": "じかんと まいにち",
+    "description": "Tell the time, talk about your schedule, and describe what you do on an ordinary day and week.",
+    "lessonIds": [
+      "japanese-n5-unit-4-telling-time",
+      "japanese-n5-unit-4-days-and-schedules",
+      "japanese-n5-unit-4-daily-routine",
+      "japanese-n5-unit-4-going-places",
+      "japanese-n5-unit-4-my-week",
+      "japanese-n5-unit-4-review"
+    ],
+    "assessmentId": "japanese-n5-unit-4-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n5-unit-5",
+    "level": "N5",
+    "number": 5,
+    "sequence": 5,
+    "title": "Past Events & Invitations",
+    "titleJp": "きのうの ことと さそい",
+    "description": "Say what you did, how it was, where and with whom, give dates, and invite someone to do something.",
+    "lessonIds": [
+      "japanese-n5-unit-5-what-did-you-do",
+      "japanese-n5-unit-5-how-was-it",
+      "japanese-n5-unit-5-where-with-how",
+      "japanese-n5-unit-5-dates-and-birthdays",
+      "japanese-n5-unit-5-invitations",
+      "japanese-n5-unit-5-review"
+    ],
+    "assessmentId": "japanese-n5-unit-5-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n5-unit-6",
+    "level": "N5",
+    "number": 6,
+    "sequence": 6,
+    "title": "Describing Things & Places",
+    "titleJp": "ものと ばしょの せつめい",
+    "description": "Describe things and places with い- and な-adjectives, in the present and the past, and talk about your town.",
+    "lessonIds": [
+      "japanese-n5-unit-6-i-adjectives",
+      "japanese-n5-unit-6-na-adjectives",
+      "japanese-n5-unit-6-what-kind",
+      "japanese-n5-unit-6-how-was-the-trip",
+      "japanese-n5-unit-6-my-town",
+      "japanese-n5-unit-6-review"
+    ],
+    "assessmentId": "japanese-n5-unit-6-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n5-unit-7",
+    "level": "N5",
+    "number": 7,
+    "sequence": 7,
+    "title": "Shopping, Numbers & Comparing",
+    "titleJp": "かいものと かず",
+    "description": "Handle prices and quantities, say what you want, find your way around a shop, and compare options.",
+    "lessonIds": [
+      "japanese-n5-unit-7-numbers-and-prices",
+      "japanese-n5-unit-7-counting",
+      "japanese-n5-unit-7-what-i-want",
+      "japanese-n5-unit-7-in-the-store",
+      "japanese-n5-unit-7-comparing",
+      "japanese-n5-unit-7-review"
+    ],
+    "assessmentId": "japanese-n5-unit-7-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n5-unit-8",
+    "level": "N5",
+    "number": 8,
+    "sequence": 8,
+    "title": "Requests, Rules & What's Happening",
+    "titleJp": "おねがいと ルール",
+    "description": "Learn the て-form and use it to make requests, say what is happening now, ask permission, describe steps in order, and give reasons.",
+    "lessonIds": [
+      "japanese-n5-unit-8-please-do",
+      "japanese-n5-unit-8-right-now",
+      "japanese-n5-unit-8-permission-and-rules",
+      "japanese-n5-unit-8-first-then",
+      "japanese-n5-unit-8-reasons-and-states",
+      "japanese-n5-unit-8-review"
+    ],
+    "assessmentId": "japanese-n5-unit-8-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n5-unit-9",
+    "level": "N5",
+    "number": 9,
+    "sequence": 9,
+    "title": "Travel, Wishes & First Plain Forms",
+    "titleJp": "りょこうと ゆめ",
+    "description": "Say what you want to do and why you are going somewhere, talk about abilities and experiences, and meet the plain forms used in casual speech.",
+    "lessonIds": [
+      "japanese-n5-unit-9-i-want-to-go",
+      "japanese-n5-unit-9-things-i-can-do",
+      "japanese-n5-unit-9-please-dont",
+      "japanese-n5-unit-9-have-you-ever",
+      "japanese-n5-unit-9-talking-with-friends",
+      "japanese-n5-unit-9-review"
+    ],
+    "assessmentId": "japanese-n5-unit-9-assessment",
+    "published": false
+  }
+]

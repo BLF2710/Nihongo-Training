@@ -1,3 +1,4 @@
+import RubyText from "../components/RubyText";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -108,11 +109,11 @@ function VocabularyQuestionCard({ exercise, isLast, onDone }: { exercise: Listen
   const correct = selected === exercise.answer;
   return <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
     <p className="text-sm font-semibold text-emerald-700">What does this word mean?</p>
-    <p lang="ja" className="mt-2 text-3xl font-black text-gray-900">{word.japanese}</p>
+    <p lang="ja" className="mt-2 text-3xl font-black text-gray-900"><RubyText text={word.japanese} /></p>
     <div className="mt-5"><QuizChoices choices={exercise.choices} selected={selected} disabled={selected !== null} onChoose={setSelected} /></div>
     {selected !== null && <div className="mt-6">
       <p role="status" className={`text-lg font-bold ${correct ? "text-emerald-700" : "text-red-700"}`}>{correct ? "Correct!" : "Not quite."}</p>
-      <p className="mt-1 text-gray-700"><span lang="ja" className="font-semibold">{word.japanese}</span> ({word.romaji}) — {word.meaning}</p>
+      <p className="mt-1 text-gray-700"><span lang="ja" className="font-semibold"><RubyText text={word.japanese} /></span> ({word.romaji}) — {word.meaning}</p>
       <button className={`${button} mt-5`} onClick={() => onDone(correct)}>{isLast ? "See results →" : "Next →"}</button>
     </div>}
   </section>;

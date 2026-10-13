@@ -1,0 +1,74 @@
+{
+  "id": "japanese-n5-unit-4-review",
+  "slug": "n5-unit-4-review",
+  "unit": "Japanese N5 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 4 Review",
+  "title_jp": "ユニット4の ふくしゅう",
+  "objectives": [
+    "I can describe a whole week: times, days, routines, places and how often.",
+    "Combine time, place, transport and frequency in one sentence",
+    "Choose between に, で, へ, を, から and まで",
+    "Read and answer questions about a timetable"
+  ],
+  "vocabulary": [
+    ["いま", "ima", "now"],
+    ["きょう", "kyou", "today"],
+    ["あした", "ashita", "tomorrow"],
+    ["やすみ", "yasumi", "day off / holiday"],
+    ["アルバイト", "arubaito", "part-time job"],
+    ["おきます", "okimasu", "to get up"],
+    ["べんきょうします", "benkyou shimasu", "to study"],
+    ["かえります", "kaerimasu", "to go home / to return"],
+    ["でんしゃ", "densha", "train"],
+    ["としょかん", "toshokan", "library"],
+    ["ときどき", "tokidoki", "sometimes"],
+    ["しゅうまつ", "shuumatsu", "weekend"]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Putting a week together",
+    "text": "A full sentence about your routine usually runs in this order: topic, time, transport or place, object, verb. For example: わたしは まいにち しちじに でんしゃで がっこうに いきます。\n\nKeep the particles apart by their jobs. に marks a clock time or a destination. で marks transport or the place of an action. へ can replace に for a destination. を marks the object. から and まで mark the start and the end. Words like きょう, あした, まいにち and ときどき stand alone.",
+    "examples": ["time に + transport で + place に + いきます", "place で + N を + V-ます", "A から B まで"]
+  },
+  "grammar": [],
+  "examples": [
+    ["わたしは まいあさ ろくじはんに おきます。", "I get up at 6:30 every morning."],
+    ["しちじ じゅっぷんに でんしゃで がっこうに いきます。", "At 7:10 I go to school by train."],
+    ["がっこうは くじから よじまでです。", "School is from nine until four."],
+    ["かようびと もくようびは ごご ごじから アルバイトを します。", "On Tuesdays and Thursdays I work my part-time job from 5 p.m."],
+    ["しゅうまつは ときどき としょかんで べんきょうします。", "On weekends I sometimes study at the library."],
+    ["にちようびは ぜんぜん はたらきません。うちで やすみます。", "I do not work at all on Sundays. I rest at home."]
+  ],
+  "dialogue": [
+    ["せんせい", "リンさんは まいにち なんじに おきますか。", "リン", "ろくじはんに おきます。"],
+    ["せんせい", "なんで がっこうに きますか。", "リン", "じてんしゃと でんしゃで きます。"],
+    ["マリア", "アルバイトは なんようびですか。", "けん", "かようびと もくようびです。ごご ごじから くじまでです。"],
+    ["マリア", "しゅうまつは なにを しますか。", "けん", "どようびは としょかんで べんきょうします。にちようびは うちで やすみます。"],
+    ["さくら", "すみません、いま なんじですか。", "アナ", "よじ じゅっぷんです。あしたは やすみですか。"]
+  ],
+  "introduced_kanji": [],
+  "reading": { "genre": "", "text_jp": "", "en_translation": "", "questions": [] },
+  "practice": [
+    { "prompt": "Complete: まいあさ しちじ ___ おきます。", "options": ["に", "で", "を", "から"], "correct": "に", "explanation": "に marks the clock time. まいあさ itself takes no particle." },
+    { "prompt": "Complete: でんしゃ ___ がっこうに いきます。", "options": ["で", "に", "を", "まで"], "correct": "で", "explanation": "で marks the means of transport." },
+    { "prompt": "Complete: としょかん ___ べんきょうします。", "options": ["で", "に", "へ", "を"], "correct": "で", "explanation": "で marks the place of an action." },
+    { "prompt": "Complete: がっこうは くじ ___ よじ ___ です。", "options": ["から / まで", "まで / から", "に / で", "は / を"], "correct": "から / まで", "explanation": "から marks the start and まで marks the end." },
+    { "prompt": "Which time is half past four?", "options": ["よじはん", "よんじはん", "しちじはん", "よじ ごふん"], "correct": "よじはん", "explanation": "Four o'clock is よじ, and はん adds half past." },
+    { "prompt": "Which sentence is correct?", "options": ["ぜんぜん はたらきません。", "ぜんぜん はたらきます。", "ぜんぜんに はたらきません。", "はたらきません ぜんぜん。"], "correct": "ぜんぜん はたらきません。", "explanation": "ぜんぜん needs a negative verb, takes no particle, and comes before the verb." },
+    { "prompt": "Which word means tomorrow?", "options": ["あした", "きょう", "いま", "まいにち"], "correct": "あした", "explanation": "あした is tomorrow. きょう is today." },
+    { "prompt": "Choose the question that asks how someone travels.", "options": ["なんで いきますか。", "どこへ いきますか。", "なんじに いきますか。", "なんようびに いきますか。"], "correct": "なんで いきますか。", "explanation": "なんで asks the means of transport." }
+  ],
+  "challenge": [
+    { "prompt": "Read: かようびと もくようびは ごご ごじから アルバイトを します。 On which days does this person work?", "options": ["Tuesday and Thursday", "Monday and Thursday", "Tuesday and Friday", "Monday and Wednesday"], "correct": "Tuesday and Thursday", "explanation": "かようび is Tuesday and もくようび is Thursday." },
+    { "prompt": "Choose the sentence that means: At 7:10 I go to school by train.", "options": ["しちじ じゅっぷんに でんしゃで がっこうに いきます。", "しちじ じゅっぷんで でんしゃに がっこうに いきます。", "しちじ じゅっぷんに でんしゃで がっこうで いきます。", "ななじ じゅっぷんに でんしゃで がっこうに いきます。"], "correct": "しちじ じゅっぷんに でんしゃで がっこうに いきます。", "explanation": "Time + に, transport + で, destination + に. Seven o'clock is しちじ." },
+    { "prompt": "Your teacher asks: しゅうまつは なにを しますか。 Which answer is natural and correct?", "options": ["ときどき としょかんで べんきょうします。", "ときどき としょかんに べんきょうします。", "ぜんぜん としょかんで べんきょうします。", "としょかんで べんきょうしますか。"], "correct": "ときどき としょかんで べんきょうします。", "explanation": "The action's place takes で, and ときどき goes with a positive verb." },
+    { "prompt": "Read: にちようびは ぜんぜん はたらきません。うちで やすみます。 What does this person do on Sunday?", "options": ["Rests at home", "Works at home", "Works at the office", "Studies at the library"], "correct": "Rests at home", "explanation": "はたらきません is does not work, and うちで やすみます is rests at home." },
+    { "prompt": "Review: complete へやに ベッドが ___。", "options": ["あります", "います", "いきます", "します"], "correct": "あります", "explanation": "A bed is a thing, so its existence is stated with あります, from Unit 3." }
+  ],
+  "recycled_from": ["japanese-n5-unit-4-telling-time", "japanese-n5-unit-4-days-and-schedules", "japanese-n5-unit-4-daily-routine", "japanese-n5-unit-4-going-places", "japanese-n5-unit-4-my-week", "japanese-n5-unit-3-home", "japanese-n5-unit-1-introductions"],
+  "skill_notes": "リンさん uses the name suffix さん, which learners have seen in たなかさん.",
+  "review_flags": []
+}

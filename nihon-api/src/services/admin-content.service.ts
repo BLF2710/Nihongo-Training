@@ -13,6 +13,7 @@ export const CONTENT: ManagedContent[] = [
   {key:'kana-practice',title:'Kana speed quizzes & review',category:'Games',paths:['/practice','/review/hiragana','/review/katakana','/guest/practice'],source:'Shared Kana quiz engine'},
   {key:'listening',title:'Listening practice',category:'Skills',paths:['/listening'],source:'Existing lesson vocabulary, sentences & dialogues'},
   {key:'speaking',title:'Speaking practice',category:'Skills',paths:['/speaking'],source:'Existing lesson vocabulary, sentences & dialogues'},
+  {key:'reading',title:'Reading practice',category:'Skills',paths:['/reading'],source:'Reading passages from imported lessons'},
   {key:'kanji-practice',title:'Kanji practice',category:'Games',paths:['/learn/kanji/practice'],source:'Existing Kanji quiz engine'},
   {key:'english-games',title:'English word match & scramble',category:'Games',paths:['/arcade','/games/english'],source:'Existing English arcade'},
 ];

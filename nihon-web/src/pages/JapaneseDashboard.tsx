@@ -24,6 +24,7 @@ const practiceTools = [
   { title: "Unit review", href: "/review", description: "A mixed set per unit: assessment questions, word games, vocabulary, listening, and speaking." },
   { title: "Listening", href: "/listening", description: "Hear words, sentences, and dialogues from the units you have reached." },
   { title: "Speaking", href: "/speaking", description: "Say them aloud and have your speech checked, unit by unit." },
+  { title: "Reading", href: "/reading", description: "Short passages with comprehension questions, with furigana and translation on demand." },
   { title: "Unit assessments", href: "/quizzes", description: "Finish a unit’s lessons, then score at least 80% to complete the unit." },
 ];
 

@@ -1,3 +1,4 @@
+import RubyText from "./RubyText";
 import { useState } from "react";
 import QuizChoices from "./QuizChoices";
 import { apiErrorMessage } from "../api/errors";
@@ -11,7 +12,7 @@ type InputProps<Q> = { question: Q; disabled: boolean; onSubmit: (answer: Review
 function MultipleChoiceInput({ question, disabled, onSubmit }: InputProps<Extract<ReviewQuestion, { type: "multiple_choice" }>>) {
   const [selected, setSelected] = useState<string | null>(null);
   return <>
-    <h2 className="mb-5 text-xl font-bold leading-relaxed text-gray-900">{question.prompt}</h2>
+    <h2 className="mb-5 text-xl font-bold leading-relaxed text-gray-900"><RubyText text={question.prompt} /></h2>
     <QuizChoices choices={question.options} selected={selected} disabled={disabled} onChoose={choice => { setSelected(choice); onSubmit(question.options.indexOf(choice)); }} />
   </>;
 }
@@ -28,17 +29,17 @@ function WordMatchInput({ question, disabled, onSubmit }: InputProps<Extract<Rev
   };
   const complete = chosen.every(right => right !== null);
   return <>
-    <h2 className="mb-2 text-xl font-bold text-gray-900">{question.prompt}</h2>
+    <h2 className="mb-2 text-xl font-bold text-gray-900"><RubyText text={question.prompt} /></h2>
     <p className="mb-5 text-sm text-gray-500">Select a word on the left, then its match on the right.</p>
     <div className="grid grid-cols-2 gap-4">
       <div role="group" aria-label="Words" className="space-y-3">{question.left.map((left, index) =>
         <button key={left} disabled={disabled} aria-pressed={active === index} onClick={() => pickLeft(index)} className={`${tile} w-full ${active === index ? "border-indigo-500 bg-indigo-50" : chosen[index] ? "border-emerald-400 bg-emerald-50" : "border-gray-200 bg-white"}`}>
-          <span lang="ja" className="block text-lg">{left}</span>
+          <span lang="ja" className="block text-lg"><RubyText text={left} /></span>
           <span className="block text-sm font-normal text-gray-600">{chosen[index] ? `→ ${chosen[index]}` : "Not matched yet"}</span>
         </button>)}
       </div>
       <div role="group" aria-label="Matches" className="space-y-3">{question.right.map(right =>
-        <button key={right} disabled={disabled || active === null || chosen.includes(right)} onClick={() => pickRight(right)} className={`${tile} w-full border-gray-200 bg-white`}>{right}</button>)}
+        <button key={right} disabled={disabled || active === null || chosen.includes(right)} onClick={() => pickRight(right)} className={`${tile} w-full border-gray-200 bg-white`}><RubyText text={right} /></button>)}
       </div>
     </div>
     <button className={`${button} mt-5`} disabled={disabled || !complete} onClick={() => onSubmit(chosen as string[])}>Check matches</button>

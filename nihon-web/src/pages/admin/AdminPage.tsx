@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { clearSession, saveUserRole } from '../../lib/authStorage';
 import { button, useAdminData } from './adminData';
@@ -8,7 +8,7 @@ import AdminContent from './AdminContent';
 import AdminSettings from './AdminSettings';
 import AdminQuestions from './AdminQuestions';
 import AdminQuestionForm from './AdminQuestionForm';
-const links=[['/admin','Overview'],['/admin/users','Manage users'],['/admin/content','Manage content'],['/admin/questions','Question bank'],['/admin/system/status','System status'],['/admin/system/settings','System settings'],['/admin/system/roles','User roles']];
+const links=[['/admin','Overview'],['/admin/users','Users & roles'],['/admin/content','Manage content'],['/admin/questions','Question bank'],['/admin/system/status','System status'],['/admin/system/settings','System settings']];
 export default function AdminPage(){
   const access=useAdminData<{id:number;username:string;role:string}>('/admin/access');
   const [open,setOpen]=useState(false);
@@ -26,7 +26,7 @@ export default function AdminPage(){
     {open&&<button className="fixed inset-0 top-18 z-30 bg-black/30 lg:hidden" aria-label="Close admin navigation" onClick={()=>setOpen(false)}/>}
     <aside aria-label="Admin sidebar" className={`fixed bottom-0 left-0 top-18 z-40 w-64 border-r border-gray-200 bg-white p-5 transition-transform lg:translate-x-0 ${open?'translate-x-0':'-translate-x-full'}`}><p className="mb-4 truncate text-sm font-semibold text-gray-500">Signed in as {access.data?.username}</p><nav aria-label="Admin navigation" className="space-y-2">{links.map(([path,label])=><NavLink key={path} end to={path} onClick={()=>setOpen(false)} className={({isActive})=>`block rounded-xl px-4 py-3 text-sm font-bold ${isActive?'bg-emerald-50 text-emerald-800':'text-gray-600 hover:bg-gray-50'}`}>{label}</NavLink>)}</nav></aside>
     <main className="min-w-0 px-4 py-8 sm:px-8 lg:ml-64"><div className="mx-auto max-w-6xl"><p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Administration</p><h1 className="mb-7 mt-2 text-3xl font-black">{title}</h1><div key={location.pathname}>
-      {location.pathname==='/admin'?<AdminOverview/>:location.pathname==='/admin/users'?<AdminUsers currentId={access.data!.id}/>:location.pathname==='/admin/content'?<AdminContent/>:location.pathname==='/admin/questions'?<AdminQuestions/>:location.pathname==='/admin/questions/new'?<AdminQuestionForm/>:location.pathname==='/admin/system/status'?<AdminOverview statusOnly/>:location.pathname==='/admin/system/settings'?<AdminSettings/>:location.pathname==='/admin/system/roles'?<AdminUsers currentId={access.data!.id} rolesOnly/>:<Link to="/admin" className={button}>Go to overview</Link>}
+      {location.pathname==='/admin'?<AdminOverview/>:location.pathname==='/admin/users'?<AdminUsers currentId={access.data!.id}/>:location.pathname==='/admin/content'?<AdminContent/>:location.pathname==='/admin/questions'?<AdminQuestions/>:location.pathname==='/admin/questions/new'?<AdminQuestionForm/>:location.pathname==='/admin/system/status'?<AdminOverview statusOnly/>:location.pathname==='/admin/system/settings'?<AdminSettings/>:location.pathname==='/admin/system/roles'?<Navigate to="/admin/users" replace/>:<Link to="/admin" className={button}>Go to overview</Link>}
     </div></div></main>
   </div>;
 }

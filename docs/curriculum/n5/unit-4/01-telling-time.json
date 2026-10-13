@@ -1,0 +1,124 @@
+{
+  "id": "japanese-n5-unit-4-telling-time",
+  "slug": "n5-unit-4-telling-time",
+  "unit": "Japanese N5 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "What Time Is It?",
+  "title_jp": "いま なんじですか",
+  "objectives": [
+    "I can ask and say what time it is.",
+    "Say the hours, including the irregular よじ, しちじ and くじ",
+    "Add minutes with ごふん and じゅっぷん, and say half past with はん",
+    "Use ごぜん and ごご for a.m. and p.m."
+  ],
+  "vocabulary": [
+    ["いま", "ima", "now"],
+    ["なんじ", "nanji", "what time"],
+    ["じかん", "jikan", "time"],
+    ["とけい", "tokei", "clock / watch"],
+    ["ごぜん", "gozen", "a.m. / morning"],
+    ["ごご", "gogo", "p.m. / afternoon"],
+    ["はん", "han", "half past"],
+    ["よじ", "yoji", "four o'clock"],
+    ["しちじ", "shichiji", "seven o'clock"],
+    ["くじ", "kuji", "nine o'clock"],
+    ["ごふん", "gofun", "five minutes"],
+    ["じゅっぷん", "juppun", "ten minutes"]
+  ],
+  "kanji_form": [
+    { "word_japanese": "今", "word_reading": "いま" },
+    { "word_japanese": "半", "word_reading": "はん" }
+  ],
+  "concept": {
+    "title": "Number + じ gives the hour",
+    "text": "To say the hour, put じ after a number you already know: いちじ is one o'clock, にじ is two o'clock. Three hours are irregular and must be memorised: よじ (4, not よんじ), しちじ (7, not ななじ) and くじ (9, not きゅうじ).\n\nMinutes follow the hour. In this lesson you use ごふん (5 minutes), じゅっぷん (10 minutes) and はん (half past). ごぜん (a.m.) and ごご (p.m.) come before the time, the opposite of English.",
+    "examples": ["number + じ + です", "いま よじです。", "ごご くじはんです。"]
+  },
+  "grammar": [
+    {
+      "title": "Saying the hour",
+      "pattern": "(いま) number + じ です",
+      "explanation": "Add じ to a number to name the hour, then finish politely with です. いま (now) usually comes first and takes no particle. Three hours change their reading: よじ, しちじ and くじ.",
+      "examples": [
+        { "japanese": "いちじです。", "romaji": "Ichiji desu.", "meaning": "It is one o'clock." },
+        { "japanese": "いま よじです。", "romaji": "Ima yoji desu.", "meaning": "It is four o'clock now." },
+        { "japanese": "いま しちじです。", "romaji": "Ima shichiji desu.", "meaning": "It is seven o'clock now." },
+        { "japanese": "とうきょうは いま ごご くじです。", "romaji": "Toukyou wa ima gogo kuji desu.", "meaning": "It is 9 p.m. in Tokyo now." }
+      ],
+      "notes": [
+        "Do not say よんじ, ななじ or きゅうじ. The hour forms are よじ, しちじ and くじ.",
+        "Eleven and twelve o'clock are じゅういちじ and じゅうにじ: じゅう (ten) plus いち or に."
+      ]
+    },
+    {
+      "title": "Minutes, half past, a.m. and p.m.",
+      "pattern": "(ごぜん / ごご) + hour + ごふん / じゅっぷん / はん",
+      "explanation": "Say the hour first, then the minutes. ごふん is five minutes and じゅっぷん is ten minutes: the counter is ふん, but it becomes ぷん after じゅう. はん means half past and replaces the minutes. ごぜん and ごご go in front of the whole time.",
+      "examples": [
+        { "japanese": "くじ ごふんです。", "romaji": "Kuji gofun desu.", "meaning": "It is 9:05." },
+        { "japanese": "しちじ じゅっぷんです。", "romaji": "Shichiji juppun desu.", "meaning": "It is 7:10." },
+        { "japanese": "いま よじはんです。", "romaji": "Ima yoji han desu.", "meaning": "It is half past four now." },
+        { "japanese": "いま ごぜん じゅうじはんです。", "romaji": "Ima gozen juuji han desu.", "meaning": "It is 10:30 a.m. now." }
+      ],
+      "notes": [
+        "The order is ごご + hour + minutes. Saying くじ ごご is a common mistake.",
+        "Use はん, not さんじゅっぷん, for everyday half-hours."
+      ]
+    },
+    {
+      "title": "Asking the time",
+      "pattern": "(place は) いま なんじですか",
+      "explanation": "なんじ means what time. Add か to make the question, exactly as in なんですか and なんさいですか. To ask about another place, name it first with は.",
+      "examples": [
+        { "japanese": "いま なんじですか。", "romaji": "Ima nanji desu ka.", "meaning": "What time is it now?" },
+        { "japanese": "すみません、いま なんじですか。", "romaji": "Sumimasen, ima nanji desu ka.", "meaning": "Excuse me, what time is it now?" },
+        { "japanese": "おおさかは いま なんじですか。", "romaji": "Oosaka wa ima nanji desu ka.", "meaning": "What time is it in Osaka now?" },
+        { "japanese": "ベトナムは いま ごぜん しちじですか。", "romaji": "Betonamu wa ima gozen shichiji desu ka.", "meaning": "Is it 7 a.m. in Vietnam now?" }
+      ],
+      "notes": [
+        "Start with すみません when you ask a stranger.",
+        "Answer with the time and です: くじです。"
+      ]
+    }
+  ],
+  "examples": [
+    ["いま なんじですか。", "What time is it now?"],
+    ["いま くじ じゅっぷんです。", "It is 9:10 now."],
+    ["とけいは つくえの うえに あります。", "The clock is on the desk."],
+    ["にほんは いま ごご よじはんです。", "It is 4:30 p.m. in Japan now."]
+  ],
+  "dialogue": [
+    ["マイ", "すみません、いま なんじですか。", "たなか", "いま よじ ごふんです。"],
+    ["マイ", "ありがとうございます。", "たなか", "いいえ。"],
+    ["けん", "アメリカは いま なんじですか。", "アナ", "いま ごぜん しちじはんです。"],
+    ["ゆき", "じかんは ありますか。", "リー", "はい、あります。いま くじです。"]
+  ],
+  "introduced_kanji": [
+    { "char": "時", "onyomi": ["ジ"], "kunyomi": ["とき"], "meaning_en": "time, hour", "stroke_count": 10, "example_words": [{ "word": "時間", "reading": "じかん", "en": "time" }, { "word": "四時", "reading": "よじ", "en": "four o'clock" }], "mnemonic": "The sun (日) on the left keeps time for the temple (寺) on the right." },
+    { "char": "分", "onyomi": ["フン", "ブン"], "kunyomi": ["わ.かる"], "meaning_en": "minute, part", "stroke_count": 4, "example_words": [{ "word": "五分", "reading": "ごふん", "en": "five minutes" }, { "word": "十分", "reading": "じゅっぷん", "en": "ten minutes" }], "mnemonic": "A blade (刀) divides (八) an hour into minutes." },
+    { "char": "半", "onyomi": ["ハン"], "kunyomi": ["なか.ば"], "meaning_en": "half", "stroke_count": 5, "example_words": [{ "word": "半", "reading": "はん", "en": "half past" }, { "word": "四時半", "reading": "よじはん", "en": "half past four" }], "mnemonic": "A line cuts the shape down the middle: half." },
+    { "char": "今", "onyomi": ["コン"], "kunyomi": ["いま"], "meaning_en": "now", "stroke_count": 4, "example_words": [{ "word": "今", "reading": "いま", "en": "now" }, { "word": "今日", "reading": "きょう", "en": "today" }], "mnemonic": "A roof over a moment: what is happening under it right now." }
+  ],
+  "reading": { "genre": "", "text_jp": "", "en_translation": "", "questions": [] },
+  "practice": [
+    { "prompt": "What does いま mean?", "options": ["now", "time", "clock", "what"], "correct": "now", "explanation": "いま means now. じかん is time and とけい is a clock." },
+    { "prompt": "How do you say four o'clock?", "options": ["よじ", "よんじ", "しじ", "よっじ"], "correct": "よじ", "explanation": "Four o'clock is irregular: よじ, not よんじ." },
+    { "prompt": "How do you say seven o'clock?", "options": ["しちじ", "ななじ", "しちふん", "はちじ"], "correct": "しちじ", "explanation": "Seven o'clock is しちじ. ななじ is not used." },
+    { "prompt": "Choose the meaning of くじ はんです。", "options": ["It is half past nine.", "It is nine o'clock.", "It is 9:05.", "It is half past seven."], "correct": "It is half past nine.", "explanation": "くじ is nine o'clock and はん adds half past." },
+    { "prompt": "Complete the question: いま ___ ですか。", "options": ["なんじ", "なんさい", "だれ", "どこ"], "correct": "なんじ", "explanation": "なんじ asks what time. なんさい asks age." },
+    { "prompt": "Which is the correct order for 7 p.m.?", "options": ["ごご しちじ", "しちじ ごご", "ごぜん しちじ", "しちじ ごぜん"], "correct": "ごご しちじ", "explanation": "ごご (p.m.) comes before the hour." },
+    { "prompt": "How do you say ten minutes?", "options": ["じゅっぷん", "じゅうふん", "ごふん", "じゅうじ"], "correct": "じゅっぷん", "explanation": "ふん becomes ぷん after じゅう: じゅっぷん." }
+  ],
+  "challenge": [
+    { "prompt": "A stranger asks you: すみません、いま なんじですか。 Your watch shows 9:10. What do you say?", "options": ["くじ じゅっぷんです。", "きゅうじ じゅっぷんです。", "くじ ごふんです。", "じゅうじ くじです。"], "correct": "くじ じゅっぷんです。", "explanation": "Nine o'clock is くじ and ten minutes is じゅっぷん." },
+    { "prompt": "Choose the sentence that means: It is 4:30 a.m. now.", "options": ["いま ごぜん よじはんです。", "いま ごご よじはんです。", "いま よじはん ごぜんです。", "いま ごぜん よんじはんです。"], "correct": "いま ごぜん よじはんです。", "explanation": "ごぜん comes first, four o'clock is よじ, and はん is half past." },
+    { "prompt": "Read: とけいは つくえの うえに あります。 Where is the clock?", "options": ["On the desk", "Under the desk", "In the bag", "In front of the chair"], "correct": "On the desk", "explanation": "つくえの うえ means on top of the desk." },
+    { "prompt": "Which question asks the time in another city?", "options": ["おおさかは いま なんじですか。", "おおさかは どこですか。", "おおさかに すんでいますか。", "おおさかは なんですか。"], "correct": "おおさかは いま なんじですか。", "explanation": "Place + は + いま なんじですか asks what time it is there." },
+    { "prompt": "Which time is NOT said correctly?", "options": ["ななじ", "いちじ", "くじ", "じゅうじ"], "correct": "ななじ", "explanation": "Seven o'clock must be しちじ." }
+  ],
+  "recycled_from": ["japanese-n5-unit-1-numbers-age", "japanese-n5-unit-1-questions", "japanese-n5-unit-1-origin", "japanese-n5-unit-2-living", "japanese-n5-unit-3-locations", "japanese-n5-unit-3-choosing"],
+  "skill_notes": "Vocabulary times are single spoken words. Sentences are kana-only, so the browser voice reads は as the particle wa.",
+  "review_flags": []
+}

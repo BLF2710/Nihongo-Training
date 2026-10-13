@@ -1,3 +1,5 @@
+import { toPlain } from "../lib/furigana";
+import RubyText from "./RubyText";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import type { StudyLesson, VocabularyItem } from "../data/japaneseUnit1Reference";
@@ -26,13 +28,13 @@ export function StudyFlashcard({ card }: { card: StudyCard }) {
   return <div>
     <button
       type="button" onClick={() => setFlipped(value => !value)} aria-pressed={flipped}
-      aria-label={`${flipped ? "Hide" : "Reveal"} answer for ${card.front}`}
+      aria-label={`${flipped ? "Hide" : "Reveal"} answer for ${toPlain(card.front)}`}
       className={`flex min-h-80 w-full cursor-pointer flex-col items-center justify-center rounded-3xl border p-6 text-center shadow-sm transition-colors motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600 sm:min-h-96 sm:p-10 ${flipped ? "border-emerald-300 bg-emerald-50" : "border-gray-200 bg-white hover:border-emerald-300"}`}
     >
       <span className="text-xs font-bold text-emerald-700">{card.label}</span>
-      <span lang={card.frontLang ?? "ja"} className="mt-6 w-full text-3xl font-bold leading-relaxed text-gray-900 wrap-anywhere sm:text-5xl">{card.front}</span>
+      <span lang={card.frontLang ?? "ja"} className="mt-6 w-full text-3xl font-bold leading-relaxed text-gray-900 wrap-anywhere sm:text-5xl"><RubyText text={card.front} /></span>
       {card.support && <span className="mt-3 font-mono text-base text-indigo-700 wrap-anywhere">{card.support}</span>}
-      {flipped && <span className="mt-6 text-xl font-semibold text-gray-800" aria-live="polite">{card.back}</span>}
+      {flipped && <span className="mt-6 text-xl font-semibold text-gray-800" aria-live="polite"><RubyText text={card.back} /></span>}
       <span className="mt-8 text-sm text-gray-500">{flipped ? "Click to hide" : "Click to reveal"}</span>
     </button>
     <div className="mt-4 text-center">

@@ -2,7 +2,7 @@ import { Router } from "express";
 import type { ErrorRequestHandler } from "express";
 import {
   createQuestion, deleteQuestion, getAccess, getOverview, getSettings, listContent, listQuestions, listUsers,
-  updateContent, updateQuestion, updateSettings, updateUser,
+  updateContent, updateLessonAccess, updateQuestion, updateSettings, updateUser,
 } from "../controllers/admin.controller";
 import { requireAdmin } from "../middleware/admin.middleware";
 import { authenticate } from "../middleware/auth.middleware";
@@ -15,6 +15,7 @@ router.use(requireAdmin);
 router.get("/overview", getOverview);
 router.get("/users", listUsers);
 router.patch("/users/:id", updateUser);
+router.put("/users/:id/lesson-access", updateLessonAccess);
 router.get("/settings", getSettings);
 router.put("/settings", updateSettings);
 router.get("/content", listContent);

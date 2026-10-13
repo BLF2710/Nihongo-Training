@@ -12,7 +12,8 @@ const uniqueBy = <T>(items: T[], key: (item: T) => string) => [...new Map(items.
 
 // Material is projected from the lessons a learner has already completed, not copied into a second catalog.
 export const JAPANESE_SKILL_UNITS: SkillUnit[] = JAPANESE_STUDY_UNITS.map(unit => {
-  const lessons = N5_LESSONS.filter(lesson => (lesson.unitNumber ?? 1) === unit.number);
+  // Unit numbers restart at each level, so lessons are matched by unit id.
+  const lessons = N5_LESSONS.filter(lesson => (lesson.unitId ?? `japanese-n5-unit-${lesson.unitNumber ?? 1}`) === unit.id);
   return {
     unitId: unit.id, number: unit.number, title: unit.title,
     // Affixes such as 〜じん are not words that can be said or recognised on their own.

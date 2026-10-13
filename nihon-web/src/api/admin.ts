@@ -12,6 +12,11 @@ export async function updateUser(userId: number, edit: UserEdit) {
   await api.patch(`/admin/users/${userId}`, edit);
 }
 
+/** Opens every unit and lesson for the account, or restores normal progression. */
+export async function setLessonAccess(userId: number, unlocked: boolean) {
+  await api.put(`/admin/users/${userId}/lesson-access`, { unlocked });
+}
+
 export async function saveSettings(settings: Pick<Settings, "registration_enabled" | "announcement">) {
   return (await api.put<Settings>("/admin/settings", settings)).data;
 }

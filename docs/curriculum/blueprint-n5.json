@@ -1,0 +1,283 @@
+{
+  "blueprint_version": 1,
+  "stage": "0",
+  "part": "N5 Units 4–9 (part 1 of 6: N5 remainder, N4, N3, N2, N1, cumulative indexes)",
+  "status": "approved for lesson generation (N5 is completed before N4 is blueprinted)",
+  "level": "N5",
+  "defaults": {
+    "study_pace_hours_per_week": 6,
+    "unit_shape": "5 content lessons + 1 review lesson + 1 assessment (15 questions, pass at 12/15)",
+    "romaji": "On vocabulary, grammar examples and dialogues throughout N5. N4: new words only in N4 Units 1–3, then dropped.",
+    "required_xp_level": "Left null for every unit at the owner's request; the XP system is being redesigned.",
+    "kanji_facts": "Readings, meanings and stroke counts are taken from the site's dictionary source at import time, not from generated lesson text."
+  },
+  "fixed_units": [
+    { "unit_id": "japanese-n5-unit-1", "title": "Greetings & Introductions", "note": "6 content lessons, no review lesson. Fixed." },
+    { "unit_id": "japanese-n5-unit-2", "title": "People, Family, Possession & Daily Preferences", "note": "5 content + 1 review. Fixed." },
+    { "unit_id": "japanese-n5-unit-3", "title": "Food, Places, Home & Locations", "note": "5 content + 1 review. Fixed." }
+  ],
+  "already_taught_and_recycled": [
+    "です / ですか, は, の (possession), と (and), から きました",
+    "これ・それ・あれ, この・その・あの, ここ・そこ・あそこ, だれ, なん, どこ, どんな",
+    "numbers 1–10, 〜さい",
+    "すき / すきじゃないです, 〜は ちょっと…",
+    "たべます / のみます (non-past, with を), いつも・よく・あまり + negative",
+    "あります / います, location words (うえ・した・なか・まえ・うしろ・みぎ・ひだり) with の and に",
+    "ひとつ–よっつ, 〜を ください, 〜、おねがいします, 〜に します",
+    "kanji: 日 本 人 水 父 母 学 生 先 食"
+  ],
+  "units": [
+    {
+      "unit_id": "japanese-n5-unit-4",
+      "level": "N5",
+      "unit_number": 4,
+      "sequence": 4,
+      "title": "Time & Daily Routine",
+      "title_jp": "じかんと まいにち",
+      "theme": "Clock time, days of the week, and everyday actions",
+      "description": "Tell the time, talk about your schedule, and describe what you do on an ordinary day and week.",
+      "can_do": [
+        "I can ask and say what time it is.",
+        "I can say which day something happens and when it starts and ends.",
+        "I can describe my daily routine with polite verbs.",
+        "I can say where I go and how often I do things."
+      ],
+      "est_hours": 16,
+      "required_xp_level": null,
+      "target_vocab": 58,
+      "references": ["Genki I L3–L4 (ordering only)", "IRODORI Starter L7–L8 themes", "Minna no Nihongo I L4–L6 (cross-check)"],
+      "lessons": [
+        { "lesson_id": "japanese-n5-unit-4-telling-time", "lesson_number": 1, "is_review": false, "title": "What Time Is It?", "title_jp": "いま なんじですか", "grammar": ["〜じ / 〜ふん・ぷん / 〜はん", "いま なんじですか", "ごぜん / ごご"], "target_vocab": 12, "kanji": ["時", "分", "半", "今"] },
+        { "lesson_id": "japanese-n5-unit-4-days-and-schedules", "lesson_number": 2, "is_review": false, "title": "Days & Schedules", "title_jp": "なんようびですか", "grammar": ["〜ようび / なんようび", "N は 〜から 〜までです", "きょう・あした (as time words, no particle)"], "target_vocab": 12, "kanji": ["月", "火", "木", "金", "土"] },
+        { "lesson_id": "japanese-n5-unit-4-daily-routine", "lesson_number": 3, "is_review": false, "title": "My Daily Routine", "title_jp": "わたしの いちにち", "grammar": ["V-ます / V-ません (non-past, habitual)", "time に V-ます", "N を V-ます (recycled from Unit 2, extended to new verbs)"], "target_vocab": 12, "kanji": ["午", "前", "後", "毎"] },
+        { "lesson_id": "japanese-n5-unit-4-going-places", "lesson_number": 4, "is_review": false, "title": "Going Places", "title_jp": "どこへ いきますか", "grammar": ["place に / へ いきます・きます・かえります", "transport で いきます", "どこへ / なんで"], "target_vocab": 12, "kanji": ["行", "来", "電", "車"] },
+        { "lesson_id": "japanese-n5-unit-4-my-week", "lesson_number": 5, "is_review": false, "title": "My Week", "title_jp": "わたしの いっしゅうかん", "grammar": ["frequency: まいにち・ときどき・ぜんぜん + negative (extends いつも・よく・あまり)", "place で V-ます (place of action)", "しゅうまつ / やすみの ひ"], "target_vocab": 10, "kanji": ["週", "休", "見"] },
+        { "lesson_id": "japanese-n5-unit-4-review", "lesson_number": 6, "is_review": true, "title": "Unit 4 Review", "title_jp": "ユニット4の ふくしゅう", "grammar": [], "target_vocab": 0, "kanji": [], "review_context": "A student's weekly timetable and a part-time work schedule." }
+      ]
+    },
+    {
+      "unit_id": "japanese-n5-unit-5",
+      "level": "N5",
+      "unit_number": 5,
+      "sequence": 5,
+      "title": "Past Events & Invitations",
+      "title_jp": "きのうの ことと さそい",
+      "theme": "Talking about what happened, dates, and making plans together",
+      "description": "Say what you did, how it was, where and with whom, give dates, and invite someone to do something.",
+      "can_do": [
+        "I can say what I did and did not do yesterday or last week.",
+        "I can say how the weather or an event was.",
+        "I can say where, with whom, and by what means I did something.",
+        "I can give dates and birthdays.",
+        "I can invite someone and accept or decline politely."
+      ],
+      "est_hours": 17,
+      "required_xp_level": null,
+      "target_vocab": 58,
+      "references": ["Genki I L3–L4 (ordering only)", "IRODORI Starter L11–L12 themes", "Minna no Nihongo I L4–L6 (cross-check)"],
+      "lessons": [
+        { "lesson_id": "japanese-n5-unit-5-what-did-you-do", "lesson_number": 1, "is_review": false, "title": "What Did You Do?", "title_jp": "なにを しましたか", "grammar": ["V-ました / V-ませんでした", "きのう・せんしゅう・けさ (past time words)", "なにを しましたか"], "target_vocab": 12, "kanji": ["何", "年", "聞"] },
+        { "lesson_id": "japanese-n5-unit-5-how-was-it", "lesson_number": 2, "is_review": false, "title": "How Was It?", "title_jp": "どうでしたか", "grammar": ["N でした / N じゃなかったです", "どうでしたか", "weather: はれ・あめ・くもり・ゆき"], "target_vocab": 12, "kanji": ["天", "気", "雨"] },
+        { "lesson_id": "japanese-n5-unit-5-where-with-how", "lesson_number": 3, "is_review": false, "title": "Where, With Whom & How", "title_jp": "だれと どこで", "grammar": ["person と V-ます (together with)", "ひとりで", "place で + past actions (recycles Unit 4 で)"], "target_vocab": 12, "kanji": ["友", "会", "社"] },
+        { "lesson_id": "japanese-n5-unit-5-dates-and-birthdays", "lesson_number": 4, "is_review": false, "title": "Dates & Birthdays", "title_jp": "なんがつ なんにち", "grammar": ["〜がつ 〜にち (months and days, irregular days 1–10, 14, 20, 24)", "いつですか", "date に V-ます"], "target_vocab": 12, "kanji": ["一", "二", "三", "四", "五"] },
+        { "lesson_id": "japanese-n5-unit-5-invitations", "lesson_number": 5, "is_review": false, "title": "Shall We?", "title_jp": "いっしょに いきませんか", "grammar": ["V-ませんか (invitation)", "V-ましょう / V-ましょうか", "accepting and declining: いいですね / すみません、ちょっと…"], "target_vocab": 10, "kanji": ["六", "七", "八", "九", "十"] },
+        { "lesson_id": "japanese-n5-unit-5-review", "lesson_number": 6, "is_review": true, "title": "Unit 5 Review", "title_jp": "ユニット5の ふくしゅう", "grammar": [], "target_vocab": 0, "kanji": [], "review_context": "A weekend diary and messages arranging a birthday outing." }
+      ]
+    },
+    {
+      "unit_id": "japanese-n5-unit-6",
+      "level": "N5",
+      "unit_number": 6,
+      "sequence": 6,
+      "title": "Describing Things & Places",
+      "title_jp": "ものと ばしょの せつめい",
+      "theme": "Adjectives for objects, people, food, and your town",
+      "description": "Describe things and places with い- and な-adjectives, in the present and the past, and talk about your town.",
+      "can_do": [
+        "I can describe things with common adjectives and say what they are not.",
+        "I can ask and answer what kind of thing something is.",
+        "I can say how a trip, meal, or film was.",
+        "I can give a short description of my town."
+      ],
+      "est_hours": 18,
+      "required_xp_level": null,
+      "target_vocab": 60,
+      "references": ["Genki I L5 (ordering only)", "IRODORI Starter L9–L10, L13 themes", "Minna no Nihongo I L8, L12 (cross-check)"],
+      "lessons": [
+        { "lesson_id": "japanese-n5-unit-6-i-adjectives", "lesson_number": 1, "is_review": false, "title": "Big, Small, Cheap, Expensive", "title_jp": "おおきいです、ちいさいです", "grammar": ["い-adjective + です", "い-adjective negative: 〜くないです", "いい → よくないです"], "target_vocab": 12, "kanji": ["大", "小", "高", "安"] },
+        { "lesson_id": "japanese-n5-unit-6-na-adjectives", "lesson_number": 2, "is_review": false, "title": "Quiet, Lively, Famous", "title_jp": "しずかです、にぎやかです", "grammar": ["な-adjective + です", "な-adjective negative: 〜じゃないです", "contrast with い-adjectives (きれい・きらい are な-adjectives)"], "target_vocab": 12, "kanji": ["新", "古", "名"] },
+        { "lesson_id": "japanese-n5-unit-6-what-kind", "lesson_number": 3, "is_review": false, "title": "What Kind of Place?", "title_jp": "どんな ところですか", "grammar": ["adjective + noun (い-adj N / な-adj な N)", "どんな N (recycled from Unit 2, now answered with adjectives)", "S1 が、S2 (but)"], "target_vocab": 12, "kanji": ["山", "川", "長"] },
+        { "lesson_id": "japanese-n5-unit-6-how-was-the-trip", "lesson_number": 4, "is_review": false, "title": "How Was the Trip?", "title_jp": "りょこうは どうでしたか", "grammar": ["い-adjective past: 〜かったです / 〜くなかったです", "な-adjective past: 〜でした / 〜じゃなかったです", "とても・すこし・あまり・ぜんぜん with adjectives"], "target_vocab": 12, "kanji": ["多", "少", "白"] },
+        { "lesson_id": "japanese-n5-unit-6-my-town", "lesson_number": 5, "is_review": false, "title": "My Town", "title_jp": "わたしの まち", "grammar": ["place に N が あります (recycled) + adjectives", "そして / でも (linking sentences)", "N が たくさん あります"], "target_vocab": 12, "kanji": ["店", "駅", "国"] },
+        { "lesson_id": "japanese-n5-unit-6-review", "lesson_number": 6, "is_review": true, "title": "Unit 6 Review", "title_jp": "ユニット6の ふくしゅう", "grammar": [], "target_vocab": 0, "kanji": [], "review_context": "A short post introducing a hometown.", "reading_genre": "short social-media post (about 80–120 characters)" }
+      ]
+    },
+    {
+      "unit_id": "japanese-n5-unit-7",
+      "level": "N5",
+      "unit_number": 7,
+      "sequence": 7,
+      "title": "Shopping, Numbers & Comparing",
+      "title_jp": "かいものと かず",
+      "theme": "Prices, counters, wants, finding things in a shop, and comparisons",
+      "description": "Handle prices and quantities, say what you want, find your way around a shop, and compare options.",
+      "can_do": [
+        "I can read and say prices up to tens of thousands of yen.",
+        "I can count people, flat things, and long things.",
+        "I can say what I want and ask which one.",
+        "I can ask where something is in a building.",
+        "I can compare two or more things and say which I prefer."
+      ],
+      "est_hours": 18,
+      "required_xp_level": null,
+      "target_vocab": 58,
+      "references": ["Genki I L2, L5, L10 (ordering only)", "IRODORI Starter L15–L16 themes", "Minna no Nihongo I L3, L11–L13 (cross-check)"],
+      "lessons": [
+        { "lesson_id": "japanese-n5-unit-7-numbers-and-prices", "lesson_number": 1, "is_review": false, "title": "Numbers & Prices", "title_jp": "いくらですか", "grammar": ["numbers 11–99,999 (sound changes: さんびゃく・ろっぴゃく・はっぴゃく・さんぜん・はっせん)", "いくらですか", "〜えん"], "target_vocab": 12, "kanji": ["百", "千", "万", "円"] },
+        { "lesson_id": "japanese-n5-unit-7-counting", "lesson_number": 2, "is_review": false, "title": "Counting People & Things", "title_jp": "なんにん、なんまい", "grammar": ["〜にん (ひとり・ふたり)", "〜まい / 〜ほん・ぼん・ぽん", "N も (also)"], "target_vocab": 12, "kanji": ["子", "男", "女"] },
+        { "lesson_id": "japanese-n5-unit-7-what-i-want", "lesson_number": 3, "is_review": false, "title": "What I Want", "title_jp": "なにが ほしいですか", "grammar": ["N が ほしいです", "どれ / どの N", "これを ください (recycled) with counters"], "target_vocab": 10, "kanji": ["買", "飲"] },
+        { "lesson_id": "japanese-n5-unit-7-in-the-store", "lesson_number": 4, "is_review": false, "title": "Finding Things in a Store", "title_jp": "うりばは どこですか", "grammar": ["〜かい (floors, なんがい)", "location words recycled with kanji forms", "N は どこに ありますか (recycled)"], "target_vocab": 12, "kanji": ["上", "下", "中", "右", "左"] },
+        { "lesson_id": "japanese-n5-unit-7-comparing", "lesson_number": 5, "is_review": false, "title": "Comparing & Choosing", "title_jp": "どちらが いいですか", "grammar": ["A は B より adjective です", "A と B と どちらが 〜ですか / B の ほうが 〜です", "N の なかで 〜が いちばん 〜です"], "target_vocab": 12, "kanji": ["入", "出", "口", "外"] },
+        { "lesson_id": "japanese-n5-unit-7-review", "lesson_number": 6, "is_review": true, "title": "Unit 7 Review", "title_jp": "ユニット7の ふくしゅう", "grammar": [], "target_vocab": 0, "kanji": [], "review_context": "Shopping for a gift in a department store.", "reading_genre": "shop notice or price list (about 80–120 characters)" }
+      ]
+    },
+    {
+      "unit_id": "japanese-n5-unit-8",
+      "level": "N5",
+      "unit_number": 8,
+      "sequence": 8,
+      "title": "Requests, Rules & What's Happening",
+      "title_jp": "おねがいと ルール",
+      "theme": "The て-form: requests, ongoing actions, permission, sequences, and reasons",
+      "description": "Learn the て-form and use it to make requests, say what is happening now, ask permission, describe steps in order, and give reasons.",
+      "can_do": [
+        "I can make and understand polite requests.",
+        "I can say what someone is doing right now.",
+        "I can ask whether something is allowed and understand simple rules.",
+        "I can describe actions in order.",
+        "I can give a simple reason and describe ongoing states such as where I live or work."
+      ],
+      "est_hours": 20,
+      "required_xp_level": null,
+      "target_vocab": 56,
+      "references": ["Genki I L6–L7 (ordering only)", "IRODORI Starter L14, L17 themes", "Minna no Nihongo I L14–L16 (cross-check)"],
+      "lessons": [
+        { "lesson_id": "japanese-n5-unit-8-please-do", "lesson_number": 1, "is_review": false, "title": "Please Do…", "title_jp": "〜て ください", "grammar": ["て-form of る-verbs and irregular verbs (して・きて)", "て-form of う-verbs (って・んで・いて・いで・して; いって as the exception)", "V-て ください"], "target_vocab": 12, "kanji": ["言", "話", "語"] },
+        { "lesson_id": "japanese-n5-unit-8-right-now", "lesson_number": 2, "is_review": false, "title": "What Are You Doing?", "title_jp": "いま なにを していますか", "grammar": ["V-て います (action in progress)", "V-て いません", "いま (recycled) with て います"], "target_vocab": 12, "kanji": ["読", "書"] },
+        { "lesson_id": "japanese-n5-unit-8-permission-and-rules", "lesson_number": 3, "is_review": false, "title": "Permission & Rules", "title_jp": "〜ても いいですか", "grammar": ["V-ても いいです(か)", "V-ては いけません", "answering: はい、どうぞ / すみません、ちょっと…"], "target_vocab": 10, "kanji": ["立", "手", "足"] },
+        { "lesson_id": "japanese-n5-unit-8-first-then", "lesson_number": 4, "is_review": false, "title": "First… Then…", "title_jp": "〜て、〜ます", "grammar": ["V-て、V-ます (actions in sequence)", "V-てから", "それから"], "target_vocab": 12, "kanji": ["間", "目", "耳"] },
+        { "lesson_id": "japanese-n5-unit-8-reasons-and-states", "lesson_number": 5, "is_review": false, "title": "Why? And How Things Are", "title_jp": "どうしてですか", "grammar": ["S から、S (reason)", "どうして", "V-て います (resulting state: すんでいます recycled, しっています, はたらいています)"], "target_vocab": 10, "kanji": ["校", "空"] },
+        { "lesson_id": "japanese-n5-unit-8-review", "lesson_number": 6, "is_review": true, "title": "Unit 8 Review", "title_jp": "ユニット8の ふくしゅう", "grammar": [], "target_vocab": 0, "kanji": [], "review_context": "Rules of a language school and a phone call about what everyone is doing.", "reading_genre": "notice of rules (about 100–150 characters)" }
+      ]
+    },
+    {
+      "unit_id": "japanese-n5-unit-9",
+      "level": "N5",
+      "unit_number": 9,
+      "sequence": 9,
+      "title": "Travel, Wishes & First Plain Forms",
+      "title_jp": "りょこうと ゆめ",
+      "theme": "Wanting to do things, abilities, experiences, and a first look at casual speech",
+      "description": "Say what you want to do and why you are going somewhere, talk about abilities and experiences, and meet the plain forms used in casual speech.",
+      "can_do": [
+        "I can say what I want to do and where I am going to do it.",
+        "I can say what I can do and talk about hobbies.",
+        "I can ask someone politely not to do something.",
+        "I can say whether I have done something before.",
+        "I can understand and use simple casual speech with friends."
+      ],
+      "est_hours": 22,
+      "required_xp_level": null,
+      "target_vocab": 54,
+      "references": ["Genki I L7–L11 (ordering only)", "IRODORI Starter L18 / Elementary 1 opening themes", "Minna no Nihongo I L13, L17–L20 (cross-check)"],
+      "lessons": [
+        { "lesson_id": "japanese-n5-unit-9-i-want-to-go", "lesson_number": 1, "is_review": false, "title": "I Want to Go!", "title_jp": "いきたいです", "grammar": ["V-たいです / V-たくないです", "place へ V-stem に いきます (purpose)", "contrast ほしい (things) vs たい (actions)"], "target_vocab": 12, "kanji": ["東", "西", "南", "北"] },
+        { "lesson_id": "japanese-n5-unit-9-things-i-can-do", "lesson_number": 2, "is_review": false, "title": "Things I Can Do", "title_jp": "できる こと", "grammar": ["dictionary form (る-verbs, う-verbs, する・くる)", "V-dictionary こと が できます", "しゅみは V-dictionary こと です"], "target_vocab": 12, "kanji": ["花", "魚"] },
+        { "lesson_id": "japanese-n5-unit-9-please-dont", "lesson_number": 3, "is_review": false, "title": "Please Don't…", "title_jp": "〜ないで ください", "grammar": ["ない-form (る-verbs, う-verbs, しない・こない; ある → ない)", "V-ないで ください", "contrast with V-ては いけません (Unit 8)"], "target_vocab": 10, "kanji": ["道"] },
+        { "lesson_id": "japanese-n5-unit-9-have-you-ever", "lesson_number": 4, "is_review": false, "title": "Have You Ever…?", "title_jp": "〜た ことが あります", "grammar": ["た-form (built from the て-form)", "V-た ことが あります / ありません", "いちども + negative"], "target_vocab": 10, "kanji": [] },
+        { "lesson_id": "japanese-n5-unit-9-talking-with-friends", "lesson_number": 5, "is_review": false, "title": "Talking with Friends", "title_jp": "ともだちと はなす", "grammar": ["plain non-past and past in casual statements (いく・いかない・いった)", "casual questions with rising intonation and 〜の？", "だ / じゃない after nouns and な-adjectives; dropping です after い-adjectives"], "target_vocab": 10, "kanji": [] },
+        { "lesson_id": "japanese-n5-unit-9-review", "lesson_number": 6, "is_review": true, "title": "Unit 9 Review", "title_jp": "ユニット9の ふくしゅう", "grammar": [], "target_vocab": 0, "kanji": [], "review_context": "Planning a trip with a friend, switching between polite and casual speech.", "reading_genre": "travel plan message (about 120–180 characters)" }
+      ]
+    }
+  ],
+  "grammar_index": [
+    { "point": "clock time 〜じ・〜ふん・〜はん, ごぜん・ごご", "lesson": "japanese-n5-unit-4-telling-time" },
+    { "point": "days of the week, 〜から 〜まで", "lesson": "japanese-n5-unit-4-days-and-schedules" },
+    { "point": "V-ます / V-ません, time に", "lesson": "japanese-n5-unit-4-daily-routine" },
+    { "point": "movement に・へ, transport で", "lesson": "japanese-n5-unit-4-going-places" },
+    { "point": "frequency adverbs (full set), place of action で", "lesson": "japanese-n5-unit-4-my-week" },
+    { "point": "V-ました / V-ませんでした", "lesson": "japanese-n5-unit-5-what-did-you-do" },
+    { "point": "N でした / じゃなかったです, どうでしたか", "lesson": "japanese-n5-unit-5-how-was-it" },
+    { "point": "person と, ひとりで", "lesson": "japanese-n5-unit-5-where-with-how" },
+    { "point": "dates 〜がつ 〜にち, いつ", "lesson": "japanese-n5-unit-5-dates-and-birthdays" },
+    { "point": "V-ませんか, V-ましょう(か)", "lesson": "japanese-n5-unit-5-invitations" },
+    { "point": "い-adjectives present, 〜くないです", "lesson": "japanese-n5-unit-6-i-adjectives" },
+    { "point": "な-adjectives present, 〜じゃないです", "lesson": "japanese-n5-unit-6-na-adjectives" },
+    { "point": "adjective + noun, が (but)", "lesson": "japanese-n5-unit-6-what-kind" },
+    { "point": "adjective past forms, degree adverbs", "lesson": "japanese-n5-unit-6-how-was-the-trip" },
+    { "point": "そして / でも, たくさん", "lesson": "japanese-n5-unit-6-my-town" },
+    { "point": "large numbers, いくら, 〜えん", "lesson": "japanese-n5-unit-7-numbers-and-prices" },
+    { "point": "counters 〜にん・〜まい・〜ほん, も", "lesson": "japanese-n5-unit-7-counting" },
+    { "point": "N が ほしいです, どれ / どの", "lesson": "japanese-n5-unit-7-what-i-want" },
+    { "point": "floors 〜かい", "lesson": "japanese-n5-unit-7-in-the-store" },
+    { "point": "comparison より・ほうが・いちばん", "lesson": "japanese-n5-unit-7-comparing" },
+    { "point": "て-form, V-て ください", "lesson": "japanese-n5-unit-8-please-do" },
+    { "point": "V-て います (in progress)", "lesson": "japanese-n5-unit-8-right-now" },
+    { "point": "V-ても いいです, V-ては いけません", "lesson": "japanese-n5-unit-8-permission-and-rules" },
+    { "point": "V-て、V; V-てから", "lesson": "japanese-n5-unit-8-first-then" },
+    { "point": "から (reason), どうして, V-て います (state)", "lesson": "japanese-n5-unit-8-reasons-and-states" },
+    { "point": "V-たいです, purpose V-stem に いきます", "lesson": "japanese-n5-unit-9-i-want-to-go" },
+    { "point": "dictionary form, こと が できます", "lesson": "japanese-n5-unit-9-things-i-can-do" },
+    { "point": "ない-form, V-ないで ください", "lesson": "japanese-n5-unit-9-please-dont" },
+    { "point": "た-form, V-た ことが あります", "lesson": "japanese-n5-unit-9-have-you-ever" },
+    { "point": "plain forms in casual speech", "lesson": "japanese-n5-unit-9-talking-with-friends" }
+  ],
+  "kanji_index": {
+    "already_introduced": ["日", "本", "人", "水", "父", "母", "学", "生", "先", "食"],
+    "new_in_units_4_to_9": 93,
+    "n5_total_at_end": 103,
+    "target_note": "Approximately 100. JLPT publishes no official kanji list, so membership at the edges is a judgement call.",
+    "by_unit": {
+      "japanese-n5-unit-4": ["時", "分", "半", "今", "月", "火", "木", "金", "土", "午", "前", "後", "毎", "行", "来", "電", "車", "週", "休", "見"],
+      "japanese-n5-unit-5": ["何", "年", "聞", "天", "気", "雨", "友", "会", "社", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"],
+      "japanese-n5-unit-6": ["大", "小", "高", "安", "新", "古", "名", "山", "川", "長", "多", "少", "白", "店", "駅", "国"],
+      "japanese-n5-unit-7": ["百", "千", "万", "円", "子", "男", "女", "買", "飲", "上", "下", "中", "右", "左", "入", "出", "口", "外"],
+      "japanese-n5-unit-8": ["言", "話", "語", "読", "書", "立", "手", "足", "間", "目", "耳", "校", "空"],
+      "japanese-n5-unit-9": ["東", "西", "南", "北", "花", "魚", "道"]
+    },
+    "pacing_note": "3–5 new kanji per content lesson through Unit 7, tapering to 0–3 in Units 8–9, where the conjugation load is highest."
+  },
+  "vocabulary_plan": {
+    "new_words_units_4_to_9": 344,
+    "approximate_course_total_at_end_of_n5": 480,
+    "note": "The lesson format allows 8–14 new words per content lesson, so the course itself reaches roughly 480 actively taught words. The remaining distance to the approximate 800-word N5 range is covered by the level wrap-up deck (WRAP N5) as recognition vocabulary."
+  },
+  "spiral_review_plan": [
+    "Every content lesson recycles at least 20% of its examples and questions from earlier lessons, listed in recycled_from.",
+    "Each lesson's first practice question revisits the previous lesson; each challenge set includes one item from a previous unit.",
+    "Words first taught in kana are re-shown in kanji form in the lesson that introduces their kanji, then used in kanji from then on.",
+    "Location words, あります / います, and food vocabulary from Units 2–3 are deliberately reused in Units 6 and 7.",
+    "The て-form (Unit 8) is the base for the た-form (Unit 9), so Unit 9 opens each lesson with て-form retrieval."
+  ],
+  "checkpoint_plan": {
+    "per_lesson": "6–8 practice questions and 4–5 challenge questions.",
+    "per_unit": "One review lesson with no new vocabulary, grammar, or kanji, then a 15-question assessment (pass at 12/15).",
+    "per_level": "WRAP N5: cumulative vocabulary and kanji decks, a grammar summary sheet, and a full mock exam in the three exam sections (言語知識, 読解, 聴解 scripts) with score interpretation.",
+    "reading": "Optional in N5. Short readings are planned for the review lessons of Units 6–9 so learners meet the reading screen before N4."
+  },
+  "deviations_and_assumptions": [
+    "Unit 1 is treated as fixed with 6 content lessons and no review lesson; the 5 + 1 shape applies from Unit 4.",
+    "Units 1–3 follow a can-do order that already introduced たべます / のみます, frequency adverbs, どんな, あります / います, 〜つ counters and ordering phrases earlier than a grammar-first textbook would. Unit 4 onward does not re-teach them; it extends them to new verbs and contexts.",
+    "Verb conjugation is introduced as a system in Unit 4 (ます / ません), although two verbs were met in Unit 2.",
+    "Comparisons (より / ほうが / いちばん) are placed in Unit 7 with shopping, earlier than in a grammar-first order, because choosing between items is the natural context and adjectives are complete by Unit 6.",
+    "The て-form is held until Unit 8 so that polite present, past, adjectives and counters are stable first.",
+    "Plain forms are limited to Unit 9: dictionary, ない and た forms, each tied to one polite pattern, plus one lesson of casual speech. Plain-form subordinate clauses (〜と おもいます, noun-modifying clauses) are deferred to N4 Unit 1.",
+    "Weekday names are written 月よう日 etc., because 曜 is not taught at this level.",
+    "Kanji whose level placement varies between published lists are included here as N5 by judgement: 駅, 社, 花, 魚, 道, 空, 耳. Any of them can move to N4 Unit 1 without affecting grammar order.",
+    "The rule that every new kanji appears in at least two taught words is checked when each lesson is written and enforced by the import step. If a kanji cannot be given two natural words in its lesson (candidates at risk: 火, 土, 目, 耳, 道), it moves to a later lesson rather than being forced.",
+    "Kanji readings, meanings and stroke counts in lesson output are advisory; the import step takes them from the site's dictionary source.",
+    "Estimated hours assume about 6 hours of study per week and bring N5 to roughly 150 hours in total including Units 1–3 and kana.",
+    "required_xp_level is null for every unit, as instructed.",
+    "No learner-facing content names any textbook; the references fields are internal."
+  ]
+}

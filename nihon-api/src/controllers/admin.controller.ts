@@ -19,6 +19,10 @@ export const updateUser = action(async (req, res) => {
   return res.json(await adminService.updateUser(getUserId(req), Number(req.params.id), req.body ?? {}));
 }, { label: "Admin user update", message: "Could not update the user." });
 
+export const updateLessonAccess = action(async (req, res) => {
+  return res.json(await adminService.setLessonAccess(req.params.id, req.body?.unlocked));
+}, { label: "Admin lesson access", message: "Could not change lesson access." });
+
 export const getSettings = action(async (_req, res) => {
   return res.json(await adminService.getSystemSettings());
 }, { label: "Admin settings", message: "Could not load settings." });

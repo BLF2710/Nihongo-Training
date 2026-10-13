@@ -3,10 +3,12 @@ import { UNIT_ASSESSMENTS } from "../data/unit-assessments";
 import { listAssessmentProgress } from "../repositories/assessment.repository";
 import { getXp } from "../repositories/gamification.repository";
 import { listCompletedLessonIds } from "../repositories/lesson-progress.repository";
+import { hasAllLessonsUnlocked } from "../repositories/user.repository";
 import { getLevelFromXP } from "./progression.service";
 import { LessonDefinition, canUserAccessLesson, findLesson, getLessonAccess } from "./lesson.service";
 
 type Access = { allowed: boolean; reasons: string[] };
+const OPEN: Access = { allowed: true, reasons: [] };
 
 // Completion is derived, never stored as a second copy of lesson progress.
 export function getUnitProgress(unit: UnitDefinition, completedLessonIds: Set<string>, passedAssessmentIds: Set<string>) {
@@ -28,11 +30,11 @@ export function getUnitAccess(unit: UnitDefinition, level: number, completedUnit
 }
 
 // A lesson is open only when both its unit and its own requirements allow it.
-function describeLessons(unit: UnitDefinition, unitAccess: Access, xp: number, completedLessonIds: Set<string>) {
+function describeLessons(unit: UnitDefinition, unitAccess: Access, xp: number, completedLessonIds: Set<string>, unlocked: boolean) {
   return unit.lessonIds.map(id => {
     const lesson = findLesson(id);
     if (!lesson) throw new Error(`Missing lesson ${id}`);
-    const lessonAccess = getLessonAccess(lesson, xp, !!lesson.previousLessonId && completedLessonIds.has(lesson.previousLessonId));
+    const lessonAccess = unlocked ? OPEN : getLessonAccess(lesson, xp, !!lesson.previousLessonId && completedLessonIds.has(lesson.previousLessonId));
     return { ...lesson, isPlaceholder: false, description: "", completed: completedLessonIds.has(id), allowed: unitAccess.allowed && lessonAccess.allowed, reasons: [...unitAccess.reasons, ...lessonAccess.reasons] };
   });
 }
@@ -42,10 +44,12 @@ function describePlaceholderLessons(unit: UnitDefinition) {
 }
 
 export async function getUserUnits(userId: number) {
-  const [xp, completedLessons, assessments] = await Promise.all([
+  // `unlocked` is an administrator override: every unit and lesson is open, while completion is still earned normally.
+  const [xp, completedLessons, assessments, unlocked] = await Promise.all([
     getXp(userId),
     listCompletedLessonIds(userId),
     listAssessmentProgress(userId),
+    hasAllLessonsUnlocked(userId),
   ]);
   const level = getLevelFromXP(xp);
   const completedIds = new Set<string>(completedLessons);
@@ -54,13 +58,13 @@ export async function getUserUnits(userId: number) {
   const completedUnitIds = new Set(UNITS.filter(unit => progressByUnit.get(unit.id)?.completed).map(unit => unit.id));
   return UNITS.map(unit => {
     const progress = progressByUnit.get(unit.id)!;
-    const access = getUnitAccess(unit, level, completedUnitIds);
+    const access = unlocked ? OPEN : getUnitAccess(unit, level, completedUnitIds);
     const assessment = UNIT_ASSESSMENTS.find(item => item.id === unit.assessmentId);
     if (!assessment && !unit.isPlaceholder) throw new Error(`Missing assessment for ${unit.id}`);
     const saved = assessments.find(row => row.assessment_id === unit.assessmentId);
     return {
       ...unit, ...progress, ...access,
-      lessons: unit.isPlaceholder ? describePlaceholderLessons(unit) : describeLessons(unit, access, xp, completedIds),
+      lessons: unit.isPlaceholder ? describePlaceholderLessons(unit) : describeLessons(unit, access, xp, completedIds, unlocked),
       assessmentUnlocked: !unit.isPlaceholder && !!assessment && access.allowed && progress.allLessonsCompleted,
       questionCount: assessment?.questions.length ?? 0, passPercent: assessment?.passPercent ?? null,
       bestScore: !unit.isPlaceholder && saved ? Number(saved.best_score) : null,

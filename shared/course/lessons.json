@@ -1,0 +1,2053 @@
+[
+  {
+    "id": "japanese-n5-unit-4-telling-time",
+    "slug": "n5-unit-4-telling-time",
+    "unitId": "japanese-n5-unit-4",
+    "level": "N5",
+    "unitNumber": 4,
+    "lessonNumber": 1,
+    "isReview": false,
+    "title": "What Time Is It?",
+    "titleJp": "いま なんじですか",
+    "objectives": [
+      "I can ask and say what time it is.",
+      "Say the hours, including the irregular よじ, しちじ and くじ",
+      "Add minutes with ごふん and じゅっぷん, and say half past with はん",
+      "Use ごぜん and ごご for a.m. and p.m."
+    ],
+    "vocabulary": [
+      [
+        "いま",
+        "ima",
+        "now"
+      ],
+      [
+        "なんじ",
+        "nanji",
+        "what time"
+      ],
+      [
+        "じかん",
+        "jikan",
+        "time"
+      ],
+      [
+        "とけい",
+        "tokei",
+        "clock / watch"
+      ],
+      [
+        "ごぜん",
+        "gozen",
+        "a.m. / morning"
+      ],
+      [
+        "ごご",
+        "gogo",
+        "p.m. / afternoon"
+      ],
+      [
+        "はん",
+        "han",
+        "half past"
+      ],
+      [
+        "よじ",
+        "yoji",
+        "four o'clock"
+      ],
+      [
+        "しちじ",
+        "shichiji",
+        "seven o'clock"
+      ],
+      [
+        "くじ",
+        "kuji",
+        "nine o'clock"
+      ],
+      [
+        "ごふん",
+        "gofun",
+        "five minutes"
+      ],
+      [
+        "じゅっぷん",
+        "juppun",
+        "ten minutes"
+      ]
+    ],
+    "concept": {
+      "title": "Number + じ gives the hour",
+      "text": "To say the hour, put じ after a number you already know: いちじ is one o'clock, にじ is two o'clock. Three hours are irregular and must be memorised: よじ (4, not よんじ), しちじ (7, not ななじ) and くじ (9, not きゅうじ).\n\nMinutes follow the hour. In this lesson you use ごふん (5 minutes), じゅっぷん (10 minutes) and はん (half past). ごぜん (a.m.) and ごご (p.m.) come before the time, the opposite of English.",
+      "examples": [
+        "number + じ + です",
+        "いま よじです。",
+        "ごご くじはんです。"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Saying the hour",
+        "pattern": "(いま) number + じ です",
+        "explanation": "Add じ to a number to name the hour, then finish politely with です. いま (now) usually comes first and takes no particle. Three hours change their reading: よじ, しちじ and くじ.",
+        "examples": [
+          {
+            "japanese": "いちじです。",
+            "romaji": "Ichiji desu.",
+            "meaning": "It is one o'clock."
+          },
+          {
+            "japanese": "いま よじです。",
+            "romaji": "Ima yoji desu.",
+            "meaning": "It is four o'clock now."
+          },
+          {
+            "japanese": "いま しちじです。",
+            "romaji": "Ima shichiji desu.",
+            "meaning": "It is seven o'clock now."
+          },
+          {
+            "japanese": "とうきょうは いま ごご くじです。",
+            "romaji": "Toukyou wa ima gogo kuji desu.",
+            "meaning": "It is 9 p.m. in Tokyo now."
+          }
+        ],
+        "notes": [
+          "Do not say よんじ, ななじ or きゅうじ. The hour forms are よじ, しちじ and くじ.",
+          "Eleven and twelve o'clock are じゅういちじ and じゅうにじ: じゅう (ten) plus いち or に."
+        ]
+      },
+      {
+        "title": "Minutes, half past, a.m. and p.m.",
+        "pattern": "(ごぜん / ごご) + hour + ごふん / じゅっぷん / はん",
+        "explanation": "Say the hour first, then the minutes. ごふん is five minutes and じゅっぷん is ten minutes: the counter is ふん, but it becomes ぷん after じゅう. はん means half past and replaces the minutes. ごぜん and ごご go in front of the whole time.",
+        "examples": [
+          {
+            "japanese": "くじ ごふんです。",
+            "romaji": "Kuji gofun desu.",
+            "meaning": "It is 9:05."
+          },
+          {
+            "japanese": "しちじ じゅっぷんです。",
+            "romaji": "Shichiji juppun desu.",
+            "meaning": "It is 7:10."
+          },
+          {
+            "japanese": "いま よじはんです。",
+            "romaji": "Ima yoji han desu.",
+            "meaning": "It is half past four now."
+          },
+          {
+            "japanese": "いま ごぜん じゅうじはんです。",
+            "romaji": "Ima gozen juuji han desu.",
+            "meaning": "It is 10:30 a.m. now."
+          }
+        ],
+        "notes": [
+          "The order is ごご + hour + minutes. Saying くじ ごご is a common mistake.",
+          "Use はん, not さんじゅっぷん, for everyday half-hours."
+        ]
+      },
+      {
+        "title": "Asking the time",
+        "pattern": "(place は) いま なんじですか",
+        "explanation": "なんじ means what time. Add か to make the question, exactly as in なんですか and なんさいですか. To ask about another place, name it first with は.",
+        "examples": [
+          {
+            "japanese": "いま なんじですか。",
+            "romaji": "Ima nanji desu ka.",
+            "meaning": "What time is it now?"
+          },
+          {
+            "japanese": "すみません、いま なんじですか。",
+            "romaji": "Sumimasen, ima nanji desu ka.",
+            "meaning": "Excuse me, what time is it now?"
+          },
+          {
+            "japanese": "おおさかは いま なんじですか。",
+            "romaji": "Oosaka wa ima nanji desu ka.",
+            "meaning": "What time is it in Osaka now?"
+          },
+          {
+            "japanese": "ベトナムは いま ごぜん しちじですか。",
+            "romaji": "Betonamu wa ima gozen shichiji desu ka.",
+            "meaning": "Is it 7 a.m. in Vietnam now?"
+          }
+        ],
+        "notes": [
+          "Start with すみません when you ask a stranger.",
+          "Answer with the time and です: くじです。"
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "いま なんじですか。",
+        "What time is it now?"
+      ],
+      [
+        "いま くじ じゅっぷんです。",
+        "It is 9:10 now."
+      ],
+      [
+        "とけいは つくえの うえに あります。",
+        "The clock is on the desk."
+      ],
+      [
+        "にほんは いま ごご よじはんです。",
+        "It is 4:30 p.m. in Japan now."
+      ]
+    ],
+    "dialogue": [
+      [
+        "マイ",
+        "すみません、いま なんじですか。",
+        "たなか",
+        "いま よじ ごふんです。"
+      ],
+      [
+        "マイ",
+        "ありがとうございます。",
+        "たなか",
+        "いいえ。"
+      ],
+      [
+        "けん",
+        "アメリカは いま なんじですか。",
+        "アナ",
+        "いま ごぜん しちじはんです。"
+      ],
+      [
+        "ゆき",
+        "じかんは ありますか。",
+        "リー",
+        "はい、あります。いま くじです。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "What does いま mean?",
+        "options": [
+          "now",
+          "time",
+          "clock",
+          "what"
+        ],
+        "correct": "now",
+        "explanation": "いま means now. じかん is time and とけい is a clock."
+      },
+      {
+        "prompt": "How do you say four o'clock?",
+        "options": [
+          "よじ",
+          "よんじ",
+          "しじ",
+          "よっじ"
+        ],
+        "correct": "よじ",
+        "explanation": "Four o'clock is irregular: よじ, not よんじ."
+      },
+      {
+        "prompt": "How do you say seven o'clock?",
+        "options": [
+          "しちじ",
+          "ななじ",
+          "しちふん",
+          "はちじ"
+        ],
+        "correct": "しちじ",
+        "explanation": "Seven o'clock is しちじ. ななじ is not used."
+      },
+      {
+        "prompt": "Choose the meaning of くじ はんです。",
+        "options": [
+          "It is half past nine.",
+          "It is nine o'clock.",
+          "It is 9:05.",
+          "It is half past seven."
+        ],
+        "correct": "It is half past nine.",
+        "explanation": "くじ is nine o'clock and はん adds half past."
+      },
+      {
+        "prompt": "Complete the question: いま ___ ですか。",
+        "options": [
+          "なんじ",
+          "なんさい",
+          "だれ",
+          "どこ"
+        ],
+        "correct": "なんじ",
+        "explanation": "なんじ asks what time. なんさい asks age."
+      },
+      {
+        "prompt": "Which is the correct order for 7 p.m.?",
+        "options": [
+          "ごご しちじ",
+          "しちじ ごご",
+          "ごぜん しちじ",
+          "しちじ ごぜん"
+        ],
+        "correct": "ごご しちじ",
+        "explanation": "ごご (p.m.) comes before the hour."
+      },
+      {
+        "prompt": "How do you say ten minutes?",
+        "options": [
+          "じゅっぷん",
+          "じゅうふん",
+          "ごふん",
+          "じゅうじ"
+        ],
+        "correct": "じゅっぷん",
+        "explanation": "ふん becomes ぷん after じゅう: じゅっぷん."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "A stranger asks you: すみません、いま なんじですか。 Your watch shows 9:10. What do you say?",
+        "options": [
+          "くじ じゅっぷんです。",
+          "きゅうじ じゅっぷんです。",
+          "くじ ごふんです。",
+          "じゅうじ くじです。"
+        ],
+        "correct": "くじ じゅっぷんです。",
+        "explanation": "Nine o'clock is くじ and ten minutes is じゅっぷん."
+      },
+      {
+        "prompt": "Choose the sentence that means: It is 4:30 a.m. now.",
+        "options": [
+          "いま ごぜん よじはんです。",
+          "いま ごご よじはんです。",
+          "いま よじはん ごぜんです。",
+          "いま ごぜん よんじはんです。"
+        ],
+        "correct": "いま ごぜん よじはんです。",
+        "explanation": "ごぜん comes first, four o'clock is よじ, and はん is half past."
+      },
+      {
+        "prompt": "Read: とけいは つくえの うえに あります。 Where is the clock?",
+        "options": [
+          "On the desk",
+          "Under the desk",
+          "In the bag",
+          "In front of the chair"
+        ],
+        "correct": "On the desk",
+        "explanation": "つくえの うえ means on top of the desk."
+      },
+      {
+        "prompt": "Which question asks the time in another city?",
+        "options": [
+          "おおさかは いま なんじですか。",
+          "おおさかは どこですか。",
+          "おおさかに すんでいますか。",
+          "おおさかは なんですか。"
+        ],
+        "correct": "おおさかは いま なんじですか。",
+        "explanation": "Place + は + いま なんじですか asks what time it is there."
+      },
+      {
+        "prompt": "Which time is NOT said correctly?",
+        "options": [
+          "ななじ",
+          "いちじ",
+          "くじ",
+          "じゅうじ"
+        ],
+        "correct": "ななじ",
+        "explanation": "Seven o'clock must be しちじ."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-4-days-and-schedules",
+    "slug": "n5-unit-4-days-and-schedules",
+    "unitId": "japanese-n5-unit-4",
+    "level": "N5",
+    "unitNumber": 4,
+    "lessonNumber": 2,
+    "isReview": false,
+    "title": "Days & Schedules",
+    "titleJp": "なんようびですか",
+    "objectives": [
+      "I can say which day it is and when something starts and ends.",
+      "Name the seven days of the week",
+      "Ask なんようびですか",
+      "Give a start and an end with から and まで"
+    ],
+    "vocabulary": [
+      [
+        "きょう",
+        "kyou",
+        "today"
+      ],
+      [
+        "あした",
+        "ashita",
+        "tomorrow"
+      ],
+      [
+        "げつようび",
+        "getsuyoubi",
+        "Monday"
+      ],
+      [
+        "かようび",
+        "kayoubi",
+        "Tuesday"
+      ],
+      [
+        "すいようび",
+        "suiyoubi",
+        "Wednesday"
+      ],
+      [
+        "もくようび",
+        "mokuyoubi",
+        "Thursday"
+      ],
+      [
+        "きんようび",
+        "kin'youbi",
+        "Friday"
+      ],
+      [
+        "どようび",
+        "doyoubi",
+        "Saturday"
+      ],
+      [
+        "にちようび",
+        "nichiyoubi",
+        "Sunday"
+      ],
+      [
+        "なんようび",
+        "nan'youbi",
+        "what day of the week"
+      ],
+      [
+        "やすみ",
+        "yasumi",
+        "day off / holiday"
+      ],
+      [
+        "がっこう",
+        "gakkou",
+        "school"
+      ],
+      [
+        "アルバイト",
+        "arubaito",
+        "part-time job"
+      ]
+    ],
+    "concept": {
+      "title": "Seven days, one ending",
+      "text": "Every day of the week ends in ようび. Only the first part changes: げつ, か, すい, もく, きん, ど, にち. Each first part is written with a kanji for something in nature: moon, fire, water, tree, gold, earth and sun.\n\nTo give a schedule, use から for the start and まで for the end. They work with clock times and with days. You already know から from アメリカから きました, where it marks the place you started from.",
+      "examples": [
+        "きょうは げつようびです。",
+        "start から end までです"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Saying and asking the day",
+        "pattern": "N は 〜ようび です / なんようび ですか",
+        "explanation": "Name the topic with は, then give the day and です. きょう (today) and あした (tomorrow) are common topics. Ask with なんようび, which works like なんじ.",
+        "examples": [
+          {
+            "japanese": "きょうは げつようびです。",
+            "romaji": "Kyou wa getsuyoubi desu.",
+            "meaning": "Today is Monday."
+          },
+          {
+            "japanese": "あしたは かようびです。",
+            "romaji": "Ashita wa kayoubi desu.",
+            "meaning": "Tomorrow is Tuesday."
+          },
+          {
+            "japanese": "きょうは なんようびですか。",
+            "romaji": "Kyou wa nan'youbi desu ka.",
+            "meaning": "What day is it today?"
+          },
+          {
+            "japanese": "やすみは どようびと にちようびです。",
+            "romaji": "Yasumi wa doyoubi to nichiyoubi desu.",
+            "meaning": "My days off are Saturday and Sunday."
+          }
+        ],
+        "notes": [
+          "きょう and あした take は as a topic, but no other particle is needed after them.",
+          "Thursday is もくようび and Monday is げつようび. Learners often swap them."
+        ]
+      },
+      {
+        "title": "From … until …",
+        "pattern": "N は A から B まで です",
+        "explanation": "から marks the starting point and まで marks the end. Use them with times (くじから よじまで) or with days (げつようびから きんようびまで). Either half can be used alone.",
+        "examples": [
+          {
+            "japanese": "がっこうは くじからです。",
+            "romaji": "Gakkou wa kuji kara desu.",
+            "meaning": "School starts at nine."
+          },
+          {
+            "japanese": "がっこうは くじから よじまでです。",
+            "romaji": "Gakkou wa kuji kara yoji made desu.",
+            "meaning": "School is from nine until four."
+          },
+          {
+            "japanese": "アルバイトは ごご ごじから はちじまでです。",
+            "romaji": "Arubaito wa gogo goji kara hachiji made desu.",
+            "meaning": "My part-time job is from 5 p.m. until 8."
+          },
+          {
+            "japanese": "がっこうは げつようびから きんようびまでです。",
+            "romaji": "Gakkou wa getsuyoubi kara kin'youbi made desu.",
+            "meaning": "School is from Monday to Friday."
+          },
+          {
+            "japanese": "やすみは なんようびから なんようびまでですか。",
+            "romaji": "Yasumi wa nan'youbi kara nan'youbi made desu ka.",
+            "meaning": "From what day until what day is the holiday?"
+          }
+        ],
+        "notes": [
+          "から comes after the starting point, not before it as in English.",
+          "The same から marks a starting place in アメリカから きました."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "きょうは すいようびです。",
+        "Today is Wednesday."
+      ],
+      [
+        "あしたは やすみです。",
+        "Tomorrow is a day off."
+      ],
+      [
+        "アルバイトは もくようびと どようびです。",
+        "My part-time job is on Thursday and Saturday."
+      ],
+      [
+        "がっこうは ごぜん くじから ごご よじまでです。",
+        "School is from 9 a.m. until 4 p.m."
+      ]
+    ],
+    "dialogue": [
+      [
+        "リン",
+        "きょうは なんようびですか。",
+        "さくら",
+        "きんようびです。"
+      ],
+      [
+        "リン",
+        "あしたは がっこうですか。",
+        "さくら",
+        "いいえ、あしたは やすみです。"
+      ],
+      [
+        "マリア",
+        "アルバイトは なんじから なんじまでですか。",
+        "けん",
+        "ごご ろくじから くじまでです。"
+      ],
+      [
+        "たなか",
+        "やすみは なんようびですか。",
+        "アナ",
+        "かようびと にちようびです。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: how do you say nine o'clock?",
+        "options": [
+          "くじ",
+          "きゅうじ",
+          "ここのじ",
+          "くふん"
+        ],
+        "correct": "くじ",
+        "explanation": "Nine o'clock is the irregular くじ from the last lesson."
+      },
+      {
+        "prompt": "What does きょう mean?",
+        "options": [
+          "today",
+          "tomorrow",
+          "Monday",
+          "day off"
+        ],
+        "correct": "today",
+        "explanation": "きょう is today. あした is tomorrow."
+      },
+      {
+        "prompt": "Which day is もくようび?",
+        "options": [
+          "Thursday",
+          "Monday",
+          "Tuesday",
+          "Saturday"
+        ],
+        "correct": "Thursday",
+        "explanation": "もくようび is Thursday. Monday is げつようび."
+      },
+      {
+        "prompt": "Complete: がっこうは くじ ___ よじまでです。",
+        "options": [
+          "から",
+          "まで",
+          "は",
+          "の"
+        ],
+        "correct": "から",
+        "explanation": "から marks the start: from nine until four."
+      },
+      {
+        "prompt": "Choose the question that asks the day of the week.",
+        "options": [
+          "きょうは なんようびですか。",
+          "いま なんじですか。",
+          "なんさいですか。",
+          "これは なんですか。"
+        ],
+        "correct": "きょうは なんようびですか。",
+        "explanation": "なんようび asks which day of the week."
+      },
+      {
+        "prompt": "Today is Friday. What is あした?",
+        "options": [
+          "どようび",
+          "もくようび",
+          "にちようび",
+          "きんようび"
+        ],
+        "correct": "どようび",
+        "explanation": "The day after Friday (きんようび) is Saturday, どようび."
+      },
+      {
+        "prompt": "Choose the meaning of あしたは やすみです。",
+        "options": [
+          "Tomorrow is a day off.",
+          "Today is a day off.",
+          "Tomorrow is school.",
+          "Tomorrow is Sunday."
+        ],
+        "correct": "Tomorrow is a day off.",
+        "explanation": "あした is tomorrow and やすみ is a day off."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Read: アルバイトは ごご ごじから はちじまでです。 When does the job end?",
+        "options": [
+          "8 p.m.",
+          "5 p.m.",
+          "8 a.m.",
+          "5 a.m."
+        ],
+        "correct": "8 p.m.",
+        "explanation": "まで marks the end: はちじ, and ごご covers the whole range."
+      },
+      {
+        "prompt": "Choose the sentence that means: School is from Monday to Friday.",
+        "options": [
+          "がっこうは げつようびから きんようびまでです。",
+          "がっこうは きんようびから げつようびまでです。",
+          "がっこうは げつようびまで きんようびからです。",
+          "がっこうは もくようびから きんようびまでです。"
+        ],
+        "correct": "がっこうは げつようびから きんようびまでです。",
+        "explanation": "Start + から, end + まで. Monday is げつようび."
+      },
+      {
+        "prompt": "A friend asks: あしたは がっこうですか。 Tomorrow is your day off. What do you answer?",
+        "options": [
+          "いいえ、あしたは やすみです。",
+          "はい、あしたは やすみです。",
+          "いいえ、きょうは がっこうです。",
+          "はい、にちようびです。"
+        ],
+        "correct": "いいえ、あしたは やすみです。",
+        "explanation": "You answer no, and say tomorrow is a day off."
+      },
+      {
+        "prompt": "Which pair of days means the weekend?",
+        "options": [
+          "どようびと にちようび",
+          "げつようびと かようび",
+          "すいようびと もくようび",
+          "きんようびと げつようび"
+        ],
+        "correct": "どようびと にちようび",
+        "explanation": "どようび is Saturday and にちようび is Sunday."
+      },
+      {
+        "prompt": "Review: read あねは とうきょうに すんでいます。 Who lives in Tokyo?",
+        "options": [
+          "My older sister",
+          "My older brother",
+          "My mother",
+          "My friend"
+        ],
+        "correct": "My older sister",
+        "explanation": "あね is my older sister, from Unit 2."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-4-daily-routine",
+    "slug": "n5-unit-4-daily-routine",
+    "unitId": "japanese-n5-unit-4",
+    "level": "N5",
+    "unitNumber": 4,
+    "lessonNumber": 3,
+    "isReview": false,
+    "title": "My Daily Routine",
+    "titleJp": "わたしの いちにち",
+    "objectives": [
+      "I can describe my daily routine with polite verbs.",
+      "Use the ます and ません forms for things you regularly do or do not do",
+      "Say what time you do something with に",
+      "Ask なんじに and なにを しますか"
+    ],
+    "vocabulary": [
+      [
+        "おきます",
+        "okimasu",
+        "to get up"
+      ],
+      [
+        "ねます",
+        "nemasu",
+        "to go to bed / to sleep"
+      ],
+      [
+        "します",
+        "shimasu",
+        "to do"
+      ],
+      [
+        "べんきょうします",
+        "benkyou shimasu",
+        "to study"
+      ],
+      [
+        "はたらきます",
+        "hatarakimasu",
+        "to work"
+      ],
+      [
+        "まいにち",
+        "mainichi",
+        "every day"
+      ],
+      [
+        "あさ",
+        "asa",
+        "morning"
+      ],
+      [
+        "よる",
+        "yoru",
+        "night / evening"
+      ],
+      [
+        "まいあさ",
+        "maiasa",
+        "every morning"
+      ],
+      [
+        "まいばん",
+        "maiban",
+        "every night"
+      ],
+      [
+        "しごと",
+        "shigoto",
+        "work / job"
+      ],
+      [
+        "にほんご",
+        "nihongo",
+        "Japanese (language)"
+      ]
+    ],
+    "concept": {
+      "title": "ます for what you do, ません for what you do not",
+      "text": "Polite verbs end in ます. This one form covers habits (I get up at seven) and the future (I will get up at seven); there is no separate future tense. Change ます to ません to make the negative. You already use this pair with たべます and のみます.\n\nThe verb always comes last. A clock time is marked with に, placed before the verb: しちじに おきます. Words such as きょう, あした, まいにち, まいあさ and いま do not take に.",
+      "examples": [
+        "V-ます / V-ません",
+        "time に V-ます",
+        "まいにち しちじに おきます。"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Polite verbs: ます and ません",
+        "pattern": "N は (N を) V-ます / V-ません",
+        "explanation": "ます states what someone does regularly or will do. ません is its negative. The object of the action is marked with を, as in パンを たべます. します (to do) joins with nouns to make verbs such as べんきょうします.",
+        "examples": [
+          {
+            "japanese": "わたしは まいにち べんきょうします。",
+            "romaji": "Watashi wa mainichi benkyou shimasu.",
+            "meaning": "I study every day."
+          },
+          {
+            "japanese": "ちちは まいにち はたらきます。",
+            "romaji": "Chichi wa mainichi hatarakimasu.",
+            "meaning": "My father works every day."
+          },
+          {
+            "japanese": "あには あさごはんを たべません。",
+            "romaji": "Ani wa asagohan o tabemasen.",
+            "meaning": "My older brother does not eat breakfast."
+          },
+          {
+            "japanese": "にちようびは はたらきません。",
+            "romaji": "Nichiyoubi wa hatarakimasen.",
+            "meaning": "I do not work on Sundays."
+          },
+          {
+            "japanese": "あねは まいばん にほんごを べんきょうします。",
+            "romaji": "Ane wa maiban nihongo o benkyou shimasu.",
+            "meaning": "My older sister studies Japanese every night."
+          }
+        ],
+        "notes": [
+          "The verb goes at the end of the sentence.",
+          "The negative is ません, not ますじゃない or ないます.",
+          "を is written with the kana を but pronounced o."
+        ]
+      },
+      {
+        "title": "At a time: に",
+        "pattern": "time に V-ます",
+        "explanation": "Put に after a clock time to say when an action happens. Days of the week may also take に. Do not add に after きょう, あした, いま, まいにち, まいあさ or まいばん. Ask with なんじに.",
+        "examples": [
+          {
+            "japanese": "しちじに おきます。",
+            "romaji": "Shichiji ni okimasu.",
+            "meaning": "I get up at seven."
+          },
+          {
+            "japanese": "まいばん じゅうじはんに ねます。",
+            "romaji": "Maiban juuji han ni nemasu.",
+            "meaning": "I go to bed at 10:30 every night."
+          },
+          {
+            "japanese": "なんじに おきますか。",
+            "romaji": "Nanji ni okimasu ka.",
+            "meaning": "What time do you get up?"
+          },
+          {
+            "japanese": "どようびに アルバイトを します。",
+            "romaji": "Doyoubi ni arubaito o shimasu.",
+            "meaning": "I do my part-time job on Saturday."
+          },
+          {
+            "japanese": "あした ろくじに おきます。",
+            "romaji": "Ashita rokuji ni okimasu.",
+            "meaning": "I will get up at six tomorrow."
+          }
+        ],
+        "notes": [
+          "Wrong: まいにちに おきます. Right: まいにち おきます.",
+          "This に marks a point in time. The に in つくえの うえに あります marks a location."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "わたしは まいあさ ろくじはんに おきます。",
+        "I get up at 6:30 every morning."
+      ],
+      [
+        "ははは ごぜん くじから ごご ごじまで はたらきます。",
+        "My mother works from 9 a.m. until 5 p.m."
+      ],
+      [
+        "よる、にほんごを べんきょうします。",
+        "At night I study Japanese."
+      ],
+      [
+        "あしたは しごとを しません。",
+        "I will not work tomorrow."
+      ]
+    ],
+    "dialogue": [
+      [
+        "ゆき",
+        "まいあさ なんじに おきますか。",
+        "リー",
+        "ろくじに おきます。"
+      ],
+      [
+        "ゆき",
+        "あさごはんを たべますか。",
+        "リー",
+        "はい、まいあさ パンを たべます。"
+      ],
+      [
+        "けん",
+        "よるは なにを しますか。",
+        "マリア",
+        "にほんごを べんきょうします。"
+      ],
+      [
+        "けん",
+        "なんじに ねますか。",
+        "マリア",
+        "じゅういちじに ねます。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: what does がっこうは くじからです mean?",
+        "options": [
+          "School starts at nine.",
+          "School ends at nine.",
+          "School is on Monday.",
+          "School is nine minutes away."
+        ],
+        "correct": "School starts at nine.",
+        "explanation": "から marks the starting time."
+      },
+      {
+        "prompt": "What does おきます mean?",
+        "options": [
+          "to get up",
+          "to go to bed",
+          "to work",
+          "to study"
+        ],
+        "correct": "to get up",
+        "explanation": "おきます is to get up. ねます is to go to bed."
+      },
+      {
+        "prompt": "Choose the negative of はたらきます.",
+        "options": [
+          "はたらきません",
+          "はたらきますじゃない",
+          "はたらきます",
+          "はたらきないます"
+        ],
+        "correct": "はたらきません",
+        "explanation": "Change ます to ません to make the polite negative."
+      },
+      {
+        "prompt": "Complete: しちじ ___ おきます。",
+        "options": [
+          "に",
+          "を",
+          "は",
+          "の"
+        ],
+        "correct": "に",
+        "explanation": "に marks the clock time of an action."
+      },
+      {
+        "prompt": "Complete: にほんご ___ べんきょうします。",
+        "options": [
+          "を",
+          "に",
+          "から",
+          "まで"
+        ],
+        "correct": "を",
+        "explanation": "を marks what is studied, the object."
+      },
+      {
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "まいにち べんきょうします。",
+          "まいにちに べんきょうします。",
+          "べんきょうします まいにち。",
+          "まいにちを べんきょうします。"
+        ],
+        "correct": "まいにち べんきょうします。",
+        "explanation": "まいにち takes no particle, and the verb comes last."
+      },
+      {
+        "prompt": "Choose the meaning of ちちは まいにち はたらきます。",
+        "options": [
+          "My father works every day.",
+          "My father does not work every day.",
+          "My father studies every day.",
+          "My mother works every day."
+        ],
+        "correct": "My father works every day.",
+        "explanation": "ちち is my father, まいにち is every day, and はたらきます is works."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Someone asks: なんじに ねますか。 You go to bed at 10:30. What do you say?",
+        "options": [
+          "じゅうじはんに ねます。",
+          "じゅうじはんを ねます。",
+          "じゅうじはんに おきます。",
+          "じゅうじはん ねません。"
+        ],
+        "correct": "じゅうじはんに ねます。",
+        "explanation": "The time takes に and ねます is to go to bed."
+      },
+      {
+        "prompt": "Choose the sentence that means: I do not work on Sundays.",
+        "options": [
+          "にちようびは はたらきません。",
+          "にちようびは はたらきます。",
+          "どようびは はたらきません。",
+          "にちようびは ねません。"
+        ],
+        "correct": "にちようびは はたらきません。",
+        "explanation": "にちようび is Sunday and はたらきません is do not work."
+      },
+      {
+        "prompt": "Read: ははは ごぜん くじから ごご ごじまで はたらきます。 When does she finish work?",
+        "options": [
+          "5 p.m.",
+          "9 a.m.",
+          "5 a.m.",
+          "9 p.m."
+        ],
+        "correct": "5 p.m.",
+        "explanation": "ごご ごじまで means until 5 p.m."
+      },
+      {
+        "prompt": "Which word can NOT be followed by に?",
+        "options": [
+          "まいあさ",
+          "しちじ",
+          "くじはん",
+          "どようび"
+        ],
+        "correct": "まいあさ",
+        "explanation": "まいあさ (every morning) takes no particle. Clock times and days can take に."
+      },
+      {
+        "prompt": "Review: complete あには コーヒーを あまり ___。",
+        "options": [
+          "のみません",
+          "のみます",
+          "たべません",
+          "のみ"
+        ],
+        "correct": "のみません",
+        "explanation": "あまり is used with a negative verb, and coffee is drunk: のみません."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-4-going-places",
+    "slug": "n5-unit-4-going-places",
+    "unitId": "japanese-n5-unit-4",
+    "level": "N5",
+    "unitNumber": 4,
+    "lessonNumber": 4,
+    "isReview": false,
+    "title": "Going Places",
+    "titleJp": "どこへ いきますか",
+    "objectives": [
+      "I can say where I go and how I get there.",
+      "Use いきます, きます and かえります with a destination and に or へ",
+      "Say the means of transport with で",
+      "Ask どこへ and なんで"
+    ],
+    "vocabulary": [
+      [
+        "いきます",
+        "ikimasu",
+        "to go"
+      ],
+      [
+        "きます",
+        "kimasu",
+        "to come"
+      ],
+      [
+        "かえります",
+        "kaerimasu",
+        "to go home / to return"
+      ],
+      [
+        "でんしゃ",
+        "densha",
+        "train"
+      ],
+      [
+        "バス",
+        "basu",
+        "bus"
+      ],
+      [
+        "くるま",
+        "kuruma",
+        "car"
+      ],
+      [
+        "じてんしゃ",
+        "jitensha",
+        "bicycle"
+      ],
+      [
+        "あるいて",
+        "aruite",
+        "on foot"
+      ],
+      [
+        "えき",
+        "eki",
+        "station"
+      ],
+      [
+        "うち",
+        "uchi",
+        "home / my place"
+      ],
+      [
+        "スーパー",
+        "suupaa",
+        "supermarket"
+      ],
+      [
+        "としょかん",
+        "toshokan",
+        "library"
+      ]
+    ],
+    "concept": {
+      "title": "Destination に or へ, transport で",
+      "text": "The three movement verbs are いきます (go), きます (come) and かえります (return to where you belong, usually home). The place you move toward takes に or へ. As a particle, へ is pronounced e. Both are correct with these verbs.\n\nThe vehicle you use takes で: でんしゃで いきます. Walking is different: say あるいて いきます, with no で.",
+      "examples": [
+        "place に / へ いきます",
+        "transport で いきます",
+        "あるいて いきます"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Going, coming and returning",
+        "pattern": "place に / へ いきます ・ きます ・ かえります",
+        "explanation": "Mark the destination with に or へ. いきます moves away from where the speaker is, きます moves toward it, and かえります is for going back home or to your own country. A time or day comes earlier in the sentence.",
+        "examples": [
+          {
+            "japanese": "がっこうに いきます。",
+            "romaji": "Gakkou ni ikimasu.",
+            "meaning": "I go to school."
+          },
+          {
+            "japanese": "あした とうきょうへ いきます。",
+            "romaji": "Ashita Toukyou e ikimasu.",
+            "meaning": "I will go to Tokyo tomorrow."
+          },
+          {
+            "japanese": "ともだちは にちようびに うちに きます。",
+            "romaji": "Tomodachi wa nichiyoubi ni uchi ni kimasu.",
+            "meaning": "My friend will come to my place on Sunday."
+          },
+          {
+            "japanese": "まいにち ろくじに うちへ かえります。",
+            "romaji": "Mainichi rokuji ni uchi e kaerimasu.",
+            "meaning": "I go home at six every day."
+          },
+          {
+            "japanese": "きょうは としょかんに いきません。",
+            "romaji": "Kyou wa toshokan ni ikimasen.",
+            "meaning": "I am not going to the library today."
+          }
+        ],
+        "notes": [
+          "The particle へ is read e, not he.",
+          "Do not use を for the destination: がっこうを いきます is wrong.",
+          "Use かえります, not いきます, for going back to your own home."
+        ]
+      },
+      {
+        "title": "By train, by bus: で",
+        "pattern": "transport で いきます / あるいて いきます",
+        "explanation": "で after a vehicle means by that vehicle. It usually comes before the destination. For walking, use あるいて without で.",
+        "examples": [
+          {
+            "japanese": "バスで いきます。",
+            "romaji": "Basu de ikimasu.",
+            "meaning": "I go by bus."
+          },
+          {
+            "japanese": "でんしゃで かいしゃに いきます。",
+            "romaji": "Densha de kaisha ni ikimasu.",
+            "meaning": "I go to the office by train."
+          },
+          {
+            "japanese": "じてんしゃで スーパーへ いきます。",
+            "romaji": "Jitensha de suupaa e ikimasu.",
+            "meaning": "I go to the supermarket by bicycle."
+          },
+          {
+            "japanese": "あるいて えきに いきます。",
+            "romaji": "Aruite eki ni ikimasu.",
+            "meaning": "I walk to the station."
+          },
+          {
+            "japanese": "ちちは くるまで うちに かえります。",
+            "romaji": "Chichi wa kuruma de uchi ni kaerimasu.",
+            "meaning": "My father comes home by car."
+          }
+        ],
+        "notes": [
+          "Wrong: あるいてで いきます. あるいて never takes で.",
+          "じてんしゃ (bicycle) and でんしゃ (train) sound similar. Listen for the extra じ."
+        ]
+      },
+      {
+        "title": "Where to? How?",
+        "pattern": "どこへ いきますか / なんで いきますか",
+        "explanation": "Replace the destination with どこ to ask where someone is going. Replace the vehicle with なん to ask how: なんで いきますか.",
+        "examples": [
+          {
+            "japanese": "どこへ いきますか。",
+            "romaji": "Doko e ikimasu ka.",
+            "meaning": "Where are you going?"
+          },
+          {
+            "japanese": "あした どこに いきますか。",
+            "romaji": "Ashita doko ni ikimasu ka.",
+            "meaning": "Where will you go tomorrow?"
+          },
+          {
+            "japanese": "なんで いきますか。",
+            "romaji": "Nan de ikimasu ka.",
+            "meaning": "How will you get there?"
+          },
+          {
+            "japanese": "なんで がっこうに きますか。",
+            "romaji": "Nan de gakkou ni kimasu ka.",
+            "meaning": "How do you come to school?"
+          }
+        ],
+        "notes": [
+          "In casual speech なんで can also mean why, so the situation tells you which is meant."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "わたしは まいにち でんしゃで がっこうに いきます。",
+        "I go to school by train every day."
+      ],
+      [
+        "あねは じてんしゃで えきへ いきます。",
+        "My older sister goes to the station by bicycle."
+      ],
+      [
+        "どようびに ともだちが うちに きます。",
+        "A friend is coming to my place on Saturday."
+      ],
+      [
+        "ははは しちじに うちに かえります。",
+        "My mother comes home at seven."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "あした どこへ いきますか。",
+        "けん",
+        "としょかんに いきます。"
+      ],
+      [
+        "アナ",
+        "なんで いきますか。",
+        "けん",
+        "じてんしゃで いきます。"
+      ],
+      [
+        "たなか",
+        "まいにち なんで かいしゃに きますか。",
+        "リン",
+        "でんしゃと バスで きます。"
+      ],
+      [
+        "たなか",
+        "なんじに うちに かえりますか。",
+        "リン",
+        "しちじはんに かえります。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete しちじ ___ おきます。",
+        "options": [
+          "に",
+          "で",
+          "を",
+          "へ"
+        ],
+        "correct": "に",
+        "explanation": "に marks the clock time of an action."
+      },
+      {
+        "prompt": "What does かえります mean?",
+        "options": [
+          "to go home / to return",
+          "to go",
+          "to come",
+          "to get up"
+        ],
+        "correct": "to go home / to return",
+        "explanation": "かえります is to return to where you belong, usually home."
+      },
+      {
+        "prompt": "Complete: がっこう ___ いきます。",
+        "options": [
+          "に",
+          "を",
+          "で",
+          "と"
+        ],
+        "correct": "に",
+        "explanation": "The destination takes に (or へ), never を."
+      },
+      {
+        "prompt": "Complete: バス ___ いきます。",
+        "options": [
+          "で",
+          "に",
+          "を",
+          "へ"
+        ],
+        "correct": "で",
+        "explanation": "で marks the vehicle: by bus."
+      },
+      {
+        "prompt": "How do you say: I walk to the station?",
+        "options": [
+          "あるいて えきに いきます。",
+          "あるいてで えきに いきます。",
+          "えきを あるいて いきます。",
+          "あるいて えきで いきます。"
+        ],
+        "correct": "あるいて えきに いきます。",
+        "explanation": "あるいて takes no で, and the destination takes に."
+      },
+      {
+        "prompt": "How is the particle へ pronounced in とうきょうへ いきます?",
+        "options": [
+          "e",
+          "he",
+          "wa",
+          "o"
+        ],
+        "correct": "e",
+        "explanation": "As a particle, へ is pronounced e."
+      },
+      {
+        "prompt": "Choose the meaning of なんで いきますか。",
+        "options": [
+          "How will you get there?",
+          "Where are you going?",
+          "What time are you going?",
+          "Who are you going with?"
+        ],
+        "correct": "How will you get there?",
+        "explanation": "なんで asks about the means of transport."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Someone asks: あした どこへ いきますか。 You are going to the library. What do you say?",
+        "options": [
+          "としょかんに いきます。",
+          "としょかんで いきます。",
+          "としょかんを いきます。",
+          "としょかんに きます。"
+        ],
+        "correct": "としょかんに いきます。",
+        "explanation": "The destination takes に, and you are going, so いきます."
+      },
+      {
+        "prompt": "Choose the sentence that means: I go to the office by train.",
+        "options": [
+          "でんしゃで かいしゃに いきます。",
+          "でんしゃに かいしゃで いきます。",
+          "じてんしゃで かいしゃに いきます。",
+          "でんしゃを かいしゃに いきます。"
+        ],
+        "correct": "でんしゃで かいしゃに いきます。",
+        "explanation": "Transport + で, destination + に. でんしゃ is train; じてんしゃ is bicycle."
+      },
+      {
+        "prompt": "Read: ははは しちじに うちに かえります。 What does the first に mark, and what does the second に mark?",
+        "options": [
+          "Time, then destination",
+          "Destination, then time",
+          "Time, then time",
+          "Destination, then destination"
+        ],
+        "correct": "Time, then destination",
+        "explanation": "しちじに is the time and うちに is where she returns to."
+      },
+      {
+        "prompt": "Your friend is coming to your home on Sunday. Which sentence do you say?",
+        "options": [
+          "にちようびに ともだちが うちに きます。",
+          "にちようびに ともだちが うちに いきます。",
+          "にちようびに ともだちが うちで きます。",
+          "にちようびを ともだちが うちに きます。"
+        ],
+        "correct": "にちようびに ともだちが うちに きます。",
+        "explanation": "Movement toward where you are is きます."
+      },
+      {
+        "prompt": "Review: read がっこうは げつようびから きんようびまでです。 Which day is there no school?",
+        "options": [
+          "どようび",
+          "げつようび",
+          "すいようび",
+          "きんようび"
+        ],
+        "correct": "どようび",
+        "explanation": "School runs Monday to Friday, so Saturday (どようび) has none."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-4-my-week",
+    "slug": "n5-unit-4-my-week",
+    "unitId": "japanese-n5-unit-4",
+    "level": "N5",
+    "unitNumber": 4,
+    "lessonNumber": 5,
+    "isReview": false,
+    "title": "My Week",
+    "titleJp": "わたしの いっしゅうかん",
+    "objectives": [
+      "I can say how often I do things and where I do them.",
+      "Use the full set of frequency words, from まいにち to ぜんぜん",
+      "Mark the place where an action happens with で",
+      "Talk about this week, next week and the weekend"
+    ],
+    "vocabulary": [
+      [
+        "まいしゅう",
+        "maishuu",
+        "every week"
+      ],
+      [
+        "こんしゅう",
+        "konshuu",
+        "this week"
+      ],
+      [
+        "らいしゅう",
+        "raishuu",
+        "next week"
+      ],
+      [
+        "しゅうまつ",
+        "shuumatsu",
+        "weekend"
+      ],
+      [
+        "どにち",
+        "donichi",
+        "Saturday and Sunday"
+      ],
+      [
+        "ときどき",
+        "tokidoki",
+        "sometimes"
+      ],
+      [
+        "ぜんぜん",
+        "zenzen",
+        "not at all (with a negative)"
+      ],
+      [
+        "みます",
+        "mimasu",
+        "to watch / to see"
+      ],
+      [
+        "やすみます",
+        "yasumimasu",
+        "to rest / to take time off"
+      ],
+      [
+        "テレビ",
+        "terebi",
+        "television"
+      ],
+      [
+        "えいが",
+        "eiga",
+        "film / movie"
+      ]
+    ],
+    "concept": {
+      "title": "How often, and where",
+      "text": "Frequency words go before the verb and need no particle. From most to least often: まいにち, いつも, よく, ときどき, あまり, ぜんぜん. The last two must be used with a negative verb, as you learned with あまり in Unit 2.\n\nThe place where an action happens takes で: うちで テレビを みます. Compare this with に for a destination (うちに かえります) and に for where something exists (うちに います).",
+      "examples": [
+        "ときどき えいがを みます。",
+        "ぜんぜん みません。",
+        "place で V-ます"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "How often",
+        "pattern": "frequency word + V-ます / あまり ・ ぜんぜん + V-ません",
+        "explanation": "いつも (always), よく (often) and ときどき (sometimes) are used with ます. あまり (not much) and ぜんぜん (not at all) are used with ません. Time words such as まいしゅう and しゅうまつ also come before the verb without a particle.",
+        "examples": [
+          {
+            "japanese": "わたしは ときどき えいがを みます。",
+            "romaji": "Watashi wa tokidoki eiga o mimasu.",
+            "meaning": "I sometimes watch films."
+          },
+          {
+            "japanese": "ははは よく テレビを みます。",
+            "romaji": "Haha wa yoku terebi o mimasu.",
+            "meaning": "My mother often watches television."
+          },
+          {
+            "japanese": "あには あまり テレビを みません。",
+            "romaji": "Ani wa amari terebi o mimasen.",
+            "meaning": "My older brother does not watch much television."
+          },
+          {
+            "japanese": "おとうとは ぜんぜん べんきょうしません。",
+            "romaji": "Otouto wa zenzen benkyou shimasen.",
+            "meaning": "My younger brother does not study at all."
+          },
+          {
+            "japanese": "まいしゅう どようびに としょかんに いきます。",
+            "romaji": "Maishuu doyoubi ni toshokan ni ikimasu.",
+            "meaning": "I go to the library every Saturday."
+          }
+        ],
+        "notes": [
+          "Wrong: ぜんぜん みます. ぜんぜん and あまり need ません.",
+          "ときどき means sometimes; do not confuse it with とけい (clock)."
+        ]
+      },
+      {
+        "title": "Where an action happens: で",
+        "pattern": "place で (N を) V-ます",
+        "explanation": "で marks the place where you do something. It is the same で you used for transport, with the same idea of the setting or means of the action. Use に, not で, for destinations with いきます and for existence with あります and います. Ask with どこで.",
+        "examples": [
+          {
+            "japanese": "うちで テレビを みます。",
+            "romaji": "Uchi de terebi o mimasu.",
+            "meaning": "I watch television at home."
+          },
+          {
+            "japanese": "としょかんで べんきょうします。",
+            "romaji": "Toshokan de benkyou shimasu.",
+            "meaning": "I study at the library."
+          },
+          {
+            "japanese": "しょくどうで ごはんを たべます。",
+            "romaji": "Shokudou de gohan o tabemasu.",
+            "meaning": "I eat a meal in the cafeteria."
+          },
+          {
+            "japanese": "どこで べんきょうしますか。",
+            "romaji": "Doko de benkyou shimasu ka.",
+            "meaning": "Where do you study?"
+          },
+          {
+            "japanese": "ちちは とうきょうの かいしゃで はたらきます。",
+            "romaji": "Chichi wa Toukyou no kaisha de hatarakimasu.",
+            "meaning": "My father works at a company in Tokyo."
+          }
+        ],
+        "notes": [
+          "としょかんに いきます (destination) but としょかんで べんきょうします (action).",
+          "せんせいは きょうしつに います uses に because います describes where someone is, not an action."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "しゅうまつは うちで やすみます。",
+        "On weekends I rest at home."
+      ],
+      [
+        "こんしゅうは まいにち アルバイトを します。",
+        "This week I work my part-time job every day."
+      ],
+      [
+        "らいしゅうの きんようびに うちで えいがを みます。",
+        "Next Friday I will watch a film at home."
+      ],
+      [
+        "どにちは ぜんぜん べんきょうしません。",
+        "I do not study at all on Saturdays and Sundays."
+      ]
+    ],
+    "dialogue": [
+      [
+        "マイ",
+        "しゅうまつは なにを しますか。",
+        "ゆき",
+        "うちで えいがを みます。"
+      ],
+      [
+        "マイ",
+        "よく えいがを みますか。",
+        "ゆき",
+        "はい、まいしゅう みます。"
+      ],
+      [
+        "リー",
+        "どこで にほんごを べんきょうしますか。",
+        "アナ",
+        "がっこうの としょかんで べんきょうします。"
+      ],
+      [
+        "けん",
+        "らいしゅうは アルバイトを しますか。",
+        "さくら",
+        "いいえ、らいしゅうは やすみます。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete バス ___ がっこうに いきます。",
+        "options": [
+          "で",
+          "に",
+          "を",
+          "は"
+        ],
+        "correct": "で",
+        "explanation": "で marks the vehicle: by bus."
+      },
+      {
+        "prompt": "What does ときどき mean?",
+        "options": [
+          "sometimes",
+          "always",
+          "every week",
+          "not at all"
+        ],
+        "correct": "sometimes",
+        "explanation": "ときどき means sometimes."
+      },
+      {
+        "prompt": "Complete: おとうとは ぜんぜん べんきょう ___。",
+        "options": [
+          "しません",
+          "します",
+          "です",
+          "しますか"
+        ],
+        "correct": "しません",
+        "explanation": "ぜんぜん must be used with a negative verb."
+      },
+      {
+        "prompt": "Complete: うち ___ テレビを みます。",
+        "options": [
+          "で",
+          "に",
+          "を",
+          "へ"
+        ],
+        "correct": "で",
+        "explanation": "で marks the place where the action happens."
+      },
+      {
+        "prompt": "Which word means next week?",
+        "options": [
+          "らいしゅう",
+          "こんしゅう",
+          "まいしゅう",
+          "しゅうまつ"
+        ],
+        "correct": "らいしゅう",
+        "explanation": "らいしゅう is next week. こんしゅう is this week."
+      },
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "としょかんで べんきょうします。",
+          "としょかんに べんきょうします。",
+          "としょかんを べんきょうします。",
+          "としょかんへ べんきょうします。"
+        ],
+        "correct": "としょかんで べんきょうします。",
+        "explanation": "Studying is an action, so its place takes で."
+      },
+      {
+        "prompt": "Choose the meaning of ははは よく テレビを みます。",
+        "options": [
+          "My mother often watches television.",
+          "My mother never watches television.",
+          "My mother sometimes watches films.",
+          "My mother watches television every week."
+        ],
+        "correct": "My mother often watches television.",
+        "explanation": "よく means often."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Someone asks: しゅうまつは なにを しますか。 You rest at home. What do you say?",
+        "options": [
+          "うちで やすみます。",
+          "うちに やすみます。",
+          "うちを やすみます。",
+          "うちで やすみません。"
+        ],
+        "correct": "うちで やすみます。",
+        "explanation": "Resting is an action, so the place takes で."
+      },
+      {
+        "prompt": "Which sentence correctly says you do not watch television much?",
+        "options": [
+          "あまり テレビを みません。",
+          "あまり テレビを みます。",
+          "よく テレビを みません。",
+          "ときどき テレビを みません。"
+        ],
+        "correct": "あまり テレビを みません。",
+        "explanation": "あまり pairs with a negative verb to mean not much."
+      },
+      {
+        "prompt": "Choose the pair with the right particles: としょかん ___ いきます。 としょかん ___ べんきょうします。",
+        "options": [
+          "に / で",
+          "で / に",
+          "を / で",
+          "に / を"
+        ],
+        "correct": "に / で",
+        "explanation": "に for the destination, で for where the action happens."
+      },
+      {
+        "prompt": "Read: らいしゅうの きんようびに うちで えいがを みます。 When is this?",
+        "options": [
+          "Next Friday",
+          "This Friday",
+          "Every Friday",
+          "Next Thursday"
+        ],
+        "correct": "Next Friday",
+        "explanation": "らいしゅうの きんようび is the Friday of next week."
+      },
+      {
+        "prompt": "Review: read いすは つくえの まえに あります。 Where is the chair?",
+        "options": [
+          "In front of the desk",
+          "Behind the desk",
+          "On the desk",
+          "Under the desk"
+        ],
+        "correct": "In front of the desk",
+        "explanation": "まえ means in front, from Unit 3."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n5-unit-4-review",
+    "slug": "n5-unit-4-review",
+    "unitId": "japanese-n5-unit-4",
+    "level": "N5",
+    "unitNumber": 4,
+    "lessonNumber": 6,
+    "isReview": true,
+    "title": "Unit 4 Review",
+    "titleJp": "ユニット4の ふくしゅう",
+    "objectives": [
+      "I can describe a whole week: times, days, routines, places and how often.",
+      "Combine time, place, transport and frequency in one sentence",
+      "Choose between に, で, へ, を, から and まで",
+      "Read and answer questions about a timetable"
+    ],
+    "vocabulary": [
+      [
+        "いま",
+        "ima",
+        "now"
+      ],
+      [
+        "きょう",
+        "kyou",
+        "today"
+      ],
+      [
+        "あした",
+        "ashita",
+        "tomorrow"
+      ],
+      [
+        "やすみ",
+        "yasumi",
+        "day off / holiday"
+      ],
+      [
+        "アルバイト",
+        "arubaito",
+        "part-time job"
+      ],
+      [
+        "おきます",
+        "okimasu",
+        "to get up"
+      ],
+      [
+        "べんきょうします",
+        "benkyou shimasu",
+        "to study"
+      ],
+      [
+        "かえります",
+        "kaerimasu",
+        "to go home / to return"
+      ],
+      [
+        "でんしゃ",
+        "densha",
+        "train"
+      ],
+      [
+        "としょかん",
+        "toshokan",
+        "library"
+      ],
+      [
+        "ときどき",
+        "tokidoki",
+        "sometimes"
+      ],
+      [
+        "しゅうまつ",
+        "shuumatsu",
+        "weekend"
+      ]
+    ],
+    "concept": {
+      "title": "Putting a week together",
+      "text": "A full sentence about your routine usually runs in this order: topic, time, transport or place, object, verb. For example: わたしは まいにち しちじに でんしゃで がっこうに いきます。\n\nKeep the particles apart by their jobs. に marks a clock time or a destination. で marks transport or the place of an action. へ can replace に for a destination. を marks the object. から and まで mark the start and the end. Words like きょう, あした, まいにち and ときどき stand alone.",
+      "examples": [
+        "time に + transport で + place に + いきます",
+        "place で + N を + V-ます",
+        "A から B まで"
+      ]
+    },
+    "grammar": [],
+    "examples": [
+      [
+        "わたしは まいあさ ろくじはんに おきます。",
+        "I get up at 6:30 every morning."
+      ],
+      [
+        "しちじ じゅっぷんに でんしゃで がっこうに いきます。",
+        "At 7:10 I go to school by train."
+      ],
+      [
+        "がっこうは くじから よじまでです。",
+        "School is from nine until four."
+      ],
+      [
+        "かようびと もくようびは ごご ごじから アルバイトを します。",
+        "On Tuesdays and Thursdays I work my part-time job from 5 p.m."
+      ],
+      [
+        "しゅうまつは ときどき としょかんで べんきょうします。",
+        "On weekends I sometimes study at the library."
+      ],
+      [
+        "にちようびは ぜんぜん はたらきません。うちで やすみます。",
+        "I do not work at all on Sundays. I rest at home."
+      ]
+    ],
+    "dialogue": [
+      [
+        "せんせい",
+        "リンさんは まいにち なんじに おきますか。",
+        "リン",
+        "ろくじはんに おきます。"
+      ],
+      [
+        "せんせい",
+        "なんで がっこうに きますか。",
+        "リン",
+        "じてんしゃと でんしゃで きます。"
+      ],
+      [
+        "マリア",
+        "アルバイトは なんようびですか。",
+        "けん",
+        "かようびと もくようびです。ごご ごじから くじまでです。"
+      ],
+      [
+        "マリア",
+        "しゅうまつは なにを しますか。",
+        "けん",
+        "どようびは としょかんで べんきょうします。にちようびは うちで やすみます。"
+      ],
+      [
+        "さくら",
+        "すみません、いま なんじですか。",
+        "アナ",
+        "よじ じゅっぷんです。あしたは やすみですか。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Complete: まいあさ しちじ ___ おきます。",
+        "options": [
+          "に",
+          "で",
+          "を",
+          "から"
+        ],
+        "correct": "に",
+        "explanation": "に marks the clock time. まいあさ itself takes no particle."
+      },
+      {
+        "prompt": "Complete: でんしゃ ___ がっこうに いきます。",
+        "options": [
+          "で",
+          "に",
+          "を",
+          "まで"
+        ],
+        "correct": "で",
+        "explanation": "で marks the means of transport."
+      },
+      {
+        "prompt": "Complete: としょかん ___ べんきょうします。",
+        "options": [
+          "で",
+          "に",
+          "へ",
+          "を"
+        ],
+        "correct": "で",
+        "explanation": "で marks the place of an action."
+      },
+      {
+        "prompt": "Complete: がっこうは くじ ___ よじ ___ です。",
+        "options": [
+          "から / まで",
+          "まで / から",
+          "に / で",
+          "は / を"
+        ],
+        "correct": "から / まで",
+        "explanation": "から marks the start and まで marks the end."
+      },
+      {
+        "prompt": "Which time is half past four?",
+        "options": [
+          "よじはん",
+          "よんじはん",
+          "しちじはん",
+          "よじ ごふん"
+        ],
+        "correct": "よじはん",
+        "explanation": "Four o'clock is よじ, and はん adds half past."
+      },
+      {
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "ぜんぜん はたらきません。",
+          "ぜんぜん はたらきます。",
+          "ぜんぜんに はたらきません。",
+          "はたらきません ぜんぜん。"
+        ],
+        "correct": "ぜんぜん はたらきません。",
+        "explanation": "ぜんぜん needs a negative verb, takes no particle, and comes before the verb."
+      },
+      {
+        "prompt": "Which word means tomorrow?",
+        "options": [
+          "あした",
+          "きょう",
+          "いま",
+          "まいにち"
+        ],
+        "correct": "あした",
+        "explanation": "あした is tomorrow. きょう is today."
+      },
+      {
+        "prompt": "Choose the question that asks how someone travels.",
+        "options": [
+          "なんで いきますか。",
+          "どこへ いきますか。",
+          "なんじに いきますか。",
+          "なんようびに いきますか。"
+        ],
+        "correct": "なんで いきますか。",
+        "explanation": "なんで asks the means of transport."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Read: かようびと もくようびは ごご ごじから アルバイトを します。 On which days does this person work?",
+        "options": [
+          "Tuesday and Thursday",
+          "Monday and Thursday",
+          "Tuesday and Friday",
+          "Monday and Wednesday"
+        ],
+        "correct": "Tuesday and Thursday",
+        "explanation": "かようび is Tuesday and もくようび is Thursday."
+      },
+      {
+        "prompt": "Choose the sentence that means: At 7:10 I go to school by train.",
+        "options": [
+          "しちじ じゅっぷんに でんしゃで がっこうに いきます。",
+          "しちじ じゅっぷんで でんしゃに がっこうに いきます。",
+          "しちじ じゅっぷんに でんしゃで がっこうで いきます。",
+          "ななじ じゅっぷんに でんしゃで がっこうに いきます。"
+        ],
+        "correct": "しちじ じゅっぷんに でんしゃで がっこうに いきます。",
+        "explanation": "Time + に, transport + で, destination + に. Seven o'clock is しちじ."
+      },
+      {
+        "prompt": "Your teacher asks: しゅうまつは なにを しますか。 Which answer is natural and correct?",
+        "options": [
+          "ときどき としょかんで べんきょうします。",
+          "ときどき としょかんに べんきょうします。",
+          "ぜんぜん としょかんで べんきょうします。",
+          "としょかんで べんきょうしますか。"
+        ],
+        "correct": "ときどき としょかんで べんきょうします。",
+        "explanation": "The action's place takes で, and ときどき goes with a positive verb."
+      },
+      {
+        "prompt": "Read: にちようびは ぜんぜん はたらきません。うちで やすみます。 What does this person do on Sunday?",
+        "options": [
+          "Rests at home",
+          "Works at home",
+          "Works at the office",
+          "Studies at the library"
+        ],
+        "correct": "Rests at home",
+        "explanation": "はたらきません is does not work, and うちで やすみます is rests at home."
+      },
+      {
+        "prompt": "Review: complete へやに ベッドが ___。",
+        "options": [
+          "あります",
+          "います",
+          "いきます",
+          "します"
+        ],
+        "correct": "あります",
+        "explanation": "A bed is a thing, so its existence is stated with あります, from Unit 3."
+      }
+    ]
+  }
+]

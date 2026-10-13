@@ -1,3 +1,4 @@
+import RubyText from "./RubyText";
 import { useEffect, useState } from "react";
 import QuizChoices from "./QuizChoices";
 import type { ListeningExercise } from "../lib/skillRounds";
@@ -32,9 +33,9 @@ export default function ListeningExerciseCard({ exercise, isLast, onDone, onSkip
     <div lang={exercise.choicesInJapanese ? "ja" : undefined}><QuizChoices choices={exercise.choices} selected={selected} disabled={selected !== null} onChoose={setSelected} /></div>
     {selected !== null && <div className="mt-6">
       <p role="status" className={`text-lg font-bold ${correct ? "text-emerald-700" : "text-red-700"}`}>{correct ? "Correct!" : "Not quite."}</p>
-      {!correct && <p className="mt-1 text-gray-700">Correct answer: <span lang={exercise.choicesInJapanese ? "ja" : undefined} className="font-semibold">{exercise.answer}</span></p>}
+      {!correct && <p className="mt-1 text-gray-700">Correct answer: <span lang={exercise.choicesInJapanese ? "ja" : undefined} className="font-semibold"><RubyText text={exercise.answer} /></span></p>}
       <ul className="mt-3 space-y-1 rounded-xl bg-gray-50 p-4">{exercise.reveal.map(line => <li key={line.japanese}>
-        <span lang="ja" className="text-lg font-semibold text-gray-900">{line.japanese}</span>
+        <span lang="ja" className="text-lg font-semibold text-gray-900"><RubyText text={line.japanese} /></span>
         {line.romaji && <span className="ml-2 text-sm text-gray-500">{line.romaji}</span>}
         {line.meaning && <span className="ml-2 text-sm text-gray-600">— {line.meaning}</span>}
       </li>)}</ul>
