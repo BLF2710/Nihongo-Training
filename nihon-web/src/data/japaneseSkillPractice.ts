@@ -31,4 +31,14 @@ export const JAPANESE_SKILL_UNITS: SkillUnit[] = JAPANESE_STUDY_UNITS.map(unit =
   };
 });
 
+/** One body of material from several units, for a review that spans them. */
+export function mergeSkillUnits(units: SkillUnit[], title: string): SkillUnit {
+  return {
+    unitId: units.map(unit => unit.unitId).join("+"), number: 0, title,
+    vocabulary: uniqueBy(units.flatMap(unit => unit.vocabulary), word => word.japanese),
+    sentences: uniqueBy(units.flatMap(unit => unit.sentences), sentence => sentence.japanese),
+    dialogues: units.flatMap(unit => unit.dialogues),
+  };
+}
+
 export const getSkillUnit = (unitId: string) => JAPANESE_SKILL_UNITS.find(unit => unit.unitId === unitId);

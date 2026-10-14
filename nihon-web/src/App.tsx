@@ -35,6 +35,9 @@ const LessonsPage = lazy(() => import("./pages/LessonsPage"));
 const UnitAssessmentPage = lazy(() => import("./pages/UnitAssessmentPage"));
 const UnitReviewPage = lazy(() => import("./pages/UnitReviewPage"));
 const ReadingPage = lazy(() => import("./pages/ReadingPage"));
+const LevelPickerPage = lazy(() => import("./pages/LevelPickerPage"));
+const GrammarSummaryPage = lazy(() => import("./pages/GrammarSummaryPage"));
+const MockExamPage = lazy(() => import("./pages/MockExamPage"));
 const SkillPracticePage = lazy(() => import("./pages/SkillPracticePage"));
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 
@@ -58,6 +61,9 @@ function App() {
           <Route path="/quizzes" element={signedInLazy("Loading quizzes…", <QuizzesPage />)} />
           <Route path="/quizzes/:unitId" element={signedInLazy("Loading assessment…", <UnitAssessmentPage />)} />
           <Route path="/vocabulary" element={signedInLazy("Loading vocabulary…", <StudyReferencePage key="vocabulary" kind="vocabulary" />)} />
+          <Route path="/levels" element={signedInLazy("Loading levels…", <LevelPickerPage />)} />
+          <Route path="/grammar/summary" element={signedInLazy("Loading grammar summary…", <GrammarSummaryPage />)} />
+          <Route path="/mock-exam" element={signedInLazy("Loading mock exam…", <MockExamPage />)} />
           <Route path="/grammar" element={signedInLazy("Loading grammar…", <StudyReferencePage key="grammar" kind="grammar" />)} />
           <Route path="/review/hiragana" element={signedIn(<ReviewPage key="hiragana-review" script="hiragana" />)} />
           <Route path="/review/katakana" element={signedIn(<ReviewPage key="katakana-review" script="katakana" />)} />

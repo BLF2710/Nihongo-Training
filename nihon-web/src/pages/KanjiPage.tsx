@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { VocabularyCard } from "../components/StudyReferenceCards";
 import { KanjiAttribution } from "../components/KanjiReferences";
@@ -10,6 +10,7 @@ import type { KanjiProgress } from "../api/kanji";
 import KanaStrokeOrder from "../components/KanaStrokeOrder";
 import strokeData from "../data/kanjiStrokes.json";
 import KanjiFlashcards from "../components/KanjiFlashcards";
+import { COURSE_LEVELS, isCourseLevel, levelOfId, unitIdOf, useCourseLevel } from "../lib/courseLevel";
 
 const labels = { untested: "Untested", learning: "Learning", mastered: "Mastered" };
 const masteryStyle = {
@@ -18,6 +19,13 @@ const masteryStyle = {
   untested: { card: "border-gray-200 bg-gray-50/50 hover:bg-gray-100/70 text-gray-800", active: "bg-gray-500 text-white", idle: "bg-gray-100 text-gray-600 hover:bg-gray-200", icon: "⚪" },
 };
 const lessons = JAPANESE_STUDY_UNITS.flatMap(unit => unit.lessons.map(lesson => ({ ...lesson, unitNumber: unit.number })));
+// A kanji belongs to the level and unit of the first lesson that introduces it.
+const placement = new Map(KANJI.map(item => {
+  const lessonId = introducingLessons(item.id)[0];
+  const unit = JAPANESE_STUDY_UNITS.find(candidate => candidate.id === (lessonId && unitIdOf(lessonId)));
+  return [item.id, { level: lessonId ? levelOfId(lessonId) : null, unit }];
+}));
+const select = "mt-2 block w-full rounded-xl border border-gray-200 bg-white p-3 font-normal focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 const normalize = (text: string) => text.normalize("NFKC").toLowerCase().replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[.\-\s]/g, "");
 
 export default function KanjiPage() {
@@ -28,6 +36,15 @@ export default function KanjiPage() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"all" | KanjiProgress["status"]>("all");
   const [study, setStudy] = useState(false);
+  // The level and unit filters live in the address, so they survive opening a character and coming back.
+  const [params, setParams] = useSearchParams();
+  const courseLevel = useCourseLevel();
+  const requestedLevel = params.get("level");
+  const level = requestedLevel === "all" || isCourseLevel(requestedLevel) ? requestedLevel : courseLevel;
+  const levelUnits = JAPANESE_STUDY_UNITS.filter(unit => levelOfId(unit.id) === level && KANJI.some(item => placement.get(item.id)?.unit?.id === unit.id));
+  const unitId = levelUnits.find(unit => unit.id === params.get("unit"))?.id ?? "all";
+  const inScope = (id: string) => (level === "all" || placement.get(id)?.level === level) && (unitId === "all" || placement.get(id)?.unit?.id === unitId);
+  const scoped = KANJI.filter(item => inScope(item.id));
   useEffect(() => {
     const controller = new AbortController();
     fetchKanjiProgress(controller.signal).then(data => { setProgress(data); setError(""); }).catch(() => {
@@ -39,7 +56,8 @@ export default function KanjiPage() {
   const state = progress?.find(item => item.kanjiId === kanjiId);
   const related = kanji ? lessons.flatMap(lesson => lesson.vocabulary.filter(item => vocabularyKanjiForm(item)?.kanjiIds.includes(kanji.id)).map(item => ({ item, lesson }))) : [];
   const introduced = kanji ? introducingLessons(kanji.id) : [];
-  const visible = KANJI.filter(item => {
+  const placed = kanji ? placement.get(kanji.id) : undefined;
+  const visible = scoped.filter(item => {
     const status = progress?.find(p => p.kanjiId === item.id)?.status;
     return (filter === "all" || status === filter) && normalize([item.character, ...item.meanings, ...item.onyomi, ...item.kunyomi].join(" ")).includes(normalize(search));
   });
@@ -56,7 +74,7 @@ export default function KanjiPage() {
             <div><dt className="font-bold">On'yomi</dt><dd lang="ja" className="mt-1 wrap-anywhere">{kanji.onyomi.join(" · ") || "Not listed"}</dd></div>
             <div><dt className="font-bold">Kun'yomi</dt><dd lang="ja" className="mt-1 wrap-anywhere">{kanji.kunyomi.join(" · ") || "Not listed"}</dd></div>
             <div><dt className="font-bold">Stroke count</dt><dd>{kanji.strokeCount} (KANJIDIC2)</dd></div>
-            <div><dt className="font-bold">Course placement</dt><dd>Beginner course · official JLPT level not verified</dd></div>
+            <div><dt className="font-bold">Course placement</dt><dd>{placed?.level && placed.unit ? `${placed.level} course · Unit ${placed.unit.number}` : "Reference only"} · official JLPT level not verified</dd></div>
           </dl>
           <p className="mt-4 text-sm text-gray-500">Dictionary readings include uncommon forms. A dot separates the Kanji reading from its following kana; a hyphen marks a bound form. Learn the full course-word readings below rather than guessing from individual characters.</p>
           <h2 className="mt-6 text-xl font-bold">How to Draw</h2>
@@ -83,7 +101,7 @@ export default function KanjiPage() {
         </section>
       </> : <>
         <h1 className="mt-6 text-3xl font-black">Kanji</h1>
-        <p className="mt-2 text-gray-600">Recognize characters through familiar vocabulary from Units 1–3.</p>
+        <p className="mt-2 text-gray-600">Recognize characters through familiar vocabulary from your lessons. Filter by course level and unit to study one set at a time.</p>
         <p className="mt-2 text-sm text-gray-500">Mastered: at least 3 correct answers and 80% displayed accuracy (rounded to whole percent, matching Kana). Only practice answers change progress.</p>
         <button className="mt-4 rounded-xl border bg-white px-4 py-2 font-bold focus-visible:outline-2" aria-expanded={study} onClick={() => setStudy(value => !value)}>Study flashcards</button>
         {study && <div className="mt-6"><KanjiFlashcards key={visible.map(item => item.id).join(':')} kanjiIds={visible.map(item => item.id)} /></div>}
@@ -95,12 +113,27 @@ export default function KanjiPage() {
               <Link to="/learn/kanji/practice" className="mt-3 inline-block rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Practice Kanji</Link>
             </div>
             <div role="group" aria-label="Filter Kanji progress" className="flex flex-wrap gap-2 text-xs font-semibold">
-              <button aria-pressed={filter === "all"} onClick={() => setFilter("all")} className={`cursor-pointer rounded-lg px-3 py-1.5 transition focus-visible:outline-2 focus-visible:outline-emerald-600 ${filter === "all" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>All ({KANJI.length})</button>
+              <button aria-pressed={filter === "all"} onClick={() => setFilter("all")} className={`cursor-pointer rounded-lg px-3 py-1.5 transition focus-visible:outline-2 focus-visible:outline-emerald-600 ${filter === "all" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>All ({scoped.length})</button>
               {(["mastered", "learning", "untested"] as const).map(status => <button key={status} disabled={!progress} aria-pressed={filter === status} onClick={() => setFilter(status)} className={`flex cursor-pointer items-center gap-1 rounded-lg px-3 py-1.5 transition focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50 ${filter === status ? masteryStyle[status].active : masteryStyle[status].idle}`}>
-                <span>{masteryStyle[status].icon} {labels[status]}</span> ({progress ? progress.filter(p => p.status === status).length : "—"})
+                <span>{masteryStyle[status].icon} {labels[status]}</span> ({progress ? progress.filter(p => p.status === status && inScope(p.kanjiId)).length : "—"})
               </button>)}
             </div>
           </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <label className="block text-sm font-semibold">Course level
+              <select value={level} onChange={event => setParams({ level: event.target.value })} className={select}>
+                <option value="all">All levels ({KANJI.length})</option>
+                {COURSE_LEVELS.map(item => { const count = KANJI.filter(entry => placement.get(entry.id)?.level === item.id).length; return <option key={item.id} value={item.id}>{item.id} ({count})</option>; })}
+              </select>
+            </label>
+            <label className="block text-sm font-semibold">Unit
+              <select value={unitId} disabled={level === "all" || !levelUnits.length} onChange={event => setParams({ level, ...(event.target.value === "all" ? {} : { unit: event.target.value }) })} className={select}>
+                <option value="all">{level === "all" ? "Choose a level first" : "All units"}</option>
+                {levelUnits.map(unit => <option key={unit.id} value={unit.id}>Unit {unit.number}: {unit.title} ({KANJI.filter(entry => placement.get(entry.id)?.unit?.id === unit.id).length})</option>)}
+              </select>
+            </label>
+          </div>
+          <p className="mt-2 text-xs text-gray-500">Levels show where this course teaches a character. They are approximate, not an official JLPT list. <Link to="/levels?next=/learn/kanji" className="font-semibold text-emerald-700 hover:underline">Change your course level</Link></p>
           <label className="mt-6 block text-sm font-semibold">Search character, meaning, or reading
             <input type="search" value={search} onChange={event => setSearch(event.target.value)} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 focus-visible:outline-2 focus-visible:outline-emerald-600" />
           </label>
@@ -114,7 +147,7 @@ export default function KanjiPage() {
               </span>
             </Link>;
           })}</div>
-          {!visible.length && <p role="status" className="py-16 text-center font-medium text-gray-400">No Kanji match this search and filter.</p>}
+          {!visible.length && <p role="status" className="py-16 text-center font-medium text-gray-400">{scoped.length ? "No Kanji match this search and filter." : `No Kanji have been added for ${level} yet.`}</p>}
         </section>
       </>}
       <KanjiAttribution />

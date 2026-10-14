@@ -1,0 +1,438 @@
+{
+  "id": "japanese-n4-unit-2-would-you-mind",
+  "slug": "n4-unit-2-would-you-mind",
+  "unit": "Japanese N4 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Would You Mind…?",
+  "title_jp": "〜てくれませんか",
+  "objectives": [
+    "I can thank people for favours and ask for one politely.",
+    "Use V-てくれる for favours done for me",
+    "Ask with V-てくれませんか and V-てもらえませんか",
+    "Talk about photos, windows and lights"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>写真<rt>しゃしん</rt></ruby>",
+      "shashin",
+      "photo"
+    ],
+    [
+      "<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>",
+      "mannaka",
+      "the very middle"
+    ],
+    [
+      "<ruby>待<rt>ま</rt></ruby>つ",
+      "matsu",
+      "to wait"
+    ],
+    [
+      "<ruby>待<rt>ま</rt></ruby>ちあわせ",
+      "machiawase",
+      "meeting up (an arrangement)"
+    ],
+    [
+      "とる",
+      "toru",
+      "to take (a photo)"
+    ],
+    [
+      "まど",
+      "mado",
+      "window"
+    ],
+    [
+      "あける",
+      "akeru",
+      "to open"
+    ],
+    [
+      "しめる",
+      "shimeru",
+      "to close"
+    ],
+    [
+      "つける",
+      "tsukeru",
+      "to switch on"
+    ],
+    [
+      "けす",
+      "kesu",
+      "to switch off"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "写真",
+      "word_reading": "しゃしん"
+    },
+    {
+      "word_japanese": "真ん中",
+      "word_reading": "まんなか"
+    },
+    {
+      "word_japanese": "待つ",
+      "word_reading": "まつ"
+    }
+  ],
+  "concept": {
+    "title": "Favours that come to me",
+    "text": "V-てくれる is くれる for actions: someone did something for me, and I am thankful.\n\n<ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。 My friend took a photo for me.\n\nAs a negative question it becomes a polite request:\n<ruby>写真<rt>しゃしん</rt></ruby>をとってくれませんか。 Would you take a photo for me?\n<ruby>写真<rt>しゃしん</rt></ruby>をとってもらえませんか。 Could you possibly take a photo for me?\n\nもらえませんか is a little more polite than くれませんか. Both are softer than 〜てください.",
+    "examples": [
+      "giver が V-てくれる",
+      "V-てくれませんか",
+      "V-てもらえませんか"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Done for me",
+      "pattern": "giver が (わたしに) V-てくれる",
+      "explanation": "V-てくれる describes a favour done for you or your family, with thanks. The person who did it takes が.",
+      "examples": [
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。",
+          "romaji": "",
+          "meaning": "My friend took a photo for me."
+        },
+        {
+          "japanese": "<ruby>父<rt>ちち</rt></ruby>が<ruby>駅<rt>えき</rt></ruby>まで<ruby>車<rt>くるま</rt></ruby>で<ruby>送<rt>おく</rt></ruby>ってくれました。",
+          "romaji": "",
+          "meaning": "My father drove me to the station."
+        },
+        {
+          "japanese": "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってくれました。",
+          "romaji": "",
+          "meaning": "My older brother helped me with my homework."
+        },
+        {
+          "japanese": "リーさんが<ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>待<rt>ま</rt></ruby>ってくれました。",
+          "romaji": "",
+          "meaning": "Lee waited thirty minutes for me."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>がゆっくり<ruby>話<rt>はな</rt></ruby>してくれました。",
+          "romaji": "",
+          "meaning": "The teacher spoke slowly for me."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとってあげました, for a photo of you. Use てくれる.",
+        "<ruby>送<rt>おく</rt></ruby>る also means to take someone somewhere: <ruby>駅<rt>えき</rt></ruby>まで<ruby>送<rt>おく</rt></ruby>る."
+      ]
+    },
+    {
+      "title": "Would you mind…?",
+      "pattern": "V-てくれませんか / V-てもらえませんか",
+      "explanation": "Both ask for a favour politely. もらえませんか is the more polite of the two; with friends, 〜てくれる？ is enough.",
+      "examples": [
+        {
+          "japanese": "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってくれませんか。",
+          "romaji": "",
+          "meaning": "Excuse me, would you take a photo for me?"
+        },
+        {
+          "japanese": "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+          "romaji": "",
+          "meaning": "Would you wait a moment?"
+        },
+        {
+          "japanese": "まどをあけてもらえませんか。",
+          "romaji": "",
+          "meaning": "Could you open the window, please?"
+        },
+        {
+          "japanese": "<ruby>電気<rt>でんき</rt></ruby>をけしてもらえませんか。",
+          "romaji": "",
+          "meaning": "Could you switch off the light, please?"
+        },
+        {
+          "japanese": "もう<ruby>少<rt>すこ</rt></ruby>しゆっくり<ruby>話<rt>はな</rt></ruby>してもらえませんか。",
+          "romaji": "",
+          "meaning": "Could you speak a little more slowly?"
+        }
+      ],
+      "notes": [
+        "もらえる is the potential form of もらう; for now, learn もらえませんか as a set phrase.",
+        "Wrong: <ruby>待<rt>ま</rt></ruby>ってあげませんか. A request uses くれる or もらう."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>写真<rt>しゃしん</rt></ruby>の<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>にいる<ruby>人<rt>ひと</rt></ruby>が<ruby>兄<rt>あに</rt></ruby>です。",
+      "The person in the middle of the photo is my older brother."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で<ruby>友<rt>とも</rt></ruby>だちと<ruby>待<rt>ま</rt></ruby>ちあわせをしました。",
+      "I arranged to meet a friend in front of the station."
+    ],
+    [
+      "さむいですから、まどをしめましょう。",
+      "It's cold, so let's close the window."
+    ],
+    [
+      "テレビをつけてもいいですか。",
+      "May I switch on the TV?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってくれませんか。",
+      "たなか",
+      "いいですよ。はい、とりますよ。"
+    ],
+    [
+      "けん",
+      "きのうはどうやって<ruby>家<rt>いえ</rt></ruby>にかえったんですか。",
+      "マイ",
+      "<ruby>兄<rt>あに</rt></ruby>が<ruby>車<rt>くるま</rt></ruby>で<ruby>送<rt>おく</rt></ruby>ってくれました。"
+    ],
+    [
+      "リー",
+      "ちょっと<ruby>待<rt>ま</rt></ruby>ってもらえませんか。",
+      "ゆき",
+      "はい、いいですよ。"
+    ],
+    [
+      "リン",
+      "さむいですね。まどをしめてもらえませんか。",
+      "アナ",
+      "はい、しめますね。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "写",
+      "onyomi": [
+        "シャ",
+        "ジャ"
+      ],
+      "kunyomi": [
+        "うつ.す",
+        "うつ.る",
+        "うつ-",
+        "うつ.し"
+      ],
+      "meaning_en": "copy",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "写真",
+          "reading": "しゃしん",
+          "en": "photo"
+        },
+        {
+          "word": "写す",
+          "reading": "うつす",
+          "en": "to copy"
+        }
+      ],
+      "mnemonic": "A cover (冖) over a shape: making a copy of what is underneath."
+    },
+    {
+      "char": "真",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "ま",
+        "ま-",
+        "まこと"
+      ],
+      "meaning_en": "true, exact",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "写真",
+          "reading": "しゃしん",
+          "en": "photo"
+        },
+        {
+          "word": "真ん中",
+          "reading": "まんなか",
+          "en": "the very middle"
+        }
+      ],
+      "mnemonic": "A full pot on a stand, filled exactly to the brim."
+    },
+    {
+      "char": "待",
+      "onyomi": [
+        "タイ"
+      ],
+      "kunyomi": [
+        "ま.つ",
+        "-ま.ち"
+      ],
+      "meaning_en": "wait",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "待つ",
+          "reading": "まつ",
+          "en": "to wait"
+        },
+        {
+          "word": "待ち合わせ",
+          "reading": "まちあわせ",
+          "en": "meeting up"
+        }
+      ],
+      "mnemonic": "A step (彳) toward the temple (寺), and then waiting there."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete わたしは<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えて＿＿。 (my sister taught me)",
+      "options": [
+        "もらいました",
+        "あげました",
+        "くれました",
+        "<ruby>習<rt>なら</rt></ruby>いました"
+      ],
+      "correct": "もらいました",
+      "explanation": "With the helper に, use てもらう."
+    },
+    {
+      "prompt": "What does <ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby> mean?",
+      "options": [
+        "the front",
+        "the very middle",
+        "the back",
+        "the side"
+      ],
+      "correct": "the very middle",
+      "explanation": "<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>: the very middle."
+    },
+    {
+      "prompt": "Complete: <ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとって＿＿。 (for me)",
+      "options": [
+        "あげました",
+        "もらいました",
+        "くれました",
+        "ください"
+      ],
+      "correct": "くれました",
+      "explanation": "A favour done for you, with the helper が: てくれる."
+    },
+    {
+      "prompt": "Which is the softer way to say ちょっと<ruby>待<rt>ま</rt></ruby>ってください?",
+      "options": [
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ってあげませんか。",
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ちませんか。",
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ってもらいませんか。",
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。"
+      ],
+      "correct": "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+      "explanation": "てくれませんか is a polite request."
+    },
+    {
+      "prompt": "Which request is a little more polite?",
+      "options": [
+        "まどをあけてもらえませんか。",
+        "まどをあけてくれませんか。"
+      ],
+      "correct": "まどをあけてもらえませんか。",
+      "explanation": "もらえませんか is the more polite of the two."
+    },
+    {
+      "prompt": "What is the opposite of あける?",
+      "options": [
+        "つける",
+        "しめる",
+        "けす",
+        "とる"
+      ],
+      "correct": "しめる",
+      "explanation": "あける: open; しめる: close."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>父<rt>ちち</rt></ruby>が<ruby>駅<rt>えき</rt></ruby>まで<ruby>車<rt>くるま</rt></ruby>で<ruby>送<rt>おく</rt></ruby>ってくれました。",
+      "options": [
+        "I drove my father to the station.",
+        "My father sent a car to the station.",
+        "My father drove me to the station.",
+        "My father went to the station alone by car."
+      ],
+      "correct": "My father drove me to the station.",
+      "explanation": "<ruby>送<rt>おく</rt></ruby>ってくれました: took me, as a favour."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want a stranger to take your photo. What do you say?",
+      "options": [
+        "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってあげませんか。",
+        "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとりたいですか。",
+        "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってもらえませんか。",
+        "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってもらいましたか。"
+      ],
+      "correct": "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってもらえませんか。",
+      "explanation": "もらえませんか: a polite request."
+    },
+    {
+      "prompt": "Read: リーさんが<ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>待<rt>ま</rt></ruby>ってくれました。 Who waited?",
+      "options": [
+        "The speaker",
+        "Both of them",
+        "Nobody",
+        "Lee"
+      ],
+      "correct": "Lee",
+      "explanation": "リーさんが<ruby>待<rt>ま</rt></ruby>ってくれました: Lee waited for me."
+    },
+    {
+      "prompt": "Choose: \"My older brother helped me with my homework.\"",
+      "options": [
+        "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってくれました。",
+        "<ruby>兄<rt>あに</rt></ruby>にしゅくだいを<ruby>手<rt>て</rt></ruby>つだってあげました。",
+        "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってあげました。",
+        "<ruby>兄<rt>あに</rt></ruby>はしゅくだいを<ruby>手<rt>て</rt></ruby>つだってもらいました。"
+      ],
+      "correct": "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってくれました。",
+      "explanation": "Helper が + てくれる."
+    },
+    {
+      "prompt": "Which of these is NOT a request?",
+      "options": [
+        "テレビをつけてくれませんか。",
+        "テレビをつけてもいいですか。",
+        "テレビをつけてもらえませんか。",
+        "テレビをつけてください。"
+      ],
+      "correct": "テレビをつけてもいいですか。",
+      "explanation": "てもいいですか asks for permission."
+    },
+    {
+      "prompt": "Review: complete これは<ruby>友<rt>とも</rt></ruby>だち＿＿かいたえです。",
+      "options": [
+        "は",
+        "を",
+        "が",
+        "で"
+      ],
+      "correct": "が",
+      "explanation": "The doer inside a describing clause takes が."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-2-doing-favours",
+    "japanese-n4-unit-2-they-gave-me",
+    "japanese-n4-unit-1-the-book-i-bought",
+    "japanese-n5-unit-8-permission-and-rules"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,473 @@
+{
+  "id": "japanese-n4-unit-1-probably",
+  "slug": "n4-unit-1-probably",
+  "unit": "Japanese N4 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Probably & Maybe",
+  "title_jp": "〜でしょう・〜かもしれません",
+  "objectives": [
+    "I can say what will probably or might happen.",
+    "Guess with でしょう and だろう",
+    "Say something might be so with かもしれません",
+    "Understand a simple weather forecast"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>朝<rt>あさ</rt></ruby>",
+      "asa",
+      "morning"
+    ],
+    [
+      "<ruby>昼<rt>ひる</rt></ruby>",
+      "hiru",
+      "midday, daytime"
+    ],
+    [
+      "<ruby>夜<rt>よる</rt></ruby>",
+      "yoru",
+      "night"
+    ],
+    [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby>",
+      "maiasa",
+      "every morning"
+    ],
+    [
+      "<ruby>今夜<rt>こんや</rt></ruby>",
+      "kon'ya",
+      "tonight"
+    ],
+    [
+      "<ruby>風<rt>かぜ</rt></ruby>",
+      "kaze",
+      "wind"
+    ],
+    [
+      "ふる",
+      "furu",
+      "to fall (rain, snow)"
+    ],
+    [
+      "はれる",
+      "hareru",
+      "to clear up"
+    ],
+    [
+      "くもる",
+      "kumoru",
+      "to cloud over"
+    ],
+    [
+      "つよい",
+      "tsuyoi",
+      "strong"
+    ],
+    [
+      "<ruby>天気<rt>てんき</rt></ruby>よほう",
+      "tenki yohou",
+      "weather forecast"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "朝",
+      "word_reading": "あさ"
+    },
+    {
+      "word_japanese": "昼",
+      "word_reading": "ひる"
+    },
+    {
+      "word_japanese": "夜",
+      "word_reading": "よる"
+    },
+    {
+      "word_japanese": "毎朝",
+      "word_reading": "まいあさ"
+    },
+    {
+      "word_japanese": "今夜",
+      "word_reading": "こんや"
+    },
+    {
+      "word_japanese": "風",
+      "word_reading": "かぜ"
+    }
+  ],
+  "concept": {
+    "title": "How sure are you?",
+    "text": "でしょう means probably: the speaker is fairly sure. かもしれません means might or maybe: it is only a possibility. Both follow the plain form, but nouns and な-adjectives drop だ:\n\n<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。 It will probably rain.\n<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。 It might rain.\n<ruby>病気<rt>びょうき</rt></ruby>かもしれません。 He might be ill.\n\nだろう is the plain form of でしょう. You will hear it before と<ruby>思<rt>おも</rt></ruby>います and in casual speech.",
+    "examples": [
+      "plain form + でしょう / だろう",
+      "plain form + かもしれません",
+      "N / な-adj + でしょう / かもしれません"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Probably",
+      "pattern": "plain form + でしょう / だろう",
+      "explanation": "でしょう gives a fairly confident guess and is common in forecasts. Nouns and な-adjectives take でしょう without だ.",
+      "examples": [
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。",
+          "romaji": "",
+          "meaning": "It will probably rain tomorrow."
+        },
+        {
+          "japanese": "<ruby>今夜<rt>こんや</rt></ruby>は<ruby>風<rt>かぜ</rt></ruby>がつよいでしょう。",
+          "romaji": "",
+          "meaning": "The wind will probably be strong tonight."
+        },
+        {
+          "japanese": "<ruby>朝<rt>あさ</rt></ruby>はさむいでしょう。",
+          "romaji": "",
+          "meaning": "It will probably be cold in the morning."
+        },
+        {
+          "japanese": "<ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。",
+          "romaji": "",
+          "meaning": "It will probably clear up from midday."
+        },
+        {
+          "japanese": "たなかさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think Tanaka probably won't come."
+        }
+      ],
+      "notes": [
+        "With a rising voice, でしょう？ checks that the listener agrees: right?",
+        "Wrong: <ruby>雨<rt>あめ</rt></ruby>だでしょう. Say <ruby>雨<rt>あめ</rt></ruby>でしょう."
+      ]
+    },
+    {
+      "title": "Might, maybe",
+      "pattern": "plain form + かもしれません",
+      "explanation": "かもしれません says something is possible but not certain. Its plain form is かもしれない.",
+      "examples": [
+        {
+          "japanese": "<ruby>午後<rt>ごご</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。",
+          "romaji": "",
+          "meaning": "It might rain in the afternoon."
+        },
+        {
+          "japanese": "リーさんは<ruby>病気<rt>びょうき</rt></ruby>かもしれません。",
+          "romaji": "",
+          "meaning": "Lee might be ill."
+        },
+        {
+          "japanese": "このしつもんはむずかしいかもしれません。",
+          "romaji": "",
+          "meaning": "This question may be difficult."
+        },
+        {
+          "japanese": "<ruby>夜<rt>よる</rt></ruby>はくもるかもしれません。",
+          "romaji": "",
+          "meaning": "It may cloud over at night."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>病気<rt>びょうき</rt></ruby>だかもしれません. Nouns take かもしれません directly.",
+        "たぶん (probably) often comes with でしょう, not with かもしれません."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>天気<rt>てんき</rt></ruby>よほうを<ruby>見<rt>み</rt></ruby>ます。",
+      "I check the weather forecast every morning."
+    ],
+    [
+      "<ruby>昼<rt>ひる</rt></ruby>ごはんは<ruby>何<rt>なに</rt></ruby>を<ruby>食<rt>た</rt></ruby>べましたか。",
+      "What did you have for lunch?"
+    ],
+    [
+      "<ruby>夜<rt>よる</rt></ruby>は<ruby>十一時<rt>じゅういちじ</rt></ruby>にねます。",
+      "I go to bed at eleven at night."
+    ],
+    [
+      "<ruby>風<rt>かぜ</rt></ruby>がつよいですね。",
+      "The wind is strong, isn't it."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>明日<rt>あした</rt></ruby>の<ruby>天気<rt>てんき</rt></ruby>はどうでしょうか。",
+      "けん",
+      "<ruby>朝<rt>あさ</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>ですが、<ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。"
+    ],
+    [
+      "リー",
+      "パーティーにたなかさんも<ruby>来<rt>き</rt></ruby>ますか。",
+      "ゆき",
+      "いそがしいですから、<ruby>来<rt>こ</rt></ruby>ないかもしれません。"
+    ],
+    [
+      "マイ",
+      "<ruby>今夜<rt>こんや</rt></ruby>は<ruby>風<rt>かぜ</rt></ruby>がつよいですね。",
+      "リン",
+      "そうですね。<ruby>明日<rt>あした</rt></ruby>もつよいかもしれません。"
+    ],
+    [
+      "けん",
+      "リーさんは<ruby>来<rt>き</rt></ruby>ませんでしたね。",
+      "アナ",
+      "<ruby>病気<rt>びょうき</rt></ruby>かもしれませんね。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "朝",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "あさ"
+      ],
+      "meaning_en": "morning",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "朝",
+          "reading": "あさ",
+          "en": "morning"
+        },
+        {
+          "word": "毎朝",
+          "reading": "まいあさ",
+          "en": "every morning"
+        }
+      ],
+      "mnemonic": "The sun (日) rising among the grass while the moon (月) is still out."
+    },
+    {
+      "char": "昼",
+      "onyomi": [
+        "チュウ"
+      ],
+      "kunyomi": [
+        "ひる"
+      ],
+      "meaning_en": "midday",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "昼",
+          "reading": "ひる",
+          "en": "midday"
+        },
+        {
+          "word": "昼ごはん",
+          "reading": "ひるごはん",
+          "en": "lunch"
+        }
+      ],
+      "mnemonic": "The sun (日) standing high: the middle of the day."
+    },
+    {
+      "char": "夜",
+      "onyomi": [
+        "ヤ"
+      ],
+      "kunyomi": [
+        "よ",
+        "よる"
+      ],
+      "meaning_en": "night",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "夜",
+          "reading": "よる",
+          "en": "night"
+        },
+        {
+          "word": "今夜",
+          "reading": "こんや",
+          "en": "tonight"
+        }
+      ],
+      "mnemonic": "A person under a roof as the evening (夕) comes: night."
+    },
+    {
+      "char": "風",
+      "onyomi": [
+        "フウ",
+        "フ"
+      ],
+      "kunyomi": [
+        "かぜ",
+        "かざ-"
+      ],
+      "meaning_en": "wind",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "風",
+          "reading": "かぜ",
+          "en": "wind"
+        },
+        {
+          "word": "台風",
+          "reading": "たいふう",
+          "en": "typhoon"
+        }
+      ],
+      "mnemonic": "Wind swirling inside a billowing sail (几)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>明日<rt>あした</rt></ruby>はテスト＿＿んです。",
+      "options": [
+        "だ",
+        "な",
+        "の",
+        "です"
+      ],
+      "correct": "な",
+      "explanation": "After a noun, だ becomes な before んです."
+    },
+    {
+      "prompt": "What does <ruby>天気<rt>てんき</rt></ruby>よほう mean?",
+      "options": [
+        "rain",
+        "wind",
+        "weather forecast",
+        "cloudy weather"
+      ],
+      "correct": "weather forecast",
+      "explanation": "<ruby>天気<rt>てんき</rt></ruby>よほう is a weather forecast."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。",
+      "options": [
+        "です",
+        "ました",
+        "だでしょう",
+        "でしょう"
+      ],
+      "correct": "でしょう",
+      "explanation": "でしょう follows the plain form."
+    },
+    {
+      "prompt": "Complete: リーさんは<ruby>病気<rt>びょうき</rt></ruby>＿＿。",
+      "options": [
+        "かもしれません",
+        "だかもしれません",
+        "なかもしれません",
+        "をかもしれません"
+      ],
+      "correct": "かもしれません",
+      "explanation": "Nouns take かもしれません directly."
+    },
+    {
+      "prompt": "Which sentence sounds more certain?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。",
+      "explanation": "でしょう is a confident guess; かもしれません is only a possibility."
+    },
+    {
+      "prompt": "How is 今夜⁠ read?",
+      "options": [
+        "こんよる",
+        "いまよる",
+        "こんや",
+        "きょうや"
+      ],
+      "correct": "こんや",
+      "explanation": "今夜⁠ is read こんや: tonight."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。",
+      "options": [
+        "It cleared up at midday.",
+        "It might rain from midday.",
+        "It will be cloudy all day.",
+        "It will probably clear up from midday."
+      ],
+      "correct": "It will probably clear up from midday.",
+      "explanation": "はれる: to clear up; でしょう: probably."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "The forecast gives a 50% chance of rain. Which sentence fits?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>がふります。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふりました。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふらないでしょう。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。",
+      "explanation": "A 50% chance is a possibility: かもしれません."
+    },
+    {
+      "prompt": "Choose: \"I think Mai probably won't come.\"",
+      "options": [
+        "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>います。",
+        "マイさんはたぶん<ruby>来<rt>き</rt></ruby>ませんだろうと<ruby>思<rt>おも</rt></ruby>います。",
+        "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだと<ruby>思<rt>おも</rt></ruby>います。",
+        "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>いますか。"
+      ],
+      "correct": "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>います。",
+      "explanation": "Plain form + だろうと<ruby>思<rt>おも</rt></ruby>います."
+    },
+    {
+      "prompt": "Read: <ruby>朝<rt>あさ</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>ですが、<ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。 What will the afternoon probably be like?",
+      "options": [
+        "Rainy",
+        "Clear",
+        "Windy",
+        "Snowy"
+      ],
+      "correct": "Clear",
+      "explanation": "<ruby>昼<rt>ひる</rt></ruby>からはれる: clear from midday."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "あの<ruby>店<rt>みせ</rt></ruby>はしずかだかもしれません。",
+        "あの<ruby>店<rt>みせ</rt></ruby>はしずかなかもしれません。",
+        "あの<ruby>店<rt>みせ</rt></ruby>はしずかかもしれません。",
+        "あの<ruby>店<rt>みせ</rt></ruby>はしずくかもしれません。"
+      ],
+      "correct": "あの<ruby>店<rt>みせ</rt></ruby>はしずかかもしれません。",
+      "explanation": "な-adjectives take かもしれません directly."
+    },
+    {
+      "prompt": "Review: a friend looks tired. Which question asks for an explanation?",
+      "options": [
+        "どうでしたか。",
+        "どうしますか。",
+        "どこですか。",
+        "どうしたんですか。"
+      ],
+      "correct": "どうしたんですか。",
+      "explanation": "んですか asks for the background."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-1-what-happened",
+    "japanese-n4-unit-1-i-think",
+    "japanese-n5-unit-5-how-was-it",
+    "japanese-n5-unit-4-daily-routine"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 朝, 昼 and 夜 words were taught in kana in N5 and are listed again here in kanji.",
+    "VERIFY: 風 (wind) and かぜ (a cold, Lesson 4) are both read かぜ; the meanings are given side by side in the vocabulary lists."
+  ]
+}

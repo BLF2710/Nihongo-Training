@@ -3,11 +3,13 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { clearSession, getToken, getUserEmail, getUserName } from "../lib/authStorage";
+import { useCourseLevel } from "../lib/courseLevel";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { language, supportedLanguages, setLanguage } = useLanguage();
+  const courseLevel = useCourseLevel();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [sectionsOpen, setSectionsOpen] = useState({ language: true, learn: true, practice: true, games: true });
@@ -75,6 +77,7 @@ export default function Navbar() {
             </button>)}
           </div>}</div>
           <div className="mb-4">{sectionButton("Learn", "learn")}{sectionsOpen.learn && <div className="mt-1 space-y-1">
+            {language === "japanese" && <button onClick={() => go("/levels")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/levels")}`}><span lang="ja">道</span> Level <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">{courseLevel} · Change</span></button>}
             <button onClick={() => language === "japanese" && go("/lessons")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/lessons"))}` : "text-gray-400 cursor-not-allowed"}`}><span>📖</span> Lessons {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
             <button onClick={() => language === "japanese" && go("/vocabulary")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/vocabulary"))}` : "text-gray-400 cursor-not-allowed"}`}><span>🧠</span> Vocabulary</button>
             <button onClick={() => language === "japanese" && go("/grammar")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/grammar"))}` : "text-gray-400 cursor-not-allowed"}`}><span>✍️</span> Grammar</button>

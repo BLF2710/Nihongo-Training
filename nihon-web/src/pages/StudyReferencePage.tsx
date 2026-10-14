@@ -7,16 +7,31 @@ import type { StudyUnit } from "../data/japaneseUnit1Reference";
 import { JAPANESE_UNIT_1_REFERENCE } from "../data/japaneseUnit1Reference";
 import { JAPANESE_STUDY_UNITS } from "../data/japaneseStudyUnits";
 import { KanjiAttribution } from "../components/KanjiReferences";
+import LevelSwitch from "../components/LevelSwitch";
+import { inLevel, useShownLevel } from "../lib/courseLevel";
+import type { CourseLevel } from "../lib/courseLevel";
 
 export default function StudyReferencePage({ kind, unit: defaultUnit = JAPANESE_UNIT_1_REFERENCE }: { kind: "vocabulary" | "grammar"; unit?: StudyUnit }) {
   const [params, setParams] = useSearchParams();
-  const unit = JAPANESE_STUDY_UNITS.find(item => item.id === params.get("unit")) ?? defaultUnit;
-  return <StudyReferenceContent key={`${kind}:${unit.id}`} kind={kind} unit={unit}
+  // Unit numbers restart at each level, so the unit list shows one level at a time.
+  const level = useShownLevel(params.get("unit"));
+  const units = JAPANESE_STUDY_UNITS.filter(inLevel(level));
+  const unit = units.find(item => item.id === params.get("unit")) ?? (inLevel(level)(defaultUnit) ? defaultUnit : units[0]);
+  if (!unit) return <NoUnits kind={kind} level={level} />;
+  return <StudyReferenceContent key={`${kind}:${unit.id}`} kind={kind} unit={unit} level={level} units={units}
     initialLesson={params.get("lesson") ?? "all"} onUnitChange={id => setParams({ unit: id })} />;
 }
 
-function StudyReferenceContent({ kind, unit, initialLesson, onUnitChange }: {
-  kind: "vocabulary" | "grammar"; unit: StudyUnit; initialLesson: string; onUnitChange: (id: string) => void;
+function NoUnits({ kind, level }: { kind: "vocabulary" | "grammar"; level: CourseLevel }) {
+  return <div className="min-h-screen bg-gray-50"><Navbar /><main className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6">
+    <div className="mt-6"><LevelSwitch level={level} /></div>
+    <h1 className="mt-3 text-3xl font-black text-gray-900 sm:text-4xl">{kind === "vocabulary" ? "Vocabulary" : "Grammar"}</h1>
+    <p className="mt-4 rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">{level} has no units yet. Its {kind} appears here as soon as its first unit arrives.</p>
+  </main></div>;
+}
+
+function StudyReferenceContent({ kind, unit, level, units, initialLesson, onUnitChange }: {
+  kind: "vocabulary" | "grammar"; unit: StudyUnit; level: CourseLevel; units: StudyUnit[]; initialLesson: string; onUnitChange: (id: string) => void;
 }) {
   const [selectedLesson, setSelectedLesson] = useState(() => unit.lessons.some(lesson => lesson.id === initialLesson) ? initialLesson : "all");
   const [view, setView] = useState<"list" | "flashcards">("list");
@@ -28,7 +43,7 @@ function StudyReferenceContent({ kind, unit, initialLesson, onUnitChange }: {
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6">
 
       <header className="mt-6 mb-8">
-        <span className="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">🇯🇵 {unit.course}</span>
+        <LevelSwitch level={level} />
         <h1 className="mt-3 text-3xl font-black text-gray-900 sm:text-4xl">{title}</h1>
         <p className="mt-2 text-lg font-semibold text-gray-700">Unit {unit.number} {kind}</p>
         <p className="mt-1 text-gray-600">{unit.title} · Revisit the {kind === "vocabulary" ? "words and expressions" : "sentence patterns"} from your lessons.</p>
@@ -36,7 +51,7 @@ function StudyReferenceContent({ kind, unit, initialLesson, onUnitChange }: {
       </header>
       <label className="mb-6 block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={unit.id} onChange={event => onUnitChange(event.target.value)} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 focus-visible:outline-2 focus-visible:outline-emerald-600">
-          {JAPANESE_STUDY_UNITS.map(item => <option key={item.id} value={item.id}>Unit {item.number}: {item.title}</option>)}
+          {units.map(item => <option key={item.id} value={item.id}>Unit {item.number}: {item.title}</option>)}
         </select>
       </label>
       {kind === "vocabulary" && <div role="group" aria-label="Vocabulary view" className="mb-4 flex gap-2">

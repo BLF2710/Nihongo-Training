@@ -1,0 +1,451 @@
+{
+  "id": "japanese-n4-unit-1-i-think",
+  "slug": "n4-unit-1-i-think",
+  "unit": "Japanese N4 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "I Think…",
+  "title_jp": "〜と<ruby>思<rt>おも</rt></ruby>います",
+  "objectives": [
+    "I can say what I think and ask for someone's opinion.",
+    "Use the plain form before to omoimasu",
+    "Ask for opinions with dou omoimasu ka",
+    "Read verbs listed in the dictionary form"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>思<rt>おも</rt></ruby>う",
+      "omou",
+      "to think"
+    ],
+    [
+      "<ruby>考<rt>かんが</rt></ruby>える",
+      "kangaeru",
+      "to think about, to consider"
+    ],
+    [
+      "<ruby>意見<rt>いけん</rt></ruby>",
+      "iken",
+      "opinion"
+    ],
+    [
+      "きっと",
+      "kitto",
+      "surely, I'm sure"
+    ],
+    [
+      "たぶん",
+      "tabun",
+      "probably"
+    ],
+    [
+      "ちがう",
+      "chigau",
+      "to be different, to be wrong"
+    ],
+    [
+      "ただしい",
+      "tadashii",
+      "correct"
+    ],
+    [
+      "だめ",
+      "dame",
+      "no good, not allowed"
+    ],
+    [
+      "<ruby>人気<rt>にんき</rt></ruby>",
+      "ninki",
+      "popularity"
+    ],
+    [
+      "ニュース",
+      "nyuusu",
+      "news"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "思う",
+      "word_reading": "おもう"
+    },
+    {
+      "word_japanese": "考える",
+      "word_reading": "かんがえる"
+    },
+    {
+      "word_japanese": "意見",
+      "word_reading": "いけん"
+    },
+    {
+      "word_japanese": "人気",
+      "word_reading": "にんき"
+    }
+  ],
+  "concept": {
+    "title": "Welcome to N4: plain forms inside sentences",
+    "text": "In N5 you met the plain forms in casual speech. From now on they also sit inside longer polite sentences. と<ruby>思<rt>おも</rt></ruby>います (I think) is the first example: put any plain-form sentence in front of it.\n\n<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>います\n<ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かないと<ruby>思<rt>おも</rt></ruby>います\nおいしい → おいしいと<ruby>思<rt>おも</rt></ruby>います\nべんりだ → べんりだと<ruby>思<rt>おも</rt></ruby>います (な-adjectives and nouns keep だ here)\n\nFrom N4 on, vocabulary lists give verbs in the dictionary form, sentences are written without spaces, and every kanji has its reading above it.",
+    "examples": [
+      "plain form + と<ruby>思<rt>おも</rt></ruby>います",
+      "N / な-adj + だ + と<ruby>思<rt>おも</rt></ruby>います",
+      "どう<ruby>思<rt>おも</rt></ruby>いますか。"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I think that…",
+      "pattern": "plain form + と<ruby>思<rt>おも</rt></ruby>います",
+      "explanation": "The thought goes before と, in the plain form; と<ruby>思<rt>おも</rt></ruby>います stays polite. Nouns and な-adjectives need だ before と.",
+      "examples": [
+        {
+          "japanese": "あしたは<ruby>雨<rt>あめ</rt></ruby>がふると<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think it will rain tomorrow."
+        },
+        {
+          "japanese": "この<ruby>本<rt>ほん</rt></ruby>はおもしろいと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think this book is interesting."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>はべんりだと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think Japanese trains are convenient."
+        },
+        {
+          "japanese": "たなかさんはもうかえったと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think Tanaka has already gone home."
+        },
+        {
+          "japanese": "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>じゃないと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I don't think that person is a teacher."
+        }
+      ],
+      "notes": [
+        "Wrong: べんりと<ruby>思<rt>おも</rt></ruby>います. Say べんりだと<ruby>思<rt>おも</rt></ruby>います.",
+        "To say you don't think something will happen, make the thought negative: <ruby>来<rt>こ</rt></ruby>ないと<ruby>思<rt>おも</rt></ruby>います."
+      ]
+    },
+    {
+      "title": "Asking for opinions",
+      "pattern": "〜と<ruby>思<rt>おも</rt></ruby>いますか / どう<ruby>思<rt>おも</rt></ruby>いますか",
+      "explanation": "Ask whether someone thinks something with と<ruby>思<rt>おも</rt></ruby>いますか, or ask an open question with どう<ruby>思<rt>おも</rt></ruby>いますか. そう<ruby>思<rt>おも</rt></ruby>います agrees; そうは<ruby>思<rt>おも</rt></ruby>いません disagrees politely.",
+      "examples": [
+        {
+          "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>のテストはむずかしいと<ruby>思<rt>おも</rt></ruby>いますか。",
+          "romaji": "",
+          "meaning": "Do you think the Japanese test will be difficult?"
+        },
+        {
+          "japanese": "リーさんの<ruby>意見<rt>いけん</rt></ruby>をどう<ruby>思<rt>おも</rt></ruby>いますか。",
+          "romaji": "",
+          "meaning": "What do you think of Lee's opinion?"
+        },
+        {
+          "japanese": "わたしもそう<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think so too."
+        },
+        {
+          "japanese": "わたしはそうは<ruby>思<rt>おも</rt></ruby>いません。",
+          "romaji": "",
+          "meaning": "I don't think so."
+        },
+        {
+          "japanese": "よく<ruby>考<rt>かんが</rt></ruby>えてください。",
+          "romaji": "",
+          "meaning": "Please think it over carefully."
+        }
+      ],
+      "notes": [
+        "<ruby>思<rt>おも</rt></ruby>う is a quick opinion; <ruby>考<rt>かんが</rt></ruby>える is thinking something over.",
+        "Give your own opinion with わたしは〜と<ruby>思<rt>おも</rt></ruby>います."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "このレストランは<ruby>人気<rt>にんき</rt></ruby>があると<ruby>思<rt>おも</rt></ruby>います。",
+      "I think this restaurant is popular."
+    ],
+    [
+      "きっとだいじょうぶだと<ruby>思<rt>おも</rt></ruby>います。",
+      "I'm sure it will be fine."
+    ],
+    [
+      "その<ruby>意見<rt>いけん</rt></ruby>はちがうと<ruby>思<rt>おも</rt></ruby>います。",
+      "I think that view is wrong."
+    ],
+    [
+      "<ruby>毎日<rt>まいにち</rt></ruby>ニュースを<ruby>見<rt>み</rt></ruby>ます。",
+      "I watch the news every day."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "この<ruby>本<rt>ほん</rt></ruby>、どう<ruby>思<rt>おも</rt></ruby>いますか。",
+      "アナ",
+      "とてもおもしろいと<ruby>思<rt>おも</rt></ruby>います。"
+    ],
+    [
+      "リー",
+      "あしたは<ruby>雨<rt>あめ</rt></ruby>がふると<ruby>思<rt>おも</rt></ruby>いますか。",
+      "ゆき",
+      "たぶんふらないと<ruby>思<rt>おも</rt></ruby>います。"
+    ],
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>",
+      "マイさんの<ruby>意見<rt>いけん</rt></ruby>はどうですか。",
+      "マイ",
+      "わたしもそう<ruby>思<rt>おも</rt></ruby>います。"
+    ],
+    [
+      "たなか",
+      "このこたえはただしいですか。",
+      "リン",
+      "いいえ、ちがうと<ruby>思<rt>おも</rt></ruby>います。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "思",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "おも.う",
+        "おもえら.く",
+        "おぼ.す"
+      ],
+      "meaning_en": "think",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "思う",
+          "reading": "おもう",
+          "en": "to think"
+        },
+        {
+          "word": "思い出",
+          "reading": "おもいで",
+          "en": "memory"
+        }
+      ],
+      "mnemonic": "A field (田) over a heart (心): what fills your heart and mind."
+    },
+    {
+      "char": "考",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "かんが.える",
+        "かんが.え"
+      ],
+      "meaning_en": "consider",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "考える",
+          "reading": "かんがえる",
+          "en": "to consider"
+        },
+        {
+          "word": "参考",
+          "reading": "さんこう",
+          "en": "reference"
+        }
+      ],
+      "mnemonic": "An old person bent over, thinking things over."
+    },
+    {
+      "char": "意",
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "mind, meaning",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "意見",
+          "reading": "いけん",
+          "en": "opinion"
+        },
+        {
+          "word": "意味",
+          "reading": "いみ",
+          "en": "meaning"
+        }
+      ],
+      "mnemonic": "A sound (音) from the heart (心): what you mean."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete しんかんせんに＿＿ことがあります。",
+      "options": [
+        "のる",
+        "のった",
+        "のって",
+        "のります"
+      ],
+      "correct": "のった",
+      "explanation": "Experience uses the た-form before ことがあります."
+    },
+    {
+      "prompt": "What does <ruby>意見<rt>いけん</rt></ruby> mean?",
+      "options": [
+        "meaning",
+        "news",
+        "opinion",
+        "popularity"
+      ],
+      "correct": "opinion",
+      "explanation": "<ruby>意見<rt>いけん</rt></ruby> is an opinion."
+    },
+    {
+      "prompt": "Complete: あしたは<ruby>雨<rt>あめ</rt></ruby>が＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "ふります",
+        "ふって",
+        "ふるだ",
+        "ふる"
+      ],
+      "correct": "ふる",
+      "explanation": "The thought before と is in the plain form."
+    },
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>はべんり＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "だ",
+        "です",
+        "な",
+        "の"
+      ],
+      "correct": "だ",
+      "explanation": "な-adjectives need だ before と<ruby>思<rt>おも</rt></ruby>います."
+    },
+    {
+      "prompt": "How do you say \"I don't think Tanaka will come\"?",
+      "options": [
+        "たなかさんは<ruby>来<rt>き</rt></ruby>ませんと<ruby>思<rt>おも</rt></ruby>います。",
+        "たなかさんは<ruby>来<rt>こ</rt></ruby>ないと<ruby>思<rt>おも</rt></ruby>います。",
+        "たなかさんは<ruby>来<rt>こ</rt></ruby>ないだと<ruby>思<rt>おも</rt></ruby>います。",
+        "たなかさんは<ruby>来<rt>き</rt></ruby>てと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      "correct": "たなかさんは<ruby>来<rt>こ</rt></ruby>ないと<ruby>思<rt>おも</rt></ruby>います。",
+      "explanation": "Make the thought negative, in the plain form."
+    },
+    {
+      "prompt": "Choose the open question that asks for an opinion.",
+      "options": [
+        "<ruby>何<rt>なに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>いますか。",
+        "どこと<ruby>思<rt>おも</rt></ruby>いますか。",
+        "どう<ruby>思<rt>おも</rt></ruby>いますか。",
+        "どう<ruby>思<rt>おも</rt></ruby>いましょうか。"
+      ],
+      "correct": "どう<ruby>思<rt>おも</rt></ruby>いますか。",
+      "explanation": "どう<ruby>思<rt>おも</rt></ruby>いますか asks what someone thinks."
+    },
+    {
+      "prompt": "Choose the meaning of わたしもそう<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "I don't think so.",
+        "Do you think so too?",
+        "I will think about it.",
+        "I think so too."
+      ],
+      "correct": "I think so too.",
+      "explanation": "そう<ruby>思<rt>おも</rt></ruby>います: I think so; も: too."
+    },
+    {
+      "prompt": "Which verb means to think something over carefully?",
+      "options": [
+        "<ruby>考<rt>かんが</rt></ruby>える",
+        "<ruby>思<rt>おも</rt></ruby>う",
+        "ちがう",
+        "<ruby>見<rt>み</rt></ruby>る"
+      ],
+      "correct": "<ruby>考<rt>かんが</rt></ruby>える",
+      "explanation": "<ruby>考<rt>かんが</rt></ruby>える is careful thinking; <ruby>思<rt>おも</rt></ruby>う is a quick opinion."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend asks: このレストラン、どう<ruby>思<rt>おも</rt></ruby>う？ You think it is cheap. Which polite answer fits?",
+      "options": [
+        "<ruby>安<rt>やす</rt></ruby>いだと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>安<rt>やす</rt></ruby>いですと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>安<rt>やす</rt></ruby>いと<ruby>思<rt>おも</rt></ruby>いますか。",
+        "<ruby>安<rt>やす</rt></ruby>いと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      "correct": "<ruby>安<rt>やす</rt></ruby>いと<ruby>思<rt>おも</rt></ruby>います。",
+      "explanation": "い-adjectives take no だ before と<ruby>思<rt>おも</rt></ruby>います."
+    },
+    {
+      "prompt": "Choose the sentence that means: I think Kyoto is a beautiful town.",
+      "options": [
+        "きょうとはきれいなまちだと<ruby>思<rt>おも</rt></ruby>います。",
+        "きょうとはきれいなまちと<ruby>思<rt>おも</rt></ruby>います。",
+        "きょうとはきれいなまちですと<ruby>思<rt>おも</rt></ruby>います。",
+        "きょうとはきれいだなまちと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      "correct": "きょうとはきれいなまちだと<ruby>思<rt>おも</rt></ruby>います。",
+      "explanation": "A noun before と<ruby>思<rt>おも</rt></ruby>います needs だ."
+    },
+    {
+      "prompt": "Read: たぶんふらないと<ruby>思<rt>おも</rt></ruby>います。 What does the speaker think?",
+      "options": [
+        "It will probably rain.",
+        "It probably won't rain.",
+        "It rained yesterday.",
+        "It is raining now."
+      ],
+      "correct": "It probably won't rain.",
+      "explanation": "たぶん: probably; ふらない: won't fall."
+    },
+    {
+      "prompt": "Someone says something you disagree with. Which reply is polite?",
+      "options": [
+        "それはだめです。",
+        "ちがう！",
+        "わたしはそうは<ruby>思<rt>おも</rt></ruby>いません。",
+        "そう<ruby>思<rt>おも</rt></ruby>いますか。"
+      ],
+      "correct": "わたしはそうは<ruby>思<rt>おも</rt></ruby>いません。",
+      "explanation": "そうは<ruby>思<rt>おも</rt></ruby>いません disagrees politely."
+    },
+    {
+      "prompt": "Review (N5): complete ここに<ruby>車<rt>くるま</rt></ruby>を＿＿ください。 (please don't park)",
+      "options": [
+        "とめなくて",
+        "とめないて",
+        "とめて",
+        "とめないで"
+      ],
+      "correct": "とめないで",
+      "explanation": "ない-form + でください."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n5-unit-9-talking-with-friends",
+    "japanese-n5-unit-9-have-you-ever",
+    "japanese-n5-unit-9-please-dont",
+    "japanese-n5-unit-6-what-kind"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: grammar examples carry no romaji from N4 on, as set in the N4 blueprint."
+  ]
+}

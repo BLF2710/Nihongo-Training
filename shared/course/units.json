@@ -112,5 +112,176 @@
     ],
     "assessmentId": "japanese-n5-unit-9-assessment",
     "published": true
+  },
+  {
+    "id": "japanese-n4-unit-1",
+    "level": "N4",
+    "number": 1,
+    "sequence": 10,
+    "title": "Thoughts & Explanations",
+    "titleJp": "かんがえと せつめい",
+    "description": "Say what you think, pass on what others said, describe things with whole clauses, and explain reasons and likelihood.",
+    "lessonIds": [
+      "japanese-n4-unit-1-i-think",
+      "japanese-n4-unit-1-they-said",
+      "japanese-n4-unit-1-the-book-i-bought",
+      "japanese-n4-unit-1-what-happened",
+      "japanese-n4-unit-1-probably",
+      "japanese-n4-unit-1-review"
+    ],
+    "assessmentId": "japanese-n4-unit-1-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n4-unit-2",
+    "level": "N4",
+    "number": 2,
+    "sequence": 11,
+    "title": "Giving & Receiving",
+    "titleJp": "あげる・くれる・もらう",
+    "description": "Give and receive things and favours, ask people to do things for you, and give advice.",
+    "lessonIds": [
+      "japanese-n4-unit-2-give-and-get",
+      "japanese-n4-unit-2-they-gave-me",
+      "japanese-n4-unit-2-doing-favours",
+      "japanese-n4-unit-2-would-you-mind",
+      "japanese-n4-unit-2-you-should",
+      "japanese-n4-unit-2-review"
+    ],
+    "assessmentId": "japanese-n4-unit-2-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n4-unit-3",
+    "level": "N4",
+    "number": 3,
+    "sequence": 12,
+    "title": "Abilities & Changes",
+    "titleJp": "できることと かわること",
+    "description": "Say what you can do with the potential form, describe changes in ability and habit, list reasons, and say how things look.",
+    "lessonIds": [
+      "japanese-n4-unit-3-i-can-drive",
+      "japanese-n4-unit-3-i-can-sing",
+      "japanese-n4-unit-3-now-i-can",
+      "japanese-n4-unit-3-and-also",
+      "japanese-n4-unit-3-looks-tasty",
+      "japanese-n4-unit-3-review"
+    ],
+    "assessmentId": "japanese-n4-unit-3-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n4-unit-4",
+    "level": "N4",
+    "number": 4,
+    "sequence": 13,
+    "title": "If & When",
+    "titleJp": "〜たら・〜ば・〜と・〜なら",
+    "description": "Talk about conditions and their results with たら, ば, と and なら, and say \"even if\".",
+    "lessonIds": [
+      "japanese-n4-unit-4-if-it-rains",
+      "japanese-n4-unit-4-if-you-study",
+      "japanese-n4-unit-4-turn-right",
+      "japanese-n4-unit-4-if-its-kyoto",
+      "japanese-n4-unit-4-even-if",
+      "japanese-n4-unit-4-review"
+    ],
+    "assessmentId": "japanese-n4-unit-4-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n4-unit-5",
+    "level": "N4",
+    "number": 5,
+    "sequence": 14,
+    "title": "Intentions & Plans",
+    "titleJp": "よていと けいかく",
+    "description": "Say what you intend and plan to do, why, and in what order.",
+    "lessonIds": [
+      "japanese-n4-unit-5-lets-go",
+      "japanese-n4-unit-5-thinking-of",
+      "japanese-n4-unit-5-i-intend-to",
+      "japanese-n4-unit-5-in-order-to",
+      "japanese-n4-unit-5-before-and-after",
+      "japanese-n4-unit-5-review"
+    ],
+    "assessmentId": "japanese-n4-unit-5-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n4-unit-6",
+    "level": "N4",
+    "number": 6,
+    "sequence": 15,
+    "title": "Trying, Finishing & Preparing",
+    "titleJp": "ためす・おわる・じゅんびする",
+    "description": "Try things out, say something got done (or went wrong), prepare in advance, and describe states and changes.",
+    "lessonIds": [
+      "japanese-n4-unit-6-try-it",
+      "japanese-n4-unit-6-oh-no",
+      "japanese-n4-unit-6-getting-ready",
+      "japanese-n4-unit-6-the-door-is-open",
+      "japanese-n4-unit-6-becoming",
+      "japanese-n4-unit-6-review"
+    ],
+    "assessmentId": "japanese-n4-unit-6-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n4-unit-7",
+    "level": "N4",
+    "number": 7,
+    "sequence": 16,
+    "title": "Hearsay & Appearances",
+    "titleJp": "きいた ことと 見た かんじ",
+    "description": "Pass on what you heard, and say what seems to be true from what you see or know.",
+    "lessonIds": [
+      "japanese-n4-unit-7-i-heard",
+      "japanese-n4-unit-7-apparently",
+      "japanese-n4-unit-7-it-seems",
+      "japanese-n4-unit-7-like-a",
+      "japanese-n4-unit-7-should-be",
+      "japanese-n4-unit-7-review"
+    ],
+    "assessmentId": "japanese-n4-unit-7-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n4-unit-8",
+    "level": "N4",
+    "number": 8,
+    "sequence": 17,
+    "title": "Passive & Causative",
+    "titleJp": "うけみと しえき",
+    "description": "Say what was done to someone, what someone made or let someone do, and ask to be allowed to do something.",
+    "lessonIds": [
+      "japanese-n4-unit-8-was-made",
+      "japanese-n4-unit-8-i-got-scolded",
+      "japanese-n4-unit-8-made-to-do",
+      "japanese-n4-unit-8-let-me",
+      "japanese-n4-unit-8-i-want-you-to",
+      "japanese-n4-unit-8-review"
+    ],
+    "assessmentId": "japanese-n4-unit-8-assessment",
+    "published": false
+  },
+  {
+    "id": "japanese-n4-unit-9",
+    "level": "N4",
+    "number": 9,
+    "sequence": 18,
+    "title": "Polite Japanese",
+    "titleJp": "ていねいな にほんご",
+    "description": "Understand and use basic honorific and humble Japanese, and a set of useful patterns for doing two things at once, too much, and with ease.",
+    "lessonIds": [
+      "japanese-n4-unit-9-honorific",
+      "japanese-n4-unit-9-humble",
+      "japanese-n4-unit-9-while-doing",
+      "japanese-n4-unit-9-easy-to-use",
+      "japanese-n4-unit-9-even-though",
+      "japanese-n4-unit-9-review"
+    ],
+    "assessmentId": "japanese-n4-unit-9-assessment",
+    "published": false
   }
 ]

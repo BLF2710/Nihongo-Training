@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-2-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "ageru",
+      "prompt": "Complete: わたしはリーさん＿＿チョコレートをあげました。",
+      "options": [
+        "を",
+        "に",
+        "から",
+        "が"
+      ],
+      "correctIndex": 1,
+      "explanation": "With あげる the receiver takes に."
+    },
+    {
+      "id": "morau",
+      "prompt": "Choose: \"I got a book from the teacher.\"",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をくれました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>本<rt>ほん</rt></ruby>をもらいました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をもらいました。"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giver に + もらう."
+    },
+    {
+      "id": "kureru",
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>が<ruby>手紙<rt>てがみ</rt></ruby>を＿＿。 (sent to me)",
+      "options": [
+        "<ruby>送<rt>おく</rt></ruby>ってくれました",
+        "<ruby>送<rt>おく</rt></ruby>ってあげました",
+        "<ruby>送<rt>おく</rt></ruby>ってもらいました",
+        "<ruby>送<rt>おく</rt></ruby>りませんでした"
+      ],
+      "correctIndex": 0,
+      "explanation": "A favour toward you: てくれる."
+    },
+    {
+      "id": "kureru-wrong",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>友<rt>とも</rt></ruby>だちがわたしにカードをくれました。",
+        "わたしは<ruby>友<rt>とも</rt></ruby>だちにカードをもらいました。",
+        "<ruby>友<rt>とも</rt></ruby>だちがわたしにカードをあげました。",
+        "わたしは<ruby>友<rt>とも</rt></ruby>だちにカードをあげました。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Things given to you take くれる."
+    },
+    {
+      "id": "sibling-word",
+      "prompt": "Which word do you use for someone else's older brother?",
+      "options": [
+        "<ruby>兄<rt>あに</rt></ruby>",
+        "<ruby>弟<rt>おとうと</rt></ruby>",
+        "お<ruby>姉<rt>ねえ</rt></ruby>さん",
+        "お<ruby>兄<rt>にい</rt></ruby>さん"
+      ],
+      "correctIndex": 3,
+      "explanation": "Someone else's older brother: お<ruby>兄<rt>にい</rt></ruby>さん."
+    },
+    {
+      "id": "kyoudai-reading",
+      "prompt": "How is 兄弟⁠ read?",
+      "options": [
+        "あにおとうと",
+        "きょうだい",
+        "けいてい",
+        "きょうてい"
+      ],
+      "correctIndex": 1,
+      "explanation": "兄弟⁠ is read きょうだい."
+    },
+    {
+      "id": "te-ageru",
+      "prompt": "Choose: \"I lent my younger sister a dictionary.\"",
+      "options": [
+        "<ruby>妹<rt>いもうと</rt></ruby>にじしょを<ruby>貸<rt>か</rt></ruby>してあげました。",
+        "<ruby>妹<rt>いもうと</rt></ruby>にじしょを<ruby>貸<rt>か</rt></ruby>してもらいました。",
+        "<ruby>妹<rt>いもうと</rt></ruby>にじしょを<ruby>借<rt>か</rt></ruby>りてあげました。",
+        "<ruby>妹<rt>いもうと</rt></ruby>がじしょを<ruby>貸<rt>か</rt></ruby>してくれました。"
+      ],
+      "correctIndex": 0,
+      "explanation": "Your favour to someone: てあげる; lend: <ruby>貸<rt>か</rt></ruby>す."
+    },
+    {
+      "id": "te-morau",
+      "prompt": "Complete: <ruby>友<rt>とも</rt></ruby>だち＿＿じてんしゃをなおしてもらいました。",
+      "options": [
+        "が",
+        "を",
+        "に",
+        "で"
+      ],
+      "correctIndex": 2,
+      "explanation": "With てもらう the helper takes に."
+    },
+    {
+      "id": "lend-borrow",
+      "prompt": "Which verb means to borrow?",
+      "options": [
+        "<ruby>貸<rt>か</rt></ruby>す",
+        "<ruby>借<rt>か</rt></ruby>りる",
+        "かえす",
+        "<ruby>教<rt>おし</rt></ruby>える"
+      ],
+      "correctIndex": 1,
+      "explanation": "<ruby>借<rt>か</rt></ruby>りる: borrow; <ruby>貸<rt>か</rt></ruby>す: lend."
+    },
+    {
+      "id": "narau",
+      "prompt": "Complete: たなか<ruby>先生<rt>せんせい</rt></ruby>＿＿<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>いました。",
+      "options": [
+        "を",
+        "が",
+        "で",
+        "に"
+      ],
+      "correctIndex": 3,
+      "explanation": "The teacher takes に with <ruby>習<rt>なら</rt></ruby>う."
+    },
+    {
+      "id": "te-kureru",
+      "prompt": "Choose: \"Lee waited for me.\"",
+      "options": [
+        "リーさんに<ruby>待<rt>ま</rt></ruby>ってくれました。",
+        "リーさんが<ruby>待<rt>ま</rt></ruby>ってあげました。",
+        "リーさんが<ruby>待<rt>ま</rt></ruby>ってくれました。",
+        "リーさんは<ruby>待<rt>ま</rt></ruby>ってもらいました。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Helper が + てくれる."
+    },
+    {
+      "id": "request",
+      "prompt": "You want a stranger to take your photo. What do you say?",
+      "options": [
+        "<ruby>写真<rt>しゃしん</rt></ruby>をとってもらえませんか。",
+        "<ruby>写真<rt>しゃしん</rt></ruby>をとってあげませんか。",
+        "<ruby>写真<rt>しゃしん</rt></ruby>をとってもいいですか。",
+        "<ruby>写真<rt>しゃしん</rt></ruby>をとりませんか。"
+      ],
+      "correctIndex": 0,
+      "explanation": "もらえませんか: a polite request."
+    },
+    {
+      "id": "advice",
+      "prompt": "Complete: ねつがありますから、<ruby>早<rt>はや</rt></ruby>く＿＿ほうがいいです。",
+      "options": [
+        "ねる",
+        "ねて",
+        "ねない",
+        "ねた"
+      ],
+      "correctIndex": 3,
+      "explanation": "Advice uses the た-form."
+    },
+    {
+      "id": "advice-negative",
+      "prompt": "Choose: \"You'd better not overdo it.\"",
+      "options": [
+        "むりをしなかったほうがいいです。",
+        "むりをしないほうがいいです。",
+        "むりをしたほうがいいです。",
+        "むりをしないでほうがいいです。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Advice against: ないほうがいい."
+    },
+    {
+      "id": "kanji-shashin",
+      "prompt": "What does <ruby>写真<rt>しゃしん</rt></ruby> mean?",
+      "options": [
+        "letter",
+        "paper",
+        "photo",
+        "the very middle"
+      ],
+      "correctIndex": 2,
+      "explanation": "<ruby>写真<rt>しゃしん</rt></ruby>: photo."
+    }
+  ]
+}

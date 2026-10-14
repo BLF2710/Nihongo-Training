@@ -1,0 +1,436 @@
+{
+  "id": "japanese-n4-unit-2-they-gave-me",
+  "slug": "n4-unit-2-they-gave-me",
+  "unit": "Japanese N4 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "They Gave Me…",
+  "title_jp": "くれる",
+  "objectives": [
+    "I can say what someone gave me.",
+    "Use くれる for things given to me or my family",
+    "Choose between あげる, くれる and もらう",
+    "Talk about letters, cards and luggage"
+  ],
+  "vocabulary": [
+    [
+      "くれる",
+      "kureru",
+      "to give (to me or my family)"
+    ],
+    [
+      "<ruby>送<rt>おく</rt></ruby>る",
+      "okuru",
+      "to send, to see someone off"
+    ],
+    [
+      "<ruby>手紙<rt>てがみ</rt></ruby>",
+      "tegami",
+      "letter"
+    ],
+    [
+      "<ruby>紙<rt>かみ</rt></ruby>",
+      "kami",
+      "paper"
+    ],
+    [
+      "<ruby>持<rt>も</rt></ruby>つ",
+      "motsu",
+      "to hold, to carry, to have"
+    ],
+    [
+      "<ruby>持<rt>も</rt></ruby>っていく",
+      "motte iku",
+      "to take (a thing) along"
+    ],
+    [
+      "<ruby>持<rt>も</rt></ruby>ってくる",
+      "motte kuru",
+      "to bring (a thing)"
+    ],
+    [
+      "にもつ",
+      "nimotsu",
+      "luggage, bags"
+    ],
+    [
+      "はがき",
+      "hagaki",
+      "postcard"
+    ],
+    [
+      "カード",
+      "kaado",
+      "card"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "送る",
+      "word_reading": "おくる"
+    },
+    {
+      "word_japanese": "手紙",
+      "word_reading": "てがみ"
+    },
+    {
+      "word_japanese": "紙",
+      "word_reading": "かみ"
+    },
+    {
+      "word_japanese": "持つ",
+      "word_reading": "もつ"
+    }
+  ],
+  "concept": {
+    "title": "When it comes to me: くれる",
+    "text": "くれる is for things given to me, or to someone on my side such as my family. The giver is the subject; わたしに is usually left out because くれる already says where the thing went.\n\n<ruby>友<rt>とも</rt></ruby>だちがはがきをくれました。 A friend gave me a postcard.\n\nTo choose the verb, ask which way the thing moves:\naway from me, or between other people → あげる\ntoward me → くれる\nI am the one receiving → もらう\n\nThe same event can be told two ways: <ruby>姉<rt>あね</rt></ruby>がくれました = <ruby>姉<rt>あね</rt></ruby>にもらいました.",
+    "examples": [
+      "giver が (わたしに) N をくれる",
+      "away: あげる / toward me: くれる",
+      "I receive: もらう"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Given to me: くれる",
+      "pattern": "giver が (わたしに) N をくれる",
+      "explanation": "くれる shows that something came to you or your family. The giver takes が (or は).",
+      "examples": [
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをくれました。",
+          "romaji": "",
+          "meaning": "A friend gave me a postcard."
+        },
+        {
+          "japanese": "<ruby>父<rt>ちち</rt></ruby>が<ruby>新<rt>あたら</rt></ruby>しいかばんをくれました。",
+          "romaji": "",
+          "meaning": "My father gave me a new bag."
+        },
+        {
+          "japanese": "<ruby>姉<rt>あね</rt></ruby>が<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をくれました。",
+          "romaji": "",
+          "meaning": "My older sister gave my younger sister a book."
+        },
+        {
+          "japanese": "だれがこの<ruby>花<rt>はな</rt></ruby>をくれたんですか。",
+          "romaji": "",
+          "meaning": "Who gave you these flowers?"
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>がカードをくれました。",
+          "romaji": "",
+          "meaning": "The teacher gave me a card."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをあげました. Things given to you take くれる.",
+        "Use くれる for your family too: <ruby>姉<rt>あね</rt></ruby>が<ruby>妹<rt>いもうと</rt></ruby>にくれました."
+      ]
+    },
+    {
+      "title": "Choosing the right verb",
+      "pattern": "あげる / くれる / もらう",
+      "explanation": "Look at the direction. Between two other people, use あげる or もらう.",
+      "examples": [
+        {
+          "japanese": "わたしはリーさんにカードをあげました。",
+          "romaji": "",
+          "meaning": "I gave Lee a card."
+        },
+        {
+          "japanese": "リーさんがわたしにカードをくれました。",
+          "romaji": "",
+          "meaning": "Lee gave me a card."
+        },
+        {
+          "japanese": "わたしはリーさんにカードをもらいました。",
+          "romaji": "",
+          "meaning": "I got a card from Lee."
+        },
+        {
+          "japanese": "リーさんはアナさんにカードをあげました。",
+          "romaji": "",
+          "meaning": "Lee gave Anna a card."
+        }
+      ],
+      "notes": [
+        "リーさんがくれました and リーさんにもらいました describe the same event.",
+        "くれる is never used for something you give to others."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>国<rt>くに</rt></ruby>の<ruby>母<rt>はは</rt></ruby>に<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>りました。",
+      "I sent a letter to my mother back home."
+    ],
+    [
+      "この<ruby>紙<rt>かみ</rt></ruby>に<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてください。",
+      "Please write your name on this paper."
+    ],
+    [
+      "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+      "Shall I carry your bags?"
+    ],
+    [
+      "パーティーに<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきます。",
+      "I'll take some drinks to the party."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "そのはがき、だれがくれたんですか。",
+      "けん",
+      "<ruby>国<rt>くに</rt></ruby>の<ruby>友<rt>とも</rt></ruby>だちがくれたんです。"
+    ],
+    [
+      "リー",
+      "パーティーに<ruby>何<rt>なに</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきますか。",
+      "ゆき",
+      "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきます。"
+    ],
+    [
+      "マイ",
+      "このカード、きれいですね。",
+      "リン",
+      "<ruby>先生<rt>せんせい</rt></ruby>がくれたんです。"
+    ],
+    [
+      "たなか",
+      "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+      "アナ",
+      "ありがとうございます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "送",
+      "onyomi": [
+        "ソウ"
+      ],
+      "kunyomi": [
+        "おく.る"
+      ],
+      "meaning_en": "send",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "送る",
+          "reading": "おくる",
+          "en": "to send"
+        },
+        {
+          "word": "放送",
+          "reading": "ほうそう",
+          "en": "broadcast"
+        }
+      ],
+      "mnemonic": "Moving along a road (辶) with something held in both hands: sending."
+    },
+    {
+      "char": "紙",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "かみ"
+      ],
+      "meaning_en": "paper",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "紙",
+          "reading": "かみ",
+          "en": "paper"
+        },
+        {
+          "word": "手紙",
+          "reading": "てがみ",
+          "en": "letter"
+        }
+      ],
+      "mnemonic": "Thread (糸) beside a family sign (氏): paper made from fibre."
+    },
+    {
+      "char": "持",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "も.つ",
+        "-も.ち",
+        "も.てる"
+      ],
+      "meaning_en": "hold",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "持つ",
+          "reading": "もつ",
+          "en": "to hold"
+        },
+        {
+          "word": "気持ち",
+          "reading": "きもち",
+          "en": "feeling"
+        }
+      ],
+      "mnemonic": "A hand (扌) at the temple (寺): holding on to something."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete わたしは<ruby>妹<rt>いもうと</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をあげました。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "から"
+      ],
+      "correct": "に",
+      "explanation": "With あげる the receiver takes に."
+    },
+    {
+      "prompt": "What does <ruby>手紙<rt>てがみ</rt></ruby> mean?",
+      "options": [
+        "paper",
+        "postcard",
+        "card",
+        "letter"
+      ],
+      "correct": "letter",
+      "explanation": "<ruby>手紙<rt>てがみ</rt></ruby> is a letter; <ruby>紙<rt>かみ</rt></ruby> alone is paper."
+    },
+    {
+      "prompt": "Complete: <ruby>父<rt>ちち</rt></ruby>が<ruby>新<rt>あたら</rt></ruby>しいかばんを＿＿。 (gave me)",
+      "options": [
+        "くれました",
+        "あげました",
+        "もらいました",
+        "<ruby>持<rt>も</rt></ruby>ちました"
+      ],
+      "correct": "くれました",
+      "explanation": "Something given to you: くれる."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをくれました。",
+        "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをあげました。",
+        "わたしは<ruby>友<rt>とも</rt></ruby>だちにはがきをもらいました。",
+        "わたしは<ruby>友<rt>とも</rt></ruby>だちにはがきをあげました。"
+      ],
+      "correct": "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをあげました。",
+      "explanation": "Things given to you take くれる, not あげる."
+    },
+    {
+      "prompt": "Complete: リーさんはアナさんにカードを＿＿。 (Lee gave Anna a card)",
+      "options": [
+        "くれました",
+        "もらいました",
+        "あげました",
+        "<ruby>持<rt>も</rt></ruby>ちました"
+      ],
+      "correct": "あげました",
+      "explanation": "Between two other people, use あげる."
+    },
+    {
+      "prompt": "Which phrase means to bring (a thing)?",
+      "options": [
+        "<ruby>持<rt>も</rt></ruby>っていく",
+        "<ruby>送<rt>おく</rt></ruby>る",
+        "<ruby>持<rt>も</rt></ruby>つ",
+        "<ruby>持<rt>も</rt></ruby>ってくる"
+      ],
+      "correct": "<ruby>持<rt>も</rt></ruby>ってくる",
+      "explanation": "<ruby>持<rt>も</rt></ruby>ってくる: bring here; <ruby>持<rt>も</rt></ruby>っていく: take there."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>国<rt>くに</rt></ruby>の<ruby>母<rt>はは</rt></ruby>に<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>りました。",
+      "options": [
+        "I sent a letter to my mother back home.",
+        "My mother sent me a letter from home.",
+        "I wrote a letter in my home country.",
+        "I gave my mother some paper."
+      ],
+      "correct": "I sent a letter to my mother back home.",
+      "explanation": "<ruby>母<rt>はは</rt></ruby>に… <ruby>送<rt>おく</rt></ruby>りました: sent to my mother."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend gave you a postcard. Which sentence fits?",
+      "options": [
+        "<ruby>友<rt>とも</rt></ruby>だちがはがきをくれました。",
+        "<ruby>友<rt>とも</rt></ruby>だちにはがきをくれました。",
+        "<ruby>友<rt>とも</rt></ruby>だちがはがきをあげました。",
+        "わたしは<ruby>友<rt>とも</rt></ruby>だちがはがきをもらいました。"
+      ],
+      "correct": "<ruby>友<rt>とも</rt></ruby>だちがはがきをくれました。",
+      "explanation": "Giver が + くれる."
+    },
+    {
+      "prompt": "Which sentence means the same as リーさんがわたしにカードをくれました。?",
+      "options": [
+        "わたしはリーさんにカードをあげました。",
+        "わたしはリーさんにカードをもらいました。",
+        "リーさんはわたしにカードをもらいました。",
+        "リーさんはわたしからカードをもらいました。"
+      ],
+      "correct": "わたしはリーさんにカードをもらいました。",
+      "explanation": "くれる from Lee = もらう from Lee."
+    },
+    {
+      "prompt": "Read: パーティーに<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきます。 What will the speaker do?",
+      "options": [
+        "Buy drinks at the party",
+        "Bring drinks home",
+        "Take drinks to the party",
+        "Drink at home"
+      ],
+      "correct": "Take drinks to the party",
+      "explanation": "<ruby>持<rt>も</rt></ruby>っていく: take along."
+    },
+    {
+      "prompt": "Read: <ruby>姉<rt>あね</rt></ruby>が<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をくれました。 Who received the book?",
+      "options": [
+        "My older sister",
+        "A teacher",
+        "Nobody",
+        "My younger sister"
+      ],
+      "correct": "My younger sister",
+      "explanation": "The receiver takes に: <ruby>妹<rt>いもうと</rt></ruby>に."
+    },
+    {
+      "prompt": "Review: complete かぜを＿＿んです。",
+      "options": [
+        "ひいた",
+        "ひきました",
+        "ひいて",
+        "ひきた"
+      ],
+      "correct": "ひいた",
+      "explanation": "んです follows the plain form."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-2-give-and-get",
+    "japanese-n4-unit-1-what-happened",
+    "japanese-n4-unit-1-the-book-i-bought",
+    "japanese-n5-unit-5-what-did-you-do"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 持っていく and 持ってくる are listed with いく and くる in kana; the dictionary spells them with <ruby>行<rt>い</rt></ruby> and 来, so their kanji spellings may not link."
+  ]
+}

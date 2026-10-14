@@ -6,6 +6,8 @@ import SpeakingExerciseCard from "../components/SpeakingExerciseCard";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import { getSkillUnit } from "../data/japaneseSkillPractice";
+import LevelSwitch from "../components/LevelSwitch";
+import { inLevel, useShownLevel } from "../lib/courseLevel";
 import type { SkillUnit } from "../data/japaneseSkillPractice";
 import { buildListeningRound, buildSpeakingRound, SKILL_SECTIONS } from "../lib/skillRounds";
 import type { ListeningExercise, Skill, SkillSection, SpeakingExercise } from "../lib/skillRounds";
@@ -33,7 +35,8 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
 
   const { title, intro } = COPY[skill];
   // Only units with practice material are offered; a unit opens here at the same moment its lessons open.
-  const course = (units ?? []).filter(unit => !unit.isPlaceholder && getSkillUnit(unit.id));
+  const level = useShownLevel(params.get("unit"));
+  const course = (units ?? []).filter(unit => inLevel(level)(unit) && !unit.isPlaceholder && getSkillUnit(unit.id));
   const cleared = course.filter(unit => unit.allowed);
   const selected = cleared.find(unit => unit.id === params.get("unit")) ?? cleared[0];
   const material = selected && getSkillUnit(selected.id);
@@ -41,7 +44,8 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
   const canCheckSpeech = supportsSpeechRecognition();
 
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
-    <h1 className="mt-6 text-3xl font-black">{title}</h1>
+    <div className="mt-6"><LevelSwitch level={level} /></div>
+    <h1 className="mt-3 text-3xl font-black">{title}</h1>
     <p className="mt-2 text-gray-600">{intro}</p>
     {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !error && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}

@@ -6,6 +6,7 @@ import type { Profile } from "../api/profile";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import { activityProgress, parseSession, sessionSnapshot, subscribeSession } from "../lib/activitySession";
+import { inLevel, useCourseLevel } from "../lib/courseLevel";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600";
 const studyTools = [
@@ -21,10 +22,12 @@ const practiceTools = [
   { title: "Hiragana Review", href: "/review/hiragana", description: "A focused session that prioritizes characters you are still learning." },
   { title: "Katakana Review", href: "/review/katakana", description: "Review 5, 10, 15, or 20 characters using your existing quiz progress." },
   { title: "Kanji practice", href: "/learn/kanji/practice", description: "Mixed meaning, reading, and vocabulary questions build Kanji progress." },
-  { title: "Unit review", href: "/review", description: "A mixed set per unit: assessment questions, word games, vocabulary, listening, and speaking." },
+  { title: "Unit review", href: "/review", description: "A mixed set per unit or for a whole level: assessment questions, word games, vocabulary, listening, and speaking." },
   { title: "Listening", href: "/listening", description: "Hear words, sentences, and dialogues from the units you have reached." },
   { title: "Speaking", href: "/speaking", description: "Say them aloud and have your speech checked, unit by unit." },
   { title: "Reading", href: "/reading", description: "Short passages with comprehension questions, with furigana and translation on demand." },
+  { title: "Grammar summary", href: "/grammar/summary", description: "Every sentence pattern of your level on one page, ready to search or print." },
+  { title: "Mock exam", href: "/mock-exam", description: "A timed end-of-level exam: vocabulary and kanji, grammar, and reading." },
   { title: "Unit assessments", href: "/quizzes", description: "Finish a unit’s lessons, then score at least 80% to complete the unit." },
 ];
 
@@ -32,6 +35,7 @@ export default function JapaneseDashboard() {
   const snapshot = useSyncExternalStore(subscribeSession, sessionSnapshot, () => null);
   const saved = parseSession(snapshot);
   const active = saved?.status === "active" ? saved : null;
+  const courseLevel = useCourseLevel();
   const [units, setUnits] = useState<CourseUnit[] | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [courseError, setCourseError] = useState(false);
@@ -43,7 +47,7 @@ export default function JapaneseDashboard() {
     fetchProfile(controller.signal).then(data => { setProfile(data); setProfileError(false); }).catch(() => { if (!controller.signal.aborted) setProfileError(true); });
     return () => controller.abort();
   }, [retry]);
-  const course = units?.filter(unit => !unit.isPlaceholder) ?? [];
+  const course = units?.filter(unit => !unit.isPlaceholder && inLevel(courseLevel)(unit)) ?? [];
   const nextUnit = course.find(unit => unit.allowed && !unit.completed);
   const nextLesson = nextUnit?.lessons.find(lesson => !lesson.isPlaceholder && lesson.allowed && !lesson.completed);
   const assessmentReady = nextUnit?.assessmentUnlocked && !nextUnit.assessmentPassed;
@@ -54,8 +58,8 @@ export default function JapaneseDashboard() {
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar />
     <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
       <header className="mb-7 flex flex-wrap items-end justify-between gap-4">
-        <div><p className="text-xs font-bold uppercase tracking-widest text-emerald-700">🇯🇵 Japanese · N5 foundations</p><h1 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Your Japanese learning hub</h1><p className="mt-2 text-gray-600">{profile ? `Welcome, ${profile.display_name || profile.username}. ` : ""}A little learning, a little practice, every day.</p></div>
-        <Link to="/profile" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}>Profile & settings →</Link>
+        <div><p className="text-xs font-bold uppercase tracking-widest text-emerald-700">🇯🇵 Japanese · {courseLevel}</p><h1 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Your Japanese learning hub</h1><p className="mt-2 text-gray-600">{profile ? `Welcome, ${profile.display_name || profile.username}. ` : ""}A little learning, a little practice, every day.</p></div>
+        <div className="flex flex-wrap gap-3"><Link to="/levels?next=/" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}>Level {courseLevel} · Change</Link><Link to="/profile" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}>Profile & settings →</Link></div>
       </header>
       {(courseError || profileError) && <div role="alert" className="mb-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{courseError ? "Course progress could not be refreshed. " : ""}{profileError ? "Account progress could not be refreshed. " : ""}Your study tools are still available. <button onClick={() => setRetry(value => value + 1)} className={`ml-2 font-bold underline ${focus}`}>Retry</button></div>}
       <div className="grid gap-5 lg:grid-cols-[1.6fr_1fr]">

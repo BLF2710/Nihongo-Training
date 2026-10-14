@@ -1,0 +1,339 @@
+{
+  "id": "japanese-n4-unit-1-review",
+  "slug": "n4-unit-1-review",
+  "unit": "Japanese N4 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 1 Review",
+  "title_jp": "ユニット1のふくしゅう",
+  "objectives": [
+    "I can share opinions, pass on messages, describe things and explain situations.",
+    "Choose between と<ruby>思<rt>おも</rt></ruby>います, と<ruby>言<rt>い</rt></ruby>っていました, んです, でしょう and かもしれません",
+    "Use clauses to describe nouns",
+    "Read a message about being ill"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>思<rt>おも</rt></ruby>う",
+      "omou",
+      "to think"
+    ],
+    [
+      "<ruby>意見<rt>いけん</rt></ruby>",
+      "iken",
+      "opinion"
+    ],
+    [
+      "<ruby>言<rt>い</rt></ruby>う",
+      "iu",
+      "to say"
+    ],
+    [
+      "<ruby>知<rt>し</rt></ruby>る",
+      "shiru",
+      "to come to know"
+    ],
+    [
+      "<ruby>明日<rt>あした</rt></ruby>",
+      "ashita",
+      "tomorrow"
+    ],
+    [
+      "<ruby>物<rt>もの</rt></ruby>",
+      "mono",
+      "thing"
+    ],
+    [
+      "<ruby>本屋<rt>ほんや</rt></ruby>",
+      "hon'ya",
+      "bookshop"
+    ],
+    [
+      "<ruby>病院<rt>びょういん</rt></ruby>",
+      "byouin",
+      "hospital"
+    ],
+    [
+      "<ruby>医者<rt>いしゃ</rt></ruby>",
+      "isha",
+      "doctor"
+    ],
+    [
+      "<ruby>朝<rt>あさ</rt></ruby>",
+      "asa",
+      "morning"
+    ],
+    [
+      "<ruby>夜<rt>よる</rt></ruby>",
+      "yoru",
+      "night"
+    ],
+    [
+      "<ruby>天気<rt>てんき</rt></ruby>よほう",
+      "tenki yohou",
+      "weather forecast"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "The plain form does the work",
+    "text": "Every pattern in this unit puts a plain-form sentence in front of something:\n\n〜と<ruby>思<rt>おも</rt></ruby>います (I think)\n〜と<ruby>言<rt>い</rt></ruby>っていました (they said)\n〜 + N (a clause describing a noun)\n〜んです (explaining)\n〜でしょう / 〜かもしれません (probably / might)\n\nWatch だ with nouns and な-adjectives: keep it before と (べんりだと<ruby>思<rt>おも</rt></ruby>います), change it to な before んです and before a noun (テストなんです, しずかな<ruby>家<rt>いえ</rt></ruby>), and drop it before でしょう and かもしれません (<ruby>雨<rt>あめ</rt></ruby>でしょう).",
+    "examples": [
+      "〜と<ruby>思<rt>おも</rt></ruby>います / 〜と<ruby>言<rt>い</rt></ruby>っていました",
+      "〜んです / 〜んですが、〜",
+      "〜でしょう / 〜かもしれません"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "その<ruby>意見<rt>いけん</rt></ruby>はただしいと<ruby>思<rt>おも</rt></ruby>います。",
+      "I think that opinion is right."
+    ],
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>むと<ruby>言<rt>い</rt></ruby>っていました。",
+      "The teacher said she'll be off tomorrow."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>で<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>です。",
+      "It's a book I bought at the bookshop in front of the station."
+    ],
+    [
+      "<ruby>朝<rt>あさ</rt></ruby>からおなかがいたいんです。",
+      "My stomach has hurt since this morning."
+    ],
+    [
+      "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くかもしれません。",
+      "I might go to the hospital."
+    ],
+    [
+      "<ruby>夜<rt>よる</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。",
+      "It will probably rain at night."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "けんさんはどうしたんですか。",
+      "リー",
+      "かぜをひいたと<ruby>言<rt>い</rt></ruby>っていました。"
+    ],
+    [
+      "アナ",
+      "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>く</rt></ruby>るでしょうか。",
+      "リー",
+      "ねつがありますから、<ruby>来<rt>こ</rt></ruby>ないかもしれません。"
+    ],
+    [
+      "マイ",
+      "リーさんが<ruby>読<rt>よ</rt></ruby>んでいる<ruby>本<rt>ほん</rt></ruby>はおもしろいですか。",
+      "リー",
+      "はい、とてもおもしろいと<ruby>思<rt>おも</rt></ruby>います。"
+    ],
+    [
+      "ゆき",
+      "その<ruby>本<rt>ほん</rt></ruby>、どこで<ruby>買<rt>か</rt></ruby>ったか<ruby>知<rt>し</rt></ruby>っていますか。",
+      "マイ",
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>います。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Message to a classmate",
+    "text_jp": "アナさんへ\nきのうは<ruby>朝<rt>あさ</rt></ruby>からのどがいたかったんです。<ruby>夜<rt>よる</rt></ruby>はねつもありました。<ruby>今朝<rt>けさ</rt></ruby>、<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。<ruby>医者<rt>いしゃ</rt></ruby>は「かぜでしょう。<ruby>三日<rt>みっか</rt></ruby>ぐらい<ruby>休<rt>やす</rt></ruby>んでください」と<ruby>言<rt>い</rt></ruby>いました。<ruby>病院<rt>びょういん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>店<rt>みせ</rt></ruby>でくすりを<ruby>買<rt>か</rt></ruby>いました。<ruby>明日<rt>あした</rt></ruby>のテストは<ruby>休<rt>やす</rt></ruby>むかもしれません。<ruby>休<rt>やす</rt></ruby>むかどうか、<ruby>明日<rt>あした</rt></ruby>の<ruby>朝<rt>あさ</rt></ruby><ruby>先生<rt>せんせい</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>します。\nけん",
+    "en_translation": "To Anna\nYesterday my throat hurt from the morning. At night I had a fever too. This morning I went to the hospital. The doctor said, \"It's probably a cold. Please rest for about three days.\" I bought medicine at the shop in front of the hospital. I might miss tomorrow's test. I'll phone the teacher tomorrow morning to say whether I'm taking the day off.\nKen",
+    "questions": [
+      {
+        "prompt": "What did the doctor say?",
+        "options": [
+          "It's nothing; come back tomorrow.",
+          "It's probably a cold; rest about three days.",
+          "Go to a bigger hospital.",
+          "Take the test, then rest."
+        ],
+        "correct": "It's probably a cold; rest about three days.",
+        "explanation": "「かぜでしょう。<ruby>三日<rt>みっか</rt></ruby>ぐらい<ruby>休<rt>やす</rt></ruby>んでください」"
+      },
+      {
+        "prompt": "Where did Ken buy the medicine?",
+        "options": [
+          "At the hospital",
+          "At a shop near the station",
+          "At a shop in front of the hospital",
+          "He did not buy any"
+        ],
+        "correct": "At a shop in front of the hospital",
+        "explanation": "<ruby>病院<rt>びょういん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>店<rt>みせ</rt></ruby>でくすりを<ruby>買<rt>か</rt></ruby>いました。"
+      },
+      {
+        "prompt": "What will Ken do tomorrow morning?",
+        "options": [
+          "Take the test",
+          "Go back to the hospital",
+          "Visit Anna",
+          "Phone the teacher"
+        ],
+        "correct": "Phone the teacher",
+        "explanation": "<ruby>明日<rt>あした</rt></ruby>の<ruby>朝<rt>あさ</rt></ruby><ruby>先生<rt>せんせい</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>します。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: この<ruby>電車<rt>でんしゃ</rt></ruby>はべんり＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "な",
+        "です",
+        "だ",
+        "の"
+      ],
+      "correct": "だ",
+      "explanation": "Keep だ before と<ruby>思<rt>おも</rt></ruby>います."
+    },
+    {
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>む＿＿<ruby>言<rt>い</rt></ruby>っていました。",
+      "options": [
+        "か",
+        "を",
+        "が",
+        "と"
+      ],
+      "correct": "と",
+      "explanation": "と marks reported words."
+    },
+    {
+      "prompt": "How do you say \"I don't know\"?",
+      "options": [
+        "<ruby>知<rt>し</rt></ruby>りません",
+        "<ruby>知<rt>し</rt></ruby>っていません",
+        "<ruby>知<rt>し</rt></ruby>らないです",
+        "<ruby>知<rt>し</rt></ruby>りていません"
+      ],
+      "correct": "<ruby>知<rt>し</rt></ruby>りません",
+      "explanation": "The negative of <ruby>知<rt>し</rt></ruby>っています is <ruby>知<rt>し</rt></ruby>りません."
+    },
+    {
+      "prompt": "How do you say \"the shop I went to yesterday\"?",
+      "options": [
+        "きのう<ruby>行<rt>い</rt></ruby>きました<ruby>店<rt>みせ</rt></ruby>",
+        "きのう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>",
+        "きのう<ruby>行<rt>い</rt></ruby>ったの<ruby>店<rt>みせ</rt></ruby>",
+        "<ruby>店<rt>みせ</rt></ruby>きのう<ruby>行<rt>い</rt></ruby>った"
+      ],
+      "correct": "きのう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>",
+      "explanation": "Plain clause + noun."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>はテスト＿＿んです。",
+      "options": [
+        "だ",
+        "の",
+        "な",
+        "が"
+      ],
+      "correct": "な",
+      "explanation": "だ becomes な before んです."
+    },
+    {
+      "prompt": "Complete: <ruby>午後<rt>ごご</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。 (it might rain)",
+      "options": [
+        "でしょう",
+        "と<ruby>思<rt>おも</rt></ruby>います",
+        "んです",
+        "かもしれません"
+      ],
+      "correct": "かもしれません",
+      "explanation": "かもしれません: might."
+    },
+    {
+      "prompt": "How is 医者⁠ read?",
+      "options": [
+        "いしゃ",
+        "いじゃ",
+        "いしゃく",
+        "いもの"
+      ],
+      "correct": "いしゃ",
+      "explanation": "医者⁠ is read いしゃ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>朝<rt>あさ</rt></ruby>からおなかがいたいんです。",
+      "options": [
+        "I ate in the morning.",
+        "My stomach has hurt since this morning.",
+        "My stomach hurt yesterday morning.",
+        "Does your stomach hurt?"
+      ],
+      "correct": "My stomach has hurt since this morning.",
+      "explanation": "<ruby>朝<rt>あさ</rt></ruby>から: since the morning; んです explains."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read: <ruby>医者<rt>いしゃ</rt></ruby>は「かぜでしょう」と<ruby>言<rt>い</rt></ruby>いました。 How sure was the doctor?",
+      "options": [
+        "Fairly sure it is a cold",
+        "Not sure at all",
+        "Sure it is not a cold",
+        "The doctor did not say"
+      ],
+      "correct": "Fairly sure it is a cold",
+      "explanation": "でしょう is a fairly confident guess."
+    },
+    {
+      "prompt": "Choose the sentence with the right form before the noun.",
+      "options": [
+        "<ruby>母<rt>はは</rt></ruby>はつくったりょうりはおいしいです。",
+        "<ruby>母<rt>はは</rt></ruby>がつくったりょうりはおいしいです。",
+        "<ruby>母<rt>はは</rt></ruby>がつくりましたりょうりはおいしいです。",
+        "<ruby>母<rt>はは</rt></ruby>がつくったのりょうりはおいしいです。"
+      ],
+      "correct": "<ruby>母<rt>はは</rt></ruby>がつくったりょうりはおいしいです。",
+      "explanation": "Doer + が, plain clause, noun."
+    },
+    {
+      "prompt": "A friend says: パーティーに<ruby>行<rt>い</rt></ruby>かない。 Pass this on politely to someone else.",
+      "options": [
+        "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>きませんと<ruby>言<rt>い</rt></ruby>っていました。",
+        "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないか<ruby>言<rt>い</rt></ruby>っていました。",
+        "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>っていました。",
+        "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないんです。"
+      ],
+      "correct": "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>っていました。",
+      "explanation": "Plain form + と<ruby>言<rt>い</rt></ruby>っていました."
+    },
+    {
+      "prompt": "Which sentence correctly opens a request?",
+      "options": [
+        "<ruby>道<rt>みち</rt></ruby>がわからないですが、<ruby>駅<rt>えき</rt></ruby>はどこんですか。",
+        "<ruby>道<rt>みち</rt></ruby>がわからないんですか、<ruby>駅<rt>えき</rt></ruby>はどこですか。",
+        "<ruby>道<rt>みち</rt></ruby>がわからないだんですが、<ruby>駅<rt>えき</rt></ruby>はどこですか。",
+        "<ruby>道<rt>みち</rt></ruby>がわからないんですが、<ruby>駅<rt>えき</rt></ruby>はどこですか。"
+      ],
+      "correct": "<ruby>道<rt>みち</rt></ruby>がわからないんですが、<ruby>駅<rt>えき</rt></ruby>はどこですか。",
+      "explanation": "んですが sets the scene, then the question."
+    },
+    {
+      "prompt": "Review (N5): complete にほんごを＿＿ことができます。",
+      "options": [
+        "はなす",
+        "はなします",
+        "はなして",
+        "はなした"
+      ],
+      "correct": "はなす",
+      "explanation": "Ability uses the dictionary form."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-1-i-think",
+    "japanese-n4-unit-1-they-said",
+    "japanese-n4-unit-1-the-book-i-bought",
+    "japanese-n4-unit-1-what-happened",
+    "japanese-n4-unit-1-probably",
+    "japanese-n5-unit-9-things-i-can-do"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

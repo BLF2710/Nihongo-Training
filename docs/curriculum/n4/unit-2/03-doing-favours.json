@@ -1,0 +1,468 @@
+{
+  "id": "japanese-n4-unit-2-doing-favours",
+  "slug": "n4-unit-2-doing-favours",
+  "unit": "Japanese N4 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Doing Favours",
+  "title_jp": "〜てあげる・〜てもらう",
+  "objectives": [
+    "I can talk about favours I did for others and favours done for me.",
+    "Use V-てあげる",
+    "Use V-てもらう",
+    "Lend, borrow, teach and learn"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>教<rt>おし</rt></ruby>える",
+      "oshieru",
+      "to teach, to tell"
+    ],
+    [
+      "<ruby>習<rt>なら</rt></ruby>う",
+      "narau",
+      "to learn (from someone)"
+    ],
+    [
+      "<ruby>貸<rt>か</rt></ruby>す",
+      "kasu",
+      "to lend"
+    ],
+    [
+      "<ruby>借<rt>か</rt></ruby>りる",
+      "kariru",
+      "to borrow"
+    ],
+    [
+      "かえす",
+      "kaesu",
+      "to give back, to return"
+    ],
+    [
+      "なおす",
+      "naosu",
+      "to fix"
+    ],
+    [
+      "はこぶ",
+      "hakobu",
+      "to carry"
+    ],
+    [
+      "<ruby>手<rt>て</rt></ruby>つだう",
+      "tetsudau",
+      "to help"
+    ],
+    [
+      "おれい",
+      "orei",
+      "thanks, a thank-you gift"
+    ],
+    [
+      "じしょ",
+      "jisho",
+      "dictionary"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "教える",
+      "word_reading": "おしえる"
+    },
+    {
+      "word_japanese": "習う",
+      "word_reading": "ならう"
+    },
+    {
+      "word_japanese": "貸す",
+      "word_reading": "かす"
+    },
+    {
+      "word_japanese": "借りる",
+      "word_reading": "かりる"
+    }
+  ],
+  "concept": {
+    "title": "Favours move like gifts",
+    "text": "An action can be given like a thing. Add あげる or もらう to the て-form:\n\nV-てあげる: I do something for someone.\n<ruby>弟<rt>おとうと</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてあげました。 I taught my brother Japanese.\n\nV-てもらう: I have someone do something for me, and I am grateful.\n<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいました。 My sister taught me Japanese.\n\nThe particles stay the same as with things. Two new pairs work the same way: <ruby>貸<rt>か</rt></ruby>す (lend) and <ruby>借<rt>か</rt></ruby>りる (borrow), <ruby>教<rt>おし</rt></ruby>える (teach) and <ruby>習<rt>なら</rt></ruby>う (learn).",
+    "examples": [
+      "giver は receiver に V-てあげる",
+      "receiver は giver に V-てもらう",
+      "<ruby>貸<rt>か</rt></ruby>す / <ruby>借<rt>か</rt></ruby>りる, <ruby>教<rt>おし</rt></ruby>える / <ruby>習<rt>なら</rt></ruby>う"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Doing something for someone",
+      "pattern": "giver は receiver に V-てあげる",
+      "explanation": "V-てあげる describes a favour you or someone else did for another person. When the favour is done to a thing, the owner takes の: <ruby>友<rt>とも</rt></ruby>だちのにもつ.",
+      "examples": [
+        {
+          "japanese": "わたしは<ruby>弟<rt>おとうと</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてあげました。",
+          "romaji": "",
+          "meaning": "I taught my younger brother Japanese."
+        },
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちのにもつをはこんであげました。",
+          "romaji": "",
+          "meaning": "I carried my friend's bags for them."
+        },
+        {
+          "japanese": "<ruby>妹<rt>いもうと</rt></ruby>にじしょを<ruby>貸<rt>か</rt></ruby>してあげました。",
+          "romaji": "",
+          "meaning": "I lent my younger sister a dictionary."
+        },
+        {
+          "japanese": "リーさんのじてんしゃをなおしてあげました。",
+          "romaji": "",
+          "meaning": "I fixed Lee's bicycle for him."
+        },
+        {
+          "japanese": "<ruby>母<rt>はは</rt></ruby>にりょうりをつくってあげました。",
+          "romaji": "",
+          "meaning": "I cooked for my mother."
+        }
+      ],
+      "notes": [
+        "Saying 〜てあげます to the person you are helping can sound like you are doing them a big favour. Offer with 〜ましょうか instead.",
+        "The owner of the thing takes の, not に: <ruby>友<rt>とも</rt></ruby>だちのにもつをはこぶ."
+      ]
+    },
+    {
+      "title": "Having something done for you",
+      "pattern": "receiver は giver に V-てもらう",
+      "explanation": "V-てもらう says someone did something for you, and shows you are grateful. The person who helped takes に.",
+      "examples": [
+        {
+          "japanese": "わたしは<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいました。",
+          "romaji": "",
+          "meaning": "My older sister taught me Japanese."
+        },
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちにじてんしゃをなおしてもらいました。",
+          "romaji": "",
+          "meaning": "My friend fixed my bicycle for me."
+        },
+        {
+          "japanese": "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。",
+          "romaji": "",
+          "meaning": "My older brother lent me some money."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>にしゅくだいを<ruby>見<rt>み</rt></ruby>てもらいました。",
+          "romaji": "",
+          "meaning": "I had the teacher look at my homework."
+        },
+        {
+          "japanese": "だれにピアノを<ruby>習<rt>なら</rt></ruby>いましたか。",
+          "romaji": "",
+          "meaning": "Who did you learn the piano from?"
+        }
+      ],
+      "notes": [
+        "<ruby>貸<rt>か</rt></ruby>す is lend (the owner does it); <ruby>借<rt>か</rt></ruby>りる is borrow (you do it).",
+        "<ruby>習<rt>なら</rt></ruby>う takes に for the teacher: <ruby>先生<rt>せんせい</rt></ruby>に<ruby>習<rt>なら</rt></ruby>う."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+      "I borrowed a book from the library."
+    ],
+    [
+      "<ruby>借<rt>か</rt></ruby>りた<ruby>本<rt>ほん</rt></ruby>は<ruby>来週<rt>らいしゅう</rt></ruby>かえします。",
+      "I'll return the book I borrowed next week."
+    ],
+    [
+      "<ruby>友<rt>とも</rt></ruby>だちのしゅくだいを<ruby>手<rt>て</rt></ruby>つだいました。",
+      "I helped my friend with their homework."
+    ],
+    [
+      "おれいにチョコレートをあげました。",
+      "I gave chocolate as a thank-you."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "だれに<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>いましたか。",
+      "リー",
+      "たなか<ruby>先生<rt>せんせい</rt></ruby>に<ruby>習<rt>なら</rt></ruby>いました。"
+    ],
+    [
+      "けん",
+      "そのじしょ、どうしたんですか。",
+      "マイ",
+      "<ruby>姉<rt>あね</rt></ruby>に<ruby>貸<rt>か</rt></ruby>してもらったんです。"
+    ],
+    [
+      "ゆき",
+      "リーさん、にもつをはこびましょうか。",
+      "リー",
+      "ありがとうございます。おねがいします。"
+    ],
+    [
+      "リン",
+      "かさを<ruby>借<rt>か</rt></ruby>りてもいいですか。",
+      "けん",
+      "いいですよ。どうぞ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "教",
+      "onyomi": [
+        "キョウ"
+      ],
+      "kunyomi": [
+        "おし.える",
+        "おそ.わる"
+      ],
+      "meaning_en": "teach",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "教える",
+          "reading": "おしえる",
+          "en": "to teach"
+        },
+        {
+          "word": "教室",
+          "reading": "きょうしつ",
+          "en": "classroom"
+        }
+      ],
+      "mnemonic": "An elder (耂) and a child (子), with a hand holding a stick (攵): teaching."
+    },
+    {
+      "char": "習",
+      "onyomi": [
+        "シュウ",
+        "ジュ"
+      ],
+      "kunyomi": [
+        "なら.う",
+        "なら.い"
+      ],
+      "meaning_en": "learn",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "習う",
+          "reading": "ならう",
+          "en": "to learn"
+        },
+        {
+          "word": "練習",
+          "reading": "れんしゅう",
+          "en": "practice"
+        }
+      ],
+      "mnemonic": "Wings (羽) beating again and again: learning by practice."
+    },
+    {
+      "char": "貸",
+      "onyomi": [
+        "タイ"
+      ],
+      "kunyomi": [
+        "か.す",
+        "か.し-",
+        "かし-"
+      ],
+      "meaning_en": "lend",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "貸す",
+          "reading": "かす",
+          "en": "to lend"
+        },
+        {
+          "word": "貸し出し",
+          "reading": "かしだし",
+          "en": "lending (service)"
+        }
+      ],
+      "mnemonic": "Money (貝) that changes hands (代): lending."
+    },
+    {
+      "char": "借",
+      "onyomi": [
+        "シャク"
+      ],
+      "kunyomi": [
+        "か.りる"
+      ],
+      "meaning_en": "borrow",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "借りる",
+          "reading": "かりる",
+          "en": "to borrow"
+        },
+        {
+          "word": "借金",
+          "reading": "しゃっきん",
+          "en": "debt"
+        }
+      ],
+      "mnemonic": "A person (亻) holding on to something from long ago (昔): borrowing."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: Lee gave you a card. Which sentence says this?",
+      "options": [
+        "リーさんにカードをくれました。",
+        "リーさんがカードをあげました。",
+        "リーさんはカードをもらいました。",
+        "リーさんがカードをくれました。"
+      ],
+      "correct": "リーさんがカードをくれました。",
+      "explanation": "Things given to you: くれる."
+    },
+    {
+      "prompt": "What does <ruby>借<rt>か</rt></ruby>りる mean?",
+      "options": [
+        "to borrow",
+        "to lend",
+        "to return",
+        "to teach"
+      ],
+      "correct": "to borrow",
+      "explanation": "<ruby>借<rt>か</rt></ruby>りる is to borrow; <ruby>貸<rt>か</rt></ruby>す is to lend."
+    },
+    {
+      "prompt": "Complete: わたしは<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えて＿＿。 (my sister taught me)",
+      "options": [
+        "あげました",
+        "もらいました",
+        "<ruby>習<rt>なら</rt></ruby>いました",
+        "<ruby>貸<rt>か</rt></ruby>しました"
+      ],
+      "correct": "もらいました",
+      "explanation": "Something done for you, with the helper に: てもらう."
+    },
+    {
+      "prompt": "Complete: <ruby>妹<rt>いもうと</rt></ruby>にじしょを<ruby>貸<rt>か</rt></ruby>して＿＿。 (I lent my sister a dictionary)",
+      "options": [
+        "もらいました",
+        "くれました",
+        "あげました",
+        "<ruby>借<rt>か</rt></ruby>りました"
+      ],
+      "correct": "あげました",
+      "explanation": "A favour you did for someone: てあげる."
+    },
+    {
+      "prompt": "Which verb means to lend?",
+      "options": [
+        "<ruby>借<rt>か</rt></ruby>りる",
+        "かえす",
+        "<ruby>習<rt>なら</rt></ruby>う",
+        "<ruby>貸<rt>か</rt></ruby>す"
+      ],
+      "correct": "<ruby>貸<rt>か</rt></ruby>す",
+      "explanation": "<ruby>貸<rt>か</rt></ruby>す: lend."
+    },
+    {
+      "prompt": "Complete: だれ＿＿ピアノを<ruby>習<rt>なら</rt></ruby>いましたか。",
+      "options": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "correct": "に",
+      "explanation": "The teacher takes に with <ruby>習<rt>なら</rt></ruby>う."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>友<rt>とも</rt></ruby>だちにじてんしゃをなおしてもらいました。",
+      "options": [
+        "I fixed my friend's bicycle.",
+        "My friend fixed my bicycle for me.",
+        "My friend fixed his own bicycle.",
+        "I lent my friend a bicycle."
+      ],
+      "correct": "My friend fixed my bicycle for me.",
+      "explanation": "てもらう: someone did it for me."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to offer to carry a guest's bags. What do you say?",
+      "options": [
+        "にもつを<ruby>持<rt>も</rt></ruby>ってあげます。",
+        "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+        "にもつを<ruby>持<rt>も</rt></ruby>ってもらいます。",
+        "にもつを<ruby>持<rt>も</rt></ruby>ってくれますか。"
+      ],
+      "correct": "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+      "explanation": "Offer with ましょうか rather than てあげます."
+    },
+    {
+      "prompt": "Choose: \"My older brother lent me some money.\"",
+      "options": [
+        "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してあげました。",
+        "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>借<rt>か</rt></ruby>りてあげました。",
+        "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。",
+        "<ruby>兄<rt>あに</rt></ruby>はお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。"
+      ],
+      "correct": "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。",
+      "explanation": "The lender takes に, and you received the favour: てもらう."
+    },
+    {
+      "prompt": "Read: <ruby>借<rt>か</rt></ruby>りた<ruby>本<rt>ほん</rt></ruby>は<ruby>来週<rt>らいしゅう</rt></ruby>かえします。 When will the speaker return the book?",
+      "options": [
+        "Tomorrow",
+        "This week",
+        "Last week",
+        "Next week"
+      ],
+      "correct": "Next week",
+      "explanation": "<ruby>来週<rt>らいしゅう</rt></ruby>: next week."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+        "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>貸<rt>か</rt></ruby>りました。",
+        "としょかんに<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>しました。",
+        "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>しました。"
+      ],
+      "correct": "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+      "explanation": "Borrow is <ruby>借<rt>か</rt></ruby>りる: <ruby>借<rt>か</rt></ruby>りました."
+    },
+    {
+      "prompt": "Review: complete <ruby>夜<rt>よる</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。 (might)",
+      "options": [
+        "でしょう",
+        "かもしれません",
+        "んです",
+        "と<ruby>思<rt>おも</rt></ruby>います"
+      ],
+      "correct": "かもしれません",
+      "explanation": "かもしれません: might."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-2-they-gave-me",
+    "japanese-n4-unit-2-give-and-get",
+    "japanese-n4-unit-1-probably",
+    "japanese-n5-unit-8-please-do"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 手つだう is written in mixed script because 伝 is not taught in this course yet."
+  ]
+}

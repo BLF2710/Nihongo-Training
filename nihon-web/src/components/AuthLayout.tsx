@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const highlights = [
   { mark: "あ", title: "Start with the sounds", text: "Hiragana and Katakana with stroke order, audio, and speed quizzes." },
-  { mark: "文", title: "Follow a real course", text: "N5 lessons with vocabulary, grammar, dialogues, and unit assessments." },
+  { mark: "文", title: "Follow a real course", text: "N5 and N4 lessons with vocabulary, grammar, dialogues, and unit assessments." },
   { mark: "話", title: "Use what you learn", text: "Listening, speaking, and mixed reviews for every unit you reach." },
 ];
 
@@ -18,7 +18,7 @@ export default function AuthLayout({ title, subtitle, children, footer }: { titl
         <span>Lingo<span className="text-emerald-300">Hub</span></span>
       </Link>
       <div className="relative">
-        <p className="text-xs font-bold uppercase tracking-widest text-emerald-200">🇯🇵 Japanese · N5 foundations</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-emerald-200">🇯🇵 Japanese · N5 and N4</p>
         <h2 className="mt-3 max-w-md text-4xl font-black leading-tight">A little learning, a little practice, every day.</h2>
         <ul className="mt-8 max-w-md space-y-5">{highlights.map(item => <li key={item.title} className="flex gap-4">
           <span aria-hidden="true" lang="ja" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-xl font-bold">{item.mark}</span>

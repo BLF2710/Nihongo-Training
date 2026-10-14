@@ -24,7 +24,10 @@ export function getUnitAccess(unit: UnitDefinition, level: number, completedUnit
   if (level < unit.requiredLevel) reasons.push(`Requires Level ${unit.requiredLevel}`);
   if (unit.previousUnitId && !completedUnitIds.has(unit.previousUnitId)) {
     const previous = definitions.find(item => item.id === unit.previousUnitId);
-    reasons.push(previous ? `Complete Unit ${previous.number} first` : "Complete the previous unit first");
+    // Unit numbers restart at each level, so a previous unit in another level is named with its level.
+    const levelOf = (id: string) => /^japanese-(n[1-5])-/.exec(id)?.[1].toUpperCase();
+    const name = previous && (levelOf(previous.id) === levelOf(unit.id) ? `Unit ${previous.number}` : `${levelOf(previous.id)} Unit ${previous.number}`);
+    reasons.push(name ? `Complete ${name} first` : "Complete the previous unit first");
   }
   return { allowed: reasons.length === 0, reasons };
 }

@@ -6,6 +6,8 @@ import RubyText from "../components/RubyText";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import { readingsForUnit } from "../data/japaneseReading";
+import LevelSwitch from "../components/LevelSwitch";
+import { inLevel, useShownLevel } from "../lib/courseLevel";
 import type { UnitReading } from "../data/japaneseReading";
 
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
@@ -23,18 +25,20 @@ export default function ReadingPage() {
   }, [retry]);
 
   // Passages open together with their unit's lessons; units without passages are not listed.
-  const course = (units ?? []).filter(unit => !unit.isPlaceholder && readingsForUnit(unit.id).length);
+  const level = useShownLevel(params.get("unit"));
+  const course = (units ?? []).filter(unit => inLevel(level)(unit) && !unit.isPlaceholder && readingsForUnit(unit.id).length);
   const reached = course.filter(unit => unit.allowed);
   const selected = reached.find(unit => unit.id === params.get("unit")) ?? reached[0];
   const passages = selected ? readingsForUnit(selected.id) : [];
   const passage = passages.find(item => item.id === params.get("passage"));
 
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
-    <h1 className="mt-6 text-3xl font-black">Reading</h1>
+    <div className="mt-6"><LevelSwitch level={level} /></div>
+    <h1 className="mt-3 text-3xl font-black">Reading</h1>
     <p className="mt-2 text-gray-600">Read short passages from the units you have reached, then check your understanding.</p>
     {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !error && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
-    {units && !selected && <p className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">{course.length ? "No unit with reading passages is open yet. Passages appear here as soon as you reach their unit on the Lessons page." : "There are no reading passages yet. They arrive with later units of the course."}</p>}
+    {units && !selected && <p className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">{course.length ? "No unit with reading passages is open yet. Passages appear here as soon as you reach their unit on the Lessons page." : `${level} has no reading passages yet. They arrive with its units.`}</p>}
     {selected && !passage && <>
       <label className="mt-6 block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={selected.id} onChange={event => setParams({ unit: event.target.value })} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 text-gray-900 focus:outline-2 focus:outline-emerald-600">

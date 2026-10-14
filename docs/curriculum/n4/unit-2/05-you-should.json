@@ -1,0 +1,461 @@
+{
+  "id": "japanese-n4-unit-2-you-should",
+  "slug": "n4-unit-2-you-should",
+  "unit": "Japanese N4 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "You Should…",
+  "title_jp": "〜ほうがいいです",
+  "objectives": [
+    "I can give and take advice.",
+    "Advise with V-たほうがいい",
+    "Advise against with V-ないほうがいい",
+    "Talk about health and how you feel"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>体<rt>からだ</rt></ruby>",
+      "karada",
+      "body, health"
+    ],
+    [
+      "<ruby>早<rt>はや</rt></ruby>い",
+      "hayai",
+      "early"
+    ],
+    [
+      "<ruby>早<rt>はや</rt></ruby>く",
+      "hayaku",
+      "early, quickly"
+    ],
+    [
+      "<ruby>心<rt>こころ</rt></ruby>",
+      "kokoro",
+      "heart, mind"
+    ],
+    [
+      "<ruby>安心<rt>あんしん</rt></ruby>",
+      "anshin",
+      "relief, peace of mind"
+    ],
+    [
+      "むり",
+      "muri",
+      "impossible, too much"
+    ],
+    [
+      "むりをする",
+      "muri o suru",
+      "to overdo it"
+    ],
+    [
+      "うんどう",
+      "undou",
+      "exercise"
+    ],
+    [
+      "おさけ",
+      "osake",
+      "alcohol, sake"
+    ],
+    [
+      "ちょうし",
+      "choushi",
+      "condition"
+    ],
+    [
+      "<ruby>気<rt>き</rt></ruby>をつける",
+      "ki o tsukeru",
+      "to be careful"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "体",
+      "word_reading": "からだ"
+    },
+    {
+      "word_japanese": "早い",
+      "word_reading": "はやい"
+    },
+    {
+      "word_japanese": "早く",
+      "word_reading": "はやく"
+    },
+    {
+      "word_japanese": "心",
+      "word_reading": "こころ"
+    },
+    {
+      "word_japanese": "安心",
+      "word_reading": "あんしん"
+    },
+    {
+      "word_japanese": "気をつける",
+      "word_reading": "きをつける"
+    }
+  ],
+  "concept": {
+    "title": "Giving advice",
+    "text": "ほうがいい compares two choices and recommends one.\n\nV-たほうがいい: you had better do it. The verb is in the た-form even though the advice is about the future.\n<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。 You should go to bed early.\n\nV-ないほうがいい: you had better not.\nむりをしないほうがいいです。 You shouldn't overdo it.\n\nTo a teacher or someone older, soften it with と<ruby>思<rt>おも</rt></ruby>います: <ruby>休<rt>やす</rt></ruby>んだほうがいいと<ruby>思<rt>おも</rt></ruby>います.",
+    "examples": [
+      "V-た ほうがいいです",
+      "V-ない ほうがいいです",
+      "〜ほうがいいと<ruby>思<rt>おも</rt></ruby>います"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "You should",
+      "pattern": "V-た ほうがいいです",
+      "explanation": "Use the た-form, then ほうがいいです. Add よ to sound friendly, or と<ruby>思<rt>おも</rt></ruby>います to sound gentle.",
+      "examples": [
+        {
+          "japanese": "ねつがありますから、<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。",
+          "romaji": "",
+          "meaning": "You have a fever, so you should go to bed early."
+        },
+        {
+          "japanese": "<ruby>毎日<rt>まいにち</rt></ruby>うんどうしたほうがいいですよ。",
+          "romaji": "",
+          "meaning": "You should exercise every day."
+        },
+        {
+          "japanese": "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったほうがいいと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think you should go to hospital."
+        },
+        {
+          "japanese": "<ruby>体<rt>からだ</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけたほうがいいです。",
+          "romaji": "",
+          "meaning": "You should look after your health."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいかもしれません。",
+          "romaji": "",
+          "meaning": "It might be better to ask the teacher."
+        }
+      ],
+      "notes": [
+        "Use the た-form even for future advice: <ruby>行<rt>い</rt></ruby>ったほうがいい.",
+        "<ruby>体<rt>からだ</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけて is also a common way to say goodbye: take care."
+      ]
+    },
+    {
+      "title": "You shouldn't",
+      "pattern": "V-ない ほうがいいです",
+      "explanation": "For advice against something, use the ない-form (not the past) before ほうがいいです.",
+      "examples": [
+        {
+          "japanese": "むりをしないほうがいいです。",
+          "romaji": "",
+          "meaning": "You shouldn't overdo it."
+        },
+        {
+          "japanese": "<ruby>夜<rt>よる</rt></ruby>おそくまでテレビを<ruby>見<rt>み</rt></ruby>ないほうがいいです。",
+          "romaji": "",
+          "meaning": "You'd better not watch TV late into the night."
+        },
+        {
+          "japanese": "ちょうしがわるいですから、<ruby>今日<rt>きょう</rt></ruby>はおさけを<ruby>飲<rt>の</rt></ruby>まないほうがいいです。",
+          "romaji": "",
+          "meaning": "You're not feeling well, so you'd better not drink today."
+        },
+        {
+          "japanese": "あまりしんぱいしないほうがいいですよ。",
+          "romaji": "",
+          "meaning": "You shouldn't worry too much."
+        },
+        {
+          "japanese": "たばこはすわないほうがいいです。",
+          "romaji": "",
+          "meaning": "You'd better not smoke."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>飲<rt>の</rt></ruby>まなかったほうがいい. The negative advice uses the ない-form.",
+        "ほうがいい is stronger than a suggestion; for a softer idea, use 〜たらどうですか later."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>心<rt>こころ</rt></ruby>がやさしい<ruby>人<rt>ひと</rt></ruby>です。",
+      "She is a kind-hearted person."
+    ],
+    [
+      "<ruby>医者<rt>いしゃ</rt></ruby>がだいじょうぶだと<ruby>言<rt>い</rt></ruby>いましたから、<ruby>安心<rt>あんしん</rt></ruby>しました。",
+      "The doctor said it was fine, so I felt relieved."
+    ],
+    [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>早<rt>はや</rt></ruby>くおきます。",
+      "I get up early every morning."
+    ],
+    [
+      "<ruby>早<rt>はや</rt></ruby>くよくなってください。",
+      "Please get well soon."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>体<rt>からだ</rt></ruby>のちょうしがよくないんです。",
+      "<ruby>医者<rt>いしゃ</rt></ruby>",
+      "むりをしないほうがいいですよ。"
+    ],
+    [
+      "けん",
+      "ねつがあるんですが、<ruby>学校<rt>がっこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったほうがいいですか。",
+      "マイ",
+      "いいえ、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。"
+    ],
+    [
+      "リー",
+      "<ruby>明日<rt>あした</rt></ruby>はテストなんです。",
+      "ゆき",
+      "じゃあ、<ruby>今夜<rt>こんや</rt></ruby>は<ruby>早<rt>はや</rt></ruby>くねたほうがいいですね。"
+    ],
+    [
+      "リン",
+      "<ruby>医者<rt>いしゃ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>っていましたか。",
+      "たなか",
+      "おさけを<ruby>飲<rt>の</rt></ruby>まないほうがいいと<ruby>言<rt>い</rt></ruby>っていました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "体",
+      "onyomi": [
+        "タイ",
+        "テイ"
+      ],
+      "kunyomi": [
+        "からだ",
+        "かたち"
+      ],
+      "meaning_en": "body",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "体",
+          "reading": "からだ",
+          "en": "body"
+        },
+        {
+          "word": "体重",
+          "reading": "たいじゅう",
+          "en": "body weight"
+        }
+      ],
+      "mnemonic": "A person (亻) beside a root (本): the body that holds you up."
+    },
+    {
+      "char": "早",
+      "onyomi": [
+        "ソウ",
+        "サッ"
+      ],
+      "kunyomi": [
+        "はや.い",
+        "はや",
+        "はや-",
+        "はや.まる",
+        "はや.める",
+        "さ-"
+      ],
+      "meaning_en": "early",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "早い",
+          "reading": "はやい",
+          "en": "early"
+        },
+        {
+          "word": "早く",
+          "reading": "はやく",
+          "en": "early, quickly"
+        }
+      ],
+      "mnemonic": "The sun (日) just above the horizon: early in the day."
+    },
+    {
+      "char": "心",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "こころ",
+        "-ごころ"
+      ],
+      "meaning_en": "heart",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "心",
+          "reading": "こころ",
+          "en": "heart"
+        },
+        {
+          "word": "安心",
+          "reading": "あんしん",
+          "en": "relief"
+        }
+      ],
+      "mnemonic": "A heart, drawn with its beating chambers."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: which is the softer way to say ちょっと<ruby>待<rt>ま</rt></ruby>ってください?",
+      "options": [
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ってあげませんか。",
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ちませんか。",
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ってもらいませんか。"
+      ],
+      "correct": "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+      "explanation": "てくれませんか is a polite request."
+    },
+    {
+      "prompt": "What does <ruby>安心<rt>あんしん</rt></ruby>する mean?",
+      "options": [
+        "to worry",
+        "to be careful",
+        "to feel relieved",
+        "to feel well"
+      ],
+      "correct": "to feel relieved",
+      "explanation": "<ruby>安心<rt>あんしん</rt></ruby>する: to feel relieved."
+    },
+    {
+      "prompt": "Complete: <ruby>毎日<rt>まいにち</rt></ruby>うんどう＿＿ほうがいいです。 (you should exercise)",
+      "options": [
+        "する",
+        "して",
+        "します",
+        "した"
+      ],
+      "correct": "した",
+      "explanation": "Advice uses the た-form before ほうがいい."
+    },
+    {
+      "prompt": "Complete: むりを＿＿ほうがいいです。 (you shouldn't overdo it)",
+      "options": [
+        "しない",
+        "しなかった",
+        "しないで",
+        "した"
+      ],
+      "correct": "しない",
+      "explanation": "Advice against uses the ない-form."
+    },
+    {
+      "prompt": "Which sentence gives advice?",
+      "options": [
+        "<ruby>早<rt>はや</rt></ruby>くねました。",
+        "<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。",
+        "<ruby>早<rt>はや</rt></ruby>くねたいです。",
+        "<ruby>早<rt>はや</rt></ruby>くねてもいいです。"
+      ],
+      "correct": "<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。",
+      "explanation": "たほうがいい gives advice."
+    },
+    {
+      "prompt": "How is 心⁠ read when it is a word on its own?",
+      "options": [
+        "しん",
+        "からだ",
+        "こころ",
+        "きもち"
+      ],
+      "correct": "こころ",
+      "explanation": "As a word on its own, 心⁠ is こころ."
+    },
+    {
+      "prompt": "Choose the meaning of たばこはすわないほうがいいです。",
+      "options": [
+        "You may smoke.",
+        "You must smoke outside.",
+        "I don't smoke.",
+        "You'd better not smoke."
+      ],
+      "correct": "You'd better not smoke.",
+      "explanation": "ないほうがいい: you'd better not."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend has a fever but wants to go to class. What advice fits?",
+      "options": [
+        "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>むほうがよかったです。",
+        "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>まないほうがいいですよ。",
+        "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んでほうがいいですよ。",
+        "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。"
+      ],
+      "correct": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。",
+      "explanation": "た-form + ほうがいい."
+    },
+    {
+      "prompt": "Read: <ruby>医者<rt>いしゃ</rt></ruby>はおさけを<ruby>飲<rt>の</rt></ruby>まないほうがいいと<ruby>言<rt>い</rt></ruby>っていました。 What did the doctor advise?",
+      "options": [
+        "Not to drink alcohol",
+        "To drink more water",
+        "To drink only at night",
+        "To stop smoking"
+      ],
+      "correct": "Not to drink alcohol",
+      "explanation": "<ruby>飲<rt>の</rt></ruby>まないほうがいい: better not drink."
+    },
+    {
+      "prompt": "Choose: \"I think you should ask the teacher.\"",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいだと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがよかったと<ruby>思<rt>おも</rt></ruby>いますか。",
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>かないほうがいいだと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      "correct": "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいと<ruby>思<rt>おも</rt></ruby>います。",
+      "explanation": "い-adjective いい takes no だ before と<ruby>思<rt>おも</rt></ruby>います."
+    },
+    {
+      "prompt": "Which word means body?",
+      "options": [
+        "<ruby>心<rt>こころ</rt></ruby>",
+        "<ruby>手<rt>て</rt></ruby>",
+        "<ruby>体<rt>からだ</rt></ruby>",
+        "<ruby>目<rt>め</rt></ruby>"
+      ],
+      "correct": "<ruby>体<rt>からだ</rt></ruby>",
+      "explanation": "<ruby>体<rt>からだ</rt></ruby>: body."
+    },
+    {
+      "prompt": "Review: complete リーさんにチョコレートを＿＿。 (I gave)",
+      "options": [
+        "くれました",
+        "もらいました",
+        "<ruby>持<rt>も</rt></ruby>ちました",
+        "あげました"
+      ],
+      "correct": "あげました",
+      "explanation": "Giving to someone else: あげる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-2-would-you-mind",
+    "japanese-n4-unit-1-what-happened",
+    "japanese-n4-unit-1-i-think",
+    "japanese-n5-unit-8-reasons-and-states"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 〜たらどうですか is mentioned in a note as a later pattern; it is taught in Unit 4."
+  ]
+}

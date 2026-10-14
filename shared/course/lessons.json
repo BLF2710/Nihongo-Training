@@ -2592,7 +2592,7 @@
       ],
       [
         "アナ",
-        "りょこうは いつでしたか… せんしゅうでしたか。",
+        "りょこうは せんしゅうでしたか。",
         "たなか",
         "はい、せんしゅうでした。"
       ]
@@ -12217,6 +12217,4004 @@
           ],
           "correct": "The friend can drive.",
           "explanation": "ともだちは くるまを うんてんする ことが できますから。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "japanese-n4-unit-1-i-think",
+    "slug": "n4-unit-1-i-think",
+    "unitId": "japanese-n4-unit-1",
+    "level": "N4",
+    "unitNumber": 1,
+    "lessonNumber": 1,
+    "isReview": false,
+    "title": "I Think…",
+    "titleJp": "〜と<ruby>思<rt>おも</rt></ruby>います",
+    "objectives": [
+      "I can say what I think and ask for someone's opinion.",
+      "Use the plain form before to omoimasu",
+      "Ask for opinions with dou omoimasu ka",
+      "Read verbs listed in the dictionary form"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>思<rt>おも</rt></ruby>う",
+        "omou",
+        "to think"
+      ],
+      [
+        "<ruby>考<rt>かんが</rt></ruby>える",
+        "kangaeru",
+        "to think about, to consider"
+      ],
+      [
+        "<ruby>意見<rt>いけん</rt></ruby>",
+        "iken",
+        "opinion"
+      ],
+      [
+        "きっと",
+        "kitto",
+        "surely, I'm sure"
+      ],
+      [
+        "たぶん",
+        "tabun",
+        "probably"
+      ],
+      [
+        "ちがう",
+        "chigau",
+        "to be different, to be wrong"
+      ],
+      [
+        "ただしい",
+        "tadashii",
+        "correct"
+      ],
+      [
+        "だめ",
+        "dame",
+        "no good, not allowed"
+      ],
+      [
+        "<ruby>人気<rt>にんき</rt></ruby>",
+        "ninki",
+        "popularity"
+      ],
+      [
+        "ニュース",
+        "nyuusu",
+        "news"
+      ]
+    ],
+    "concept": {
+      "title": "Welcome to N4: plain forms inside sentences",
+      "text": "In N5 you met the plain forms in casual speech. From now on they also sit inside longer polite sentences. と<ruby>思<rt>おも</rt></ruby>います (I think) is the first example: put any plain-form sentence in front of it.\n\n<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>います\n<ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かないと<ruby>思<rt>おも</rt></ruby>います\nおいしい → おいしいと<ruby>思<rt>おも</rt></ruby>います\nべんりだ → べんりだと<ruby>思<rt>おも</rt></ruby>います (な-adjectives and nouns keep だ here)\n\nFrom N4 on, vocabulary lists give verbs in the dictionary form, sentences are written without spaces, and every kanji has its reading above it.",
+      "examples": [
+        "plain form + と<ruby>思<rt>おも</rt></ruby>います",
+        "N / な-adj + だ + と<ruby>思<rt>おも</rt></ruby>います",
+        "どう<ruby>思<rt>おも</rt></ruby>いますか。"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "I think that…",
+        "pattern": "plain form + と<ruby>思<rt>おも</rt></ruby>います",
+        "explanation": "The thought goes before と, in the plain form; と<ruby>思<rt>おも</rt></ruby>います stays polite. Nouns and な-adjectives need だ before と.",
+        "examples": [
+          {
+            "japanese": "あしたは<ruby>雨<rt>あめ</rt></ruby>がふると<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I think it will rain tomorrow."
+          },
+          {
+            "japanese": "この<ruby>本<rt>ほん</rt></ruby>はおもしろいと<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I think this book is interesting."
+          },
+          {
+            "japanese": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>はべんりだと<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I think Japanese trains are convenient."
+          },
+          {
+            "japanese": "たなかさんはもうかえったと<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I think Tanaka has already gone home."
+          },
+          {
+            "japanese": "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>じゃないと<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I don't think that person is a teacher."
+          }
+        ],
+        "notes": [
+          "Wrong: べんりと<ruby>思<rt>おも</rt></ruby>います. Say べんりだと<ruby>思<rt>おも</rt></ruby>います.",
+          "To say you don't think something will happen, make the thought negative: <ruby>来<rt>こ</rt></ruby>ないと<ruby>思<rt>おも</rt></ruby>います."
+        ]
+      },
+      {
+        "title": "Asking for opinions",
+        "pattern": "〜と<ruby>思<rt>おも</rt></ruby>いますか / どう<ruby>思<rt>おも</rt></ruby>いますか",
+        "explanation": "Ask whether someone thinks something with と<ruby>思<rt>おも</rt></ruby>いますか, or ask an open question with どう<ruby>思<rt>おも</rt></ruby>いますか. そう<ruby>思<rt>おも</rt></ruby>います agrees; そうは<ruby>思<rt>おも</rt></ruby>いません disagrees politely.",
+        "examples": [
+          {
+            "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>のテストはむずかしいと<ruby>思<rt>おも</rt></ruby>いますか。",
+            "romaji": "",
+            "meaning": "Do you think the Japanese test will be difficult?"
+          },
+          {
+            "japanese": "リーさんの<ruby>意見<rt>いけん</rt></ruby>をどう<ruby>思<rt>おも</rt></ruby>いますか。",
+            "romaji": "",
+            "meaning": "What do you think of Lee's opinion?"
+          },
+          {
+            "japanese": "わたしもそう<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I think so too."
+          },
+          {
+            "japanese": "わたしはそうは<ruby>思<rt>おも</rt></ruby>いません。",
+            "romaji": "",
+            "meaning": "I don't think so."
+          },
+          {
+            "japanese": "よく<ruby>考<rt>かんが</rt></ruby>えてください。",
+            "romaji": "",
+            "meaning": "Please think it over carefully."
+          }
+        ],
+        "notes": [
+          "<ruby>思<rt>おも</rt></ruby>う is a quick opinion; <ruby>考<rt>かんが</rt></ruby>える is thinking something over.",
+          "Give your own opinion with わたしは〜と<ruby>思<rt>おも</rt></ruby>います."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "このレストランは<ruby>人気<rt>にんき</rt></ruby>があると<ruby>思<rt>おも</rt></ruby>います。",
+        "I think this restaurant is popular."
+      ],
+      [
+        "きっとだいじょうぶだと<ruby>思<rt>おも</rt></ruby>います。",
+        "I'm sure it will be fine."
+      ],
+      [
+        "その<ruby>意見<rt>いけん</rt></ruby>はちがうと<ruby>思<rt>おも</rt></ruby>います。",
+        "I think that view is wrong."
+      ],
+      [
+        "<ruby>毎日<rt>まいにち</rt></ruby>ニュースを<ruby>見<rt>み</rt></ruby>ます。",
+        "I watch the news every day."
+      ]
+    ],
+    "dialogue": [
+      [
+        "けん",
+        "この<ruby>本<rt>ほん</rt></ruby>、どう<ruby>思<rt>おも</rt></ruby>いますか。",
+        "アナ",
+        "とてもおもしろいと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      [
+        "リー",
+        "あしたは<ruby>雨<rt>あめ</rt></ruby>がふると<ruby>思<rt>おも</rt></ruby>いますか。",
+        "ゆき",
+        "たぶんふらないと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      [
+        "<ruby>先生<rt>せんせい</rt></ruby>",
+        "マイさんの<ruby>意見<rt>いけん</rt></ruby>はどうですか。",
+        "マイ",
+        "わたしもそう<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      [
+        "たなか",
+        "このこたえはただしいですか。",
+        "リン",
+        "いいえ、ちがうと<ruby>思<rt>おも</rt></ruby>います。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete しんかんせんに＿＿ことがあります。",
+        "options": [
+          "のる",
+          "のった",
+          "のって",
+          "のります"
+        ],
+        "correct": "のった",
+        "explanation": "Experience uses the た-form before ことがあります."
+      },
+      {
+        "prompt": "What does <ruby>意見<rt>いけん</rt></ruby> mean?",
+        "options": [
+          "meaning",
+          "news",
+          "opinion",
+          "popularity"
+        ],
+        "correct": "opinion",
+        "explanation": "<ruby>意見<rt>いけん</rt></ruby> is an opinion."
+      },
+      {
+        "prompt": "Complete: あしたは<ruby>雨<rt>あめ</rt></ruby>が＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+        "options": [
+          "ふります",
+          "ふって",
+          "ふるだ",
+          "ふる"
+        ],
+        "correct": "ふる",
+        "explanation": "The thought before と is in the plain form."
+      },
+      {
+        "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>はべんり＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+        "options": [
+          "だ",
+          "です",
+          "な",
+          "の"
+        ],
+        "correct": "だ",
+        "explanation": "な-adjectives need だ before と<ruby>思<rt>おも</rt></ruby>います."
+      },
+      {
+        "prompt": "How do you say \"I don't think Tanaka will come\"?",
+        "options": [
+          "たなかさんは<ruby>来<rt>き</rt></ruby>ませんと<ruby>思<rt>おも</rt></ruby>います。",
+          "たなかさんは<ruby>来<rt>こ</rt></ruby>ないと<ruby>思<rt>おも</rt></ruby>います。",
+          "たなかさんは<ruby>来<rt>こ</rt></ruby>ないだと<ruby>思<rt>おも</rt></ruby>います。",
+          "たなかさんは<ruby>来<rt>き</rt></ruby>てと<ruby>思<rt>おも</rt></ruby>います。"
+        ],
+        "correct": "たなかさんは<ruby>来<rt>こ</rt></ruby>ないと<ruby>思<rt>おも</rt></ruby>います。",
+        "explanation": "Make the thought negative, in the plain form."
+      },
+      {
+        "prompt": "Choose the open question that asks for an opinion.",
+        "options": [
+          "<ruby>何<rt>なに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>いますか。",
+          "どこと<ruby>思<rt>おも</rt></ruby>いますか。",
+          "どう<ruby>思<rt>おも</rt></ruby>いますか。",
+          "どう<ruby>思<rt>おも</rt></ruby>いましょうか。"
+        ],
+        "correct": "どう<ruby>思<rt>おも</rt></ruby>いますか。",
+        "explanation": "どう<ruby>思<rt>おも</rt></ruby>いますか asks what someone thinks."
+      },
+      {
+        "prompt": "Choose the meaning of わたしもそう<ruby>思<rt>おも</rt></ruby>います。",
+        "options": [
+          "I don't think so.",
+          "Do you think so too?",
+          "I will think about it.",
+          "I think so too."
+        ],
+        "correct": "I think so too.",
+        "explanation": "そう<ruby>思<rt>おも</rt></ruby>います: I think so; も: too."
+      },
+      {
+        "prompt": "Which verb means to think something over carefully?",
+        "options": [
+          "<ruby>考<rt>かんが</rt></ruby>える",
+          "<ruby>思<rt>おも</rt></ruby>う",
+          "ちがう",
+          "<ruby>見<rt>み</rt></ruby>る"
+        ],
+        "correct": "<ruby>考<rt>かんが</rt></ruby>える",
+        "explanation": "<ruby>考<rt>かんが</rt></ruby>える is careful thinking; <ruby>思<rt>おも</rt></ruby>う is a quick opinion."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "A friend asks: このレストラン、どう<ruby>思<rt>おも</rt></ruby>う？ You think it is cheap. Which polite answer fits?",
+        "options": [
+          "<ruby>安<rt>やす</rt></ruby>いだと<ruby>思<rt>おも</rt></ruby>います。",
+          "<ruby>安<rt>やす</rt></ruby>いですと<ruby>思<rt>おも</rt></ruby>います。",
+          "<ruby>安<rt>やす</rt></ruby>いと<ruby>思<rt>おも</rt></ruby>いますか。",
+          "<ruby>安<rt>やす</rt></ruby>いと<ruby>思<rt>おも</rt></ruby>います。"
+        ],
+        "correct": "<ruby>安<rt>やす</rt></ruby>いと<ruby>思<rt>おも</rt></ruby>います。",
+        "explanation": "い-adjectives take no だ before と<ruby>思<rt>おも</rt></ruby>います."
+      },
+      {
+        "prompt": "Choose the sentence that means: I think Kyoto is a beautiful town.",
+        "options": [
+          "きょうとはきれいなまちだと<ruby>思<rt>おも</rt></ruby>います。",
+          "きょうとはきれいなまちと<ruby>思<rt>おも</rt></ruby>います。",
+          "きょうとはきれいなまちですと<ruby>思<rt>おも</rt></ruby>います。",
+          "きょうとはきれいだなまちと<ruby>思<rt>おも</rt></ruby>います。"
+        ],
+        "correct": "きょうとはきれいなまちだと<ruby>思<rt>おも</rt></ruby>います。",
+        "explanation": "A noun before と<ruby>思<rt>おも</rt></ruby>います needs だ."
+      },
+      {
+        "prompt": "Read: たぶんふらないと<ruby>思<rt>おも</rt></ruby>います。 What does the speaker think?",
+        "options": [
+          "It will probably rain.",
+          "It probably won't rain.",
+          "It rained yesterday.",
+          "It is raining now."
+        ],
+        "correct": "It probably won't rain.",
+        "explanation": "たぶん: probably; ふらない: won't fall."
+      },
+      {
+        "prompt": "Someone says something you disagree with. Which reply is polite?",
+        "options": [
+          "それはだめです。",
+          "ちがう！",
+          "わたしはそうは<ruby>思<rt>おも</rt></ruby>いません。",
+          "そう<ruby>思<rt>おも</rt></ruby>いますか。"
+        ],
+        "correct": "わたしはそうは<ruby>思<rt>おも</rt></ruby>いません。",
+        "explanation": "そうは<ruby>思<rt>おも</rt></ruby>いません disagrees politely."
+      },
+      {
+        "prompt": "Review (N5): complete ここに<ruby>車<rt>くるま</rt></ruby>を＿＿ください。 (please don't park)",
+        "options": [
+          "とめなくて",
+          "とめないて",
+          "とめて",
+          "とめないで"
+        ],
+        "correct": "とめないで",
+        "explanation": "ない-form + でください."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-1-they-said",
+    "slug": "n4-unit-1-they-said",
+    "unitId": "japanese-n4-unit-1",
+    "level": "N4",
+    "unitNumber": 1,
+    "lessonNumber": 2,
+    "isReview": false,
+    "title": "They Said…",
+    "titleJp": "〜と<ruby>言<rt>い</rt></ruby>っていました",
+    "objectives": [
+      "I can pass on what someone said and ask whether someone knows something.",
+      "Quote with to iimashita / to itte imashita",
+      "Put a question inside a sentence with ka and ka dou ka",
+      "Use <ruby>知<rt>し</rt></ruby>っています and <ruby>知<rt>し</rt></ruby>りません"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>言<rt>い</rt></ruby>う",
+        "iu",
+        "to say"
+      ],
+      [
+        "<ruby>聞<rt>き</rt></ruby>く",
+        "kiku",
+        "to ask, to listen"
+      ],
+      [
+        "<ruby>答<rt>こた</rt></ruby>える",
+        "kotaeru",
+        "to answer"
+      ],
+      [
+        "<ruby>答<rt>こた</rt></ruby>え",
+        "kotae",
+        "answer"
+      ],
+      [
+        "<ruby>知<rt>し</rt></ruby>る",
+        "shiru",
+        "to come to know"
+      ],
+      [
+        "<ruby>明日<rt>あした</rt></ruby>",
+        "ashita",
+        "tomorrow"
+      ],
+      [
+        "<ruby>明<rt>あか</rt></ruby>るい",
+        "akarui",
+        "bright, cheerful"
+      ],
+      [
+        "しつもん",
+        "shitsumon",
+        "question"
+      ],
+      [
+        "ことば",
+        "kotoba",
+        "word, language"
+      ],
+      [
+        "つたえる",
+        "tsutaeru",
+        "to pass on (a message)"
+      ]
+    ],
+    "concept": {
+      "title": "Passing on words",
+      "text": "To report what someone said, put their words in the plain form before と<ruby>言<rt>い</rt></ruby>いました. For a message someone gave you to pass on, Japanese usually says と<ruby>言<rt>い</rt></ruby>っていました (they were saying).\n\nA question can also sit inside a sentence. End a question-word question with か: <ruby>何時<rt>なんじ</rt></ruby>か<ruby>知<rt>し</rt></ruby>っていますか (do you know what time…). A yes/no question takes かどうか (whether or not).\n\n<ruby>知<rt>し</rt></ruby>る is special: \"I know\" is <ruby>知<rt>し</rt></ruby>っています, but \"I don't know\" is <ruby>知<rt>し</rt></ruby>りません.",
+      "examples": [
+        "plain form + と<ruby>言<rt>い</rt></ruby>っていました",
+        "question word … か <ruby>知<rt>し</rt></ruby>っていますか",
+        "… かどうか <ruby>知<rt>し</rt></ruby>りません"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "They said that…",
+        "pattern": "plain form + と<ruby>言<rt>い</rt></ruby>いました / と<ruby>言<rt>い</rt></ruby>っていました",
+        "explanation": "The reported words take the plain form and と. Use <ruby>言<rt>い</rt></ruby>っていました when passing on a message or something you heard someone say.",
+        "examples": [
+          {
+            "japanese": "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>テストがあると<ruby>言<rt>い</rt></ruby>っていました。",
+            "romaji": "",
+            "meaning": "The teacher said there's a test tomorrow."
+          },
+          {
+            "japanese": "リーさんはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>いました。",
+            "romaji": "",
+            "meaning": "Lee said he won't go to the party."
+          },
+          {
+            "japanese": "アナさんは<ruby>日本<rt>にほん</rt></ruby>のりょうりがすきだと<ruby>言<rt>い</rt></ruby>っていました。",
+            "romaji": "",
+            "meaning": "Anna was saying she likes Japanese food."
+          },
+          {
+            "japanese": "たなかさんに<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>むとつたえてください。",
+            "romaji": "",
+            "meaning": "Please tell Tanaka that I'll be off tomorrow."
+          },
+          {
+            "japanese": "<ruby>友<rt>とも</rt></ruby>だちに「ありがとう」と<ruby>言<rt>い</rt></ruby>いました。",
+            "romaji": "",
+            "meaning": "I said \"thank you\" to my friend."
+          }
+        ],
+        "notes": [
+          "Wrong: <ruby>行<rt>い</rt></ruby>きませんと<ruby>言<rt>い</rt></ruby>いました. The reported part is plain: <ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>いました.",
+          "Quote someone's exact words with 「…」と<ruby>言<rt>い</rt></ruby>いました."
+        ]
+      },
+      {
+        "title": "Do you know…? / I don't know whether…",
+        "pattern": "〜か / 〜かどうか + <ruby>知<rt>し</rt></ruby>っていますか",
+        "explanation": "A question with a question word ends in か inside the sentence. A yes/no question ends in かどうか. Nouns and な-adjectives drop だ before か.",
+        "examples": [
+          {
+            "japanese": "テストは<ruby>何時<rt>なんじ</rt></ruby>からか<ruby>知<rt>し</rt></ruby>っていますか。",
+            "romaji": "",
+            "meaning": "Do you know what time the test starts?"
+          },
+          {
+            "japanese": "リーさんがどこにいるか<ruby>知<rt>し</rt></ruby>りません。",
+            "romaji": "",
+            "meaning": "I don't know where Lee is."
+          },
+          {
+            "japanese": "<ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>がふるかどうか、わかりません。",
+            "romaji": "",
+            "meaning": "I don't know whether it will rain tomorrow."
+          },
+          {
+            "japanese": "このことばの<ruby>答<rt>こた</rt></ruby>えがただしいかどうか、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>きました。",
+            "romaji": "",
+            "meaning": "I asked the teacher whether this answer was right."
+          }
+        ],
+        "notes": [
+          "\"I don't know\" is <ruby>知<rt>し</rt></ruby>りません, not <ruby>知<rt>し</rt></ruby>っていません.",
+          "わかりません (I can't tell) is often softer than <ruby>知<rt>し</rt></ruby>りません."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "しつもんがある<ruby>人<rt>ひと</rt></ruby>は、<ruby>手<rt>て</rt></ruby>を<ruby>上<rt>あ</rt></ruby>げてください。",
+        "Anyone with a question, please raise your hand."
+      ],
+      [
+        "このへやは<ruby>明<rt>あか</rt></ruby>るいですね。",
+        "This room is bright, isn't it."
+      ],
+      [
+        "<ruby>先生<rt>せんせい</rt></ruby>のしつもんに<ruby>答<rt>こた</rt></ruby>えました。",
+        "I answered the teacher's question."
+      ],
+      [
+        "その<ruby>答<rt>こた</rt></ruby>えは<ruby>知<rt>し</rt></ruby>りません。",
+        "I don't know the answer to that."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "けんさんは<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>っていましたか。",
+        "リー",
+        "<ruby>明日<rt>あした</rt></ruby>はいそがしいと<ruby>言<rt>い</rt></ruby>っていました。"
+      ],
+      [
+        "マイ",
+        "テストが<ruby>何時<rt>なんじ</rt></ruby>からか<ruby>知<rt>し</rt></ruby>っていますか。",
+        "ゆき",
+        "くじからだと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      [
+        "けん",
+        "たなかさんの<ruby>電話<rt>でんわ</rt></ruby>ばんごうを<ruby>知<rt>し</rt></ruby>っていますか。",
+        "リン",
+        "いいえ、<ruby>知<rt>し</rt></ruby>りません。"
+      ],
+      [
+        "<ruby>先生<rt>せんせい</rt></ruby>",
+        "しつもんがありますか。",
+        "リー",
+        "はい。このことばはどう<ruby>読<rt>よ</rt></ruby>みますか。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete あしたは<ruby>雨<rt>あめ</rt></ruby>がふる＿＿<ruby>思<rt>おも</rt></ruby>います。",
+        "options": [
+          "を",
+          "が",
+          "と",
+          "に"
+        ],
+        "correct": "と",
+        "explanation": "と marks the thought before <ruby>思<rt>おも</rt></ruby>います."
+      },
+      {
+        "prompt": "What does <ruby>答<rt>こた</rt></ruby>える mean?",
+        "options": [
+          "to ask",
+          "to know",
+          "to pass on",
+          "to answer"
+        ],
+        "correct": "to answer",
+        "explanation": "<ruby>答<rt>こた</rt></ruby>える is to answer; <ruby>聞<rt>き</rt></ruby>く is to ask."
+      },
+      {
+        "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>テストが＿＿と<ruby>言<rt>い</rt></ruby>っていました。",
+        "options": [
+          "ある",
+          "あります",
+          "あって",
+          "あるだ"
+        ],
+        "correct": "ある",
+        "explanation": "Reported words are in the plain form."
+      },
+      {
+        "prompt": "How do you say \"I don't know\"?",
+        "options": [
+          "<ruby>知<rt>し</rt></ruby>っていません",
+          "<ruby>知<rt>し</rt></ruby>りません",
+          "<ruby>知<rt>し</rt></ruby>らないです",
+          "<ruby>知<rt>し</rt></ruby>りていません"
+        ],
+        "correct": "<ruby>知<rt>し</rt></ruby>りません",
+        "explanation": "The negative of <ruby>知<rt>し</rt></ruby>っています is <ruby>知<rt>し</rt></ruby>りません."
+      },
+      {
+        "prompt": "Complete: テストは<ruby>何時<rt>なんじ</rt></ruby>から＿＿<ruby>知<rt>し</rt></ruby>っていますか。",
+        "options": [
+          "と",
+          "かどうか",
+          "か",
+          "を"
+        ],
+        "correct": "か",
+        "explanation": "A question-word question ends in か inside the sentence."
+      },
+      {
+        "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>がふる＿＿わかりません。",
+        "options": [
+          "か",
+          "と",
+          "が",
+          "かどうか"
+        ],
+        "correct": "かどうか",
+        "explanation": "A yes/no question inside a sentence ends in かどうか."
+      },
+      {
+        "prompt": "How is 明日⁠ read?",
+        "options": [
+          "あした",
+          "めいにち",
+          "あかび",
+          "あすび"
+        ],
+        "correct": "あした",
+        "explanation": "明日⁠ has a special reading: あした."
+      },
+      {
+        "prompt": "Choose the meaning of リーさんはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>いました。",
+        "options": [
+          "Lee said he will go to the party.",
+          "Lee said he won't go to the party.",
+          "Lee didn't say anything about the party.",
+          "Lee asked whether to go to the party."
+        ],
+        "correct": "Lee said he won't go to the party.",
+        "explanation": "<ruby>行<rt>い</rt></ruby>かない: won't go; と<ruby>言<rt>い</rt></ruby>いました: said."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "You want to pass on Ken's message that he will be late. Which sentence fits?",
+        "options": [
+          "けんさんはおくれると<ruby>言<rt>い</rt></ruby>っていました。",
+          "けんさんはおくれますと<ruby>言<rt>い</rt></ruby>っていました。",
+          "けんさんはおくれるか<ruby>言<rt>い</rt></ruby>っていました。",
+          "けんさんはおくれると<ruby>聞<rt>き</rt></ruby>いていました。"
+        ],
+        "correct": "けんさんはおくれると<ruby>言<rt>い</rt></ruby>っていました。",
+        "explanation": "Plain form + と<ruby>言<rt>い</rt></ruby>っていました passes on a message."
+      },
+      {
+        "prompt": "Choose the sentence that means: I don't know whether Mai will come.",
+        "options": [
+          "マイさんが<ruby>来<rt>く</rt></ruby>るか<ruby>知<rt>し</rt></ruby>っていません。",
+          "マイさんが<ruby>来<rt>く</rt></ruby>るかどうか<ruby>知<rt>し</rt></ruby>りません。",
+          "マイさんが<ruby>来<rt>く</rt></ruby>るかどうか<ruby>知<rt>し</rt></ruby>っていますか。",
+          "マイさんが<ruby>来<rt>く</rt></ruby>ると<ruby>知<rt>し</rt></ruby>りません。"
+        ],
+        "correct": "マイさんが<ruby>来<rt>く</rt></ruby>るかどうか<ruby>知<rt>し</rt></ruby>りません。",
+        "explanation": "かどうか for a yes/no question; <ruby>知<rt>し</rt></ruby>りません for don't know."
+      },
+      {
+        "prompt": "Read: アナさんは<ruby>日本<rt>にほん</rt></ruby>のりょうりがすきだと<ruby>言<rt>い</rt></ruby>っていました。 What did Anna say?",
+        "options": [
+          "She can cook Japanese food.",
+          "She doesn't like Japanese food.",
+          "She likes Japanese food.",
+          "She wants to go to Japan."
+        ],
+        "correct": "She likes Japanese food.",
+        "explanation": "すきだ: likes."
+      },
+      {
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "いまどこにいるかどうか<ruby>知<rt>し</rt></ruby>っていますか。",
+          "いまどこにいると<ruby>知<rt>し</rt></ruby>っていますか。",
+          "いまどこにいますか<ruby>知<rt>し</rt></ruby>っていますか。",
+          "いまどこにいるか<ruby>知<rt>し</rt></ruby>っていますか。"
+        ],
+        "correct": "いまどこにいるか<ruby>知<rt>し</rt></ruby>っていますか。",
+        "explanation": "A question-word question takes か, in the plain form."
+      },
+      {
+        "prompt": "Review: complete <ruby>日本<rt>にほん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>はべんり＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+        "options": [
+          "だ",
+          "です",
+          "な",
+          "の"
+        ],
+        "correct": "だ",
+        "explanation": "な-adjectives need だ before と<ruby>思<rt>おも</rt></ruby>います."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-1-the-book-i-bought",
+    "slug": "n4-unit-1-the-book-i-bought",
+    "unitId": "japanese-n4-unit-1",
+    "level": "N4",
+    "unitNumber": 1,
+    "lessonNumber": 3,
+    "isReview": false,
+    "title": "The Book I Bought",
+    "titleJp": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+    "objectives": [
+      "I can describe people and things with a whole clause.",
+      "Put a plain-form clause before a noun",
+      "Mark the doer inside the clause with が",
+      "Talk about lost things, shops and houses"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>物<rt>もの</rt></ruby>",
+        "mono",
+        "thing"
+      ],
+      [
+        "<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>",
+        "tabemono",
+        "food"
+      ],
+      [
+        "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>",
+        "nomimono",
+        "drink"
+      ],
+      [
+        "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>",
+        "kaimono",
+        "shopping"
+      ],
+      [
+        "わすれ<ruby>物<rt>もの</rt></ruby>",
+        "wasuremono",
+        "something left behind"
+      ],
+      [
+        "<ruby>本屋<rt>ほんや</rt></ruby>",
+        "hon'ya",
+        "bookshop"
+      ],
+      [
+        "<ruby>花屋<rt>はなや</rt></ruby>",
+        "hanaya",
+        "florist"
+      ],
+      [
+        "<ruby>家<rt>いえ</rt></ruby>",
+        "ie",
+        "house, home"
+      ],
+      [
+        "かぎ",
+        "kagi",
+        "key"
+      ],
+      [
+        "めがね",
+        "megane",
+        "glasses"
+      ],
+      [
+        "かける",
+        "kakeru",
+        "to put on (glasses)"
+      ]
+    ],
+    "concept": {
+      "title": "Clauses that describe nouns",
+      "text": "In Japanese, whatever describes a noun comes before it. You already do this with adjectives: <ruby>安<rt>やす</rt></ruby>い<ruby>本<rt>ほん</rt></ruby>. A whole plain-form clause works the same way:\n\nきのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby> (the book I bought yesterday)\nめがねをかけている<ruby>人<rt>ひと</rt></ruby> (the person wearing glasses)\n<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>店<rt>みせ</rt></ruby> (the shop in front of the station)\n\nThere is no word like \"which\" or \"who\": the clause simply joins the noun. The person doing the action inside the clause takes が, not は.",
+      "examples": [
+        "plain-form clause + N",
+        "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+        "<ruby>母<rt>はは</rt></ruby>がつくったりょうり"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Describing a noun with a clause",
+        "pattern": "plain form + N",
+        "explanation": "Put the clause in the plain form directly before the noun. Its tense is its own: <ruby>買<rt>か</rt></ruby>う<ruby>本<rt>ほん</rt></ruby> (a book I will buy), <ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby> (a book I bought).",
+        "examples": [
+          {
+            "japanese": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>はおもしろいです。",
+            "romaji": "",
+            "meaning": "The book I bought yesterday is interesting."
+          },
+          {
+            "japanese": "めがねをかけている<ruby>人<rt>ひと</rt></ruby>がリーさんです。",
+            "romaji": "",
+            "meaning": "The person wearing glasses is Lee."
+          },
+          {
+            "japanese": "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>は<ruby>大<rt>おお</rt></ruby>きいです。",
+            "romaji": "",
+            "meaning": "The bookshop in front of the station is big."
+          },
+          {
+            "japanese": "<ruby>日本<rt>にほん</rt></ruby>で<ruby>食<rt>た</rt></ruby>べた<ruby>物<rt>もの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、すしがいちばんおいしかったです。",
+            "romaji": "",
+            "meaning": "Of the things I ate in Japan, sushi was the tastiest."
+          },
+          {
+            "japanese": "あした<ruby>行<rt>い</rt></ruby>く<ruby>店<rt>みせ</rt></ruby>はどこですか。",
+            "romaji": "",
+            "meaning": "Where is the shop we're going to tomorrow?"
+          }
+        ],
+        "notes": [
+          "Wrong: きのう<ruby>買<rt>か</rt></ruby>いました<ruby>本<rt>ほん</rt></ruby>. The clause is in the plain form.",
+          "Wrong: きのう<ruby>買<rt>か</rt></ruby>ったの<ruby>本<rt>ほん</rt></ruby>. Nothing comes between the clause and the noun."
+        ]
+      },
+      {
+        "title": "Who did it: が inside the clause",
+        "pattern": "N が + plain form + N",
+        "explanation": "Inside a describing clause, the person doing the action takes が. は would make them the topic of the whole sentence instead.",
+        "examples": [
+          {
+            "japanese": "<ruby>母<rt>はは</rt></ruby>がつくったりょうりはおいしいです。",
+            "romaji": "",
+            "meaning": "The food my mother made is delicious."
+          },
+          {
+            "japanese": "これは<ruby>友<rt>とも</rt></ruby>だちがかいたえです。",
+            "romaji": "",
+            "meaning": "This is a picture my friend drew."
+          },
+          {
+            "japanese": "わたしがすんでいる<ruby>家<rt>いえ</rt></ruby>はふるいです。",
+            "romaji": "",
+            "meaning": "The house I live in is old."
+          },
+          {
+            "japanese": "<ruby>先生<rt>せんせい</rt></ruby>が<ruby>書<rt>か</rt></ruby>いた<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みました。",
+            "romaji": "",
+            "meaning": "I read a book the teacher wrote."
+          },
+          {
+            "japanese": "リーさんがすきな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。",
+            "romaji": "",
+            "meaning": "What food does Lee like?"
+          }
+        ],
+        "notes": [
+          "Wrong: わたしはすんでいる<ruby>家<rt>いえ</rt></ruby>. Say わたしがすんでいる<ruby>家<rt>いえ</rt></ruby>.",
+          "な-adjectives keep な before the noun: リーさんがすきな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "これはだれのわすれ<ruby>物<rt>もの</rt></ruby>ですか。",
+        "Who left this behind?"
+      ],
+      [
+        "かぎをわすれた<ruby>人<rt>ひと</rt></ruby>はいませんか。",
+        "Has anyone forgotten their key?"
+      ],
+      [
+        "<ruby>花屋<rt>はなや</rt></ruby>できれいな<ruby>花<rt>はな</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。",
+        "I bought some pretty flowers at the florist."
+      ],
+      [
+        "<ruby>毎週<rt>まいしゅう</rt></ruby>しゅうまつに<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+        "I go shopping every weekend."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "それ、きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>ですか。",
+        "けん",
+        "はい、<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>本屋<rt>ほんや</rt></ruby>で<ruby>買<rt>か</rt></ruby>いました。"
+      ],
+      [
+        "リー",
+        "めがねをかけている<ruby>人<rt>ひと</rt></ruby>はだれですか。",
+        "ゆき",
+        "わたしの<ruby>先生<rt>せんせい</rt></ruby>です。"
+      ],
+      [
+        "マイ",
+        "これ、だれのわすれ<ruby>物<rt>もの</rt></ruby>か<ruby>知<rt>し</rt></ruby>っていますか。",
+        "リン",
+        "たぶんたなかさんのかぎだと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      [
+        "けん",
+        "<ruby>日本<rt>にほん</rt></ruby>で<ruby>食<rt>た</rt></ruby>べた<ruby>物<rt>もの</rt></ruby>で、<ruby>何<rt>なに</rt></ruby>がいちばんおいしかったですか。",
+        "アナ",
+        "きょうとで<ruby>食<rt>た</rt></ruby>べたうどんです。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete テストは<ruby>何時<rt>なんじ</rt></ruby>から＿＿<ruby>知<rt>し</rt></ruby>っていますか。",
+        "options": [
+          "と",
+          "かどうか",
+          "を",
+          "か"
+        ],
+        "correct": "か",
+        "explanation": "A question-word question ends in か inside the sentence."
+      },
+      {
+        "prompt": "What does わすれ<ruby>物<rt>もの</rt></ruby> mean?",
+        "options": [
+          "something left behind",
+          "shopping",
+          "a drink",
+          "a present"
+        ],
+        "correct": "something left behind",
+        "explanation": "わすれ<ruby>物<rt>もの</rt></ruby> is something you forgot and left behind."
+      },
+      {
+        "prompt": "How do you say \"the book I bought yesterday\"?",
+        "options": [
+          "きのう<ruby>買<rt>か</rt></ruby>いました<ruby>本<rt>ほん</rt></ruby>",
+          "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+          "<ruby>本<rt>ほん</rt></ruby>きのう<ruby>買<rt>か</rt></ruby>った",
+          "きのう<ruby>買<rt>か</rt></ruby>ったの<ruby>本<rt>ほん</rt></ruby>"
+        ],
+        "correct": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+        "explanation": "A plain-form clause goes directly before the noun."
+      },
+      {
+        "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>＿＿つくったりょうりはおいしいです。",
+        "options": [
+          "は",
+          "を",
+          "が",
+          "で"
+        ],
+        "correct": "が",
+        "explanation": "The doer inside a describing clause takes が."
+      },
+      {
+        "prompt": "Complete: めがねを＿＿<ruby>人<rt>ひと</rt></ruby>がリーさんです。",
+        "options": [
+          "かけています",
+          "かけるの",
+          "かけて",
+          "かけている"
+        ],
+        "correct": "かけている",
+        "explanation": "The clause before <ruby>人<rt>ひと</rt></ruby> is plain: かけている."
+      },
+      {
+        "prompt": "Which word means bookshop?",
+        "options": [
+          "<ruby>本屋<rt>ほんや</rt></ruby>",
+          "<ruby>花屋<rt>はなや</rt></ruby>",
+          "<ruby>本<rt>ほん</rt></ruby>",
+          "<ruby>家<rt>いえ</rt></ruby>"
+        ],
+        "correct": "<ruby>本屋<rt>ほんや</rt></ruby>",
+        "explanation": "<ruby>屋<rt>や</rt></ruby> after a noun names a shop."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>は<ruby>大<rt>おお</rt></ruby>きいです。",
+        "options": [
+          "The station in front of the bookshop is big.",
+          "The bookshop in front of the station is big.",
+          "I went to the big bookshop in front of the station.",
+          "The bookshop is not in front of the station."
+        ],
+        "correct": "The bookshop in front of the station is big.",
+        "explanation": "The clause <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある describes <ruby>本屋<rt>ほんや</rt></ruby>."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "You want to say \"The cake my friend made was delicious.\" Which sentence fits?",
+        "options": [
+          "<ruby>友<rt>とも</rt></ruby>だちはつくったケーキはおいしかったです。",
+          "<ruby>友<rt>とも</rt></ruby>だちがつくったケーキはおいしかったです。",
+          "<ruby>友<rt>とも</rt></ruby>だちがつくりましたケーキはおいしかったです。",
+          "<ruby>友<rt>とも</rt></ruby>だちをつくったケーキはおいしかったです。"
+        ],
+        "correct": "<ruby>友<rt>とも</rt></ruby>だちがつくったケーキはおいしかったです。",
+        "explanation": "Doer + が, plain clause, then the noun."
+      },
+      {
+        "prompt": "Read: これはリーさんがかいたえです。 Who drew the picture?",
+        "options": [
+          "The speaker",
+          "A teacher",
+          "Lee",
+          "Nobody knows"
+        ],
+        "correct": "Lee",
+        "explanation": "リーさんがかいた: Lee drew it."
+      },
+      {
+        "prompt": "Which phrase means \"the shop we went to last week\"?",
+        "options": [
+          "せんしゅう<ruby>行<rt>い</rt></ruby>く<ruby>店<rt>みせ</rt></ruby>",
+          "<ruby>店<rt>みせ</rt></ruby>せんしゅう<ruby>行<rt>い</rt></ruby>った",
+          "せんしゅう<ruby>行<rt>い</rt></ruby>ったの<ruby>店<rt>みせ</rt></ruby>",
+          "せんしゅう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>"
+        ],
+        "correct": "せんしゅう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>",
+        "explanation": "Past clause, then the noun."
+      },
+      {
+        "prompt": "Which sentence is NOT correct?",
+        "options": [
+          "きのう<ruby>見<rt>み</rt></ruby>ましたえいがはおもしろかったです。",
+          "きのう<ruby>見<rt>み</rt></ruby>たえいがはおもしろかったです。",
+          "わたしが<ruby>見<rt>み</rt></ruby>たえいがはおもしろかったです。",
+          "きのう<ruby>見<rt>み</rt></ruby>たえいがはおもしろくなかったです。"
+        ],
+        "correct": "きのう<ruby>見<rt>み</rt></ruby>ましたえいがはおもしろかったです。",
+        "explanation": "A describing clause must be in the plain form."
+      },
+      {
+        "prompt": "Review: complete <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>テストが＿＿と<ruby>言<rt>い</rt></ruby>っていました。",
+        "options": [
+          "あります",
+          "ある",
+          "あって",
+          "あるだ"
+        ],
+        "correct": "ある",
+        "explanation": "Reported words are in the plain form."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-1-what-happened",
+    "slug": "n4-unit-1-what-happened",
+    "unitId": "japanese-n4-unit-1",
+    "level": "N4",
+    "unitNumber": 1,
+    "lessonNumber": 4,
+    "isReview": false,
+    "title": "What Happened?",
+    "titleJp": "どうしたんですか",
+    "objectives": [
+      "I can explain a situation and ask what happened.",
+      "Explain with んです",
+      "Ask for an explanation with んですか",
+      "Open a request with んですが"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>病気<rt>びょうき</rt></ruby>",
+        "byouki",
+        "illness"
+      ],
+      [
+        "<ruby>病院<rt>びょういん</rt></ruby>",
+        "byouin",
+        "hospital"
+      ],
+      [
+        "<ruby>医者<rt>いしゃ</rt></ruby>",
+        "isha",
+        "doctor"
+      ],
+      [
+        "かぜ",
+        "kaze",
+        "a cold"
+      ],
+      [
+        "かぜをひく",
+        "kaze o hiku",
+        "to catch a cold"
+      ],
+      [
+        "ねつ",
+        "netsu",
+        "fever"
+      ],
+      [
+        "いたい",
+        "itai",
+        "painful, sore"
+      ],
+      [
+        "のど",
+        "nodo",
+        "throat"
+      ],
+      [
+        "おなか",
+        "onaka",
+        "stomach"
+      ],
+      [
+        "くすり",
+        "kusuri",
+        "medicine"
+      ],
+      [
+        "けが",
+        "kega",
+        "injury"
+      ]
+    ],
+    "concept": {
+      "title": "Explaining with んです",
+      "text": "Adding んです to a plain form turns a statement into an explanation: it gives the background to what is going on. In a question, んですか asks for that background, which shows interest or concern.\n\nどうしたんですか。 What's wrong? / What happened?\nかぜをひいたんです。 I've caught a cold (that's why).\n\nNouns and な-adjectives take な: テストなんです. In casual speech んです becomes んだ, and んですか becomes の？.",
+      "examples": [
+        "plain form + んです",
+        "N / な-adj + なんです",
+        "〜んですが、〜"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Explaining and asking why",
+        "pattern": "plain form + んです / んですか",
+        "explanation": "Use んです to explain a situation, and んですか to ask about one you have noticed. だ after a noun or な-adjective becomes な.",
+        "examples": [
+          {
+            "japanese": "どうしたんですか。",
+            "romaji": "",
+            "meaning": "What's wrong?"
+          },
+          {
+            "japanese": "かぜをひいたんです。",
+            "romaji": "",
+            "meaning": "I've caught a cold."
+          },
+          {
+            "japanese": "のどがいたいんです。",
+            "romaji": "",
+            "meaning": "My throat hurts."
+          },
+          {
+            "japanese": "<ruby>明日<rt>あした</rt></ruby>はテストなんです。",
+            "romaji": "",
+            "meaning": "Tomorrow is a test, you see."
+          },
+          {
+            "japanese": "どうして<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くんですか。",
+            "romaji": "",
+            "meaning": "Why are you going to the hospital?"
+          }
+        ],
+        "notes": [
+          "Asked too often about personal matters, んですか can sound nosy.",
+          "Wrong: テストだんです. Say テストなんです."
+        ]
+      },
+      {
+        "title": "Setting the scene for a request",
+        "pattern": "〜んですが、〜",
+        "explanation": "んですが gives the background first, and the request or question follows. It sounds softer than asking straight away.",
+        "examples": [
+          {
+            "japanese": "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+            "romaji": "",
+            "meaning": "I'd like to go to a hospital. Where is there one?"
+          },
+          {
+            "japanese": "ねつがあるんですが、<ruby>休<rt>やす</rt></ruby>んでもいいですか。",
+            "romaji": "",
+            "meaning": "I have a fever. May I take the day off?"
+          },
+          {
+            "japanese": "くすりがほしいんですが、どこにありますか。",
+            "romaji": "",
+            "meaning": "I'd like some medicine. Where can I find it?"
+          },
+          {
+            "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>がよくわからないんですが、ゆっくり<ruby>話<rt>はな</rt></ruby>してください。",
+            "romaji": "",
+            "meaning": "I don't understand Japanese well, so please speak slowly."
+          }
+        ],
+        "notes": [
+          "The が here does not mean but: it opens the request.",
+          "The second half can also be left unsaid: <ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが…"
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "<ruby>父<rt>ちち</rt></ruby>は<ruby>病気<rt>びょうき</rt></ruby>なんです。",
+        "My father is ill, you see."
+      ],
+      [
+        "<ruby>病院<rt>びょういん</rt></ruby>で<ruby>医者<rt>いしゃ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>いました。",
+        "I saw a doctor at the hospital."
+      ],
+      [
+        "このくすりを<ruby>一日<rt>いちにち</rt></ruby><ruby>三<rt>さん</rt></ruby>かい<ruby>飲<rt>の</rt></ruby>んでください。",
+        "Please take this medicine three times a day."
+      ],
+      [
+        "けがをしたんですか。",
+        "Did you hurt yourself?"
+      ]
+    ],
+    "dialogue": [
+      [
+        "<ruby>先生<rt>せんせい</rt></ruby>",
+        "リーさん、どうしたんですか。",
+        "リー",
+        "ちょっとおなかがいたいんです。"
+      ],
+      [
+        "アナ",
+        "げんきがないですね。",
+        "けん",
+        "かぜをひいたんです。ねつもあるんです。"
+      ],
+      [
+        "マイ",
+        "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+        "ゆき",
+        "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にありますよ。"
+      ],
+      [
+        "<ruby>医者<rt>いしゃ</rt></ruby>",
+        "どこがいたいんですか。",
+        "リン",
+        "のどがいたいんです。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: how do you say \"the book I bought yesterday\"?",
+        "options": [
+          "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+          "きのう<ruby>買<rt>か</rt></ruby>いました<ruby>本<rt>ほん</rt></ruby>",
+          "きのう<ruby>買<rt>か</rt></ruby>ったの<ruby>本<rt>ほん</rt></ruby>",
+          "<ruby>本<rt>ほん</rt></ruby>きのう<ruby>買<rt>か</rt></ruby>った"
+        ],
+        "correct": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+        "explanation": "A plain-form clause goes directly before the noun."
+      },
+      {
+        "prompt": "What does <ruby>医者<rt>いしゃ</rt></ruby> mean?",
+        "options": [
+          "hospital",
+          "doctor",
+          "illness",
+          "medicine"
+        ],
+        "correct": "doctor",
+        "explanation": "<ruby>医者<rt>いしゃ</rt></ruby> is a doctor; <ruby>病院<rt>びょういん</rt></ruby> is a hospital."
+      },
+      {
+        "prompt": "Complete: かぜを＿＿んです。",
+        "options": [
+          "ひきました",
+          "ひいて",
+          "ひいた",
+          "ひきた"
+        ],
+        "correct": "ひいた",
+        "explanation": "んです follows the plain form: ひいた."
+      },
+      {
+        "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>はテスト＿＿んです。",
+        "options": [
+          "だ",
+          "の",
+          "です",
+          "な"
+        ],
+        "correct": "な",
+        "explanation": "After a noun, だ becomes な before んです."
+      },
+      {
+        "prompt": "Which question asks what is wrong?",
+        "options": [
+          "どうしたんですか。",
+          "どうしますか。",
+          "どうでしたか。",
+          "どこですか。"
+        ],
+        "correct": "どうしたんですか。",
+        "explanation": "どうしたんですか asks what happened."
+      },
+      {
+        "prompt": "Choose the meaning of ねつがあるんです。",
+        "options": [
+          "I had a fever.",
+          "I have a fever, you see.",
+          "Do you have a fever?",
+          "There is no fever."
+        ],
+        "correct": "I have a fever, you see.",
+        "explanation": "んです explains the situation."
+      },
+      {
+        "prompt": "Which sentence opens a request softly?",
+        "options": [
+          "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。どこ？",
+          "<ruby>病院<rt>びょういん</rt></ruby>はどこにありますか、<ruby>行<rt>い</rt></ruby>きたい。",
+          "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+          "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですか、どこにありますか。"
+        ],
+        "correct": "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+        "explanation": "んですが gives the background before the question."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "A classmate looks unwell. What do you ask?",
+        "options": [
+          "どうしてですか。",
+          "<ruby>何<rt>なに</rt></ruby>がいいですか。",
+          "どうしたんですか。",
+          "どこに<ruby>行<rt>い</rt></ruby>くんですか。"
+        ],
+        "correct": "どうしたんですか。",
+        "explanation": "どうしたんですか shows concern and asks what happened."
+      },
+      {
+        "prompt": "Read: ねつがあるんですが、<ruby>休<rt>やす</rt></ruby>んでもいいですか。 What does the speaker want?",
+        "options": [
+          "To buy medicine",
+          "To go to a hospital",
+          "To see a teacher",
+          "To take time off"
+        ],
+        "correct": "To take time off",
+        "explanation": "<ruby>休<rt>やす</rt></ruby>んでもいいですか asks permission to take time off."
+      },
+      {
+        "prompt": "Choose: \"My throat hurts, you see.\"",
+        "options": [
+          "のどがいたいんです。",
+          "のどがいたいなんです。",
+          "のどがいたかったです。",
+          "のどがいたいんですか。"
+        ],
+        "correct": "のどがいたいんです。",
+        "explanation": "い-adjectives join んです directly."
+      },
+      {
+        "prompt": "Which word is NOT a part of the body?",
+        "options": [
+          "のど",
+          "くすり",
+          "おなか",
+          "<ruby>手<rt>て</rt></ruby>"
+        ],
+        "correct": "くすり",
+        "explanation": "くすり is medicine."
+      },
+      {
+        "prompt": "Review (N5): complete ここでたばこをすって＿＿いけません。",
+        "options": [
+          "も",
+          "を",
+          "は",
+          "が"
+        ],
+        "correct": "は",
+        "explanation": "てはいけません: must not."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-1-probably",
+    "slug": "n4-unit-1-probably",
+    "unitId": "japanese-n4-unit-1",
+    "level": "N4",
+    "unitNumber": 1,
+    "lessonNumber": 5,
+    "isReview": false,
+    "title": "Probably & Maybe",
+    "titleJp": "〜でしょう・〜かもしれません",
+    "objectives": [
+      "I can say what will probably or might happen.",
+      "Guess with でしょう and だろう",
+      "Say something might be so with かもしれません",
+      "Understand a simple weather forecast"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>朝<rt>あさ</rt></ruby>",
+        "asa",
+        "morning"
+      ],
+      [
+        "<ruby>昼<rt>ひる</rt></ruby>",
+        "hiru",
+        "midday, daytime"
+      ],
+      [
+        "<ruby>夜<rt>よる</rt></ruby>",
+        "yoru",
+        "night"
+      ],
+      [
+        "<ruby>毎朝<rt>まいあさ</rt></ruby>",
+        "maiasa",
+        "every morning"
+      ],
+      [
+        "<ruby>今夜<rt>こんや</rt></ruby>",
+        "kon'ya",
+        "tonight"
+      ],
+      [
+        "<ruby>風<rt>かぜ</rt></ruby>",
+        "kaze",
+        "wind"
+      ],
+      [
+        "ふる",
+        "furu",
+        "to fall (rain, snow)"
+      ],
+      [
+        "はれる",
+        "hareru",
+        "to clear up"
+      ],
+      [
+        "くもる",
+        "kumoru",
+        "to cloud over"
+      ],
+      [
+        "つよい",
+        "tsuyoi",
+        "strong"
+      ],
+      [
+        "<ruby>天気<rt>てんき</rt></ruby>よほう",
+        "tenki yohou",
+        "weather forecast"
+      ]
+    ],
+    "concept": {
+      "title": "How sure are you?",
+      "text": "でしょう means probably: the speaker is fairly sure. かもしれません means might or maybe: it is only a possibility. Both follow the plain form, but nouns and な-adjectives drop だ:\n\n<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。 It will probably rain.\n<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。 It might rain.\n<ruby>病気<rt>びょうき</rt></ruby>かもしれません。 He might be ill.\n\nだろう is the plain form of でしょう. You will hear it before と<ruby>思<rt>おも</rt></ruby>います and in casual speech.",
+      "examples": [
+        "plain form + でしょう / だろう",
+        "plain form + かもしれません",
+        "N / な-adj + でしょう / かもしれません"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Probably",
+        "pattern": "plain form + でしょう / だろう",
+        "explanation": "でしょう gives a fairly confident guess and is common in forecasts. Nouns and な-adjectives take でしょう without だ.",
+        "examples": [
+          {
+            "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。",
+            "romaji": "",
+            "meaning": "It will probably rain tomorrow."
+          },
+          {
+            "japanese": "<ruby>今夜<rt>こんや</rt></ruby>は<ruby>風<rt>かぜ</rt></ruby>がつよいでしょう。",
+            "romaji": "",
+            "meaning": "The wind will probably be strong tonight."
+          },
+          {
+            "japanese": "<ruby>朝<rt>あさ</rt></ruby>はさむいでしょう。",
+            "romaji": "",
+            "meaning": "It will probably be cold in the morning."
+          },
+          {
+            "japanese": "<ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。",
+            "romaji": "",
+            "meaning": "It will probably clear up from midday."
+          },
+          {
+            "japanese": "たなかさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I think Tanaka probably won't come."
+          }
+        ],
+        "notes": [
+          "With a rising voice, でしょう？ checks that the listener agrees: right?",
+          "Wrong: <ruby>雨<rt>あめ</rt></ruby>だでしょう. Say <ruby>雨<rt>あめ</rt></ruby>でしょう."
+        ]
+      },
+      {
+        "title": "Might, maybe",
+        "pattern": "plain form + かもしれません",
+        "explanation": "かもしれません says something is possible but not certain. Its plain form is かもしれない.",
+        "examples": [
+          {
+            "japanese": "<ruby>午後<rt>ごご</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。",
+            "romaji": "",
+            "meaning": "It might rain in the afternoon."
+          },
+          {
+            "japanese": "リーさんは<ruby>病気<rt>びょうき</rt></ruby>かもしれません。",
+            "romaji": "",
+            "meaning": "Lee might be ill."
+          },
+          {
+            "japanese": "このしつもんはむずかしいかもしれません。",
+            "romaji": "",
+            "meaning": "This question may be difficult."
+          },
+          {
+            "japanese": "<ruby>夜<rt>よる</rt></ruby>はくもるかもしれません。",
+            "romaji": "",
+            "meaning": "It may cloud over at night."
+          }
+        ],
+        "notes": [
+          "Wrong: <ruby>病気<rt>びょうき</rt></ruby>だかもしれません. Nouns take かもしれません directly.",
+          "たぶん (probably) often comes with でしょう, not with かもしれません."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>天気<rt>てんき</rt></ruby>よほうを<ruby>見<rt>み</rt></ruby>ます。",
+        "I check the weather forecast every morning."
+      ],
+      [
+        "<ruby>昼<rt>ひる</rt></ruby>ごはんは<ruby>何<rt>なに</rt></ruby>を<ruby>食<rt>た</rt></ruby>べましたか。",
+        "What did you have for lunch?"
+      ],
+      [
+        "<ruby>夜<rt>よる</rt></ruby>は<ruby>十一時<rt>じゅういちじ</rt></ruby>にねます。",
+        "I go to bed at eleven at night."
+      ],
+      [
+        "<ruby>風<rt>かぜ</rt></ruby>がつよいですね。",
+        "The wind is strong, isn't it."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "<ruby>明日<rt>あした</rt></ruby>の<ruby>天気<rt>てんき</rt></ruby>はどうでしょうか。",
+        "けん",
+        "<ruby>朝<rt>あさ</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>ですが、<ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。"
+      ],
+      [
+        "リー",
+        "パーティーにたなかさんも<ruby>来<rt>き</rt></ruby>ますか。",
+        "ゆき",
+        "いそがしいですから、<ruby>来<rt>こ</rt></ruby>ないかもしれません。"
+      ],
+      [
+        "マイ",
+        "<ruby>今夜<rt>こんや</rt></ruby>は<ruby>風<rt>かぜ</rt></ruby>がつよいですね。",
+        "リン",
+        "そうですね。<ruby>明日<rt>あした</rt></ruby>もつよいかもしれません。"
+      ],
+      [
+        "けん",
+        "リーさんは<ruby>来<rt>き</rt></ruby>ませんでしたね。",
+        "アナ",
+        "<ruby>病気<rt>びょうき</rt></ruby>かもしれませんね。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete <ruby>明日<rt>あした</rt></ruby>はテスト＿＿んです。",
+        "options": [
+          "だ",
+          "な",
+          "の",
+          "です"
+        ],
+        "correct": "な",
+        "explanation": "After a noun, だ becomes な before んです."
+      },
+      {
+        "prompt": "What does <ruby>天気<rt>てんき</rt></ruby>よほう mean?",
+        "options": [
+          "rain",
+          "wind",
+          "weather forecast",
+          "cloudy weather"
+        ],
+        "correct": "weather forecast",
+        "explanation": "<ruby>天気<rt>てんき</rt></ruby>よほう is a weather forecast."
+      },
+      {
+        "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。",
+        "options": [
+          "です",
+          "ました",
+          "だでしょう",
+          "でしょう"
+        ],
+        "correct": "でしょう",
+        "explanation": "でしょう follows the plain form."
+      },
+      {
+        "prompt": "Complete: リーさんは<ruby>病気<rt>びょうき</rt></ruby>＿＿。",
+        "options": [
+          "かもしれません",
+          "だかもしれません",
+          "なかもしれません",
+          "をかもしれません"
+        ],
+        "correct": "かもしれません",
+        "explanation": "Nouns take かもしれません directly."
+      },
+      {
+        "prompt": "Which sentence sounds more certain?",
+        "options": [
+          "<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。",
+          "<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。"
+        ],
+        "correct": "<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。",
+        "explanation": "でしょう is a confident guess; かもしれません is only a possibility."
+      },
+      {
+        "prompt": "How is 今夜⁠ read?",
+        "options": [
+          "こんよる",
+          "いまよる",
+          "こんや",
+          "きょうや"
+        ],
+        "correct": "こんや",
+        "explanation": "今夜⁠ is read こんや: tonight."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。",
+        "options": [
+          "It cleared up at midday.",
+          "It might rain from midday.",
+          "It will be cloudy all day.",
+          "It will probably clear up from midday."
+        ],
+        "correct": "It will probably clear up from midday.",
+        "explanation": "はれる: to clear up; でしょう: probably."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "The forecast gives a 50% chance of rain. Which sentence fits?",
+        "options": [
+          "<ruby>雨<rt>あめ</rt></ruby>がふります。",
+          "<ruby>雨<rt>あめ</rt></ruby>がふりました。",
+          "<ruby>雨<rt>あめ</rt></ruby>がふらないでしょう。",
+          "<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。"
+        ],
+        "correct": "<ruby>雨<rt>あめ</rt></ruby>がふるかもしれません。",
+        "explanation": "A 50% chance is a possibility: かもしれません."
+      },
+      {
+        "prompt": "Choose: \"I think Mai probably won't come.\"",
+        "options": [
+          "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>います。",
+          "マイさんはたぶん<ruby>来<rt>き</rt></ruby>ませんだろうと<ruby>思<rt>おも</rt></ruby>います。",
+          "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだと<ruby>思<rt>おも</rt></ruby>います。",
+          "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>いますか。"
+        ],
+        "correct": "マイさんはたぶん<ruby>来<rt>こ</rt></ruby>ないだろうと<ruby>思<rt>おも</rt></ruby>います。",
+        "explanation": "Plain form + だろうと<ruby>思<rt>おも</rt></ruby>います."
+      },
+      {
+        "prompt": "Read: <ruby>朝<rt>あさ</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>ですが、<ruby>昼<rt>ひる</rt></ruby>からはれるでしょう。 What will the afternoon probably be like?",
+        "options": [
+          "Rainy",
+          "Clear",
+          "Windy",
+          "Snowy"
+        ],
+        "correct": "Clear",
+        "explanation": "<ruby>昼<rt>ひる</rt></ruby>からはれる: clear from midday."
+      },
+      {
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "あの<ruby>店<rt>みせ</rt></ruby>はしずかだかもしれません。",
+          "あの<ruby>店<rt>みせ</rt></ruby>はしずかなかもしれません。",
+          "あの<ruby>店<rt>みせ</rt></ruby>はしずかかもしれません。",
+          "あの<ruby>店<rt>みせ</rt></ruby>はしずくかもしれません。"
+        ],
+        "correct": "あの<ruby>店<rt>みせ</rt></ruby>はしずかかもしれません。",
+        "explanation": "な-adjectives take かもしれません directly."
+      },
+      {
+        "prompt": "Review: a friend looks tired. Which question asks for an explanation?",
+        "options": [
+          "どうでしたか。",
+          "どうしますか。",
+          "どこですか。",
+          "どうしたんですか。"
+        ],
+        "correct": "どうしたんですか。",
+        "explanation": "んですか asks for the background."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-1-review",
+    "slug": "n4-unit-1-review",
+    "unitId": "japanese-n4-unit-1",
+    "level": "N4",
+    "unitNumber": 1,
+    "lessonNumber": 6,
+    "isReview": true,
+    "title": "Unit 1 Review",
+    "titleJp": "ユニット1のふくしゅう",
+    "objectives": [
+      "I can share opinions, pass on messages, describe things and explain situations.",
+      "Choose between と<ruby>思<rt>おも</rt></ruby>います, と<ruby>言<rt>い</rt></ruby>っていました, んです, でしょう and かもしれません",
+      "Use clauses to describe nouns",
+      "Read a message about being ill"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>思<rt>おも</rt></ruby>う",
+        "omou",
+        "to think"
+      ],
+      [
+        "<ruby>意見<rt>いけん</rt></ruby>",
+        "iken",
+        "opinion"
+      ],
+      [
+        "<ruby>言<rt>い</rt></ruby>う",
+        "iu",
+        "to say"
+      ],
+      [
+        "<ruby>知<rt>し</rt></ruby>る",
+        "shiru",
+        "to come to know"
+      ],
+      [
+        "<ruby>明日<rt>あした</rt></ruby>",
+        "ashita",
+        "tomorrow"
+      ],
+      [
+        "<ruby>物<rt>もの</rt></ruby>",
+        "mono",
+        "thing"
+      ],
+      [
+        "<ruby>本屋<rt>ほんや</rt></ruby>",
+        "hon'ya",
+        "bookshop"
+      ],
+      [
+        "<ruby>病院<rt>びょういん</rt></ruby>",
+        "byouin",
+        "hospital"
+      ],
+      [
+        "<ruby>医者<rt>いしゃ</rt></ruby>",
+        "isha",
+        "doctor"
+      ],
+      [
+        "<ruby>朝<rt>あさ</rt></ruby>",
+        "asa",
+        "morning"
+      ],
+      [
+        "<ruby>夜<rt>よる</rt></ruby>",
+        "yoru",
+        "night"
+      ],
+      [
+        "<ruby>天気<rt>てんき</rt></ruby>よほう",
+        "tenki yohou",
+        "weather forecast"
+      ]
+    ],
+    "concept": {
+      "title": "The plain form does the work",
+      "text": "Every pattern in this unit puts a plain-form sentence in front of something:\n\n〜と<ruby>思<rt>おも</rt></ruby>います (I think)\n〜と<ruby>言<rt>い</rt></ruby>っていました (they said)\n〜 + N (a clause describing a noun)\n〜んです (explaining)\n〜でしょう / 〜かもしれません (probably / might)\n\nWatch だ with nouns and な-adjectives: keep it before と (べんりだと<ruby>思<rt>おも</rt></ruby>います), change it to な before んです and before a noun (テストなんです, しずかな<ruby>家<rt>いえ</rt></ruby>), and drop it before でしょう and かもしれません (<ruby>雨<rt>あめ</rt></ruby>でしょう).",
+      "examples": [
+        "〜と<ruby>思<rt>おも</rt></ruby>います / 〜と<ruby>言<rt>い</rt></ruby>っていました",
+        "〜んです / 〜んですが、〜",
+        "〜でしょう / 〜かもしれません"
+      ]
+    },
+    "grammar": [],
+    "examples": [
+      [
+        "その<ruby>意見<rt>いけん</rt></ruby>はただしいと<ruby>思<rt>おも</rt></ruby>います。",
+        "I think that opinion is right."
+      ],
+      [
+        "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>むと<ruby>言<rt>い</rt></ruby>っていました。",
+        "The teacher said she'll be off tomorrow."
+      ],
+      [
+        "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>で<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>です。",
+        "It's a book I bought at the bookshop in front of the station."
+      ],
+      [
+        "<ruby>朝<rt>あさ</rt></ruby>からおなかがいたいんです。",
+        "My stomach has hurt since this morning."
+      ],
+      [
+        "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くかもしれません。",
+        "I might go to the hospital."
+      ],
+      [
+        "<ruby>夜<rt>よる</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるでしょう。",
+        "It will probably rain at night."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "けんさんはどうしたんですか。",
+        "リー",
+        "かぜをひいたと<ruby>言<rt>い</rt></ruby>っていました。"
+      ],
+      [
+        "アナ",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>く</rt></ruby>るでしょうか。",
+        "リー",
+        "ねつがありますから、<ruby>来<rt>こ</rt></ruby>ないかもしれません。"
+      ],
+      [
+        "マイ",
+        "リーさんが<ruby>読<rt>よ</rt></ruby>んでいる<ruby>本<rt>ほん</rt></ruby>はおもしろいですか。",
+        "リー",
+        "はい、とてもおもしろいと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      [
+        "ゆき",
+        "その<ruby>本<rt>ほん</rt></ruby>、どこで<ruby>買<rt>か</rt></ruby>ったか<ruby>知<rt>し</rt></ruby>っていますか。",
+        "マイ",
+        "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>います。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Complete: この<ruby>電車<rt>でんしゃ</rt></ruby>はべんり＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+        "options": [
+          "な",
+          "です",
+          "だ",
+          "の"
+        ],
+        "correct": "だ",
+        "explanation": "Keep だ before と<ruby>思<rt>おも</rt></ruby>います."
+      },
+      {
+        "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>む＿＿<ruby>言<rt>い</rt></ruby>っていました。",
+        "options": [
+          "か",
+          "を",
+          "が",
+          "と"
+        ],
+        "correct": "と",
+        "explanation": "と marks reported words."
+      },
+      {
+        "prompt": "How do you say \"I don't know\"?",
+        "options": [
+          "<ruby>知<rt>し</rt></ruby>りません",
+          "<ruby>知<rt>し</rt></ruby>っていません",
+          "<ruby>知<rt>し</rt></ruby>らないです",
+          "<ruby>知<rt>し</rt></ruby>りていません"
+        ],
+        "correct": "<ruby>知<rt>し</rt></ruby>りません",
+        "explanation": "The negative of <ruby>知<rt>し</rt></ruby>っています is <ruby>知<rt>し</rt></ruby>りません."
+      },
+      {
+        "prompt": "How do you say \"the shop I went to yesterday\"?",
+        "options": [
+          "きのう<ruby>行<rt>い</rt></ruby>きました<ruby>店<rt>みせ</rt></ruby>",
+          "きのう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>",
+          "きのう<ruby>行<rt>い</rt></ruby>ったの<ruby>店<rt>みせ</rt></ruby>",
+          "<ruby>店<rt>みせ</rt></ruby>きのう<ruby>行<rt>い</rt></ruby>った"
+        ],
+        "correct": "きのう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>",
+        "explanation": "Plain clause + noun."
+      },
+      {
+        "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>はテスト＿＿んです。",
+        "options": [
+          "だ",
+          "の",
+          "な",
+          "が"
+        ],
+        "correct": "な",
+        "explanation": "だ becomes な before んです."
+      },
+      {
+        "prompt": "Complete: <ruby>午後<rt>ごご</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。 (it might rain)",
+        "options": [
+          "でしょう",
+          "と<ruby>思<rt>おも</rt></ruby>います",
+          "んです",
+          "かもしれません"
+        ],
+        "correct": "かもしれません",
+        "explanation": "かもしれません: might."
+      },
+      {
+        "prompt": "How is 医者⁠ read?",
+        "options": [
+          "いしゃ",
+          "いじゃ",
+          "いしゃく",
+          "いもの"
+        ],
+        "correct": "いしゃ",
+        "explanation": "医者⁠ is read いしゃ."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>朝<rt>あさ</rt></ruby>からおなかがいたいんです。",
+        "options": [
+          "I ate in the morning.",
+          "My stomach has hurt since this morning.",
+          "My stomach hurt yesterday morning.",
+          "Does your stomach hurt?"
+        ],
+        "correct": "My stomach has hurt since this morning.",
+        "explanation": "<ruby>朝<rt>あさ</rt></ruby>から: since the morning; んです explains."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Read: <ruby>医者<rt>いしゃ</rt></ruby>は「かぜでしょう」と<ruby>言<rt>い</rt></ruby>いました。 How sure was the doctor?",
+        "options": [
+          "Fairly sure it is a cold",
+          "Not sure at all",
+          "Sure it is not a cold",
+          "The doctor did not say"
+        ],
+        "correct": "Fairly sure it is a cold",
+        "explanation": "でしょう is a fairly confident guess."
+      },
+      {
+        "prompt": "Choose the sentence with the right form before the noun.",
+        "options": [
+          "<ruby>母<rt>はは</rt></ruby>はつくったりょうりはおいしいです。",
+          "<ruby>母<rt>はは</rt></ruby>がつくったりょうりはおいしいです。",
+          "<ruby>母<rt>はは</rt></ruby>がつくりましたりょうりはおいしいです。",
+          "<ruby>母<rt>はは</rt></ruby>がつくったのりょうりはおいしいです。"
+        ],
+        "correct": "<ruby>母<rt>はは</rt></ruby>がつくったりょうりはおいしいです。",
+        "explanation": "Doer + が, plain clause, noun."
+      },
+      {
+        "prompt": "A friend says: パーティーに<ruby>行<rt>い</rt></ruby>かない。 Pass this on politely to someone else.",
+        "options": [
+          "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>きませんと<ruby>言<rt>い</rt></ruby>っていました。",
+          "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないか<ruby>言<rt>い</rt></ruby>っていました。",
+          "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>っていました。",
+          "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないんです。"
+        ],
+        "correct": "<ruby>友<rt>とも</rt></ruby>だちはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>っていました。",
+        "explanation": "Plain form + と<ruby>言<rt>い</rt></ruby>っていました."
+      },
+      {
+        "prompt": "Which sentence correctly opens a request?",
+        "options": [
+          "<ruby>道<rt>みち</rt></ruby>がわからないですが、<ruby>駅<rt>えき</rt></ruby>はどこんですか。",
+          "<ruby>道<rt>みち</rt></ruby>がわからないんですか、<ruby>駅<rt>えき</rt></ruby>はどこですか。",
+          "<ruby>道<rt>みち</rt></ruby>がわからないだんですが、<ruby>駅<rt>えき</rt></ruby>はどこですか。",
+          "<ruby>道<rt>みち</rt></ruby>がわからないんですが、<ruby>駅<rt>えき</rt></ruby>はどこですか。"
+        ],
+        "correct": "<ruby>道<rt>みち</rt></ruby>がわからないんですが、<ruby>駅<rt>えき</rt></ruby>はどこですか。",
+        "explanation": "んですが sets the scene, then the question."
+      },
+      {
+        "prompt": "Review (N5): complete にほんごを＿＿ことができます。",
+        "options": [
+          "はなす",
+          "はなします",
+          "はなして",
+          "はなした"
+        ],
+        "correct": "はなす",
+        "explanation": "Ability uses the dictionary form."
+      }
+    ],
+    "reading": {
+      "genre": "Message to a classmate",
+      "text": "アナさんへ\nきのうは<ruby>朝<rt>あさ</rt></ruby>からのどがいたかったんです。<ruby>夜<rt>よる</rt></ruby>はねつもありました。<ruby>今朝<rt>けさ</rt></ruby>、<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。<ruby>医者<rt>いしゃ</rt></ruby>は「かぜでしょう。<ruby>三日<rt>みっか</rt></ruby>ぐらい<ruby>休<rt>やす</rt></ruby>んでください」と<ruby>言<rt>い</rt></ruby>いました。<ruby>病院<rt>びょういん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>店<rt>みせ</rt></ruby>でくすりを<ruby>買<rt>か</rt></ruby>いました。<ruby>明日<rt>あした</rt></ruby>のテストは<ruby>休<rt>やす</rt></ruby>むかもしれません。<ruby>休<rt>やす</rt></ruby>むかどうか、<ruby>明日<rt>あした</rt></ruby>の<ruby>朝<rt>あさ</rt></ruby><ruby>先生<rt>せんせい</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>します。\nけん",
+      "translation": "To Anna\nYesterday my throat hurt from the morning. At night I had a fever too. This morning I went to the hospital. The doctor said, \"It's probably a cold. Please rest for about three days.\" I bought medicine at the shop in front of the hospital. I might miss tomorrow's test. I'll phone the teacher tomorrow morning to say whether I'm taking the day off.\nKen",
+      "questions": [
+        {
+          "prompt": "What did the doctor say?",
+          "options": [
+            "It's nothing; come back tomorrow.",
+            "It's probably a cold; rest about three days.",
+            "Go to a bigger hospital.",
+            "Take the test, then rest."
+          ],
+          "correct": "It's probably a cold; rest about three days.",
+          "explanation": "「かぜでしょう。<ruby>三日<rt>みっか</rt></ruby>ぐらい<ruby>休<rt>やす</rt></ruby>んでください」"
+        },
+        {
+          "prompt": "Where did Ken buy the medicine?",
+          "options": [
+            "At the hospital",
+            "At a shop near the station",
+            "At a shop in front of the hospital",
+            "He did not buy any"
+          ],
+          "correct": "At a shop in front of the hospital",
+          "explanation": "<ruby>病院<rt>びょういん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>店<rt>みせ</rt></ruby>でくすりを<ruby>買<rt>か</rt></ruby>いました。"
+        },
+        {
+          "prompt": "What will Ken do tomorrow morning?",
+          "options": [
+            "Take the test",
+            "Go back to the hospital",
+            "Visit Anna",
+            "Phone the teacher"
+          ],
+          "correct": "Phone the teacher",
+          "explanation": "<ruby>明日<rt>あした</rt></ruby>の<ruby>朝<rt>あさ</rt></ruby><ruby>先生<rt>せんせい</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>します。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "japanese-n4-unit-2-give-and-get",
+    "slug": "n4-unit-2-give-and-get",
+    "unitId": "japanese-n4-unit-2",
+    "level": "N4",
+    "unitNumber": 2,
+    "lessonNumber": 1,
+    "isReview": false,
+    "title": "Giving & Getting",
+    "titleJp": "あげる・もらう",
+    "objectives": [
+      "I can say who gave what to whom.",
+      "Give with あげる",
+      "Receive with もらう",
+      "Name brothers and sisters, yours and other people's"
+    ],
+    "vocabulary": [
+      [
+        "あげる",
+        "ageru",
+        "to give (to someone else)"
+      ],
+      [
+        "もらう",
+        "morau",
+        "to receive, to get"
+      ],
+      [
+        "<ruby>兄<rt>あに</rt></ruby>",
+        "ani",
+        "my older brother"
+      ],
+      [
+        "<ruby>弟<rt>おとうと</rt></ruby>",
+        "otouto",
+        "younger brother"
+      ],
+      [
+        "<ruby>姉<rt>あね</rt></ruby>",
+        "ane",
+        "my older sister"
+      ],
+      [
+        "<ruby>妹<rt>いもうと</rt></ruby>",
+        "imouto",
+        "younger sister"
+      ],
+      [
+        "<ruby>兄弟<rt>きょうだい</rt></ruby>",
+        "kyoudai",
+        "brothers and sisters"
+      ],
+      [
+        "お<ruby>兄<rt>にい</rt></ruby>さん",
+        "oniisan",
+        "(someone's) older brother"
+      ],
+      [
+        "お<ruby>姉<rt>ねえ</rt></ruby>さん",
+        "oneesan",
+        "(someone's) older sister"
+      ],
+      [
+        "<ruby>花<rt>はな</rt></ruby>たば",
+        "hanataba",
+        "bouquet"
+      ],
+      [
+        "チョコレート",
+        "chokoreeto",
+        "chocolate"
+      ]
+    ],
+    "concept": {
+      "title": "Which way is it going?",
+      "text": "Japanese has three verbs for giving, chosen by which way the thing moves. This lesson covers two of them.\n\nあげる: someone gives something away to another person. The receiver takes に.\nわたしは<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげました。 I gave my sister a book.\n\nもらう: someone receives something. The giver takes に or から.\nわたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。 I got a bag from my sister.\n\nThe third verb, くれる, is for things given to you. It comes in the next lesson.",
+      "examples": [
+        "giver は receiver に N をあげる",
+        "receiver は giver に / から N をもらう"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Giving: あげる",
+        "pattern": "giver は receiver に N をあげる",
+        "explanation": "あげる is for giving to someone other than yourself. The receiver takes に.",
+        "examples": [
+          {
+            "japanese": "わたしは<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげました。",
+            "romaji": "",
+            "meaning": "I gave my younger sister a book."
+          },
+          {
+            "japanese": "<ruby>兄<rt>あに</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちにCDをあげました。",
+            "romaji": "",
+            "meaning": "My older brother gave his friend a CD."
+          },
+          {
+            "japanese": "<ruby>母<rt>はは</rt></ruby>のたんじょう<ruby>日<rt>び</rt></ruby>に<ruby>花<rt>はな</rt></ruby>たばをあげます。",
+            "romaji": "",
+            "meaning": "I'll give my mother a bouquet on her birthday."
+          },
+          {
+            "japanese": "リーさんにチョコレートをあげました。",
+            "romaji": "",
+            "meaning": "I gave Lee some chocolate."
+          },
+          {
+            "japanese": "<ruby>弟<rt>おとうと</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をあげますか。",
+            "romaji": "",
+            "meaning": "What will you give your younger brother?"
+          }
+        ],
+        "notes": [
+          "あげる is never used for something given to you: that is くれる (next lesson).",
+          "To a teacher, plain あげる can sound a little proud; a humble verb comes later."
+        ]
+      },
+      {
+        "title": "Receiving: もらう",
+        "pattern": "receiver は giver に / から N をもらう",
+        "explanation": "With もらう the receiver is the topic. The giver takes に or から; from a company or a school, use から.",
+        "examples": [
+          {
+            "japanese": "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。",
+            "romaji": "",
+            "meaning": "I got a bag from my older sister."
+          },
+          {
+            "japanese": "<ruby>弟<rt>おとうと</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちからチョコレートをもらいました。",
+            "romaji": "",
+            "meaning": "My younger brother got chocolate from a friend."
+          },
+          {
+            "japanese": "たんじょう<ruby>日<rt>び</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をもらいましたか。",
+            "romaji": "",
+            "meaning": "What did you get for your birthday?"
+          },
+          {
+            "japanese": "<ruby>先生<rt>せんせい</rt></ruby>から<ruby>本<rt>ほん</rt></ruby>をもらいました。",
+            "romaji": "",
+            "meaning": "I got a book from the teacher."
+          },
+          {
+            "japanese": "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをもらいました。",
+            "romaji": "",
+            "meaning": "I got an email from the company."
+          }
+        ],
+        "notes": [
+          "Wrong: わたしにかばんをもらいました. The receiver takes は, the giver に.",
+          "Use から, not に, when the giver is an organisation."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "<ruby>兄弟<rt>きょうだい</rt></ruby>は<ruby>何人<rt>なんにん</rt></ruby>いますか。",
+        "How many brothers and sisters do you have?"
+      ],
+      [
+        "<ruby>兄<rt>あに</rt></ruby>が<ruby>一人<rt>ひとり</rt></ruby>と<ruby>妹<rt>いもうと</rt></ruby>が<ruby>二人<rt>ふたり</rt></ruby>います。",
+        "I have one older brother and two younger sisters."
+      ],
+      [
+        "アナさんのお<ruby>姉<rt>ねえ</rt></ruby>さんは<ruby>医者<rt>いしゃ</rt></ruby>です。",
+        "Anna's older sister is a doctor."
+      ],
+      [
+        "リーさんのお<ruby>兄<rt>にい</rt></ruby>さんはどこにすんでいますか。",
+        "Where does Lee's older brother live?"
+      ]
+    ],
+    "dialogue": [
+      [
+        "ゆき",
+        "たんじょう<ruby>日<rt>び</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をもらいましたか。",
+        "リー",
+        "<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。"
+      ],
+      [
+        "けん",
+        "お<ruby>兄<rt>にい</rt></ruby>さんに<ruby>何<rt>なに</rt></ruby>をあげましたか。",
+        "マイ",
+        "チョコレートをあげました。"
+      ],
+      [
+        "アナ",
+        "<ruby>兄弟<rt>きょうだい</rt></ruby>はいますか。",
+        "リン",
+        "はい、<ruby>弟<rt>おとうと</rt></ruby>が<ruby>一人<rt>ひとり</rt></ruby>います。"
+      ],
+      [
+        "たなか",
+        "その<ruby>花<rt>はな</rt></ruby>たば、きれいですね。",
+        "アナ",
+        "<ruby>友<rt>とも</rt></ruby>だちにもらったんです。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete リーさんは<ruby>病気<rt>びょうき</rt></ruby>＿＿。 (Lee might be ill)",
+        "options": [
+          "だかもしれません",
+          "かもしれません",
+          "なかもしれません",
+          "でしょうか"
+        ],
+        "correct": "かもしれません",
+        "explanation": "Nouns take かもしれません directly."
+      },
+      {
+        "prompt": "What does <ruby>姉<rt>あね</rt></ruby> mean?",
+        "options": [
+          "my younger sister",
+          "my older brother",
+          "my older sister",
+          "someone's older sister"
+        ],
+        "correct": "my older sister",
+        "explanation": "<ruby>姉<rt>あね</rt></ruby> is your own older sister; someone else's is お<ruby>姉<rt>ねえ</rt></ruby>さん."
+      },
+      {
+        "prompt": "Complete: わたしは<ruby>妹<rt>いもうと</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をあげました。",
+        "options": [
+          "を",
+          "が",
+          "で",
+          "に"
+        ],
+        "correct": "に",
+        "explanation": "With あげる the receiver takes に."
+      },
+      {
+        "prompt": "Complete: わたしは<ruby>先生<rt>せんせい</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をもらいました。",
+        "options": [
+          "から",
+          "を",
+          "で",
+          "と"
+        ],
+        "correct": "から",
+        "explanation": "With もらう the giver takes から (or に)."
+      },
+      {
+        "prompt": "Choose: \"I got a bag from my older sister.\"",
+        "options": [
+          "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをあげました。",
+          "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。",
+          "<ruby>姉<rt>あね</rt></ruby>はわたしにかばんをもらいました。",
+          "わたしに<ruby>姉<rt>あね</rt></ruby>はかばんをもらいました。"
+        ],
+        "correct": "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。",
+        "explanation": "Receiver は, giver に, もらう."
+      },
+      {
+        "prompt": "How is 兄弟⁠ read?",
+        "options": [
+          "あにおとうと",
+          "けいてい",
+          "きょうだい",
+          "きょうてい"
+        ],
+        "correct": "きょうだい",
+        "explanation": "兄弟⁠ is read きょうだい."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>弟<rt>おとうと</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちからチョコレートをもらいました。",
+        "options": [
+          "My younger brother gave a friend chocolate.",
+          "A friend got chocolate from my younger brother.",
+          "I got chocolate from my younger brother's friend.",
+          "My younger brother got chocolate from a friend."
+        ],
+        "correct": "My younger brother got chocolate from a friend.",
+        "explanation": "<ruby>弟<rt>おとうと</rt></ruby>は〜もらいました: my brother received."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Which word do you use for someone else's older sister?",
+        "options": [
+          "<ruby>姉<rt>あね</rt></ruby>",
+          "<ruby>妹<rt>いもうと</rt></ruby>",
+          "お<ruby>兄<rt>にい</rt></ruby>さん",
+          "お<ruby>姉<rt>ねえ</rt></ruby>さん"
+        ],
+        "correct": "お<ruby>姉<rt>ねえ</rt></ruby>さん",
+        "explanation": "Someone else's older sister is お<ruby>姉<rt>ねえ</rt></ruby>さん."
+      },
+      {
+        "prompt": "Read: <ruby>兄<rt>あに</rt></ruby>が<ruby>一人<rt>ひとり</rt></ruby>と<ruby>妹<rt>いもうと</rt></ruby>が<ruby>二人<rt>ふたり</rt></ruby>います。 How many brothers and sisters does the speaker have?",
+        "options": [
+          "Three",
+          "Two",
+          "Four",
+          "One"
+        ],
+        "correct": "Three",
+        "explanation": "One older brother and two younger sisters."
+      },
+      {
+        "prompt": "You got an email from your company. Which sentence says this?",
+        "options": [
+          "<ruby>会社<rt>かいしゃ</rt></ruby>にメールをあげました。",
+          "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをもらいました。",
+          "<ruby>会社<rt>かいしゃ</rt></ruby>はメールをもらいました。",
+          "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをあげました。"
+        ],
+        "correct": "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをもらいました。",
+        "explanation": "From an organisation: から + もらう."
+      },
+      {
+        "prompt": "You gave Lee chocolate. Which sentence says this?",
+        "options": [
+          "わたしはリーさんにチョコレートをもらいました。",
+          "リーさんはわたしにチョコレートをあげました。",
+          "わたしはリーさんにチョコレートをあげました。",
+          "わたしはリーさんからチョコレートをあげました。"
+        ],
+        "correct": "わたしはリーさんにチョコレートをあげました。",
+        "explanation": "Giver は, receiver に, あげる."
+      },
+      {
+        "prompt": "Review: complete <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。 (probably)",
+        "options": [
+          "です",
+          "だでしょう",
+          "かもしれない です",
+          "でしょう"
+        ],
+        "correct": "でしょう",
+        "explanation": "でしょう follows the plain form."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-2-they-gave-me",
+    "slug": "n4-unit-2-they-gave-me",
+    "unitId": "japanese-n4-unit-2",
+    "level": "N4",
+    "unitNumber": 2,
+    "lessonNumber": 2,
+    "isReview": false,
+    "title": "They Gave Me…",
+    "titleJp": "くれる",
+    "objectives": [
+      "I can say what someone gave me.",
+      "Use くれる for things given to me or my family",
+      "Choose between あげる, くれる and もらう",
+      "Talk about letters, cards and luggage"
+    ],
+    "vocabulary": [
+      [
+        "くれる",
+        "kureru",
+        "to give (to me or my family)"
+      ],
+      [
+        "<ruby>送<rt>おく</rt></ruby>る",
+        "okuru",
+        "to send, to see someone off"
+      ],
+      [
+        "<ruby>手紙<rt>てがみ</rt></ruby>",
+        "tegami",
+        "letter"
+      ],
+      [
+        "<ruby>紙<rt>かみ</rt></ruby>",
+        "kami",
+        "paper"
+      ],
+      [
+        "<ruby>持<rt>も</rt></ruby>つ",
+        "motsu",
+        "to hold, to carry, to have"
+      ],
+      [
+        "<ruby>持<rt>も</rt></ruby>っていく",
+        "motte iku",
+        "to take (a thing) along"
+      ],
+      [
+        "<ruby>持<rt>も</rt></ruby>ってくる",
+        "motte kuru",
+        "to bring (a thing)"
+      ],
+      [
+        "にもつ",
+        "nimotsu",
+        "luggage, bags"
+      ],
+      [
+        "はがき",
+        "hagaki",
+        "postcard"
+      ],
+      [
+        "カード",
+        "kaado",
+        "card"
+      ]
+    ],
+    "concept": {
+      "title": "When it comes to me: くれる",
+      "text": "くれる is for things given to me, or to someone on my side such as my family. The giver is the subject; わたしに is usually left out because くれる already says where the thing went.\n\n<ruby>友<rt>とも</rt></ruby>だちがはがきをくれました。 A friend gave me a postcard.\n\nTo choose the verb, ask which way the thing moves:\naway from me, or between other people → あげる\ntoward me → くれる\nI am the one receiving → もらう\n\nThe same event can be told two ways: <ruby>姉<rt>あね</rt></ruby>がくれました = <ruby>姉<rt>あね</rt></ruby>にもらいました.",
+      "examples": [
+        "giver が (わたしに) N をくれる",
+        "away: あげる / toward me: くれる",
+        "I receive: もらう"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Given to me: くれる",
+        "pattern": "giver が (わたしに) N をくれる",
+        "explanation": "くれる shows that something came to you or your family. The giver takes が (or は).",
+        "examples": [
+          {
+            "japanese": "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをくれました。",
+            "romaji": "",
+            "meaning": "A friend gave me a postcard."
+          },
+          {
+            "japanese": "<ruby>父<rt>ちち</rt></ruby>が<ruby>新<rt>あたら</rt></ruby>しいかばんをくれました。",
+            "romaji": "",
+            "meaning": "My father gave me a new bag."
+          },
+          {
+            "japanese": "<ruby>姉<rt>あね</rt></ruby>が<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をくれました。",
+            "romaji": "",
+            "meaning": "My older sister gave my younger sister a book."
+          },
+          {
+            "japanese": "だれがこの<ruby>花<rt>はな</rt></ruby>をくれたんですか。",
+            "romaji": "",
+            "meaning": "Who gave you these flowers?"
+          },
+          {
+            "japanese": "<ruby>先生<rt>せんせい</rt></ruby>がカードをくれました。",
+            "romaji": "",
+            "meaning": "The teacher gave me a card."
+          }
+        ],
+        "notes": [
+          "Wrong: <ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをあげました. Things given to you take くれる.",
+          "Use くれる for your family too: <ruby>姉<rt>あね</rt></ruby>が<ruby>妹<rt>いもうと</rt></ruby>にくれました."
+        ]
+      },
+      {
+        "title": "Choosing the right verb",
+        "pattern": "あげる / くれる / もらう",
+        "explanation": "Look at the direction. Between two other people, use あげる or もらう.",
+        "examples": [
+          {
+            "japanese": "わたしはリーさんにカードをあげました。",
+            "romaji": "",
+            "meaning": "I gave Lee a card."
+          },
+          {
+            "japanese": "リーさんがわたしにカードをくれました。",
+            "romaji": "",
+            "meaning": "Lee gave me a card."
+          },
+          {
+            "japanese": "わたしはリーさんにカードをもらいました。",
+            "romaji": "",
+            "meaning": "I got a card from Lee."
+          },
+          {
+            "japanese": "リーさんはアナさんにカードをあげました。",
+            "romaji": "",
+            "meaning": "Lee gave Anna a card."
+          }
+        ],
+        "notes": [
+          "リーさんがくれました and リーさんにもらいました describe the same event.",
+          "くれる is never used for something you give to others."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "<ruby>国<rt>くに</rt></ruby>の<ruby>母<rt>はは</rt></ruby>に<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>りました。",
+        "I sent a letter to my mother back home."
+      ],
+      [
+        "この<ruby>紙<rt>かみ</rt></ruby>に<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてください。",
+        "Please write your name on this paper."
+      ],
+      [
+        "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+        "Shall I carry your bags?"
+      ],
+      [
+        "パーティーに<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきます。",
+        "I'll take some drinks to the party."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "そのはがき、だれがくれたんですか。",
+        "けん",
+        "<ruby>国<rt>くに</rt></ruby>の<ruby>友<rt>とも</rt></ruby>だちがくれたんです。"
+      ],
+      [
+        "リー",
+        "パーティーに<ruby>何<rt>なに</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきますか。",
+        "ゆき",
+        "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきます。"
+      ],
+      [
+        "マイ",
+        "このカード、きれいですね。",
+        "リン",
+        "<ruby>先生<rt>せんせい</rt></ruby>がくれたんです。"
+      ],
+      [
+        "たなか",
+        "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+        "アナ",
+        "ありがとうございます。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete わたしは<ruby>妹<rt>いもうと</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をあげました。",
+        "options": [
+          "を",
+          "が",
+          "に",
+          "から"
+        ],
+        "correct": "に",
+        "explanation": "With あげる the receiver takes に."
+      },
+      {
+        "prompt": "What does <ruby>手紙<rt>てがみ</rt></ruby> mean?",
+        "options": [
+          "paper",
+          "postcard",
+          "card",
+          "letter"
+        ],
+        "correct": "letter",
+        "explanation": "<ruby>手紙<rt>てがみ</rt></ruby> is a letter; <ruby>紙<rt>かみ</rt></ruby> alone is paper."
+      },
+      {
+        "prompt": "Complete: <ruby>父<rt>ちち</rt></ruby>が<ruby>新<rt>あたら</rt></ruby>しいかばんを＿＿。 (gave me)",
+        "options": [
+          "くれました",
+          "あげました",
+          "もらいました",
+          "<ruby>持<rt>も</rt></ruby>ちました"
+        ],
+        "correct": "くれました",
+        "explanation": "Something given to you: くれる."
+      },
+      {
+        "prompt": "Which sentence is NOT correct?",
+        "options": [
+          "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをくれました。",
+          "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをあげました。",
+          "わたしは<ruby>友<rt>とも</rt></ruby>だちにはがきをもらいました。",
+          "わたしは<ruby>友<rt>とも</rt></ruby>だちにはがきをあげました。"
+        ],
+        "correct": "<ruby>友<rt>とも</rt></ruby>だちがわたしにはがきをあげました。",
+        "explanation": "Things given to you take くれる, not あげる."
+      },
+      {
+        "prompt": "Complete: リーさんはアナさんにカードを＿＿。 (Lee gave Anna a card)",
+        "options": [
+          "くれました",
+          "もらいました",
+          "あげました",
+          "<ruby>持<rt>も</rt></ruby>ちました"
+        ],
+        "correct": "あげました",
+        "explanation": "Between two other people, use あげる."
+      },
+      {
+        "prompt": "Which phrase means to bring (a thing)?",
+        "options": [
+          "<ruby>持<rt>も</rt></ruby>っていく",
+          "<ruby>送<rt>おく</rt></ruby>る",
+          "<ruby>持<rt>も</rt></ruby>つ",
+          "<ruby>持<rt>も</rt></ruby>ってくる"
+        ],
+        "correct": "<ruby>持<rt>も</rt></ruby>ってくる",
+        "explanation": "<ruby>持<rt>も</rt></ruby>ってくる: bring here; <ruby>持<rt>も</rt></ruby>っていく: take there."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>国<rt>くに</rt></ruby>の<ruby>母<rt>はは</rt></ruby>に<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>りました。",
+        "options": [
+          "I sent a letter to my mother back home.",
+          "My mother sent me a letter from home.",
+          "I wrote a letter in my home country.",
+          "I gave my mother some paper."
+        ],
+        "correct": "I sent a letter to my mother back home.",
+        "explanation": "<ruby>母<rt>はは</rt></ruby>に… <ruby>送<rt>おく</rt></ruby>りました: sent to my mother."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "A friend gave you a postcard. Which sentence fits?",
+        "options": [
+          "<ruby>友<rt>とも</rt></ruby>だちがはがきをくれました。",
+          "<ruby>友<rt>とも</rt></ruby>だちにはがきをくれました。",
+          "<ruby>友<rt>とも</rt></ruby>だちがはがきをあげました。",
+          "わたしは<ruby>友<rt>とも</rt></ruby>だちがはがきをもらいました。"
+        ],
+        "correct": "<ruby>友<rt>とも</rt></ruby>だちがはがきをくれました。",
+        "explanation": "Giver が + くれる."
+      },
+      {
+        "prompt": "Which sentence means the same as リーさんがわたしにカードをくれました。?",
+        "options": [
+          "わたしはリーさんにカードをあげました。",
+          "わたしはリーさんにカードをもらいました。",
+          "リーさんはわたしにカードをもらいました。",
+          "リーさんはわたしからカードをもらいました。"
+        ],
+        "correct": "わたしはリーさんにカードをもらいました。",
+        "explanation": "くれる from Lee = もらう from Lee."
+      },
+      {
+        "prompt": "Read: パーティーに<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきます。 What will the speaker do?",
+        "options": [
+          "Buy drinks at the party",
+          "Bring drinks home",
+          "Take drinks to the party",
+          "Drink at home"
+        ],
+        "correct": "Take drinks to the party",
+        "explanation": "<ruby>持<rt>も</rt></ruby>っていく: take along."
+      },
+      {
+        "prompt": "Read: <ruby>姉<rt>あね</rt></ruby>が<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をくれました。 Who received the book?",
+        "options": [
+          "My older sister",
+          "A teacher",
+          "Nobody",
+          "My younger sister"
+        ],
+        "correct": "My younger sister",
+        "explanation": "The receiver takes に: <ruby>妹<rt>いもうと</rt></ruby>に."
+      },
+      {
+        "prompt": "Review: complete かぜを＿＿んです。",
+        "options": [
+          "ひいた",
+          "ひきました",
+          "ひいて",
+          "ひきた"
+        ],
+        "correct": "ひいた",
+        "explanation": "んです follows the plain form."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-2-doing-favours",
+    "slug": "n4-unit-2-doing-favours",
+    "unitId": "japanese-n4-unit-2",
+    "level": "N4",
+    "unitNumber": 2,
+    "lessonNumber": 3,
+    "isReview": false,
+    "title": "Doing Favours",
+    "titleJp": "〜てあげる・〜てもらう",
+    "objectives": [
+      "I can talk about favours I did for others and favours done for me.",
+      "Use V-てあげる",
+      "Use V-てもらう",
+      "Lend, borrow, teach and learn"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>教<rt>おし</rt></ruby>える",
+        "oshieru",
+        "to teach, to tell"
+      ],
+      [
+        "<ruby>習<rt>なら</rt></ruby>う",
+        "narau",
+        "to learn (from someone)"
+      ],
+      [
+        "<ruby>貸<rt>か</rt></ruby>す",
+        "kasu",
+        "to lend"
+      ],
+      [
+        "<ruby>借<rt>か</rt></ruby>りる",
+        "kariru",
+        "to borrow"
+      ],
+      [
+        "かえす",
+        "kaesu",
+        "to give back, to return"
+      ],
+      [
+        "なおす",
+        "naosu",
+        "to fix"
+      ],
+      [
+        "はこぶ",
+        "hakobu",
+        "to carry"
+      ],
+      [
+        "<ruby>手<rt>て</rt></ruby>つだう",
+        "tetsudau",
+        "to help"
+      ],
+      [
+        "おれい",
+        "orei",
+        "thanks, a thank-you gift"
+      ],
+      [
+        "じしょ",
+        "jisho",
+        "dictionary"
+      ]
+    ],
+    "concept": {
+      "title": "Favours move like gifts",
+      "text": "An action can be given like a thing. Add あげる or もらう to the て-form:\n\nV-てあげる: I do something for someone.\n<ruby>弟<rt>おとうと</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてあげました。 I taught my brother Japanese.\n\nV-てもらう: I have someone do something for me, and I am grateful.\n<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいました。 My sister taught me Japanese.\n\nThe particles stay the same as with things. Two new pairs work the same way: <ruby>貸<rt>か</rt></ruby>す (lend) and <ruby>借<rt>か</rt></ruby>りる (borrow), <ruby>教<rt>おし</rt></ruby>える (teach) and <ruby>習<rt>なら</rt></ruby>う (learn).",
+      "examples": [
+        "giver は receiver に V-てあげる",
+        "receiver は giver に V-てもらう",
+        "<ruby>貸<rt>か</rt></ruby>す / <ruby>借<rt>か</rt></ruby>りる, <ruby>教<rt>おし</rt></ruby>える / <ruby>習<rt>なら</rt></ruby>う"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Doing something for someone",
+        "pattern": "giver は receiver に V-てあげる",
+        "explanation": "V-てあげる describes a favour you or someone else did for another person. When the favour is done to a thing, the owner takes の: <ruby>友<rt>とも</rt></ruby>だちのにもつ.",
+        "examples": [
+          {
+            "japanese": "わたしは<ruby>弟<rt>おとうと</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてあげました。",
+            "romaji": "",
+            "meaning": "I taught my younger brother Japanese."
+          },
+          {
+            "japanese": "<ruby>友<rt>とも</rt></ruby>だちのにもつをはこんであげました。",
+            "romaji": "",
+            "meaning": "I carried my friend's bags for them."
+          },
+          {
+            "japanese": "<ruby>妹<rt>いもうと</rt></ruby>にじしょを<ruby>貸<rt>か</rt></ruby>してあげました。",
+            "romaji": "",
+            "meaning": "I lent my younger sister a dictionary."
+          },
+          {
+            "japanese": "リーさんのじてんしゃをなおしてあげました。",
+            "romaji": "",
+            "meaning": "I fixed Lee's bicycle for him."
+          },
+          {
+            "japanese": "<ruby>母<rt>はは</rt></ruby>にりょうりをつくってあげました。",
+            "romaji": "",
+            "meaning": "I cooked for my mother."
+          }
+        ],
+        "notes": [
+          "Saying 〜てあげます to the person you are helping can sound like you are doing them a big favour. Offer with 〜ましょうか instead.",
+          "The owner of the thing takes の, not に: <ruby>友<rt>とも</rt></ruby>だちのにもつをはこぶ."
+        ]
+      },
+      {
+        "title": "Having something done for you",
+        "pattern": "receiver は giver に V-てもらう",
+        "explanation": "V-てもらう says someone did something for you, and shows you are grateful. The person who helped takes に.",
+        "examples": [
+          {
+            "japanese": "わたしは<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいました。",
+            "romaji": "",
+            "meaning": "My older sister taught me Japanese."
+          },
+          {
+            "japanese": "<ruby>友<rt>とも</rt></ruby>だちにじてんしゃをなおしてもらいました。",
+            "romaji": "",
+            "meaning": "My friend fixed my bicycle for me."
+          },
+          {
+            "japanese": "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。",
+            "romaji": "",
+            "meaning": "My older brother lent me some money."
+          },
+          {
+            "japanese": "<ruby>先生<rt>せんせい</rt></ruby>にしゅくだいを<ruby>見<rt>み</rt></ruby>てもらいました。",
+            "romaji": "",
+            "meaning": "I had the teacher look at my homework."
+          },
+          {
+            "japanese": "だれにピアノを<ruby>習<rt>なら</rt></ruby>いましたか。",
+            "romaji": "",
+            "meaning": "Who did you learn the piano from?"
+          }
+        ],
+        "notes": [
+          "<ruby>貸<rt>か</rt></ruby>す is lend (the owner does it); <ruby>借<rt>か</rt></ruby>りる is borrow (you do it).",
+          "<ruby>習<rt>なら</rt></ruby>う takes に for the teacher: <ruby>先生<rt>せんせい</rt></ruby>に<ruby>習<rt>なら</rt></ruby>う."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+        "I borrowed a book from the library."
+      ],
+      [
+        "<ruby>借<rt>か</rt></ruby>りた<ruby>本<rt>ほん</rt></ruby>は<ruby>来週<rt>らいしゅう</rt></ruby>かえします。",
+        "I'll return the book I borrowed next week."
+      ],
+      [
+        "<ruby>友<rt>とも</rt></ruby>だちのしゅくだいを<ruby>手<rt>て</rt></ruby>つだいました。",
+        "I helped my friend with their homework."
+      ],
+      [
+        "おれいにチョコレートをあげました。",
+        "I gave chocolate as a thank-you."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "だれに<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>いましたか。",
+        "リー",
+        "たなか<ruby>先生<rt>せんせい</rt></ruby>に<ruby>習<rt>なら</rt></ruby>いました。"
+      ],
+      [
+        "けん",
+        "そのじしょ、どうしたんですか。",
+        "マイ",
+        "<ruby>姉<rt>あね</rt></ruby>に<ruby>貸<rt>か</rt></ruby>してもらったんです。"
+      ],
+      [
+        "ゆき",
+        "リーさん、にもつをはこびましょうか。",
+        "リー",
+        "ありがとうございます。おねがいします。"
+      ],
+      [
+        "リン",
+        "かさを<ruby>借<rt>か</rt></ruby>りてもいいですか。",
+        "けん",
+        "いいですよ。どうぞ。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: Lee gave you a card. Which sentence says this?",
+        "options": [
+          "リーさんにカードをくれました。",
+          "リーさんがカードをあげました。",
+          "リーさんはカードをもらいました。",
+          "リーさんがカードをくれました。"
+        ],
+        "correct": "リーさんがカードをくれました。",
+        "explanation": "Things given to you: くれる."
+      },
+      {
+        "prompt": "What does <ruby>借<rt>か</rt></ruby>りる mean?",
+        "options": [
+          "to borrow",
+          "to lend",
+          "to return",
+          "to teach"
+        ],
+        "correct": "to borrow",
+        "explanation": "<ruby>借<rt>か</rt></ruby>りる is to borrow; <ruby>貸<rt>か</rt></ruby>す is to lend."
+      },
+      {
+        "prompt": "Complete: わたしは<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えて＿＿。 (my sister taught me)",
+        "options": [
+          "あげました",
+          "もらいました",
+          "<ruby>習<rt>なら</rt></ruby>いました",
+          "<ruby>貸<rt>か</rt></ruby>しました"
+        ],
+        "correct": "もらいました",
+        "explanation": "Something done for you, with the helper に: てもらう."
+      },
+      {
+        "prompt": "Complete: <ruby>妹<rt>いもうと</rt></ruby>にじしょを<ruby>貸<rt>か</rt></ruby>して＿＿。 (I lent my sister a dictionary)",
+        "options": [
+          "もらいました",
+          "くれました",
+          "あげました",
+          "<ruby>借<rt>か</rt></ruby>りました"
+        ],
+        "correct": "あげました",
+        "explanation": "A favour you did for someone: てあげる."
+      },
+      {
+        "prompt": "Which verb means to lend?",
+        "options": [
+          "<ruby>借<rt>か</rt></ruby>りる",
+          "かえす",
+          "<ruby>習<rt>なら</rt></ruby>う",
+          "<ruby>貸<rt>か</rt></ruby>す"
+        ],
+        "correct": "<ruby>貸<rt>か</rt></ruby>す",
+        "explanation": "<ruby>貸<rt>か</rt></ruby>す: lend."
+      },
+      {
+        "prompt": "Complete: だれ＿＿ピアノを<ruby>習<rt>なら</rt></ruby>いましたか。",
+        "options": [
+          "に",
+          "を",
+          "で",
+          "が"
+        ],
+        "correct": "に",
+        "explanation": "The teacher takes に with <ruby>習<rt>なら</rt></ruby>う."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>友<rt>とも</rt></ruby>だちにじてんしゃをなおしてもらいました。",
+        "options": [
+          "I fixed my friend's bicycle.",
+          "My friend fixed my bicycle for me.",
+          "My friend fixed his own bicycle.",
+          "I lent my friend a bicycle."
+        ],
+        "correct": "My friend fixed my bicycle for me.",
+        "explanation": "てもらう: someone did it for me."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "You want to offer to carry a guest's bags. What do you say?",
+        "options": [
+          "にもつを<ruby>持<rt>も</rt></ruby>ってあげます。",
+          "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+          "にもつを<ruby>持<rt>も</rt></ruby>ってもらいます。",
+          "にもつを<ruby>持<rt>も</rt></ruby>ってくれますか。"
+        ],
+        "correct": "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+        "explanation": "Offer with ましょうか rather than てあげます."
+      },
+      {
+        "prompt": "Choose: \"My older brother lent me some money.\"",
+        "options": [
+          "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してあげました。",
+          "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>借<rt>か</rt></ruby>りてあげました。",
+          "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。",
+          "<ruby>兄<rt>あに</rt></ruby>はお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。"
+        ],
+        "correct": "<ruby>兄<rt>あに</rt></ruby>にお<ruby>金<rt>かね</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してもらいました。",
+        "explanation": "The lender takes に, and you received the favour: てもらう."
+      },
+      {
+        "prompt": "Read: <ruby>借<rt>か</rt></ruby>りた<ruby>本<rt>ほん</rt></ruby>は<ruby>来週<rt>らいしゅう</rt></ruby>かえします。 When will the speaker return the book?",
+        "options": [
+          "Tomorrow",
+          "This week",
+          "Last week",
+          "Next week"
+        ],
+        "correct": "Next week",
+        "explanation": "<ruby>来週<rt>らいしゅう</rt></ruby>: next week."
+      },
+      {
+        "prompt": "Which sentence is correct?",
+        "options": [
+          "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+          "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>貸<rt>か</rt></ruby>りました。",
+          "としょかんに<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>しました。",
+          "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>しました。"
+        ],
+        "correct": "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+        "explanation": "Borrow is <ruby>借<rt>か</rt></ruby>りる: <ruby>借<rt>か</rt></ruby>りました."
+      },
+      {
+        "prompt": "Review: complete <ruby>夜<rt>よる</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。 (might)",
+        "options": [
+          "でしょう",
+          "かもしれません",
+          "んです",
+          "と<ruby>思<rt>おも</rt></ruby>います"
+        ],
+        "correct": "かもしれません",
+        "explanation": "かもしれません: might."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-2-would-you-mind",
+    "slug": "n4-unit-2-would-you-mind",
+    "unitId": "japanese-n4-unit-2",
+    "level": "N4",
+    "unitNumber": 2,
+    "lessonNumber": 4,
+    "isReview": false,
+    "title": "Would You Mind…?",
+    "titleJp": "〜てくれませんか",
+    "objectives": [
+      "I can thank people for favours and ask for one politely.",
+      "Use V-てくれる for favours done for me",
+      "Ask with V-てくれませんか and V-てもらえませんか",
+      "Talk about photos, windows and lights"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>写真<rt>しゃしん</rt></ruby>",
+        "shashin",
+        "photo"
+      ],
+      [
+        "<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>",
+        "mannaka",
+        "the very middle"
+      ],
+      [
+        "<ruby>待<rt>ま</rt></ruby>つ",
+        "matsu",
+        "to wait"
+      ],
+      [
+        "<ruby>待<rt>ま</rt></ruby>ちあわせ",
+        "machiawase",
+        "meeting up (an arrangement)"
+      ],
+      [
+        "とる",
+        "toru",
+        "to take (a photo)"
+      ],
+      [
+        "まど",
+        "mado",
+        "window"
+      ],
+      [
+        "あける",
+        "akeru",
+        "to open"
+      ],
+      [
+        "しめる",
+        "shimeru",
+        "to close"
+      ],
+      [
+        "つける",
+        "tsukeru",
+        "to switch on"
+      ],
+      [
+        "けす",
+        "kesu",
+        "to switch off"
+      ]
+    ],
+    "concept": {
+      "title": "Favours that come to me",
+      "text": "V-てくれる is くれる for actions: someone did something for me, and I am thankful.\n\n<ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。 My friend took a photo for me.\n\nAs a negative question it becomes a polite request:\n<ruby>写真<rt>しゃしん</rt></ruby>をとってくれませんか。 Would you take a photo for me?\n<ruby>写真<rt>しゃしん</rt></ruby>をとってもらえませんか。 Could you possibly take a photo for me?\n\nもらえませんか is a little more polite than くれませんか. Both are softer than 〜てください.",
+      "examples": [
+        "giver が V-てくれる",
+        "V-てくれませんか",
+        "V-てもらえませんか"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "Done for me",
+        "pattern": "giver が (わたしに) V-てくれる",
+        "explanation": "V-てくれる describes a favour done for you or your family, with thanks. The person who did it takes が.",
+        "examples": [
+          {
+            "japanese": "<ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。",
+            "romaji": "",
+            "meaning": "My friend took a photo for me."
+          },
+          {
+            "japanese": "<ruby>父<rt>ちち</rt></ruby>が<ruby>駅<rt>えき</rt></ruby>まで<ruby>車<rt>くるま</rt></ruby>で<ruby>送<rt>おく</rt></ruby>ってくれました。",
+            "romaji": "",
+            "meaning": "My father drove me to the station."
+          },
+          {
+            "japanese": "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってくれました。",
+            "romaji": "",
+            "meaning": "My older brother helped me with my homework."
+          },
+          {
+            "japanese": "リーさんが<ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>待<rt>ま</rt></ruby>ってくれました。",
+            "romaji": "",
+            "meaning": "Lee waited thirty minutes for me."
+          },
+          {
+            "japanese": "<ruby>先生<rt>せんせい</rt></ruby>がゆっくり<ruby>話<rt>はな</rt></ruby>してくれました。",
+            "romaji": "",
+            "meaning": "The teacher spoke slowly for me."
+          }
+        ],
+        "notes": [
+          "Wrong: <ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとってあげました, for a photo of you. Use てくれる.",
+          "<ruby>送<rt>おく</rt></ruby>る also means to take someone somewhere: <ruby>駅<rt>えき</rt></ruby>まで<ruby>送<rt>おく</rt></ruby>る."
+        ]
+      },
+      {
+        "title": "Would you mind…?",
+        "pattern": "V-てくれませんか / V-てもらえませんか",
+        "explanation": "Both ask for a favour politely. もらえませんか is the more polite of the two; with friends, 〜てくれる？ is enough.",
+        "examples": [
+          {
+            "japanese": "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってくれませんか。",
+            "romaji": "",
+            "meaning": "Excuse me, would you take a photo for me?"
+          },
+          {
+            "japanese": "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+            "romaji": "",
+            "meaning": "Would you wait a moment?"
+          },
+          {
+            "japanese": "まどをあけてもらえませんか。",
+            "romaji": "",
+            "meaning": "Could you open the window, please?"
+          },
+          {
+            "japanese": "<ruby>電気<rt>でんき</rt></ruby>をけしてもらえませんか。",
+            "romaji": "",
+            "meaning": "Could you switch off the light, please?"
+          },
+          {
+            "japanese": "もう<ruby>少<rt>すこ</rt></ruby>しゆっくり<ruby>話<rt>はな</rt></ruby>してもらえませんか。",
+            "romaji": "",
+            "meaning": "Could you speak a little more slowly?"
+          }
+        ],
+        "notes": [
+          "もらえる is the potential form of もらう; for now, learn もらえませんか as a set phrase.",
+          "Wrong: <ruby>待<rt>ま</rt></ruby>ってあげませんか. A request uses くれる or もらう."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "<ruby>写真<rt>しゃしん</rt></ruby>の<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>にいる<ruby>人<rt>ひと</rt></ruby>が<ruby>兄<rt>あに</rt></ruby>です。",
+        "The person in the middle of the photo is my older brother."
+      ],
+      [
+        "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で<ruby>友<rt>とも</rt></ruby>だちと<ruby>待<rt>ま</rt></ruby>ちあわせをしました。",
+        "I arranged to meet a friend in front of the station."
+      ],
+      [
+        "さむいですから、まどをしめましょう。",
+        "It's cold, so let's close the window."
+      ],
+      [
+        "テレビをつけてもいいですか。",
+        "May I switch on the TV?"
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってくれませんか。",
+        "たなか",
+        "いいですよ。はい、とりますよ。"
+      ],
+      [
+        "けん",
+        "きのうはどうやって<ruby>家<rt>いえ</rt></ruby>にかえったんですか。",
+        "マイ",
+        "<ruby>兄<rt>あに</rt></ruby>が<ruby>車<rt>くるま</rt></ruby>で<ruby>送<rt>おく</rt></ruby>ってくれました。"
+      ],
+      [
+        "リー",
+        "ちょっと<ruby>待<rt>ま</rt></ruby>ってもらえませんか。",
+        "ゆき",
+        "はい、いいですよ。"
+      ],
+      [
+        "リン",
+        "さむいですね。まどをしめてもらえませんか。",
+        "アナ",
+        "はい、しめますね。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: complete わたしは<ruby>姉<rt>あね</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えて＿＿。 (my sister taught me)",
+        "options": [
+          "もらいました",
+          "あげました",
+          "くれました",
+          "<ruby>習<rt>なら</rt></ruby>いました"
+        ],
+        "correct": "もらいました",
+        "explanation": "With the helper に, use てもらう."
+      },
+      {
+        "prompt": "What does <ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby> mean?",
+        "options": [
+          "the front",
+          "the very middle",
+          "the back",
+          "the side"
+        ],
+        "correct": "the very middle",
+        "explanation": "<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>: the very middle."
+      },
+      {
+        "prompt": "Complete: <ruby>友<rt>とも</rt></ruby>だちが<ruby>写真<rt>しゃしん</rt></ruby>をとって＿＿。 (for me)",
+        "options": [
+          "あげました",
+          "もらいました",
+          "くれました",
+          "ください"
+        ],
+        "correct": "くれました",
+        "explanation": "A favour done for you, with the helper が: てくれる."
+      },
+      {
+        "prompt": "Which is the softer way to say ちょっと<ruby>待<rt>ま</rt></ruby>ってください?",
+        "options": [
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ってあげませんか。",
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ちませんか。",
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ってもらいませんか。",
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。"
+        ],
+        "correct": "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+        "explanation": "てくれませんか is a polite request."
+      },
+      {
+        "prompt": "Which request is a little more polite?",
+        "options": [
+          "まどをあけてもらえませんか。",
+          "まどをあけてくれませんか。"
+        ],
+        "correct": "まどをあけてもらえませんか。",
+        "explanation": "もらえませんか is the more polite of the two."
+      },
+      {
+        "prompt": "What is the opposite of あける?",
+        "options": [
+          "つける",
+          "しめる",
+          "けす",
+          "とる"
+        ],
+        "correct": "しめる",
+        "explanation": "あける: open; しめる: close."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>父<rt>ちち</rt></ruby>が<ruby>駅<rt>えき</rt></ruby>まで<ruby>車<rt>くるま</rt></ruby>で<ruby>送<rt>おく</rt></ruby>ってくれました。",
+        "options": [
+          "I drove my father to the station.",
+          "My father sent a car to the station.",
+          "My father drove me to the station.",
+          "My father went to the station alone by car."
+        ],
+        "correct": "My father drove me to the station.",
+        "explanation": "<ruby>送<rt>おく</rt></ruby>ってくれました: took me, as a favour."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "You want a stranger to take your photo. What do you say?",
+        "options": [
+          "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってあげませんか。",
+          "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとりたいですか。",
+          "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってもらえませんか。",
+          "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってもらいましたか。"
+        ],
+        "correct": "すみません、<ruby>写真<rt>しゃしん</rt></ruby>をとってもらえませんか。",
+        "explanation": "もらえませんか: a polite request."
+      },
+      {
+        "prompt": "Read: リーさんが<ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>待<rt>ま</rt></ruby>ってくれました。 Who waited?",
+        "options": [
+          "The speaker",
+          "Both of them",
+          "Nobody",
+          "Lee"
+        ],
+        "correct": "Lee",
+        "explanation": "リーさんが<ruby>待<rt>ま</rt></ruby>ってくれました: Lee waited for me."
+      },
+      {
+        "prompt": "Choose: \"My older brother helped me with my homework.\"",
+        "options": [
+          "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってくれました。",
+          "<ruby>兄<rt>あに</rt></ruby>にしゅくだいを<ruby>手<rt>て</rt></ruby>つだってあげました。",
+          "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってあげました。",
+          "<ruby>兄<rt>あに</rt></ruby>はしゅくだいを<ruby>手<rt>て</rt></ruby>つだってもらいました。"
+        ],
+        "correct": "<ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだってくれました。",
+        "explanation": "Helper が + てくれる."
+      },
+      {
+        "prompt": "Which of these is NOT a request?",
+        "options": [
+          "テレビをつけてくれませんか。",
+          "テレビをつけてもいいですか。",
+          "テレビをつけてもらえませんか。",
+          "テレビをつけてください。"
+        ],
+        "correct": "テレビをつけてもいいですか。",
+        "explanation": "てもいいですか asks for permission."
+      },
+      {
+        "prompt": "Review: complete これは<ruby>友<rt>とも</rt></ruby>だち＿＿かいたえです。",
+        "options": [
+          "は",
+          "を",
+          "が",
+          "で"
+        ],
+        "correct": "が",
+        "explanation": "The doer inside a describing clause takes が."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-2-you-should",
+    "slug": "n4-unit-2-you-should",
+    "unitId": "japanese-n4-unit-2",
+    "level": "N4",
+    "unitNumber": 2,
+    "lessonNumber": 5,
+    "isReview": false,
+    "title": "You Should…",
+    "titleJp": "〜ほうがいいです",
+    "objectives": [
+      "I can give and take advice.",
+      "Advise with V-たほうがいい",
+      "Advise against with V-ないほうがいい",
+      "Talk about health and how you feel"
+    ],
+    "vocabulary": [
+      [
+        "<ruby>体<rt>からだ</rt></ruby>",
+        "karada",
+        "body, health"
+      ],
+      [
+        "<ruby>早<rt>はや</rt></ruby>い",
+        "hayai",
+        "early"
+      ],
+      [
+        "<ruby>早<rt>はや</rt></ruby>く",
+        "hayaku",
+        "early, quickly"
+      ],
+      [
+        "<ruby>心<rt>こころ</rt></ruby>",
+        "kokoro",
+        "heart, mind"
+      ],
+      [
+        "<ruby>安心<rt>あんしん</rt></ruby>",
+        "anshin",
+        "relief, peace of mind"
+      ],
+      [
+        "むり",
+        "muri",
+        "impossible, too much"
+      ],
+      [
+        "むりをする",
+        "muri o suru",
+        "to overdo it"
+      ],
+      [
+        "うんどう",
+        "undou",
+        "exercise"
+      ],
+      [
+        "おさけ",
+        "osake",
+        "alcohol, sake"
+      ],
+      [
+        "ちょうし",
+        "choushi",
+        "condition"
+      ],
+      [
+        "<ruby>気<rt>き</rt></ruby>をつける",
+        "ki o tsukeru",
+        "to be careful"
+      ]
+    ],
+    "concept": {
+      "title": "Giving advice",
+      "text": "ほうがいい compares two choices and recommends one.\n\nV-たほうがいい: you had better do it. The verb is in the た-form even though the advice is about the future.\n<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。 You should go to bed early.\n\nV-ないほうがいい: you had better not.\nむりをしないほうがいいです。 You shouldn't overdo it.\n\nTo a teacher or someone older, soften it with と<ruby>思<rt>おも</rt></ruby>います: <ruby>休<rt>やす</rt></ruby>んだほうがいいと<ruby>思<rt>おも</rt></ruby>います.",
+      "examples": [
+        "V-た ほうがいいです",
+        "V-ない ほうがいいです",
+        "〜ほうがいいと<ruby>思<rt>おも</rt></ruby>います"
+      ]
+    },
+    "grammar": [
+      {
+        "title": "You should",
+        "pattern": "V-た ほうがいいです",
+        "explanation": "Use the た-form, then ほうがいいです. Add よ to sound friendly, or と<ruby>思<rt>おも</rt></ruby>います to sound gentle.",
+        "examples": [
+          {
+            "japanese": "ねつがありますから、<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。",
+            "romaji": "",
+            "meaning": "You have a fever, so you should go to bed early."
+          },
+          {
+            "japanese": "<ruby>毎日<rt>まいにち</rt></ruby>うんどうしたほうがいいですよ。",
+            "romaji": "",
+            "meaning": "You should exercise every day."
+          },
+          {
+            "japanese": "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったほうがいいと<ruby>思<rt>おも</rt></ruby>います。",
+            "romaji": "",
+            "meaning": "I think you should go to hospital."
+          },
+          {
+            "japanese": "<ruby>体<rt>からだ</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけたほうがいいです。",
+            "romaji": "",
+            "meaning": "You should look after your health."
+          },
+          {
+            "japanese": "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいかもしれません。",
+            "romaji": "",
+            "meaning": "It might be better to ask the teacher."
+          }
+        ],
+        "notes": [
+          "Use the た-form even for future advice: <ruby>行<rt>い</rt></ruby>ったほうがいい.",
+          "<ruby>体<rt>からだ</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけて is also a common way to say goodbye: take care."
+        ]
+      },
+      {
+        "title": "You shouldn't",
+        "pattern": "V-ない ほうがいいです",
+        "explanation": "For advice against something, use the ない-form (not the past) before ほうがいいです.",
+        "examples": [
+          {
+            "japanese": "むりをしないほうがいいです。",
+            "romaji": "",
+            "meaning": "You shouldn't overdo it."
+          },
+          {
+            "japanese": "<ruby>夜<rt>よる</rt></ruby>おそくまでテレビを<ruby>見<rt>み</rt></ruby>ないほうがいいです。",
+            "romaji": "",
+            "meaning": "You'd better not watch TV late into the night."
+          },
+          {
+            "japanese": "ちょうしがわるいですから、<ruby>今日<rt>きょう</rt></ruby>はおさけを<ruby>飲<rt>の</rt></ruby>まないほうがいいです。",
+            "romaji": "",
+            "meaning": "You're not feeling well, so you'd better not drink today."
+          },
+          {
+            "japanese": "あまりしんぱいしないほうがいいですよ。",
+            "romaji": "",
+            "meaning": "You shouldn't worry too much."
+          },
+          {
+            "japanese": "たばこはすわないほうがいいです。",
+            "romaji": "",
+            "meaning": "You'd better not smoke."
+          }
+        ],
+        "notes": [
+          "Wrong: <ruby>飲<rt>の</rt></ruby>まなかったほうがいい. The negative advice uses the ない-form.",
+          "ほうがいい is stronger than a suggestion; for a softer idea, use 〜たらどうですか later."
+        ]
+      }
+    ],
+    "examples": [
+      [
+        "<ruby>心<rt>こころ</rt></ruby>がやさしい<ruby>人<rt>ひと</rt></ruby>です。",
+        "She is a kind-hearted person."
+      ],
+      [
+        "<ruby>医者<rt>いしゃ</rt></ruby>がだいじょうぶだと<ruby>言<rt>い</rt></ruby>いましたから、<ruby>安心<rt>あんしん</rt></ruby>しました。",
+        "The doctor said it was fine, so I felt relieved."
+      ],
+      [
+        "<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>早<rt>はや</rt></ruby>くおきます。",
+        "I get up early every morning."
+      ],
+      [
+        "<ruby>早<rt>はや</rt></ruby>くよくなってください。",
+        "Please get well soon."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "<ruby>体<rt>からだ</rt></ruby>のちょうしがよくないんです。",
+        "<ruby>医者<rt>いしゃ</rt></ruby>",
+        "むりをしないほうがいいですよ。"
+      ],
+      [
+        "けん",
+        "ねつがあるんですが、<ruby>学校<rt>がっこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったほうがいいですか。",
+        "マイ",
+        "いいえ、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。"
+      ],
+      [
+        "リー",
+        "<ruby>明日<rt>あした</rt></ruby>はテストなんです。",
+        "ゆき",
+        "じゃあ、<ruby>今夜<rt>こんや</rt></ruby>は<ruby>早<rt>はや</rt></ruby>くねたほうがいいですね。"
+      ],
+      [
+        "リン",
+        "<ruby>医者<rt>いしゃ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>っていましたか。",
+        "たなか",
+        "おさけを<ruby>飲<rt>の</rt></ruby>まないほうがいいと<ruby>言<rt>い</rt></ruby>っていました。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Review: which is the softer way to say ちょっと<ruby>待<rt>ま</rt></ruby>ってください?",
+        "options": [
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ってあげませんか。",
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ちませんか。",
+          "ちょっと<ruby>待<rt>ま</rt></ruby>ってもらいませんか。"
+        ],
+        "correct": "ちょっと<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+        "explanation": "てくれませんか is a polite request."
+      },
+      {
+        "prompt": "What does <ruby>安心<rt>あんしん</rt></ruby>する mean?",
+        "options": [
+          "to worry",
+          "to be careful",
+          "to feel relieved",
+          "to feel well"
+        ],
+        "correct": "to feel relieved",
+        "explanation": "<ruby>安心<rt>あんしん</rt></ruby>する: to feel relieved."
+      },
+      {
+        "prompt": "Complete: <ruby>毎日<rt>まいにち</rt></ruby>うんどう＿＿ほうがいいです。 (you should exercise)",
+        "options": [
+          "する",
+          "して",
+          "します",
+          "した"
+        ],
+        "correct": "した",
+        "explanation": "Advice uses the た-form before ほうがいい."
+      },
+      {
+        "prompt": "Complete: むりを＿＿ほうがいいです。 (you shouldn't overdo it)",
+        "options": [
+          "しない",
+          "しなかった",
+          "しないで",
+          "した"
+        ],
+        "correct": "しない",
+        "explanation": "Advice against uses the ない-form."
+      },
+      {
+        "prompt": "Which sentence gives advice?",
+        "options": [
+          "<ruby>早<rt>はや</rt></ruby>くねました。",
+          "<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。",
+          "<ruby>早<rt>はや</rt></ruby>くねたいです。",
+          "<ruby>早<rt>はや</rt></ruby>くねてもいいです。"
+        ],
+        "correct": "<ruby>早<rt>はや</rt></ruby>くねたほうがいいです。",
+        "explanation": "たほうがいい gives advice."
+      },
+      {
+        "prompt": "How is 心⁠ read when it is a word on its own?",
+        "options": [
+          "しん",
+          "からだ",
+          "こころ",
+          "きもち"
+        ],
+        "correct": "こころ",
+        "explanation": "As a word on its own, 心⁠ is こころ."
+      },
+      {
+        "prompt": "Choose the meaning of たばこはすわないほうがいいです。",
+        "options": [
+          "You may smoke.",
+          "You must smoke outside.",
+          "I don't smoke.",
+          "You'd better not smoke."
+        ],
+        "correct": "You'd better not smoke.",
+        "explanation": "ないほうがいい: you'd better not."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "A friend has a fever but wants to go to class. What advice fits?",
+        "options": [
+          "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>むほうがよかったです。",
+          "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>まないほうがいいですよ。",
+          "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んでほうがいいですよ。",
+          "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。"
+        ],
+        "correct": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。",
+        "explanation": "た-form + ほうがいい."
+      },
+      {
+        "prompt": "Read: <ruby>医者<rt>いしゃ</rt></ruby>はおさけを<ruby>飲<rt>の</rt></ruby>まないほうがいいと<ruby>言<rt>い</rt></ruby>っていました。 What did the doctor advise?",
+        "options": [
+          "Not to drink alcohol",
+          "To drink more water",
+          "To drink only at night",
+          "To stop smoking"
+        ],
+        "correct": "Not to drink alcohol",
+        "explanation": "<ruby>飲<rt>の</rt></ruby>まないほうがいい: better not drink."
+      },
+      {
+        "prompt": "Choose: \"I think you should ask the teacher.\"",
+        "options": [
+          "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいだと<ruby>思<rt>おも</rt></ruby>います。",
+          "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいと<ruby>思<rt>おも</rt></ruby>います。",
+          "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがよかったと<ruby>思<rt>おも</rt></ruby>いますか。",
+          "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>かないほうがいいだと<ruby>思<rt>おも</rt></ruby>います。"
+        ],
+        "correct": "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたほうがいいと<ruby>思<rt>おも</rt></ruby>います。",
+        "explanation": "い-adjective いい takes no だ before と<ruby>思<rt>おも</rt></ruby>います."
+      },
+      {
+        "prompt": "Which word means body?",
+        "options": [
+          "<ruby>心<rt>こころ</rt></ruby>",
+          "<ruby>手<rt>て</rt></ruby>",
+          "<ruby>体<rt>からだ</rt></ruby>",
+          "<ruby>目<rt>め</rt></ruby>"
+        ],
+        "correct": "<ruby>体<rt>からだ</rt></ruby>",
+        "explanation": "<ruby>体<rt>からだ</rt></ruby>: body."
+      },
+      {
+        "prompt": "Review: complete リーさんにチョコレートを＿＿。 (I gave)",
+        "options": [
+          "くれました",
+          "もらいました",
+          "<ruby>持<rt>も</rt></ruby>ちました",
+          "あげました"
+        ],
+        "correct": "あげました",
+        "explanation": "Giving to someone else: あげる."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n4-unit-2-review",
+    "slug": "n4-unit-2-review",
+    "unitId": "japanese-n4-unit-2",
+    "level": "N4",
+    "unitNumber": 2,
+    "lessonNumber": 6,
+    "isReview": true,
+    "title": "Unit 2 Review",
+    "titleJp": "ユニット2のふくしゅう",
+    "objectives": [
+      "I can talk about gifts and favours and ask for help.",
+      "Choose between あげる, くれる and もらう, with things and with actions",
+      "Ask for favours politely and give advice",
+      "Read a short post about a birthday"
+    ],
+    "vocabulary": [
+      [
+        "あげる",
+        "ageru",
+        "to give (to someone else)"
+      ],
+      [
+        "もらう",
+        "morau",
+        "to receive, to get"
+      ],
+      [
+        "くれる",
+        "kureru",
+        "to give (to me or my family)"
+      ],
+      [
+        "<ruby>手紙<rt>てがみ</rt></ruby>",
+        "tegami",
+        "letter"
+      ],
+      [
+        "<ruby>送<rt>おく</rt></ruby>る",
+        "okuru",
+        "to send, to see someone off"
+      ],
+      [
+        "<ruby>教<rt>おし</rt></ruby>える",
+        "oshieru",
+        "to teach, to tell"
+      ],
+      [
+        "<ruby>習<rt>なら</rt></ruby>う",
+        "narau",
+        "to learn (from someone)"
+      ],
+      [
+        "<ruby>貸<rt>か</rt></ruby>す",
+        "kasu",
+        "to lend"
+      ],
+      [
+        "<ruby>借<rt>か</rt></ruby>りる",
+        "kariru",
+        "to borrow"
+      ],
+      [
+        "<ruby>写真<rt>しゃしん</rt></ruby>",
+        "shashin",
+        "photo"
+      ],
+      [
+        "<ruby>待<rt>ま</rt></ruby>つ",
+        "matsu",
+        "to wait"
+      ],
+      [
+        "<ruby>体<rt>からだ</rt></ruby>",
+        "karada",
+        "body, health"
+      ]
+    ],
+    "concept": {
+      "title": "Three verbs, two uses",
+      "text": "The same three verbs work for things and for actions:\n\nあげる / V-てあげる: away from me, or between other people\nくれる / V-てくれる: toward me or my family\nもらう / V-てもらう: I receive, from someone with に\n\nA polite request turns the favour into a question: V-てくれませんか, or more politely V-てもらえませんか.\n\nAdvice uses ほうがいい: V-たほうがいい (you should), V-ないほうがいい (you shouldn't).",
+      "examples": [
+        "N をあげる / くれる / もらう",
+        "V-てあげる / V-てくれる / V-てもらう",
+        "V-たほうがいい / V-ないほうがいい"
+      ]
+    },
+    "grammar": [],
+    "examples": [
+      [
+        "<ruby>姉<rt>あね</rt></ruby>がたんじょう<ruby>日<rt>び</rt></ruby>にかばんをくれました。",
+        "My older sister gave me a bag for my birthday."
+      ],
+      [
+        "<ruby>友<rt>とも</rt></ruby>だちに<ruby>写真<rt>しゃしん</rt></ruby>をとってもらいました。",
+        "I had a friend take my photo."
+      ],
+      [
+        "<ruby>弟<rt>おとうと</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてあげました。",
+        "I taught my younger brother Japanese."
+      ],
+      [
+        "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+        "I borrowed a book at the library."
+      ],
+      [
+        "すみません、ちょっと<ruby>待<rt>ま</rt></ruby>ってもらえませんか。",
+        "Excuse me, could you wait a moment?"
+      ],
+      [
+        "<ruby>体<rt>からだ</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけたほうがいいですよ。",
+        "You should look after your health."
+      ]
+    ],
+    "dialogue": [
+      [
+        "アナ",
+        "そのかばん、<ruby>新<rt>あたら</rt></ruby>しいですね。",
+        "マイ",
+        "<ruby>姉<rt>あね</rt></ruby>がくれたんです。"
+      ],
+      [
+        "リー",
+        "<ruby>日本語<rt>にほんご</rt></ruby>はだれに<ruby>習<rt>なら</rt></ruby>ったんですか。",
+        "けん",
+        "たなか<ruby>先生<rt>せんせい</rt></ruby>に<ruby>教<rt>おし</rt></ruby>えてもらいました。"
+      ],
+      [
+        "ゆき",
+        "すみません、じしょを<ruby>貸<rt>か</rt></ruby>してくれませんか。",
+        "リン",
+        "いいですよ。どうぞ。"
+      ],
+      [
+        "リン",
+        "<ruby>明日<rt>あした</rt></ruby>かえしますね。",
+        "ゆき",
+        "はい、だいじょうぶですよ。"
+      ]
+    ],
+    "practice": [
+      {
+        "prompt": "Complete: わたしは<ruby>弟<rt>おとうと</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をあげました。",
+        "options": [
+          "を",
+          "から",
+          "に",
+          "が"
+        ],
+        "correct": "に",
+        "explanation": "The receiver takes に."
+      },
+      {
+        "prompt": "Complete: <ruby>父<rt>ちち</rt></ruby>がかばんを＿＿。 (gave me)",
+        "options": [
+          "あげました",
+          "もらいました",
+          "<ruby>貸<rt>か</rt></ruby>しました",
+          "くれました"
+        ],
+        "correct": "くれました",
+        "explanation": "Toward me: くれる."
+      },
+      {
+        "prompt": "Complete: <ruby>友<rt>とも</rt></ruby>だちに<ruby>写真<rt>しゃしん</rt></ruby>をとって＿＿。 (my friend took it for me)",
+        "options": [
+          "もらいました",
+          "あげました",
+          "くれました",
+          "とりました"
+        ],
+        "correct": "もらいました",
+        "explanation": "Helper に + てもらう."
+      },
+      {
+        "prompt": "Complete: <ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだって＿＿。 (my brother helped me)",
+        "options": [
+          "あげました",
+          "くれました",
+          "もらいました",
+          "ください"
+        ],
+        "correct": "くれました",
+        "explanation": "Helper が + てくれる."
+      },
+      {
+        "prompt": "Which verb means to borrow?",
+        "options": [
+          "<ruby>貸<rt>か</rt></ruby>す",
+          "かえす",
+          "<ruby>借<rt>か</rt></ruby>りる",
+          "<ruby>送<rt>おく</rt></ruby>る"
+        ],
+        "correct": "<ruby>借<rt>か</rt></ruby>りる",
+        "explanation": "<ruby>借<rt>か</rt></ruby>りる: borrow."
+      },
+      {
+        "prompt": "Which request is the most polite?",
+        "options": [
+          "<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+          "<ruby>待<rt>ま</rt></ruby>ってください。",
+          "<ruby>待<rt>ま</rt></ruby>って。",
+          "<ruby>待<rt>ま</rt></ruby>ってもらえませんか。"
+        ],
+        "correct": "<ruby>待<rt>ま</rt></ruby>ってもらえませんか。",
+        "explanation": "もらえませんか is the most polite here."
+      },
+      {
+        "prompt": "Complete: おさけを＿＿ほうがいいです。 (you'd better not drink)",
+        "options": [
+          "<ruby>飲<rt>の</rt></ruby>まない",
+          "<ruby>飲<rt>の</rt></ruby>まなかった",
+          "<ruby>飲<rt>の</rt></ruby>んだ",
+          "<ruby>飲<rt>の</rt></ruby>まないで"
+        ],
+        "correct": "<ruby>飲<rt>の</rt></ruby>まない",
+        "explanation": "Advice against uses the ない-form."
+      },
+      {
+        "prompt": "Choose the meaning of <ruby>姉<rt>あね</rt></ruby>がたんじょう<ruby>日<rt>び</rt></ruby>にかばんをくれました。",
+        "options": [
+          "I gave my older sister a bag for her birthday.",
+          "My older sister gave me a bag for my birthday.",
+          "My older sister got a bag for her birthday.",
+          "My older sister lent me a bag."
+        ],
+        "correct": "My older sister gave me a bag for my birthday.",
+        "explanation": "くれました: gave to me."
+      }
+    ],
+    "challenge": [
+      {
+        "prompt": "Read: リーさんがみんなの<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。 What did Lee do?",
+        "options": [
+          "He took photos of everyone for the writer.",
+          "He asked someone to take photos.",
+          "He got photos from everyone.",
+          "He gave everyone a camera."
+        ],
+        "correct": "He took photos of everyone for the writer.",
+        "explanation": "てくれました: did it for me."
+      },
+      {
+        "prompt": "Which two sentences describe the same event?",
+        "options": [
+          "<ruby>姉<rt>あね</rt></ruby>にあげました / <ruby>姉<rt>あね</rt></ruby>にもらいました",
+          "<ruby>姉<rt>あね</rt></ruby>がくれました / <ruby>姉<rt>あね</rt></ruby>にもらいました",
+          "<ruby>姉<rt>あね</rt></ruby>がくれました / <ruby>姉<rt>あね</rt></ruby>にあげました",
+          "<ruby>姉<rt>あね</rt></ruby>に<ruby>貸<rt>か</rt></ruby>しました / <ruby>姉<rt>あね</rt></ruby>に<ruby>借<rt>か</rt></ruby>りました"
+        ],
+        "correct": "<ruby>姉<rt>あね</rt></ruby>がくれました / <ruby>姉<rt>あね</rt></ruby>にもらいました",
+        "explanation": "くれる from her = もらう from her."
+      },
+      {
+        "prompt": "A colleague looks tired and wants to stay late. What do you say?",
+        "options": [
+          "むりをしたほうがいいですよ。",
+          "むりをしなかったほうがいいですよ。",
+          "むりをしないほうがいいですよ。",
+          "むりをしないでほうがいいですよ。"
+        ],
+        "correct": "むりをしないほうがいいですよ。",
+        "explanation": "ないほうがいい: you shouldn't."
+      },
+      {
+        "prompt": "Choose: \"Could you lend me your dictionary?\"",
+        "options": [
+          "じしょを<ruby>借<rt>か</rt></ruby>りてもらえませんか。",
+          "じしょを<ruby>貸<rt>か</rt></ruby>してあげませんか。",
+          "じしょを<ruby>借<rt>か</rt></ruby>してくれませんか。",
+          "じしょを<ruby>貸<rt>か</rt></ruby>してもらえませんか。"
+        ],
+        "correct": "じしょを<ruby>貸<rt>か</rt></ruby>してもらえませんか。",
+        "explanation": "The other person lends: <ruby>貸<rt>か</rt></ruby>す + てもらえませんか."
+      },
+      {
+        "prompt": "Review (Unit 1): complete <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>む＿＿<ruby>言<rt>い</rt></ruby>っていました。",
+        "options": [
+          "と",
+          "か",
+          "を",
+          "が"
+        ],
+        "correct": "と",
+        "explanation": "と marks reported words."
+      }
+    ],
+    "reading": {
+      "genre": "Social media post",
+      "text": "<ruby>先週<rt>せんしゅう</rt></ruby>はわたしのたんじょう<ruby>日<rt>び</rt></ruby>でした。<ruby>朝<rt>あさ</rt></ruby>、<ruby>国<rt>くに</rt></ruby>にいる<ruby>母<rt>はは</rt></ruby>が<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>ってくれました。<ruby>姉<rt>あね</rt></ruby>にはきれいなかばんをもらいました。<ruby>夜<rt>よる</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちがレストランでパーティーをしてくれました。リーさんがみんなの<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。わたしはみんなにケーキをあげました。<ruby>来週<rt>らいしゅう</rt></ruby>、みんなにおれいのカードを<ruby>送<rt>おく</rt></ruby>ります。",
+      "translation": "Last week was my birthday. In the morning my mother, who lives back home, sent me a letter. I got a pretty bag from my older sister. In the evening my friends threw me a party at a restaurant. Lee took photos of everyone for me. I gave everyone some cake. Next week I'll send everyone a thank-you card.",
+      "questions": [
+        {
+          "prompt": "What did the writer's mother do?",
+          "options": [
+            "She gave a bag.",
+            "She sent a letter.",
+            "She threw a party.",
+            "She took photos."
+          ],
+          "correct": "She sent a letter.",
+          "explanation": "<ruby>母<rt>はは</rt></ruby>が<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>ってくれました。"
+        },
+        {
+          "prompt": "What did the writer get from her older sister?",
+          "options": [
+            "A letter",
+            "A cake",
+            "A bag",
+            "A card"
+          ],
+          "correct": "A bag",
+          "explanation": "<ruby>姉<rt>あね</rt></ruby>にはきれいなかばんをもらいました。"
+        },
+        {
+          "prompt": "What will the writer do next week?",
+          "options": [
+            "Have another party",
+            "Visit her mother",
+            "Buy a bag",
+            "Send thank-you cards"
+          ],
+          "correct": "Send thank-you cards",
+          "explanation": "<ruby>来週<rt>らいしゅう</rt></ruby>、みんなにおれいのカードを<ruby>送<rt>おく</rt></ruby>ります。"
         }
       ]
     }

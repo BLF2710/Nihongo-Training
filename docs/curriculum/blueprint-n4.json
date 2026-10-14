@@ -1,0 +1,1068 @@
+{
+  "blueprint_version": 1,
+  "stage": "0",
+  "part": "N4 (part 2 of 6)",
+  "status": "draft: Units 1–2 generated; Units 3–9 planned",
+  "level": "N4",
+  "defaults": {
+    "unit_shape": "5 content lessons + 1 review lesson + 1 assessment (15 questions, pass at 12/15), as in N5 from Unit 4",
+    "script": "Every kanji is written with furigana (<ruby>). Kanji already taught are used in kanji; words whose kanji are not yet taught stay in kana. Sentences are written without word spaces.",
+    "romaji": "Vocabulary keeps romaji in Units 1–3; grammar examples and dialogues no longer carry romaji.",
+    "verbs": "Vocabulary lists verbs in the dictionary form from N4 on, since plain forms are now taught.",
+    "required_xp_level": "Left null, as in N5: the owner is redesigning XP."
+  },
+  "units": [
+    {
+      "unit_id": "japanese-n4-unit-1",
+      "level": "N4",
+      "unit_number": 1,
+      "sequence": 10,
+      "title": "Thoughts & Explanations",
+      "title_jp": "かんがえと せつめい",
+      "description": "Say what you think, pass on what others said, describe things with whole clauses, and explain reasons and likelihood.",
+      "can_do": [
+        "I can say what I think and ask for opinions.",
+        "I can report what someone said.",
+        "I can describe people and things with a clause.",
+        "I can explain a situation and ask what happened.",
+        "I can say what will probably or might happen."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-1-i-think",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "I Think…",
+          "title_jp": "〜と おもいます",
+          "grammar": [
+            "plain form + と思います",
+            "〜と思いますか (asking opinions)",
+            "dictionary-form verbs in vocabulary lists"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "思",
+            "考",
+            "意"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-1-they-said",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "They Said…",
+          "title_jp": "〜と いっていました",
+          "grammar": [
+            "plain form + と言いました / と言っていました",
+            "quoting a question: 〜か (どうか) 知っていますか"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "答",
+            "知",
+            "明"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-1-the-book-i-bought",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "The Book I Bought",
+          "title_jp": "きのう かった ほん",
+          "grammar": [
+            "noun-modifying clauses (plain form + N)",
+            "clause が in a noun-modifying clause"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "物",
+            "屋",
+            "家"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-1-what-happened",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "What Happened?",
+          "title_jp": "どうしたんですか",
+          "grammar": [
+            "〜んです / 〜んですか (explaining, asking for an explanation)",
+            "〜んですが、〜 (opening a request)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "病",
+            "院",
+            "医",
+            "者"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-1-probably",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "Probably & Maybe",
+          "title_jp": "〜でしょう・〜かもしれません",
+          "grammar": [
+            "plain form + でしょう / だろう",
+            "plain form + かもしれません"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "朝",
+            "昼",
+            "夜",
+            "風"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-1-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 1 Review",
+          "title_jp": "ユニット1の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-2",
+      "level": "N4",
+      "unit_number": 2,
+      "sequence": 11,
+      "title": "Giving & Receiving",
+      "title_jp": "あげる・くれる・もらう",
+      "description": "Give and receive things and favours, ask people to do things for you, and give advice.",
+      "can_do": [
+        "I can say who gave what to whom.",
+        "I can talk about favours done for me and by me.",
+        "I can ask someone politely to do something for me.",
+        "I can give and take advice."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-2-give-and-get",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "Giving & Getting",
+          "title_jp": "あげる・もらう",
+          "grammar": [
+            "N に N を あげる",
+            "N に / から N を もらう"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "兄",
+            "弟",
+            "姉",
+            "妹"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-2-they-gave-me",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "They Gave Me…",
+          "title_jp": "くれる",
+          "grammar": [
+            "N が (わたしに) N を くれる",
+            "choosing between あげる and くれる"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "送",
+            "紙",
+            "持"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-2-doing-favours",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "Doing Favours",
+          "title_jp": "〜て あげる・〜て もらう",
+          "grammar": [
+            "V-て あげる",
+            "V-て もらう"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "教",
+            "習",
+            "貸",
+            "借"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-2-would-you-mind",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "Would You Mind…?",
+          "title_jp": "〜て くれませんか",
+          "grammar": [
+            "V-て くれる",
+            "V-て くれませんか / V-て もらえませんか"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "写",
+            "真",
+            "待"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-2-you-should",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "You Should…",
+          "title_jp": "〜ほうが いいです",
+          "grammar": [
+            "V-た ほうが いい",
+            "V-ない ほうが いい"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "体",
+            "早",
+            "心"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-2-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 2 Review",
+          "title_jp": "ユニット2の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-3",
+      "level": "N4",
+      "unit_number": 3,
+      "sequence": 12,
+      "title": "Abilities & Changes",
+      "title_jp": "できることと かわること",
+      "description": "Say what you can do with the potential form, describe changes in ability and habit, list reasons, and say how things look.",
+      "can_do": [
+        "I can say what I can and cannot do.",
+        "I can describe how my abilities or habits have changed.",
+        "I can give several reasons at once.",
+        "I can say how something looks or seems."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-3-i-can-drive",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "I Can Drive",
+          "title_jp": "うんてんできる",
+          "grammar": [
+            "potential form: group 2 and irregular verbs",
+            "N が + potential verb"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "運",
+            "転",
+            "動"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-3-i-can-sing",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "I Can Sing It",
+          "title_jp": "うたえる",
+          "grammar": [
+            "potential form: group 1 verbs",
+            "potential in the negative and past"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "歌",
+            "音",
+            "楽"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-3-now-i-can",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "Now I Can…",
+          "title_jp": "〜ように なりました",
+          "grammar": [
+            "V-る ように なる",
+            "V-なく なる"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "始",
+            "終",
+            "去"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-3-and-also",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "And Besides…",
+          "title_jp": "〜し、〜し",
+          "grammar": [
+            "plain form + し、〜し (listing reasons)",
+            "それに"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "広",
+            "近",
+            "住"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-3-looks-tasty",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "It Looks Tasty",
+          "title_jp": "おいしそうです",
+          "grammar": [
+            "adjective stem + そうです (looks)",
+            "V-stem + そうです (about to)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "味",
+            "色",
+            "赤",
+            "青"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-3-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 3 Review",
+          "title_jp": "ユニット3の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-4",
+      "level": "N4",
+      "unit_number": 4,
+      "sequence": 13,
+      "title": "If & When",
+      "title_jp": "〜たら・〜ば・〜と・〜なら",
+      "description": "Talk about conditions and their results with たら, ば, と and なら, and say \"even if\".",
+      "can_do": [
+        "I can say what I will do if or when something happens.",
+        "I can state general conditions and their results.",
+        "I can give directions with と.",
+        "I can give advice about a topic someone raises."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-4-if-it-rains",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "If It Rains",
+          "title_jp": "あめが ふったら",
+          "grammar": [
+            "V-たら / adjective-たら / N-だったら",
+            "たら for when (after)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "春",
+            "夏",
+            "秋",
+            "冬"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-4-if-you-study",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "If You Study",
+          "title_jp": "べんきょうすれば",
+          "grammar": [
+            "conditional ば form",
+            "〜ば よかった (regret)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "試",
+            "験",
+            "勉",
+            "強"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-4-turn-right",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "Turn Right and…",
+          "title_jp": "まがると",
+          "grammar": [
+            "plain form + と (natural result)",
+            "directions with と"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "歩",
+            "走",
+            "止"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-4-if-its-kyoto",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "If It's Kyoto…",
+          "title_jp": "きょうとなら",
+          "grammar": [
+            "N なら (as for, if it's)",
+            "plain form + なら (advice)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "京",
+            "都",
+            "旅"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-4-even-if",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "Even If…",
+          "title_jp": "〜ても",
+          "grammar": [
+            "V-ても / adjective-くても / N でも",
+            "いくら〜ても"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "開",
+            "切",
+            "起"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-4-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 4 Review",
+          "title_jp": "ユニット4の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-5",
+      "level": "N4",
+      "unit_number": 5,
+      "sequence": 14,
+      "title": "Intentions & Plans",
+      "title_jp": "よていと けいかく",
+      "description": "Say what you intend and plan to do, why, and in what order.",
+      "can_do": [
+        "I can suggest plans in casual speech.",
+        "I can say what I am thinking of doing.",
+        "I can say what I intend and do not intend to do.",
+        "I can give the purpose of an action.",
+        "I can put plans in order with before and after."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-5-lets-go",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "Let's Go!",
+          "title_jp": "いこう",
+          "grammar": [
+            "volitional form (casual let's)",
+            "〜(よ)うか (shall I / shall we)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "映",
+            "画",
+            "洋",
+            "服"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-5-thinking-of",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "I'm Thinking of…",
+          "title_jp": "〜(よ)うと おもって います",
+          "grammar": [
+            "volitional + と思っています",
+            "volitional + と思います"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "世",
+            "界",
+            "海"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-5-i-intend-to",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "I Intend To…",
+          "title_jp": "〜つもりです",
+          "grammar": [
+            "V-る / V-ない つもりです",
+            "N の よていです"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "仕",
+            "事",
+            "働"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-5-in-order-to",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "In Order To…",
+          "title_jp": "〜ために",
+          "grammar": [
+            "V-る / N の ために (purpose)",
+            "V-る のに (used for)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "銀",
+            "員",
+            "用"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-5-before-and-after",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "Before & After",
+          "title_jp": "〜まえに・〜あとで",
+          "grammar": [
+            "V-る まえに",
+            "V-た あとで"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "夕",
+            "方",
+            "曜"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-5-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 5 Review",
+          "title_jp": "ユニット5の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-6",
+      "level": "N4",
+      "unit_number": 6,
+      "sequence": 15,
+      "title": "Trying, Finishing & Preparing",
+      "title_jp": "ためす・おわる・じゅんびする",
+      "description": "Try things out, say something got done (or went wrong), prepare in advance, and describe states and changes.",
+      "can_do": [
+        "I can say I will try something.",
+        "I can say something is completely done, or happened by mistake.",
+        "I can say what I will do in advance.",
+        "I can describe the state of things around me.",
+        "I can describe changes."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-6-try-it",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "Try It On",
+          "title_jp": "〜て みる",
+          "grammar": [
+            "V-て みる"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "着",
+            "肉",
+            "茶",
+            "飯"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-6-oh-no",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "Oh No, I Did It",
+          "title_jp": "〜て しまう",
+          "grammar": [
+            "V-て しまう (completion, regret)",
+            "〜ちゃう (casual)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "悪",
+            "死",
+            "不"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-6-getting-ready",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "Getting Ready",
+          "title_jp": "〜て おく",
+          "grammar": [
+            "V-て おく",
+            "〜とく (casual)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "料",
+            "理",
+            "計"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-6-the-door-is-open",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "The Door Is Open",
+          "title_jp": "〜て ある・〜て いる",
+          "grammar": [
+            "transitive / intransitive pairs",
+            "V-て ある vs V-て いる"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "室",
+            "堂",
+            "館",
+            "図"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-6-becoming",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "It Became…",
+          "title_jp": "〜く なる・〜に する",
+          "grammar": [
+            "adjective + なる",
+            "N / adjective + に する (decide, make)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "重",
+            "正",
+            "同"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-6-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 6 Review",
+          "title_jp": "ユニット6の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-7",
+      "level": "N4",
+      "unit_number": 7,
+      "sequence": 16,
+      "title": "Hearsay & Appearances",
+      "title_jp": "きいた ことと 見た かんじ",
+      "description": "Pass on what you heard, and say what seems to be true from what you see or know.",
+      "can_do": [
+        "I can pass on information I heard or read.",
+        "I can say what seems to be the case.",
+        "I can compare something to something else.",
+        "I can say what should be true."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-7-i-heard",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "I Heard That…",
+          "title_jp": "〜そうです",
+          "grammar": [
+            "plain form + そうです (hearsay)",
+            "〜によると"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "特",
+            "別",
+            "発"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-7-apparently",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "Apparently…",
+          "title_jp": "〜らしい",
+          "grammar": [
+            "plain form + らしい",
+            "N らしい (typical of)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "自",
+            "主",
+            "有"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-7-it-seems",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "It Seems…",
+          "title_jp": "〜ようです",
+          "grammar": [
+            "plain form + ようです",
+            "N の ような / N の ように"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "黒",
+            "鳥",
+            "犬"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-7-like-a",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "Just Like…",
+          "title_jp": "〜みたい",
+          "grammar": [
+            "plain form + みたい (casual)",
+            "N みたいな N"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "漢",
+            "字",
+            "英"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-7-should-be",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "It Should Be…",
+          "title_jp": "〜はずです",
+          "grammar": [
+            "plain form + はずです",
+            "〜はずが ない"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "以",
+            "度",
+            "集"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-7-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 7 Review",
+          "title_jp": "ユニット7の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-8",
+      "level": "N4",
+      "unit_number": 8,
+      "sequence": 17,
+      "title": "Passive & Causative",
+      "title_jp": "うけみと しえき",
+      "description": "Say what was done to someone, what someone made or let someone do, and ask to be allowed to do something.",
+      "can_do": [
+        "I can say what was done, and by whom.",
+        "I can complain about something done to me.",
+        "I can say who made or let someone do something.",
+        "I can ask to be allowed to do something.",
+        "I can say what I want someone to do."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-8-was-made",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "It Was Made In…",
+          "title_jp": "つくられる",
+          "grammar": [
+            "passive form",
+            "N に よって (by, for creations)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "使",
+            "作",
+            "建"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-8-i-got-scolded",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "I Got Scolded",
+          "title_jp": "しかられた",
+          "grammar": [
+            "passive of inconvenience",
+            "N に V-られる"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "売",
+            "代",
+            "町"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-8-made-to-do",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "Made to Do It",
+          "title_jp": "させる",
+          "grammar": [
+            "causative form",
+            "N を / N に V-させる (make, let)"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "親",
+            "注",
+            "族"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-8-let-me",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "Please Let Me…",
+          "title_jp": "〜させて ください",
+          "grammar": [
+            "V-させて ください",
+            "V-させて もらえませんか"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "帰",
+            "問",
+            "題",
+            "質"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-8-i-want-you-to",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "I Want You To…",
+          "title_jp": "〜て ほしい",
+          "grammar": [
+            "V-て ほしい",
+            "V-る ように 言う / たのむ"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "研",
+            "究",
+            "工",
+            "場"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-8-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 8 Review",
+          "title_jp": "ユニット8の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    },
+    {
+      "unit_id": "japanese-n4-unit-9",
+      "level": "N4",
+      "unit_number": 9,
+      "sequence": 18,
+      "title": "Polite Japanese",
+      "title_jp": "ていねいな にほんご",
+      "description": "Understand and use basic honorific and humble Japanese, and a set of useful patterns for doing two things at once, too much, and with ease.",
+      "can_do": [
+        "I can understand basic honorific speech from staff and teachers.",
+        "I can talk humbly about myself to a senior.",
+        "I can say I do two things at once, or do too much.",
+        "I can say something is easy or hard to do.",
+        "I can say something happened despite expectations."
+      ],
+      "required_xp_level": null,
+      "target_vocab": 55,
+      "lessons": [
+        {
+          "lesson_id": "japanese-n4-unit-9-honorific",
+          "lesson_number": 1,
+          "is_review": false,
+          "title": "Honorific Speech",
+          "title_jp": "そんけいご",
+          "grammar": [
+            "お V-に なる, special honorific verbs",
+            "いらっしゃる・めしあがる・ごらんに なる"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "公",
+            "園",
+            "市"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-9-humble",
+          "lesson_number": 2,
+          "is_review": false,
+          "title": "Humble Speech",
+          "title_jp": "けんじょうご",
+          "grammar": [
+            "お V-する, special humble verbs",
+            "まいる・いただく・もうす"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "文",
+            "品",
+            "業"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-9-while-doing",
+          "lesson_number": 3,
+          "is_review": false,
+          "title": "While & Too Much",
+          "title_jp": "〜ながら・〜すぎる",
+          "grammar": [
+            "V-stem + ながら",
+            "V-stem / adjective stem + すぎる"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "頭",
+            "顔",
+            "声"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-9-easy-to-use",
+          "lesson_number": 4,
+          "is_review": false,
+          "title": "Easy to Use",
+          "title_jp": "〜やすい・〜にくい",
+          "grammar": [
+            "V-stem + やすい / にくい"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "地",
+            "鉄",
+            "通"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-9-even-though",
+          "lesson_number": 5,
+          "is_review": false,
+          "title": "Even Though…",
+          "title_jp": "〜のに",
+          "grammar": [
+            "plain form + のに",
+            "〜のに (for, used for) contrasted"
+          ],
+          "target_vocab": 11,
+          "kanji": [
+            "無",
+            "回",
+            "台"
+          ]
+        },
+        {
+          "lesson_id": "japanese-n4-unit-9-review",
+          "lesson_number": 6,
+          "is_review": true,
+          "title": "Unit 9 Review",
+          "title_jp": "ユニット9の ふくしゅう",
+          "grammar": [],
+          "target_vocab": 0,
+          "kanji": []
+        }
+      ]
+    }
+  ],
+  "kanji_index": {
+    "new_in_n4": 147,
+    "course_total_at_end": 250,
+    "target_note": "Approximately 300 kanji by the end of N4 in common study lists; this course reaches about 250 and lists its own choice. JLPT publishes no official kanji list."
+  },
+  "deviations_and_assumptions": [
+    "N4 Unit 1 follows N5 Unit 9 in the unlock chain (sequence 10).",
+    "Some kanji often placed in N4 lists (会, 社, 駅, 魚, 買, 飲 …) were already taught in N5 and are not repeated.",
+    "Potential, passive and causative forms each get their own unit; causative-passive is left to N3."
+  ]
+}

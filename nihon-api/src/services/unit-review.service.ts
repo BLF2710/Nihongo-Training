@@ -8,6 +8,8 @@ import { getUserUnits } from "./unit.service";
 
 const ASSESSMENT_QUESTIONS_PER_REVIEW = 5;
 const BANK_QUESTIONS_PER_REVIEW = 20;
+const ASSESSMENT_QUESTIONS_PER_LEVEL_REVIEW = 10;
+const BANK_QUESTIONS_PER_LEVEL_REVIEW = 30;
 
 /** A review opens together with its unit's lessons. */
 async function requireReachedUnit(userId: number, unitId: unknown) {
@@ -26,6 +28,24 @@ export async function getReviewQuestions(userId: number, unitId: unknown): Promi
     .map(({ id, prompt, options }) => ({ id: `assessment:${id}`, type: "multiple_choice" as const, prompt, options }));
   const fromBank = shuffled(await listEnabledQuestions(unit.id)).slice(0, BANK_QUESTIONS_PER_REVIEW)
     .map(question => ({ id: `bank:${question.id}`, ...questionType(question.type).present(question.content) }));
+  return shuffled([...fromAssessment, ...fromBank]);
+}
+
+/**
+ * A cumulative review for one course level: the same mix, drawn from every unit of the level the learner
+ * has reached. Each question names its unit, which is where its answer is checked.
+ */
+export async function getLevelReviewQuestions(userId: number, level: unknown): Promise<(PresentedQuestion & { id: string; unitId: string })[]> {
+  if (typeof level !== "string" || !/^N[1-5]$/.test(level)) throw new HttpError(404, "Level not found.");
+  const prefix = `japanese-${level.toLowerCase()}-unit-`;
+  const units = (await getUserUnits(userId)).filter(unit => unit.id.startsWith(prefix) && !unit.isPlaceholder && unit.allowed);
+  if (!units.length) throw new HttpError(403, `No ${level} unit is open for review yet.`);
+  const fromAssessment = shuffled(units.flatMap(unit => (assessmentOf(unit.assessmentId)?.questions ?? [])
+    .map(({ id, prompt, options }) => ({ id: `assessment:${id}`, unitId: unit.id, type: "multiple_choice" as const, prompt, options }))))
+    .slice(0, ASSESSMENT_QUESTIONS_PER_LEVEL_REVIEW);
+  const bank = (await Promise.all(units.map(unit => listEnabledQuestions(unit.id)))).flat();
+  const fromBank = shuffled(bank).slice(0, BANK_QUESTIONS_PER_LEVEL_REVIEW)
+    .map(question => ({ id: `bank:${question.id}`, unitId: question.unitId, ...questionType(question.type).present(question.content) }));
   return shuffled([...fromAssessment, ...fromBank]);
 }
 

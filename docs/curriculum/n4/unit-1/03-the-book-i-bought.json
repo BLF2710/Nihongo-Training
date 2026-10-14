@@ -1,0 +1,461 @@
+{
+  "id": "japanese-n4-unit-1-the-book-i-bought",
+  "slug": "n4-unit-1-the-book-i-bought",
+  "unit": "Japanese N4 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "The Book I Bought",
+  "title_jp": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+  "objectives": [
+    "I can describe people and things with a whole clause.",
+    "Put a plain-form clause before a noun",
+    "Mark the doer inside the clause with が",
+    "Talk about lost things, shops and houses"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>物<rt>もの</rt></ruby>",
+      "mono",
+      "thing"
+    ],
+    [
+      "<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>",
+      "tabemono",
+      "food"
+    ],
+    [
+      "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>",
+      "nomimono",
+      "drink"
+    ],
+    [
+      "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>",
+      "kaimono",
+      "shopping"
+    ],
+    [
+      "わすれ<ruby>物<rt>もの</rt></ruby>",
+      "wasuremono",
+      "something left behind"
+    ],
+    [
+      "<ruby>本屋<rt>ほんや</rt></ruby>",
+      "hon'ya",
+      "bookshop"
+    ],
+    [
+      "<ruby>花屋<rt>はなや</rt></ruby>",
+      "hanaya",
+      "florist"
+    ],
+    [
+      "<ruby>家<rt>いえ</rt></ruby>",
+      "ie",
+      "house, home"
+    ],
+    [
+      "かぎ",
+      "kagi",
+      "key"
+    ],
+    [
+      "めがね",
+      "megane",
+      "glasses"
+    ],
+    [
+      "かける",
+      "kakeru",
+      "to put on (glasses)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "物",
+      "word_reading": "もの"
+    },
+    {
+      "word_japanese": "食べ物",
+      "word_reading": "たべもの"
+    },
+    {
+      "word_japanese": "飲み物",
+      "word_reading": "のみもの"
+    },
+    {
+      "word_japanese": "買い物",
+      "word_reading": "かいもの"
+    },
+    {
+      "word_japanese": "本屋",
+      "word_reading": "ほんや"
+    },
+    {
+      "word_japanese": "花屋",
+      "word_reading": "はなや"
+    },
+    {
+      "word_japanese": "家",
+      "word_reading": "いえ"
+    }
+  ],
+  "concept": {
+    "title": "Clauses that describe nouns",
+    "text": "In Japanese, whatever describes a noun comes before it. You already do this with adjectives: <ruby>安<rt>やす</rt></ruby>い<ruby>本<rt>ほん</rt></ruby>. A whole plain-form clause works the same way:\n\nきのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby> (the book I bought yesterday)\nめがねをかけている<ruby>人<rt>ひと</rt></ruby> (the person wearing glasses)\n<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>店<rt>みせ</rt></ruby> (the shop in front of the station)\n\nThere is no word like \"which\" or \"who\": the clause simply joins the noun. The person doing the action inside the clause takes が, not は.",
+    "examples": [
+      "plain-form clause + N",
+      "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+      "<ruby>母<rt>はは</rt></ruby>がつくったりょうり"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Describing a noun with a clause",
+      "pattern": "plain form + N",
+      "explanation": "Put the clause in the plain form directly before the noun. Its tense is its own: <ruby>買<rt>か</rt></ruby>う<ruby>本<rt>ほん</rt></ruby> (a book I will buy), <ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby> (a book I bought).",
+      "examples": [
+        {
+          "japanese": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>はおもしろいです。",
+          "romaji": "",
+          "meaning": "The book I bought yesterday is interesting."
+        },
+        {
+          "japanese": "めがねをかけている<ruby>人<rt>ひと</rt></ruby>がリーさんです。",
+          "romaji": "",
+          "meaning": "The person wearing glasses is Lee."
+        },
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>は<ruby>大<rt>おお</rt></ruby>きいです。",
+          "romaji": "",
+          "meaning": "The bookshop in front of the station is big."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>で<ruby>食<rt>た</rt></ruby>べた<ruby>物<rt>もの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、すしがいちばんおいしかったです。",
+          "romaji": "",
+          "meaning": "Of the things I ate in Japan, sushi was the tastiest."
+        },
+        {
+          "japanese": "あした<ruby>行<rt>い</rt></ruby>く<ruby>店<rt>みせ</rt></ruby>はどこですか。",
+          "romaji": "",
+          "meaning": "Where is the shop we're going to tomorrow?"
+        }
+      ],
+      "notes": [
+        "Wrong: きのう<ruby>買<rt>か</rt></ruby>いました<ruby>本<rt>ほん</rt></ruby>. The clause is in the plain form.",
+        "Wrong: きのう<ruby>買<rt>か</rt></ruby>ったの<ruby>本<rt>ほん</rt></ruby>. Nothing comes between the clause and the noun."
+      ]
+    },
+    {
+      "title": "Who did it: が inside the clause",
+      "pattern": "N が + plain form + N",
+      "explanation": "Inside a describing clause, the person doing the action takes が. は would make them the topic of the whole sentence instead.",
+      "examples": [
+        {
+          "japanese": "<ruby>母<rt>はは</rt></ruby>がつくったりょうりはおいしいです。",
+          "romaji": "",
+          "meaning": "The food my mother made is delicious."
+        },
+        {
+          "japanese": "これは<ruby>友<rt>とも</rt></ruby>だちがかいたえです。",
+          "romaji": "",
+          "meaning": "This is a picture my friend drew."
+        },
+        {
+          "japanese": "わたしがすんでいる<ruby>家<rt>いえ</rt></ruby>はふるいです。",
+          "romaji": "",
+          "meaning": "The house I live in is old."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>が<ruby>書<rt>か</rt></ruby>いた<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みました。",
+          "romaji": "",
+          "meaning": "I read a book the teacher wrote."
+        },
+        {
+          "japanese": "リーさんがすきな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。",
+          "romaji": "",
+          "meaning": "What food does Lee like?"
+        }
+      ],
+      "notes": [
+        "Wrong: わたしはすんでいる<ruby>家<rt>いえ</rt></ruby>. Say わたしがすんでいる<ruby>家<rt>いえ</rt></ruby>.",
+        "な-adjectives keep な before the noun: リーさんがすきな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "これはだれのわすれ<ruby>物<rt>もの</rt></ruby>ですか。",
+      "Who left this behind?"
+    ],
+    [
+      "かぎをわすれた<ruby>人<rt>ひと</rt></ruby>はいませんか。",
+      "Has anyone forgotten their key?"
+    ],
+    [
+      "<ruby>花屋<rt>はなや</rt></ruby>できれいな<ruby>花<rt>はな</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。",
+      "I bought some pretty flowers at the florist."
+    ],
+    [
+      "<ruby>毎週<rt>まいしゅう</rt></ruby>しゅうまつに<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+      "I go shopping every weekend."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "それ、きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>ですか。",
+      "けん",
+      "はい、<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>本屋<rt>ほんや</rt></ruby>で<ruby>買<rt>か</rt></ruby>いました。"
+    ],
+    [
+      "リー",
+      "めがねをかけている<ruby>人<rt>ひと</rt></ruby>はだれですか。",
+      "ゆき",
+      "わたしの<ruby>先生<rt>せんせい</rt></ruby>です。"
+    ],
+    [
+      "マイ",
+      "これ、だれのわすれ<ruby>物<rt>もの</rt></ruby>か<ruby>知<rt>し</rt></ruby>っていますか。",
+      "リン",
+      "たぶんたなかさんのかぎだと<ruby>思<rt>おも</rt></ruby>います。"
+    ],
+    [
+      "けん",
+      "<ruby>日本<rt>にほん</rt></ruby>で<ruby>食<rt>た</rt></ruby>べた<ruby>物<rt>もの</rt></ruby>で、<ruby>何<rt>なに</rt></ruby>がいちばんおいしかったですか。",
+      "アナ",
+      "きょうとで<ruby>食<rt>た</rt></ruby>べたうどんです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "物",
+      "onyomi": [
+        "ブツ",
+        "モツ"
+      ],
+      "kunyomi": [
+        "もの",
+        "もの-"
+      ],
+      "meaning_en": "thing",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "物",
+          "reading": "もの",
+          "en": "thing"
+        },
+        {
+          "word": "食べ物",
+          "reading": "たべもの",
+          "en": "food"
+        }
+      ],
+      "mnemonic": "A cow (牛) beside a flag: something you own."
+    },
+    {
+      "char": "屋",
+      "onyomi": [
+        "オク"
+      ],
+      "kunyomi": [
+        "や"
+      ],
+      "meaning_en": "shop, roof",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "本屋",
+          "reading": "ほんや",
+          "en": "bookshop"
+        },
+        {
+          "word": "部屋",
+          "reading": "へや",
+          "en": "room"
+        }
+      ],
+      "mnemonic": "A roof (尸) over a place you arrive at: a shop or a room."
+    },
+    {
+      "char": "家",
+      "onyomi": [
+        "カ",
+        "ケ"
+      ],
+      "kunyomi": [
+        "いえ",
+        "や",
+        "うち"
+      ],
+      "meaning_en": "house",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "家",
+          "reading": "いえ",
+          "en": "house"
+        },
+        {
+          "word": "家族",
+          "reading": "かぞく",
+          "en": "family"
+        }
+      ],
+      "mnemonic": "A pig (豕) under a roof (宀): a home."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete テストは<ruby>何時<rt>なんじ</rt></ruby>から＿＿<ruby>知<rt>し</rt></ruby>っていますか。",
+      "options": [
+        "と",
+        "かどうか",
+        "を",
+        "か"
+      ],
+      "correct": "か",
+      "explanation": "A question-word question ends in か inside the sentence."
+    },
+    {
+      "prompt": "What does わすれ<ruby>物<rt>もの</rt></ruby> mean?",
+      "options": [
+        "something left behind",
+        "shopping",
+        "a drink",
+        "a present"
+      ],
+      "correct": "something left behind",
+      "explanation": "わすれ<ruby>物<rt>もの</rt></ruby> is something you forgot and left behind."
+    },
+    {
+      "prompt": "How do you say \"the book I bought yesterday\"?",
+      "options": [
+        "きのう<ruby>買<rt>か</rt></ruby>いました<ruby>本<rt>ほん</rt></ruby>",
+        "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+        "<ruby>本<rt>ほん</rt></ruby>きのう<ruby>買<rt>か</rt></ruby>った",
+        "きのう<ruby>買<rt>か</rt></ruby>ったの<ruby>本<rt>ほん</rt></ruby>"
+      ],
+      "correct": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+      "explanation": "A plain-form clause goes directly before the noun."
+    },
+    {
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>＿＿つくったりょうりはおいしいです。",
+      "options": [
+        "は",
+        "を",
+        "が",
+        "で"
+      ],
+      "correct": "が",
+      "explanation": "The doer inside a describing clause takes が."
+    },
+    {
+      "prompt": "Complete: めがねを＿＿<ruby>人<rt>ひと</rt></ruby>がリーさんです。",
+      "options": [
+        "かけています",
+        "かけるの",
+        "かけて",
+        "かけている"
+      ],
+      "correct": "かけている",
+      "explanation": "The clause before <ruby>人<rt>ひと</rt></ruby> is plain: かけている."
+    },
+    {
+      "prompt": "Which word means bookshop?",
+      "options": [
+        "<ruby>本屋<rt>ほんや</rt></ruby>",
+        "<ruby>花屋<rt>はなや</rt></ruby>",
+        "<ruby>本<rt>ほん</rt></ruby>",
+        "<ruby>家<rt>いえ</rt></ruby>"
+      ],
+      "correct": "<ruby>本屋<rt>ほんや</rt></ruby>",
+      "explanation": "<ruby>屋<rt>や</rt></ruby> after a noun names a shop."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある<ruby>本屋<rt>ほんや</rt></ruby>は<ruby>大<rt>おお</rt></ruby>きいです。",
+      "options": [
+        "The station in front of the bookshop is big.",
+        "The bookshop in front of the station is big.",
+        "I went to the big bookshop in front of the station.",
+        "The bookshop is not in front of the station."
+      ],
+      "correct": "The bookshop in front of the station is big.",
+      "explanation": "The clause <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にある describes <ruby>本屋<rt>ほんや</rt></ruby>."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to say \"The cake my friend made was delicious.\" Which sentence fits?",
+      "options": [
+        "<ruby>友<rt>とも</rt></ruby>だちはつくったケーキはおいしかったです。",
+        "<ruby>友<rt>とも</rt></ruby>だちがつくったケーキはおいしかったです。",
+        "<ruby>友<rt>とも</rt></ruby>だちがつくりましたケーキはおいしかったです。",
+        "<ruby>友<rt>とも</rt></ruby>だちをつくったケーキはおいしかったです。"
+      ],
+      "correct": "<ruby>友<rt>とも</rt></ruby>だちがつくったケーキはおいしかったです。",
+      "explanation": "Doer + が, plain clause, then the noun."
+    },
+    {
+      "prompt": "Read: これはリーさんがかいたえです。 Who drew the picture?",
+      "options": [
+        "The speaker",
+        "A teacher",
+        "Lee",
+        "Nobody knows"
+      ],
+      "correct": "Lee",
+      "explanation": "リーさんがかいた: Lee drew it."
+    },
+    {
+      "prompt": "Which phrase means \"the shop we went to last week\"?",
+      "options": [
+        "せんしゅう<ruby>行<rt>い</rt></ruby>く<ruby>店<rt>みせ</rt></ruby>",
+        "<ruby>店<rt>みせ</rt></ruby>せんしゅう<ruby>行<rt>い</rt></ruby>った",
+        "せんしゅう<ruby>行<rt>い</rt></ruby>ったの<ruby>店<rt>みせ</rt></ruby>",
+        "せんしゅう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>"
+      ],
+      "correct": "せんしゅう<ruby>行<rt>い</rt></ruby>った<ruby>店<rt>みせ</rt></ruby>",
+      "explanation": "Past clause, then the noun."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "きのう<ruby>見<rt>み</rt></ruby>ましたえいがはおもしろかったです。",
+        "きのう<ruby>見<rt>み</rt></ruby>たえいがはおもしろかったです。",
+        "わたしが<ruby>見<rt>み</rt></ruby>たえいがはおもしろかったです。",
+        "きのう<ruby>見<rt>み</rt></ruby>たえいがはおもしろくなかったです。"
+      ],
+      "correct": "きのう<ruby>見<rt>み</rt></ruby>ましたえいがはおもしろかったです。",
+      "explanation": "A describing clause must be in the plain form."
+    },
+    {
+      "prompt": "Review: complete <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>テストが＿＿と<ruby>言<rt>い</rt></ruby>っていました。",
+      "options": [
+        "あります",
+        "ある",
+        "あって",
+        "あるだ"
+      ],
+      "correct": "ある",
+      "explanation": "Reported words are in the plain form."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-1-they-said",
+    "japanese-n4-unit-1-i-think",
+    "japanese-n5-unit-6-what-kind",
+    "japanese-n5-unit-7-what-i-want"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: 食べ物, 飲み物, 買い物 and 本屋 were taught in kana in N5 and are listed again here in kanji."
+  ]
+}
