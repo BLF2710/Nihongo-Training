@@ -1,3 +1,4 @@
+import { unitLabel } from "../../lib/courseLevel";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
@@ -46,7 +47,7 @@ function QuestionEditor({ units, existing }: { units: QuestionBank["units"]; exi
       </button>)}
     </div>
     <div className="flex flex-wrap items-end gap-4">
-      <label className="min-w-48 flex-1 text-sm font-bold">Unit<select className={input} value={unitId} onChange={event => setUnitId(event.target.value)}>{units.map(unit => <option key={unit.id} value={unit.id}>Unit {unit.number}: {unit.title}</option>)}</select></label>
+      <label className="min-w-48 flex-1 text-sm font-bold">Unit<select className={input} value={unitId} onChange={event => setUnitId(event.target.value)}>{units.map(unit => <option key={unit.id} value={unit.id}>{unitLabel(unit)}: {unit.title}</option>)}</select></label>
       <button type="button" className={button} onClick={() => setContent(QUESTION_KINDS[type].example)}>Fill with an example</button>
     </div>
     {"options" in content && <MultipleChoiceFields content={content} onChange={setContent} />}

@@ -1,0 +1,483 @@
+{
+  "id": "japanese-n4-unit-2-give-and-get",
+  "slug": "n4-unit-2-give-and-get",
+  "unit": "Japanese N4 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Giving & Getting",
+  "title_jp": "あげる・もらう",
+  "objectives": [
+    "I can say who gave what to whom.",
+    "Give with あげる",
+    "Receive with もらう",
+    "Name brothers and sisters, yours and other people's"
+  ],
+  "vocabulary": [
+    [
+      "あげる",
+      "ageru",
+      "to give (to someone else)"
+    ],
+    [
+      "もらう",
+      "morau",
+      "to receive, to get"
+    ],
+    [
+      "<ruby>兄<rt>あに</rt></ruby>",
+      "ani",
+      "my older brother"
+    ],
+    [
+      "<ruby>弟<rt>おとうと</rt></ruby>",
+      "otouto",
+      "younger brother"
+    ],
+    [
+      "<ruby>姉<rt>あね</rt></ruby>",
+      "ane",
+      "my older sister"
+    ],
+    [
+      "<ruby>妹<rt>いもうと</rt></ruby>",
+      "imouto",
+      "younger sister"
+    ],
+    [
+      "<ruby>兄弟<rt>きょうだい</rt></ruby>",
+      "kyoudai",
+      "brothers and sisters"
+    ],
+    [
+      "お<ruby>兄<rt>にい</rt></ruby>さん",
+      "oniisan",
+      "(someone's) older brother"
+    ],
+    [
+      "お<ruby>姉<rt>ねえ</rt></ruby>さん",
+      "oneesan",
+      "(someone's) older sister"
+    ],
+    [
+      "<ruby>花<rt>はな</rt></ruby>たば",
+      "hanataba",
+      "bouquet"
+    ],
+    [
+      "チョコレート",
+      "chokoreeto",
+      "chocolate"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "兄",
+      "word_reading": "あに"
+    },
+    {
+      "word_japanese": "弟",
+      "word_reading": "おとうと"
+    },
+    {
+      "word_japanese": "姉",
+      "word_reading": "あね"
+    },
+    {
+      "word_japanese": "妹",
+      "word_reading": "いもうと"
+    },
+    {
+      "word_japanese": "兄弟",
+      "word_reading": "きょうだい"
+    },
+    {
+      "word_japanese": "お兄さん",
+      "word_reading": "おにいさん"
+    },
+    {
+      "word_japanese": "お姉さん",
+      "word_reading": "おねえさん"
+    }
+  ],
+  "concept": {
+    "title": "Which way is it going?",
+    "text": "Japanese has three verbs for giving, chosen by which way the thing moves. This lesson covers two of them.\n\nあげる: someone gives something away to another person. The receiver takes に.\nわたしは<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげました。 I gave my sister a book.\n\nもらう: someone receives something. The giver takes に or から.\nわたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。 I got a bag from my sister.\n\nThe third verb, くれる, is for things given to you. It comes in the next lesson.",
+    "examples": [
+      "giver は receiver に N をあげる",
+      "receiver は giver に / から N をもらう"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Giving: あげる",
+      "pattern": "giver は receiver に N をあげる",
+      "explanation": "あげる is for giving to someone other than yourself. The receiver takes に.",
+      "examples": [
+        {
+          "japanese": "わたしは<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげました。",
+          "romaji": "",
+          "meaning": "I gave my younger sister a book."
+        },
+        {
+          "japanese": "<ruby>兄<rt>あに</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちにCDをあげました。",
+          "romaji": "",
+          "meaning": "My older brother gave his friend a CD."
+        },
+        {
+          "japanese": "<ruby>母<rt>はは</rt></ruby>のたんじょう<ruby>日<rt>び</rt></ruby>に<ruby>花<rt>はな</rt></ruby>たばをあげます。",
+          "romaji": "",
+          "meaning": "I'll give my mother a bouquet on her birthday."
+        },
+        {
+          "japanese": "リーさんにチョコレートをあげました。",
+          "romaji": "",
+          "meaning": "I gave Lee some chocolate."
+        },
+        {
+          "japanese": "<ruby>弟<rt>おとうと</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をあげますか。",
+          "romaji": "",
+          "meaning": "What will you give your younger brother?"
+        }
+      ],
+      "notes": [
+        "あげる is never used for something given to you: that is くれる (next lesson).",
+        "To a teacher, plain あげる can sound a little proud; a humble verb comes later."
+      ]
+    },
+    {
+      "title": "Receiving: もらう",
+      "pattern": "receiver は giver に / から N をもらう",
+      "explanation": "With もらう the receiver is the topic. The giver takes に or から; from a company or a school, use から.",
+      "examples": [
+        {
+          "japanese": "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。",
+          "romaji": "",
+          "meaning": "I got a bag from my older sister."
+        },
+        {
+          "japanese": "<ruby>弟<rt>おとうと</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちからチョコレートをもらいました。",
+          "romaji": "",
+          "meaning": "My younger brother got chocolate from a friend."
+        },
+        {
+          "japanese": "たんじょう<ruby>日<rt>び</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をもらいましたか。",
+          "romaji": "",
+          "meaning": "What did you get for your birthday?"
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>から<ruby>本<rt>ほん</rt></ruby>をもらいました。",
+          "romaji": "",
+          "meaning": "I got a book from the teacher."
+        },
+        {
+          "japanese": "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをもらいました。",
+          "romaji": "",
+          "meaning": "I got an email from the company."
+        }
+      ],
+      "notes": [
+        "Wrong: わたしにかばんをもらいました. The receiver takes は, the giver に.",
+        "Use から, not に, when the giver is an organisation."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>兄弟<rt>きょうだい</rt></ruby>は<ruby>何人<rt>なんにん</rt></ruby>いますか。",
+      "How many brothers and sisters do you have?"
+    ],
+    [
+      "<ruby>兄<rt>あに</rt></ruby>が<ruby>一人<rt>ひとり</rt></ruby>と<ruby>妹<rt>いもうと</rt></ruby>が<ruby>二人<rt>ふたり</rt></ruby>います。",
+      "I have one older brother and two younger sisters."
+    ],
+    [
+      "アナさんのお<ruby>姉<rt>ねえ</rt></ruby>さんは<ruby>医者<rt>いしゃ</rt></ruby>です。",
+      "Anna's older sister is a doctor."
+    ],
+    [
+      "リーさんのお<ruby>兄<rt>にい</rt></ruby>さんはどこにすんでいますか。",
+      "Where does Lee's older brother live?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "ゆき",
+      "たんじょう<ruby>日<rt>び</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をもらいましたか。",
+      "リー",
+      "<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。"
+    ],
+    [
+      "けん",
+      "お<ruby>兄<rt>にい</rt></ruby>さんに<ruby>何<rt>なに</rt></ruby>をあげましたか。",
+      "マイ",
+      "チョコレートをあげました。"
+    ],
+    [
+      "アナ",
+      "<ruby>兄弟<rt>きょうだい</rt></ruby>はいますか。",
+      "リン",
+      "はい、<ruby>弟<rt>おとうと</rt></ruby>が<ruby>一人<rt>ひとり</rt></ruby>います。"
+    ],
+    [
+      "たなか",
+      "その<ruby>花<rt>はな</rt></ruby>たば、きれいですね。",
+      "アナ",
+      "<ruby>友<rt>とも</rt></ruby>だちにもらったんです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "兄",
+      "onyomi": [
+        "ケイ",
+        "キョウ"
+      ],
+      "kunyomi": [
+        "あに"
+      ],
+      "meaning_en": "older brother",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "兄",
+          "reading": "あに",
+          "en": "my older brother"
+        },
+        {
+          "word": "兄弟",
+          "reading": "きょうだい",
+          "en": "brothers and sisters"
+        }
+      ],
+      "mnemonic": "A big mouth (口) on legs (儿): the older brother who does the talking."
+    },
+    {
+      "char": "弟",
+      "onyomi": [
+        "テイ",
+        "ダイ",
+        "デ"
+      ],
+      "kunyomi": [
+        "おとうと"
+      ],
+      "meaning_en": "younger brother",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "弟",
+          "reading": "おとうと",
+          "en": "younger brother"
+        },
+        {
+          "word": "兄弟",
+          "reading": "きょうだい",
+          "en": "brothers and sisters"
+        }
+      ],
+      "mnemonic": "A cord wound round a stick, turn after turn: the one who comes after."
+    },
+    {
+      "char": "姉",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "あね",
+        "はは"
+      ],
+      "meaning_en": "older sister",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "姉",
+          "reading": "あね",
+          "en": "my older sister"
+        },
+        {
+          "word": "お姉さん",
+          "reading": "おねえさん",
+          "en": "(someone's) older sister"
+        }
+      ],
+      "mnemonic": "A woman (女) who goes to the market (市): the older sister."
+    },
+    {
+      "char": "妹",
+      "onyomi": [
+        "マイ"
+      ],
+      "kunyomi": [
+        "いもうと"
+      ],
+      "meaning_en": "younger sister",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "妹",
+          "reading": "いもうと",
+          "en": "younger sister"
+        },
+        {
+          "word": "姉妹",
+          "reading": "しまい",
+          "en": "sisters"
+        }
+      ],
+      "mnemonic": "A woman (女) not yet (未) grown: the younger sister."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete リーさんは<ruby>病気<rt>びょうき</rt></ruby>＿＿。 (Lee might be ill)",
+      "options": [
+        "だかもしれません",
+        "かもしれません",
+        "なかもしれません",
+        "でしょうか"
+      ],
+      "correct": "かもしれません",
+      "explanation": "Nouns take かもしれません directly."
+    },
+    {
+      "prompt": "What does <ruby>姉<rt>あね</rt></ruby> mean?",
+      "options": [
+        "my younger sister",
+        "my older brother",
+        "my older sister",
+        "someone's older sister"
+      ],
+      "correct": "my older sister",
+      "explanation": "<ruby>姉<rt>あね</rt></ruby> is your own older sister; someone else's is お<ruby>姉<rt>ねえ</rt></ruby>さん."
+    },
+    {
+      "prompt": "Complete: わたしは<ruby>妹<rt>いもうと</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をあげました。",
+      "options": [
+        "を",
+        "が",
+        "で",
+        "に"
+      ],
+      "correct": "に",
+      "explanation": "With あげる the receiver takes に."
+    },
+    {
+      "prompt": "Complete: わたしは<ruby>先生<rt>せんせい</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をもらいました。",
+      "options": [
+        "から",
+        "を",
+        "で",
+        "と"
+      ],
+      "correct": "から",
+      "explanation": "With もらう the giver takes から (or に)."
+    },
+    {
+      "prompt": "Choose: \"I got a bag from my older sister.\"",
+      "options": [
+        "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをあげました。",
+        "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。",
+        "<ruby>姉<rt>あね</rt></ruby>はわたしにかばんをもらいました。",
+        "わたしに<ruby>姉<rt>あね</rt></ruby>はかばんをもらいました。"
+      ],
+      "correct": "わたしは<ruby>姉<rt>あね</rt></ruby>にかばんをもらいました。",
+      "explanation": "Receiver は, giver に, もらう."
+    },
+    {
+      "prompt": "How is 兄弟⁠ read?",
+      "options": [
+        "あにおとうと",
+        "けいてい",
+        "きょうだい",
+        "きょうてい"
+      ],
+      "correct": "きょうだい",
+      "explanation": "兄弟⁠ is read きょうだい."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>弟<rt>おとうと</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちからチョコレートをもらいました。",
+      "options": [
+        "My younger brother gave a friend chocolate.",
+        "A friend got chocolate from my younger brother.",
+        "I got chocolate from my younger brother's friend.",
+        "My younger brother got chocolate from a friend."
+      ],
+      "correct": "My younger brother got chocolate from a friend.",
+      "explanation": "<ruby>弟<rt>おとうと</rt></ruby>は〜もらいました: my brother received."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which word do you use for someone else's older sister?",
+      "options": [
+        "<ruby>姉<rt>あね</rt></ruby>",
+        "<ruby>妹<rt>いもうと</rt></ruby>",
+        "お<ruby>兄<rt>にい</rt></ruby>さん",
+        "お<ruby>姉<rt>ねえ</rt></ruby>さん"
+      ],
+      "correct": "お<ruby>姉<rt>ねえ</rt></ruby>さん",
+      "explanation": "Someone else's older sister is お<ruby>姉<rt>ねえ</rt></ruby>さん."
+    },
+    {
+      "prompt": "Read: <ruby>兄<rt>あに</rt></ruby>が<ruby>一人<rt>ひとり</rt></ruby>と<ruby>妹<rt>いもうと</rt></ruby>が<ruby>二人<rt>ふたり</rt></ruby>います。 How many brothers and sisters does the speaker have?",
+      "options": [
+        "Three",
+        "Two",
+        "Four",
+        "One"
+      ],
+      "correct": "Three",
+      "explanation": "One older brother and two younger sisters."
+    },
+    {
+      "prompt": "You got an email from your company. Which sentence says this?",
+      "options": [
+        "<ruby>会社<rt>かいしゃ</rt></ruby>にメールをあげました。",
+        "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをもらいました。",
+        "<ruby>会社<rt>かいしゃ</rt></ruby>はメールをもらいました。",
+        "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをあげました。"
+      ],
+      "correct": "<ruby>会社<rt>かいしゃ</rt></ruby>からメールをもらいました。",
+      "explanation": "From an organisation: から + もらう."
+    },
+    {
+      "prompt": "You gave Lee chocolate. Which sentence says this?",
+      "options": [
+        "わたしはリーさんにチョコレートをもらいました。",
+        "リーさんはわたしにチョコレートをあげました。",
+        "わたしはリーさんにチョコレートをあげました。",
+        "わたしはリーさんからチョコレートをあげました。"
+      ],
+      "correct": "わたしはリーさんにチョコレートをあげました。",
+      "explanation": "Giver は, receiver に, あげる."
+    },
+    {
+      "prompt": "Review: complete <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿。 (probably)",
+      "options": [
+        "です",
+        "だでしょう",
+        "かもしれない です",
+        "でしょう"
+      ],
+      "correct": "でしょう",
+      "explanation": "でしょう follows the plain form."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-1-probably",
+    "japanese-n4-unit-1-what-happened",
+    "japanese-n5-unit-2-family",
+    "japanese-n5-unit-7-what-i-want"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: the family words were taught in kana in N5 Unit 2 and are listed again here in kanji."
+  ]
+}

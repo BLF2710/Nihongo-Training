@@ -1,0 +1,513 @@
+{
+  "N5": {
+    "id": "japanese-n5-mock-exam",
+    "level": "N5",
+    "title": "N5 Mock Exam",
+    "minutes": 40,
+    "passPercent": 60,
+    "sectionMinPercent": 40,
+    "sections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary & Kanji",
+        "titleJp": "もじ・ごい",
+        "groups": [
+          {
+            "instruction": "Choose the reading of the word in 【 】.",
+            "questions": [
+              {
+                "id": "vocabulary-1",
+                "prompt": "きょうは 【天気】が いいです。",
+                "options": [
+                  "でんき",
+                  "てんき",
+                  "てんぎ",
+                  "げんき"
+                ],
+                "correctIndex": 1,
+                "explanation": "天気 is read てんき: weather."
+              },
+              {
+                "id": "vocabulary-2",
+                "prompt": "【先生】に ききました。",
+                "options": [
+                  "せんせ",
+                  "がくせい",
+                  "せいせん",
+                  "せんせい"
+                ],
+                "correctIndex": 3,
+                "explanation": "先生 is read せんせい: teacher."
+              },
+              {
+                "id": "vocabulary-3",
+                "prompt": "この かばんは 【安い】です。",
+                "options": [
+                  "やすい",
+                  "たかい",
+                  "ふるい",
+                  "ながい"
+                ],
+                "correctIndex": 0,
+                "explanation": "安い is read やすい: cheap."
+              },
+              {
+                "id": "vocabulary-4",
+                "prompt": "【九時】に がっこうに いきます。",
+                "options": [
+                  "きゅうじ",
+                  "ここのじ",
+                  "くじ",
+                  "くうじ"
+                ],
+                "correctIndex": 2,
+                "explanation": "Nine o'clock is the irregular くじ."
+              },
+              {
+                "id": "vocabulary-5",
+                "prompt": "えきの 【北】に こうえんが あります。",
+                "options": [
+                  "みなみ",
+                  "ひがし",
+                  "にし",
+                  "きた"
+                ],
+                "correctIndex": 3,
+                "explanation": "北 is read きた: north."
+              }
+            ]
+          },
+          {
+            "instruction": "Choose the kanji for the word in 【 】.",
+            "questions": [
+              {
+                "id": "vocabulary-6",
+                "prompt": "【やま】に のぼりたいです。",
+                "options": [
+                  "川",
+                  "山",
+                  "出",
+                  "上"
+                ],
+                "correctIndex": 1,
+                "explanation": "やま, mountain, is written 山."
+              },
+              {
+                "id": "vocabulary-7",
+                "prompt": "【でんしゃ】で いきます。",
+                "options": [
+                  "電車",
+                  "電話",
+                  "車電",
+                  "雨車"
+                ],
+                "correctIndex": 0,
+                "explanation": "でんしゃ, train, is written 電車."
+              },
+              {
+                "id": "vocabulary-8",
+                "prompt": "この ほんは 【あたらしい】です。",
+                "options": [
+                  "古い",
+                  "高い",
+                  "新しい",
+                  "白い"
+                ],
+                "correctIndex": 2,
+                "explanation": "あたらしい, new, is written 新しい."
+              },
+              {
+                "id": "vocabulary-9",
+                "prompt": "【みぎ】に エレベーターが あります。",
+                "options": [
+                  "右",
+                  "左",
+                  "口",
+                  "名"
+                ],
+                "correctIndex": 0,
+                "explanation": "みぎ, right, is written 右."
+              }
+            ]
+          },
+          {
+            "instruction": "Choose the best word for (　　).",
+            "questions": [
+              {
+                "id": "vocabulary-10",
+                "prompt": "まいあさ はを (　　)。",
+                "options": [
+                  "あびます",
+                  "のぼります",
+                  "わたります",
+                  "みがきます"
+                ],
+                "correctIndex": 3,
+                "explanation": "はを みがきます: to brush one's teeth."
+              },
+              {
+                "id": "vocabulary-11",
+                "prompt": "きっぷを (　　) かいました。",
+                "options": [
+                  "ふたり",
+                  "にほん",
+                  "にまい",
+                  "にかい"
+                ],
+                "correctIndex": 2,
+                "explanation": "Tickets are flat, so they are counted with まい."
+              },
+              {
+                "id": "vocabulary-12",
+                "prompt": "この みちは くるまが おおいですから、(　　)です。",
+                "options": [
+                  "しずか",
+                  "あぶない",
+                  "ひま",
+                  "やすい"
+                ],
+                "correctIndex": 1,
+                "explanation": "A road with a lot of cars is dangerous: あぶない."
+              },
+              {
+                "id": "vocabulary-13",
+                "prompt": "しゅうまつ、ホテルに (　　)。",
+                "options": [
+                  "のぼりました",
+                  "とまりました",
+                  "およぎました",
+                  "わたりました"
+                ],
+                "correctIndex": 1,
+                "explanation": "ホテルに とまります: to stay at a hotel."
+              }
+            ]
+          },
+          {
+            "instruction": "Choose the sentence closest in meaning.",
+            "questions": [
+              {
+                "id": "vocabulary-14",
+                "prompt": "この へやは ひろくないです。",
+                "options": [
+                  "この へやは おおきいです。",
+                  "この へやは あたらしいです。",
+                  "この へやは きれいです。",
+                  "この へやは せまいです。"
+                ],
+                "correctIndex": 3,
+                "explanation": "Not spacious means cramped: せまい."
+              },
+              {
+                "id": "vocabulary-15",
+                "prompt": "きょうは ひまです。",
+                "options": [
+                  "きょうは いそがしくないです。",
+                  "きょうは いそがしいです。",
+                  "きょうは やすみじゃないです。",
+                  "きょうは たいへんです。"
+                ],
+                "correctIndex": 0,
+                "explanation": "Free means not busy: いそがしくない."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grammar",
+        "title": "Grammar",
+        "titleJp": "ぶんぽう",
+        "groups": [
+          {
+            "instruction": "Choose the best word or form for (　　).",
+            "questions": [
+              {
+                "id": "grammar-16",
+                "prompt": "わたしは まいにち でんしゃ (　　) がっこうに いきます。",
+                "options": [
+                  "に",
+                  "を",
+                  "で",
+                  "と"
+                ],
+                "correctIndex": 2,
+                "explanation": "で marks the means of transport."
+              },
+              {
+                "id": "grammar-17",
+                "prompt": "きのう ともだち (　　) えいがを みました。",
+                "options": [
+                  "を",
+                  "に",
+                  "へ",
+                  "と"
+                ],
+                "correctIndex": 3,
+                "explanation": "と after a person means together with."
+              },
+              {
+                "id": "grammar-18",
+                "prompt": "えきで せんせい (　　) あいました。",
+                "options": [
+                  "を",
+                  "に",
+                  "で",
+                  "へ"
+                ],
+                "correctIndex": 1,
+                "explanation": "The person you meet takes に."
+              },
+              {
+                "id": "grammar-19",
+                "prompt": "この かばんは あの かばん (　　) たかいです。",
+                "options": [
+                  "より",
+                  "ほう",
+                  "いちばん",
+                  "まで"
+                ],
+                "correctIndex": 0,
+                "explanation": "A は B より: A is more… than B."
+              },
+              {
+                "id": "grammar-20",
+                "prompt": "きのうは あめ (　　)。",
+                "options": [
+                  "ました",
+                  "かったです",
+                  "でした",
+                  "です"
+                ],
+                "correctIndex": 2,
+                "explanation": "A noun in the past takes でした."
+              },
+              {
+                "id": "grammar-21",
+                "prompt": "この えいがは あまり (　　)。",
+                "options": [
+                  "おもしろくないです",
+                  "おもしろいです",
+                  "おもしろかったです",
+                  "おもしろいじゃないです"
+                ],
+                "correctIndex": 0,
+                "explanation": "あまり needs a negative, and い-adjectives use くないです."
+              },
+              {
+                "id": "grammar-22",
+                "prompt": "すみません、もういちど (　　) ください。",
+                "options": [
+                  "いいて",
+                  "いうて",
+                  "いいます",
+                  "いって"
+                ],
+                "correctIndex": 3,
+                "explanation": "いいます → いって, then ください."
+              },
+              {
+                "id": "grammar-23",
+                "prompt": "いま あねは へやで ほんを (　　)。",
+                "options": [
+                  "よみています",
+                  "よんでください",
+                  "よんでいます",
+                  "よんだことです"
+                ],
+                "correctIndex": 2,
+                "explanation": "て-form + います shows an action in progress."
+              },
+              {
+                "id": "grammar-24",
+                "prompt": "ここで しゃしんを (　　) いいですか。",
+                "options": [
+                  "とっては",
+                  "とっても",
+                  "とるも",
+                  "とりても"
+                ],
+                "correctIndex": 1,
+                "explanation": "ても いいですか asks permission."
+              },
+              {
+                "id": "grammar-25",
+                "prompt": "わたしは まだ ふじさんに (　　) ことが ありません。",
+                "options": [
+                  "のぼり",
+                  "のぼった",
+                  "のぼって",
+                  "のぼります"
+                ],
+                "correctIndex": 1,
+                "explanation": "Experience uses the た-form before ことが あります."
+              },
+              {
+                "id": "grammar-26",
+                "prompt": "あぶないですから、ここで (　　) ください。",
+                "options": [
+                  "およぎないで",
+                  "およがなくて",
+                  "およいでない",
+                  "およがないで"
+                ],
+                "correctIndex": 3,
+                "explanation": "およぎます → およがない + で ください."
+              },
+              {
+                "id": "grammar-27",
+                "prompt": "ねむいです (　　)、コーヒーを のみます。",
+                "options": [
+                  "から",
+                  "まで",
+                  "より",
+                  "でも"
+                ],
+                "correctIndex": 0,
+                "explanation": "から after a sentence gives the reason."
+              }
+            ]
+          },
+          {
+            "instruction": "Put the four words in order to complete the sentence. Which word goes in the ★ position?",
+            "questions": [
+              {
+                "id": "grammar-28",
+                "prompt": "ここで ＿＿ ＿＿ ★ ＿＿ いけません。",
+                "options": [
+                  "たばこ",
+                  "を",
+                  "すって",
+                  "は"
+                ],
+                "correctIndex": 2,
+                "explanation": "ここで たばこ を すって は いけません。"
+              },
+              {
+                "id": "grammar-29",
+                "prompt": "バスと でんしゃと ＿＿ ＿＿ ★ ＿＿ か。",
+                "options": [
+                  "どちら",
+                  "が",
+                  "です",
+                  "はやい"
+                ],
+                "correctIndex": 3,
+                "explanation": "バスと でんしゃと どちら が はやい です か。"
+              },
+              {
+                "id": "grammar-30",
+                "prompt": "にほんごを ＿＿ ＿＿ ★ ＿＿。",
+                "options": [
+                  "はなす",
+                  "が",
+                  "こと",
+                  "できます"
+                ],
+                "correctIndex": 1,
+                "explanation": "にほんごを はなす こと が できます。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": "Reading",
+        "titleJp": "どっかい",
+        "groups": [
+          {
+            "instruction": "Read the message and answer the questions.",
+            "passage": "アンナさんへ\nあしたの パーティーは ごご ろくじからです。えきの ちかくの レストランで します。わたしは ごじはんに えきの まえで まちます。いっしょに いきましょう。のみものは わたしが かいますから、かわないで ください。\nゆき",
+            "questions": [
+              {
+                "id": "reading-31",
+                "prompt": "What time will Yuki be waiting?",
+                "options": [
+                  "5:30 p.m.",
+                  "6:00 p.m.",
+                  "5:00 p.m.",
+                  "6:30 p.m."
+                ],
+                "correctIndex": 0,
+                "explanation": "ごじはんに えきの まえで まちます。"
+              },
+              {
+                "id": "reading-32",
+                "prompt": "What does Yuki ask Anna not to do?",
+                "options": [
+                  "Come to the station",
+                  "Go to the restaurant",
+                  "Buy drinks",
+                  "Wait for her"
+                ],
+                "correctIndex": 2,
+                "explanation": "のみものは わたしが かいますから、かわないで ください。"
+              }
+            ]
+          },
+          {
+            "instruction": "Read the diary entry and answer the questions.",
+            "passage": "きのうは にちようびでした。あさ しちじに おきて、こうえんで はしりました。それから、うちで ひるごはんを つくりました。ごごは ともだちと デパートに いきました。わたしは くろい くつが ほしかったですが、たかかったですから、かいませんでした。ともだちは しろい シャツを にまい かいました。",
+            "questions": [
+              {
+                "id": "reading-33",
+                "prompt": "What did the writer do first after getting up?",
+                "options": [
+                  "Ran in the park",
+                  "Made lunch",
+                  "Went to a department store",
+                  "Bought shoes"
+                ],
+                "correctIndex": 0,
+                "explanation": "あさ しちじに おきて、こうえんで はしりました。"
+              },
+              {
+                "id": "reading-34",
+                "prompt": "Why did the writer not buy the shoes?",
+                "options": [
+                  "There were no black shoes.",
+                  "The friend bought them.",
+                  "The writer did not want them.",
+                  "They were expensive."
+                ],
+                "correctIndex": 3,
+                "explanation": "たかかったですから、かいませんでした。"
+              }
+            ]
+          },
+          {
+            "instruction": "Read the notice and answer the questions.",
+            "passage": "にほんごの クラスの がくせいへ\nらいしゅうの げつようびは テストです。テストは ごぜん くじからです。きょうしつは さんがいです。テストの じかんに でんわを つかっては いけません。ペンを わすれないで ください。かようびは やすみです。",
+            "questions": [
+              {
+                "id": "reading-35",
+                "prompt": "Where is the test?",
+                "options": [
+                  "On the first floor",
+                  "On the second floor",
+                  "On the third floor",
+                  "In the library"
+                ],
+                "correctIndex": 2,
+                "explanation": "きょうしつは さんがいです。"
+              },
+              {
+                "id": "reading-36",
+                "prompt": "Which statement is true?",
+                "options": [
+                  "The test is on Tuesday.",
+                  "You must not use a phone during the test.",
+                  "The test starts at ten o'clock.",
+                  "You do not need a pen."
+                ],
+                "correctIndex": 1,
+                "explanation": "テストの じかんに でんわを つかっては いけません。"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

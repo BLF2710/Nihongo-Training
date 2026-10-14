@@ -1,3 +1,4 @@
+import { unitLabel } from "../../lib/courseLevel";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteQuestion, saveQuestion } from "../../api/admin";
@@ -17,7 +18,7 @@ export default function AdminQuestions() {
   const units = result.data?.units ?? [];
   const questions = result.data?.questions ?? [];
   const shown = questions.filter(question => (unitId === "all" || question.unitId === unitId) && (type === "all" || question.type === type) && summarize(question).toLowerCase().includes(search.toLowerCase()));
-  const unitNumber = (id: string) => units.find(unit => unit.id === id)?.number ?? "?";
+  const unitName = (id: string) => { const unit = units.find(item => item.id === id); return unit ? unitLabel(unit) : "Unknown unit"; };
 
   async function run(question: BankQuestion, work: () => Promise<unknown>, done: string) {
     if (busy) return;
@@ -39,8 +40,8 @@ export default function AdminQuestions() {
     </div>
     {result.data && <div className="mb-6 grid gap-4 sm:grid-cols-3">{units.map(unit => {
       const inUnit = questions.filter(question => question.unitId === unit.id);
-      return <section key={unit.id} className={card} aria-label={`Unit ${unit.number} questions`}>
-        <p className="text-sm font-semibold text-gray-500">Unit {unit.number}</p>
+      return <section key={unit.id} className={card} aria-label={`${unitLabel(unit)} questions`}>
+        <p className="text-sm font-semibold text-gray-500">{unitLabel(unit)}</p>
         <p className="mt-2 text-3xl font-black">{inUnit.length}</p>
         <ul className="mt-3 space-y-1 text-sm text-gray-600">{QUESTION_TYPES.map(kind => <li key={kind}>{QUESTION_KINDS[kind].label}: {inUnit.filter(question => question.type === kind).length}</li>)}</ul>
         <p className="mt-2 text-xs text-gray-500">{inUnit.filter(question => !question.enabled).length} hidden</p>
@@ -48,7 +49,7 @@ export default function AdminQuestions() {
     })}</div>}
     <div className="mb-5 flex flex-wrap items-end gap-4">
       <label className="min-w-48 flex-1 text-sm font-bold">Search questions<input className={input} value={search} onChange={event => setSearch(event.target.value)} placeholder="Find by prompt, word, or hint" /></label>
-      <label className="text-sm font-bold">Unit<select className={input} value={unitId} onChange={event => setUnitId(event.target.value)}><option value="all">All units</option>{units.map(unit => <option key={unit.id} value={unit.id}>Unit {unit.number}</option>)}</select></label>
+      <label className="text-sm font-bold">Unit<select className={input} value={unitId} onChange={event => setUnitId(event.target.value)}><option value="all">All units</option>{units.map(unit => <option key={unit.id} value={unit.id}>{unitLabel(unit)}</option>)}</select></label>
       <label className="text-sm font-bold">Type<select className={input} value={type} onChange={event => setType(event.target.value)}><option value="all">All types</option>{QUESTION_TYPES.map(kind => <option key={kind} value={kind}>{QUESTION_KINDS[kind].label}</option>)}</select></label>
       <button className={button} disabled={result.loading || !!busy} onClick={result.reload}>Refresh</button>
     </div>
@@ -59,7 +60,7 @@ export default function AdminQuestions() {
       <caption className="sr-only">Question bank</caption>
       <thead className="bg-gray-50 text-gray-500"><tr>{["Unit", "Type", "Question", "Status", "Actions"].map(label => <th key={label} className="px-5 py-4">{label}</th>)}</tr></thead>
       <tbody>{shown.map(question => <tr key={question.id} className="border-t border-gray-100 align-top">
-        <td className="whitespace-nowrap px-5 py-4">Unit {unitNumber(question.unitId)}</td>
+        <td className="whitespace-nowrap px-5 py-4">{unitName(question.unitId)}</td>
         <td className="whitespace-nowrap px-5 py-4">{QUESTION_KINDS[question.type].label}</td>
         <td className="max-w-md px-5 py-4" lang="ja">{summarize(question)}</td>
         <td className="px-5 py-4"><span className={`rounded-full px-3 py-1 text-xs font-bold ${question.enabled ? "bg-emerald-50 text-emerald-800" : "bg-gray-100 text-gray-600"}`}>{question.enabled ? "In reviews" : "Hidden"}</span></td>

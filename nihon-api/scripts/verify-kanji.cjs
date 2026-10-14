@@ -59,7 +59,8 @@ async function main() {
     }
     for (const form of catalog.vocabularyForms) {
       assert.ok(form.vocabularyIds.length);
-      for (const id of form.vocabularyIds) assert.equal(words.find(w => w.id === id)?.japanese, form.reading, id);
+      // From N4 on, course words carry furigana (<ruby>漢字<rt>かんじ</rt></ruby>); compare what they read as.
+      for (const id of form.vocabularyIds) assert.equal(words.find(w => w.id === id)?.japanese.replace(/<ruby>(.*?)<rt>(.*?)<\/rt><\/ruby>/g, '$2'), form.reading, id);
       for (const id of form.kanjiIds) assert.ok(form.written.includes(catalog.kanji.find(k => k.id === id).character));
     }
     for (const intro of catalog.lessonIntroductions) {

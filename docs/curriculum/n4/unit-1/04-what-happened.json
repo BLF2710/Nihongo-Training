@@ -1,0 +1,460 @@
+{
+  "id": "japanese-n4-unit-1-what-happened",
+  "slug": "n4-unit-1-what-happened",
+  "unit": "Japanese N4 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "What Happened?",
+  "title_jp": "どうしたんですか",
+  "objectives": [
+    "I can explain a situation and ask what happened.",
+    "Explain with んです",
+    "Ask for an explanation with んですか",
+    "Open a request with んですが"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>病気<rt>びょうき</rt></ruby>",
+      "byouki",
+      "illness"
+    ],
+    [
+      "<ruby>病院<rt>びょういん</rt></ruby>",
+      "byouin",
+      "hospital"
+    ],
+    [
+      "<ruby>医者<rt>いしゃ</rt></ruby>",
+      "isha",
+      "doctor"
+    ],
+    [
+      "かぜ",
+      "kaze",
+      "a cold"
+    ],
+    [
+      "かぜをひく",
+      "kaze o hiku",
+      "to catch a cold"
+    ],
+    [
+      "ねつ",
+      "netsu",
+      "fever"
+    ],
+    [
+      "いたい",
+      "itai",
+      "painful, sore"
+    ],
+    [
+      "のど",
+      "nodo",
+      "throat"
+    ],
+    [
+      "おなか",
+      "onaka",
+      "stomach"
+    ],
+    [
+      "くすり",
+      "kusuri",
+      "medicine"
+    ],
+    [
+      "けが",
+      "kega",
+      "injury"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "病気",
+      "word_reading": "びょうき"
+    },
+    {
+      "word_japanese": "病院",
+      "word_reading": "びょういん"
+    },
+    {
+      "word_japanese": "医者",
+      "word_reading": "いしゃ"
+    }
+  ],
+  "concept": {
+    "title": "Explaining with んです",
+    "text": "Adding んです to a plain form turns a statement into an explanation: it gives the background to what is going on. In a question, んですか asks for that background, which shows interest or concern.\n\nどうしたんですか。 What's wrong? / What happened?\nかぜをひいたんです。 I've caught a cold (that's why).\n\nNouns and な-adjectives take な: テストなんです. In casual speech んです becomes んだ, and んですか becomes の？.",
+    "examples": [
+      "plain form + んです",
+      "N / な-adj + なんです",
+      "〜んですが、〜"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Explaining and asking why",
+      "pattern": "plain form + んです / んですか",
+      "explanation": "Use んです to explain a situation, and んですか to ask about one you have noticed. だ after a noun or な-adjective becomes な.",
+      "examples": [
+        {
+          "japanese": "どうしたんですか。",
+          "romaji": "",
+          "meaning": "What's wrong?"
+        },
+        {
+          "japanese": "かぜをひいたんです。",
+          "romaji": "",
+          "meaning": "I've caught a cold."
+        },
+        {
+          "japanese": "のどがいたいんです。",
+          "romaji": "",
+          "meaning": "My throat hurts."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>はテストなんです。",
+          "romaji": "",
+          "meaning": "Tomorrow is a test, you see."
+        },
+        {
+          "japanese": "どうして<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くんですか。",
+          "romaji": "",
+          "meaning": "Why are you going to the hospital?"
+        }
+      ],
+      "notes": [
+        "Asked too often about personal matters, んですか can sound nosy.",
+        "Wrong: テストだんです. Say テストなんです."
+      ]
+    },
+    {
+      "title": "Setting the scene for a request",
+      "pattern": "〜んですが、〜",
+      "explanation": "んですが gives the background first, and the request or question follows. It sounds softer than asking straight away.",
+      "examples": [
+        {
+          "japanese": "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+          "romaji": "",
+          "meaning": "I'd like to go to a hospital. Where is there one?"
+        },
+        {
+          "japanese": "ねつがあるんですが、<ruby>休<rt>やす</rt></ruby>んでもいいですか。",
+          "romaji": "",
+          "meaning": "I have a fever. May I take the day off?"
+        },
+        {
+          "japanese": "くすりがほしいんですが、どこにありますか。",
+          "romaji": "",
+          "meaning": "I'd like some medicine. Where can I find it?"
+        },
+        {
+          "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>がよくわからないんですが、ゆっくり<ruby>話<rt>はな</rt></ruby>してください。",
+          "romaji": "",
+          "meaning": "I don't understand Japanese well, so please speak slowly."
+        }
+      ],
+      "notes": [
+        "The が here does not mean but: it opens the request.",
+        "The second half can also be left unsaid: <ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが…"
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>父<rt>ちち</rt></ruby>は<ruby>病気<rt>びょうき</rt></ruby>なんです。",
+      "My father is ill, you see."
+    ],
+    [
+      "<ruby>病院<rt>びょういん</rt></ruby>で<ruby>医者<rt>いしゃ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>いました。",
+      "I saw a doctor at the hospital."
+    ],
+    [
+      "このくすりを<ruby>一日<rt>いちにち</rt></ruby><ruby>三<rt>さん</rt></ruby>かい<ruby>飲<rt>の</rt></ruby>んでください。",
+      "Please take this medicine three times a day."
+    ],
+    [
+      "けがをしたんですか。",
+      "Did you hurt yourself?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>",
+      "リーさん、どうしたんですか。",
+      "リー",
+      "ちょっとおなかがいたいんです。"
+    ],
+    [
+      "アナ",
+      "げんきがないですね。",
+      "けん",
+      "かぜをひいたんです。ねつもあるんです。"
+    ],
+    [
+      "マイ",
+      "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+      "ゆき",
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にありますよ。"
+    ],
+    [
+      "<ruby>医者<rt>いしゃ</rt></ruby>",
+      "どこがいたいんですか。",
+      "リン",
+      "のどがいたいんです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "病",
+      "onyomi": [
+        "ビョウ",
+        "ヘイ"
+      ],
+      "kunyomi": [
+        "や.む",
+        "-や.み",
+        "やまい"
+      ],
+      "meaning_en": "illness",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "病気",
+          "reading": "びょうき",
+          "en": "illness"
+        },
+        {
+          "word": "病院",
+          "reading": "びょういん",
+          "en": "hospital"
+        }
+      ],
+      "mnemonic": "The sickness radical (疒): a person lying on a bed."
+    },
+    {
+      "char": "院",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [],
+      "meaning_en": "institution",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "病院",
+          "reading": "びょういん",
+          "en": "hospital"
+        },
+        {
+          "word": "大学院",
+          "reading": "だいがくいん",
+          "en": "graduate school"
+        }
+      ],
+      "mnemonic": "A mound (阝) beside a fine building: an institution."
+    },
+    {
+      "char": "医",
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [
+        "い.やす",
+        "い.する",
+        "くすし"
+      ],
+      "meaning_en": "medicine, doctor",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "医者",
+          "reading": "いしゃ",
+          "en": "doctor"
+        },
+        {
+          "word": "医学",
+          "reading": "いがく",
+          "en": "medical science"
+        }
+      ],
+      "mnemonic": "An arrow (矢) in a box: the healer takes it out."
+    },
+    {
+      "char": "者",
+      "onyomi": [
+        "シャ"
+      ],
+      "kunyomi": [
+        "もの"
+      ],
+      "meaning_en": "person",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "医者",
+          "reading": "いしゃ",
+          "en": "doctor"
+        },
+        {
+          "word": "学者",
+          "reading": "がくしゃ",
+          "en": "scholar"
+        }
+      ],
+      "mnemonic": "An old person (耂) speaking: someone who does something."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: how do you say \"the book I bought yesterday\"?",
+      "options": [
+        "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+        "きのう<ruby>買<rt>か</rt></ruby>いました<ruby>本<rt>ほん</rt></ruby>",
+        "きのう<ruby>買<rt>か</rt></ruby>ったの<ruby>本<rt>ほん</rt></ruby>",
+        "<ruby>本<rt>ほん</rt></ruby>きのう<ruby>買<rt>か</rt></ruby>った"
+      ],
+      "correct": "きのう<ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>",
+      "explanation": "A plain-form clause goes directly before the noun."
+    },
+    {
+      "prompt": "What does <ruby>医者<rt>いしゃ</rt></ruby> mean?",
+      "options": [
+        "hospital",
+        "doctor",
+        "illness",
+        "medicine"
+      ],
+      "correct": "doctor",
+      "explanation": "<ruby>医者<rt>いしゃ</rt></ruby> is a doctor; <ruby>病院<rt>びょういん</rt></ruby> is a hospital."
+    },
+    {
+      "prompt": "Complete: かぜを＿＿んです。",
+      "options": [
+        "ひきました",
+        "ひいて",
+        "ひいた",
+        "ひきた"
+      ],
+      "correct": "ひいた",
+      "explanation": "んです follows the plain form: ひいた."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>はテスト＿＿んです。",
+      "options": [
+        "だ",
+        "の",
+        "です",
+        "な"
+      ],
+      "correct": "な",
+      "explanation": "After a noun, だ becomes な before んです."
+    },
+    {
+      "prompt": "Which question asks what is wrong?",
+      "options": [
+        "どうしたんですか。",
+        "どうしますか。",
+        "どうでしたか。",
+        "どこですか。"
+      ],
+      "correct": "どうしたんですか。",
+      "explanation": "どうしたんですか asks what happened."
+    },
+    {
+      "prompt": "Choose the meaning of ねつがあるんです。",
+      "options": [
+        "I had a fever.",
+        "I have a fever, you see.",
+        "Do you have a fever?",
+        "There is no fever."
+      ],
+      "correct": "I have a fever, you see.",
+      "explanation": "んです explains the situation."
+    },
+    {
+      "prompt": "Which sentence opens a request softly?",
+      "options": [
+        "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。どこ？",
+        "<ruby>病院<rt>びょういん</rt></ruby>はどこにありますか、<ruby>行<rt>い</rt></ruby>きたい。",
+        "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+        "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですか、どこにありますか。"
+      ],
+      "correct": "<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいんですが、どこにありますか。",
+      "explanation": "んですが gives the background before the question."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A classmate looks unwell. What do you ask?",
+      "options": [
+        "どうしてですか。",
+        "<ruby>何<rt>なに</rt></ruby>がいいですか。",
+        "どうしたんですか。",
+        "どこに<ruby>行<rt>い</rt></ruby>くんですか。"
+      ],
+      "correct": "どうしたんですか。",
+      "explanation": "どうしたんですか shows concern and asks what happened."
+    },
+    {
+      "prompt": "Read: ねつがあるんですが、<ruby>休<rt>やす</rt></ruby>んでもいいですか。 What does the speaker want?",
+      "options": [
+        "To buy medicine",
+        "To go to a hospital",
+        "To see a teacher",
+        "To take time off"
+      ],
+      "correct": "To take time off",
+      "explanation": "<ruby>休<rt>やす</rt></ruby>んでもいいですか asks permission to take time off."
+    },
+    {
+      "prompt": "Choose: \"My throat hurts, you see.\"",
+      "options": [
+        "のどがいたいんです。",
+        "のどがいたいなんです。",
+        "のどがいたかったです。",
+        "のどがいたいんですか。"
+      ],
+      "correct": "のどがいたいんです。",
+      "explanation": "い-adjectives join んです directly."
+    },
+    {
+      "prompt": "Which word is NOT a part of the body?",
+      "options": [
+        "のど",
+        "くすり",
+        "おなか",
+        "<ruby>手<rt>て</rt></ruby>"
+      ],
+      "correct": "くすり",
+      "explanation": "くすり is medicine."
+    },
+    {
+      "prompt": "Review (N5): complete ここでたばこをすって＿＿いけません。",
+      "options": [
+        "も",
+        "を",
+        "は",
+        "が"
+      ],
+      "correct": "は",
+      "explanation": "てはいけません: must not."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-1-the-book-i-bought",
+    "japanese-n4-unit-1-they-said",
+    "japanese-n5-unit-8-permission-and-rules",
+    "japanese-n5-unit-8-reasons-and-states"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

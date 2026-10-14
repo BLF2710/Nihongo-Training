@@ -1,0 +1,468 @@
+{
+  "id": "japanese-n4-unit-1-they-said",
+  "slug": "n4-unit-1-they-said",
+  "unit": "Japanese N4 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "They Said…",
+  "title_jp": "〜と<ruby>言<rt>い</rt></ruby>っていました",
+  "objectives": [
+    "I can pass on what someone said and ask whether someone knows something.",
+    "Quote with to iimashita / to itte imashita",
+    "Put a question inside a sentence with ka and ka dou ka",
+    "Use <ruby>知<rt>し</rt></ruby>っています and <ruby>知<rt>し</rt></ruby>りません"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>言<rt>い</rt></ruby>う",
+      "iu",
+      "to say"
+    ],
+    [
+      "<ruby>聞<rt>き</rt></ruby>く",
+      "kiku",
+      "to ask, to listen"
+    ],
+    [
+      "<ruby>答<rt>こた</rt></ruby>える",
+      "kotaeru",
+      "to answer"
+    ],
+    [
+      "<ruby>答<rt>こた</rt></ruby>え",
+      "kotae",
+      "answer"
+    ],
+    [
+      "<ruby>知<rt>し</rt></ruby>る",
+      "shiru",
+      "to come to know"
+    ],
+    [
+      "<ruby>明日<rt>あした</rt></ruby>",
+      "ashita",
+      "tomorrow"
+    ],
+    [
+      "<ruby>明<rt>あか</rt></ruby>るい",
+      "akarui",
+      "bright, cheerful"
+    ],
+    [
+      "しつもん",
+      "shitsumon",
+      "question"
+    ],
+    [
+      "ことば",
+      "kotoba",
+      "word, language"
+    ],
+    [
+      "つたえる",
+      "tsutaeru",
+      "to pass on (a message)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "言う",
+      "word_reading": "いう"
+    },
+    {
+      "word_japanese": "聞く",
+      "word_reading": "きく"
+    },
+    {
+      "word_japanese": "答える",
+      "word_reading": "こたえる"
+    },
+    {
+      "word_japanese": "答え",
+      "word_reading": "こたえ"
+    },
+    {
+      "word_japanese": "知る",
+      "word_reading": "しる"
+    },
+    {
+      "word_japanese": "明日",
+      "word_reading": "あした"
+    },
+    {
+      "word_japanese": "明るい",
+      "word_reading": "あかるい"
+    }
+  ],
+  "concept": {
+    "title": "Passing on words",
+    "text": "To report what someone said, put their words in the plain form before と<ruby>言<rt>い</rt></ruby>いました. For a message someone gave you to pass on, Japanese usually says と<ruby>言<rt>い</rt></ruby>っていました (they were saying).\n\nA question can also sit inside a sentence. End a question-word question with か: <ruby>何時<rt>なんじ</rt></ruby>か<ruby>知<rt>し</rt></ruby>っていますか (do you know what time…). A yes/no question takes かどうか (whether or not).\n\n<ruby>知<rt>し</rt></ruby>る is special: \"I know\" is <ruby>知<rt>し</rt></ruby>っています, but \"I don't know\" is <ruby>知<rt>し</rt></ruby>りません.",
+    "examples": [
+      "plain form + と<ruby>言<rt>い</rt></ruby>っていました",
+      "question word … か <ruby>知<rt>し</rt></ruby>っていますか",
+      "… かどうか <ruby>知<rt>し</rt></ruby>りません"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "They said that…",
+      "pattern": "plain form + と<ruby>言<rt>い</rt></ruby>いました / と<ruby>言<rt>い</rt></ruby>っていました",
+      "explanation": "The reported words take the plain form and と. Use <ruby>言<rt>い</rt></ruby>っていました when passing on a message or something you heard someone say.",
+      "examples": [
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>テストがあると<ruby>言<rt>い</rt></ruby>っていました。",
+          "romaji": "",
+          "meaning": "The teacher said there's a test tomorrow."
+        },
+        {
+          "japanese": "リーさんはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>いました。",
+          "romaji": "",
+          "meaning": "Lee said he won't go to the party."
+        },
+        {
+          "japanese": "アナさんは<ruby>日本<rt>にほん</rt></ruby>のりょうりがすきだと<ruby>言<rt>い</rt></ruby>っていました。",
+          "romaji": "",
+          "meaning": "Anna was saying she likes Japanese food."
+        },
+        {
+          "japanese": "たなかさんに<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>むとつたえてください。",
+          "romaji": "",
+          "meaning": "Please tell Tanaka that I'll be off tomorrow."
+        },
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちに「ありがとう」と<ruby>言<rt>い</rt></ruby>いました。",
+          "romaji": "",
+          "meaning": "I said \"thank you\" to my friend."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>行<rt>い</rt></ruby>きませんと<ruby>言<rt>い</rt></ruby>いました. The reported part is plain: <ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>いました.",
+        "Quote someone's exact words with 「…」と<ruby>言<rt>い</rt></ruby>いました."
+      ]
+    },
+    {
+      "title": "Do you know…? / I don't know whether…",
+      "pattern": "〜か / 〜かどうか + <ruby>知<rt>し</rt></ruby>っていますか",
+      "explanation": "A question with a question word ends in か inside the sentence. A yes/no question ends in かどうか. Nouns and な-adjectives drop だ before か.",
+      "examples": [
+        {
+          "japanese": "テストは<ruby>何時<rt>なんじ</rt></ruby>からか<ruby>知<rt>し</rt></ruby>っていますか。",
+          "romaji": "",
+          "meaning": "Do you know what time the test starts?"
+        },
+        {
+          "japanese": "リーさんがどこにいるか<ruby>知<rt>し</rt></ruby>りません。",
+          "romaji": "",
+          "meaning": "I don't know where Lee is."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>がふるかどうか、わかりません。",
+          "romaji": "",
+          "meaning": "I don't know whether it will rain tomorrow."
+        },
+        {
+          "japanese": "このことばの<ruby>答<rt>こた</rt></ruby>えがただしいかどうか、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>きました。",
+          "romaji": "",
+          "meaning": "I asked the teacher whether this answer was right."
+        }
+      ],
+      "notes": [
+        "\"I don't know\" is <ruby>知<rt>し</rt></ruby>りません, not <ruby>知<rt>し</rt></ruby>っていません.",
+        "わかりません (I can't tell) is often softer than <ruby>知<rt>し</rt></ruby>りません."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "しつもんがある<ruby>人<rt>ひと</rt></ruby>は、<ruby>手<rt>て</rt></ruby>を<ruby>上<rt>あ</rt></ruby>げてください。",
+      "Anyone with a question, please raise your hand."
+    ],
+    [
+      "このへやは<ruby>明<rt>あか</rt></ruby>るいですね。",
+      "This room is bright, isn't it."
+    ],
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>のしつもんに<ruby>答<rt>こた</rt></ruby>えました。",
+      "I answered the teacher's question."
+    ],
+    [
+      "その<ruby>答<rt>こた</rt></ruby>えは<ruby>知<rt>し</rt></ruby>りません。",
+      "I don't know the answer to that."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "けんさんは<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>っていましたか。",
+      "リー",
+      "<ruby>明日<rt>あした</rt></ruby>はいそがしいと<ruby>言<rt>い</rt></ruby>っていました。"
+    ],
+    [
+      "マイ",
+      "テストが<ruby>何時<rt>なんじ</rt></ruby>からか<ruby>知<rt>し</rt></ruby>っていますか。",
+      "ゆき",
+      "くじからだと<ruby>思<rt>おも</rt></ruby>います。"
+    ],
+    [
+      "けん",
+      "たなかさんの<ruby>電話<rt>でんわ</rt></ruby>ばんごうを<ruby>知<rt>し</rt></ruby>っていますか。",
+      "リン",
+      "いいえ、<ruby>知<rt>し</rt></ruby>りません。"
+    ],
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>",
+      "しつもんがありますか。",
+      "リー",
+      "はい。このことばはどう<ruby>読<rt>よ</rt></ruby>みますか。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "答",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "こた.える",
+        "こた.え"
+      ],
+      "meaning_en": "answer",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "答える",
+          "reading": "こたえる",
+          "en": "to answer"
+        },
+        {
+          "word": "答え",
+          "reading": "こたえ",
+          "en": "answer"
+        }
+      ],
+      "mnemonic": "Bamboo (⺮) above a meeting (合): words that fit together."
+    },
+    {
+      "char": "知",
+      "onyomi": [
+        "チ"
+      ],
+      "kunyomi": [
+        "し.る",
+        "し.らせる"
+      ],
+      "meaning_en": "know",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "知る",
+          "reading": "しる",
+          "en": "to know"
+        },
+        {
+          "word": "知っている",
+          "reading": "しっている",
+          "en": "to know"
+        }
+      ],
+      "mnemonic": "An arrow (矢) and a mouth (口): knowing hits the mark."
+    },
+    {
+      "char": "明",
+      "onyomi": [
+        "メイ",
+        "ミョウ",
+        "ミン"
+      ],
+      "kunyomi": [
+        "あ.かり",
+        "あか.るい",
+        "あか.るむ",
+        "あか.らむ",
+        "あき.らか",
+        "あ.ける",
+        "-あ.け",
+        "あ.く",
+        "あ.くる",
+        "あ.かす"
+      ],
+      "meaning_en": "bright",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "明るい",
+          "reading": "あかるい",
+          "en": "bright"
+        },
+        {
+          "word": "明日",
+          "reading": "あした",
+          "en": "tomorrow"
+        }
+      ],
+      "mnemonic": "Sun (日) and moon (月) together: bright."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete あしたは<ruby>雨<rt>あめ</rt></ruby>がふる＿＿<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "を",
+        "が",
+        "と",
+        "に"
+      ],
+      "correct": "と",
+      "explanation": "と marks the thought before <ruby>思<rt>おも</rt></ruby>います."
+    },
+    {
+      "prompt": "What does <ruby>答<rt>こた</rt></ruby>える mean?",
+      "options": [
+        "to ask",
+        "to know",
+        "to pass on",
+        "to answer"
+      ],
+      "correct": "to answer",
+      "explanation": "<ruby>答<rt>こた</rt></ruby>える is to answer; <ruby>聞<rt>き</rt></ruby>く is to ask."
+    },
+    {
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>テストが＿＿と<ruby>言<rt>い</rt></ruby>っていました。",
+      "options": [
+        "ある",
+        "あります",
+        "あって",
+        "あるだ"
+      ],
+      "correct": "ある",
+      "explanation": "Reported words are in the plain form."
+    },
+    {
+      "prompt": "How do you say \"I don't know\"?",
+      "options": [
+        "<ruby>知<rt>し</rt></ruby>っていません",
+        "<ruby>知<rt>し</rt></ruby>りません",
+        "<ruby>知<rt>し</rt></ruby>らないです",
+        "<ruby>知<rt>し</rt></ruby>りていません"
+      ],
+      "correct": "<ruby>知<rt>し</rt></ruby>りません",
+      "explanation": "The negative of <ruby>知<rt>し</rt></ruby>っています is <ruby>知<rt>し</rt></ruby>りません."
+    },
+    {
+      "prompt": "Complete: テストは<ruby>何時<rt>なんじ</rt></ruby>から＿＿<ruby>知<rt>し</rt></ruby>っていますか。",
+      "options": [
+        "と",
+        "かどうか",
+        "か",
+        "を"
+      ],
+      "correct": "か",
+      "explanation": "A question-word question ends in か inside the sentence."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>がふる＿＿わかりません。",
+      "options": [
+        "か",
+        "と",
+        "が",
+        "かどうか"
+      ],
+      "correct": "かどうか",
+      "explanation": "A yes/no question inside a sentence ends in かどうか."
+    },
+    {
+      "prompt": "How is 明日⁠ read?",
+      "options": [
+        "あした",
+        "めいにち",
+        "あかび",
+        "あすび"
+      ],
+      "correct": "あした",
+      "explanation": "明日⁠ has a special reading: あした."
+    },
+    {
+      "prompt": "Choose the meaning of リーさんはパーティーに<ruby>行<rt>い</rt></ruby>かないと<ruby>言<rt>い</rt></ruby>いました。",
+      "options": [
+        "Lee said he will go to the party.",
+        "Lee said he won't go to the party.",
+        "Lee didn't say anything about the party.",
+        "Lee asked whether to go to the party."
+      ],
+      "correct": "Lee said he won't go to the party.",
+      "explanation": "<ruby>行<rt>い</rt></ruby>かない: won't go; と<ruby>言<rt>い</rt></ruby>いました: said."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to pass on Ken's message that he will be late. Which sentence fits?",
+      "options": [
+        "けんさんはおくれると<ruby>言<rt>い</rt></ruby>っていました。",
+        "けんさんはおくれますと<ruby>言<rt>い</rt></ruby>っていました。",
+        "けんさんはおくれるか<ruby>言<rt>い</rt></ruby>っていました。",
+        "けんさんはおくれると<ruby>聞<rt>き</rt></ruby>いていました。"
+      ],
+      "correct": "けんさんはおくれると<ruby>言<rt>い</rt></ruby>っていました。",
+      "explanation": "Plain form + と<ruby>言<rt>い</rt></ruby>っていました passes on a message."
+    },
+    {
+      "prompt": "Choose the sentence that means: I don't know whether Mai will come.",
+      "options": [
+        "マイさんが<ruby>来<rt>く</rt></ruby>るか<ruby>知<rt>し</rt></ruby>っていません。",
+        "マイさんが<ruby>来<rt>く</rt></ruby>るかどうか<ruby>知<rt>し</rt></ruby>りません。",
+        "マイさんが<ruby>来<rt>く</rt></ruby>るかどうか<ruby>知<rt>し</rt></ruby>っていますか。",
+        "マイさんが<ruby>来<rt>く</rt></ruby>ると<ruby>知<rt>し</rt></ruby>りません。"
+      ],
+      "correct": "マイさんが<ruby>来<rt>く</rt></ruby>るかどうか<ruby>知<rt>し</rt></ruby>りません。",
+      "explanation": "かどうか for a yes/no question; <ruby>知<rt>し</rt></ruby>りません for don't know."
+    },
+    {
+      "prompt": "Read: アナさんは<ruby>日本<rt>にほん</rt></ruby>のりょうりがすきだと<ruby>言<rt>い</rt></ruby>っていました。 What did Anna say?",
+      "options": [
+        "She can cook Japanese food.",
+        "She doesn't like Japanese food.",
+        "She likes Japanese food.",
+        "She wants to go to Japan."
+      ],
+      "correct": "She likes Japanese food.",
+      "explanation": "すきだ: likes."
+    },
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "いまどこにいるかどうか<ruby>知<rt>し</rt></ruby>っていますか。",
+        "いまどこにいると<ruby>知<rt>し</rt></ruby>っていますか。",
+        "いまどこにいますか<ruby>知<rt>し</rt></ruby>っていますか。",
+        "いまどこにいるか<ruby>知<rt>し</rt></ruby>っていますか。"
+      ],
+      "correct": "いまどこにいるか<ruby>知<rt>し</rt></ruby>っていますか。",
+      "explanation": "A question-word question takes か, in the plain form."
+    },
+    {
+      "prompt": "Review: complete <ruby>日本<rt>にほん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>はべんり＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "だ",
+        "です",
+        "な",
+        "の"
+      ],
+      "correct": "だ",
+      "explanation": "な-adjectives need だ before と<ruby>思<rt>おも</rt></ruby>います."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-1-i-think",
+    "japanese-n5-unit-8-reasons-and-states",
+    "japanese-n5-unit-9-talking-with-friends",
+    "japanese-n5-unit-8-please-do"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

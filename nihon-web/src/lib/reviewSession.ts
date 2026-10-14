@@ -21,7 +21,7 @@ const SPARE_VOCABULARY_QUESTIONS = 2;
  * drawn from the unit's lessons. `reserve` holds replacements for questions the learner cannot do.
  */
 export function buildReviewSession(
-  questions: ReviewQuestion[], unit: SkillUnit, can: { hear: boolean; speak: boolean }, random: () => number = Math.random,
+  questions: ReviewQuestion[], unit: SkillUnit, can: { hear: boolean; speak: boolean }, random: () => number = Math.random, size = REVIEW_SIZE,
 ): { items: ReviewItem[]; reserve: ReviewItem[] } {
   const vocabulary = buildListeningRound(unit, "vocabulary", random)
     .map((exercise): ReviewItem => ({ kind: "vocabulary", id: `vocabulary:${exercise.id}`, exercise }));
@@ -31,7 +31,7 @@ export function buildReviewSession(
     .map((exercise): ReviewItem => ({ kind: "speaking", id: `speaking:${exercise.id}`, exercise })) : [];
   const skills = [...vocabulary.slice(0, VOCABULARY_QUESTIONS), ...listening, ...speaking];
   const bank = questions.map((question): ReviewItem => ({ kind: "bank", id: question.id, question }));
-  const bankShare = Math.max(0, REVIEW_SIZE - skills.length);
+  const bankShare = Math.max(0, size - skills.length);
   return {
     items: shuffle([...skills, ...bank.slice(0, bankShare)], random),
     reserve: [...bank.slice(bankShare), ...vocabulary.slice(VOCABULARY_QUESTIONS, VOCABULARY_QUESTIONS + SPARE_VOCABULARY_QUESTIONS)],

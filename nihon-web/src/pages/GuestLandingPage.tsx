@@ -7,7 +7,7 @@ const quizzes = [
   { title: "Katakana Speed Quiz", mark: "ア", href: "/guest/practice?type=katakana", description: "Single, contracted, and extended Katakana — choose your own practice set." },
 ];
 const accountBenefits = [
-  "Structured N5 lessons, vocabulary, grammar, and Kanji",
+  "Structured N5 and N4 lessons, vocabulary, grammar, and Kanji",
   "Progress, XP, and character mastery saved across sessions",
   "Reviews that focus on the characters you are still learning",
 ];
@@ -16,7 +16,7 @@ export default function GuestLandingPage() {
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar />
     <main className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <header className="text-center">
-        <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">🇯🇵 Japanese · N5 foundations</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">🇯🇵 Japanese · N5 and N4</p>
         <h1 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Learn Japanese through active play</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">Try a Kana speed quiz right now — no account needed. Sign in when you want lessons and saved progress.</p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">

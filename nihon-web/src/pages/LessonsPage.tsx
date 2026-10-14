@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import UnitSelector from "../components/UnitSelector";
 import UnitAssessmentCard from "../components/UnitAssessmentCard";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
+import LevelWrapUp from "../components/LevelWrapUp";
+import { COURSE_LEVELS, levelOfId, useCourseLevel } from "../lib/courseLevel";
 
 export default function LessonsPage() {
-  const navigate = useNavigate(); const [units, setUnits] = useState<CourseUnit[]>([]);
+  const navigate = useNavigate(); const [allUnits, setUnits] = useState<CourseUnit[]>([]);
+  // Unit numbers restart at each level, so one level is shown at a time.
+  const chosenLevel = useCourseLevel();
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedId = searchParams.get("unit");
+  // A unit named in the address decides the level, so links to a unit always open it.
+  const level = (selectedId && levelOfId(selectedId)) || chosenLevel;
+  const levelTitle = COURSE_LEVELS.find(item => item.id === level)!.title;
+  const units = allUnits.filter(unit => levelOfId(unit.id) === level);
   const selectUnit = (id: string) => setSearchParams({ unit: id });
   const [error, setError] = useState("");
   useEffect(() => {
@@ -19,8 +27,9 @@ export default function LessonsPage() {
   }, []);
   const unit = units.find(item => item.id === selectedId);
   const lessons = unit?.lessons ?? [];
-  return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><div className="mt-6 mb-8"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">🇯🇵 Japanese • N5 Beginner</span><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">Build practical Japanese step by step.</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
-    {!units.length && !error && <p role="status">Loading units…</p>}
+  return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><div className="mt-6 mb-8"><div className="flex flex-wrap items-center gap-3"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">🇯🇵 Japanese • {level} {levelTitle}</span><Link to="/levels?next=/lessons" className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-bold text-gray-700 hover:border-emerald-400 focus-visible:outline-2 focus-visible:outline-emerald-600">Change level</Link></div><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">Build practical Japanese step by step.</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
+    {!allUnits.length && !error && <p role="status">Loading units…</p>}
+    {allUnits.length > 0 && !units.length && <section className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-8"><h2 className="text-2xl font-black text-gray-900">{level} lessons are coming soon</h2><p className="mt-2 text-gray-600">This level has no units yet. Your other levels and their progress are unchanged.</p><Link to="/levels?next=/lessons" className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Choose another level →</Link></section>}
     {!unit && units.length > 0 && <section aria-labelledby="choose-unit-heading">
       <h2 id="choose-unit-heading" className="mb-2 text-2xl font-black text-gray-900">Choose a unit</h2>
       <p className="mb-6 text-gray-600">Select an available unit to see its lessons and assessment.</p>
@@ -32,6 +41,7 @@ export default function LessonsPage() {
         {!item.isPlaceholder && <p className="mt-3 text-sm text-gray-600">{item.completedLessons} / {item.totalLessons} lessons completed</p>}
         <p className="mt-4 font-bold text-emerald-700">{!item.allowed ? `🔒 ${item.reasons.join(" + ")}` : item.completed ? "✓ Complete · View unit →" : "View unit →"}</p>
       </button>)}</div>
+      <LevelWrapUp level={level} units={units} />
     </section>}
     {unit && <section className="mb-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
       <button onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold text-emerald-700 hover:text-emerald-900 focus-visible:outline-2 focus-visible:outline-emerald-600">Choose another unit</button>

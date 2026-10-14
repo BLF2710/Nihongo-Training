@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-1-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "think-plain",
+      "prompt": "Complete: あしたは<ruby>雨<rt>あめ</rt></ruby>が＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "ふります",
+        "ふる",
+        "ふって",
+        "ふるだ"
+      ],
+      "correctIndex": 1,
+      "explanation": "The thought before と<ruby>思<rt>おも</rt></ruby>います is in the plain form."
+    },
+    {
+      "id": "think-da",
+      "prompt": "Complete: このまちはしずか＿＿と<ruby>思<rt>おも</rt></ruby>います。",
+      "options": [
+        "な",
+        "です",
+        "の",
+        "だ"
+      ],
+      "correctIndex": 3,
+      "explanation": "な-adjectives keep だ before と<ruby>思<rt>おも</rt></ruby>います."
+    },
+    {
+      "id": "opinion-question",
+      "prompt": "Which question asks for someone's opinion?",
+      "options": [
+        "どう<ruby>思<rt>おも</rt></ruby>いますか。",
+        "<ruby>何<rt>なに</rt></ruby>を<ruby>言<rt>い</rt></ruby>いますか。",
+        "どこと<ruby>思<rt>おも</rt></ruby>いますか。",
+        "どうしたんですか。"
+      ],
+      "correctIndex": 0,
+      "explanation": "どう<ruby>思<rt>おも</rt></ruby>いますか asks what someone thinks."
+    },
+    {
+      "id": "quote",
+      "prompt": "Choose the sentence that passes on Lee's message: \"I won't come tomorrow.\"",
+      "options": [
+        "リーさんは<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>き</rt></ruby>ませんと<ruby>言<rt>い</rt></ruby>っていました。",
+        "リーさんは<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>こ</rt></ruby>ないか<ruby>言<rt>い</rt></ruby>っていました。",
+        "リーさんは<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>こ</rt></ruby>ないと<ruby>言<rt>い</rt></ruby>っていました。",
+        "リーさんは<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>こ</rt></ruby>ないんですと<ruby>言<rt>い</rt></ruby>いました。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Reported words are plain, then と<ruby>言<rt>い</rt></ruby>っていました."
+    },
+    {
+      "id": "embedded-question",
+      "prompt": "Complete: テストは<ruby>何時<rt>なんじ</rt></ruby>から＿＿<ruby>知<rt>し</rt></ruby>っていますか。",
+      "options": [
+        "かどうか",
+        "と",
+        "が",
+        "か"
+      ],
+      "correctIndex": 3,
+      "explanation": "A question-word question ends in か."
+    },
+    {
+      "id": "whether",
+      "prompt": "Choose: \"I don't know whether it will rain.\"",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>がふるか<ruby>知<rt>し</rt></ruby>っていません。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふるかどうか<ruby>知<rt>し</rt></ruby>りません。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふると<ruby>知<rt>し</rt></ruby>りません。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふるかどうか<ruby>知<rt>し</rt></ruby>っています。"
+      ],
+      "correctIndex": 1,
+      "explanation": "かどうか: whether; <ruby>知<rt>し</rt></ruby>りません: don't know."
+    },
+    {
+      "id": "ashita-reading",
+      "prompt": "How is 明日⁠ read?",
+      "options": [
+        "あした",
+        "めいにち",
+        "あかび",
+        "みょうび"
+      ],
+      "correctIndex": 0,
+      "explanation": "明日⁠ has the special reading あした."
+    },
+    {
+      "id": "clause",
+      "prompt": "How do you say \"the person wearing glasses\"?",
+      "options": [
+        "めがねをかけています<ruby>人<rt>ひと</rt></ruby>",
+        "<ruby>人<rt>ひと</rt></ruby>めがねをかけている",
+        "めがねをかけている<ruby>人<rt>ひと</rt></ruby>",
+        "めがねをかけているの<ruby>人<rt>ひと</rt></ruby>"
+      ],
+      "correctIndex": 2,
+      "explanation": "Plain clause directly before the noun."
+    },
+    {
+      "id": "clause-ga",
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>＿＿つくったケーキはおいしいです。",
+      "options": [
+        "は",
+        "が",
+        "を",
+        "に"
+      ],
+      "correctIndex": 1,
+      "explanation": "The doer inside a clause takes が."
+    },
+    {
+      "id": "n-desu-why",
+      "prompt": "A friend has a bandage on their hand. What do you ask?",
+      "options": [
+        "けがをしましたか。",
+        "けがでしょう。",
+        "けがかもしれません。",
+        "けがをしたんですか。"
+      ],
+      "correctIndex": 3,
+      "explanation": "んですか asks about something you have noticed."
+    },
+    {
+      "id": "n-desu-noun",
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>はやすみ＿＿んです。",
+      "options": [
+        "だ",
+        "の",
+        "な",
+        "です"
+      ],
+      "correctIndex": 2,
+      "explanation": "After a noun, だ becomes な before んです."
+    },
+    {
+      "id": "n-desu-ga",
+      "prompt": "Which sentence opens a request softly?",
+      "options": [
+        "くすりがほしいんですが、どこにありますか。",
+        "くすりがほしいです、どこ？",
+        "くすりがほしいんですか、どこにありますか。",
+        "くすりがほしいだんですが、どこにありますか。"
+      ],
+      "correctIndex": 0,
+      "explanation": "んですが sets the scene for the question."
+    },
+    {
+      "id": "deshou",
+      "prompt": "Choose the sentence that means: It will probably clear up tomorrow.",
+      "options": [
+        "<ruby>明日<rt>あした</rt></ruby>ははれるかもしれません。",
+        "<ruby>明日<rt>あした</rt></ruby>ははれました。",
+        "<ruby>明日<rt>あした</rt></ruby>ははれるんです。",
+        "<ruby>明日<rt>あした</rt></ruby>ははれるでしょう。"
+      ],
+      "correctIndex": 3,
+      "explanation": "でしょう: probably."
+    },
+    {
+      "id": "kamoshirenai",
+      "prompt": "Complete: リーさんは<ruby>病気<rt>びょうき</rt></ruby>＿＿。 (Lee might be ill)",
+      "options": [
+        "だかもしれません",
+        "かもしれません",
+        "なかもしれません",
+        "でしょうか"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nouns take かもしれません directly."
+    },
+    {
+      "id": "vocab-doctor",
+      "prompt": "What does <ruby>病院<rt>びょういん</rt></ruby> mean?",
+      "options": [
+        "doctor",
+        "illness",
+        "hospital",
+        "medicine"
+      ],
+      "correctIndex": 2,
+      "explanation": "<ruby>病院<rt>びょういん</rt></ruby> is a hospital."
+    }
+  ]
+}

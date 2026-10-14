@@ -1,0 +1,339 @@
+{
+  "id": "japanese-n4-unit-2-review",
+  "slug": "n4-unit-2-review",
+  "unit": "Japanese N4 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 2 Review",
+  "title_jp": "ユニット2のふくしゅう",
+  "objectives": [
+    "I can talk about gifts and favours and ask for help.",
+    "Choose between あげる, くれる and もらう, with things and with actions",
+    "Ask for favours politely and give advice",
+    "Read a short post about a birthday"
+  ],
+  "vocabulary": [
+    [
+      "あげる",
+      "ageru",
+      "to give (to someone else)"
+    ],
+    [
+      "もらう",
+      "morau",
+      "to receive, to get"
+    ],
+    [
+      "くれる",
+      "kureru",
+      "to give (to me or my family)"
+    ],
+    [
+      "<ruby>手紙<rt>てがみ</rt></ruby>",
+      "tegami",
+      "letter"
+    ],
+    [
+      "<ruby>送<rt>おく</rt></ruby>る",
+      "okuru",
+      "to send, to see someone off"
+    ],
+    [
+      "<ruby>教<rt>おし</rt></ruby>える",
+      "oshieru",
+      "to teach, to tell"
+    ],
+    [
+      "<ruby>習<rt>なら</rt></ruby>う",
+      "narau",
+      "to learn (from someone)"
+    ],
+    [
+      "<ruby>貸<rt>か</rt></ruby>す",
+      "kasu",
+      "to lend"
+    ],
+    [
+      "<ruby>借<rt>か</rt></ruby>りる",
+      "kariru",
+      "to borrow"
+    ],
+    [
+      "<ruby>写真<rt>しゃしん</rt></ruby>",
+      "shashin",
+      "photo"
+    ],
+    [
+      "<ruby>待<rt>ま</rt></ruby>つ",
+      "matsu",
+      "to wait"
+    ],
+    [
+      "<ruby>体<rt>からだ</rt></ruby>",
+      "karada",
+      "body, health"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Three verbs, two uses",
+    "text": "The same three verbs work for things and for actions:\n\nあげる / V-てあげる: away from me, or between other people\nくれる / V-てくれる: toward me or my family\nもらう / V-てもらう: I receive, from someone with に\n\nA polite request turns the favour into a question: V-てくれませんか, or more politely V-てもらえませんか.\n\nAdvice uses ほうがいい: V-たほうがいい (you should), V-ないほうがいい (you shouldn't).",
+    "examples": [
+      "N をあげる / くれる / もらう",
+      "V-てあげる / V-てくれる / V-てもらう",
+      "V-たほうがいい / V-ないほうがいい"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>姉<rt>あね</rt></ruby>がたんじょう<ruby>日<rt>び</rt></ruby>にかばんをくれました。",
+      "My older sister gave me a bag for my birthday."
+    ],
+    [
+      "<ruby>友<rt>とも</rt></ruby>だちに<ruby>写真<rt>しゃしん</rt></ruby>をとってもらいました。",
+      "I had a friend take my photo."
+    ],
+    [
+      "<ruby>弟<rt>おとうと</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてあげました。",
+      "I taught my younger brother Japanese."
+    ],
+    [
+      "としょかんで<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+      "I borrowed a book at the library."
+    ],
+    [
+      "すみません、ちょっと<ruby>待<rt>ま</rt></ruby>ってもらえませんか。",
+      "Excuse me, could you wait a moment?"
+    ],
+    [
+      "<ruby>体<rt>からだ</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけたほうがいいですよ。",
+      "You should look after your health."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "そのかばん、<ruby>新<rt>あたら</rt></ruby>しいですね。",
+      "マイ",
+      "<ruby>姉<rt>あね</rt></ruby>がくれたんです。"
+    ],
+    [
+      "リー",
+      "<ruby>日本語<rt>にほんご</rt></ruby>はだれに<ruby>習<rt>なら</rt></ruby>ったんですか。",
+      "けん",
+      "たなか<ruby>先生<rt>せんせい</rt></ruby>に<ruby>教<rt>おし</rt></ruby>えてもらいました。"
+    ],
+    [
+      "ゆき",
+      "すみません、じしょを<ruby>貸<rt>か</rt></ruby>してくれませんか。",
+      "リン",
+      "いいですよ。どうぞ。"
+    ],
+    [
+      "リン",
+      "<ruby>明日<rt>あした</rt></ruby>かえしますね。",
+      "ゆき",
+      "はい、だいじょうぶですよ。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Social media post",
+    "text_jp": "<ruby>先週<rt>せんしゅう</rt></ruby>はわたしのたんじょう<ruby>日<rt>び</rt></ruby>でした。<ruby>朝<rt>あさ</rt></ruby>、<ruby>国<rt>くに</rt></ruby>にいる<ruby>母<rt>はは</rt></ruby>が<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>ってくれました。<ruby>姉<rt>あね</rt></ruby>にはきれいなかばんをもらいました。<ruby>夜<rt>よる</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちがレストランでパーティーをしてくれました。リーさんがみんなの<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。わたしはみんなにケーキをあげました。<ruby>来週<rt>らいしゅう</rt></ruby>、みんなにおれいのカードを<ruby>送<rt>おく</rt></ruby>ります。",
+    "en_translation": "Last week was my birthday. In the morning my mother, who lives back home, sent me a letter. I got a pretty bag from my older sister. In the evening my friends threw me a party at a restaurant. Lee took photos of everyone for me. I gave everyone some cake. Next week I'll send everyone a thank-you card.",
+    "questions": [
+      {
+        "prompt": "What did the writer's mother do?",
+        "options": [
+          "She gave a bag.",
+          "She sent a letter.",
+          "She threw a party.",
+          "She took photos."
+        ],
+        "correct": "She sent a letter.",
+        "explanation": "<ruby>母<rt>はは</rt></ruby>が<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>ってくれました。"
+      },
+      {
+        "prompt": "What did the writer get from her older sister?",
+        "options": [
+          "A letter",
+          "A cake",
+          "A bag",
+          "A card"
+        ],
+        "correct": "A bag",
+        "explanation": "<ruby>姉<rt>あね</rt></ruby>にはきれいなかばんをもらいました。"
+      },
+      {
+        "prompt": "What will the writer do next week?",
+        "options": [
+          "Have another party",
+          "Visit her mother",
+          "Buy a bag",
+          "Send thank-you cards"
+        ],
+        "correct": "Send thank-you cards",
+        "explanation": "<ruby>来週<rt>らいしゅう</rt></ruby>、みんなにおれいのカードを<ruby>送<rt>おく</rt></ruby>ります。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: わたしは<ruby>弟<rt>おとうと</rt></ruby>＿＿<ruby>本<rt>ほん</rt></ruby>をあげました。",
+      "options": [
+        "を",
+        "から",
+        "に",
+        "が"
+      ],
+      "correct": "に",
+      "explanation": "The receiver takes に."
+    },
+    {
+      "prompt": "Complete: <ruby>父<rt>ちち</rt></ruby>がかばんを＿＿。 (gave me)",
+      "options": [
+        "あげました",
+        "もらいました",
+        "<ruby>貸<rt>か</rt></ruby>しました",
+        "くれました"
+      ],
+      "correct": "くれました",
+      "explanation": "Toward me: くれる."
+    },
+    {
+      "prompt": "Complete: <ruby>友<rt>とも</rt></ruby>だちに<ruby>写真<rt>しゃしん</rt></ruby>をとって＿＿。 (my friend took it for me)",
+      "options": [
+        "もらいました",
+        "あげました",
+        "くれました",
+        "とりました"
+      ],
+      "correct": "もらいました",
+      "explanation": "Helper に + てもらう."
+    },
+    {
+      "prompt": "Complete: <ruby>兄<rt>あに</rt></ruby>がしゅくだいを<ruby>手<rt>て</rt></ruby>つだって＿＿。 (my brother helped me)",
+      "options": [
+        "あげました",
+        "くれました",
+        "もらいました",
+        "ください"
+      ],
+      "correct": "くれました",
+      "explanation": "Helper が + てくれる."
+    },
+    {
+      "prompt": "Which verb means to borrow?",
+      "options": [
+        "<ruby>貸<rt>か</rt></ruby>す",
+        "かえす",
+        "<ruby>借<rt>か</rt></ruby>りる",
+        "<ruby>送<rt>おく</rt></ruby>る"
+      ],
+      "correct": "<ruby>借<rt>か</rt></ruby>りる",
+      "explanation": "<ruby>借<rt>か</rt></ruby>りる: borrow."
+    },
+    {
+      "prompt": "Which request is the most polite?",
+      "options": [
+        "<ruby>待<rt>ま</rt></ruby>ってくれませんか。",
+        "<ruby>待<rt>ま</rt></ruby>ってください。",
+        "<ruby>待<rt>ま</rt></ruby>って。",
+        "<ruby>待<rt>ま</rt></ruby>ってもらえませんか。"
+      ],
+      "correct": "<ruby>待<rt>ま</rt></ruby>ってもらえませんか。",
+      "explanation": "もらえませんか is the most polite here."
+    },
+    {
+      "prompt": "Complete: おさけを＿＿ほうがいいです。 (you'd better not drink)",
+      "options": [
+        "<ruby>飲<rt>の</rt></ruby>まない",
+        "<ruby>飲<rt>の</rt></ruby>まなかった",
+        "<ruby>飲<rt>の</rt></ruby>んだ",
+        "<ruby>飲<rt>の</rt></ruby>まないで"
+      ],
+      "correct": "<ruby>飲<rt>の</rt></ruby>まない",
+      "explanation": "Advice against uses the ない-form."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>姉<rt>あね</rt></ruby>がたんじょう<ruby>日<rt>び</rt></ruby>にかばんをくれました。",
+      "options": [
+        "I gave my older sister a bag for her birthday.",
+        "My older sister gave me a bag for my birthday.",
+        "My older sister got a bag for her birthday.",
+        "My older sister lent me a bag."
+      ],
+      "correct": "My older sister gave me a bag for my birthday.",
+      "explanation": "くれました: gave to me."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read: リーさんがみんなの<ruby>写真<rt>しゃしん</rt></ruby>をとってくれました。 What did Lee do?",
+      "options": [
+        "He took photos of everyone for the writer.",
+        "He asked someone to take photos.",
+        "He got photos from everyone.",
+        "He gave everyone a camera."
+      ],
+      "correct": "He took photos of everyone for the writer.",
+      "explanation": "てくれました: did it for me."
+    },
+    {
+      "prompt": "Which two sentences describe the same event?",
+      "options": [
+        "<ruby>姉<rt>あね</rt></ruby>にあげました / <ruby>姉<rt>あね</rt></ruby>にもらいました",
+        "<ruby>姉<rt>あね</rt></ruby>がくれました / <ruby>姉<rt>あね</rt></ruby>にもらいました",
+        "<ruby>姉<rt>あね</rt></ruby>がくれました / <ruby>姉<rt>あね</rt></ruby>にあげました",
+        "<ruby>姉<rt>あね</rt></ruby>に<ruby>貸<rt>か</rt></ruby>しました / <ruby>姉<rt>あね</rt></ruby>に<ruby>借<rt>か</rt></ruby>りました"
+      ],
+      "correct": "<ruby>姉<rt>あね</rt></ruby>がくれました / <ruby>姉<rt>あね</rt></ruby>にもらいました",
+      "explanation": "くれる from her = もらう from her."
+    },
+    {
+      "prompt": "A colleague looks tired and wants to stay late. What do you say?",
+      "options": [
+        "むりをしたほうがいいですよ。",
+        "むりをしなかったほうがいいですよ。",
+        "むりをしないほうがいいですよ。",
+        "むりをしないでほうがいいですよ。"
+      ],
+      "correct": "むりをしないほうがいいですよ。",
+      "explanation": "ないほうがいい: you shouldn't."
+    },
+    {
+      "prompt": "Choose: \"Could you lend me your dictionary?\"",
+      "options": [
+        "じしょを<ruby>借<rt>か</rt></ruby>りてもらえませんか。",
+        "じしょを<ruby>貸<rt>か</rt></ruby>してあげませんか。",
+        "じしょを<ruby>借<rt>か</rt></ruby>してくれませんか。",
+        "じしょを<ruby>貸<rt>か</rt></ruby>してもらえませんか。"
+      ],
+      "correct": "じしょを<ruby>貸<rt>か</rt></ruby>してもらえませんか。",
+      "explanation": "The other person lends: <ruby>貸<rt>か</rt></ruby>す + てもらえませんか."
+    },
+    {
+      "prompt": "Review (Unit 1): complete <ruby>先生<rt>せんせい</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>む＿＿<ruby>言<rt>い</rt></ruby>っていました。",
+      "options": [
+        "と",
+        "か",
+        "を",
+        "が"
+      ],
+      "correct": "と",
+      "explanation": "と marks reported words."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-2-give-and-get",
+    "japanese-n4-unit-2-they-gave-me",
+    "japanese-n4-unit-2-doing-favours",
+    "japanese-n4-unit-2-would-you-mind",
+    "japanese-n4-unit-2-you-should",
+    "japanese-n4-unit-1-they-said"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}
