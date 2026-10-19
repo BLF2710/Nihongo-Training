@@ -1,4 +1,5 @@
 import * as profileService from "../services/profile.service";
+import { saveTimeZone } from "../services/streak.service";
 import { action } from "../utils/action";
 import { getUserId } from "../utils/request-user";
 
@@ -21,3 +22,6 @@ export const deactivateAccount = action(async (req, res) => {
   await profileService.deactivateAccount(getUserId(req), req.body);
   return res.json({ message: "Account deactivated" });
 }, { label: "deactivateAccount", message: "Server error" });
+
+export const updateTimeZone = action(async (req, res) => res.json(await saveTimeZone(getUserId(req), req.body?.timeZone)),
+  { label: "updateTimeZone", message: "Could not save your time zone." });

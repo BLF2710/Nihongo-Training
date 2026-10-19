@@ -38,6 +38,9 @@ const ReadingPage = lazy(() => import("./pages/ReadingPage"));
 const LevelPickerPage = lazy(() => import("./pages/LevelPickerPage"));
 const GrammarSummaryPage = lazy(() => import("./pages/GrammarSummaryPage"));
 const MockExamPage = lazy(() => import("./pages/MockExamPage"));
+const MessagesPage = lazy(() => import("./pages/MessagesPage"));
+const SupportPage = lazy(() => import("./pages/SupportPage"));
+const AssistantPage = lazy(() => import("./pages/AssistantPage"));
 const SkillPracticePage = lazy(() => import("./pages/SkillPracticePage"));
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 
@@ -61,6 +64,11 @@ function App() {
           <Route path="/quizzes" element={signedInLazy("Loading quizzes…", <QuizzesPage />)} />
           <Route path="/quizzes/:unitId" element={signedInLazy("Loading assessment…", <UnitAssessmentPage />)} />
           <Route path="/vocabulary" element={signedInLazy("Loading vocabulary…", <StudyReferencePage key="vocabulary" kind="vocabulary" />)} />
+          <Route path="/messages" element={signedInLazy("Loading messages…", <MessagesPage />)} />
+          <Route path="/messages/:conversationId" element={signedInLazy("Loading messages…", <MessagesPage />)} />
+          <Route path="/support" element={signedInLazy("Loading Help & support…", <SupportPage />)} />
+          <Route path="/support/:requestId" element={signedInLazy("Loading Help & support…", <SupportPage />)} />
+          <Route path="/assistant" element={signedInLazy("Loading the study assistant…", <AssistantPage />)} />
           <Route path="/levels" element={signedInLazy("Loading levels…", <LevelPickerPage />)} />
           <Route path="/grammar/summary" element={signedInLazy("Loading grammar summary…", <GrammarSummaryPage />)} />
           <Route path="/mock-exam" element={signedInLazy("Loading mock exam…", <MockExamPage />)} />

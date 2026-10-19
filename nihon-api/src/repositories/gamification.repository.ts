@@ -6,10 +6,7 @@ export async function getXp(userId: number): Promise<number> {
   return Number(result.rows[0]?.xp ?? 0);
 }
 
-export async function getCurrentStreak(userId: number): Promise<number> {
-  const result = await pool.query("SELECT current_streak FROM user_gamification WHERE user_id=$1", [userId]);
-  return Number(result.rows[0]?.current_streak);
-}
+export { getEffectiveStreak as getCurrentStreak } from "./streak.repository";
 
 /** Row-locks the user's XP for the surrounding transaction; null when the user has no gamification profile. */
 export async function lockXp(userId: number, db: Queryable): Promise<number | null> {

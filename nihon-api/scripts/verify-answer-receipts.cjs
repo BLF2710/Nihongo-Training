@@ -24,7 +24,7 @@ async function main() {
     await client.query('CREATE TEMP TABLE users (id INTEGER PRIMARY KEY); INSERT INTO users VALUES (1),(2)');
     for (const table of ['hiraganas','katakanas']) await client.query(`CREATE TEMP TABLE ${table} (id INTEGER PRIMARY KEY, kana TEXT, romaji TEXT); INSERT INTO ${table} VALUES (1,'a','a')`);
     for (const [table, column] of [['user_progress','hiragana_id'],['user_katakana_progress','katakana_id']]) await client.query(`CREATE TEMP TABLE ${table} (user_id INTEGER, ${column} INTEGER, correct_count INTEGER, wrong_count INTEGER, PRIMARY KEY(user_id,${column}))`);
-    await client.query('CREATE TEMP TABLE user_gamification(user_id INTEGER PRIMARY KEY, xp INTEGER, updated_at TIMESTAMPTZ); INSERT INTO user_gamification VALUES (1,0,NOW()),(2,0,NOW())');
+    await client.query('CREATE TEMP TABLE user_gamification(user_id INTEGER PRIMARY KEY, xp INTEGER, updated_at TIMESTAMPTZ, current_streak INTEGER NOT NULL DEFAULT 0, longest_streak INTEGER NOT NULL DEFAULT 0, last_activity_at TIMESTAMPTZ); INSERT INTO user_gamification VALUES (1,0,NOW()),(2,0,NOW())');
     await client.query('CREATE TEMP TABLE xp_events(id SERIAL PRIMARY KEY, user_id INTEGER, amount INTEGER, source TEXT, reference_id TEXT, UNIQUE(user_id,source,reference_id))');
     const migration = fs.readFileSync(path.resolve(__dirname, '../migrations/006_quiz_answer_receipts.sql'), 'utf8').replace('CREATE TABLE IF NOT EXISTS', 'CREATE TEMP TABLE IF NOT EXISTS');
     await client.query(migration); await client.query(migration);

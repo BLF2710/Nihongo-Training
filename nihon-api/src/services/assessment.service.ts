@@ -1,4 +1,5 @@
 import { UNIT_ASSESSMENTS } from "../data/unit-assessments";
+import { recordLearningActivity } from "./streak.service";
 import type { UnitAssessment } from "../data/unit-assessments";
 import { saveAssessmentAttempt } from "../repositories/assessment.repository";
 import { HttpError } from "../utils/http-error";
@@ -45,6 +46,7 @@ export async function submitAssessment(userId: number, unitId: unknown, submissi
   }
   const { correct, total, accuracy, passed } = gradeAssessment(assessment, answers);
   const saved = await saveAssessmentAttempt(userId, assessment.id, accuracy, passed);
+  await recordLearningActivity(userId);
   return {
     correct, wrong: total - correct, total, accuracy, passed, passPercent: assessment.passPercent,
     assessmentPassed: saved.passed, unitCompleted: unit.allLessonsCompleted && saved.passed,

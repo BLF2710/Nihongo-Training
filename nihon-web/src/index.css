@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@import "./dark-palette.css";
+
+/* `dark:` targets the dark theme, which is switched by a class on <html> (see src/lib/theme.ts). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Text and background for anything a page does not colour itself. */
+.dark body {
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-900);
+}

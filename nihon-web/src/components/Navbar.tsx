@@ -1,9 +1,12 @@
 import BackButton from "./BackButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { clearSession, getToken, getUserEmail, getUserName } from "../lib/authStorage";
 import { useCourseLevel } from "../lib/courseLevel";
+import { useInboxSummary } from "../lib/inbox";
+import { syncTimeZone } from "../lib/timeZone";
+import { ThemeButton, ThemeChoice } from "./ThemeToggle";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -12,7 +15,9 @@ export default function Navbar() {
   const courseLevel = useCourseLevel();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [sectionsOpen, setSectionsOpen] = useState({ language: true, learn: true, practice: true, games: true });
+  const [sectionsOpen, setSectionsOpen] = useState({ language: true, learn: true, practice: true, games: true, community: true });
+  const inbox = useInboxSummary();
+  useEffect(() => { syncTimeZone(); }, []);
   const token = getToken();
   const userName = getUserName() || "Learner";
   const userEmail = getUserEmail() || "";
@@ -35,23 +40,25 @@ export default function Navbar() {
   return (
     <>
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-3">
             {token && <button onClick={() => setSidebarOpen((open) => !open)} className="w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label="Toggle navigation sidebar" aria-expanded={sidebarOpen}>☰</button>}
-            <button onClick={() => go("/")} className="flex items-center gap-2.5 text-xl sm:text-2xl font-black text-gray-900 tracking-tight cursor-pointer">
+            <button onClick={() => go("/")} className="flex items-center gap-2 sm:gap-2.5 text-lg sm:text-2xl font-black text-gray-900 tracking-tight cursor-pointer">
               <span className="w-9 h-9 bg-linear-to-br from-indigo-600 to-emerald-500 rounded-xl flex items-center justify-center text-white text-lg shadow-sm">🌐</span>
               <span>Lingo<span className="text-emerald-600">Hub</span></span>
             </button>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            {token && <button onClick={() => go(language === "english" ? "/statistics/english" : "/statistics/japanese")} className={`px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/statistics"))}`}><span className="hidden sm:inline">📊 </span>Statistics</button>}
+            <span className="hidden sm:inline-flex"><ThemeButton /></span>
+            {token && <button onClick={() => go("/messages")} aria-label={`Messages${inbox?.total ? `, ${inbox.total} unread` : ""}`} className={`relative px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/messages"))}`}><span aria-hidden="true">✉️</span><span className="hidden sm:inline"> Messages</span>{(inbox?.total ?? 0) > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 min-w-5 rounded-full bg-emerald-600 px-1.5 text-center text-[11px] font-bold leading-5 text-white">{inbox!.total}</span>}</button>}
+            {token && <button onClick={() => go(language === "english" ? "/statistics/english" : "/statistics/japanese")} className={`px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/statistics"))}`}><span aria-hidden="true">📊</span><span className="sr-only sm:not-sr-only"> Statistics</span></button>}
             {token ? <>
               <button onClick={() => setProfileOpen((open) => !open)} className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition cursor-pointer" aria-label="Open account details" aria-expanded={profileOpen}>
                 <span className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">{userName.charAt(0).toUpperCase()}</span>
                 <span className="text-sm font-semibold text-gray-700 max-w-28 truncate">{userName}</span>
               </button>
-              <button onClick={logout} className="bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-600 border border-gray-200 px-3.5 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">Logout</button>
+              <button onClick={logout} className="bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-600 border border-gray-200 px-2.5 sm:px-3.5 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">Logout</button>
             </> : <button onClick={() => go("/login")} className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-xs transition cursor-pointer">Sign In</button>}
           </div>
         </div>
@@ -98,6 +105,13 @@ export default function Navbar() {
             <button onClick={() => language === "japanese" && go("/speaking")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/speaking"))}` : "text-gray-400 cursor-not-allowed"}`}><span>🎤</span> Speaking {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
             <button onClick={() => language === "japanese" && go("/reading")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/reading"))}` : "text-gray-400 cursor-not-allowed"}`}><span>📄</span> Reading {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
             <button onClick={() => language === "japanese" && go("/review")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname === "/review")}` : "text-gray-400 cursor-not-allowed"}`}><span>🔄</span> Review {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
+          </div>}</div>
+          <div className="mt-4 px-3"><p className="mb-2 text-[11px] font-bold tracking-wider uppercase text-gray-400">Display</p><ThemeChoice /></div>
+          <div className="mt-4">{sectionButton("Community", "community")}{sectionsOpen.community && <div className="mt-1 space-y-1">
+            {[["/messages", "💬", "Messages", inbox?.direct ?? 0], ["/assistant", "🤖", "Study assistant", 0], ["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
+              <button key={path as string} onClick={() => go(path as string)} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith(path as string))}`}>
+                <span>{icon}</span> {label}{(unread as number) > 0 && <span className="ml-auto rounded-full bg-emerald-600 px-2 py-0.5 text-[11px] font-bold text-white">{unread}<span className="sr-only"> unread</span></span>}
+              </button>)}
           </div>}</div>
         </div>
       </aside>}

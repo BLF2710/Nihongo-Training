@@ -1,4 +1,5 @@
 import { randomUUID } from "crypto";
+import { recordLearningActivity } from "./streak.service";
 import { withTransaction } from "../db/transaction";
 import {
   findKanjiProgress, insertPracticeQuestion, listKanjiProgress, lockPracticeQuestion, recordKanjiAnswer, savePracticeAnswer,
@@ -49,6 +50,7 @@ export async function answerKanjiQuestion(userId: number, questionId: string, an
     if (question.answer_index === null) {
       await recordKanjiAnswer(client, userId, question.kanji_id, correct);
       await savePracticeAnswer(client, questionId, answerIndex);
+      await recordLearningActivity(userId, client);
     }
     const saved = await findKanjiProgress(userId, question.kanji_id, client);
     return {

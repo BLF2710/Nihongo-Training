@@ -5,6 +5,7 @@ import { authenticate } from "./middleware/auth.middleware";
 import { enforceContentAvailability } from "./middleware/content-availability.middleware";
 import adminRoutes from "./routes/admin.routes";
 import authRoutes from "./routes/auth.routes";
+import communicationRoutes from "./routes/communication.routes";
 import englishRoutes from "./routes/english.routes";
 import kanjiRoutes from "./routes/kanji.routes";
 import lessonRoutes from "./routes/lesson.routes";
@@ -44,6 +45,7 @@ export function createApp() {
   app.use("/api/statistics", statisticsRoutes);
   app.use("/api/english", englishRoutes);
   app.use("/api/review", reviewRoutes);
+  app.use("/api", communicationRoutes);
 
   return app;
 }

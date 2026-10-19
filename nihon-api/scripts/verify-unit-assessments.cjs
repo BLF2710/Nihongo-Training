@@ -38,7 +38,7 @@ async function main() {
     // Fixtures are connection-local temporary tables; no real users/progress are edited.
     await client.query("CREATE TEMP TABLE users (id INTEGER PRIMARY KEY, status TEXT DEFAULT 'active', role TEXT DEFAULT 'learner', all_lessons_unlocked BOOLEAN DEFAULT FALSE)");
     await client.query('INSERT INTO users (id) VALUES (1), (2)');
-    await client.query('CREATE TEMP TABLE user_gamification (user_id INTEGER, xp INTEGER, updated_at TIMESTAMPTZ DEFAULT NOW())');
+    await client.query('CREATE TEMP TABLE user_gamification (user_id INTEGER, xp INTEGER, updated_at TIMESTAMPTZ DEFAULT NOW(), current_streak INTEGER NOT NULL DEFAULT 0, longest_streak INTEGER NOT NULL DEFAULT 0, last_activity_at TIMESTAMPTZ)');
     await client.query('INSERT INTO user_gamification (user_id,xp) VALUES (1, 0), (2, 0)');
     await client.query('CREATE TEMP TABLE lesson_progress (user_id INTEGER, lesson_id VARCHAR(120), challenge_score INTEGER DEFAULT 0, updated_at TIMESTAMPTZ DEFAULT NOW(), PRIMARY KEY (user_id,lesson_id))');
     await client.query('CREATE TEMP TABLE xp_events (id SERIAL, user_id INTEGER, amount INTEGER, source TEXT, reference_id TEXT, UNIQUE(user_id,source,reference_id))');

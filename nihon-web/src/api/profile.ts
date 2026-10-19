@@ -3,7 +3,9 @@ import api from "./axios";
 export type Profile = {
   username: string; display_name: string; avatar: string | null; bio: string;
   learning_language: string; learning_goal: string | null; daily_goal: number; profile_visibility: "private" | "public";
-  xp: number; level: number; rank: string; current_streak: number; lessons_completed: number;
+  xp: number; level: number; rank: string; lessons_completed: number;
+  /** Days in a row with learning work, counting today or yesterday; 0 once a day is missed. */
+  current_streak: number; longest_streak?: number; active_today?: boolean; time_zone?: string;
   achievements_count: number; achievements: { id: string; title: string; description: string }[];
   xpProgress: { nextLevelXp: number | null; progressPercent: number };
 };
@@ -18,4 +20,9 @@ export async function fetchProfile(signal?: AbortSignal) {
 
 export async function updateProfile(update: ProfileUpdate) {
   return (await api.put<Profile>("/profile/me", update)).data;
+}
+
+/** Saves the browser's IANA time zone, which decides when a learner's day starts for streaks. */
+export async function updateTimeZone(timeZone: string) {
+  await api.put("/profile/me/time-zone", { timeZone });
 }

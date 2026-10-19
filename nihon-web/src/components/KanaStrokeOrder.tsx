@@ -22,8 +22,8 @@ export default function KanaStrokeOrder({ character, paths = defaultPaths }: { c
   return <div className="mt-5">
     <svg viewBox={`0 0 ${109 * parts.length} 109`} className="mx-auto w-full max-w-md rounded-2xl bg-gray-50" role="img" aria-label={`Stroke order for ${character}, ${count} of ${strokes.length} strokes`}>
       {strokes.map((stroke, index) => <g key={`${replay}-${index}`} transform={`translate(${109 * stroke.partIndex} 0)`} fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-        <path d={stroke.d} stroke="#e5e7eb" />
-        {index < count && <path key={`${count}-${index}`} d={stroke.d} pathLength="1" stroke={index === count - 1 ? '#4f46e5' : '#111827'} className={playing && index === count - 1 ? 'kana-stroke-reveal' : undefined} />}
+        <path d={stroke.d} stroke="currentColor" className="text-gray-200" />
+        {index < count && <path key={`${count}-${index}`} d={stroke.d} pathLength="1" stroke="currentColor" className={`${index === count - 1 ? 'text-indigo-600' : 'text-gray-900'} ${playing && index === count - 1 ? 'kana-stroke-reveal' : ''}`} />}
       </g>)}
     </svg>
     <p className="mt-3 text-center text-sm font-semibold" aria-live="polite">Stroke {count} of {strokes.length}</p>

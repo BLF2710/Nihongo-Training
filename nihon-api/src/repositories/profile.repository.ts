@@ -1,4 +1,5 @@
 import { pool } from "../config/db";
+import { ACTIVE_TODAY_SQL, EFFECTIVE_STREAK_SQL } from "./streak.repository";
 
 export type ProfileUpdate = {
   displayName: string;
@@ -15,7 +16,7 @@ export type ProfileUpdate = {
 export async function findProfileSummary(userId: number) {
   const result = await pool.query(`SELECT u.id, u.username, u.email, u.status, u.created_at, u.last_login_at,
       p.display_name, p.avatar, p.bio, p.native_language, p.learning_language, p.learning_goal, p.daily_goal, p.profile_visibility,
-      g.xp, g.current_streak, g.longest_streak,
+      g.xp, ${EFFECTIVE_STREAK_SQL} AS current_streak, g.longest_streak, ${ACTIVE_TODAY_SQL} AS active_today, p.time_zone,
       (SELECT COUNT(*) FROM user_game_scores WHERE user_id = u.id) AS games_played,
       (SELECT COALESCE(SUM(correct_count + wrong_count), 0) FROM user_progress WHERE user_id = u.id) +
       (SELECT COALESCE(SUM(correct_count + wrong_count), 0) FROM user_katakana_progress WHERE user_id = u.id) AS practice_answers,

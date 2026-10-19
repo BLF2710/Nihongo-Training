@@ -4,6 +4,7 @@ import { HttpError } from "../utils/http-error";
 import { shuffled } from "../utils/random";
 import { questionType } from "./question-types";
 import type { Graded, PresentedQuestion } from "./question-types";
+import { recordLearningActivity } from "./streak.service";
 import { getUserUnits } from "./unit.service";
 
 const ASSESSMENT_QUESTIONS_PER_REVIEW = 5;
@@ -63,5 +64,6 @@ export async function checkReviewAnswer(userId: number, unitId: unknown, questio
   }
   if (graded === undefined) throw new HttpError(404, "Question not found.");
   if (graded === null) throw new HttpError(400, "Invalid answer.");
+  await recordLearningActivity(userId);
   return graded;
 }
