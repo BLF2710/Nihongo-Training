@@ -6,7 +6,8 @@ type User={id:number;username:string;email:string;role:'learner'|'admin';status:
 type Results={users:User[];total:number;page:number;pageSize:number};
 // Accounts, roles and lesson access are managed together on this one page.
 export default function AdminUsers({currentId}:{currentId:number}){
-  const [search,setSearch]=useState('');const [query,setQuery]=useState('');const [page,setPage]=useState(1);
+  // The support inbox links here with ?search=<username>.
+  const [search,setSearch]=useState(()=>new URLSearchParams(window.location.search).get('search')??'');const [query,setQuery]=useState(()=>new URLSearchParams(window.location.search).get('search')??'');const [page,setPage]=useState(1);
   const result=useAdminData<Results>(`/admin/users?search=${encodeURIComponent(query)}&page=${page}`);
   const [selected,setSelected]=useState<User|null>(null);const [busy,setBusy]=useState(false);const [message,setMessage]=useState('');const [error,setError]=useState('');
   async function save(event:FormEvent){event.preventDefault();if(!selected||busy)return;setBusy(true);setError('');setMessage('');try{await updateUser(selected.id,{username:selected.username,email:selected.email,role:selected.role,status:selected.status});setSelected(null);setMessage('User updated. Role and suspension changes apply to subsequent requests.');result.reload();}catch(error){setError(adminError(error));}finally{setBusy(false);}}

@@ -14,3 +14,9 @@ export function introducedKanji(lessonId: string) {
 export function introducingLessons(kanjiId: string) {
   return catalog.lessonIntroductions.filter(item => item.introducedKanji.includes(kanjiId)).map(item => item.lessonId);
 }
+
+/** The course level that introduces a kanji ("N5", "N4", …), from the first lesson that teaches it. */
+export function kanjiLevel(kanjiId: string): string | null {
+  const lessonId = introducingLessons(kanjiId)[0];
+  return lessonId ? /^japanese-(n[1-5])-/.exec(lessonId)?.[1].toUpperCase() ?? null : null;
+}

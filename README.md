@@ -19,6 +19,19 @@ These features exist in the repository; this is not a claim that every edge case
 - [x] Kana Review sessions using the existing character-statistics system.
 - [x] Course-linked Kanji reference, search/filters, per-user progress, shared flashcards, KanjiVG stroke animation, and meaning/reading/vocabulary practice (10 verified characters).
 - [x] Dashboard and English game section.
+- [x] Messages between learners (by exact username, with block and report), Help & support requests with an admin support inbox, and a study assistant chat (migration `011_communication.sql`).
+
+### Study assistant configuration
+
+The study assistant answers through a provider chosen by environment variables in `nihon-api/.env`:
+
+| Variable | Effect |
+| --- | --- |
+| `ANTHROPIC_API_KEY` | When set, the assistant uses Claude. Without it, the offline course helper answers by searching lesson vocabulary and grammar. |
+| `ASSISTANT_PROVIDER` | `claude` or `course` to force a provider. |
+| `ASSISTANT_MODEL` | Claude model id; defaults to `claude-opus-5-5`. |
+
+Each learner can send 40 assistant messages per hour. Administrators can switch Messages and the study assistant off under Manage content; Help & support always stays open.
 
 ## Prioritized to-do list
 
@@ -50,8 +63,9 @@ These features exist in the repository; this is not a claim that every edge case
 - [ ] Test writing practice with mouse, touch, and stylus, including resizing without misaligned strokes.
 - [ ] Add optional Kana row/group selection to the existing Speed Quiz without duplicating data or statistics.
 - [ ] Clarify session answer streaks versus daily learning streaks; add personal-best displays using existing records where available.
+- [x] Daily learning streaks: graded learning work counts, in the learner's time zone (migration `012_learning_streaks.sql`).
 - [ ] Connect the existing daily-goal setting to meaningful daily activity tracking; avoid rewarding idle time or repeated clicks.
-- [ ] Add a persisted light/dark/system theme after core flows are stable.
+- [x] Add a persisted light/dark/system theme (`src/lib/theme.ts`; colours from `scripts/build-dark-palette.mjs`).
 
 ### 4. Expand the course deliberately
 

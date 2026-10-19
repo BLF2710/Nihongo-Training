@@ -4,6 +4,7 @@ import {
   createQuestion, deleteQuestion, getAccess, getOverview, getSettings, listContent, listQuestions, listUsers,
   updateContent, updateLessonAccess, updateQuestion, updateSettings, updateUser,
 } from "../controllers/admin.controller";
+import { adminGetSupport, adminListSupport, adminReplySupport, adminSetSupportStatus } from "../controllers/communication.controller";
 import { requireAdmin } from "../middleware/admin.middleware";
 import { authenticate } from "../middleware/auth.middleware";
 
@@ -24,6 +25,10 @@ router.get("/questions", listQuestions);
 router.post("/questions", createQuestion);
 router.put("/questions/:id", updateQuestion);
 router.delete("/questions/:id", deleteQuestion);
+router.get("/support", adminListSupport);
+router.get("/support/:id", adminGetSupport);
+router.post("/support/:id/messages", adminReplySupport);
+router.patch("/support/:id", adminSetSupportStatus);
 
 const handleUnexpectedError: ErrorRequestHandler = (error, _req, res, _next) => {
   console.error(error);

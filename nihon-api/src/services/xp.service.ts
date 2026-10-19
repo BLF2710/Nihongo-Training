@@ -2,6 +2,7 @@ import type { PoolClient } from "pg";
 import { withTransaction } from "../db/transaction";
 import { addXp, insertXpEvent, lockXp } from "../repositories/gamification.repository";
 import { getLevelFromXP, getRankFromXP } from "./progression.service";
+import { recordLearningActivity } from "./streak.service";
 
 export type XPSource = "lesson_completion" | "lesson_challenge" | "quiz" | "game" | "achievement" | "streak";
 
@@ -11,6 +12,8 @@ async function applyAward(client: PoolClient, userId: number, amount: number, so
   // Each (source, reference) pays out once; a repeat reports the unchanged totals.
   const awarded = await insertXpEvent(client, userId, amount, source, referenceId);
   const xp = awarded ? await addXp(client, userId, amount) : oldXp;
+  // Learning work counts toward the daily streak (repeating a lesson too); automatic rewards do not.
+  if (source !== "achievement" && source !== "streak") await recordLearningActivity(userId, client);
   return { awarded, oldXp, xp, oldLevel: getLevelFromXP(oldXp), level: getLevelFromXP(xp), oldRank: getRankFromXP(oldXp), rank: getRankFromXP(xp) };
 }
 

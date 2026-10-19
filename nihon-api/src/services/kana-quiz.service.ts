@@ -2,6 +2,7 @@ import type { PoolClient } from "pg";
 import { withTransaction } from "../db/transaction";
 import { countCorrectAnswers, findKanaById, findRandomKana, listKana, recordKanaAnswer } from "../repositories/kana.repository";
 import { findReceipt, insertReceipt, lockKanaSubmissions } from "../repositories/quiz-receipt.repository";
+import { recordLearningActivity } from "./streak.service";
 import { HttpError } from "../utils/http-error";
 import type { KanaScript } from "../utils/kana-script";
 import { isRomajiMatch } from "../utils/romaji";
@@ -52,6 +53,7 @@ export async function submitKanaAnswer({ script, kanaId, answer, userId, submiss
 
     if (userId) {
       await recordKanaAnswer(client, script, userId, kanaId, correct);
+      await recordLearningActivity(Number(userId), client);
       if (correct) await rewardMilestone(client, script, userId);
     }
 
