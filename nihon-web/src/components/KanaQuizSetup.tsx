@@ -5,21 +5,32 @@ import Navbar from "./Navbar";
 import { fetchKanaCharacters } from "../api/quiz";
 import { useActivity, useActivityState } from "../context/ActivityContext";
 import type { KanaApiCharacter } from "../data/hiraganaLearning";
+import type { QuizMode } from "../lib/kanaDeck";
 import { HIRAGANA_SECTIONS } from "../data/hiraganaLearning";
 import { KATAKANA_SECTIONS } from "../data/katakanaLearning";
 
-export default function KanaQuizSetup({ children }: { children: (characters: KanaApiCharacter[], onChoose: () => void) => ReactNode }) {
+// `run` changes on every start, so a new game never picks up the previous game's saved state.
+type Render = (characters: KanaApiCharacter[], onChoose: () => void, mode: QuizMode, run: number) => ReactNode;
+const MODES: [QuizMode, string, string][] = [
+  ["round", "Each once", "Every chosen character once, then your results."],
+  ["unlimited", "Unlimited", "Keep going until you stop."],
+];
+
+export default function KanaQuizSetup({ children }: { children: Render }) {
   const [params] = useSearchParams();
   const script = params.get("type") === "katakana" ? "katakana" : "hiragana";
   return <Selection key={script} script={script}>{children}</Selection>;
 }
 
-function Selection({ script, children }: { script: "hiragana" | "katakana"; children: (characters: KanaApiCharacter[], onChoose: () => void) => ReactNode }) {
+function Selection({ script, children }: { script: "hiragana" | "katakana"; children: Render }) {
   const activity = useActivity();
   const [characters, setCharacters] = useState<KanaApiCharacter[]>([]);
-  const [selected, setSelected] = useState<number[]>([]);
   const [session, setSession] = useActivityState<KanaApiCharacter[] | null>("characters", null);
+  // Coming back to change characters starts from the current choice.
+  const [selected, setSelected] = useState<number[]>(() => session?.map(item => item.id) ?? []);
+  const [mode, setMode] = useActivityState<QuizMode>("mode", "round");
   const [choosing, setChoosing] = useState(false);
+  const [run, setRun] = useState(0);
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -30,7 +41,7 @@ function Selection({ script, children }: { script: "hiragana" | "katakana"; chil
       .catch(() => { if (!controller.signal.aborted) setError(true); });
     return () => controller.abort();
   }, [script, retry]);
-  if (session && !choosing) return children(session, () => setChoosing(true));
+  if (session && !choosing) return children(session, () => setChoosing(true), mode, run);
   const title = script === "katakana" ? "Katakana" : "Hiragana";
   const group = (item: KanaApiCharacter) => [...item.kana].length === 1 ? "Single" : /[ゃゅょャュョ]$/.test(item.kana) && /^[きしちにひみりぎじびぴキシチニヒミリギジビピ]/.test(item.kana) ? "Double" : "Extended";
   const chosen = characters.filter(item => selected.includes(item.id));
@@ -69,7 +80,8 @@ function Selection({ script, children }: { script: "hiragana" | "katakana"; chil
           {!items.length && <p className="mt-3 text-sm text-gray-500">These characters are not available in the quiz catalog yet.</p>}
         </section>;
       })}</div>
-      <div className="sticky bottom-0 mt-5 flex items-center justify-between gap-4 rounded-xl border bg-white p-4 shadow-sm"><span>{chosen.length} characters selected</span><button disabled={!chosen.length} onClick={async () => { if (await activity.begin(true)) { setSession(chosen); setChoosing(false); } }} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white disabled:opacity-40">Start Quiz →</button></div>
+      <fieldset className="mt-5 rounded-2xl border border-gray-200 bg-white p-5"><legend className="px-1 text-lg font-bold">Mode</legend><div className="mt-2 grid gap-3 sm:grid-cols-2">{MODES.map(([value, label, help]) => <label key={value} className={`flex cursor-pointer gap-3 rounded-xl border p-4 ${mode === value ? "border-emerald-500 bg-emerald-50" : "border-gray-200 hover:border-emerald-300"}`}><input type="radio" name="quiz-mode" value={value} checked={mode === value} onChange={() => setMode(value)} className="mt-1 accent-emerald-600" /><span><span className="block font-bold">{label}</span><span className="block text-sm text-gray-600">{help}</span></span></label>)}</div></fieldset>
+      <div className="sticky bottom-0 mt-5 flex items-center justify-between gap-4 rounded-xl border bg-white p-4 shadow-sm"><span>{chosen.length} characters selected · {mode === "round" ? "each once" : "unlimited"}</span><button disabled={!chosen.length} onClick={async () => { if (await activity.begin(true)) { setMode(mode); setSession(chosen); setRun(value => value + 1); setChoosing(false); } }} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white disabled:opacity-40">Start Quiz →</button></div>
     </>}
   </main></div>;
 }

@@ -1,17 +1,16 @@
 import { useBack } from "../lib/useBack";
 import { useActivity, useActivityState } from "../context/ActivityContext";
-import {
-  useEffect,
-  useState,
-  useRef,
-  useCallback
-} from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { apiErrorMessage } from "../api/errors";
 import { submitKanaAnswer } from "../api/quiz";
 import type { KanaAnswerResult } from "../api/quiz";
 import KanaQuizSetup from "../components/KanaQuizSetup";
+import { draw, shuffledDeck } from "../lib/kanaDeck";
+import type { QuizMode } from "../lib/kanaDeck";
+// Shared without changing Speed Quiz matching behavior.
+import { isRomajiMatch } from "../lib/romaji";
 
 type Kana = {
   id: number;
@@ -19,17 +18,19 @@ type Kana = {
   romaji?: string;
   type?: "hiragana" | "katakana";
 };
-
-type AnswerResult = KanaAnswerResult;
-
-// Shared without changing Speed Quiz matching behavior.
-import { isRomajiMatch } from "../lib/romaji";
+type Miss = { id: number; kana: string; correct: string; given: string };
 
 export default function PracticePage() {
-  return <KanaQuizSetup>{(characters, onChoose) => <PracticeGame characters={characters} onChoose={onChoose} />}</KanaQuizSetup>;
+  // Run 0 is the game found when the page opens, which may be restored; later runs always start fresh.
+  return <KanaQuizSetup>{(characters, onChoose, mode, run) => <PracticeGame key={run} characters={characters} onChoose={onChoose} mode={mode} restore={run === 0} />}</KanaQuizSetup>;
 }
 
-function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: () => void }) {
+const duration = (ms: number) => {
+  const seconds = Math.max(0, Math.round(ms / 1000));
+  return seconds < 60 ? `${seconds}s` : `${Math.floor(seconds / 60)}m ${String(seconds % 60).padStart(2, "0")}s`;
+};
+
+function PracticeGame({ characters, onChoose, mode, restore }: { characters: Kana[]; onChoose: () => void; mode: QuizMode; restore: boolean }) {
   const session = useActivity();
   const goBack = useBack();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,30 +39,33 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
   const [current, setCurrent] = useActivityState<Kana | null>("current", null);
   const [answer, setAnswer] = useActivityState("answer", "");
-  const [result, setResult] = useActivityState<AnswerResult | null>("result", null);
+  const [result, setResult] = useActivityState<KanaAnswerResult | null>("result", null);
   const [correctCount, setCorrectCount] = useActivityState("correctCount", 0);
   const [wrongCount, setWrongCount] = useActivityState("wrongCount", 0);
   const [streak, setStreak] = useActivityState("streak", 0);
+  const [bestStreak, setBestStreak] = useActivityState("bestStreak", 0);
   const [answered, setAnswered] = useActivityState("answered", false);
   const [submissionId, setSubmissionId] = useActivityState("submissionId", "");
+  // The characters still to come (round: this round only; unlimited: the rest of the current shuffle).
+  const [deck, setDeck] = useActivityState<number[]>("deck", []);
+  // The characters in play: everything chosen, or only the missed ones when practising mistakes.
+  const [roundIds, setRoundIds] = useActivityState<number[] | null>("roundIds", null);
+  const [missed, setMissed] = useActivityState<Miss[]>("missed", []);
+  const [finished, setFinished] = useActivityState("finished", false);
+  const [startedAt, setStartedAt] = useActivityState("startedAt", 0);
+  const [finishedAt, setFinishedAt] = useActivityState("finishedAt", 0);
   const [sending, setSending] = useState(false);
   const sendingRef = useRef(false);
-  const [loading, setLoading] = useState(!current);
-  const restored = useRef(!!current);
+  const [loading, setLoading] = useState(!restore || (!current && !finished));
+  const restored = useRef(restore && (!!current || finished));
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [autoSubmit, setAutoSubmit] = useActivityState("autoSubmit", true);
-  const [previousType, setPreviousType] = useState(currentType);
-
-  // Reset request presentation when the URL changes, including browser navigation.
-  if (previousType !== currentType) {
-    setPreviousType(currentType);
-    setLoading(true);
-    setErrorMsg(null);
-  }
 
   const inputRef = useRef<HTMLInputElement>(null);
   const autoAdvanceTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const active = useRef(true);
+  const ids = roundIds ?? characters.map(item => item.id);
+  const roundSize = ids.length;
 
   const endSession = () => {
     if (sendingRef.current) return;
@@ -79,43 +83,58 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
     }, 50);
   };
 
-  const loadKana = useCallback((typeToFetch: "hiragana" | "katakana") => {
+  /** Shows the next character from the deck; in a round, an empty deck ends the round. */
+  const showNext = useCallback((fromDeck: number[], pool: number[], lastId: number | null) => {
     if (autoAdvanceTimeout.current) {
       clearTimeout(autoAdvanceTimeout.current);
       autoAdvanceTimeout.current = null;
     }
+    const next = draw(fromDeck, mode, pool, lastId);
+    setDeck(next.deck);
+    setAnswer("");
+    setResult(null);
+    setAnswered(false);
+    setLoading(false);
+    if (next.id === null) {
+      setCurrent(null);
+      setFinished(true);
+      setFinishedAt(Date.now());
+      return;
+    }
+    setCurrent(characters.find(item => item.id === next.id) ?? null);
+    setSubmissionId(crypto.randomUUID());
+    focusInput();
+  }, [characters, mode, setDeck, setAnswer, setResult, setAnswered, setCurrent, setFinished, setFinishedAt, setSubmissionId]);
 
-    return Promise.resolve({ data: characters[Math.floor(Math.random() * characters.length)] }).then((res) => {
-      setCurrent(res.data);
-      setAnswer("");
-      setResult(null);
-      setAnswered(false);
-      setSubmissionId(crypto.randomUUID());
-      focusInput();
-    }).catch((error: unknown) => {
-      console.error(error);
-      setErrorMsg(apiErrorMessage(error, `Could not load ${typeToFetch}. Please check if the server is running.`));
-    }).finally(() => {
-      setLoading(false);
-    });
-  }, [characters, setCurrent, setAnswer, setResult, setAnswered, setSubmissionId]);
+  /** Starts a fresh round (or a fresh unlimited run) with the given characters. */
+  const startRound = useCallback((pool: number[]) => {
+    setRoundIds(pool.length === characters.length ? null : pool);
+    setMissed([]);
+    setFinished(false);
+    setFinishedAt(0);
+    setStartedAt(Date.now());
+    setCorrectCount(0);
+    setWrongCount(0);
+    setStreak(0);
+    setBestStreak(0);
+    showNext(shuffledDeck(pool), pool, null);
+  }, [characters.length, setRoundIds, setMissed, setFinished, setFinishedAt, setStartedAt, setCorrectCount, setWrongCount, setStreak, setBestStreak, showNext]);
 
-  const fetchKana = (typeToFetch: "hiragana" | "katakana" = currentType) => {
-    setLoading(true);
-    setErrorMsg(null);
-    return loadKana(typeToFetch);
-  };
+  const next = () => showNext(deck, ids, current?.id ?? null);
 
   useEffect(() => {
     active.current = true;
-    if (!restored.current) void loadKana(currentType);
+    if (!restored.current) {
+      restored.current = true;
+      startRound(characters.map(item => item.id));
+    }
     return () => {
       active.current = false;
       if (autoAdvanceTimeout.current) {
         clearTimeout(autoAdvanceTimeout.current);
       }
     };
-  }, [currentType, loadKana]);
+  }, [characters, startRound]);
 
   const switchMode = (newType: "hiragana" | "katakana") => {
     if (newType === currentType) return;
@@ -143,15 +162,17 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
       if (data.correct) {
         setCorrectCount((prev) => prev + 1);
-        setStreak((prev) => prev + 1);
+        setStreak((prev) => { setBestStreak(best => Math.max(best, prev + 1)); return prev + 1; });
 
         // Auto-advance on correct
         autoAdvanceTimeout.current = setTimeout(() => {
-          fetchKana(currentType);
+          next();
         }, 600);
       } else {
         setWrongCount((prev) => prev + 1);
         setStreak(0);
+        const miss = { id: current.id, kana: current.kana, correct: data.correctAnswer, given: textToSubmit.trim() };
+        setMissed(list => list.some(item => item.id === miss.id) ? list : [...list, miss]);
       }
     } catch (error: unknown) {
       if (!active.current) return;
@@ -179,7 +200,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
       if (result) {
         // If already answered and in wrong state, Enter advances to next
-        fetchKana(currentType);
+        next();
         return;
       }
 
@@ -189,9 +210,15 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
 
   const total = correctCount + wrongCount;
   const accuracy = total === 0 ? 0 : ((correctCount / total) * 100).toFixed(1);
+  const position = Math.min(roundSize, roundSize - deck.length);
 
   const isKatakana = currentType === "katakana";
   const themeColor = isKatakana ? "indigo" : "emerald";
+
+  if (finished) return <RoundResults
+    script={currentType} total={total} correct={correctCount} bestStreak={bestStreak} timeMs={finishedAt - startedAt}
+    missed={missed} onRetryMissed={() => startRound(missed.map(item => item.id))} onPlayAgain={() => startRound(characters.map(item => item.id))}
+    onChoose={onChoose} onEnd={endSession} />;
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -243,8 +270,12 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
         {/* Stats Row */}
         <div className="mb-4 flex flex-wrap justify-between gap-3">
           <button onClick={onChoose} className="rounded-xl border bg-white px-4 py-2 font-semibold text-gray-700">← Change characters</button>
-          <button onClick={endSession} disabled={sending} className="rounded-xl border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-40">End session</button>
+          <button onClick={endSession} disabled={sending} className="rounded-xl border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50">End session</button>
         </div>
+        {mode === "round" ? <div className="mb-4">
+          <div className="flex items-center justify-between text-sm font-semibold text-gray-600"><span>Character {position} of {roundSize}{roundIds ? " · practising missed characters" : ""}</span><span>Each character once</span></div>
+          <progress aria-label="Round progress" value={position} max={roundSize || 1} className={`mt-2 h-2 w-full ${isKatakana ? "accent-indigo-600" : "accent-emerald-600"}`} />
+        </div> : <p className="mb-4 text-sm font-semibold text-gray-600">Unlimited</p>}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm text-center">
             <div className="text-sm font-medium text-gray-500">Correct</div>
@@ -280,7 +311,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
           <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl text-center flex items-center justify-between">
             <span>{errorMsg}</span>
             <button
-              onClick={() => answered && !result ? void handleSubmit() : void fetchKana(currentType)}
+              onClick={() => { setErrorMsg(null); if (answered && !result) void handleSubmit(); else next(); }}
               className="bg-red-600 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-red-700 font-medium"
             >
               Retry
@@ -331,6 +362,7 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
                   autoCapitalize="off"
                   spellCheck="false"
                   disabled={answered}
+                  aria-label="Romaji"
                   className={`border-2 rounded-xl p-4 text-2xl text-center w-full font-semibold outline-none transition-all ${
                     result?.correct
                       ? "border-green-500 bg-green-50 text-green-800"
@@ -363,11 +395,11 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
                     Submit (Enter ↵)
                   </button>
                 ) : result.correct ? (
-                  <div className="text-center py-2 animate-bounce">
-                    <p className="text-green-600 text-2xl font-bold">
+                  <div className="text-center py-2">
+                    <p className="text-green-600 text-2xl font-bold motion-safe:animate-bounce">
                       Correct! ✅
                     </p>
-                    <button onClick={() => fetchKana(currentType)} className="mt-3 rounded-xl border px-4 py-2 text-sm font-bold">Next Kana →</button>
+                    <button onClick={next} className="mt-3 rounded-xl border px-4 py-2 text-sm font-bold">{mode === "round" && !deck.length ? "See results →" : "Next Kana →"}</button>
                   </div>
                 ) : (
                   <div className="text-center w-full">
@@ -382,10 +414,10 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
                     </p>
 
                     <button
-                      onClick={() => fetchKana(currentType)}
+                      onClick={next}
                       className="mt-4 w-full bg-gray-900 text-white py-3 rounded-xl font-semibold hover:bg-gray-800 transition active:scale-[0.98] cursor-pointer"
                     >
-                      Next Kana (Enter ↵)
+                      {mode === "round" && !deck.length ? "See results (Enter ↵)" : "Next Kana (Enter ↵)"}
                     </button>
                   </div>
                 )}
@@ -396,4 +428,41 @@ function PracticeGame({ characters, onChoose }: { characters: Kana[]; onChoose: 
       </div>
     </div>
   );
+}
+
+/** The end of an "each once" round: score, time, and the characters to practise again. */
+function RoundResults({ script, total, correct, bestStreak, timeMs, missed, onRetryMissed, onPlayAgain, onChoose, onEnd }: {
+  script: "hiragana" | "katakana"; total: number; correct: number; bestStreak: number; timeMs: number; missed: Miss[];
+  onRetryMissed: () => void; onPlayAgain: () => void; onChoose: () => void; onEnd: () => void;
+}) {
+  const percent = total ? Math.round(correct * 100 / total) : 0;
+  const heading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => { heading.current?.focus(); }, []);
+  const perfect = total > 0 && correct === total;
+  const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-bold text-gray-700 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600";
+  return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar />
+    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 sm:px-6">
+      <section aria-labelledby="round-results" className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+        <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">{script === "katakana" ? "Katakana" : "Hiragana"} Speed Quiz · round complete</p>
+        <h1 id="round-results" ref={heading} tabIndex={-1} className="mt-2 text-3xl font-black focus:outline-none">{perfect ? "Perfect round! 🎉" : percent >= 80 ? "Great work!" : "Round complete"}</h1>
+        <dl className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[["Score", `${correct} / ${total}`], ["Accuracy", `${percent}%`], ["Time", duration(timeMs)], ["Best streak", `🔥 ${bestStreak}`]].map(([label, value]) =>
+            <div key={label} className="rounded-2xl bg-gray-50 p-4"><dt className="text-sm font-semibold text-gray-600">{label}</dt><dd className="mt-1 text-2xl font-black">{value}</dd></div>)}
+        </dl>
+        {missed.length > 0 ? <>
+          <h2 className="mt-8 text-xl font-bold">To practise again ({missed.length})</h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">{missed.map(item => <li key={item.id} className="flex items-center gap-4 rounded-2xl border border-gray-200 p-3">
+            <span lang="ja" className="w-14 text-center text-4xl font-bold">{item.kana}</span>
+            <span className="text-sm"><span className="block font-bold text-gray-900">{item.correct}</span><span className="block text-gray-600">You typed: <span className="font-semibold text-red-700">{item.given}</span></span></span>
+          </li>)}</ul>
+        </> : <p className="mt-6 text-gray-600">You answered every character correctly.</p>}
+        <div className="mt-8 flex flex-wrap gap-3">
+          {missed.length > 0 && <button onClick={onRetryMissed} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Practise the missed ones →</button>}
+          <button onClick={onPlayAgain} className={missed.length ? button : "rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"}>Play again</button>
+          <button onClick={onChoose} className={button}>Change characters</button>
+          <button onClick={onEnd} className={button}>End session</button>
+        </div>
+      </section>
+    </main>
+  </div>;
 }

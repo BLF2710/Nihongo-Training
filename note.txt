@@ -7,6 +7,11 @@ Done
 [x] add Nghe, nói (listening and speaking)
 [x] Dark mode: Light / Dark / System, saved per browser (header button, sidebar "Display", admin header)
 [x] Streak system: daily streaks now update, follow the learner's time zone, and were rebuilt from past activity
+[x] Listening, speaking, reading and mock exams count toward the streak (a finished round, passage or submitted exam is saved on the server)
+[x] Analytics on the admin overview: active learners (today / 7 / 30 days), 14-day daily actives, unit completion funnel with pass rates, biggest drop-off points, practice volume
+[x] Light-mode contrast: gray-400 hints and white text on emerald-600 buttons now meet WCAG AA (all scanned pages pass in both themes)
+[x] Public profiles: /u/<username> with level, streaks, course progress, achievements and friend count; visibility Only me / Friends / All learners
+[x] Friends: add by username, accept / decline / cancel, friend list, remove; live requests and accepts (toasts, menu badge); blocking ends a friendship
 
 Ideas to implement or improve (review of 2026-10-14; lessons and other languages left out)
 --------------------------------------------------------------------------------------------
@@ -27,21 +32,39 @@ Learning features
 [ ] Mistake notebook: collect wrong answers across lessons, reviews and assessments for targeted practice
 [ ] Keep assessment questions out of Unit Review (they are visible before the real assessment)
 [ ] XP overhaul (postponed by choice); imported units ignore XP levels for now
-[ ] Count listening, speaking, reading and mock exams toward the streak (they run in the browser only today)
 
 Communication and the assistant
-[ ] Real-time messages (websocket / server-sent events) and optional email or browser notifications
-[ ] Public profiles (profile_visibility exists but does nothing), study groups or class codes
+[ ] Browser or email notifications (live updates over server-sent events now exist for friends and new messages)
+[ ] Study groups or class codes
 [ ] Assistant: streaming answers, lesson-aware questions, admin usage/cost view, "flag this answer"
 [ ] Moderation: admin audit log (roles, suspensions, unlocks, support actions), word filter, repeat-report handling
 
 Admin and operations
-[ ] Analytics on the admin overview: active learners, completion funnels, drop-off points, pass rates per unit
 [ ] Edit lessons from the admin area with a draft -> publish flow (today: source files + re-import)
 [ ] Database backups and restore steps, error reporting, health checks
 
 Interface
-[ ] Light-mode contrast: small text-gray-400 hints (about 2.6:1) and white text on emerald-600 buttons (3.65:1) are below WCAG AA
 [ ] Installable app with an offline kana and flashcard mode
 [ ] Clean screen-reader labels for buttons that contain furigana (they are read in fragments, e.g. "来 こ ない")
 [ ] Test real microphones across browsers, and writing practice on touch screens and styluses
+
+Expanding the friend feature (options, not started)
+---------------------------------------------------
+How it works today: friend requests live in the friendships table (pending / accepted / declined, one row per
+pair). Live updates use server-sent events at GET /api/events; the server only says "something changed" and
+the page reloads through the normal API. Admins can switch Friends off under Manage content.
+Ideas, roughly from small to large:
+[ ] Block and report from a profile (blocking is only in Messages today) and a "blocked learners" list in settings
+[ ] Friend suggestions: friends of friends, learners at the same level or unit (opt-in, never a public directory)
+[ ] Share an invite link or QR code that opens "Add @username" (easier than typing a username)
+[ ] Friends leaderboard: weekly XP, streaks, lessons; only friends who share their progress
+[ ] Activity feed: "Mika passed Unit 3", "Ren reached a 7-day streak" (needs an events table and per-item privacy)
+[ ] Friend challenges: same kana or kanji round, compare scores; friend streaks (both study on the same day)
+[ ] Nudges and cheers: one tap "keep your streak going" (rate-limited), reactions to achievements
+[ ] Online / studying-now presence (from the live stream; must be optional)
+[ ] Finer privacy: choose separately who sees level, streak, achievements, course progress
+[ ] Profile pictures stored on our own server (outside image addresses are not shown, to avoid tracking)
+[ ] Notification centre with history, plus browser push or email digests for requests
+[ ] Scale the live stream past one API process: PostgreSQL LISTEN/NOTIFY or Redis pub/sub behind publish()
+     in nihon-api/src/services/realtime.service.ts; behind a proxy, turn off response buffering for /api/events
+[ ] Study groups / class codes later reuse the same pieces (membership table, live events, privacy rules)

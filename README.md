@@ -64,6 +64,9 @@ Each learner can send 40 assistant messages per hour. Administrators can switch 
 - [ ] Add optional Kana row/group selection to the existing Speed Quiz without duplicating data or statistics.
 - [ ] Clarify session answer streaks versus daily learning streaks; add personal-best displays using existing records where available.
 - [x] Daily learning streaks: graded learning work counts, in the learner's time zone (migration `012_learning_streaks.sql`).
+- [x] Finished listening, speaking, reading and mock-exam sessions count toward the streak (`POST /api/activity/practice`, migration `013_practice_sessions.sql`).
+- [x] Admin overview learning analytics: active learners, daily actives, unit funnels and pass rates, drop-off points, practice volume (`GET /api/admin/analytics`).
+- [x] Light-theme contrast meets WCAG AA (overrides at the end of `src/index.css`).
 - [ ] Connect the existing daily-goal setting to meaningful daily activity tracking; avoid rewarding idle time or repeated clicks.
 - [x] Add a persisted light/dark/system theme (`src/lib/theme.ts`; colours from `scripts/build-dark-palette.mjs`).
 

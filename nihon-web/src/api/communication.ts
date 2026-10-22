@@ -2,7 +2,7 @@ import api from "./axios";
 
 // Learner-to-learner messages, Help & support, and the study assistant all share this message shape.
 export type ChatMessage = { id: number; body: string; senderRole: "learner" | "admin" | "assistant"; sender: string; mine: boolean; sentAt: string };
-export type InboxSummary = { direct: number; support: number; total: number };
+export type InboxSummary = { direct: number; support: number; total: number; friendRequests?: number };
 
 export type DirectConversationSummary = { id: number; with: { username: string; name: string }; unread: number; lastMessageAt: string; lastMessage: { body: string; mine: boolean } | null };
 export type DirectConversation = { id: number; with: { username: string; name: string }; blockedByMe: boolean; canReply: boolean; messages: ChatMessage[] };
@@ -48,7 +48,7 @@ export const askAssistant = async (body: string, conversationId: number | null, 
   (await api.post<{ conversationId: number; messages: ChatMessage[] }>("/assistant/messages", { body, conversationId, level })).data;
 
 // Support inbox for administrators.
-export type StaffSupportSummary = SupportSummary & { unread: boolean; learner: { id: number; username: string; name: string } | null };
+export type StaffSupportSummary = Omit<SupportSummary, "unread"> & { unread: boolean; learner: { id: number; username: string; name: string } | null };
 export type StaffSupportConversation = SupportConversation & { createdAt: string; learner: { id: number; username: string; name: string; status: string } | null };
 export const fetchSupportInbox = async (status: "open" | "closed" | "all", signal?: AbortSignal) =>
   (await api.get<{ unreadOpen: number; conversations: StaffSupportSummary[] }>("/admin/support", { signal, params: { status } })).data;

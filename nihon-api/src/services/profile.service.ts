@@ -25,11 +25,14 @@ export async function getProfile(userId: number) {
 
 export async function saveProfile(userId: number, input: Record<string, unknown>) {
   const { displayName, avatar, bio, nativeLanguage, learningLanguage, learningGoal, dailyGoal, profileVisibility } = input;
+  // Left out by older clients: the current setting is kept.
+  const friendRequests = input.friendRequests ?? null;
   if (typeof displayName !== "string" || !displayName.trim() || displayName.trim().length > 80) {
     throw new HttpError(400, "Display name is required and must be at most 80 characters.");
   }
   const daily = Number(dailyGoal);
-  if (!Number.isInteger(daily) || daily < 1 || daily > 1440 || typeof profileVisibility !== "string" || !["private", "public"].includes(profileVisibility)) {
+  if (!Number.isInteger(daily) || daily < 1 || daily > 1440 || typeof profileVisibility !== "string" || !["private", "friends", "public"].includes(profileVisibility)
+    || (friendRequests !== null && (typeof friendRequests !== "string" || !["everyone", "nobody"].includes(friendRequests)))) {
     throw new HttpError(400, "Invalid learning or privacy settings.");
   }
   await updateProfile(userId, {
@@ -41,6 +44,7 @@ export async function saveProfile(userId: number, input: Record<string, unknown>
     learningGoal: stringOrNull(learningGoal, 120),
     dailyGoal: daily,
     profileVisibility,
+    friendRequests: friendRequests as string | null,
   });
 }
 

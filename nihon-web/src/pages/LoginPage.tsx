@@ -22,7 +22,7 @@ export default function LoginPage() {
     try {
       const { token, user } = await signIn(login, password);
       const userRole = user?.role || "learner";
-      saveSession({ token, userName: user?.username || login, userEmail: user?.email || "", userRole });
+      saveSession({ token, userName: user?.username || login, userEmail: user?.email || "", userRole, userHandle: user?.username });
       navigate(userRole === "admin" ? "/admin" : "/");
     } catch (failure: unknown) {
       setError(apiErrorMessage(failure, "Sign-in failed. Check your connection and try again."));

@@ -5,6 +5,7 @@ import {
 } from "../repositories/conversation.repository";
 import { HttpError } from "../utils/http-error";
 import { cleanBody, cleanSubject, enforceRate, idParam, preview, toMessage } from "./conversation-format";
+import { publish } from "./realtime.service";
 
 const SUPPORT_MESSAGES_PER_MINUTE = 10;
 
@@ -91,6 +92,7 @@ export async function replyAsSupport(adminId: number, conversationId: unknown, b
   const conversation = await supportConversation(conversationId);
   const id = await withTransaction(client => insertMessage(client, { conversationId: conversation.id, senderId: adminId, senderRole: "admin", body: text }));
   await markStaffRead(conversation.id);
+  if (conversation.created_by) publish(conversation.created_by, { type: "inbox" });
   return { id, body: text, senderRole: "admin" as const, sender: "You (support)", mine: true, sentAt: new Date() };
 }
 

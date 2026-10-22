@@ -9,6 +9,7 @@ import {
 } from "../api/communication";
 import type { DirectConversation, DirectConversationSummary } from "../api/communication";
 import { refreshInbox } from "../lib/inbox";
+import { useRealtime } from "../lib/realtime";
 
 const POLL_MS = 10_000;
 const shortTime = (iso: string) => new Date(iso).toLocaleDateString([], { month: "short", day: "numeric" });
@@ -34,6 +35,8 @@ export default function MessagesPage() {
     const timer = window.setInterval(() => { if (document.visibilityState === "visible") void loadList(); }, POLL_MS * 3);
     return () => { controller.abort(); window.clearInterval(timer); };
   }, [loadList]);
+  // A new message shows at once; polling stays as the fallback when live updates are off.
+  useRealtime(event => { if (event.type === "inbox" || event.type === "resync") void loadList(); });
 
   // Stable, so the open conversation does not reload on every render.
   const refreshList = useCallback(() => { void loadList(); }, [loadList]);
@@ -99,6 +102,7 @@ function Conversation({ id, onChange }: { id: number; onChange: () => void }) {
     const timer = window.setInterval(() => { if (document.visibilityState === "visible") void load(); }, POLL_MS);
     return () => { controller.abort(); window.clearInterval(timer); };
   }, [load, onChange]);
+  useRealtime(event => { if (event.type === "inbox" || event.type === "resync") void load().then(onChange); });
 
   if (error && !conversation) return <div className="m-auto p-8 text-center"><p role="alert" className="text-red-700">{error}</p><Link to="/messages" className="mt-3 inline-block font-semibold text-emerald-700 underline">Back to messages</Link></div>;
   if (!conversation) return <p role="status" className="m-auto p-8 text-gray-500">Loading conversation…</p>;
