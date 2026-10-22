@@ -2,7 +2,10 @@ import BackButton from "./BackButton";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
-import { clearSession, getToken, getUserEmail, getUserName } from "../lib/authStorage";
+import { clearSession, getToken, getUserEmail, getUserName, isAdmin } from "../lib/authStorage";
+import { useUserHandle } from "../lib/userHandle";
+import NotificationBell from "./NotificationBell";
+import LiveNotifications from "./LiveNotifications";
 import { useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
@@ -18,6 +21,7 @@ export default function Navbar() {
   const [sectionsOpen, setSectionsOpen] = useState({ language: true, learn: true, practice: true, games: true, community: true });
   const inbox = useInboxSummary();
   useEffect(() => { syncTimeZone(); }, []);
+  const handle = useUserHandle();
   const token = getToken();
   const userName = getUserName() || "Learner";
   const userEmail = getUserEmail() || "";
@@ -42,16 +46,17 @@ export default function Navbar() {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-3">
-            {token && <button onClick={() => setSidebarOpen((open) => !open)} className="w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label="Toggle navigation sidebar" aria-expanded={sidebarOpen}>☰</button>}
+            {token && <button onClick={() => setSidebarOpen((open) => !open)} className="relative w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label={`Toggle navigation sidebar${inbox?.friendRequests ? `, ${inbox.friendRequests} friend ${inbox.friendRequests === 1 ? "request" : "requests"}` : ""}`} aria-expanded={sidebarOpen}>☰{(inbox?.friendRequests ?? 0) > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-white bg-red-600" />}</button>}
             <button onClick={() => go("/")} className="flex items-center gap-2 sm:gap-2.5 text-lg sm:text-2xl font-black text-gray-900 tracking-tight cursor-pointer">
               <span className="w-9 h-9 bg-linear-to-br from-indigo-600 to-emerald-500 rounded-xl flex items-center justify-center text-white text-lg shadow-sm">🌐</span>
-              <span>Lingo<span className="text-emerald-600">Hub</span></span>
+              <span className="max-[420px]:sr-only">Lingo<span className="text-emerald-600">Hub</span></span>
             </button>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
             <span className="hidden sm:inline-flex"><ThemeButton /></span>
-            {token && <button onClick={() => go("/messages")} aria-label={`Messages${inbox?.total ? `, ${inbox.total} unread` : ""}`} className={`relative px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/messages"))}`}><span aria-hidden="true">✉️</span><span className="hidden sm:inline"> Messages</span>{(inbox?.total ?? 0) > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 min-w-5 rounded-full bg-emerald-600 px-1.5 text-center text-[11px] font-bold leading-5 text-white">{inbox!.total}</span>}</button>}
+            {token && !isAdmin() && <NotificationBell inbox={inbox} />}
+            {token && <button onClick={() => go("/messages")} aria-label={`Messages${inbox?.total ? `, ${inbox.total} unread` : ""}`} className={`relative px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/messages"))}`}><span aria-hidden="true">✉️</span><span className="hidden sm:inline"> Messages</span>{(inbox?.total ?? 0) > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 min-w-5 rounded-full bg-red-600 px-1.5 text-center text-[11px] font-bold leading-5 text-white">{inbox!.total}</span>}</button>}
             {token && <button onClick={() => go(language === "english" ? "/statistics/english" : "/statistics/japanese")} className={`px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/statistics"))}`}><span aria-hidden="true">📊</span><span className="sr-only sm:not-sr-only"> Statistics</span></button>}
             {token ? <>
               <button onClick={() => setProfileOpen((open) => !open)} className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition cursor-pointer" aria-label="Open account details" aria-expanded={profileOpen}>
@@ -67,11 +72,14 @@ export default function Navbar() {
       {token && profileOpen && <div className="fixed top-16 right-4 sm:right-6 z-50 w-72 bg-white border border-gray-200 rounded-2xl shadow-xl p-4">
         <div className="flex items-center gap-3">
           <span className="w-12 h-12 rounded-full bg-linear-to-br from-emerald-500 to-indigo-600 text-white flex items-center justify-center text-lg font-black">{userName.charAt(0).toUpperCase()}</span>
-          <div className="min-w-0"><p className="font-bold text-gray-900 truncate">{userName}</p><p className="text-xs text-gray-500 truncate">{userEmail || "Signed-in learner"}</p></div>
+          <div className="min-w-0"><p className="font-bold text-gray-900 truncate">{userName}</p>{handle && <p className="text-sm text-gray-600 truncate">@{handle}</p>}<p className="text-xs text-gray-500 truncate">{userEmail || "Signed-in learner"}</p></div>
         </div>
+        {handle && <p className="mt-3 rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-600">Friends add you with your username <b className="text-gray-900">@{handle}</b>; your display name can be anything.</p>}
         <button onClick={() => go("/profile")} className="mt-4 w-full rounded-lg bg-emerald-600 py-2 text-sm font-bold text-white">View profile & settings</button>
+        <button onClick={() => go("/friends")} className="mt-2 w-full rounded-lg border border-gray-200 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50">Friends{inbox?.friendRequests ? ` · ${inbox.friendRequests} new` : ""}</button>
       </div>}
 
+      {token && !isAdmin() && <LiveNotifications />}
       {sidebarOpen && <button className="fixed inset-0 bg-black/25 z-30 cursor-default" onClick={() => setSidebarOpen(false)} aria-label="Close navigation" />}
       {token && <aside className={`fixed top-18 left-0 bottom-0 z-40 w-72 bg-white border-r border-gray-200 shadow-xl transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="h-full overflow-y-auto p-4 flex flex-col">
@@ -108,9 +116,9 @@ export default function Navbar() {
           </div>}</div>
           <div className="mt-4 px-3"><p className="mb-2 text-[11px] font-bold tracking-wider uppercase text-gray-400">Display</p><ThemeChoice /></div>
           <div className="mt-4">{sectionButton("Community", "community")}{sectionsOpen.community && <div className="mt-1 space-y-1">
-            {[["/messages", "💬", "Messages", inbox?.direct ?? 0], ["/assistant", "🤖", "Study assistant", 0], ["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
+            {[["/friends", "👥", "Friends", inbox?.friendRequests ?? 0], ["/messages", "💬", "Messages", inbox?.direct ?? 0], ["/assistant", "🤖", "Study assistant", 0], ["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
               <button key={path as string} onClick={() => go(path as string)} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith(path as string))}`}>
-                <span>{icon}</span> {label}{(unread as number) > 0 && <span className="ml-auto rounded-full bg-emerald-600 px-2 py-0.5 text-[11px] font-bold text-white">{unread}<span className="sr-only"> unread</span></span>}
+                <span>{icon}</span> {label}{(unread as number) > 0 && <span className="ml-auto rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-bold text-white">{unread}<span className="sr-only">{path === "/friends" ? " friend requests" : " unread"}</span></span>}
               </button>)}
           </div>}</div>
         </div>

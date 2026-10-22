@@ -1,4 +1,5 @@
 import * as adminService from "../services/admin.service";
+import { getLearningAnalytics } from "../services/analytics.service";
 import * as questionBankService from "../services/question-bank.service";
 import { action } from "../utils/action";
 import { getUserId } from "../utils/request-user";
@@ -6,6 +7,9 @@ import { getUserId } from "../utils/request-user";
 export const getAccess = action(async (req, res) => {
   return res.json(await adminService.getAccess(getUserId(req)));
 }, { label: "Admin access", message: "Account access is unavailable.", status: 503 });
+
+export const getAnalytics = action(async (_req, res) => res.json(await getLearningAnalytics()),
+  { label: "Admin analytics", message: "Learning analytics are unavailable right now." });
 
 export const getOverview = action(async (_req, res) => {
   return res.json(await adminService.getOverview());

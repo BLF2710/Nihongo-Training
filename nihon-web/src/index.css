@@ -9,3 +9,15 @@
   background-color: var(--color-gray-50);
   color: var(--color-gray-900);
 }
+
+/*
+ * Light-theme contrast (WCAG AA). Tailwind's gray-400 is about 2.6:1 on white, and white text on its
+ * emerald-600 about 3.7:1. Hints in gray-400 now use gray-500's value (4.8:1), and emerald-600 is darkened so
+ * white text on primary buttons reaches 4.8:1; emerald-700 moves down a step too, so hover states still show.
+ * The dark theme sets its own values (dark-palette.css) and is not affected.
+ */
+:root:not(.dark) {
+  --color-gray-400: oklch(55.1% 0.027 264.364);
+  --color-emerald-600: oklch(53.5% 0.127 164.5);
+  --color-emerald-700: oklch(48% 0.112 166);
+}

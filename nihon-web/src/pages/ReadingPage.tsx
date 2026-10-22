@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import QuizChoices from "../components/QuizChoices";
@@ -6,6 +6,7 @@ import RubyText from "../components/RubyText";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import { readingsForUnit } from "../data/japaneseReading";
+import { recordPractice } from "../api/activity";
 import LevelSwitch from "../components/LevelSwitch";
 import { inLevel, useShownLevel } from "../lib/courseLevel";
 import type { UnitReading } from "../data/japaneseReading";
@@ -64,6 +65,15 @@ function Passage({ passage, backTo }: { passage: UnitReading; backTo: string }) 
   const hasFurigana = passage.text.includes("<ruby>");
   const answered = Object.keys(answers).length;
   const correct = passage.questions.filter((question, index) => answers[index] === question.correct).length;
+  // Answering every question finishes the passage, which counts toward the daily streak (once per attempt).
+  const complete = answered === passage.questions.length;
+  const reported = useRef(false);
+  useEffect(() => {
+    if (!complete) { reported.current = false; return; }
+    if (reported.current) return;
+    reported.current = true;
+    recordPractice("reading", passage.unitId, answered, correct);
+  }, [complete, passage.unitId, answered, correct]);
 
   return <article className="mt-6">
     <Link to={backTo} className="text-sm font-semibold text-gray-600 hover:underline">← All passages in this unit</Link>
@@ -94,7 +104,7 @@ function Passage({ passage, backTo }: { passage: UnitReading; backTo: string }) 
     })}</ol>
     {answered === passage.questions.length && <section aria-label="Reading result" className="mt-6 rounded-3xl border border-emerald-200 bg-emerald-50 p-6">
       <p className="text-lg">You got <span className="font-black text-emerald-800">{correct} / {passage.questions.length}</span> correct.</p>
-      <p className="mt-1 text-sm text-gray-600">Reading practice does not change your XP or statistics.</p>
+      <p className="mt-1 text-sm text-gray-600">Reading practice does not change your XP or statistics, but a finished passage counts toward your daily streak.</p>
       <div className="mt-4 flex flex-wrap gap-3"><button className={button} onClick={() => { setAnswers({}); setShowTranslation(false); }}>Try again</button><Link to={backTo} className={button}>Choose another passage</Link></div>
     </section>}
   </article>;

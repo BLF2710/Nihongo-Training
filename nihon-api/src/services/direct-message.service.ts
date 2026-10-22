@@ -3,9 +3,12 @@ import {
   blockState, countRecentMessages, countUnreadConversations, createConversation, findDirectConversationId, findMemberConversation,
   findMessage, findPersonByUsername, insertMessage, listMemberConversations, listMembers, listMessages, markRead, setBlocked,
 } from "../repositories/conversation.repository";
+import { deletePair } from "../repositories/friendship.repository";
 import { HttpError } from "../utils/http-error";
 import { USERNAME_PATTERN } from "../utils/validation";
 import { cleanBody, enforceRate, idParam, preview, toMessage } from "./conversation-format";
+import { countFriendRequests } from "./friend.service";
+import { publish } from "./realtime.service";
 
 const DIRECT_MESSAGES_PER_MINUTE = 20;
 const directKey = (a: number, b: number) => `${Math.min(a, b)}:${Math.max(a, b)}`;
@@ -72,6 +75,7 @@ export async function sendDirectMessage(userId: number, conversationId: unknown,
   if (blocks.blockedMe || other.status !== "active") throw new HttpError(403, "This learner can't receive messages.");
   enforceRate(await countRecentMessages(userId, "direct", 60), DIRECT_MESSAGES_PER_MINUTE, "a minute");
   const id = await withTransaction(client => insertMessage(client, { conversationId: conversation.id, senderId: userId, senderRole: "learner", body: text }));
+  publish(other.id, { type: "inbox" });
   return { id, body: text, senderRole: "learner" as const, sender: "You", mine: true, sentAt: new Date() };
 }
 
@@ -79,6 +83,10 @@ export async function setDirectBlock(userId: number, conversationId: unknown, bl
   if (typeof blocked !== "boolean") throw new HttpError(400, "Say whether to block or unblock.");
   const { other } = await memberConversation(userId, conversationId);
   await setBlocked(userId, other.id, blocked);
+  // Blocking also ends any friendship or friend request between the two learners.
+  if (blocked && await withTransaction(client => deletePair(client, userId, other.id))) {
+    for (const id of [userId, other.id]) publish(id, { type: "friends", reason: "updated" });
+  }
   return { blockedByMe: blocked };
 }
 
@@ -99,6 +107,6 @@ export async function reportDirectMessage(userId: number, conversationId: unknow
 
 /** Unread counts for the navigation badge. */
 export async function getInboxSummary(userId: number) {
-  const counts = await countUnreadConversations(userId);
-  return { direct: counts.direct, support: counts.support, total: counts.direct + counts.support };
+  const [counts, friendRequests] = await Promise.all([countUnreadConversations(userId), countFriendRequests(userId)]);
+  return { direct: counts.direct, support: counts.support, total: counts.direct + counts.support, friendRequests };
 }

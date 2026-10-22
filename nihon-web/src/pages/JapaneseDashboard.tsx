@@ -172,7 +172,7 @@ export default function JapaneseDashboard() {
           return <li key={unit.id} className="w-56 shrink-0 snap-start">
             <article className={`flex h-full flex-col rounded-2xl border bg-white p-4 ${current ? "border-emerald-500 shadow-md ring-2 ring-emerald-100" : "border-gray-200"} ${unit.allowed ? "" : "opacity-70"}`}>
               <div className="flex items-center gap-3">
-                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-black ${unit.completed ? "bg-emerald-600 text-white" : current ? "bg-emerald-100 text-emerald-800 ring-2 ring-emerald-500" : unit.allowed ? "bg-emerald-50 text-emerald-800" : "bg-gray-100 text-gray-500"}`}>{unit.completed ? "✓" : unit.allowed ? unit.number : "🔒"}</span>
+                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-black ${unit.completed ? "bg-emerald-600 text-white" : current ? "bg-emerald-100 text-emerald-800 ring-2 ring-emerald-500" : unit.allowed ? "bg-emerald-50 text-emerald-800" : "bg-gray-100 text-gray-600"}`}>{unit.completed ? "✓" : unit.allowed ? unit.number : "🔒"}</span>
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Unit {unit.number} · {unit.completed ? "Complete" : current ? "In progress" : unit.allowed ? "Open" : "Locked"}</p>
               </div>
               <h3 className="mt-3 font-bold leading-snug">{unit.title}</h3>

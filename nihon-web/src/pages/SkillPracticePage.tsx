@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import ListeningExerciseCard from "../components/ListeningExerciseCard";
@@ -6,6 +6,7 @@ import SpeakingExerciseCard from "../components/SpeakingExerciseCard";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import { getSkillUnit } from "../data/japaneseSkillPractice";
+import { recordPractice } from "../api/activity";
 import LevelSwitch from "../components/LevelSwitch";
 import { inLevel, useShownLevel } from "../lib/courseLevel";
 import type { SkillUnit } from "../data/japaneseSkillPractice";
@@ -78,12 +79,20 @@ function PracticeRound({ skill, unit, section, canCheckSpeech, onRestart }: { sk
   const exercise = exercises[index];
   const record = (correct: boolean) => setResults(previous => [...previous, correct]);
   const correct = results.filter(Boolean).length;
+  // A finished round is reported once, which counts today toward the daily streak.
+  const finished = exercises.length > 0 && !exercise;
+  const reported = useRef(false);
+  useEffect(() => {
+    if (!finished || reported.current) return;
+    reported.current = true;
+    recordPractice(skill, unit.unitId, results.length, correct);
+  }, [finished, skill, unit.unitId, results.length, correct]);
 
   if (!exercises.length) return <p className="rounded-xl bg-white p-6 text-gray-600">This unit has no {section} practice yet.</p>;
   if (!exercise) return <section aria-label="Round results" className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
     <h2 className="text-2xl font-bold">Round complete</h2>
     <p className="mt-3 text-lg">You got <span className="font-black text-emerald-700">{correct} / {exercises.length}</span> correct.</p>
-    <p className="mt-1 text-sm text-gray-500">Practice rounds are for training: they do not change your XP or statistics.</p>
+    <p className="mt-1 text-sm text-gray-500">Practice rounds do not change your XP or statistics, but a finished round counts toward your daily streak.</p>
     <button className={`${button} mt-5`} onClick={onRestart}>Practice again</button>
   </section>;
 

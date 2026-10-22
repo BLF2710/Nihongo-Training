@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { button, card, useAdminData } from './adminData';
+import AdminAnalytics from './AdminAnalytics';
 type Overview={users:{total:number;active:number;admins:number};database:string;databaseLatencyMs:number;uptimeSeconds:number;checkedAt:string;latestMigration:{name:string;applied_at:string}|null};
 export default function AdminOverview({statusOnly=false}:{statusOnly?:boolean}){
   const {data,error,loading,reload}=useAdminData<Overview>('/admin/overview');
@@ -7,5 +8,5 @@ export default function AdminOverview({statusOnly=false}:{statusOnly?:boolean}){
     {!statusOnly&&<div className="mb-6 grid gap-4 sm:grid-cols-3">{[['Total users',data.users.total],['Active accounts',data.users.active],['Active admins',data.users.admins]].map(([label,value])=><div key={label} className={card}><p className="text-sm font-semibold text-gray-500">{label}</p><p className="mt-3 text-3xl font-black">{value}</p></div>)}</div>}
     <section className={card}><h2 className="text-xl font-bold">System status</h2><dl className="mt-5 grid gap-5 sm:grid-cols-2"><div><dt className="text-sm text-gray-500">API</dt><dd className="font-bold text-emerald-700">Online</dd></div><div><dt className="text-sm text-gray-500">Database</dt><dd className="font-bold text-emerald-700">Connected · {data.databaseLatencyMs} ms</dd></div><div><dt className="text-sm text-gray-500">API uptime</dt><dd>{Math.floor(data.uptimeSeconds/3600)}h {Math.floor(data.uptimeSeconds%3600/60)}m</dd></div><div><dt className="text-sm text-gray-500">Last checked</dt><dd>{new Date(data.checkedAt).toLocaleString()}</dd></div><div className="min-w-0 sm:col-span-2"><dt className="text-sm text-gray-500">Latest database migration</dt><dd className="break-words">{data.latestMigration?.name||'No migrations recorded'}</dd></div></dl></section>
     {!statusOnly&&<div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{[['/admin/users','Users & roles','Find accounts, update details, assign roles, suspend access, and unlock lessons.'],['/admin/content','Manage content','Browse existing lessons and activities and control availability.'],['/admin/questions','Question bank','Add and manage the questions used in unit reviews.'],['/admin/system/settings','Manage system','Update registration and the learner announcement.']].map(([href,title,description])=><Link key={href} to={href} className={card+' hover:border-emerald-400'}><h2 className="text-lg font-bold">{title} →</h2><p className="mt-3 text-sm leading-6 text-gray-500">{description}</p></Link>)}</div>}
-  </>}</>;
+  </>}{!statusOnly&&<AdminAnalytics/>}</>;
 }

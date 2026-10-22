@@ -17,6 +17,7 @@ export const CONTENT: ManagedContent[] = [
   {key:'kanji-practice',title:'Kanji practice',category:'Games',paths:['/learn/kanji/practice'],source:'Existing Kanji quiz engine'},
   {key:'english-games',title:'English word match & scramble',category:'Games',paths:['/arcade','/games/english'],source:'Existing English arcade'},
   {key:'messages',title:'Direct messages between learners',category:'Community',paths:['/messages'],source:'Learner conversations'},
+  {key:'friends',title:'Friends & public profiles',category:'Community',paths:['/friends','/u'],source:'Learner friend lists and profiles'},
   {key:'assistant',title:'Study assistant chat',category:'Community',paths:['/assistant'],source:'Course helper or AI provider'},
 ];
 export const isManagedContent = (key: string) => CONTENT.some(item => item.key === key);

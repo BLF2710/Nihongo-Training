@@ -7,6 +7,7 @@ import type { CourseUnit } from "../api/units";
 import { getMockExam, gradeMockExam, levelReached, questionNumbers, questionsOf } from "../data/mockExams";
 import type { MockExam, MockResult } from "../data/mockExams";
 import { getUserEmail } from "../lib/authStorage";
+import { recordPractice } from "../api/activity";
 import { isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 
 const primary = "rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
@@ -75,6 +76,8 @@ function Exam({ exam }: { exam: MockExam }) {
       const record = { percent: graded.percent, passed: graded.passed };
       setBest(record); write(() => localStorage, bestKey(exam), record);
     }
+    // A submitted exam counts toward the daily streak (an empty one does not).
+    recordPractice("mock-exam", exam.level, Object.keys(answers).length, graded.correct);
     save(null); setResult({ result: graded, answers, timedOut });
     window.scrollTo({ top: 0 });
   };
@@ -93,7 +96,7 @@ function Exam({ exam }: { exam: MockExam }) {
       <li>The clock starts when you begin and keeps running if you leave the page.</li>
       <li>You can move between sections and change answers until you submit.</li>
       <li>Answers and explanations are shown after you submit. There is no listening section.</li>
-      <li>The result is for practice: it does not change your XP, statistics or unit progress.</li>
+      <li>The result is for practice: it does not change your XP, statistics or unit progress, but finishing the exam counts toward your daily streak.</li>
     </ul>
     {best && <p className="mt-5 text-sm font-semibold text-gray-700">Your best result in this browser: {best.percent}%{best.passed ? " · target reached ✓" : ""}</p>}
     <button className={`${primary} mt-6`} onClick={() => save({ startedAt: Date.now(), answers: {} })}>Start the exam →</button>

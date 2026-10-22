@@ -10,12 +10,13 @@ export type ProfileUpdate = {
   learningGoal: string | null;
   dailyGoal: number;
   profileVisibility: string;
+  friendRequests: string | null;
 };
 
 /** Account, profile, and gamification columns plus activity counters for one user. */
 export async function findProfileSummary(userId: number) {
   const result = await pool.query(`SELECT u.id, u.username, u.email, u.status, u.created_at, u.last_login_at,
-      p.display_name, p.avatar, p.bio, p.native_language, p.learning_language, p.learning_goal, p.daily_goal, p.profile_visibility,
+      p.display_name, p.avatar, p.bio, p.native_language, p.learning_language, p.learning_goal, p.daily_goal, p.profile_visibility, p.friend_requests,
       g.xp, ${EFFECTIVE_STREAK_SQL} AS current_streak, g.longest_streak, ${ACTIVE_TODAY_SQL} AS active_today, p.time_zone,
       (SELECT COUNT(*) FROM user_game_scores WHERE user_id = u.id) AS games_played,
       (SELECT COALESCE(SUM(correct_count + wrong_count), 0) FROM user_progress WHERE user_id = u.id) +
@@ -28,7 +29,7 @@ export async function findProfileSummary(userId: number) {
 
 export async function updateProfile(userId: number, profile: ProfileUpdate) {
   await pool.query(
-    "UPDATE user_profiles SET display_name=$1, avatar=$2, bio=$3, native_language=$4, learning_language=$5, learning_goal=$6, daily_goal=$7, profile_visibility=$8, updated_at=NOW() WHERE user_id=$9",
-    [profile.displayName, profile.avatar, profile.bio, profile.nativeLanguage, profile.learningLanguage, profile.learningGoal, profile.dailyGoal, profile.profileVisibility, userId]
+    "UPDATE user_profiles SET display_name=$1, avatar=$2, bio=$3, native_language=$4, learning_language=$5, learning_goal=$6, daily_goal=$7, profile_visibility=$8, friend_requests=COALESCE($10, friend_requests), updated_at=NOW() WHERE user_id=$9",
+    [profile.displayName, profile.avatar, profile.bio, profile.nativeLanguage, profile.learningLanguage, profile.learningGoal, profile.dailyGoal, profile.profileVisibility, userId, profile.friendRequests]
   );
 }

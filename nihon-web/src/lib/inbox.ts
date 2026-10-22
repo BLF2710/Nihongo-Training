@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import { fetchInbox } from "../api/communication";
 import type { InboxSummary } from "../api/communication";
 import { hasSession, isAdmin } from "./authStorage";
+import { useRealtime } from "./realtime";
 
 // Unread counts for the navigation badge. Pages that read or send messages call `refreshInbox()`
-// so the badge updates at once instead of waiting for the next poll.
+// so the badge updates at once instead of waiting for the next poll; live events (new messages, friend requests) do too.
 const REFRESH_EVENT = "inbox:refresh";
 const POLL_MS = 60_000;
 export const refreshInbox = () => window.dispatchEvent(new Event(REFRESH_EVENT));
 
 export function useInboxSummary(): InboxSummary | null {
   const [summary, setSummary] = useState<InboxSummary | null>(null);
+  useRealtime(() => refreshInbox(), hasSession() && !isAdmin());
   useEffect(() => {
     if (!hasSession() || isAdmin()) return;
     let controller = new AbortController();
