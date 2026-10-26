@@ -91,10 +91,12 @@ export async function getSystemSettings() {
 
 export async function saveSettings(actorId: number, input: Record<string, unknown>) {
   const { registration_enabled, announcement } = input;
-  if (typeof registration_enabled !== "boolean" || typeof announcement !== "string" || announcement.length > 500) {
-    throw new HttpError(400, "Use a valid registration setting and an announcement of at most 500 characters.");
+  // Left out by older clients: keeps the announcement visible to everyone, as before.
+  const audience = input.announcement_audience ?? "everyone";
+  if (typeof registration_enabled !== "boolean" || typeof announcement !== "string" || announcement.length > 500 || (audience !== "everyone" && audience !== "learners")) {
+    throw new HttpError(400, "Use a valid registration setting, an announcement of at most 500 characters and an audience of everyone or learners.");
   }
-  return updateSettings(registration_enabled, announcement.trim(), actorId);
+  return updateSettings(registration_enabled, announcement.trim(), audience, actorId);
 }
 
 export async function listContent() {

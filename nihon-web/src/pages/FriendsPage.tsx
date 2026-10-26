@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import FriendsLeaderboard from "../components/FriendsLeaderboard";
+import InviteCard from "../components/InviteCard";
 import PersonAvatar from "../components/PersonAvatar";
 import { startDirectConversation } from "../api/communication";
 import { apiErrorMessage } from "../api/errors";
@@ -76,6 +78,7 @@ export default function FriendsPage() {
         <button className={friendPrimary} disabled={busy === "add" || !username.trim()}>{busy === "add" ? "Sending…" : "Send request"}</button>
       </div>
     </form>
+    {handle && <InviteCard username={handle} />}
     {notice && <p role={notice.tone === "error" ? "alert" : "status"} className={`mt-4 rounded-xl p-3 text-sm ${notice.tone === "error" ? "bg-red-50 text-red-800" : "bg-emerald-50 text-emerald-800"}`}>{notice.text}</p>}
     {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-800">{error} <button className="font-bold underline" onClick={() => void load()}>Try again</button></p>}
     {!lists && !error && <p role="status" className="mt-6">Loading friends…</p>}
@@ -91,6 +94,8 @@ export default function FriendsPage() {
           </div>
         </li>)}</ul>
       </section>}
+
+      <FriendsLeaderboard />
 
       <section aria-labelledby="friends-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
         <h2 id="friends-heading" className="text-lg font-bold">Your friends ({lists.friends.length})</h2>

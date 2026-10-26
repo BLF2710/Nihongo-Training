@@ -116,9 +116,9 @@ export default function Navbar() {
           </div>}</div>
           <div className="mt-4 px-3"><p className="mb-2 text-[11px] font-bold tracking-wider uppercase text-gray-400">Display</p><ThemeChoice /></div>
           <div className="mt-4">{sectionButton("Community", "community")}{sectionsOpen.community && <div className="mt-1 space-y-1">
-            {[["/friends", "👥", "Friends", inbox?.friendRequests ?? 0], ["/messages", "💬", "Messages", inbox?.direct ?? 0], ["/assistant", "🤖", "Study assistant", 0], ["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
+            {[["/notifications", "🔔", "Notifications", inbox?.notifications ?? 0], ["/friends", "👥", "Friends", inbox?.friendRequests ?? 0], ["/messages", "💬", "Messages", inbox?.direct ?? 0], ["/assistant", "🤖", "Study assistant", 0], ["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
               <button key={path as string} onClick={() => go(path as string)} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith(path as string))}`}>
-                <span>{icon}</span> {label}{(unread as number) > 0 && <span className="ml-auto rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-bold text-white">{unread}<span className="sr-only">{path === "/friends" ? " friend requests" : " unread"}</span></span>}
+                <span>{icon}</span> {label}{(unread as number) > 0 && <span className="ml-auto rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-bold text-white">{unread}<span className="sr-only">{path === "/friends" ? " friend requests" : path === "/notifications" ? " new" : " unread"}</span></span>}
               </button>)}
           </div>}</div>
         </div>

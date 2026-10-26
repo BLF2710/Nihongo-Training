@@ -9,19 +9,19 @@ export async function isRegistrationClosed(): Promise<boolean> {
 }
 
 export async function getPublicSettings() {
-  const result = await pool.query("SELECT registration_enabled,announcement FROM system_settings WHERE id=TRUE");
+  const result = await pool.query("SELECT registration_enabled,announcement,announcement_audience FROM system_settings WHERE id=TRUE");
   return result.rows[0];
 }
 
 export async function getSettings() {
-  const result = await pool.query("SELECT registration_enabled,announcement,updated_at FROM system_settings WHERE id=TRUE");
+  const result = await pool.query("SELECT registration_enabled,announcement,announcement_audience,updated_at FROM system_settings WHERE id=TRUE");
   return result.rows[0];
 }
 
-export async function updateSettings(registrationEnabled: boolean, announcement: string, updatedBy: number) {
+export async function updateSettings(registrationEnabled: boolean, announcement: string, audience: "everyone" | "learners", updatedBy: number) {
   const result = await pool.query(
-    "UPDATE system_settings SET registration_enabled=$1,announcement=$2,updated_at=NOW(),updated_by=$3 WHERE id=TRUE RETURNING registration_enabled,announcement,updated_at",
-    [registrationEnabled, announcement, updatedBy]
+    "UPDATE system_settings SET registration_enabled=$1,announcement=$2,announcement_audience=$4,updated_at=NOW(),updated_by=$3 WHERE id=TRUE RETURNING registration_enabled,announcement,announcement_audience,updated_at",
+    [registrationEnabled, announcement, updatedBy, audience]
   );
   return result.rows[0];
 }

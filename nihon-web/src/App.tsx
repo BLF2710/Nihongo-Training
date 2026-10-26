@@ -2,8 +2,10 @@ import { lazy, Suspense } from "react";
 import type { ReactNode } from "react";
 import {
   BrowserRouter,
+  Navigate,
   Routes,
-  Route
+  Route,
+  useParams
 } from "react-router-dom";
 
 import ProtectedRoute
@@ -43,6 +45,7 @@ const SupportPage = lazy(() => import("./pages/SupportPage"));
 const AssistantPage = lazy(() => import("./pages/AssistantPage"));
 const FriendsPage = lazy(() => import("./pages/FriendsPage"));
 const PublicProfilePage = lazy(() => import("./pages/PublicProfilePage"));
+const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
 const SkillPracticePage = lazy(() => import("./pages/SkillPracticePage"));
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 
@@ -53,6 +56,12 @@ function LoadingPage({ label }: { label: string }) {
 // Signed-in learner pages; lazily loaded ones show a labelled placeholder while their code arrives.
 const signedIn = (page: ReactNode) => <ProtectedRoute><LearnerRoute>{page}</LearnerRoute></ProtectedRoute>;
 const signedInLazy = (label: string, page: ReactNode) => signedIn(<Suspense fallback={<LoadingPage label={label} />}>{page}</Suspense>);
+
+// An invite link (/add/<username>) opens that learner's profile with the invitation shown.
+function InviteRedirect() {
+  const { username = "" } = useParams();
+  return <Navigate to={`/u/${encodeURIComponent(username)}?invite=1`} replace />;
+}
 
 function App() {
   return (
@@ -73,6 +82,8 @@ function App() {
           <Route path="/assistant" element={signedInLazy("Loading the study assistant…", <AssistantPage />)} />
           <Route path="/friends" element={signedInLazy("Loading friends…", <FriendsPage />)} />
           <Route path="/u/:username" element={signedInLazy("Loading profile…", <PublicProfilePage />)} />
+          <Route path="/add/:username" element={signedIn(<InviteRedirect />)} />
+          <Route path="/notifications" element={signedInLazy("Loading notifications…", <NotificationsPage />)} />
           <Route path="/levels" element={signedInLazy("Loading levels…", <LevelPickerPage />)} />
           <Route path="/grammar/summary" element={signedInLazy("Loading grammar summary…", <GrammarSummaryPage />)} />
           <Route path="/mock-exam" element={signedInLazy("Loading mock exam…", <MockExamPage />)} />

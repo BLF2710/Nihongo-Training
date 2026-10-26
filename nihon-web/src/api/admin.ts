@@ -1,6 +1,7 @@
 import api from "./axios";
 
-export type Settings = { registration_enabled: boolean; announcement: string; updated_at: string };
+export type AnnouncementAudience = "everyone" | "learners";
+export type Settings = { registration_enabled: boolean; announcement: string; announcement_audience: AnnouncementAudience; updated_at: string };
 export type UserEdit = { username: string; email: string; role: "learner" | "admin"; status: "active" | "suspended" };
 
 /** Reads any admin resource; `path` starts with /admin. */
@@ -17,7 +18,7 @@ export async function setLessonAccess(userId: number, unlocked: boolean) {
   await api.put(`/admin/users/${userId}/lesson-access`, { unlocked });
 }
 
-export async function saveSettings(settings: Pick<Settings, "registration_enabled" | "announcement">) {
+export async function saveSettings(settings: Pick<Settings, "registration_enabled" | "announcement" | "announcement_audience">) {
   return (await api.put<Settings>("/admin/settings", settings)).data;
 }
 

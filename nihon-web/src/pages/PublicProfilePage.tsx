@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PersonAvatar from "../components/PersonAvatar";
 import { startDirectConversation } from "../api/communication";
@@ -20,6 +20,7 @@ export default function PublicProfilePage() {
 }
 
 function ProfileView({ username }: { username: string }) {
+  const invited = useSearchParams()[0].get("invite") === "1";
   const navigate = useNavigate();
   const [data, setData] = useState<PublicProfile | null>(null);
   const [error, setError] = useState<{ text: string; missing: boolean } | null>(null);
@@ -68,7 +69,14 @@ function ProfileView({ username }: { username: string }) {
   </>;
 
   return <Page>
-    {self && <p className="mb-4 rounded-xl bg-indigo-50 p-3 text-sm text-indigo-900">This is how other learners see your profile. {VISIBILITY_TEXT[data.visibility]}</p>}
+    {invited && <p role="status" className="mb-4 rounded-xl bg-indigo-50 p-3 text-sm font-semibold text-indigo-900">{self
+      ? "This is your invite link. Share it so friends can add you."
+      : friendship.state === "friends" ? `You're already friends with @${data.username}.`
+      : friendship.state === "outgoing" ? `Your friend request to @${data.username} is waiting for an answer.`
+      : friendship.state === "incoming" ? `@${data.username} invited you and already sent you a request. Accept it below.`
+      : data.canRequest ? `@${data.username} invited you to be friends. Press Add friend to send a request.`
+      : `@${data.username} isn't accepting friend requests right now.`}</p>}
+    {self && !invited && <p className="mb-4 rounded-xl bg-indigo-50 p-3 text-sm text-indigo-900">This is how other learners see your profile. {VISIBILITY_TEXT[data.visibility]}</p>}
     <section className="rounded-3xl border border-gray-200 bg-white p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
         <PersonAvatar name={data.displayName} username={data.username} size="lg" />

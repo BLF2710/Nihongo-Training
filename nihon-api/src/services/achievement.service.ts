@@ -1,6 +1,7 @@
-import { getAchievementReward, grantAchievement } from "../repositories/achievement.repository";
+import { getAchievementReward, getAchievementTitle, grantAchievement } from "../repositories/achievement.repository";
 import { getCurrentStreak } from "../repositories/gamification.repository";
 import { getLessonSummary } from "../repositories/lesson-progress.repository";
+import { notifyAchievement } from "./notification.service";
 import { awardXP } from "./xp.service";
 
 const FIRST_N5_LESSON_ID = "japanese-n5-unit-1-hello";
@@ -27,6 +28,8 @@ export async function evaluateAchievements(userId: number) {
     if (!(await grantAchievement(userId, rule.id))) continue;
     await awardXP(userId, await getAchievementReward(rule.id), "achievement", rule.id);
     newlyEarned.push(rule.id);
+    // A missed notification must never undo the achievement itself.
+    await notifyAchievement(userId, { id: rule.id, title: await getAchievementTitle(rule.id) }).catch(error => console.error("Achievement notification failed", error));
   }
   return newlyEarned;
 }

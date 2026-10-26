@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import { fetchSite } from "../api/site";
 import type { SiteInfo } from "../api/site";
+import { getToken } from "../lib/authStorage";
 
 // A disabled page also covers its detail pages (/learn/hiragana/12), but Kanji practice is managed on its own.
 const covers = (managedPath: string, pathname: string) =>
@@ -13,13 +14,15 @@ const covers = (managedPath: string, pathname: string) =>
 export default function SiteGate({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
   const [site, setSite] = useState<SiteInfo | null>(null);
-  // Refreshed on every navigation so administrator changes reach learners without a reload.
+  // Refreshed on every navigation so administrator changes reach learners without a reload, and when the session
+  // changes, because an announcement for signed-in learners is not sent to guests.
+  const token = getToken();
   useEffect(() => {
     const controller = new AbortController();
     // If the settings cannot be loaded the last known state stays in effect; the API still enforces availability.
     fetchSite(controller.signal).then(setSite).catch(() => undefined);
     return () => controller.abort();
-  }, [pathname]);
+  }, [pathname, token]);
 
   if (pathname.startsWith("/admin")) return children;
   const unavailable = site?.disabled?.find(item => item.paths.some(path => covers(path, pathname)));

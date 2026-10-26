@@ -2,7 +2,7 @@ import api from "./axios";
 
 // Learner-to-learner messages, Help & support, and the study assistant all share this message shape.
 export type ChatMessage = { id: number; body: string; senderRole: "learner" | "admin" | "assistant"; sender: string; mine: boolean; sentAt: string };
-export type InboxSummary = { direct: number; support: number; total: number; friendRequests?: number };
+export type InboxSummary = { direct: number; support: number; total: number; friendRequests?: number; notifications?: number };
 
 export type DirectConversationSummary = { id: number; with: { username: string; name: string }; unread: number; lastMessageAt: string; lastMessage: { body: string; mine: boolean } | null };
 export type DirectConversation = { id: number; with: { username: string; name: string }; blockedByMe: boolean; canReply: boolean; messages: ChatMessage[] };

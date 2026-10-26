@@ -11,7 +11,8 @@ import type { Response } from "express";
  */
 export type RealtimeEvent =
   | { type: "friends"; reason: "request" | "accepted" | "updated"; person?: { username: string; displayName: string } }
-  | { type: "inbox" };
+  | { type: "inbox" }
+  | { type: "notifications" };
 
 const HEARTBEAT_MS = 25_000;
 const MAX_STREAMS_PER_USER = 10;

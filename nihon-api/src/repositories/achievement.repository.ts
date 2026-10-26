@@ -21,3 +21,8 @@ export async function getAchievementReward(achievementId: string): Promise<numbe
   const result = await pool.query("SELECT xp_reward FROM achievements WHERE id=$1", [achievementId]);
   return Number(result.rows[0].xp_reward);
 }
+
+export async function getAchievementTitle(achievementId: string): Promise<string> {
+  const result = await pool.query("SELECT title FROM achievements WHERE id=$1", [achievementId]);
+  return String(result.rows[0]?.title ?? achievementId);
+}

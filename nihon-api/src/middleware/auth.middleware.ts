@@ -31,6 +31,20 @@ async function identify(req: Request, res: Response, next: NextFunction, optiona
   }
 }
 
+/**
+ * True for a valid token of an active account. Never rejects the request: public routes use it to decide how much
+ * to show, so a missing, expired or suspended token simply counts as a guest.
+ */
+export async function isSignedIn(req: Request): Promise<boolean> {
+  const header = req.headers.authorization;
+  if (!header) return false;
+  try {
+    return await findUserStatus(verifyBearerToken(header).userId) === "active";
+  } catch {
+    return false;
+  }
+}
+
 export function authenticate(req: Request, res: Response, next: NextFunction) {
   return identify(req, res, next, false);
 }

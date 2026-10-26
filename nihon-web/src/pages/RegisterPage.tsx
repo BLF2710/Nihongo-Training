@@ -1,12 +1,16 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthLayout, { AuthField, PasswordField, authSubmitClass } from "../components/AuthLayout";
 import { register } from "../api/auth";
 import { apiErrorMessage } from "../api/errors";
+import { safeReturnPath } from "../lib/returnTo";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
+  // An invite link (or another page) to return to after signing in with the new account.
+  const next = safeReturnPath(new URLSearchParams(useLocation().search).get("next"));
+  const loginPath = next ? `/login?next=${encodeURIComponent(next)}` : "/login";
   const [username, setUsername] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,7 +26,7 @@ export default function RegisterPage() {
     setLoading(true); setError("");
     try {
       await register({ username, displayName, email, password, confirmPassword });
-      navigate("/login", { state: { registered: true } });
+      navigate(loginPath, { state: { registered: true } });
     } catch (failure: unknown) {
       setError(apiErrorMessage(failure, "Registration failed. Check your connection and try again."));
       setLoading(false);
@@ -30,7 +34,7 @@ export default function RegisterPage() {
   };
 
   return <AuthLayout title="Create your account" subtitle="Free, and it takes less than a minute."
-    footer={<>Already have an account? <Link className="font-bold text-emerald-700 hover:underline" to="/login">Sign in</Link></>}>
+    footer={<>Already have an account? <Link className="font-bold text-emerald-700 hover:underline" to={loginPath}>Sign in</Link></>}>
     <form onSubmit={handleRegister} className="space-y-5">
       {error && <p role="alert" className="rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-700">{error}</p>}
       <div className="grid gap-5 sm:grid-cols-2">

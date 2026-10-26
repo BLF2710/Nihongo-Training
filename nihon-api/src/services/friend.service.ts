@@ -4,9 +4,10 @@ import { listEarnedAchievements } from "../repositories/achievement.repository";
 import { blockState } from "../repositories/conversation.repository";
 import {
   countFriends, countIncomingPending, countOutgoingPending, countRecentRequests, deleteFriendship, findFriendship, findLearnerById,
-  findLearnerByUsername, findPair, findPairNow, findPublicProfile, listConnections, listPassedAssessments, lockPair, savePendingRequest, setFriendshipStatus,
+  findLearnerByUsername, findPair, findPairNow, findPublicProfile, leaderboardRows, listConnections, listPassedAssessments, lockPair, savePendingRequest, setFriendshipStatus,
 } from "../repositories/friendship.repository";
 import type { FriendshipRow, LearnerRow } from "../repositories/friendship.repository";
+import { deleteFriendRequestNotifications, insertNotification, readFriendRequestNotifications } from "../repositories/notification.repository";
 import { HttpError } from "../utils/http-error";
 import { USERNAME_PATTERN } from "../utils/validation";
 import { idParam } from "./conversation-format";
@@ -25,6 +26,7 @@ type Notice = [number, RealtimeEvent];
 
 const person = (learner: { username: string; display_name: string }) => ({ username: learner.username, displayName: learner.display_name });
 const updated = (userId: number): Notice => [userId, { type: "friends", reason: "updated" }];
+const bell = (userId: number): Notice => [userId, { type: "notifications" }];
 
 /** Friends are for learner accounts; the support team is reached through Help & support. */
 async function requireLearner(userId: number): Promise<LearnerRow> {
@@ -74,7 +76,9 @@ export async function sendFriendRequest(userId: number, username: unknown) {
     if (current.state === "friends" || current.state === "outgoing") return { ...current, person: person(other) };
     if (current.state === "incoming") {
       await setFriendshipStatus(client, row!.id, "accepted");
-      notices.push([other.id, { type: "friends", reason: "accepted", person: person(me) }], updated(userId));
+      await insertNotification(client, { userId: other.id, kind: "friend_accepted", actorId: userId });
+      await readFriendRequestNotifications(client, userId, other.id);
+      notices.push([other.id, { type: "friends", reason: "accepted", person: person(me) }], updated(userId), bell(other.id), bell(userId));
       return { state: "friends" as const, person: person(other) };
     }
     if (other.friend_requests === "nobody") throw new HttpError(403, `@${other.username} isn't accepting friend requests.`);
@@ -85,7 +89,8 @@ export async function sendFriendRequest(userId: number, username: unknown) {
     if (await countOutgoingPending(userId) >= MAX_PENDING_SENT) throw new HttpError(429, `You have ${MAX_PENDING_SENT} requests waiting for an answer. Cancel some before sending more.`);
     if (await countFriends(userId) >= MAX_FRIENDS) throw new HttpError(409, `You can have up to ${MAX_FRIENDS} friends.`);
     const requestId = await savePendingRequest(client, userId, other.id, row?.id);
-    notices.push([other.id, { type: "friends", reason: "request", person: person(me) }], updated(userId));
+    await insertNotification(client, { userId: other.id, kind: "friend_request", actorId: userId });
+    notices.push([other.id, { type: "friends", reason: "request", person: person(me) }], updated(userId), bell(other.id));
     return { state: "outgoing" as const, requestId, person: person(other) };
   });
 }
@@ -102,7 +107,9 @@ export async function respondToFriendRequest(userId: number, requestId: unknown,
     if (!sender || sender.status !== "active") throw new HttpError(404, "Friend request not found.");
     if (accept && await countFriends(userId) >= MAX_FRIENDS) throw new HttpError(409, `You can have up to ${MAX_FRIENDS} friends.`);
     await setFriendshipStatus(client, id, accept ? "accepted" : "declined");
-    notices.push(accept ? [sender.id, { type: "friends", reason: "accepted", person: person(me) }] : updated(sender.id), updated(userId));
+    await readFriendRequestNotifications(client, userId, sender.id);
+    if (accept) { await insertNotification(client, { userId: sender.id, kind: "friend_accepted", actorId: userId }); notices.push(bell(sender.id)); }
+    notices.push(bell(userId), accept ? [sender.id, { type: "friends", reason: "accepted", person: person(me) }] : updated(sender.id), updated(userId));
     return { state: accept ? "friends" as const : "none" as const, person: person(sender) };
   });
 }
@@ -115,7 +122,8 @@ export async function cancelFriendRequest(userId: number, requestId: unknown) {
     const row = await findFriendship(client, id);
     if (!row || row.status !== "pending" || row.requester_id !== userId) throw new HttpError(404, "Friend request not found.");
     await deleteFriendship(client, id);
-    notices.push(updated(row.addressee_id), updated(userId));
+    await deleteFriendRequestNotifications(client, row.addressee_id, userId);
+    notices.push(updated(row.addressee_id), updated(userId), bell(row.addressee_id));
     return { state: "none" as const };
   });
 }
@@ -149,6 +157,24 @@ export async function listFriends(userId: number) {
 }
 
 export const countFriendRequests = (userId: number) => countIncomingPending(userId);
+
+/**
+ * The learner and friends who share their progress, with XP and lessons from the last 7 days and the current
+ * streak. The page chooses the ranking; friends with a private profile are only counted, never shown.
+ */
+export async function getLeaderboard(userId: number) {
+  await requireLearner(userId);
+  const rows = await leaderboardRows(userId);
+  const to = new Date();
+  return {
+    period: { from: new Date(to.getTime() - 7 * 24 * 60 * 60 * 1000), to },
+    entries: rows.filter(row => !row.hidden).map(row => ({
+      username: row.username, displayName: row.display_name, self: row.id === userId,
+      weeklyXp: Number(row.weekly_xp), weeklyLessons: Number(row.weekly_lessons), currentStreak: Number(row.current_streak), activeToday: Boolean(row.active_today),
+    })),
+    hidden: rows.filter(row => row.hidden).length,
+  };
+}
 
 /**
  * A learner's profile as the viewer may see it. Name, username and the friend button are always shown; the rest

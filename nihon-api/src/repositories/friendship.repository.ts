@@ -131,3 +131,25 @@ export async function listPassedAssessments(userId: number): Promise<string[]> {
   const result = await pool.query("SELECT assessment_id FROM user_assessment_progress WHERE user_id = $1 AND passed_at IS NOT NULL", [userId]);
   return result.rows.map(row => row.assessment_id as string);
 }
+
+/**
+ * The learner and their friends for the leaderboard: XP and lessons from the last 7 days and the current streak.
+ * Friends whose profile is private are left out (and counted separately); the learner is always included.
+ */
+export async function leaderboardRows(userId: number) {
+  const result = await pool.query(
+    `WITH circle AS (
+       SELECT $1::int AS id
+       UNION SELECT CASE WHEN f.requester_id = $1 THEN f.addressee_id ELSE f.requester_id END
+         FROM friendships f WHERE f.status = 'accepted' AND (f.requester_id = $1 OR f.addressee_id = $1)
+     )
+     SELECT u.id, u.username, COALESCE(p.display_name, u.username) AS display_name,
+            (u.id <> $1 AND COALESCE(p.profile_visibility, 'private') = 'private') AS hidden,
+            COALESCE((SELECT SUM(x.amount) FROM xp_events x WHERE x.user_id = u.id AND x.created_at > NOW() - INTERVAL '7 days'), 0)::int AS weekly_xp,
+            (SELECT COUNT(*) FROM lesson_progress l WHERE l.user_id = u.id AND l.completed_at > NOW() - INTERVAL '7 days')::int AS weekly_lessons,
+            ${EFFECTIVE_STREAK_SQL} AS current_streak, ${ACTIVE_TODAY_SQL} AS active_today
+       FROM circle c JOIN users u ON u.id = c.id AND u.status = 'active'
+       LEFT JOIN user_profiles p ON p.user_id = u.id
+       LEFT JOIN user_gamification g ON g.user_id = u.id`, [userId]);
+  return result.rows as { id: number; username: string; display_name: string; hidden: boolean; weekly_xp: number; weekly_lessons: number; current_streak: number; active_today: boolean }[];
+}

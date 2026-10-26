@@ -25,6 +25,9 @@ export const VISIBILITY_TEXT: Record<ProfileVisibility, string> = {
 
 type Change = { state: FriendshipState; requestId?: number; person?: Person };
 
+export type LeaderboardEntry = Person & { self: boolean; weeklyXp: number; weeklyLessons: number; currentStreak: number; activeToday: boolean };
+export type Leaderboard = { period: { from: string; to: string }; entries: LeaderboardEntry[]; hidden: number };
+export const fetchLeaderboard = async (signal?: AbortSignal) => (await api.get<Leaderboard>("/friends/leaderboard", { signal })).data;
 export const fetchFriends = async (signal?: AbortSignal) => (await api.get<FriendLists>("/friends", { signal })).data;
 export const sendFriendRequest = async (username: string) => (await api.post<Change>("/friends/requests", { username })).data;
 export const answerFriendRequest = async (id: number, accept: boolean) => (await api.put<Change>(`/friends/requests/${id}`, { accept })).data;

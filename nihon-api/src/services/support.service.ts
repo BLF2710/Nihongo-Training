@@ -3,6 +3,7 @@ import {
   countRecentMessages, countUnreadSupportForStaff, createConversation, findConversation, findMemberConversation, findPersonById,
   insertMessage, listMemberConversations, listMessages, listSupportConversations, markRead, markStaffRead, setConversationStatus,
 } from "../repositories/conversation.repository";
+import { insertNotification } from "../repositories/notification.repository";
 import { HttpError } from "../utils/http-error";
 import { cleanBody, cleanSubject, enforceRate, idParam, preview, toMessage } from "./conversation-format";
 import { publish } from "./realtime.service";
@@ -90,9 +91,15 @@ export async function getSupportConversation(adminId: number, conversationId: un
 export async function replyAsSupport(adminId: number, conversationId: unknown, body: unknown) {
   const text = cleanBody(body);
   const conversation = await supportConversation(conversationId);
-  const id = await withTransaction(client => insertMessage(client, { conversationId: conversation.id, senderId: adminId, senderRole: "admin", body: text }));
+  const learnerId = conversation.created_by;
+  const id = await withTransaction(async client => {
+    const messageId = await insertMessage(client, { conversationId: conversation.id, senderId: adminId, senderRole: "admin", body: text });
+    // The team replies as one voice, so the notification names no administrator.
+    if (learnerId) await insertNotification(client, { userId: learnerId, kind: "support_reply", data: { conversationId: conversation.id, subject: conversation.subject } });
+    return messageId;
+  });
   await markStaffRead(conversation.id);
-  if (conversation.created_by) publish(conversation.created_by, { type: "inbox" });
+  if (learnerId) { publish(learnerId, { type: "inbox" }); publish(learnerId, { type: "notifications" }); }
   return { id, body: text, senderRole: "admin" as const, sender: "You (support)", mine: true, sentAt: new Date() };
 }
 

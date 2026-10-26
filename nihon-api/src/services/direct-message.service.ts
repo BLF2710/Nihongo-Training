@@ -8,6 +8,7 @@ import { HttpError } from "../utils/http-error";
 import { USERNAME_PATTERN } from "../utils/validation";
 import { cleanBody, enforceRate, idParam, preview, toMessage } from "./conversation-format";
 import { countFriendRequests } from "./friend.service";
+import { countUnread as countUnreadNotifications } from "./notification.service";
 import { publish } from "./realtime.service";
 
 const DIRECT_MESSAGES_PER_MINUTE = 20;
@@ -107,6 +108,6 @@ export async function reportDirectMessage(userId: number, conversationId: unknow
 
 /** Unread counts for the navigation badge. */
 export async function getInboxSummary(userId: number) {
-  const [counts, friendRequests] = await Promise.all([countUnreadConversations(userId), countFriendRequests(userId)]);
-  return { direct: counts.direct, support: counts.support, total: counts.direct + counts.support, friendRequests };
+  const [counts, friendRequests, notifications] = await Promise.all([countUnreadConversations(userId), countFriendRequests(userId), countUnreadNotifications(userId)]);
+  return { direct: counts.direct, support: counts.support, total: counts.direct + counts.support, friendRequests, notifications };
 }

@@ -11,6 +11,7 @@ import { getToken, hasSession, isAdmin } from "./authStorage";
 export type RealtimeEvent =
   | { type: "friends"; reason: "request" | "accepted" | "updated"; person?: { username: string; displayName: string } }
   | { type: "inbox" }
+  | { type: "notifications" }
   | { type: "resync" };
 export type RealtimeStatus = "off" | "connecting" | "live" | "retrying";
 
@@ -55,7 +56,7 @@ async function connect() {
         const block = buffer.slice(0, end); buffer = buffer.slice(end + 2);
         const type = /^event: ?(.+)$/m.exec(block)?.[1], data = /^data: ?(.+)$/m.exec(block)?.[1];
         if (type === "ready") { failures = 0; setStatus("live"); if (connectedOnce) emit({ type: "resync" }); connectedOnce = true; }
-        else if (type === "friends" || type === "inbox") { try { emit(JSON.parse(data ?? "{}") as RealtimeEvent); } catch { /* ignore a malformed event */ } }
+        else if (type === "friends" || type === "inbox" || type === "notifications") { try { emit(JSON.parse(data ?? "{}") as RealtimeEvent); } catch { /* ignore a malformed event */ } }
       }
     }
     if (!own.signal.aborted) scheduleRetry();

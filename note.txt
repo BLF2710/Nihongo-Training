@@ -12,6 +12,9 @@ Done
 [x] Light-mode contrast: gray-400 hints and white text on emerald-600 buttons now meet WCAG AA (all scanned pages pass in both themes)
 [x] Public profiles: /u/<username> with level, streaks, course progress, achievements and friend count; visibility Only me / Friends / All learners
 [x] Friends: add by username, accept / decline / cancel, friend list, remove; live requests and accepts (toasts, menu badge); blocking ends a friendship
+[x] Invite link and QR code: /add/<username> opens the inviter's profile with an Add friend button (works through sign-in / registration)
+[x] Friends leaderboard on the Friends page: XP and lessons in the last 7 days, current streak; private friends counted, not shown
+[x] Notification centre: bell panel + /notifications history (friend requests, accepts, support replies, achievements), read state, live, kept 6 months
 
 Ideas to implement or improve (review of 2026-10-14; lessons and other languages left out)
 --------------------------------------------------------------------------------------------
@@ -56,15 +59,14 @@ the page reloads through the normal API. Admins can switch Friends off under Man
 Ideas, roughly from small to large:
 [ ] Block and report from a profile (blocking is only in Messages today) and a "blocked learners" list in settings
 [ ] Friend suggestions: friends of friends, learners at the same level or unit (opt-in, never a public directory)
-[ ] Share an invite link or QR code that opens "Add @username" (easier than typing a username)
-[ ] Friends leaderboard: weekly XP, streaks, lessons; only friends who share their progress
 [ ] Activity feed: "Mika passed Unit 3", "Ren reached a 7-day streak" (needs an events table and per-item privacy)
 [ ] Friend challenges: same kana or kanji round, compare scores; friend streaks (both study on the same day)
 [ ] Nudges and cheers: one tap "keep your streak going" (rate-limited), reactions to achievements
 [ ] Online / studying-now presence (from the live stream; must be optional)
 [ ] Finer privacy: choose separately who sees level, streak, achievements, course progress
 [ ] Profile pictures stored on our own server (outside image addresses are not shown, to avoid tracking)
-[ ] Notification centre with history, plus browser push or email digests for requests
+[ ] Browser push or email digests for notifications (the notification centre and its history exist)
+[ ] More notification kinds: friend milestones (streaks, units passed), admin broadcasts, per-kind mute settings
 [ ] Scale the live stream past one API process: PostgreSQL LISTEN/NOTIFY or Redis pub/sub behind publish()
      in nihon-api/src/services/realtime.service.ts; behind a proxy, turn off response buffering for /api/events
 [ ] Study groups / class codes later reuse the same pieces (membership table, live events, privacy rules)
