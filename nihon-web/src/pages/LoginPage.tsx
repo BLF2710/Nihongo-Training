@@ -6,6 +6,7 @@ import { login as signIn } from "../api/auth";
 import { apiErrorMessage } from "../api/errors";
 import { saveSession } from "../lib/authStorage";
 import { safeReturnPath } from "../lib/returnTo";
+import GoogleSignInSection from "../components/GoogleSignInSection";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -52,5 +53,6 @@ export default function LoginPage() {
       <p className="-mt-2 text-right text-sm"><Link to="/forgot-password" className="font-semibold text-emerald-700 hover:underline">Forgot password?</Link></p>
       <button className={authSubmitClass} disabled={loading}>{loading ? "Signing in…" : "Sign in"}</button>
     </form>
+    <GoogleSignInSection next={next} context="signin" />
   </AuthLayout>;
 }

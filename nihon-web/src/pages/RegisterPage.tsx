@@ -5,6 +5,7 @@ import AuthLayout, { AuthField, PasswordField, authSubmitClass } from "../compon
 import { register } from "../api/auth";
 import { apiErrorMessage } from "../api/errors";
 import { safeReturnPath } from "../lib/returnTo";
+import GoogleSignInSection from "../components/GoogleSignInSection";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -46,5 +47,6 @@ export default function RegisterPage() {
       <PasswordField label="Confirm password" autoComplete="new-password" required minLength={8} value={confirmPassword} onChange={event => setConfirmPassword(event.target.value)} />
       <button className={authSubmitClass} disabled={loading}>{loading ? "Creating account…" : "Create account"}</button>
     </form>
+    <GoogleSignInSection next={next} context="signup" />
   </AuthLayout>;
 }

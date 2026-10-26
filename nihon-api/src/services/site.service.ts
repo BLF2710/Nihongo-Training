@@ -1,3 +1,4 @@
+import { config } from "../config/env";
 import { getPublicSettings } from "../repositories/site.repository";
 import { getDisabledContent } from "./admin-content.service";
 
@@ -8,5 +9,10 @@ import { getDisabledContent } from "./admin-content.service";
 export async function getSiteInfo(signedIn: boolean) {
   const [settings, disabled] = await Promise.all([getPublicSettings(), getDisabledContent()]);
   const { announcement_audience: audience, ...rest } = settings ?? {};
-  return { ...rest, announcement: audience === "learners" && !signedIn ? "" : rest.announcement ?? "", disabled: disabled.map(({ key, title, paths }) => ({ key, title, paths })) };
+  return {
+    ...rest, announcement: audience === "learners" && !signedIn ? "" : rest.announcement ?? "",
+    disabled: disabled.map(({ key, title, paths }) => ({ key, title, paths })),
+    // A client id is public: it identifies the app to Google and is shown in every sign-in button.
+    googleClientId: config().googleClientId,
+  };
 }

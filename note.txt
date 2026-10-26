@@ -18,15 +18,31 @@ Done
 [x] Speaking test for N3 and above (/speaking/test), graded per GRADING.md (JF Standard bands): AI for content, Azure for pronunciation/fluency; N5–N4 keep speaking practice
 [x] Security basics: CORS limited to the app's address, rate limits on sign-in/registration/reset, security headers, API address and port from env vars
 [x] Sessions and accounts: revocable sessions (password change/reset, sign out on all devices), password reset and email confirmation by email
+[x] Sign in with Google: verified ID token + one-time nonce, matched by Google account id, safe linking rules, connect/disconnect in Settings
+
+!!! IMPORTANT: keys and accounts to set up (nihon-api/.env) !!!
+=============================================================
+Without these, parts of the site run in a limited mode. Restart the API after editing .env.
+[ ] Azure Speech key (pronunciation + fluency): Azure portal > Create a resource > Speech, free F0 tier is enough to start.
+    Add AZURE_SPEECH_KEY (Key 1) and AZURE_SPEECH_ENDPOINT (the short-audio recognition URL, see README) to nihon-api/.env
+[ ] Anthropic API key (content of free answers, also turns the study assistant into Claude): console.anthropic.com, pay-as-you-go, no free tier.
+    Add ANTHROPIC_API_KEY to nihon-api/.env; SPEAKING_GRADER_MODEL=claude-haiku-5-5 is the cheapest option
+    (without either key: read-aloud only, checked by text match; restart the API after editing .env, then test one real answer of each kind)
+[ ] Gmail for sending emails (password reset, email confirmation): turn on 2-Step Verification, create an app password at
+    myaccount.google.com/apppasswords, then add to nihon-api/.env (write @ in the address as %40, app password without spaces):
+    SMTP_URL=smtps://your.address%40gmail.com:yourapppassword@smtp.gmail.com:465
+    MAIL_FROM=LingoHub <your.address@gmail.com>
+    (until then emails are printed in the API's console window; Gmail has a daily limit, so use Brevo/Resend/Mailgun/SES for launch: same SMTP_URL line)
 
 Ideas to implement or improve (review of 2026-10-14; lessons and other languages left out)
 --------------------------------------------------------------------------------------------
 
 Before anyone else uses the site
 [ ] nihon-api/.env was committed to git (commit 4f5b059, repo on GitHub): it is untracked now; change the DB password and set a new JWT_SECRET (signs everyone out once)
-[ ] Set up real email: SMTP_URL and MAIL_FROM in nihon-api/.env (until then reset/confirmation emails are printed to the API console)
 [ ] For deployment: CORS_ORIGINS, APP_URL, TRUST_PROXY (API) and VITE_API_URL (web); security headers on the web host (see README)
 [ ] Rate limits live in one API process; use a shared store (Redis) if the API ever runs as several processes
+[x] Google sign-in: OAuth client created, GOOGLE_CLIENT_ID set, working locally
+[ ] Google sign-in for the public: add a privacy policy page, add the real site address to Authorized JavaScript origins, and publish the app (In production) in Google Cloud Console
 [ ] Move seedGameScoresTable() (runs at server start) into a migration
 [ ] Real test command and CI: lint, typecheck, build, API tests (the verify scripts and browser tests exist)
 [ ] Split the large frontend bundles (main ~528 KB, all lesson data ~468 KB in one file) by unit or level
@@ -76,11 +92,6 @@ Ideas, roughly from small to large:
 
 Speaking test: what's needed to use it fully
 --------------------------------------------
-[ ] Azure Speech key (pronunciation + fluency): Azure portal > Create a resource > Speech, free F0 tier is enough to start.
-    Add AZURE_SPEECH_KEY (Key 1) and AZURE_SPEECH_ENDPOINT (the short-audio recognition URL, see README) to nihon-api/.env
-[ ] Anthropic API key (content of free answers, also turns the study assistant into Claude): console.anthropic.com, pay-as-you-go, no free tier.
-    Add ANTHROPIC_API_KEY to nihon-api/.env; SPEAKING_GRADER_MODEL=claude-haiku-5-5 is the cheapest option
-    (without either key: read-aloud only, checked by text match; restart the API after editing .env, then test one real answer of each kind)
 [ ] Calibrate: a teacher grades 30–50 real answers per level, compare with the AI and Azure, adjust weights, descriptors and thresholds (GRADING.md section 10)
 [ ] Tasks for N3–N1 are a starter set (4 / 3 / 2); write more, ideally linked to real JF Can-dos
 [ ] N3 opens only when every N5 and N4 unit is complete (or an admin unlocks all lessons for a learner)

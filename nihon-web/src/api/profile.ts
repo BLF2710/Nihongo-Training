@@ -9,6 +9,8 @@ export type Profile = {
   current_streak: number; longest_streak?: number; active_today?: boolean; time_zone?: string;
   achievements_count: number; achievements: { id: string; title: string; description: string }[];
   xpProgress: { nextLevelXp: number | null; progressPercent: number };
+  /** How this account can sign in. */
+  sign_in?: { password: boolean; google: { email: string } | null };
 };
 export type ProfileUpdate = {
   displayName: string; avatar: string; bio: string; learningLanguage: string; learningGoal: string;

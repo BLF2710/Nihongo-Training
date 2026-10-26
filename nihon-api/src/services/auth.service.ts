@@ -41,7 +41,10 @@ export async function login(input: Record<string, unknown>) {
   const user = await findUserByLogin(login);
   if (!user) throw new HttpError(401, "Invalid email or password");
   if (user.status && user.status !== "active") throw new HttpError(403, "This account is inactive");
-  if (!(await bcrypt.compare(password, user.password))) throw new HttpError(401, "Invalid email or password");
+  // Accounts created with Google have no password until one is set through "Forgot password".
+  if (!user.password || !(await bcrypt.compare(password, user.password))) {
+    throw new HttpError(401, "Invalid email or password. If you signed up with Google, use Continue with Google.");
+  }
 
   const token = issueSessionToken({ id: user.id, tokenVersion: Number(user.token_version ?? 0) });
   await recordLogin(user.id);

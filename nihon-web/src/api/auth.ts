@@ -37,3 +37,23 @@ export async function logOutEverywhere() {
 export async function changePassword(currentPassword: string, newPassword: string, confirmPassword: string) {
   return (await api.put<{ message: string; token: string }>("/profile/me/password", { currentPassword, newPassword, confirmPassword })).data;
 }
+
+export type GoogleSignInResult = LoginResult & { created: boolean };
+
+/** A one-time number Google puts inside its sign-in token, so the token can't be replayed. */
+export async function fetchGoogleNonce() {
+  return (await api.get<{ nonce: string }>("/auth/google/nonce")).data.nonce;
+}
+
+/** Signs in (or up) with the token from Google's button. A 409 with code "link_required" means: sign in with the password first. */
+export async function signInWithGoogle(credential: string) {
+  return (await api.post<GoogleSignInResult>("/auth/google", { credential })).data;
+}
+
+export async function connectGoogle(credential: string) {
+  return (await api.post<{ email: string }>("/auth/google/link", { credential })).data;
+}
+
+export async function disconnectGoogle() {
+  return (await api.delete<{ disconnected: boolean }>("/auth/google/link")).data;
+}

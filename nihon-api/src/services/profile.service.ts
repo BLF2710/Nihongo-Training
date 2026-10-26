@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import { listEarnedAchievements } from "../repositories/achievement.repository";
 import { findProfileSummary, updateProfile } from "../repositories/profile.repository";
+import { findIdentityOfUser } from "../repositories/identity.repository";
 import { deactivateUser, findPasswordHash } from "../repositories/user.repository";
 import { HttpError } from "../utils/http-error";
 import { getXPProgress, getRankFromXP } from "./progression.service";
@@ -20,7 +21,8 @@ export async function getProfile(userId: number) {
   const xp = Number(profile.xp);
   const achievements = await listEarnedAchievements(userId);
   const xpProgress = getXPProgress(xp);
-  return { ...profile, xp, level: xpProgress.level, rank: getRankFromXP(xp), xpProgress, achievements };
+  const [hasPassword, google] = await Promise.all([findPasswordHash(userId).then(Boolean), findIdentityOfUser(userId, "google")]);
+  return { ...profile, xp, level: xpProgress.level, rank: getRankFromXP(xp), xpProgress, achievements, sign_in: { password: hasPassword, google: google ? { email: google.email } : null } };
 }
 
 export async function saveProfile(userId: number, input: Record<string, unknown>) {

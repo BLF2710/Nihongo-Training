@@ -17,6 +17,8 @@ export type ServerConfig = {
   /** Number of proxies in front of the API (for the client address used by rate limits); 0 when none. */
   trustProxyHops: number;
   mail: { provider: MailProvider; from: string; smtpUrl: string | null };
+  /** OAuth client id for "Sign in with Google" (public, shown to browsers); null switches it off. */
+  googleClientId: string | null;
 };
 
 function parsePort(value: string | undefined): number {
@@ -44,6 +46,13 @@ function parseMail(env: NodeJS.ProcessEnv, isProduction: boolean): ServerConfig[
   return { provider, smtpUrl, from: env.MAIL_FROM?.trim() || "LingoHub <no-reply@localhost>" };
 }
 
+function parseGoogleClientId(value: string | undefined): string | null {
+  const clientId = value?.trim();
+  if (!clientId) return null;
+  if (!/^[\w-]+\.apps\.googleusercontent\.com$/.test(clientId)) throw new Error("GOOGLE_CLIENT_ID must be a Google OAuth client id ending in .apps.googleusercontent.com.");
+  return clientId;
+}
+
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
   const isProduction = env.NODE_ENV === "production";
   const appUrl = (env.APP_URL?.trim() || DEFAULT_APP_URL).replace(/\/+$/, "");
@@ -57,6 +66,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     appUrl,
     trustProxyHops,
     mail: parseMail(env, isProduction),
+    googleClientId: parseGoogleClientId(env.GOOGLE_CLIENT_ID),
   };
 }
 

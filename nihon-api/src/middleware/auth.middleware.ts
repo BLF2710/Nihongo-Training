@@ -5,8 +5,8 @@ import { readSessionToken } from "../services/session-token";
 import type { SessionClaims } from "../services/session-token";
 import { getUserId, setRequestUser } from "../utils/request-user";
 
-// A token is refused with this code when its account revoked it (a newer token version); the web app then
-// signs the learner out and explains why.
+// A token is refused with this code when it no longer works: revoked by its account (a newer token version),
+// expired, or signed with a previous JWT_SECRET. The web app then signs the learner out and explains why.
 export const SESSION_EXPIRED = { message: "Your session has ended. Please sign in again.", code: "session_expired" } as const;
 
 function readBearerToken(header: string): ReturnType<typeof readSessionToken> {
@@ -31,7 +31,8 @@ async function identify(req: Request, res: Response, next: NextFunction, optiona
   try {
     claims = readBearerToken(header);
   } catch {
-    return optional ? next() : res.status(401).json({ message: "Invalid token" });
+    // An expired token, or one signed with a previous JWT_SECRET, ends the session like a revoked one.
+    return optional ? next() : res.status(401).json(SESSION_EXPIRED);
   }
   try {
     const session = await checkSession(claims);
