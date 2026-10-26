@@ -15,6 +15,7 @@ import profileRoutes from "./routes/profile.routes";
 import quizRoutes from "./routes/quiz.routes";
 import reviewRoutes from "./routes/review.routes";
 import siteRoutes from "./routes/site.routes";
+import { createDefaultSpeakingTestRouter, SPEAKING_BODY_LIMIT } from "./routes/speaking-test.routes";
 import statisticsRoutes from "./routes/statistics.routes";
 import unitRoutes from "./routes/unit.routes";
 import { getRequestUser } from "./utils/request-user";
@@ -22,6 +23,8 @@ import { getRequestUser } from "./utils/request-user";
 export function createApp() {
   const app = express();
   app.use(cors());
+  // Spoken answers carry a recording; every other route keeps the default body limit.
+  app.use("/api/speaking-tests", express.json({ limit: SPEAKING_BODY_LIMIT }));
   app.use(express.json());
 
   // Admin and site routes stay reachable while an activity is disabled.
@@ -50,6 +53,7 @@ export function createApp() {
   app.use("/api/activity", activityRoutes);
   app.use("/api", communicationRoutes);
   app.use("/api", friendRoutes);
+  app.use("/api/speaking-tests", createDefaultSpeakingTestRouter());
 
   return app;
 }

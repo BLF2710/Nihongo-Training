@@ -33,6 +33,19 @@ The study assistant answers through a provider chosen by environment variables i
 
 Each learner can send 40 assistant messages per hour. Administrators can switch Messages and the study assistant off under Manage content; Help & support always stays open.
 
+### Speaking test configuration (N3 and above)
+
+The speaking test grades free answers and read-aloud as described in [GRADING.md](GRADING.md). Both services are optional; the test says what it can grade without them.
+
+| Variable | Effect |
+| --- | --- |
+| `AZURE_SPEECH_KEY` | Azure Speech resource key. With the endpoint below, recordings are sent to Azure for pronunciation, fluency and (read-aloud) completeness scores. Without them, the browser's speech recognition provides the transcript and delivery isn't scored. |
+| `AZURE_SPEECH_ENDPOINT` | The resource's short-audio recognition URL, e.g. `https://<resource>.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1`. |
+| `SPEAKING_GRADER` | `claude` or `off`. By default the AI grades content whenever the assistant would use Claude (`ANTHROPIC_API_KEY` set). Without it, only read-aloud tasks can be graded. |
+| `SPEAKING_GRADER_MODEL` | Claude model id for grading; defaults to `claude-opus-5-5`. |
+
+Each learner can have 30 answers graded per day. Recordings are never stored.
+
 ## Prioritized to-do list
 
 ### 1. Reliability and release readiness
@@ -111,6 +124,7 @@ Run from `nihon-api`:
 
 ```sh
 npm run typecheck
+npm run test:grading
 ```
 
 Additional verification scripts live in each project's `scripts` directory. Some need a configured database or browser; check their setup requirements before running them. Backend `npm test` is currently a placeholder.

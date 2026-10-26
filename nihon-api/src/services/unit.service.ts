@@ -82,3 +82,18 @@ export async function canAccessCourseLesson(userId: number, lesson: LessonDefini
   const access = unit?.lessons.find(item => item.id === lesson.id);
   return access ? { allowed: access.allowed, reasons: access.reasons } : canUserAccessLesson(userId, lesson);
 }
+
+const LEVEL_ORDER = ["N5", "N4", "N3", "N2", "N1"] as const;
+const levelOfUnit = (unitId: string) => /^japanese-(n[1-5])-/.exec(unitId)?.[1].toUpperCase();
+
+/**
+ * A learner has reached a course level when every unit of the levels before it is completed, or when an
+ * administrator unlocked all lessons for them. N5 is always reached.
+ */
+export async function hasReachedCourseLevel(userId: number, level: (typeof LEVEL_ORDER)[number]): Promise<boolean> {
+  const earlier = LEVEL_ORDER.slice(0, LEVEL_ORDER.indexOf(level)) as readonly string[];
+  if (!earlier.length || await hasAllLessonsUnlocked(userId)) return true;
+  const units = await getUserUnits(userId);
+  const required = units.filter(unit => earlier.includes(levelOfUnit(unit.id) ?? ""));
+  return required.length > 0 && required.every(unit => unit.completed);
+}

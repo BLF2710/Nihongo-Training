@@ -35,6 +35,14 @@ export default function Navbar() {
   const toggleSection = (section: keyof typeof sectionsOpen) => {
     setSectionsOpen((open) => ({ ...open, [section]: !open[section] }));
   };
+  // A header shortcut: icon only (with a tooltip) until there is room for its label; a red count when something waits.
+  const headerLink = (path: string, icon: string, label: string, isActive: boolean, count = 0, countLabel = "") => (
+    <button onClick={() => go(path)} title={label} aria-label={`${label}${count ? `, ${count} ${countLabel}` : ""}`} aria-current={isActive ? "page" : undefined}
+      className={`relative rounded-lg px-2 py-2 text-sm font-semibold transition cursor-pointer sm:px-3 ${active(isActive)}`}>
+      <span aria-hidden="true">{icon}</span><span aria-hidden="true" className="hidden xl:inline"> {label}</span>
+      {count > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 min-w-5 rounded-full bg-red-600 px-1.5 text-center text-[11px] font-bold leading-5 text-white">{count > 9 ? "9+" : count}</span>}
+    </button>
+  );
   const sectionButton = (label: string, section: keyof typeof sectionsOpen) => (
     <button onClick={() => toggleSection(section)} className="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold tracking-wider uppercase text-gray-400 hover:text-gray-700 transition cursor-pointer" aria-expanded={sectionsOpen[section]}>
       {label}<span className="text-base leading-none">{sectionsOpen[section] ? "−" : "+"}</span>
@@ -46,24 +54,28 @@ export default function Navbar() {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-3">
-            {token && <button onClick={() => setSidebarOpen((open) => !open)} className="relative w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label={`Toggle navigation sidebar${inbox?.friendRequests ? `, ${inbox.friendRequests} friend ${inbox.friendRequests === 1 ? "request" : "requests"}` : ""}`} aria-expanded={sidebarOpen}>☰{(inbox?.friendRequests ?? 0) > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-white bg-red-600" />}</button>}
+            {token && <button onClick={() => setSidebarOpen((open) => !open)} className="relative w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label="Toggle navigation sidebar" aria-expanded={sidebarOpen}>☰</button>}
             <button onClick={() => go("/")} className="flex items-center gap-2 sm:gap-2.5 text-lg sm:text-2xl font-black text-gray-900 tracking-tight cursor-pointer">
               <span className="w-9 h-9 bg-linear-to-br from-indigo-600 to-emerald-500 rounded-xl flex items-center justify-center text-white text-lg shadow-sm">🌐</span>
               <span className="max-[420px]:sr-only">Lingo<span className="text-emerald-600">Hub</span></span>
             </button>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1 sm:gap-2 xl:gap-3">
             <span className="hidden sm:inline-flex"><ThemeButton /></span>
             {token && !isAdmin() && <NotificationBell inbox={inbox} />}
-            {token && <button onClick={() => go("/messages")} aria-label={`Messages${inbox?.total ? `, ${inbox.total} unread` : ""}`} className={`relative px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/messages"))}`}><span aria-hidden="true">✉️</span><span className="hidden sm:inline"> Messages</span>{(inbox?.total ?? 0) > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 min-w-5 rounded-full bg-red-600 px-1.5 text-center text-[11px] font-bold leading-5 text-white">{inbox!.total}</span>}</button>}
-            {token && <button onClick={() => go(language === "english" ? "/statistics/english" : "/statistics/japanese")} className={`px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${active(location.pathname.startsWith("/statistics"))}`}><span aria-hidden="true">📊</span><span className="sr-only sm:not-sr-only"> Statistics</span></button>}
+            {token && <>
+              {headerLink("/friends", "👥", "Friends", location.pathname.startsWith("/friends") || location.pathname.startsWith("/u/"), inbox?.friendRequests ?? 0, "friend requests")}
+              {headerLink("/messages", "✉️", "Messages", location.pathname.startsWith("/messages"), inbox?.total ?? 0, "unread")}
+              {headerLink("/assistant", "🤖", "Study assistant", location.pathname.startsWith("/assistant"))}
+              {headerLink(language === "english" ? "/statistics/english" : "/statistics/japanese", "📊", "Statistics", location.pathname.startsWith("/statistics"))}
+            </>}
             {token ? <>
               <button onClick={() => setProfileOpen((open) => !open)} className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition cursor-pointer" aria-label="Open account details" aria-expanded={profileOpen}>
                 <span className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">{userName.charAt(0).toUpperCase()}</span>
                 <span className="text-sm font-semibold text-gray-700 max-w-28 truncate">{userName}</span>
               </button>
-              <button onClick={logout} className="bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-600 border border-gray-200 px-2.5 sm:px-3.5 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">Logout</button>
+              <button onClick={logout} className="hidden sm:inline-flex bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-600 border border-gray-200 px-2.5 sm:px-3.5 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">Logout</button>
             </> : <button onClick={() => go("/login")} className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-xs transition cursor-pointer">Sign In</button>}
           </div>
         </div>
@@ -116,11 +128,12 @@ export default function Navbar() {
           </div>}</div>
           <div className="mt-4 px-3"><p className="mb-2 text-[11px] font-bold tracking-wider uppercase text-gray-400">Display</p><ThemeChoice /></div>
           <div className="mt-4">{sectionButton("Community", "community")}{sectionsOpen.community && <div className="mt-1 space-y-1">
-            {[["/notifications", "🔔", "Notifications", inbox?.notifications ?? 0], ["/friends", "👥", "Friends", inbox?.friendRequests ?? 0], ["/messages", "💬", "Messages", inbox?.direct ?? 0], ["/assistant", "🤖", "Study assistant", 0], ["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
+            {[["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
               <button key={path as string} onClick={() => go(path as string)} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith(path as string))}`}>
-                <span>{icon}</span> {label}{(unread as number) > 0 && <span className="ml-auto rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-bold text-white">{unread}<span className="sr-only">{path === "/friends" ? " friend requests" : path === "/notifications" ? " new" : " unread"}</span></span>}
+                <span>{icon}</span> {label}{(unread as number) > 0 && <span className="ml-auto rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-bold text-white">{unread}<span className="sr-only">{" unread"}</span></span>}
               </button>)}
           </div>}</div>
+          <button onClick={logout} className="mt-6 w-full rounded-xl border border-gray-200 px-3 py-2.5 text-left text-sm font-semibold text-gray-600 hover:bg-red-50 hover:text-red-600 transition cursor-pointer sm:hidden">Log out</button>
         </div>
       </aside>}
       {location.pathname !== "/" && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}

@@ -48,6 +48,10 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
     <div className="mt-6"><LevelSwitch level={level} /></div>
     <h1 className="mt-3 text-3xl font-black">{title}</h1>
     <p className="mt-2 text-gray-600">{intro}</p>
+    {skill === "speaking" && <Link to="/speaking/test" className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-emerald-200 bg-white p-4 hover:border-emerald-400">
+      <span><span className="block font-bold text-gray-900">Speaking test · N3 and above</span><span className="block text-sm text-gray-600">Answer in your own words and get graded on task, grammar, vocabulary, pronunciation and fluency.</span></span>
+      <span className="font-bold text-emerald-700">Open →</span>
+    </Link>}
     {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !error && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
     {units && !cleared.length && <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 sm:p-8">

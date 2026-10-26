@@ -13,6 +13,7 @@ export function contentKeysForPath(path: string): string[] {
   if (path.startsWith("/english/")) keys.push("english-games");
   if (path.startsWith("/messages/")) keys.push("messages");
   if (path === "/assistant" || path.startsWith("/assistant/")) keys.push("assistant");
+  if (path === "/speaking-tests" || path.startsWith("/speaking-tests/")) keys.push("speaking");
   if (path === "/friends" || path.startsWith("/friends/") || path.startsWith("/people/")) keys.push("friends");
   return keys;
 }

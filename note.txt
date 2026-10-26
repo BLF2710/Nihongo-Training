@@ -15,6 +15,7 @@ Done
 [x] Invite link and QR code: /add/<username> opens the inviter's profile with an Add friend button (works through sign-in / registration)
 [x] Friends leaderboard on the Friends page: XP and lessons in the last 7 days, current streak; private friends counted, not shown
 [x] Notification centre: bell panel + /notifications history (friend requests, accepts, support replies, achievements), read state, live, kept 6 months
+[x] Speaking test for N3 and above (/speaking/test), graded per GRADING.md (JF Standard bands): AI for content, Azure for pronunciation/fluency; N5–N4 keep speaking practice
 
 Ideas to implement or improve (review of 2026-10-14; lessons and other languages left out)
 --------------------------------------------------------------------------------------------
@@ -70,3 +71,15 @@ Ideas, roughly from small to large:
 [ ] Scale the live stream past one API process: PostgreSQL LISTEN/NOTIFY or Redis pub/sub behind publish()
      in nihon-api/src/services/realtime.service.ts; behind a proxy, turn off response buffering for /api/events
 [ ] Study groups / class codes later reuse the same pieces (membership table, live events, privacy rules)
+
+Speaking test: what's needed to use it fully
+--------------------------------------------
+[ ] Azure Speech key (pronunciation + fluency): Azure portal > Create a resource > Speech, free F0 tier is enough to start.
+    Add AZURE_SPEECH_KEY (Key 1) and AZURE_SPEECH_ENDPOINT (the short-audio recognition URL, see README) to nihon-api/.env
+[ ] Anthropic API key (content of free answers, also turns the study assistant into Claude): console.anthropic.com, pay-as-you-go, no free tier.
+    Add ANTHROPIC_API_KEY to nihon-api/.env; SPEAKING_GRADER_MODEL=claude-haiku-5-5 is the cheapest option
+    (without either key: read-aloud only, checked by text match; restart the API after editing .env, then test one real answer of each kind)
+[ ] Calibrate: a teacher grades 30–50 real answers per level, compare with the AI and Azure, adjust weights, descriptors and thresholds (GRADING.md section 10)
+[ ] Tasks for N3–N1 are a starter set (4 / 3 / 2); write more, ideally linked to real JF Can-dos
+[ ] N3 opens only when every N5 and N4 unit is complete (or an admin unlocks all lessons for a learner)
+[ ] Writing grading (GRADING.md section 5) isn't built yet

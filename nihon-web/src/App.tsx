@@ -46,6 +46,7 @@ const AssistantPage = lazy(() => import("./pages/AssistantPage"));
 const FriendsPage = lazy(() => import("./pages/FriendsPage"));
 const PublicProfilePage = lazy(() => import("./pages/PublicProfilePage"));
 const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
+const SpeakingTestPage = lazy(() => import("./pages/SpeakingTestPage"));
 const SkillPracticePage = lazy(() => import("./pages/SkillPracticePage"));
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 
@@ -93,6 +94,7 @@ function App() {
           <Route path="/review" element={signedInLazy("Loading review…", <UnitReviewPage />)} />
           <Route path="/reading" element={signedInLazy("Loading reading…", <ReadingPage />)} />
           <Route path="/listening" element={signedInLazy("Loading listening…", <SkillPracticePage key="listening" skill="listening" />)} />
+          <Route path="/speaking/test" element={signedInLazy("Loading the speaking test…", <SpeakingTestPage />)} />
           <Route path="/speaking" element={signedInLazy("Loading speaking…", <SkillPracticePage key="speaking" skill="speaking" />)} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
