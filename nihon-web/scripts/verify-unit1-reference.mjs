@@ -12,7 +12,8 @@ const require = createRequire(import.meta.url);
 const cache = new Map();
 function load(filename) {
   if (cache.has(filename)) return cache.get(filename);
-  const source = readFileSync(filename, 'utf8');
+  // Vite's import.meta.env doesn't exist in CommonJS: an empty one gives the app's development defaults.
+  const source = readFileSync(filename, 'utf8').replace(/import\.meta\.env/g, 'globalThis.__viteEnv');
   if (filename.endsWith('.json')) return JSON.parse(source);
   const compiled = ts.transpileModule(source, { compilerOptions: {
     module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022,
@@ -21,7 +22,7 @@ function load(filename) {
   const exports = {};
   cache.set(filename, exports);
   runInNewContext(compiled, {
-    exports, localStorage: { getItem: () => null }, console,
+    exports, localStorage: { getItem: () => null }, console, globalThis: { __viteEnv: {} },
     require: name => {
       if (!name.startsWith('.')) return require(name);
       const target = ['', '.ts', '.tsx'].map(extension => resolve(dirname(filename), `${name}${extension}`)).find(existsSync);

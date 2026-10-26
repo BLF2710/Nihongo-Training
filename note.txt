@@ -16,15 +16,17 @@ Done
 [x] Friends leaderboard on the Friends page: XP and lessons in the last 7 days, current streak; private friends counted, not shown
 [x] Notification centre: bell panel + /notifications history (friend requests, accepts, support replies, achievements), read state, live, kept 6 months
 [x] Speaking test for N3 and above (/speaking/test), graded per GRADING.md (JF Standard bands): AI for content, Azure for pronunciation/fluency; N5–N4 keep speaking practice
+[x] Security basics: CORS limited to the app's address, rate limits on sign-in/registration/reset, security headers, API address and port from env vars
+[x] Sessions and accounts: revocable sessions (password change/reset, sign out on all devices), password reset and email confirmation by email
 
 Ideas to implement or improve (review of 2026-10-14; lessons and other languages left out)
 --------------------------------------------------------------------------------------------
 
 Before anyone else uses the site
-[ ] Move the API address out of nihon-web/src/api/axios.ts and the port out of nihon-api/src/server.ts into env vars
-[ ] Restrict CORS to the site's own origin; rate-limit login and register; add standard security headers
-[ ] Sessions: tokens last 7 days in localStorage with no revocation; add a per-user token version (logout everywhere, password change)
-[ ] Password reset and email verification
+[ ] nihon-api/.env was committed to git (commit 4f5b059, repo on GitHub): it is untracked now; change the DB password and set a new JWT_SECRET (signs everyone out once)
+[ ] Set up real email: SMTP_URL and MAIL_FROM in nihon-api/.env (until then reset/confirmation emails are printed to the API console)
+[ ] For deployment: CORS_ORIGINS, APP_URL, TRUST_PROXY (API) and VITE_API_URL (web); security headers on the web host (see README)
+[ ] Rate limits live in one API process; use a shared store (Redis) if the API ever runs as several processes
 [ ] Move seedGameScoresTable() (runs at server start) into a migration
 [ ] Real test command and CI: lint, typecheck, build, API tests (the verify scripts and browser tests exist)
 [ ] Split the large frontend bundles (main ~528 KB, all lesson data ~468 KB in one file) by unit or level

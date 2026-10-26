@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { listEarnedAchievements } from "../repositories/achievement.repository";
 import { findProfileSummary, updateProfile } from "../repositories/profile.repository";
-import { deactivateUser, findPasswordHash, updatePassword } from "../repositories/user.repository";
+import { deactivateUser, findPasswordHash } from "../repositories/user.repository";
 import { HttpError } from "../utils/http-error";
 import { getXPProgress, getRankFromXP } from "./progression.service";
 
@@ -46,15 +46,6 @@ export async function saveProfile(userId: number, input: Record<string, unknown>
     profileVisibility,
     friendRequests: friendRequests as string | null,
   });
-}
-
-export async function changePassword(userId: number, input: Record<string, unknown>) {
-  const { currentPassword, newPassword, confirmPassword } = input;
-  if (typeof newPassword !== "string" || newPassword.length < 8 || newPassword !== confirmPassword) {
-    throw new HttpError(400, "New passwords must match and contain at least 8 characters.");
-  }
-  if (!(await passwordMatches(userId, currentPassword))) throw new HttpError(401, "Current password is incorrect.");
-  await updatePassword(userId, await bcrypt.hash(newPassword, PASSWORD_HASH_ROUNDS));
 }
 
 export async function deactivateAccount(userId: number, input: Record<string, unknown>) {

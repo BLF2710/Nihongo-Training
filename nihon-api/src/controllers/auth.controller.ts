@@ -1,5 +1,7 @@
+import { accountSecurity } from "../services/account-security.service";
 import * as authService from "../services/auth.service";
 import { action } from "../utils/action";
+import { getUserId } from "../utils/request-user";
 
 export const register = action(async (req, res) => {
   await authService.register(req.body);
@@ -9,3 +11,18 @@ export const register = action(async (req, res) => {
 export const login = action(async (req, res) => {
   return res.json(await authService.login(req.body));
 }, { label: "login", message: "Server error" });
+
+export const requestPasswordReset = action(async (req, res) => res.status(202).json(await accountSecurity().requestPasswordReset(req.body?.email)),
+  { label: "requestPasswordReset", message: "Your request couldn't be sent. Please try again." });
+
+export const resetPassword = action(async (req, res) => res.json(await accountSecurity().resetPassword(req.body?.token, req.body?.password, req.body?.confirmPassword)),
+  { label: "resetPassword", message: "Your password couldn't be changed. Please try again." });
+
+export const verifyEmail = action(async (req, res) => res.json(await accountSecurity().verifyEmail(req.body?.token)),
+  { label: "verifyEmail", message: "Your email couldn't be confirmed. Please try again." });
+
+export const resendVerification = action(async (req, res) => res.json(await accountSecurity().sendVerificationEmail(getUserId(req))),
+  { label: "resendVerification", message: "The email couldn't be sent. Please try again." });
+
+export const logOutEverywhere = action(async (req, res) => res.json(await accountSecurity().logOutEverywhere(getUserId(req))),
+  { label: "logOutEverywhere", message: "Couldn't sign you out everywhere. Please try again." });

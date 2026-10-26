@@ -1,7 +1,7 @@
 import api from "./axios";
 
 export type Profile = {
-  username: string; display_name: string; avatar: string | null; bio: string;
+  username: string; display_name: string; email?: string; email_verified_at?: string | null; avatar: string | null; bio: string;
   learning_language: string; native_language?: string | null; learning_goal: string | null; daily_goal: number;
   profile_visibility: "private" | "friends" | "public"; friend_requests?: "everyone" | "nobody";
   xp: number; level: number; rank: string; lessons_completed: number;

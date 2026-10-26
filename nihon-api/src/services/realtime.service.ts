@@ -37,6 +37,12 @@ export function openStream(userId: number, res: Response, onClose: (listener: ()
   });
 }
 
+/** Ends every open stream of a learner (their sessions were revoked); tabs that reconnect must sign in again. */
+export function closeStreams(userId: number) {
+  for (const res of streams.get(userId) ?? []) { try { res.end(); } catch { /* already closed */ } }
+  streams.delete(userId);
+}
+
 export function publish(userId: number, event: RealtimeEvent) {
   for (const res of streams.get(userId) ?? []) write(res, `event: ${event.type}\ndata: ${JSON.stringify(event)}\n\n`);
 }

@@ -46,6 +46,28 @@ The speaking test grades free answers and read-aloud as described in [GRADING.md
 
 Each learner can have 30 answers graded per day. Recordings are never stored.
 
+### Accounts and security configuration
+
+Copy `nihon-api/.env.example` to `nihon-api/.env` (and, for a deployed web app, `nihon-web/.env.example` to `nihon-web/.env`). `.env` files are never committed.
+
+| Variable | Effect |
+| --- | --- |
+| `PORT` | API port (default 5000). |
+| `CORS_ORIGINS` | Comma-separated web app address(es) allowed to call the API from a browser. Required in production; local Vite addresses in development. |
+| `APP_URL` | The web app's address, used in links sent by email (default `http://localhost:5173`). |
+| `TRUST_PROXY` | Number of proxies in front of the API, so rate limits see the real client address (default 0). |
+| `JWT_SECRET` | Signs sign-in tokens; a long random value. Changing it signs everyone out. |
+| `SMTP_URL`, `MAIL_FROM` | Email for password reset and confirmation, e.g. `smtps://user:password@smtp.example.com:465`. Without `SMTP_URL`, emails are printed to the API console (development only); production refuses to start without it. |
+| `VITE_API_URL` (web) | The API's address for a deployed build, e.g. `https://api.example.com/api`. |
+
+What's in place:
+
+- **Sessions are revocable.** Every token carries the account's token version. Changing or resetting the password, or *Sign out on all devices* (Profile → Settings → Account security), raises it, so every older token stops working and live connections close. A browser holding a revoked token is signed out with an explanation.
+- **Password reset and email confirmation** use single-use links (1 hour and 48 hours) stored only as SHA-256 hashes. The reset form answers the same way whether or not an address has an account. A reset also confirms the address. Unconfirmed accounts can use the site; a dashboard banner offers to resend the link.
+- **Rate limits:** sign-in 10 tries per account and 50 per address every 15 minutes; registration 10 per hour per address; reset requests and link use limited per address, and at most 3 emails an hour per account. Limits are kept in the API process (several processes would need a shared store such as Redis).
+- **CORS** only allows the configured web app address(es). **Security headers** on API responses: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, a deny-all `Content-Security-Policy`, `Permissions-Policy`, and HSTS in production.
+- **The web app's own headers** come from whatever hosts the built files. Set at least `Content-Security-Policy` (the theme script in `index.html` is inline, so allow it by hash), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` allowing `microphone=(self)`, and HSTS.
+
 ## Prioritized to-do list
 
 ### 1. Reliability and release readiness

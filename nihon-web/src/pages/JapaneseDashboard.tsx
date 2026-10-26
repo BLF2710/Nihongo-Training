@@ -14,6 +14,7 @@ import { activityProgress, parseSession, sessionSnapshot, subscribeSession } fro
 import { COURSE_LEVELS, inLevel, useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
+import EmailVerificationBanner from "../components/EmailVerificationBanner";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600";
 // min-w-0 lets cards shrink inside grid columns, so truncated text never widens the page.
@@ -115,6 +116,7 @@ export default function JapaneseDashboard() {
 
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar />
     <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      {profile?.email && !profile.email_verified_at && <EmailVerificationBanner email={profile.email} />}
       <header className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-gray-500">{now.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" })}</p>

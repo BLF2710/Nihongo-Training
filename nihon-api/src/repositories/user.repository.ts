@@ -28,6 +28,19 @@ export async function findUserStatus(userId: number): Promise<string | undefined
   return result.rows[0]?.status;
 }
 
+/** What decides whether a sign-in token is still valid: the account status and its current token version. */
+export async function findSessionState(userId: number): Promise<{ status: string; tokenVersion: number } | undefined> {
+  const result = await pool.query("SELECT status, token_version FROM users WHERE id=$1", [userId]);
+  return result.rows[0] ? { status: result.rows[0].status, tokenVersion: Number(result.rows[0].token_version) } : undefined;
+}
+
+/** The account's address and whether it has been verified. */
+export async function findAccountEmail(userId: number): Promise<{ email: string; username: string; status: string; emailVerifiedAt: Date | null } | undefined> {
+  const result = await pool.query("SELECT email, username, status, email_verified_at FROM users WHERE id=$1", [userId]);
+  const row = result.rows[0];
+  return row ? { email: row.email, username: row.username, status: row.status, emailVerifiedAt: row.email_verified_at } : undefined;
+}
+
 export async function findUserRoleAndStatus(userId: number): Promise<{ role: string; status: string } | undefined> {
   const result = await pool.query("SELECT role, status FROM users WHERE id=$1", [userId]);
   return result.rows[0];
@@ -56,21 +69,36 @@ export async function createAccount(
   account: { username: string; email: string; passwordHash: string; displayName: string }
 ) {
   const result = await db.query("INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id", [account.username, account.email, account.passwordHash]);
-  const userId = result.rows[0].id;
+  const userId: number = result.rows[0].id;
   await db.query("INSERT INTO user_profiles (user_id, display_name) VALUES ($1, $2)", [userId, account.displayName]);
   await db.query("INSERT INTO user_gamification (user_id) VALUES ($1)", [userId]);
+  return userId;
 }
 
 export async function recordLogin(userId: number) {
   await pool.query("UPDATE users SET last_login_at = NOW(), updated_at = NOW() WHERE id = $1", [userId]);
 }
 
-export async function updatePassword(userId: number, passwordHash: string) {
-  await pool.query("UPDATE users SET password=$1, updated_at=NOW() WHERE id=$2", [passwordHash, userId]);
+/** Sets a new password and ends every existing session (their tokens carry the old version). Returns the new version. */
+export async function updatePasswordAndRevokeSessions(db: Queryable, userId: number, passwordHash: string): Promise<number> {
+  const result = await db.query("UPDATE users SET password=$1, token_version = token_version + 1, updated_at=NOW() WHERE id=$2 RETURNING token_version", [passwordHash, userId]);
+  return Number(result.rows[0].token_version);
+}
+
+/** Ends every existing session of the account. Returns the new version. */
+export async function revokeSessions(db: Queryable, userId: number): Promise<number> {
+  const result = await db.query("UPDATE users SET token_version = token_version + 1, updated_at=NOW() WHERE id=$1 RETURNING token_version", [userId]);
+  return Number(result.rows[0].token_version);
+}
+
+/** Marks the address as verified, only if it is still the account's address. */
+export async function markEmailVerified(db: Queryable, userId: number, email: string): Promise<boolean> {
+  const result = await db.query("UPDATE users SET email_verified_at = COALESCE(email_verified_at, NOW()), updated_at=NOW() WHERE id=$1 AND LOWER(email)=LOWER($2)", [userId, email]);
+  return (result.rowCount ?? 0) > 0;
 }
 
 export async function deactivateUser(userId: number) {
-  await pool.query("UPDATE users SET status='inactive', updated_at=NOW() WHERE id=$1", [userId]);
+  await pool.query("UPDATE users SET status='inactive', token_version = token_version + 1, updated_at=NOW() WHERE id=$1", [userId]);
 }
 
 // ---- Administration

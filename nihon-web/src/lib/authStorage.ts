@@ -29,6 +29,11 @@ export function saveSession(session: { token: string; userName: string; userEmai
   localStorage.setItem(USER_ROLE_KEY, session.userRole);
 }
 
+/** Replaces the token after a password change (the old one no longer works). */
+export function saveToken(token: string) {
+  localStorage.setItem(TOKEN_KEY, token);
+}
+
 export function saveUserRole(userRole: string) {
   localStorage.setItem(USER_ROLE_KEY, userRole);
 }

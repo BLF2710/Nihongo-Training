@@ -1,7 +1,8 @@
 import { createApp } from "./app";
+import { config } from "./config/env";
 import { seedGameScoresTable } from "./services/games.seed";
 
-const PORT = 5000;
+const PORT = config().port;
 
 // Auto-create game scores table on startup
 seedGameScoresTable().catch(console.error);

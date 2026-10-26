@@ -33,7 +33,7 @@ async function main() {
   const src = name => load(path.resolve(__dirname, '../src', name));
   try {
     await client.query('BEGIN');
-    await client.query("CREATE TEMP TABLE users (id INTEGER PRIMARY KEY, status TEXT DEFAULT 'active', role TEXT DEFAULT 'learner')");
+    await client.query("CREATE TEMP TABLE users (id INTEGER PRIMARY KEY, status TEXT DEFAULT 'active', role TEXT DEFAULT 'learner', token_version INTEGER NOT NULL DEFAULT 0)");
     await client.query('INSERT INTO users (id) VALUES (1),(2)');
     await client.query(fs.readFileSync(path.resolve(__dirname, '../migrations/004_kanji_progress.sql'), 'utf8').replaceAll('CREATE TABLE IF NOT EXISTS', 'CREATE TEMP TABLE'));
     const { catalog, makeKanjiQuestion } = src('services/kanji.service.ts');
