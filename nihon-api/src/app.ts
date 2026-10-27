@@ -16,6 +16,7 @@ import lessonRoutes from "./routes/lesson.routes";
 import mistakeRoutes from "./routes/mistake.routes";
 import mockExamRoutes from "./routes/mock-exam.routes";
 import profileRoutes from "./routes/profile.routes";
+import avatarRoutes from "./routes/avatar.routes";
 import quizRoutes from "./routes/quiz.routes";
 import reviewRoutes from "./routes/review.routes";
 import siteRoutes from "./routes/site.routes";
@@ -42,6 +43,7 @@ export function createApp() {
   // Admin and site routes stay reachable while an activity is disabled.
   app.use("/api/admin", adminRoutes);
   app.use("/api/site", siteRoutes);
+  app.use("/api/avatars", avatarRoutes);
   app.use("/api", enforceContentAvailability);
 
   app.get("/", (req, res) => {

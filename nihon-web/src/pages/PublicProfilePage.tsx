@@ -86,7 +86,7 @@ function ProfileView({ username }: { username: string }) {
     {self && !invited && <p className="mb-4 rounded-xl bg-indigo-50 p-3 text-sm text-indigo-900">This is how other learners see your profile. {VISIBILITY_TEXT[data.visibility]}</p>}
     <section className="rounded-3xl border border-gray-200 bg-white p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-        <PersonAvatar name={data.displayName} username={data.username} size="lg" />
+        <PersonAvatar name={data.displayName} username={data.username} avatar={data.avatar} size="lg" />
         <div className="min-w-0 flex-1">
           <h1 className="break-words text-3xl font-black">{data.displayName}</h1>
           <p className="text-gray-600">@{data.username} · Joined {joined}</p>

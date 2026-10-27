@@ -1,5 +1,6 @@
 import { pool } from "../config/db";
 import type { Queryable } from "../db/transaction";
+import { AVATAR_PATH_SQL } from "./avatar.repository";
 import { ACTIVE_TODAY_SQL, EFFECTIVE_STREAK_SQL } from "./streak.repository";
 
 export type FriendshipStatus = "pending" | "accepted" | "declined";
@@ -7,10 +8,13 @@ export type FriendshipRow = { id: number; requester_id: number; addressee_id: nu
 export type LearnerRow = {
   id: number; username: string; display_name: string; role: string; status: string;
   profile_visibility: "private" | "friends" | "public"; friend_requests: "everyone" | "nobody"; created_at: Date;
+  /** The profile picture's address, shown wherever the name is. */
+  avatar: string | null;
 };
 
 const LEARNER_COLUMNS = `u.id, u.username, COALESCE(p.display_name, u.username) AS display_name, u.role, u.status,
-  COALESCE(p.profile_visibility, 'private') AS profile_visibility, COALESCE(p.friend_requests, 'everyone') AS friend_requests, u.created_at`;
+  COALESCE(p.profile_visibility, 'private') AS profile_visibility, COALESCE(p.friend_requests, 'everyone') AS friend_requests, u.created_at,
+  ${AVATAR_PATH_SQL("u.id")} AS avatar`;
 
 export async function findLearnerByUsername(username: string): Promise<LearnerRow | undefined> {
   const result = await pool.query(`SELECT ${LEARNER_COLUMNS} FROM users u LEFT JOIN user_profiles p ON p.user_id = u.id WHERE LOWER(u.username) = LOWER($1)`, [username]);
@@ -99,7 +103,7 @@ export async function countIncomingPending(userId: number): Promise<number> {
 export async function listConnections(userId: number) {
   const result = await pool.query(
     `SELECT f.id, f.status, f.created_at, f.responded_at, (f.requester_id = $1) AS sent,
-            u.id AS user_id, u.username, COALESCE(p.display_name, u.username) AS display_name, COALESCE(p.profile_visibility, 'private') AS profile_visibility,
+            u.id AS user_id, u.username, COALESCE(p.display_name, u.username) AS display_name, ${AVATAR_PATH_SQL("u.id")} AS avatar, COALESCE(p.profile_visibility, 'private') AS profile_visibility,
             g.xp, ${EFFECTIVE_STREAK_SQL} AS current_streak, ${ACTIVE_TODAY_SQL} AS active_today
        FROM friendships f
        JOIN users u ON u.id = CASE WHEN f.requester_id = $1 THEN f.addressee_id ELSE f.requester_id END
@@ -108,7 +112,7 @@ export async function listConnections(userId: number) {
       WHERE (f.requester_id = $1 OR f.addressee_id = $1) AND f.status IN ('pending', 'accepted') AND u.status = 'active'
       ORDER BY COALESCE(f.responded_at, f.created_at) DESC`, [userId]);
   return result.rows as {
-    id: number; status: "pending" | "accepted"; created_at: Date; responded_at: Date | null; sent: boolean; user_id: number; username: string; display_name: string;
+    id: number; status: "pending" | "accepted"; created_at: Date; responded_at: Date | null; sent: boolean; user_id: number; username: string; avatar: string | null; display_name: string;
     profile_visibility: LearnerRow["profile_visibility"]; xp: number | null; current_streak: number; active_today: boolean;
   }[];
 }
@@ -143,7 +147,7 @@ export async function leaderboardRows(userId: number) {
        UNION SELECT CASE WHEN f.requester_id = $1 THEN f.addressee_id ELSE f.requester_id END
          FROM friendships f WHERE f.status = 'accepted' AND (f.requester_id = $1 OR f.addressee_id = $1)
      )
-     SELECT u.id, u.username, COALESCE(p.display_name, u.username) AS display_name,
+     SELECT u.id, u.username, COALESCE(p.display_name, u.username) AS display_name, ${AVATAR_PATH_SQL("u.id")} AS avatar,
             (u.id <> $1 AND COALESCE(p.profile_visibility, 'private') = 'private') AS hidden,
             COALESCE((SELECT SUM(x.amount) FROM xp_events x WHERE x.user_id = u.id AND x.created_at > NOW() - INTERVAL '7 days'), 0)::int AS weekly_xp,
             (SELECT COUNT(*) FROM lesson_progress l WHERE l.user_id = u.id AND l.completed_at > NOW() - INTERVAL '7 days')::int AS weekly_lessons,
@@ -151,5 +155,5 @@ export async function leaderboardRows(userId: number) {
        FROM circle c JOIN users u ON u.id = c.id AND u.status = 'active'
        LEFT JOIN user_profiles p ON p.user_id = u.id
        LEFT JOIN user_gamification g ON g.user_id = u.id`, [userId]);
-  return result.rows as { id: number; username: string; display_name: string; hidden: boolean; weekly_xp: number; weekly_lessons: number; current_streak: number; active_today: boolean }[];
+  return result.rows as { id: number; username: string; display_name: string; avatar: string | null; hidden: boolean; weekly_xp: number; weekly_lessons: number; current_streak: number; active_today: boolean }[];
 }

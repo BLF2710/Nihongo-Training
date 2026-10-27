@@ -26,7 +26,8 @@ export async function getProfile(userId: number) {
 }
 
 export async function saveProfile(userId: number, input: Record<string, unknown>) {
-  const { displayName, avatar, bio, nativeLanguage, learningLanguage, learningGoal, dailyGoal, profileVisibility } = input;
+  // `avatar` from older clients is ignored: pictures are uploaded separately (PUT /profile/me/avatar).
+  const { displayName, bio, nativeLanguage, learningLanguage, learningGoal, dailyGoal, profileVisibility } = input;
   // Left out by older clients: the current setting is kept.
   const friendRequests = input.friendRequests ?? null;
   if (typeof displayName !== "string" || !displayName.trim() || displayName.trim().length > 80) {
@@ -39,7 +40,6 @@ export async function saveProfile(userId: number, input: Record<string, unknown>
   }
   await updateProfile(userId, {
     displayName: displayName.trim(),
-    avatar: stringOrNull(avatar, 500),
     bio: typeof bio === "string" ? bio.trim().slice(0, 500) : "",
     nativeLanguage: stringOrNull(nativeLanguage, 80),
     learningLanguage: stringOrNull(learningLanguage, 80) || "Japanese",

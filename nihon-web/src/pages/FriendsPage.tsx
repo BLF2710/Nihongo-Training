@@ -95,7 +95,7 @@ export default function FriendsPage() {
       {lists.incoming.length > 0 && <section aria-labelledby="incoming-heading" className="mt-6 rounded-2xl border border-emerald-200 bg-white p-5">
         <h2 id="incoming-heading" className="text-lg font-bold">Friend requests <span className="ml-1 rounded-full bg-emerald-600 px-2 py-0.5 text-xs text-white">{lists.incoming.length}</span></h2>
         <ul className="mt-3 divide-y divide-gray-100">{lists.incoming.map(request => <li key={request.id} className="flex flex-wrap items-center gap-3 py-3">
-          <PersonAvatar name={request.displayName} username={request.username} />{profileLink(request)}<span className="text-sm text-gray-500">{day(request.sentAt)}</span>
+          <PersonAvatar name={request.displayName} username={request.username} avatar={request.avatar} />{profileLink(request)}<span className="text-sm text-gray-500">{day(request.sentAt)}</span>
           <div className="ml-auto flex w-full justify-end gap-2 sm:w-auto">
             <button className={friendPrimary} disabled={!!busy} aria-label={`Accept friend request from ${request.username}`} onClick={() => void run(`req:${request.id}`, () => answerFriendRequest(request.id, true), `You and @${request.username} are now friends.`)}>Accept</button>
             <button className={friendButton} disabled={!!busy} aria-label={`Decline friend request from ${request.username}`} onClick={() => void run(`req:${request.id}`, () => answerFriendRequest(request.id, false), `Request from @${request.username} declined.`)}>Decline</button>
@@ -111,7 +111,7 @@ export default function FriendsPage() {
         <h2 id="friends-heading" className="text-lg font-bold">Your friends ({lists.friends.length})</h2>
         {lists.friends.length === 0 ? <p className="mt-2 text-gray-600">No friends yet. Send a request above, or accept one when it arrives.</p> :
         <ul className="mt-3 divide-y divide-gray-100">{lists.friends.map(friend => <li key={friend.username} className="flex flex-wrap items-center gap-3 py-3">
-          <PersonAvatar name={friend.displayName} username={friend.username} />
+          <PersonAvatar name={friend.displayName} username={friend.username} avatar={friend.avatar} />
           <div className="min-w-0 flex-1">{profileLink(friend)}<p className="text-sm text-gray-600">{friend.progress
             ? <>Level {friend.progress.level} · {friend.progress.currentStreak > 0 ? `🔥 ${friend.progress.currentStreak}-day streak` : "No current streak"}{friend.progress.activeToday && <> · <span className="font-semibold text-emerald-700">studied today</span></>}{friend.progress.friendStreak > 0 && <> · <span aria-hidden="true">🤝</span> {friend.progress.friendStreak} {friend.progress.friendStreak === 1 ? "day" : "days"} together</>}{friend.progress.studyingNow && <> · <span className="inline-flex items-center gap-1 font-semibold text-emerald-700"><span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500" />studying now</span></>}</>
             : "Progress is private"}</p></div>
@@ -127,7 +127,7 @@ export default function FriendsPage() {
       {lists.outgoing.length > 0 && <section aria-labelledby="outgoing-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
         <h2 id="outgoing-heading" className="text-lg font-bold">Sent requests</h2>
         <ul className="mt-3 divide-y divide-gray-100">{lists.outgoing.map(request => <li key={request.id} className="flex flex-wrap items-center gap-3 py-3">
-          <PersonAvatar name={request.displayName} username={request.username} />{profileLink(request)}<span className="text-sm text-gray-500">Sent {day(request.sentAt)}</span>
+          <PersonAvatar name={request.displayName} username={request.username} avatar={request.avatar} />{profileLink(request)}<span className="text-sm text-gray-500">Sent {day(request.sentAt)}</span>
           <button className={friendButton + " ml-auto"} disabled={!!busy} aria-label={`Cancel friend request to ${request.username}`} onClick={() => void run(`req:${request.id}`, () => cancelFriendRequest(request.id), `Request to @${request.username} cancelled.`)}>Cancel</button>
         </li>)}</ul>
       </section>}

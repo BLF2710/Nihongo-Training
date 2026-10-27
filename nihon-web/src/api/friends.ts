@@ -1,7 +1,7 @@
 import api from "./axios";
 
 export type FriendshipState = "self" | "friends" | "outgoing" | "incoming" | "none";
-export type Person = { username: string; displayName: string };
+export type Person = { username: string; displayName: string; /** Profile picture address, when the API includes it. */ avatar?: string | null };
 export type Friend = Person & {
   since: string;
   /** Days in a row you both studied, and whether they're studying right now (only if they chose to show it). */

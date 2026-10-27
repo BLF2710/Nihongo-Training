@@ -43,7 +43,7 @@ export default function FriendsLeaderboard() {
         const rank = place(entry);
         return <li key={entry.username} className={`flex items-center gap-3 rounded-xl p-2 ${entry.self ? "bg-emerald-50 ring-1 ring-emerald-200" : ""}`}>
           <span className="w-8 text-center font-black text-gray-700" aria-label={`Place ${rank}`}>{entry[metric] > 0 && MEDALS[rank - 1] ? <span aria-hidden="true">{MEDALS[rank - 1]}</span> : rank}</span>
-          <PersonAvatar name={entry.displayName} username={entry.username} />
+          <PersonAvatar name={entry.displayName} username={entry.username} avatar={entry.avatar} />
           <Link to={`/u/${encodeURIComponent(entry.username)}`} className="min-w-0 flex-1 hover:underline"><span className="block truncate font-bold text-gray-900">{entry.displayName}{entry.self && <span className="font-normal text-gray-600"> (you)</span>}</span><span className="block truncate text-sm text-gray-600">@{entry.username}{entry.activeToday && " · studied today"}</span></Link>
           <span className="whitespace-nowrap font-black tabular-nums text-gray-900">{current.unit(entry[metric])}</span>
         </li>;

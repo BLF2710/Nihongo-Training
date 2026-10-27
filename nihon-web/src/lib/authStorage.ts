@@ -5,12 +5,16 @@ const USER_EMAIL_KEY = "user_email";
 const USER_ROLE_KEY = "user_role";
 // The exact, unique username (the display name in USER_NAME_KEY can be anything and is not unique).
 const USER_HANDLE_KEY = "user_handle";
+// The signed-in learner's picture address; "" when they have none (missing: not looked up yet).
+const USER_AVATAR_KEY = "user_avatar";
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
 export const getUserName = () => localStorage.getItem(USER_NAME_KEY);
 export const getUserEmail = () => localStorage.getItem(USER_EMAIL_KEY);
 export const getUserHandle = () => localStorage.getItem(USER_HANDLE_KEY);
 export const saveUserHandle = (username: string) => localStorage.setItem(USER_HANDLE_KEY, username);
+export const getStoredUserAvatar = () => localStorage.getItem(USER_AVATAR_KEY);
+export const storeUserAvatar = (avatar: string | null) => localStorage.setItem(USER_AVATAR_KEY, avatar ?? "");
 
 /** True when a usable token is stored; guards against values saved from a failed login response. */
 export function hasSession() {
@@ -23,6 +27,7 @@ export const isAdmin = () => localStorage.getItem(USER_ROLE_KEY) === "admin";
 
 export function saveSession(session: { token: string; userName: string; userEmail: string; userRole: string; userHandle?: string }) {
   if (session.userHandle) localStorage.setItem(USER_HANDLE_KEY, session.userHandle); else localStorage.removeItem(USER_HANDLE_KEY);
+  localStorage.removeItem(USER_AVATAR_KEY);
   localStorage.setItem(TOKEN_KEY, session.token);
   localStorage.setItem(USER_NAME_KEY, session.userName);
   localStorage.setItem(USER_EMAIL_KEY, session.userEmail);
@@ -48,4 +53,5 @@ export function clearSession() {
   localStorage.removeItem(USER_EMAIL_KEY);
   localStorage.removeItem(USER_ROLE_KEY);
   localStorage.removeItem(USER_HANDLE_KEY);
+  localStorage.removeItem(USER_AVATAR_KEY);
 }

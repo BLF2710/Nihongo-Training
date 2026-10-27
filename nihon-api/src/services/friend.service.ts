@@ -168,7 +168,7 @@ export async function listFriends(userId: number) {
   const rows = await listConnections(userId);
   const sharing = rows.filter(row => row.status === "accepted" && row.profile_visibility !== "private").map(row => row.user_id);
   const extras = await getFriendExtras(userId, sharing);
-  const who = (row: (typeof rows)[number]) => ({ username: row.username, displayName: row.display_name });
+  const who = (row: (typeof rows)[number]) => ({ username: row.username, displayName: row.display_name, avatar: row.avatar });
   return {
     friends: rows.filter(row => row.status === "accepted").map(row => ({
       ...who(row), since: row.responded_at ?? row.created_at,
@@ -195,7 +195,7 @@ export async function getLeaderboard(userId: number) {
   return {
     period: { from: new Date(to.getTime() - 7 * 24 * 60 * 60 * 1000), to },
     entries: rows.filter(row => !row.hidden).map(row => ({
-      username: row.username, displayName: row.display_name, self: row.id === userId,
+      username: row.username, displayName: row.display_name, avatar: row.avatar, self: row.id === userId,
       weeklyXp: Number(row.weekly_xp), weeklyLessons: Number(row.weekly_lessons), currentStreak: Number(row.current_streak), activeToday: Boolean(row.active_today),
     })),
     hidden: rows.filter(row => row.hidden).length,
@@ -213,7 +213,7 @@ export async function getPublicProfile(viewerId: number, username: unknown) {
   const { state, requestId } = self ? { state: "self" as const, requestId: undefined } : stateOf(await findPairNow(viewerId, owner.id), viewerId);
   const visible = self || owner.profile_visibility === "public" || (owner.profile_visibility === "friends" && state === "friends");
   const base = {
-    username: owner.username, displayName: owner.display_name, joinedAt: owner.created_at, visibility: owner.profile_visibility,
+    username: owner.username, displayName: owner.display_name, avatar: owner.avatar, joinedAt: owner.created_at, visibility: owner.profile_visibility,
     friendship: { state, ...(requestId ? { requestId } : {}) },
     canRequest: state === "none" && owner.friend_requests === "everyone",
     visible,

@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { clearSession, getToken, getUserEmail, getUserName, isAdmin } from "../lib/authStorage";
 import { useUserHandle } from "../lib/userHandle";
+import { useUserAvatar } from "../lib/userAvatar";
+import { avatarUrl } from "../lib/avatar";
 import NotificationBell from "./NotificationBell";
 import LiveNotifications from "./LiveNotifications";
 import { useCourseLevel } from "../lib/courseLevel";
@@ -26,6 +28,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
   const inbox = useInboxSummary();
   useEffect(() => { syncTimeZone(); }, []);
   const handle = useUserHandle();
+  const avatar = useUserAvatar();
   const token = getToken();
   const userName = getUserName() || "Learner";
   const userEmail = getUserEmail() || "";
@@ -80,7 +83,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
             </>}
             {token ? <>
               <button onClick={() => setProfileOpen((open) => !open)} className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition cursor-pointer" aria-label="Open account details" aria-expanded={profileOpen}>
-                <span className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">{userName.charAt(0).toUpperCase()}</span>
+                {avatar ? <img src={avatarUrl(avatar)} alt="" width={28} height={28} className="w-7 h-7 rounded-full object-cover" /> : <span className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">{userName.charAt(0).toUpperCase()}</span>}
                 <span className="text-sm font-semibold text-gray-700 max-w-28 truncate">{userName}</span>
               </button>
               <button onClick={logout} className="hidden sm:inline-flex bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-600 border border-gray-200 px-2.5 sm:px-3.5 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">Logout</button>
@@ -91,7 +94,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
 
       {token && profileOpen && <div className="fixed top-16 right-4 sm:right-6 z-50 w-72 bg-white border border-gray-200 rounded-2xl shadow-xl p-4">
         <div className="flex items-center gap-3">
-          <span className="w-12 h-12 rounded-full bg-linear-to-br from-emerald-500 to-indigo-600 text-white flex items-center justify-center text-lg font-black">{userName.charAt(0).toUpperCase()}</span>
+          {avatar ? <img src={avatarUrl(avatar)} alt="" width={48} height={48} className="w-12 h-12 shrink-0 rounded-full object-cover" /> : <span className="w-12 h-12 rounded-full bg-linear-to-br from-emerald-500 to-indigo-600 text-white flex items-center justify-center text-lg font-black">{userName.charAt(0).toUpperCase()}</span>}
           <div className="min-w-0"><p className="font-bold text-gray-900 truncate">{userName}</p>{handle && <p className="text-sm text-gray-600 truncate">@{handle}</p>}<p className="text-xs text-gray-500 truncate">{userEmail || "Signed-in learner"}</p></div>
         </div>
         {handle && <p className="mt-3 rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-600">Friends add you with your username <b className="text-gray-900">@{handle}</b>; your display name can be anything.</p>}

@@ -11,6 +11,7 @@ import { apiErrorMessage } from "../api/errors";
 import { fetchProfile, toProfileUpdate, updateProfile } from "../api/profile";
 import type { Profile, ProfileUpdate } from "../api/profile";
 import { saveUserHandle, saveUserName } from "../lib/authStorage";
+import { saveUserAvatar } from "../lib/userAvatar";
 
 const SECTIONS = [
   { key: "profile", label: "Profile", icon: "👤" },
@@ -35,7 +36,7 @@ export default function SettingsPage() {
   useEffect(() => { navRef.current?.querySelector('[aria-current="page"]')?.scrollIntoView({ block: "nearest", inline: "center" }); }, [section]);
 
   const load = useCallback((signal?: AbortSignal) => fetchProfile(signal)
-    .then(data => { setProfile(data); setError(""); saveUserName(data.display_name || data.username); saveUserHandle(data.username); })
+    .then(data => { setProfile(data); setError(""); saveUserName(data.display_name || data.username); saveUserHandle(data.username); saveUserAvatar(data.avatar); })
     .catch(failure => { if (!signal?.aborted) setError(apiErrorMessage(failure, "Could not load your settings.")); }), []);
   useEffect(() => { const controller = new AbortController(); void load(controller.signal); return () => controller.abort(); }, [load]);
   useEffect(() => {
@@ -72,7 +73,7 @@ export default function SettingsPage() {
           {error && <p role="alert" className="rounded-xl bg-red-50 p-3 text-sm text-red-800">{error} <button className="font-bold underline" onClick={() => void load()}>Try again</button></p>}
           {!profile && !error && <p role="status">Loading settings…</p>}
           {profile && <>
-            {section === "profile" && <ProfileSettings profile={profile} onSave={saveProfile} onDirtyChange={setIsDirty} />}
+            {section === "profile" && <ProfileSettings profile={profile} onSave={saveProfile} onDirtyChange={setIsDirty} onAvatarChange={avatar => { setProfile(current => current && { ...current, avatar }); saveUserAvatar(avatar); }} />}
             {section === "learning" && <LearningSettings profile={profile} onSave={saveProfile} onDirtyChange={setIsDirty} />}
             {section === "privacy" && <PrivacySettings profile={profile} onSave={saveProfile} />}
             {section === "blocked" && <BlockedLearners />}
