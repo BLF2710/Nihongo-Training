@@ -45,7 +45,7 @@ export const adminGetSupport = action(async (req, res) => res.json(await support
   failed("adminGetSupport", "Could not load the support request."));
 export const adminReplySupport = action(async (req, res) => res.status(201).json(await support.replyAsSupport(getUserId(req), req.params.id, req.body?.body)),
   failed("adminReplySupport", "Could not send the reply. Please try again."));
-export const adminSetSupportStatus = action(async (req, res) => res.json(await support.setSupportStatus(req.params.id, req.body?.status)),
+export const adminSetSupportStatus = action(async (req, res) => res.json(await support.setSupportStatus(getUserId(req), req.params.id, req.body?.status)),
   failed("adminSetSupportStatus", "Could not change the request status."));
 
 // ---- Study assistant

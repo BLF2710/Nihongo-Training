@@ -4,6 +4,7 @@ import {
 } from "../repositories/question-bank.repository";
 import type { BankQuestionInput } from "../repositories/question-bank.repository";
 import { HttpError } from "../utils/http-error";
+import { recordAdminActionNow } from "./audit-log.service";
 import { isQuestionType, questionType } from "./question-types";
 
 const reviewUnits = () => UNITS.filter(unit => !unit.isPlaceholder);
@@ -29,15 +30,20 @@ export async function getQuestionBank() {
 }
 
 export async function addQuestion(adminId: number, input: Record<string, unknown>) {
-  return insertQuestion(parseQuestion(input), adminId);
+  const question = await insertQuestion(parseQuestion(input), adminId);
+  await recordAdminActionNow({ actorId: adminId, action: "question.created", targetRef: `question:${question.id}`, details: { unitId: question.unitId, type: question.type } });
+  return question;
 }
 
-export async function editQuestion(rawId: unknown, input: Record<string, unknown>) {
+export async function editQuestion(adminId: number, rawId: unknown, input: Record<string, unknown>) {
   const updated = await updateQuestion(parseId(rawId), parseQuestion(input));
   if (!updated) throw new HttpError(404, "Question not found.");
+  await recordAdminActionNow({ actorId: adminId, action: "question.updated", targetRef: `question:${updated.id}`, details: { unitId: updated.unitId, type: updated.type, enabled: updated.enabled } });
   return updated;
 }
 
-export async function removeQuestion(rawId: unknown) {
-  if (!(await deleteQuestion(parseId(rawId)))) throw new HttpError(404, "Question not found.");
+export async function removeQuestion(adminId: number, rawId: unknown) {
+  const id = parseId(rawId);
+  if (!(await deleteQuestion(id))) throw new HttpError(404, "Question not found.");
+  await recordAdminActionNow({ actorId: adminId, action: "question.deleted", targetRef: `question:${id}` });
 }

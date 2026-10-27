@@ -5,6 +5,8 @@ import {
 } from "../repositories/conversation.repository";
 import { insertNotification } from "../repositories/notification.repository";
 import { HttpError } from "../utils/http-error";
+import { recordAdminAction, recordAdminActionNow } from "./audit-log.service";
+import { getTicketReports } from "./moderation.service";
 import { cleanBody, cleanSubject, enforceRate, idParam, preview, toMessage } from "./conversation-format";
 import { publish } from "./realtime.service";
 
@@ -79,12 +81,16 @@ async function supportConversation(conversationId: unknown) {
 
 export async function getSupportConversation(adminId: number, conversationId: unknown) {
   const conversation = await supportConversation(conversationId);
-  const [messages, learner] = await Promise.all([listMessages(conversation.id), conversation.created_by ? findPersonById(conversation.created_by) : undefined]);
+  const [messages, learner, reports] = await Promise.all([
+    listMessages(conversation.id), conversation.created_by ? findPersonById(conversation.created_by) : undefined, getTicketReports(conversation.id),
+  ]);
   await markStaffRead(conversation.id);
   return {
     id: conversation.id, subject: conversation.subject, status: conversation.status, createdAt: conversation.created_at,
     learner: learner ? { id: learner.id, username: learner.username, name: learner.display_name, status: learner.status } : null,
     messages: messages.map(row => toMessage(row, adminId, "staff")),
+    // For a report: every open report about the same learner, so repeated reports are handled together.
+    reports,
   };
 }
 
@@ -96,6 +102,7 @@ export async function replyAsSupport(adminId: number, conversationId: unknown, b
     const messageId = await insertMessage(client, { conversationId: conversation.id, senderId: adminId, senderRole: "admin", body: text });
     // The team replies as one voice, so the notification names no administrator.
     if (learnerId) await insertNotification(client, { userId: learnerId, kind: "support_reply", data: { conversationId: conversation.id, subject: conversation.subject } });
+    await recordAdminAction(client, { actorId: adminId, action: "support.replied", targetUserId: learnerId, targetRef: `support:${conversation.id}`, details: { subject: conversation.subject } });
     return messageId;
   });
   await markStaffRead(conversation.id);
@@ -103,9 +110,12 @@ export async function replyAsSupport(adminId: number, conversationId: unknown, b
   return { id, body: text, senderRole: "admin" as const, sender: "You (support)", mine: true, sentAt: new Date() };
 }
 
-export async function setSupportStatus(conversationId: unknown, status: unknown) {
+export async function setSupportStatus(adminId: number, conversationId: unknown, status: unknown) {
   if (status !== "open" && status !== "closed") throw new HttpError(400, "Status must be open or closed.");
   const conversation = await supportConversation(conversationId);
   await setConversationStatus(conversation.id, status);
+  if (conversation.status !== status) {
+    await recordAdminActionNow({ actorId: adminId, action: status === "closed" ? "support.closed" : "support.reopened", targetUserId: conversation.created_by, targetRef: `support:${conversation.id}`, details: { subject: conversation.subject } });
+  }
   return { id: conversation.id, status };
 }

@@ -4,6 +4,7 @@ import MessageThread from '../../components/MessageThread';
 import { fetchStaffSupport, fetchSupportInbox, replyAsSupport, setSupportStatus } from '../../api/communication';
 import type { StaffSupportConversation, StaffSupportSummary } from '../../api/communication';
 import { adminError, button, card } from './adminData';
+import ReportPanel from './ReportPanel';
 
 type Filter = 'open' | 'closed' | 'all';
 const FILTERS: [Filter, string][] = [['open', 'Open'], ['closed', 'Closed'], ['all', 'All']];
@@ -86,6 +87,7 @@ function StaffRequest({ id, onChange, onBack }: { id: number; onChange: () => vo
       <button className={button} onClick={() => void toggle()}>{request.status === 'open' ? 'Close request' : 'Reopen'}</button>
     </header>
     {error && <p role="alert" className="border-b border-gray-200 bg-red-50 px-5 py-2 text-sm text-red-700">{error}</p>}
+    {request.reports && <div className="border-b border-gray-200 p-4"><ReportPanel summary={request.reports} onResolved={() => { void load(); onChange(); }} /></div>}
     <MessageThread label={`Support request ${request.subject}`} messages={request.messages} onSend={send} placeholder="Reply as LingoHub support…" />
   </>;
 }

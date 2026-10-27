@@ -50,7 +50,7 @@ export default function FriendsLeaderboard() {
       })}</ol>
       {friendsShown === 0 && <p className="mt-3 text-sm text-gray-600">{board.hidden ? "Your friends keep their progress private." : "Add friends to see how you compare."}</p>}
       {friendsShown > 0 && board.hidden > 0 && <p className="mt-3 text-sm text-gray-600">{board.hidden} {board.hidden === 1 ? "friend keeps" : "friends keep"} their progress private and {board.hidden === 1 ? "isn't" : "aren't"} shown.</p>}
-      {sorted.find(entry => entry.self) && friendsShown > 0 && <p className="mt-1 text-xs text-gray-500">Friends with a private profile never appear here. Choose who sees your progress in <Link to="/profile?tab=settings" className="font-semibold text-emerald-700 hover:underline">settings</Link>.</p>}
+      {sorted.find(entry => entry.self) && friendsShown > 0 && <p className="mt-1 text-xs text-gray-500">Friends with a private profile never appear here. Choose who sees your progress in <Link to="/settings/privacy" className="font-semibold text-emerald-700 hover:underline">settings</Link>.</p>}
     </>}
   </section>;
 }

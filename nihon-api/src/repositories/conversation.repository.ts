@@ -205,3 +205,8 @@ export async function countUnreadSupportForStaff(): Promise<number> {
                     AND m.id > COALESCE(c.staff_read_message_id, 0))`);
   return result.rows[0].count;
 }
+
+/** Opens or closes a conversation inside a transaction. */
+export async function setConversationStatusIn(db: Queryable, conversationId: number, status: "open" | "closed") {
+  await db.query("UPDATE conversations SET status = $2 WHERE id = $1", [conversationId, status]);
+}

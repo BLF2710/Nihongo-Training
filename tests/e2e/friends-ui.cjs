@@ -159,14 +159,25 @@ const details = name => ({ bio: `${people[name].displayName} studies every morni
     await page.getByText('Live: requests appear as they arrive').waitFor({ timeout: 10000 });
     assert.ok(await page.evaluate(() => window.__connections) > connections, 'reconnected'); await page.waitForTimeout(200); assert.ok(friendLoads > loads, 'resynced after reconnecting');
 
-    // ---- Privacy settings
-    await page.goto(base + '/profile?tab=settings'); await page.getByRole('group', { name: 'Who can see your progress' }).waitFor();
+    // ---- Settings: privacy choices save at once; learning settings with Save; old links still arrive
+    const profileWrites = () => writes.filter(w => w.p === '/profile/me');
+    const nextWrite = async count => { for (let i = 0; i < 100 && profileWrites().length <= count; i++) await page.waitForTimeout(20); return profileWrites().at(-1).body; };
+    await page.goto(base + '/profile?tab=settings'); await page.waitForURL('**/settings/profile');
+    await page.getByRole('navigation', { name: 'Settings sections' }).getByRole('link', { name: /Privacy & friends/ }).click(); await page.getByRole('group', { name: 'Who can see your progress' }).waitFor();
     assert.equal(await page.getByRole('radio', { name: /Only me/ }).isChecked(), true);
-    await page.getByRole('radio', { name: /Friends/ }).check(); await page.getByLabel(/Allow friend requests/).uncheck(); await page.getByLabel('Native language').fill('Vietnamese');
-    await page.getByRole('button', { name: 'Save changes' }).click(); await page.getByText('Settings saved.').waitFor();
-    const saved = writes.filter(w => w.p === '/profile/me').at(-1).body;
-    assert.deepEqual([saved.profileVisibility, saved.friendRequests, saved.nativeLanguage], ['friends', 'nobody', 'Vietnamese']);
-    await page.getByRole('button', { name: 'Profile', exact: true }).click(); await page.getByText('Progress visible to: your friends').waitFor();
+    let count = profileWrites().length;
+    await page.getByRole('radio', { name: /Friends/ }).check(); assert.equal((await nextWrite(count)).profileVisibility, 'friends');
+    count = profileWrites().length;
+    await page.getByLabel(/Allow friend requests/).uncheck(); assert.equal((await nextWrite(count)).friendRequests, 'nobody');
+    await page.getByRole('navigation', { name: 'Settings sections' }).getByRole('link', { name: /Learning/ }).click();
+    await page.getByLabel('Native language').fill('Vietnamese');
+    page.once('dialog', dialog => void dialog.dismiss());
+    await page.getByRole('navigation', { name: 'Settings sections' }).getByRole('link', { name: /Privacy & friends/ }).click();
+    assert.match(page.url(), /\/settings\/learning$/, 'unsaved changes keep you on the section');
+    await page.getByRole('button', { name: 'Save changes' }).click(); await page.getByText('Saved.').waitFor();
+    const saved = profileWrites().at(-1).body;
+    assert.deepEqual([saved.profileVisibility, saved.friendRequests, saved.nativeLanguage], ['friends', 'nobody', 'Vietnamese'], 'each save keeps the other sections');
+    await page.getByRole('button', { name: '← Back' }).click(); await page.waitForURL('**/profile'); await page.getByText('Progress visible to: your friends').waitFor();
     await page.getByRole('link', { name: 'See your public profile →' }).click(); await page.waitForURL('**/u/kai');
     await page.getByText('Your friends can see your progress, bio and achievements.').waitFor();
 

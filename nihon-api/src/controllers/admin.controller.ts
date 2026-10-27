@@ -24,7 +24,7 @@ export const updateUser = action(async (req, res) => {
 }, { label: "Admin user update", message: "Could not update the user." });
 
 export const updateLessonAccess = action(async (req, res) => {
-  return res.json(await adminService.setLessonAccess(req.params.id, req.body?.unlocked));
+  return res.json(await adminService.setLessonAccess(getUserId(req), req.params.id, req.body?.unlocked));
 }, { label: "Admin lesson access", message: "Could not change lesson access." });
 
 export const getSettings = action(async (_req, res) => {
@@ -48,11 +48,11 @@ export const createQuestion = action(async (req, res) => {
 }, { label: "Admin question create", message: "Could not save the question." });
 
 export const updateQuestion = action(async (req, res) => {
-  return res.json(await questionBankService.editQuestion(req.params.id, req.body ?? {}));
+  return res.json(await questionBankService.editQuestion(getUserId(req), req.params.id, req.body ?? {}));
 }, { label: "Admin question update", message: "Could not save the question." });
 
 export const deleteQuestion = action(async (req, res) => {
-  await questionBankService.removeQuestion(req.params.id);
+  await questionBankService.removeQuestion(getUserId(req), req.params.id);
   return res.json({ deleted: true });
 }, { label: "Admin question delete", message: "Could not delete the question." });
 

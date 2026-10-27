@@ -51,7 +51,7 @@ function ProfileView({ username }: { username: string }) {
   if (isBlocked) return <Page><section role="status" className="rounded-3xl border border-gray-200 bg-white p-8 text-center">
     <h1 className="text-2xl font-black">You blocked @{username}</h1>
     <p className="mt-2 text-gray-600">They can't find, message or add you any more. You can unblock them in Settings.</p>
-    <div className="mt-5 flex justify-center gap-3"><Link to="/profile?tab=settings" className={friendButton}>Blocked learners</Link><Link to="/friends" className={friendPrimary}>Go to Friends</Link></div>
+    <div className="mt-5 flex justify-center gap-3"><Link to="/settings/blocked" className={friendButton}>Blocked learners</Link><Link to="/friends" className={friendPrimary}>Go to Friends</Link></div>
   </section></Page>;
   if (error) return <Page><section className="rounded-3xl border border-gray-200 bg-white p-8 text-center">
     <h1 className="text-2xl font-black">{error.missing ? "Learner not found" : "Profile unavailable"}</h1>
@@ -63,7 +63,7 @@ function ProfileView({ username }: { username: string }) {
   const { friendship, profile } = data;
   const self = friendship.state === "self";
   const joined = new Date(data.joinedAt).toLocaleDateString(undefined, { month: "long", year: "numeric" });
-  const actions = self ? <Link to="/profile?tab=settings" className={friendButton}>Edit profile & privacy</Link> : <>
+  const actions = self ? <Link to="/settings/profile" className={friendButton}>Edit profile & privacy</Link> : <>
     {friendship.state === "none" && (data.canRequest
       ? <button className={friendPrimary} disabled={busy} onClick={() => void act(() => sendFriendRequest(data.username), `Friend request sent to @${data.username}.`)}>Add friend</button>
       : <span className="rounded-xl bg-gray-100 px-3 py-2 text-sm text-gray-600">Not accepting friend requests</span>)}

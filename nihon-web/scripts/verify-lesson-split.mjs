@@ -31,13 +31,17 @@ test("leaves no lesson-page field in the real course summaries", () => {
   assert.equal(summaries.filter(summary => LESSON_BODY_FIELDS.some(field => field in summary)).length, 0);
 });
 
-test("the built main bundle has lesson titles but not challenge explanations, which are in unit chunks", async () => {
+test("the code loaded at startup has lesson titles but not challenge explanations, which are in unit chunks", async () => {
   const lesson = courseLessons.find(item => item.challenge.length > 0);
   const explanation = JSON.stringify(lesson.challenge[0].explanation).slice(1, -1);
   const output = await build({ root, logLevel: "silent", build: { write: false } });
   const chunks = (Array.isArray(output) ? output : [output]).flatMap(result => result.output).filter(file => file.type === "chunk");
-  const entry = chunks.find(chunk => chunk.isEntry);
-  assert.ok(entry.code.includes(JSON.stringify(lesson.title).slice(1, -1)), "the lesson title is in the main bundle");
-  assert.ok(!entry.code.includes(explanation), "the challenge explanation is not in the main bundle");
+  // The entry and everything it imports statically: what every visitor downloads before the first page.
+  const startup = new Map();
+  const collect = chunk => { if (!chunk || startup.has(chunk.fileName)) return; startup.set(chunk.fileName, chunk); chunk.imports.forEach(name => collect(chunks.find(item => item.fileName === name))); };
+  collect(chunks.find(chunk => chunk.isEntry));
+  const startupCode = [...startup.values()].map(chunk => chunk.code).join(" ");
+  assert.ok(startupCode.includes(JSON.stringify(lesson.title).slice(1, -1)), "the lesson title is loaded at startup");
+  assert.ok(!startupCode.includes(explanation), "the challenge explanation is not loaded at startup");
   assert.ok(chunks.some(chunk => chunk.name === lesson.unitId && chunk.code.includes(explanation)), "the unit chunk has it");
 });

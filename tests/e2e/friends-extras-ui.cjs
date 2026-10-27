@@ -131,14 +131,15 @@ const person = (username, displayName) => ({ username, displayName });
     await page.getByRole('heading', { name: 'You blocked @sora' }).waitFor();
 
     // ---- Settings: opt-in choices and the blocked list
-    await page.goto(base + '/profile?tab=settings');
+    await page.goto(base + '/settings/privacy');
     const suggest = page.getByLabel('Friend suggestions');
     await suggest.waitFor(); assert.equal(await suggest.isChecked(), true);
     await suggest.uncheck();
     for (let i = 0; i < 50 && !wrote('PUT', '/profile/me/social'); i++) await page.waitForTimeout(20);
     assert.deepEqual(wrote('PUT', '/profile/me/social').body, { suggestMe: false });
     assert.equal(await page.getByLabel("Show friends when I'm studying").isChecked(), false);
-    const blockedList = page.getByRole('region', { name: 'Blocked learners' });
+    await page.getByRole('navigation', { name: 'Settings sections' }).getByRole('link', { name: /Blocked learners/ }).click();
+    const blockedList = page.getByRole('region', { name: 'Blocked learners' }).last();
     await blockedList.getByText('@sora').waitFor();
     await page.getByRole('button', { name: 'Unblock sora' }).click();
     await blockedList.getByText("You haven't blocked anyone.").waitFor();
@@ -154,6 +155,10 @@ const person = (username, displayName) => ({ username, displayName });
     await page.goto(base + '/friends');
     await page.getByRole('region', { name: 'Friend activity' }).waitFor();
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, 'fits a phone screen');
+    await page.goto(base + '/settings/privacy');
+    await page.getByRole('group', { name: 'Who can see your progress' }).waitFor();
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, 'settings fit a phone screen');
+    await page.screenshot({ path: path.join(shots, 'settings-phone.png') });
 
     assert.deepEqual(errors, []);
     console.log('PASS: friend streak and studying now on the list; nudge (not for friends who studied today); challenges: accept, send (goal and length), result; activity feed with cheers; suggestions with reasons and Add friend; report (support link) and block from a profile; opt-in settings saved on change; blocked list with Unblock; nudge, cheer and challenge notifications; phone width');

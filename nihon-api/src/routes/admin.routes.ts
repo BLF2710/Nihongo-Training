@@ -5,6 +5,9 @@ import {
   updateContent, updateLessonAccess, updateQuestion, updateSettings, updateUser,
 } from "../controllers/admin.controller";
 import { adminGetSupport, adminListSupport, adminReplySupport, adminSetSupportStatus } from "../controllers/communication.controller";
+import {
+  discardLessonDraft, exportLessonEdits, getLessonEdit, listAuditLog, listLessonEdits, listReports, publishLesson, resolveLearnerReports, revertLesson, saveLessonDraft,
+} from "../controllers/moderation.controller";
 import { requireAdmin } from "../middleware/admin.middleware";
 import { authenticate } from "../middleware/auth.middleware";
 
@@ -30,6 +33,16 @@ router.get("/support", adminListSupport);
 router.get("/support/:id", adminGetSupport);
 router.post("/support/:id/messages", adminReplySupport);
 router.patch("/support/:id", adminSetSupportStatus);
+router.get("/audit-log", listAuditLog);
+router.get("/reports", listReports);
+router.post("/reports/:userId/resolve", resolveLearnerReports);
+router.get("/lessons/edits", listLessonEdits);
+router.get("/lessons/export", exportLessonEdits);
+router.get("/lessons/:lessonId/edit", getLessonEdit);
+router.put("/lessons/:lessonId/draft", saveLessonDraft);
+router.delete("/lessons/:lessonId/draft", discardLessonDraft);
+router.post("/lessons/:lessonId/publish", publishLesson);
+router.delete("/lessons/:lessonId/published", revertLesson);
 
 const handleUnexpectedError: ErrorRequestHandler = (error, _req, res, _next) => {
   console.error(error);

@@ -9,6 +9,8 @@ import {
 import { HttpError } from "../utils/http-error";
 import { EMAIL_PATTERN, USERNAME_PATTERN } from "../utils/validation";
 import { CONTENT, isManagedContent } from "./admin-content.service";
+import { recordAdminAction, recordAdminActionNow } from "./audit-log.service";
+import type { AuditAction } from "./audit-log.service";
 
 const USERS_PAGE_SIZE = 20;
 const MAX_USERS_PAGE = 100000;
@@ -51,6 +53,22 @@ export async function listUsers(rawSearch: unknown, rawPage: unknown) {
   return { users, page, total, pageSize: USERS_PAGE_SIZE };
 }
 
+type Account = { username: string; email: string; role: string; status: string };
+type AccountChange = { action: AuditAction; details: Record<string, unknown> };
+
+/** Audit entries for an account edit. The email address itself is not copied into the log, only that it changed. */
+function accountChanges(before: Account, after: Account): AccountChange[] {
+  const changes: AccountChange[] = [];
+  if (before.status !== after.status) changes.push({ action: after.status === "suspended" ? "user.suspended" : "user.reactivated", details: {} });
+  if (before.role !== after.role) changes.push({ action: "user.role_changed", details: { from: before.role, to: after.role } });
+  const fields = {
+    ...(before.username !== after.username ? { username: { from: before.username, to: after.username } } : {}),
+    ...(before.email !== after.email ? { email: "changed" } : {}),
+  };
+  if (Object.keys(fields).length) changes.push({ action: "user.details_changed", details: fields });
+  return changes;
+}
+
 /** Edits an account while guaranteeing that at least one active administrator always remains. */
 export async function updateUser(actorId: number, id: number, edit: Record<string, unknown>) {
   if (!isValidUserEdit(id, edit)) throw new HttpError(400, "Enter a valid username, email, role, and status.");
@@ -68,7 +86,9 @@ export async function updateUser(actorId: number, id: number, edit: Record<strin
       if (isActiveAdminState(target.role, target.status) && !keepsAdminAccess && await countActiveAdmins(client) <= 1) {
         throw new HttpError(409, "At least one active administrator must remain.");
       }
-      return updateAccount(client, { id, username, email: email.trim().toLowerCase(), role, status });
+      const updated = await updateAccount(client, { id, username, email: email.trim().toLowerCase(), role, status });
+      for (const change of accountChanges(target, updated)) await recordAdminAction(client, { actorId, targetUserId: id, ...change });
+      return updated;
     });
   } catch (error) {
     if ((error as { code?: string }).code === UNIQUE_VIOLATION) throw new HttpError(409, "That username or email is already in use.");
@@ -77,11 +97,12 @@ export async function updateUser(actorId: number, id: number, edit: Record<strin
 }
 
 /** Opens (or restores normal progression for) every unit and lesson of one account. Progress and XP are not changed. */
-export async function setLessonAccess(rawId: unknown, unlocked: unknown) {
+export async function setLessonAccess(actorId: number, rawId: unknown, unlocked: unknown) {
   const id = Number(rawId);
   if (typeof unlocked !== "boolean") throw new HttpError(400, "Choose whether all lessons are unlocked.");
   const updated = Number.isSafeInteger(id) && id >= 1 ? await setAllLessonsUnlocked(id, unlocked) : null;
   if (!updated) throw new HttpError(404, "User not found.");
+  await recordAdminActionNow({ actorId, action: unlocked ? "user.lessons_unlocked" : "user.lessons_relocked", targetUserId: id });
   return updated;
 }
 
@@ -96,7 +117,9 @@ export async function saveSettings(actorId: number, input: Record<string, unknow
   if (typeof registration_enabled !== "boolean" || typeof announcement !== "string" || announcement.length > 500 || (audience !== "everyone" && audience !== "learners")) {
     throw new HttpError(400, "Use a valid registration setting, an announcement of at most 500 characters and an audience of everyone or learners.");
   }
-  return updateSettings(registration_enabled, announcement.trim(), audience, actorId);
+  const saved = await updateSettings(registration_enabled, announcement.trim(), audience, actorId);
+  await recordAdminActionNow({ actorId, action: "settings.updated", details: { registrationEnabled: registration_enabled, announcement: announcement.trim(), audience } });
+  return saved;
 }
 
 export async function listContent() {
@@ -107,5 +130,6 @@ export async function listContent() {
 export async function setContentEnabled(actorId: number, key: string, enabled: unknown) {
   if (!isManagedContent(key) || typeof enabled !== "boolean") throw new HttpError(400, "Invalid content or availability.");
   await setContentAvailability(key, enabled, actorId);
+  await recordAdminActionNow({ actorId, action: enabled ? "content.enabled" : "content.disabled", targetRef: key });
   return { key, enabled };
 }

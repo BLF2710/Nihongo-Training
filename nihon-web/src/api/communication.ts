@@ -1,4 +1,5 @@
 import api from "./axios";
+import type { ReportSummary } from "./moderation";
 
 // Learner-to-learner messages, Help & support, and the study assistant all share this message shape.
 export type ChatMessage = { id: number; body: string; senderRole: "learner" | "admin" | "assistant"; sender: string; mine: boolean; sentAt: string };
@@ -49,7 +50,11 @@ export const askAssistant = async (body: string, conversationId: number | null, 
 
 // Support inbox for administrators.
 export type StaffSupportSummary = Omit<SupportSummary, "unread"> & { unread: boolean; learner: { id: number; username: string; name: string } | null };
-export type StaffSupportConversation = SupportConversation & { createdAt: string; learner: { id: number; username: string; name: string; status: string } | null };
+export type StaffSupportConversation = SupportConversation & {
+  createdAt: string; learner: { id: number; username: string; name: string; status: string } | null;
+  /** For a report: every open report about the same learner. */
+  reports: ReportSummary | null;
+};
 export const fetchSupportInbox = async (status: "open" | "closed" | "all", signal?: AbortSignal) =>
   (await api.get<{ unreadOpen: number; conversations: StaffSupportSummary[] }>("/admin/support", { signal, params: { status } })).data;
 export const fetchStaffSupport = async (id: number, signal?: AbortSignal) =>

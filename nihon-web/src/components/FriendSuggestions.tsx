@@ -35,7 +35,7 @@ export default function FriendSuggestions({ onRequested }: { onRequested: (messa
   if (!data && !error) return null;
   return <section aria-labelledby="suggestions-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
     <h2 id="suggestions-heading" className="text-lg font-bold">People you might know</h2>
-    {data && !data.enabled && <p className="mt-2 text-sm text-gray-600">Turn on <b>Friend suggestions</b> in <Link to="/profile?tab=settings" className="font-bold text-emerald-700 hover:underline">settings</Link> to see friends of your friends and learners on your level who did the same.</p>}
+    {data && !data.enabled && <p className="mt-2 text-sm text-gray-600">Turn on <b>Friend suggestions</b> in <Link to="/settings/privacy" className="font-bold text-emerald-700 hover:underline">settings</Link> to see friends of your friends and learners on your level who did the same.</p>}
     {data?.enabled && (data.suggestions.length === 0
       ? <p className="mt-2 text-sm text-gray-600">No suggestions right now. They come from friends of your friends and learners on your course level who also turned suggestions on.</p>
       : <ul className="mt-2 divide-y divide-gray-100">{data.suggestions.map(suggestion => <li key={suggestion.username} className="flex flex-wrap items-center gap-3 py-3">

@@ -8,6 +8,7 @@ import { USERNAME_PATTERN } from "../utils/validation";
 import { cleanBody, enforceRate, idParam, preview, toMessage } from "./conversation-format";
 import { countFriendRequests } from "./friend.service";
 import { setLearnerBlock } from "./learner-block.service";
+import { fileReport } from "./moderation.service";
 import { countUnread as countUnreadNotifications } from "./notification.service";
 import { publish } from "./realtime.service";
 
@@ -94,12 +95,8 @@ export async function reportDirectMessage(userId: number, conversationId: unknow
   if (!message || message.sender_id === userId) throw new HttpError(404, "Message not found.");
   const note = typeof reason === "string" ? reason.trim().slice(0, 500) : "";
   const body = `Reported message #${message.id} from @${other.username} (conversation #${conversation.id}):\n\n“${message.body}”${note ? `\n\nReason: ${note}` : ""}`;
-  const supportId = await withTransaction(async client => {
-    const id = await createConversation(client, { kind: "support", subject: `Report: message from @${other.username}`, createdBy: userId, memberIds: [userId] });
-    await insertMessage(client, { conversationId: id, senderId: userId, senderRole: "learner", body });
-    return id;
-  });
-  return { supportConversationId: supportId };
+  const { supportConversationId } = await fileReport({ reporterId: userId, reported: other, kind: "message", reason: note, subject: `Report: message from @${other.username}`, body });
+  return { supportConversationId };
 }
 
 /** Unread counts for the navigation badge. */

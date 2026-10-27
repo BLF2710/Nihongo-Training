@@ -131,7 +131,7 @@ export default function FriendsPage() {
           <button className={friendButton + " ml-auto"} disabled={!!busy} aria-label={`Cancel friend request to ${request.username}`} onClick={() => void run(`req:${request.id}`, () => cancelFriendRequest(request.id), `Request to @${request.username} cancelled.`)}>Cancel</button>
         </li>)}</ul>
       </section>}
-      <p className="mt-6 text-sm text-gray-600">Choose who can see your progress and whether others can send you requests in <Link to="/profile?tab=settings" className="font-bold text-emerald-700 hover:underline">profile settings</Link>.</p>
+      <p className="mt-6 text-sm text-gray-600">Choose who can see your progress and whether others can send you requests in <Link to="/settings/privacy" className="font-bold text-emerald-700 hover:underline">privacy settings</Link>.</p>
     </>}
   </main></div>;
 }

@@ -1,11 +1,12 @@
 import { withTransaction } from "../db/transaction";
-import { createConversation, insertMessage, setBlocked } from "../repositories/conversation.repository";
+import { setBlocked } from "../repositories/conversation.repository";
 import { cancelOpenChallenges } from "../repositories/friend-challenge.repository";
 import { deletePair, findLearnerByUsername } from "../repositories/friendship.repository";
 import { listBlockedLearners } from "../repositories/learner-block.repository";
 import { HttpError } from "../utils/http-error";
 import { USERNAME_PATTERN } from "../utils/validation";
 import { findOther, requireLearner } from "./friend.service";
+import { fileReport } from "./moderation.service";
 import { publish } from "./realtime.service";
 
 const MAX_REPORT_LENGTH = 500;
@@ -57,11 +58,8 @@ export async function reportLearner(userId: number, username: unknown, reason: u
   const note = typeof reason === "string" ? reason.trim() : "";
   if (!note) throw new HttpError(400, "Say what is wrong so the support team can look into it.");
   if (note.length > MAX_REPORT_LENGTH) throw new HttpError(400, `Keep the report under ${MAX_REPORT_LENGTH} characters.`);
-  const body = `Reported learner @${other.username} (profile /u/${other.username}).\n\nReason: ${note}`;
-  const supportConversationId = await withTransaction(async client => {
-    const id = await createConversation(client, { kind: "support", subject: `Report: learner @${other.username}`, createdBy: userId, memberIds: [userId] });
-    await insertMessage(client, { conversationId: id, senderId: userId, senderRole: "learner", body });
-    return id;
+  return fileReport({
+    reporterId: userId, reported: other, kind: "profile", reason: note,
+    subject: `Report: learner @${other.username}`, body: `Reported learner @${other.username} (profile /u/${other.username}).\n\nReason: ${note}`,
   });
-  return { supportConversationId };
 }

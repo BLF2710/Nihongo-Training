@@ -9,7 +9,7 @@
     "test:grading": "node --test scripts/test-speaking-grading.cjs",
     "test:auth": "node --test scripts/test-google-sign-in.cjs",
     "test:learning": "node --test scripts/test-learning.cjs",
-    "test": "node --test scripts/test-speaking-grading.cjs scripts/test-google-sign-in.cjs scripts/test-learning.cjs scripts/test-shared-state.cjs scripts/test-social.cjs",
+    "test": "node --test scripts/test-speaking-grading.cjs scripts/test-google-sign-in.cjs scripts/test-learning.cjs scripts/test-shared-state.cjs scripts/test-social.cjs scripts/test-lesson-content.cjs",
     "admin:grant": "ts-node src/scripts/grant-admin.ts"
   },
   "keywords": [],

@@ -1,4 +1,5 @@
 import BackButton from "./BackButton";
+import type { BackTarget } from "./BackButton";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
@@ -12,7 +13,8 @@ import { syncTimeZone } from "../lib/timeZone";
 import { ThemeButton } from "./ThemeToggle";
 import LanguageMenu from "./LanguageMenu";
 
-export default function Navbar() {
+/** `back` gives the Back button a fixed destination instead of the previous page in history. */
+export default function Navbar({ back }: { back?: BackTarget } = {}) {
   const navigate = useNavigate();
   const location = useLocation();
   const { language, supportedLanguages } = useLanguage();
@@ -93,7 +95,7 @@ export default function Navbar() {
           <div className="min-w-0"><p className="font-bold text-gray-900 truncate">{userName}</p>{handle && <p className="text-sm text-gray-600 truncate">@{handle}</p>}<p className="text-xs text-gray-500 truncate">{userEmail || "Signed-in learner"}</p></div>
         </div>
         {handle && <p className="mt-3 rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-600">Friends add you with your username <b className="text-gray-900">@{handle}</b>; your display name can be anything.</p>}
-        <button onClick={() => go("/profile")} className="mt-4 w-full rounded-lg bg-emerald-600 py-2 text-sm font-bold text-white">View profile & settings</button>
+        <div className="mt-4 grid grid-cols-2 gap-2"><button onClick={() => go("/profile")} className="rounded-lg bg-emerald-600 py-2 text-sm font-bold text-white">Profile</button><button onClick={() => go("/settings/profile")} className="rounded-lg border border-gray-200 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50">Settings</button></div>
         <button onClick={() => go("/friends")} className="mt-2 w-full rounded-lg border border-gray-200 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50">Friends{inbox?.friendRequests ? ` · ${inbox.friendRequests} new` : ""}</button>
       </div>}
 
@@ -139,7 +141,7 @@ export default function Navbar() {
           <button onClick={logout} className="mt-6 w-full rounded-xl border border-gray-200 px-3 py-2.5 text-left text-sm font-semibold text-gray-600 hover:bg-red-50 hover:text-red-600 transition cursor-pointer sm:hidden">Log out</button>
         </div>
       </aside>}
-      {location.pathname !== "/" && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}
+      {location.pathname !== "/" && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton target={back} className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}
     </>
   );
 }

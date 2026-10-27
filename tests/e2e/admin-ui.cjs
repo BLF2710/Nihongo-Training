@@ -65,7 +65,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     // Learner pages send an administrator back to the admin area.
     for (const path of ['/', '/vocabulary', '/profile', '/lessons', '/practice?type=hiragana', '/statistics']) { await page.goto(base + path); await heading('Overview').waitFor(); assert.equal(new URL(page.url()).pathname, '/admin', path); } await page.getByText('Total users').waitFor();
     const nav = page.getByRole('navigation', { name: 'Admin navigation' });
-    assert.deepEqual(await nav.getByRole('link').allTextContents(), ['Overview', 'Users & roles', 'Manage content', 'Question bank', 'Support inbox', 'System status', 'System settings']);
+    assert.deepEqual(await nav.getByRole('link').allTextContents(), ['Overview', 'Users & roles', 'Manage content', 'Question bank', 'Support inbox', 'Reports', 'Lesson editor', 'Audit log', 'System status', 'System settings']);
     assert.equal(await page.getByRole('navigation', { name: 'Page navigation' }).count(), 0, 'learner navbar must not render inside admin');
     await page.screenshot({ path: shots + '/admin-overview.png' });
 

@@ -72,7 +72,7 @@ window.google = { accounts: { id: {
     await page.evaluate(() => { window.__googleEmail = 'boss@gmail.com'; }); await googleButton(page).click(); await page.waitForURL('**/admin');
     // ---- Settings: connect, then disconnect (the account has a password)
     await page.evaluate(() => { localStorage.setItem('user_role', 'learner'); window.__googleEmail = 'mika.other@gmail.com'; });
-    await page.goto(base + '/profile?tab=settings'); const security = page.getByRole('region', { name: 'Account security' }); await security.getByRole('heading', { name: 'Google' }).waitFor();
+    await page.goto(base + '/settings/account'); const security = page.getByRole('region', { name: 'Account security' }); await security.getByRole('heading', { name: 'Google' }).waitFor();
     await page.evaluate(() => { window.__googleEmail = 'mika.other@gmail.com'; });
     assert.equal(await page.evaluate(() => window.__gis.inits.at(-1).context), 'use');
     await googleButton(page).click(); await security.getByText('Connected mika.other@gmail.com. You can now sign in with Google.').waitFor();

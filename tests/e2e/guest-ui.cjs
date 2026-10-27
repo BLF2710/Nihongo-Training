@@ -31,7 +31,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     assert.equal(await page.locator('aside').count(), 0);
     assert.equal(await heading('Your path').count(), 0);
     assert.deepEqual((await page.locator('main a').evaluateAll(links => links.map(a => a.getAttribute('href')))).sort(), ['/guest/practice?type=hiragana', '/guest/practice?type=katakana', '/login', '/register']);
-    assert.deepEqual(calls.filter(c => c.path !== '/site'), [], 'landing makes no account requests');
+    assert.deepEqual(calls.filter(c => !['/site', '/site/lesson-edits'].includes(c.path)), [], 'landing makes no account requests (site settings and published lesson content only)');
     await page.screenshot({ path: shots + '/guest-landing.png' });
 
     // Everything else still needs an account.

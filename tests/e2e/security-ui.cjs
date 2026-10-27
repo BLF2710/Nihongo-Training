@@ -62,7 +62,7 @@ const LINK = 'A'.repeat(43);
     await page.reload(); await page.getByRole('heading', { level: 1 }).waitFor(); assert.equal(await banner.count(), 0, 'stays hidden this session');
 
     // ---- Settings → Account security
-    await page.goto(base + '/profile?tab=settings'); const security = page.getByRole('region', { name: 'Account security' }); await security.waitFor();
+    await page.goto(base + '/settings/account'); const security = page.getByRole('region', { name: 'Account security' }); await security.waitFor();
     await security.getByText('Not confirmed yet').waitFor();
     await security.getByLabel('Current password', { exact: true }).fill('wrong'); await security.getByLabel(/^New password/).fill('third1234'); await security.getByLabel('Confirm new password', { exact: true }).fill('third1234');
     await security.getByRole('button', { name: 'Change password' }).click(); await security.getByRole('alert').getByText('Current password is incorrect.').waitFor();
@@ -79,7 +79,7 @@ const LINK = 'A'.repeat(43);
     // ---- A session revoked elsewhere signs this browser out with an explanation
     await page.evaluate(t => localStorage.setItem('token', t), token); state.verified = true;
     await page.goto(base + '/profile'); await page.getByRole('heading', { name: 'Kai' }).waitFor();
-    state.revoked = true; await page.goto(base + '/profile?tab=settings');
+    state.revoked = true; await page.goto(base + '/settings/account');
     await page.waitForURL('**/login?expired=1'); await status('Your session has ended').waitFor();
     assert.equal(await page.evaluate(() => localStorage.getItem('token')), null);
 

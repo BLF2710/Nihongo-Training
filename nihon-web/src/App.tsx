@@ -47,6 +47,7 @@ const SupportPage = lazy(() => import("./pages/SupportPage"));
 const AssistantPage = lazy(() => import("./pages/AssistantPage"));
 const FriendsPage = lazy(() => import("./pages/FriendsPage"));
 const PublicProfilePage = lazy(() => import("./pages/PublicProfilePage"));
+const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
 const SpeakingTestPage = lazy(() => import("./pages/SpeakingTestPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
@@ -123,6 +124,8 @@ function App() {
           <Route path="/lessons/japanese/n5-unit-1-hello" element={signedIn(<JapaneseHelloLessonPage />)} />
           <Route path="/lessons/japanese/:lessonSlug" element={signedInLazy("Loading lesson…", <JapaneseN5LessonPage />)} />
           <Route path="/profile" element={signedIn(<ProfilePage />)} />
+          <Route path="/settings" element={signedInLazy("Loading settings…", <SettingsPage />)} />
+          <Route path="/settings/:section" element={signedInLazy("Loading settings…", <SettingsPage />)} />
           <Route path="/learn/hiragana" element={signedIn(<HiraganaLearningPage />)} />
           <Route path="/learn/hiragana/:characterId" element={signedIn(<HiraganaLearningPage />)} />
           <Route path="/learn/katakana" element={signedIn(<HiraganaLearningPage key="katakana" script="katakana" />)} />

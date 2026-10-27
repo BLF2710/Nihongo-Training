@@ -65,10 +65,11 @@ Communication and the assistant
 [ ] Browser or email notifications (live updates over server-sent events now exist for friends and new messages)
 [ ] Study groups or class codes
 [ ] Assistant: streaming answers, lesson-aware questions, admin usage/cost view, "flag this answer"
-[ ] Moderation: admin audit log (roles, suspensions, unlocks, support actions), word filter, repeat-report handling
+[x] Moderation: admin audit log (accounts, unlocks, settings, content, question bank, support, reports, lessons) and repeat-report handling (reports grouped per learner, flagged at 3 reporters in 30 days, dismiss / warn / suspend) - migration 025
+[ ] Moderation: word filter
 
 Admin and operations
-[ ] Edit lessons from the admin area with a draft -> publish flow (today: source files + re-import)
+[x] Edit lessons from the admin area: draft -> publish -> restore original; published edits load at startup and apply on every page; Export + scripts/course-import/apply-lesson-edits.mjs write them into shared/course/lessons.json
 [ ] Database backups and restore steps, error reporting, health checks
 
 Interface

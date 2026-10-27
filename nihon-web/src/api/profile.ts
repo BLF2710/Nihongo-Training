@@ -29,3 +29,12 @@ export async function updateProfile(update: ProfileUpdate) {
 export async function updateTimeZone(timeZone: string) {
   await api.put("/profile/me/time-zone", { timeZone });
 }
+
+/** The full update the API expects, from a loaded profile; a settings section overrides only its own fields. */
+export function toProfileUpdate(profile: Profile): ProfileUpdate {
+  return {
+    displayName: profile.display_name, avatar: profile.avatar || "", bio: profile.bio, learningLanguage: profile.learning_language,
+    learningGoal: profile.learning_goal || "", dailyGoal: Number(profile.daily_goal), profileVisibility: profile.profile_visibility,
+    nativeLanguage: profile.native_language || "", friendRequests: profile.friend_requests ?? "everyone",
+  };
+}

@@ -48,7 +48,7 @@ export default function TodayPanel({ units }: { units: CourseUnit[] | null }) {
           <progress aria-label="Study time toward today's goal" max={1} value={goalShare} className="mt-2 h-2 w-full accent-emerald-600" />
           <p className="mt-1 text-sm text-gray-500">{goal.isGoalMet ? "Goal reached today ✓" : `About ${minutesLeft} more ${minutesLeft === 1 ? "minute" : "minutes"} of lessons or practice.`}</p>
         </>}
-        <Link to="/profile?tab=settings" className={`mt-auto pt-3 text-sm font-bold text-emerald-700 ${focus}`}>Change goal →</Link>
+        <Link to="/settings/learning" className={`mt-auto pt-3 text-sm font-bold text-emerald-700 ${focus}`}>Change goal →</Link>
       </div>
       <Link to="/mistakes" className={tile}>
         <p className="text-sm font-semibold text-gray-500"><span aria-hidden="true">📒 </span>Mistake notebook</p>

@@ -133,8 +133,8 @@ export async function isActiveAdmin(userId: number, db: Queryable): Promise<bool
   return Boolean(result.rowCount);
 }
 
-export async function lockUserRoleAndStatus(userId: number, db: Queryable): Promise<{ role: string; status: string } | undefined> {
-  const result = await db.query("SELECT role,status FROM users WHERE id=$1 FOR UPDATE", [userId]);
+export async function lockUserRoleAndStatus(userId: number, db: Queryable): Promise<{ username: string; email: string; role: string; status: string } | undefined> {
+  const result = await db.query("SELECT username,email,role,status FROM users WHERE id=$1 FOR UPDATE", [userId]);
   return result.rows[0];
 }
 
@@ -155,4 +155,10 @@ export async function updateAccount(db: Queryable, edit: AccountEdit) {
     [edit.username, edit.email, edit.role, edit.status, edit.id]
   );
   return result.rows[0];
+}
+
+/** Suspends a learner account (never an administrator). False when there is no such learner. */
+export async function suspendLearner(db: Queryable, userId: number): Promise<boolean> {
+  const result = await db.query("UPDATE users SET status='suspended', updated_at=NOW() WHERE id=$1 AND role='learner' AND status='active'", [userId]);
+  return Boolean(result.rowCount);
 }
