@@ -22,6 +22,8 @@ async function main() {
   try {
     await client.query('BEGIN');
     await client.query('CREATE TEMP TABLE users (id INTEGER PRIMARY KEY); INSERT INTO users VALUES (1),(2)');
+    // Streak days are recorded with every learning action; a temp copy keeps them off the real users table.
+    await client.query('CREATE TEMP TABLE activity_days (LIKE public.activity_days INCLUDING ALL)');
     for (const table of ['hiraganas','katakanas']) await client.query(`CREATE TEMP TABLE ${table} (id INTEGER PRIMARY KEY, kana TEXT, romaji TEXT); INSERT INTO ${table} VALUES (1,'a','a')`);
     for (const [table, column] of [['user_progress','hiragana_id'],['user_katakana_progress','katakana_id']]) await client.query(`CREATE TEMP TABLE ${table} (user_id INTEGER, ${column} INTEGER, correct_count INTEGER, wrong_count INTEGER, PRIMARY KEY(user_id,${column}))`);
     await client.query('CREATE TEMP TABLE user_gamification(user_id INTEGER PRIMARY KEY, xp INTEGER, updated_at TIMESTAMPTZ, current_streak INTEGER NOT NULL DEFAULT 0, longest_streak INTEGER NOT NULL DEFAULT 0, last_activity_at TIMESTAMPTZ); INSERT INTO user_gamification VALUES (1,0,NOW()),(2,0,NOW())');

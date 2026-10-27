@@ -4,9 +4,11 @@ const assert = require('node:assert/strict');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright');
 const [base, shots] = process.argv.slice(2);
 (async () => {
-  // The real character list (read-only), so the setup screen's columns match the site.
-  const characters = await (await fetch('http://localhost:5000/api/quiz/characters?type=hiragana')).json();
-  const list = Array.isArray(characters) ? characters : characters.characters;
+  // The real hiragana list, as the API serves it, read from the migration that seeds it (no API server needed).
+  const seed = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../nihon-api/migrations/000_base_schema.sql'), 'utf8');
+  const rows = seed.slice(seed.indexOf('INSERT INTO hiraganas'), seed.indexOf(';', seed.indexOf('INSERT INTO hiraganas')));
+  const list = [...rows.matchAll(/\((\d+), '([^']+)', '([^']+)'\)/g)].map(([, id, kana, romaji]) => ({ id: Number(id), kana, romaji }));
+  const characters = { type: 'hiragana', characters: list };
   assert.ok(list.length > 40, 'character list');
   const romaji = new Map(list.map(c => [c.kana, c.romaji]));
   const browser = await chromium.launch({ headless: true, executablePath: process.env.BROWSER_EXECUTABLE });
