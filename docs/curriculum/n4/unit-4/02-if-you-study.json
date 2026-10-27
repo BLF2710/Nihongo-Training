@@ -1,0 +1,469 @@
+{
+  "id": "japanese-n4-unit-4-if-you-study",
+  "slug": "n4-unit-4-if-you-study",
+  "unit": "Japanese N4 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "If You Study",
+  "title_jp": "べんきょうすれば",
+  "objectives": [
+    "I can state general conditions and their results.",
+    "Make the ば form of verbs and adjectives",
+    "Express regret with ばよかった",
+    "Talk about tests and studying"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>試験<rt>しけん</rt></ruby>",
+      "",
+      "exam, test"
+    ],
+    [
+      "<ruby>勉強<rt>べんきょう</rt></ruby>",
+      "",
+      "study (+ する: to study)"
+    ],
+    [
+      "<ruby>強<rt>つよ</rt></ruby>い",
+      "",
+      "strong"
+    ],
+    [
+      "<ruby>試<rt>ため</rt></ruby>す",
+      "",
+      "to try out, to test"
+    ],
+    [
+      "ごうかく",
+      "",
+      "passing (an exam)"
+    ],
+    [
+      "れんしゅう",
+      "",
+      "practice (+ する: to practise)"
+    ],
+    [
+      "もっと",
+      "",
+      "more"
+    ],
+    [
+      "ねぼう",
+      "",
+      "oversleeping"
+    ],
+    [
+      "せいせき",
+      "",
+      "grades, results"
+    ],
+    [
+      "かんたん",
+      "",
+      "easy, simple"
+    ],
+    [
+      "むずかしい",
+      "",
+      "difficult"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "試験",
+      "word_reading": "しけん"
+    },
+    {
+      "word_japanese": "勉強",
+      "word_reading": "べんきょう"
+    },
+    {
+      "word_japanese": "強い",
+      "word_reading": "つよい"
+    },
+    {
+      "word_japanese": "試す",
+      "word_reading": "ためす"
+    }
+  ],
+  "concept": {
+    "title": "If (as a rule): ば",
+    "text": "ば states a condition and its natural result.\n\nGroup 1: change the last sound to the え-row and add ば.\n<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>けば, <ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>めば\nGroup 2: る → れば. <ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べれば\nIrregular: する → すれば, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>れば\nい-adjectives: い → ければ. <ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>ければ, いい → よければ\nNegative: ない → なければ. <ruby>行<rt>い</rt></ruby>かなければ\n\n<ruby>毎日<rt>まいにち</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>すれば、ごうかくできます。 If you study every day, you can pass.\n\nWith よかった it expresses regret:\nもっと<ruby>勉強<rt>べんきょう</rt></ruby>すればよかった。 I should have studied more.",
+    "examples": [
+      "V(え-row) + ば / V-る → V-れば",
+      "い-adj → ければ / いい → よければ",
+      "V-ばよかった (regret)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Conditional ば",
+      "pattern": "<ruby>行<rt>い</rt></ruby>けば / <ruby>食<rt>た</rt></ruby>べれば / すれば / <ruby>安<rt>やす</rt></ruby>ければ",
+      "explanation": "ば is used for general truths and for what is needed to get a result. The second half is usually not a request or a plan.",
+      "examples": [
+        {
+          "japanese": "<ruby>毎日<rt>まいにち</rt></ruby>れんしゅうすれば、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+          "romaji": "",
+          "meaning": "If you practise every day, you'll get good."
+        },
+        {
+          "japanese": "この<ruby>道<rt>みち</rt></ruby>をまっすぐ<ruby>行<rt>い</rt></ruby>けば、<ruby>駅<rt>えき</rt></ruby>があります。",
+          "romaji": "",
+          "meaning": "If you go straight down this road, there's the station."
+        },
+        {
+          "japanese": "<ruby>安<rt>やす</rt></ruby>ければ、<ruby>買<rt>か</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "If it's cheap, I'll buy it."
+        },
+        {
+          "japanese": "<ruby>天気<rt>てんき</rt></ruby>がよければ、<ruby>山<rt>やま</rt></ruby>が<ruby>見<rt>み</rt></ruby>えます。",
+          "romaji": "",
+          "meaning": "If the weather's good, you can see the mountains."
+        },
+        {
+          "japanese": "<ruby>行<rt>い</rt></ruby>かなければ、<ruby>分<rt>わ</rt></ruby>かりません。",
+          "romaji": "",
+          "meaning": "You won't know unless you go."
+        }
+      ],
+      "notes": [
+        "いい becomes よければ, never いければ.",
+        "For a request or a plan after the condition, たら is more natural: <ruby>安<rt>やす</rt></ruby>かったら、<ruby>買<rt>か</rt></ruby>ってきてください."
+      ]
+    },
+    {
+      "title": "Regret: ばよかった",
+      "pattern": "V-ば よかった / V-なければ よかった",
+      "explanation": "\"It would have been good if…\": something you wish you had done, or had not done.",
+      "examples": [
+        {
+          "japanese": "もっと<ruby>勉強<rt>べんきょう</rt></ruby>すればよかったです。",
+          "romaji": "",
+          "meaning": "I should have studied more."
+        },
+        {
+          "japanese": "<ruby>早<rt>はや</rt></ruby>くねればよかった。",
+          "romaji": "",
+          "meaning": "I should have gone to bed early."
+        },
+        {
+          "japanese": "あのかばん、<ruby>買<rt>か</rt></ruby>えばよかったなあ。",
+          "romaji": "",
+          "meaning": "I wish I'd bought that bag."
+        },
+        {
+          "japanese": "あんなにたくさん<ruby>食<rt>た</rt></ruby>べなければよかった。",
+          "romaji": "",
+          "meaning": "I shouldn't have eaten so much."
+        }
+      ],
+      "notes": [
+        "Add なあ or のに to sound more regretful: <ruby>行<rt>い</rt></ruby>けばよかったのに."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>試験<rt>しけん</rt></ruby>があります。",
+      "There's a Japanese exam next week."
+    ],
+    [
+      "<ruby>試験<rt>しけん</rt></ruby>にごうかくしました。",
+      "I passed the exam."
+    ],
+    [
+      "<ruby>新<rt>あたら</rt></ruby>しいレシピを<ruby>試<rt>ため</rt></ruby>してみました。",
+      "I tried out a new recipe."
+    ],
+    [
+      "<ruby>兄<rt>あに</rt></ruby>はテニスがとても<ruby>強<rt>つよ</rt></ruby>いです。",
+      "My older brother is very good at tennis."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "<ruby>試験<rt>しけん</rt></ruby>はどうでしたか。",
+      "リン",
+      "むずかしかったです。もっと<ruby>勉強<rt>べんきょう</rt></ruby>すればよかった。"
+    ],
+    [
+      "アナ",
+      "どうすれば<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>になりますか。",
+      "たなか",
+      "<ruby>毎日<rt>まいにち</rt></ruby><ruby>話<rt>はな</rt></ruby>せば、<ruby>上手<rt>じょうず</rt></ruby>になりますよ。"
+    ],
+    [
+      "リー",
+      "<ruby>今朝<rt>けさ</rt></ruby>、ねぼうしてしまって……。",
+      "マイ",
+      "<ruby>早<rt>はや</rt></ruby>くねればよかったですね。"
+    ],
+    [
+      "ゆき",
+      "このくすり、<ruby>強<rt>つよ</rt></ruby>いですか。",
+      "アナ",
+      "ちょっと<ruby>強<rt>つよ</rt></ruby>いので、<ruby>気<rt>き</rt></ruby>をつけてください。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "試",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "こころ.みる",
+        "ため.す"
+      ],
+      "meaning_en": "try, test",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "試験",
+          "reading": "しけん",
+          "en": "exam"
+        },
+        {
+          "word": "試す",
+          "reading": "ためす",
+          "en": "to try out"
+        }
+      ],
+      "mnemonic": "Words (言) that follow a rule (式): a test."
+    },
+    {
+      "char": "験",
+      "onyomi": [
+        "ケン",
+        "ゲン"
+      ],
+      "kunyomi": [
+        "あかし",
+        "しるし",
+        "ため.す",
+        "ためし"
+      ],
+      "meaning_en": "test, effect",
+      "stroke_count": 18,
+      "example_words": [
+        {
+          "word": "試験",
+          "reading": "しけん",
+          "en": "exam"
+        },
+        {
+          "word": "経験",
+          "reading": "けいけん",
+          "en": "experience"
+        }
+      ],
+      "mnemonic": "Checking a horse (馬) before buying it: a test."
+    },
+    {
+      "char": "勉",
+      "onyomi": [
+        "ベン"
+      ],
+      "kunyomi": [
+        "つと.める"
+      ],
+      "meaning_en": "effort",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "勉強",
+          "reading": "べんきょう",
+          "en": "study"
+        },
+        {
+          "word": "勤勉",
+          "reading": "きんべん",
+          "en": "hard-working"
+        }
+      ],
+      "mnemonic": "Strength (力) used to get free (免) of ignorance: effort."
+    },
+    {
+      "char": "強",
+      "onyomi": [
+        "キョウ",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "つよ.い",
+        "つよ.まる",
+        "つよ.める",
+        "し.いる",
+        "こわ.い"
+      ],
+      "meaning_en": "strong",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "強い",
+          "reading": "つよい",
+          "en": "strong"
+        },
+        {
+          "word": "勉強",
+          "reading": "べんきょう",
+          "en": "study"
+        }
+      ],
+      "mnemonic": "A bow (弓) with a strong insect's grip (虫): strong."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>雨<rt>あめ</rt></ruby>がふっ＿＿、<ruby>出<rt>で</rt></ruby>かけません。 (if it rains)",
+      "options": [
+        "ても",
+        "ば",
+        "たら",
+        "なら"
+      ],
+      "correct": "たら",
+      "explanation": "If: たら."
+    },
+    {
+      "prompt": "Make the ば form of <ruby>行<rt>い</rt></ruby>く.",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>きば",
+        "<ruby>行<rt>い</rt></ruby>くば",
+        "<ruby>行<rt>い</rt></ruby>ければ",
+        "<ruby>行<rt>い</rt></ruby>けば"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>けば",
+      "explanation": "く → けば."
+    },
+    {
+      "prompt": "Make the ば form of <ruby>食<rt>た</rt></ruby>べる.",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べれば",
+        "<ruby>食<rt>た</rt></ruby>べば",
+        "<ruby>食<rt>た</rt></ruby>べるば",
+        "<ruby>食<rt>た</rt></ruby>べられば"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べれば",
+      "explanation": "Group 2: る → れば."
+    },
+    {
+      "prompt": "Make the ば form of いい.",
+      "options": [
+        "いければ",
+        "よければ",
+        "いいば",
+        "よいれば"
+      ],
+      "correct": "よければ",
+      "explanation": "いい → よければ."
+    },
+    {
+      "prompt": "Complete: もっと<ruby>勉強<rt>べんきょう</rt></ruby>＿＿よかった。 (I should have studied)",
+      "options": [
+        "したら",
+        "しても",
+        "すれば",
+        "して"
+      ],
+      "correct": "すれば",
+      "explanation": "Regret: V-ばよかった."
+    },
+    {
+      "prompt": "How is 試験⁠ read?",
+      "options": [
+        "しげん",
+        "しけい",
+        "ためけん",
+        "しけん"
+      ],
+      "correct": "しけん",
+      "explanation": "試験⁠ is read しけん."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>行<rt>い</rt></ruby>かなければ、<ruby>分<rt>わ</rt></ruby>かりません。",
+      "options": [
+        "You won't know unless you go.",
+        "If you go, you'll know.",
+        "I didn't go, so I don't know.",
+        "You don't have to go."
+      ],
+      "correct": "You won't know unless you go.",
+      "explanation": "<ruby>行<rt>い</rt></ruby>かなければ: if you don't go."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You overslept and missed the bus. What do you say?",
+      "options": [
+        "<ruby>早<rt>はや</rt></ruby>くねればよかった。",
+        "<ruby>早<rt>はや</rt></ruby>くねたらいいです。",
+        "<ruby>早<rt>はや</rt></ruby>くねればいいです。",
+        "<ruby>早<rt>はや</rt></ruby>くねなければよかった。"
+      ],
+      "correct": "<ruby>早<rt>はや</rt></ruby>くねればよかった。",
+      "explanation": "Regret: ばよかった."
+    },
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>安<rt>やす</rt></ruby>かったら、<ruby>買<rt>か</rt></ruby>ってきてください。",
+        "<ruby>安<rt>やす</rt></ruby>ければ、<ruby>買<rt>か</rt></ruby>ってきてください。",
+        "<ruby>安<rt>やす</rt></ruby>ければ、<ruby>買<rt>か</rt></ruby>います。",
+        "<ruby>安<rt>やす</rt></ruby>ければ、<ruby>人<rt>ひと</rt></ruby>がよく<ruby>買<rt>か</rt></ruby>います。"
+      ],
+      "correct": "<ruby>安<rt>やす</rt></ruby>ければ、<ruby>買<rt>か</rt></ruby>ってきてください。",
+      "explanation": "A request after ば sounds odd; use たら."
+    },
+    {
+      "prompt": "Make the ば form of <ruby>来<rt>く</rt></ruby>る.",
+      "options": [
+        "<ruby>来<rt>こ</rt></ruby>れば",
+        "<ruby>来<rt>き</rt></ruby>れば",
+        "<ruby>来<rt>く</rt></ruby>れば",
+        "<ruby>来<rt>く</rt></ruby>るば"
+      ],
+      "correct": "<ruby>来<rt>く</rt></ruby>れば",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>れば."
+    },
+    {
+      "prompt": "Read: <ruby>毎日<rt>まいにち</rt></ruby><ruby>話<rt>はな</rt></ruby>せば、<ruby>上手<rt>じょうず</rt></ruby>になりますよ。 What is the advice?",
+      "options": [
+        "Study grammar every day.",
+        "Take an exam.",
+        "Find a teacher.",
+        "Speak every day."
+      ],
+      "correct": "Speak every day.",
+      "explanation": "<ruby>話<rt>はな</rt></ruby>せば: if you speak."
+    },
+    {
+      "prompt": "Review (Unit 3): complete さいきん、テレビを<ruby>見<rt>み</rt></ruby>＿＿なりました。 (no longer)",
+      "options": [
+        "なく",
+        "ない",
+        "ないで",
+        "なくて"
+      ],
+      "correct": "なく",
+      "explanation": "V-なくなる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-4-if-it-rains",
+    "japanese-n4-unit-3-now-i-can",
+    "japanese-n4-unit-2-you-should"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

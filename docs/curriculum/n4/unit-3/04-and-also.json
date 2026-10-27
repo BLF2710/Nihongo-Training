@@ -1,0 +1,444 @@
+{
+  "id": "japanese-n4-unit-3-and-also",
+  "slug": "n4-unit-3-and-also",
+  "unit": "Japanese N4 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "And Besides…",
+  "title_jp": "〜し、〜し",
+  "objectives": [
+    "I can give several reasons at once.",
+    "List reasons with 〜し、〜し",
+    "Add a point with それに",
+    "Describe where you live"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>広<rt>ひろ</rt></ruby>い",
+      "hiroi",
+      "wide, spacious"
+    ],
+    [
+      "<ruby>近<rt>ちか</rt></ruby>い",
+      "chikai",
+      "near, close"
+    ],
+    [
+      "<ruby>近<rt>ちか</rt></ruby>く",
+      "chikaku",
+      "nearby, the neighbourhood"
+    ],
+    [
+      "<ruby>住<rt>す</rt></ruby>む",
+      "sumu",
+      "to live (somewhere)"
+    ],
+    [
+      "べんり",
+      "benri",
+      "convenient"
+    ],
+    [
+      "ふべん",
+      "fuben",
+      "inconvenient"
+    ],
+    [
+      "しずか",
+      "shizuka",
+      "quiet"
+    ],
+    [
+      "にぎやか",
+      "nigiyaka",
+      "lively, busy"
+    ],
+    [
+      "やちん",
+      "yachin",
+      "rent"
+    ],
+    [
+      "それに",
+      "sore ni",
+      "besides, what's more"
+    ],
+    [
+      "へや",
+      "heya",
+      "room, flat"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "広い",
+      "word_reading": "ひろい"
+    },
+    {
+      "word_japanese": "近い",
+      "word_reading": "ちかい"
+    },
+    {
+      "word_japanese": "近く",
+      "word_reading": "ちかく"
+    },
+    {
+      "word_japanese": "住む",
+      "word_reading": "すむ"
+    }
+  ],
+  "concept": {
+    "title": "Giving more than one reason",
+    "text": "To give several reasons, end each one with し:\n\n<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>いし、やちんも<ruby>安<rt>やす</rt></ruby>いし、いいへやです。\nIt's close to the station, the rent is cheap too, so it's a nice flat.\n\nし follows the plain form: <ruby>近<rt>ちか</rt></ruby>いし, しずかだし, <ruby>学生<rt>がくせい</rt></ruby>だし, <ruby>行<rt>い</rt></ruby>くし.\nOften only one reason is said, and the rest are left to the listener:\n<ruby>明日<rt>あした</rt></ruby>はしごとだし…… I've got work tomorrow, so…\n\nAt the start of a sentence, それに adds one more point.",
+    "examples": [
+      "plain form + し、plain form + し",
+      "な-adjective / noun + だし",
+      "それに (besides)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Listing reasons: 〜し、〜し",
+      "pattern": "plain form + し、plain form + し、〜",
+      "explanation": "し joins reasons that point the same way. The particle も often appears in the reasons.",
+      "examples": [
+        {
+          "japanese": "このへやは<ruby>広<rt>ひろ</rt></ruby>いし、<ruby>明<rt>あか</rt></ruby>るいし、とてもいいです。",
+          "romaji": "",
+          "meaning": "This room is spacious and bright, so it's very nice."
+        },
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>いし、べんりです。",
+          "romaji": "",
+          "meaning": "It's near the station, so it's convenient."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>だし、さむいし、<ruby>出<rt>で</rt></ruby>かけたくないです。",
+          "romaji": "",
+          "meaning": "It's raining and cold today, so I don't want to go out."
+        },
+        {
+          "japanese": "リーさんはやさしいし、おもしろいし、みんなリーさんがすきです。",
+          "romaji": "",
+          "meaning": "Lee is kind and funny, so everyone likes him."
+        },
+        {
+          "japanese": "もう<ruby>十二時<rt>じゅうにじ</rt></ruby>だし、そろそろねましょう。",
+          "romaji": "",
+          "meaning": "It's already twelve, so let's go to bed soon."
+        }
+      ],
+      "notes": [
+        "な-adjectives and nouns take だ before し: しずかだし, <ruby>学生<rt>がくせい</rt></ruby>だし.",
+        "Polite speech can use です/ます before し, but the plain form is more common."
+      ]
+    },
+    {
+      "title": "One more point: それに",
+      "pattern": "S。それに、S。",
+      "explanation": "それに begins a sentence that adds another point in the same direction.",
+      "examples": [
+        {
+          "japanese": "このへやはしずかです。それに、やちんも<ruby>安<rt>やす</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "This flat is quiet. What's more, the rent is cheap too."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>はつかれました。それに、ねつもあります。",
+          "romaji": "",
+          "meaning": "I'm tired today. Besides, I have a fever."
+        },
+        {
+          "japanese": "この<ruby>近<rt>ちか</rt></ruby>くはべんりです。それに、にぎやかです。",
+          "romaji": "",
+          "meaning": "This neighbourhood is convenient. It's lively, too."
+        },
+        {
+          "japanese": "そのレストランは<ruby>高<rt>たか</rt></ruby>いです。それに、あまりおいしくないです。",
+          "romaji": "",
+          "meaning": "That restaurant is expensive. Besides, it's not very good."
+        }
+      ],
+      "notes": [
+        "それに only adds, it does not contrast: for \"but\" use でも."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "どこに<ruby>住<rt>す</rt></ruby>んでいますか。",
+      "Where do you live?"
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>住<rt>す</rt></ruby>んでいます。",
+      "I live near the station."
+    ],
+    [
+      "わたしのへやは<ruby>広<rt>ひろ</rt></ruby>くないですが、しずかです。",
+      "My flat isn't big, but it's quiet."
+    ],
+    [
+      "この<ruby>近<rt>ちか</rt></ruby>くはスーパーがなくて、ふべんです。",
+      "There's no supermarket around here, so it's inconvenient."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "<ruby>新<rt>あたら</rt></ruby>しいへやはどうですか。",
+      "アナ",
+      "<ruby>広<rt>ひろ</rt></ruby>いし、<ruby>明<rt>あか</rt></ruby>るいし、とてもいいです。"
+    ],
+    [
+      "リー",
+      "どうしてその<ruby>店<rt>みせ</rt></ruby>がすきなんですか。",
+      "マイ",
+      "<ruby>安<rt>やす</rt></ruby>いし、おいしいし、それに<ruby>近<rt>ちか</rt></ruby>いんです。"
+    ],
+    [
+      "ゆき",
+      "どこに<ruby>住<rt>す</rt></ruby>んでいますか。",
+      "リン",
+      "<ruby>大学<rt>だいがく</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>住<rt>す</rt></ruby>んでいます。"
+    ],
+    [
+      "たなか",
+      "パーティーに<ruby>行<rt>い</rt></ruby>きませんか。",
+      "けん",
+      "<ruby>明日<rt>あした</rt></ruby>はテストだし、<ruby>今日<rt>きょう</rt></ruby>はちょっと……。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "広",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "ひろ.い",
+        "ひろ.まる",
+        "ひろ.める",
+        "ひろ.がる",
+        "ひろ.げる"
+      ],
+      "meaning_en": "wide",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "広い",
+          "reading": "ひろい",
+          "en": "wide"
+        },
+        {
+          "word": "広場",
+          "reading": "ひろば",
+          "en": "square, plaza"
+        }
+      ],
+      "mnemonic": "A roof (广) over a wide-open space (ム)."
+    },
+    {
+      "char": "近",
+      "onyomi": [
+        "キン",
+        "コン"
+      ],
+      "kunyomi": [
+        "ちか.い"
+      ],
+      "meaning_en": "near",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "近い",
+          "reading": "ちかい",
+          "en": "near"
+        },
+        {
+          "word": "近く",
+          "reading": "ちかく",
+          "en": "nearby"
+        }
+      ],
+      "mnemonic": "An axe (斤) just a short walk (辶) away."
+    },
+    {
+      "char": "住",
+      "onyomi": [
+        "ジュウ",
+        "ヂュウ",
+        "チュウ"
+      ],
+      "kunyomi": [
+        "す.む",
+        "す.まう",
+        "-ず.まい"
+      ],
+      "meaning_en": "live, dwell",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "住む",
+          "reading": "すむ",
+          "en": "to live"
+        },
+        {
+          "word": "住所",
+          "reading": "じゅうしょ",
+          "en": "address"
+        }
+      ],
+      "mnemonic": "A person (亻) settled like a lord (主) in his home."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete なっとうが<ruby>食<rt>た</rt></ruby>べられる＿＿なりました。",
+      "options": [
+        "ように",
+        "ために",
+        "ことに",
+        "そうに"
+      ],
+      "correct": "ように",
+      "explanation": "A new ability: ようになる."
+    },
+    {
+      "prompt": "Complete: このへやは<ruby>広<rt>ひろ</rt></ruby>い＿＿、<ruby>明<rt>あか</rt></ruby>るいし、いいです。",
+      "options": [
+        "から",
+        "し",
+        "が",
+        "て"
+      ],
+      "correct": "し",
+      "explanation": "Listing reasons: 〜し、〜し."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>＿＿し、<ruby>出<rt>で</rt></ruby>かけたくないです。",
+      "options": [
+        "な",
+        "の",
+        "だ",
+        "で"
+      ],
+      "correct": "だ",
+      "explanation": "Nouns take だ before し."
+    },
+    {
+      "prompt": "Complete: このへやはしずか＿＿し、べんりです。",
+      "options": [
+        "な",
+        "に",
+        "い",
+        "だ"
+      ],
+      "correct": "だ",
+      "explanation": "な-adjectives take だ before し."
+    },
+    {
+      "prompt": "Which word adds one more point?",
+      "options": [
+        "それに",
+        "でも",
+        "だから",
+        "それから"
+      ],
+      "correct": "それに",
+      "explanation": "それに: besides."
+    },
+    {
+      "prompt": "How is 住⁠む read?",
+      "options": [
+        "じゅうむ",
+        "すむ",
+        "いむ",
+        "ちむ"
+      ],
+      "correct": "すむ",
+      "explanation": "住⁠む is read すむ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>住<rt>す</rt></ruby>んでいます。",
+      "options": [
+        "I'm going near the station.",
+        "The station is far from my home.",
+        "I live near the station.",
+        "I'm waiting near the station."
+      ],
+      "correct": "I live near the station.",
+      "explanation": "<ruby>近<rt>ちか</rt></ruby>く: nearby; <ruby>住<rt>す</rt></ruby>む: live."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend invites you out, but you have a test tomorrow. What do you say?",
+      "options": [
+        "<ruby>明日<rt>あした</rt></ruby>はテストし、ちょっと……。",
+        "<ruby>明日<rt>あした</rt></ruby>はテストなし、ちょっと……。",
+        "<ruby>明日<rt>あした</rt></ruby>はテストだし、ちょっと……。",
+        "<ruby>明日<rt>あした</rt></ruby>はテストで、<ruby>行<rt>い</rt></ruby>きます。"
+      ],
+      "correct": "<ruby>明日<rt>あした</rt></ruby>はテストだし、ちょっと……。",
+      "explanation": "Noun + だし, leaving the rest unsaid."
+    },
+    {
+      "prompt": "Which sentence gives two reasons?",
+      "options": [
+        "<ruby>安<rt>やす</rt></ruby>いですが、おいしいです。",
+        "<ruby>安<rt>やす</rt></ruby>くて、おいしいです。",
+        "<ruby>安<rt>やす</rt></ruby>いから、<ruby>行<rt>い</rt></ruby>きます。",
+        "<ruby>安<rt>やす</rt></ruby>いし、おいしいし、よく<ruby>行<rt>い</rt></ruby>きます。"
+      ],
+      "correct": "<ruby>安<rt>やす</rt></ruby>いし、おいしいし、よく<ruby>行<rt>い</rt></ruby>きます。",
+      "explanation": "〜し、〜し lists reasons."
+    },
+    {
+      "prompt": "Which word is the opposite of べんり?",
+      "options": [
+        "ふべん",
+        "しずか",
+        "にぎやか",
+        "<ruby>広<rt>ひろ</rt></ruby>い"
+      ],
+      "correct": "ふべん",
+      "explanation": "べんり ↔ ふべん."
+    },
+    {
+      "prompt": "Read: このへやはしずかです。それに、やちんも<ruby>安<rt>やす</rt></ruby>いです。 What does それに do?",
+      "options": [
+        "Introduces a problem",
+        "Adds another good point",
+        "Gives a contrast",
+        "Asks a question"
+      ],
+      "correct": "Adds another good point",
+      "explanation": "それに adds a point in the same direction."
+    },
+    {
+      "prompt": "Review (Unit 2): choose \"You should rest.\"",
+      "options": [
+        "<ruby>休<rt>やす</rt></ruby>むほうがいいでした。",
+        "<ruby>休<rt>やす</rt></ruby>んでほうがいいですよ。",
+        "<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。",
+        "<ruby>休<rt>やす</rt></ruby>まないでほうがいいです。"
+      ],
+      "correct": "<ruby>休<rt>やす</rt></ruby>んだほうがいいですよ。",
+      "explanation": "V-たほうがいい."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-3-now-i-can",
+    "japanese-n4-unit-2-you-should",
+    "japanese-n5-unit-8-reasons-and-states"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

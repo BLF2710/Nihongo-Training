@@ -1,0 +1,454 @@
+{
+  "id": "japanese-n4-unit-6-becoming",
+  "slug": "n4-unit-6-becoming",
+  "unit": "Japanese N4 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "It Became…",
+  "title_jp": "〜く なる・〜に する",
+  "objectives": [
+    "I can describe changes.",
+    "Describe a change with 〜くなる and 〜になる",
+    "Make a change or a choice with 〜くする and 〜にする",
+    "Talk about weight, length and the New Year"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>重<rt>おも</rt></ruby>い",
+      "",
+      "heavy"
+    ],
+    [
+      "かるい",
+      "",
+      "light (in weight)"
+    ],
+    [
+      "<ruby>体重<rt>たいじゅう</rt></ruby>",
+      "",
+      "body weight"
+    ],
+    [
+      "<ruby>正<rt>ただ</rt></ruby>しい",
+      "",
+      "correct, right"
+    ],
+    [
+      "お<ruby>正月<rt>しょうがつ</rt></ruby>",
+      "",
+      "New Year"
+    ],
+    [
+      "<ruby>同<rt>おな</rt></ruby>じ",
+      "",
+      "the same"
+    ],
+    [
+      "みじかい",
+      "",
+      "short"
+    ],
+    [
+      "かみ",
+      "",
+      "hair"
+    ],
+    [
+      "ふとる",
+      "",
+      "to put on weight"
+    ],
+    [
+      "やせる",
+      "",
+      "to lose weight"
+    ],
+    [
+      "きゅうに",
+      "",
+      "suddenly"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "重い",
+      "word_reading": "おもい"
+    },
+    {
+      "word_japanese": "体重",
+      "word_reading": "たいじゅう"
+    },
+    {
+      "word_japanese": "正しい",
+      "word_reading": "ただしい"
+    },
+    {
+      "word_japanese": "お正月",
+      "word_reading": "おしょうがつ"
+    },
+    {
+      "word_japanese": "同じ",
+      "word_reading": "おなじ"
+    }
+  ],
+  "concept": {
+    "title": "It became… / I made it…",
+    "text": "なる describes a change that happens: \"become\".\nい-adjectives: い → くなる. <ruby>高<rt>たか</rt></ruby>い → <ruby>高<rt>たか</rt></ruby>くなる\nな-adjectives and nouns: + になる. しずか → しずかになる, <ruby>先生<rt>せんせい</rt></ruby>になる\n\nする describes a change someone makes: \"make\".\n<ruby>小<rt>ちい</rt></ruby>さくする (make it smaller), きれいにする (make it clean)\n\nN にする also means \"decide on N\", especially when ordering:\nわたしはコーヒーにします。 I'll have coffee.",
+    "examples": [
+      "い-adj → くなる / な-adj・N → になる",
+      "い-adj → くする / な-adj・N → にする",
+      "N にする (decide on N)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Become: 〜くなる / 〜になる",
+      "pattern": "い-adj-く + なる / な-adj・N + に + なる",
+      "explanation": "なる is a change that happens by itself or over time.",
+      "examples": [
+        {
+          "japanese": "さむくなりましたね。",
+          "romaji": "",
+          "meaning": "It's got cold, hasn't it?"
+        },
+        {
+          "japanese": "にもつがだんだん<ruby>重<rt>おも</rt></ruby>くなりました。",
+          "romaji": "",
+          "meaning": "The bag gradually got heavier."
+        },
+        {
+          "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>になりましたね。",
+          "romaji": "",
+          "meaning": "Your Japanese has got good."
+        },
+        {
+          "japanese": "しょうらい、<ruby>医者<rt>いしゃ</rt></ruby>になりたいです。",
+          "romaji": "",
+          "meaning": "In the future I want to become a doctor."
+        },
+        {
+          "japanese": "お<ruby>正月<rt>しょうがつ</rt></ruby>は、まちがしずかになります。",
+          "romaji": "",
+          "meaning": "At New Year the town gets quiet."
+        }
+      ],
+      "notes": [
+        "いい → よくなる: びょうきがよくなりました (I've got better)."
+      ]
+    },
+    {
+      "title": "Make, choose: 〜くする / 〜にする",
+      "pattern": "い-adj-く + する / な-adj・N + に + する",
+      "explanation": "する is a change someone makes on purpose. N にする also means choosing N.",
+      "examples": [
+        {
+          "japanese": "かみをみじかくしました。",
+          "romaji": "",
+          "meaning": "I had my hair cut short."
+        },
+        {
+          "japanese": "へやをきれいにしてください。",
+          "romaji": "",
+          "meaning": "Please tidy up the room."
+        },
+        {
+          "japanese": "<ruby>音<rt>おと</rt></ruby>を<ruby>少<rt>すこ</rt></ruby>し<ruby>小<rt>ちい</rt></ruby>さくしてもらえませんか。",
+          "romaji": "",
+          "meaning": "Could you turn the sound down a little?"
+        },
+        {
+          "japanese": "わたしはコーヒーにします。",
+          "romaji": "",
+          "meaning": "I'll have coffee."
+        },
+        {
+          "japanese": "かいぎは<ruby>月曜日<rt>げつようび</rt></ruby>にしましょう。",
+          "romaji": "",
+          "meaning": "Let's make the meeting Monday."
+        }
+      ],
+      "notes": [
+        "Compare: <ruby>高<rt>たか</rt></ruby>くなる (it got expensive) and <ruby>高<rt>たか</rt></ruby>くする (someone made it more expensive)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "このかばんは<ruby>重<rt>おも</rt></ruby>いですが、あのかばんはかるいです。",
+      "This bag is heavy, but that one is light."
+    ],
+    [
+      "お<ruby>正月<rt>しょうがつ</rt></ruby>にやせようと<ruby>思<rt>おも</rt></ruby>っています。",
+      "I'm thinking of losing weight over New Year."
+    ],
+    [
+      "<ruby>正<rt>ただ</rt></ruby>しいこたえをえらんでください。",
+      "Please choose the correct answer."
+    ],
+    [
+      "<ruby>兄<rt>あに</rt></ruby>とわたしは<ruby>同<rt>おな</rt></ruby>じ<ruby>大学<rt>だいがく</rt></ruby>に<ruby>行<rt>い</rt></ruby>っています。",
+      "My older brother and I go to the same university."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "かみをみじかくしたんですね。",
+      "マイ",
+      "はい、<ruby>夏<rt>なつ</rt></ruby>になったので、みじかくしました。"
+    ],
+    [
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "お<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>は<ruby>何<rt>なに</rt></ruby>にしますか。",
+      "リー",
+      "お<ruby>茶<rt>ちゃ</rt></ruby>にします。"
+    ],
+    [
+      "けん",
+      "さいきん、<ruby>少<rt>すこ</rt></ruby>しふとってしまいました。",
+      "ゆき",
+      "わたしも<ruby>体重<rt>たいじゅう</rt></ruby>が<ruby>重<rt>おも</rt></ruby>くなりました。"
+    ],
+    [
+      "たなか",
+      "かぜはどうですか。",
+      "リン",
+      "ありがとうございます。もうよくなりました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "重",
+      "onyomi": [
+        "ジュウ",
+        "チョウ"
+      ],
+      "kunyomi": [
+        "え",
+        "おも.い",
+        "おも.り",
+        "おも.なう",
+        "かさ.ねる",
+        "かさ.なる",
+        "おも"
+      ],
+      "meaning_en": "heavy",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "重い",
+          "reading": "おもい",
+          "en": "heavy"
+        },
+        {
+          "word": "体重",
+          "reading": "たいじゅう",
+          "en": "body weight"
+        }
+      ],
+      "mnemonic": "A sack piled high on the ground: heavy."
+    },
+    {
+      "char": "正",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "ただ.しい",
+        "ただ.す",
+        "まさ",
+        "まさ.に"
+      ],
+      "meaning_en": "correct",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "正しい",
+          "reading": "ただしい",
+          "en": "correct"
+        },
+        {
+          "word": "お正月",
+          "reading": "おしょうがつ",
+          "en": "New Year"
+        }
+      ],
+      "mnemonic": "One (一) line where the foot stops (止): exactly right."
+    },
+    {
+      "char": "同",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "おな.じ"
+      ],
+      "meaning_en": "same",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "同じ",
+          "reading": "おなじ",
+          "en": "the same"
+        },
+        {
+          "word": "同時",
+          "reading": "どうじ",
+          "en": "at the same time"
+        }
+      ],
+      "mnemonic": "One (一) mouth (口) under one cover: all the same."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete まどがしまっ＿＿。 (is closed)",
+      "options": [
+        "てあります",
+        "ています",
+        "ておきます",
+        "てみます"
+      ],
+      "correct": "ています",
+      "explanation": "Intransitive + ている: a state."
+    },
+    {
+      "prompt": "Complete: さむ＿＿なりましたね。",
+      "options": [
+        "に",
+        "な",
+        "く",
+        "で"
+      ],
+      "correct": "く",
+      "explanation": "い-adjective: くなる."
+    },
+    {
+      "prompt": "Complete: <ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>＿＿なりました。",
+      "options": [
+        "く",
+        "な",
+        "で",
+        "に"
+      ],
+      "correct": "に",
+      "explanation": "な-adjective: になる."
+    },
+    {
+      "prompt": "Complete: へやをきれい＿＿してください。",
+      "options": [
+        "に",
+        "く",
+        "な",
+        "が"
+      ],
+      "correct": "に",
+      "explanation": "Make: な-adj + にする."
+    },
+    {
+      "prompt": "Complete: わたしはコーヒー＿＿します。 (I'll have coffee)",
+      "options": [
+        "を",
+        "に",
+        "が",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "Choose: N にする."
+    },
+    {
+      "prompt": "How is 体重⁠ read?",
+      "options": [
+        "からだおも",
+        "たいおも",
+        "たいじゅう",
+        "だいじゅう"
+      ],
+      "correct": "たいじゅう",
+      "explanation": "体重⁠ is read たいじゅう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>正<rt>ただ</rt></ruby>しいこたえをえらんでください。",
+      "options": [
+        "Please write the same answer.",
+        "Please answer quickly.",
+        "Please correct the answer.",
+        "Please choose the correct answer."
+      ],
+      "correct": "Please choose the correct answer.",
+      "explanation": "<ruby>正<rt>ただ</rt></ruby>しい: correct."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What is the difference: <ruby>高<rt>たか</rt></ruby>くなる / <ruby>高<rt>たか</rt></ruby>くする?",
+      "options": [
+        "It is expensive / it was expensive",
+        "It got cheaper / it got dearer",
+        "There is no difference.",
+        "It got expensive / someone made it expensive"
+      ],
+      "correct": "It got expensive / someone made it expensive",
+      "explanation": "なる: happens; する: done on purpose."
+    },
+    {
+      "prompt": "At a café, which sentence orders tea?",
+      "options": [
+        "お<ruby>茶<rt>ちゃ</rt></ruby>にします。",
+        "お<ruby>茶<rt>ちゃ</rt></ruby>になります。",
+        "お<ruby>茶<rt>ちゃ</rt></ruby>をなります。",
+        "お<ruby>茶<rt>ちゃ</rt></ruby>がします。"
+      ],
+      "correct": "お<ruby>茶<rt>ちゃ</rt></ruby>にします。",
+      "explanation": "Choosing: N にする."
+    },
+    {
+      "prompt": "What is いい + なる?",
+      "options": [
+        "いくなる",
+        "よくなる",
+        "いいになる",
+        "よいになる"
+      ],
+      "correct": "よくなる",
+      "explanation": "いい → よくなる."
+    },
+    {
+      "prompt": "Read: <ruby>夏<rt>なつ</rt></ruby>になったので、みじかくしました。 Why did the speaker cut their hair?",
+      "options": [
+        "Because it was too long for work",
+        "Because a friend asked",
+        "Because summer came",
+        "Because of the New Year"
+      ],
+      "correct": "Because summer came",
+      "explanation": "<ruby>夏<rt>なつ</rt></ruby>になったので: because it became summer."
+    },
+    {
+      "prompt": "Review: complete <ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>電気<rt>でんき</rt></ruby>がつけて＿＿。 (have been put on)",
+      "options": [
+        "います",
+        "しまいます",
+        "みます",
+        "あります"
+      ],
+      "correct": "あります",
+      "explanation": "Transitive + てある."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-6-the-door-is-open",
+    "japanese-n4-unit-3-now-i-can",
+    "japanese-n5-unit-6-adjectives"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,440 @@
+{
+  "id": "japanese-n4-unit-3-i-can-drive",
+  "slug": "n4-unit-3-i-can-drive",
+  "unit": "Japanese N4 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "I Can Drive",
+  "title_jp": "うんてんできる",
+  "objectives": [
+    "I can say what I can and cannot do.",
+    "Make the potential form of group 2 verbs",
+    "Use できる and <ruby>来<rt>こ</rt></ruby>られる",
+    "Mark what you can do with が"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>運転<rt>うんてん</rt></ruby>",
+      "unten",
+      "driving (+ する: to drive)"
+    ],
+    [
+      "<ruby>運動<rt>うんどう</rt></ruby>",
+      "undou",
+      "exercise, sport (+ する: to exercise)"
+    ],
+    [
+      "<ruby>動<rt>うご</rt></ruby>く",
+      "ugoku",
+      "to move, to work (of a machine)"
+    ],
+    [
+      "できる",
+      "dekiru",
+      "can do, to be able to"
+    ],
+    [
+      "<ruby>見<rt>み</rt></ruby>られる",
+      "mirareru",
+      "can see, can watch"
+    ],
+    [
+      "<ruby>食<rt>た</rt></ruby>べられる",
+      "taberareru",
+      "can eat"
+    ],
+    [
+      "<ruby>来<rt>こ</rt></ruby>られる",
+      "korareru",
+      "can come"
+    ],
+    [
+      "めんきょ",
+      "menkyo",
+      "licence"
+    ],
+    [
+      "スキー",
+      "sukii",
+      "skiing"
+    ],
+    [
+      "なっとう",
+      "nattou",
+      "natto (fermented soybeans)"
+    ],
+    [
+      "<ruby>一人<rt>ひとり</rt></ruby>で",
+      "hitori de",
+      "by oneself, alone"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "運転",
+      "word_reading": "うんてん"
+    },
+    {
+      "word_japanese": "運動",
+      "word_reading": "うんどう"
+    },
+    {
+      "word_japanese": "動く",
+      "word_reading": "うごく"
+    }
+  ],
+  "concept": {
+    "title": "Saying what you can do",
+    "text": "Japanese has a verb form for \"can\": the potential form. This lesson covers group 2 verbs and the two irregular verbs.\n\nGroup 2: drop る and add られる.\n<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べられる (can eat)\n<ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>られる (can see)\n\nIrregular: する → できる, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる.\n\nThe potential form is itself a group 2 verb: <ruby>食<rt>た</rt></ruby>べられます, <ruby>食<rt>た</rt></ruby>べられない, <ruby>食<rt>た</rt></ruby>べられた.\n\nWhat you can do usually takes が instead of を:\nなっとうが<ruby>食<rt>た</rt></ruby>べられます。 I can eat natto.",
+    "examples": [
+      "V(group 2) る → られる",
+      "する → できる / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる",
+      "N が + potential verb"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Potential form: group 2 and irregular verbs",
+      "pattern": "V-る → V-られる / する → できる / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる",
+      "explanation": "For group 2 verbs, replace る with られる. する becomes できる, and <ruby>来<rt>く</rt></ruby>る becomes <ruby>来<rt>こ</rt></ruby>られる.",
+      "examples": [
+        {
+          "japanese": "わたしはなっとうが<ruby>食<rt>た</rt></ruby>べられます。",
+          "romaji": "",
+          "meaning": "I can eat natto."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られますか。",
+          "romaji": "",
+          "meaning": "Can you come tomorrow?"
+        },
+        {
+          "japanese": "<ruby>兄<rt>あに</rt></ruby>は<ruby>車<rt>くるま</rt></ruby>の<ruby>運転<rt>うんてん</rt></ruby>ができます。",
+          "romaji": "",
+          "meaning": "My older brother can drive a car."
+        },
+        {
+          "japanese": "ここから<ruby>山<rt>やま</rt></ruby>が<ruby>見<rt>み</rt></ruby>られます。",
+          "romaji": "",
+          "meaning": "You can see the mountains from here."
+        },
+        {
+          "japanese": "<ruby>朝<rt>あさ</rt></ruby><ruby>早<rt>はや</rt></ruby>くおきられません。",
+          "romaji": "",
+          "meaning": "I can't get up early in the morning."
+        }
+      ],
+      "notes": [
+        "In speech you will also hear <ruby>見<rt>み</rt></ruby>れる and <ruby>食<rt>た</rt></ruby>べれる (without ら). Use the full form when you write.",
+        "Noun + する verbs become noun + できる: <ruby>運転<rt>うんてん</rt></ruby>する → <ruby>運転<rt>うんてん</rt></ruby>できる."
+      ]
+    },
+    {
+      "title": "What you can do: N が + potential",
+      "pattern": "N が V-(ら)れる / N ができる",
+      "explanation": "The thing you can do usually takes が. With a noun, N ができる means \"can do N\".",
+      "examples": [
+        {
+          "japanese": "リーさんはスキーができます。",
+          "romaji": "",
+          "meaning": "Lee can ski."
+        },
+        {
+          "japanese": "<ruby>弟<rt>おとうと</rt></ruby>はまだ<ruby>一人<rt>ひとり</rt></ruby>でねられません。",
+          "romaji": "",
+          "meaning": "My younger brother can't sleep on his own yet."
+        },
+        {
+          "japanese": "このへやでテレビが<ruby>見<rt>み</rt></ruby>られます。",
+          "romaji": "",
+          "meaning": "You can watch TV in this room."
+        },
+        {
+          "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>ができる<ruby>人<rt>ひと</rt></ruby>をさがしています。",
+          "romaji": "",
+          "meaning": "We're looking for someone who can speak Japanese."
+        }
+      ],
+      "notes": [
+        "を is also heard (なっとうを<ruby>食<rt>た</rt></ruby>べられる), but が is the safer choice.",
+        "Ability with a skill: N ができる; possibility in a place: 〜が<ruby>見<rt>み</rt></ruby>られる."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "めんきょがありますから、<ruby>運転<rt>うんてん</rt></ruby>できます。",
+      "I have a licence, so I can drive."
+    ],
+    [
+      "<ruby>毎日<rt>まいにち</rt></ruby><ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>運動<rt>うんどう</rt></ruby>しています。",
+      "I exercise for thirty minutes every day."
+    ],
+    [
+      "このパソコンは<ruby>古<rt>ふる</rt></ruby>いですが、まだ<ruby>動<rt>うご</rt></ruby>きます。",
+      "This computer is old, but it still works."
+    ],
+    [
+      "にちようびはパーティーに<ruby>来<rt>こ</rt></ruby>られますか。",
+      "Can you come to the party on Sunday?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "リーさんは<ruby>車<rt>くるま</rt></ruby>の<ruby>運転<rt>うんてん</rt></ruby>ができますか。",
+      "リー",
+      "はい、<ruby>国<rt>くに</rt></ruby>でめんきょをとりました。"
+    ],
+    [
+      "アナ",
+      "なっとうが<ruby>食<rt>た</rt></ruby>べられますか。",
+      "マイ",
+      "いいえ、ちょっと<ruby>食<rt>た</rt></ruby>べられません。"
+    ],
+    [
+      "ゆき",
+      "<ruby>明日<rt>あした</rt></ruby>のパーティーに<ruby>来<rt>こ</rt></ruby>られますか。",
+      "リン",
+      "すみません、<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られません。"
+    ],
+    [
+      "たなか",
+      "<ruby>何<rt>なに</rt></ruby>か<ruby>運動<rt>うんどう</rt></ruby>をしていますか。",
+      "アナ",
+      "<ruby>毎年<rt>まいとし</rt></ruby>スキーをします。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "運",
+      "onyomi": [
+        "ウン"
+      ],
+      "kunyomi": [
+        "はこ.ぶ"
+      ],
+      "meaning_en": "carry, luck",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "運転",
+          "reading": "うんてん",
+          "en": "driving"
+        },
+        {
+          "word": "運動",
+          "reading": "うんどう",
+          "en": "exercise"
+        }
+      ],
+      "mnemonic": "A car (車) moving along a road (辶): carrying things, and with them, luck."
+    },
+    {
+      "char": "転",
+      "onyomi": [
+        "テン"
+      ],
+      "kunyomi": [
+        "ころ.がる",
+        "ころ.げる",
+        "ころ.がす",
+        "ころ.ぶ",
+        "まろ.ぶ",
+        "うたた",
+        "うつ.る",
+        "くる.めく"
+      ],
+      "meaning_en": "turn, roll",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "運転",
+          "reading": "うんてん",
+          "en": "driving"
+        },
+        {
+          "word": "自転車",
+          "reading": "じてんしゃ",
+          "en": "bicycle"
+        }
+      ],
+      "mnemonic": "A car (車) whose wheels keep turning (云)."
+    },
+    {
+      "char": "動",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "うご.く",
+        "うご.かす"
+      ],
+      "meaning_en": "move",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "動く",
+          "reading": "うごく",
+          "en": "to move"
+        },
+        {
+          "word": "運動",
+          "reading": "うんどう",
+          "en": "exercise"
+        }
+      ],
+      "mnemonic": "Something heavy (重) moved with strength (力)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 2): complete <ruby>体<rt>からだ</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけた＿＿いいですよ。",
+      "options": [
+        "のが",
+        "ほうが",
+        "ことが",
+        "ほど"
+      ],
+      "correct": "ほうが",
+      "explanation": "Advice: V-たほうがいい."
+    },
+    {
+      "prompt": "What is the potential form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べれる",
+        "<ruby>食<rt>た</rt></ruby>べらる",
+        "<ruby>食<rt>た</rt></ruby>べられる",
+        "<ruby>食<rt>た</rt></ruby>べさせる"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べられる",
+      "explanation": "Group 2: る → られる (<ruby>食<rt>た</rt></ruby>べれる is spoken only)."
+    },
+    {
+      "prompt": "What is the potential form of する?",
+      "options": [
+        "しられる",
+        "される",
+        "すれる",
+        "できる"
+      ],
+      "correct": "できる",
+      "explanation": "する becomes できる."
+    },
+    {
+      "prompt": "What is the potential form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>こ</rt></ruby>られる",
+        "<ruby>来<rt>き</rt></ruby>られる",
+        "<ruby>来<rt>く</rt></ruby>られる",
+        "<ruby>来<rt>こ</rt></ruby>れる"
+      ],
+      "correct": "<ruby>来<rt>こ</rt></ruby>られる",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る becomes <ruby>来<rt>こ</rt></ruby>られる."
+    },
+    {
+      "prompt": "Complete: わたしはなっとう＿＿<ruby>食<rt>た</rt></ruby>べられます。",
+      "options": [
+        "に",
+        "が",
+        "で",
+        "へ"
+      ],
+      "correct": "が",
+      "explanation": "What you can do usually takes が."
+    },
+    {
+      "prompt": "How is 運転⁠ read?",
+      "options": [
+        "うんでん",
+        "うんどう",
+        "うんてん",
+        "うてん"
+      ],
+      "correct": "うんてん",
+      "explanation": "運転⁠ is read うんてん."
+    },
+    {
+      "prompt": "Choose the meaning of このパソコンはまだ<ruby>動<rt>うご</rt></ruby>きます。",
+      "options": [
+        "This computer is still moving house.",
+        "This computer can still be bought.",
+        "This computer is still new.",
+        "This computer still works."
+      ],
+      "correct": "This computer still works.",
+      "explanation": "<ruby>動<rt>うご</rt></ruby>く: to move, to work."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend asks you to a party tomorrow, but you are busy. What do you say?",
+      "options": [
+        "すみません、<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>き</rt></ruby>ません。",
+        "すみません、<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られます。",
+        "すみません、<ruby>明日<rt>あした</rt></ruby>はできます。",
+        "すみません、<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られません。"
+      ],
+      "correct": "すみません、<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られません。",
+      "explanation": "Can't come: <ruby>来<rt>こ</rt></ruby>られません."
+    },
+    {
+      "prompt": "Which sentence means \"Lee can ski\"?",
+      "options": [
+        "リーさんはスキーができます。",
+        "リーさんはスキーをします。",
+        "リーさんはスキーがすきです。",
+        "リーさんはスキーをしました。"
+      ],
+      "correct": "リーさんはスキーができます。",
+      "explanation": "N ができる: can do N."
+    },
+    {
+      "prompt": "Which form do you write in a careful email?",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>れます",
+        "<ruby>見<rt>み</rt></ruby>られます",
+        "<ruby>見<rt>み</rt></ruby>れれます",
+        "<ruby>見<rt>み</rt></ruby>らます"
+      ],
+      "correct": "<ruby>見<rt>み</rt></ruby>られます",
+      "explanation": "Written Japanese keeps ら: <ruby>見<rt>み</rt></ruby>られる."
+    },
+    {
+      "prompt": "Read: <ruby>弟<rt>おとうと</rt></ruby>はまだ<ruby>一人<rt>ひとり</rt></ruby>でねられません。 What is true?",
+      "options": [
+        "The younger brother doesn't want to sleep.",
+        "The younger brother is sleeping alone.",
+        "The younger brother can't sleep alone yet.",
+        "The younger brother can sleep anywhere."
+      ],
+      "correct": "The younger brother can't sleep alone yet.",
+      "explanation": "ねられません: can't sleep."
+    },
+    {
+      "prompt": "Review (Unit 1): complete <ruby>明日<rt>あした</rt></ruby>はいい<ruby>天気<rt>てんき</rt></ruby>になる＿＿。 (probably)",
+      "options": [
+        "ですでしょう",
+        "だでしょう",
+        "でした",
+        "でしょう"
+      ],
+      "correct": "でしょう",
+      "explanation": "Plain form + でしょう."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-2-you-should",
+    "japanese-n4-unit-1-probably",
+    "japanese-n5-unit-8-can-and-cannot"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

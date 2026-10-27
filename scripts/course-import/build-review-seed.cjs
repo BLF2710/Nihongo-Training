@@ -10,6 +10,8 @@ if (!name || !unitIds.length) throw new Error("Usage: build-review-seed.cjs <mig
 const lessons = JSON.parse(fs.readFileSync(path.join(ROOT, "shared/course/lessons.json"), "utf8"));
 
 const QUESTIONS_PER_LESSON = 2, MATCH_PAIRS = 5, SCRAMBLES_PER_LESSON = 2;
+// The question bank accepts match items of up to 60 characters (nihon-api/src/services/question-types.ts).
+const MAX_MATCH_TEXT = 60;
 const rows = [];
 const add = (unitId, type, content) => rows.push(`  ('${unitId}', '${type}', $json$${JSON.stringify(content)}$json$::jsonb)`);
 
@@ -28,7 +30,8 @@ for (const unitId of unitIds) {
     // A matching game needs every word and every meaning to be different.
     const pairs = [];
     for (const [left, , right] of lesson.vocabulary) {
-      if (pairs.length < MATCH_PAIRS && !pairs.some(pair => pair.left === left || pair.right === right)) pairs.push({ left, right });
+      const fits = left.length <= MAX_MATCH_TEXT && right.length <= MAX_MATCH_TEXT;
+      if (fits && pairs.length < MATCH_PAIRS && !pairs.some(pair => pair.left === left || pair.right === right)) pairs.push({ left, right });
     }
     add(unitId, "word_match", { prompt: `Match the words from “${lesson.title}” with their meanings.`, pairs });
     const scrambles = lesson.vocabulary.filter(([word]) => !/\s/.test(word) && [...word].length >= 3 && [...word].length <= 8).slice(-SCRAMBLES_PER_LESSON);

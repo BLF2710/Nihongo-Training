@@ -1,0 +1,477 @@
+{
+  "id": "japanese-n4-unit-3-looks-tasty",
+  "slug": "n4-unit-3-looks-tasty",
+  "unit": "Japanese N4 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "It Looks Tasty",
+  "title_jp": "おいしそうです",
+  "objectives": [
+    "I can say how something looks or seems.",
+    "Say how something looks with adjective stem + そう",
+    "Say something is about to happen with V-stem + そう",
+    "Talk about colours and tastes"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>味<rt>あじ</rt></ruby>",
+      "aji",
+      "taste, flavour"
+    ],
+    [
+      "<ruby>色<rt>いろ</rt></ruby>",
+      "iro",
+      "colour"
+    ],
+    [
+      "<ruby>赤<rt>あか</rt></ruby>い",
+      "akai",
+      "red"
+    ],
+    [
+      "<ruby>青<rt>あお</rt></ruby>い",
+      "aoi",
+      "blue"
+    ],
+    [
+      "きいろい",
+      "kiiroi",
+      "yellow"
+    ],
+    [
+      "あまい",
+      "amai",
+      "sweet"
+    ],
+    [
+      "からい",
+      "karai",
+      "spicy, hot"
+    ],
+    [
+      "ねむい",
+      "nemui",
+      "sleepy"
+    ],
+    [
+      "ケーキ",
+      "keeki",
+      "cake"
+    ],
+    [
+      "<ruby>空<rt>そら</rt></ruby>",
+      "sora",
+      "sky"
+    ],
+    [
+      "<ruby>何色<rt>なにいろ</rt></ruby>",
+      "nani iro",
+      "what colour"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "味",
+      "word_reading": "あじ"
+    },
+    {
+      "word_japanese": "色",
+      "word_reading": "いろ"
+    },
+    {
+      "word_japanese": "赤い",
+      "word_reading": "あかい"
+    },
+    {
+      "word_japanese": "青い",
+      "word_reading": "あおい"
+    },
+    {
+      "word_japanese": "空",
+      "word_reading": "そら"
+    },
+    {
+      "word_japanese": "何色",
+      "word_reading": "なにいろ"
+    }
+  ],
+  "concept": {
+    "title": "It looks… / It's about to…",
+    "text": "そう after an adjective says how something looks, before you know for sure:\n\nおいしそうなケーキですね。 That cake looks delicious.\n\nDrop い from い-adjectives (おいし-そう) and add そう straight after な-adjectives (しずかそう).\nTwo are special: いい → よさそう, ない → なさそう.\n\nAfter a verb stem, そう says something looks about to happen:\n<ruby>雨<rt>あめ</rt></ruby>がふりそうです。 It looks like it's going to rain.\n\nそう is a な-adjective itself: おいしそうな<ruby>味<rt>あじ</rt></ruby>, ふりそうに<ruby>見<rt>み</rt></ruby>える.",
+    "examples": [
+      "い-adj stem + そう / な-adj + そう",
+      "いい → よさそう / ない → なさそう",
+      "V-stem + そう (about to)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Looks: adjective + そう",
+      "pattern": "おいし-そう / しずか-そう / よさそう",
+      "explanation": "Use そう for what you can see or sense. Do not use it for things that are obvious at a glance, like colour: <ruby>赤<rt>あか</rt></ruby>そう is wrong for a red apple.",
+      "examples": [
+        {
+          "japanese": "このケーキはおいしそうですね。",
+          "romaji": "",
+          "meaning": "This cake looks delicious."
+        },
+        {
+          "japanese": "リーさんはねむそうです。",
+          "romaji": "",
+          "meaning": "Lee looks sleepy."
+        },
+        {
+          "japanese": "そのかばんは<ruby>高<rt>たか</rt></ruby>そうですね。",
+          "romaji": "",
+          "meaning": "That bag looks expensive."
+        },
+        {
+          "japanese": "この<ruby>本<rt>ほん</rt></ruby>はおもしろそうです。",
+          "romaji": "",
+          "meaning": "This book looks interesting."
+        },
+        {
+          "japanese": "あの<ruby>店<rt>みせ</rt></ruby>はよさそうです。",
+          "romaji": "",
+          "meaning": "That shop looks good."
+        }
+      ],
+      "notes": [
+        "かわいい and きれい are already about looks, so かわいそう means \"poor thing\", not \"looks cute\".",
+        "Before a noun: おいしそうなケーキ; before a verb: おいしそうに<ruby>食<rt>た</rt></ruby>べる."
+      ]
+    },
+    {
+      "title": "About to: V-stem + そう",
+      "pattern": "V-ます stem + そうです",
+      "explanation": "After a verb stem, そう says that something seems about to happen.",
+      "examples": [
+        {
+          "japanese": "<ruby>空<rt>そら</rt></ruby>を<ruby>見<rt>み</rt></ruby>てください。<ruby>雨<rt>あめ</rt></ruby>がふりそうです。",
+          "romaji": "",
+          "meaning": "Look at the sky. It looks like rain."
+        },
+        {
+          "japanese": "にもつがおちそうですよ。",
+          "romaji": "",
+          "meaning": "Your bag is about to fall."
+        },
+        {
+          "japanese": "このしごとは<ruby>今日<rt>きょう</rt></ruby><ruby>中<rt>じゅう</rt></ruby>に<ruby>終<rt>お</rt></ruby>わりそうです。",
+          "romaji": "",
+          "meaning": "This work looks like it will finish today."
+        },
+        {
+          "japanese": "おなかがすいて、もうたおれそうです。",
+          "romaji": "",
+          "meaning": "I'm so hungry I feel I'm about to collapse."
+        }
+      ],
+      "notes": [
+        "The negative is V-stem + そうにない or そうもない: <ruby>終<rt>お</rt></ruby>わりそうにないです (doesn't look like it'll finish)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "このカレーはちょっとからいです。",
+      "This curry is a bit spicy."
+    ],
+    [
+      "<ruby>何色<rt>なにいろ</rt></ruby>がすきですか。",
+      "What colour do you like?"
+    ],
+    [
+      "<ruby>青<rt>あお</rt></ruby>い<ruby>空<rt>そら</rt></ruby>がきれいですね。",
+      "The blue sky is beautiful, isn't it?"
+    ],
+    [
+      "このりんごは<ruby>赤<rt>あか</rt></ruby>くて、あまいです。",
+      "This apple is red and sweet."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "わあ、おいしそうなケーキですね。",
+      "マイ",
+      "ありがとう。どうぞ、<ruby>食<rt>た</rt></ruby>べてください。"
+    ],
+    [
+      "けん",
+      "リーさん、ねむそうですね。",
+      "リー",
+      "きのうあまりねられなかったんです。"
+    ],
+    [
+      "ゆき",
+      "このスープ、どんな<ruby>味<rt>あじ</rt></ruby>ですか。",
+      "リン",
+      "ちょっとからいですが、おいしいですよ。"
+    ],
+    [
+      "たなか",
+      "<ruby>雨<rt>あめ</rt></ruby>がふりそうですね。",
+      "アナ",
+      "かさを<ruby>持<rt>も</rt></ruby>っていったほうがいいですね。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "味",
+      "onyomi": [
+        "ミ"
+      ],
+      "kunyomi": [
+        "あじ",
+        "あじ.わう"
+      ],
+      "meaning_en": "taste",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "味",
+          "reading": "あじ",
+          "en": "taste"
+        },
+        {
+          "word": "意味",
+          "reading": "いみ",
+          "en": "meaning"
+        }
+      ],
+      "mnemonic": "A mouth (口) trying something not yet (未) known: tasting."
+    },
+    {
+      "char": "色",
+      "onyomi": [
+        "ショク",
+        "シキ"
+      ],
+      "kunyomi": [
+        "いろ"
+      ],
+      "meaning_en": "colour",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "色",
+          "reading": "いろ",
+          "en": "colour"
+        },
+        {
+          "word": "何色",
+          "reading": "なにいろ",
+          "en": "what colour"
+        }
+      ],
+      "mnemonic": "A person bent over another: the colour that rises to the face."
+    },
+    {
+      "char": "赤",
+      "onyomi": [
+        "セキ",
+        "シャク"
+      ],
+      "kunyomi": [
+        "あか",
+        "あか-",
+        "あか.い",
+        "あか.らむ",
+        "あか.らめる"
+      ],
+      "meaning_en": "red",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "赤い",
+          "reading": "あかい",
+          "en": "red"
+        },
+        {
+          "word": "赤ちゃん",
+          "reading": "あかちゃん",
+          "en": "baby"
+        }
+      ],
+      "mnemonic": "Earth (土) over a fire: glowing red."
+    },
+    {
+      "char": "青",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "あお",
+        "あお-",
+        "あお.い"
+      ],
+      "meaning_en": "blue, green",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "青い",
+          "reading": "あおい",
+          "en": "blue"
+        },
+        {
+          "word": "青空",
+          "reading": "あおぞら",
+          "en": "blue sky"
+        }
+      ],
+      "mnemonic": "New shoots (生) over the moon (月): fresh blue-green."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>安<rt>やす</rt></ruby>い＿＿、おいしいし、よく<ruby>行<rt>い</rt></ruby>きます。",
+      "options": [
+        "から",
+        "し",
+        "が",
+        "て"
+      ],
+      "correct": "し",
+      "explanation": "Listing reasons: 〜し、〜し."
+    },
+    {
+      "prompt": "Complete: このケーキはおいし＿＿ですね。 (looks delicious)",
+      "options": [
+        "よう",
+        "らしい",
+        "そう",
+        "みたい"
+      ],
+      "correct": "そう",
+      "explanation": "Looks: stem + そう."
+    },
+    {
+      "prompt": "What is \"looks good\" from いい?",
+      "options": [
+        "いいそう",
+        "いさそう",
+        "よそう",
+        "よさそう"
+      ],
+      "correct": "よさそう",
+      "explanation": "いい → よさそう."
+    },
+    {
+      "prompt": "Complete: <ruby>雨<rt>あめ</rt></ruby>がふり＿＿です。 (looks like rain)",
+      "options": [
+        "そう",
+        "たい",
+        "ます",
+        "ながら"
+      ],
+      "correct": "そう",
+      "explanation": "About to: V-stem + そう."
+    },
+    {
+      "prompt": "Complete: おいしそう＿＿ケーキですね。",
+      "options": [
+        "の",
+        "な",
+        "に",
+        "で"
+      ],
+      "correct": "な",
+      "explanation": "Before a noun: そうな."
+    },
+    {
+      "prompt": "How is 赤⁠い read?",
+      "options": [
+        "あおい",
+        "しろい",
+        "あかい",
+        "くろい"
+      ],
+      "correct": "あかい",
+      "explanation": "赤⁠い is read あかい."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>何色<rt>なにいろ</rt></ruby>がすきですか。",
+      "options": [
+        "What taste do you like?",
+        "How many colours do you like?",
+        "Which colour is this?",
+        "What colour do you like?"
+      ],
+      "correct": "What colour do you like?",
+      "explanation": "<ruby>何色<rt>なにいろ</rt></ruby>: what colour."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You see a friend yawning. What do you say?",
+      "options": [
+        "ねむいそうですね。",
+        "ねむらしいですね。",
+        "ねむそうにですね。",
+        "ねむそうですね。"
+      ],
+      "correct": "ねむそうですね。",
+      "explanation": "Looks sleepy: ねむそう."
+    },
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "このりんごは<ruby>赤<rt>あか</rt></ruby>そうです。",
+        "このりんごはおいしそうです。",
+        "このりんごはあまそうです。",
+        "このりんごは<ruby>高<rt>たか</rt></ruby>そうです。"
+      ],
+      "correct": "このりんごは<ruby>赤<rt>あか</rt></ruby>そうです。",
+      "explanation": "Colour is seen at a glance: no そう."
+    },
+    {
+      "prompt": "Your friend's bag is slipping off the table. What do you say?",
+      "options": [
+        "かばんがおちたそうですよ。",
+        "かばんがおちそうですよ。",
+        "かばんがおちるそうですよ。",
+        "かばんがおちましたよ。"
+      ],
+      "correct": "かばんがおちそうですよ。",
+      "explanation": "About to fall: V-stem + そう."
+    },
+    {
+      "prompt": "What does かわいそう mean?",
+      "options": [
+        "looks cute",
+        "very cute",
+        "poor thing, pitiful",
+        "not cute"
+      ],
+      "correct": "poor thing, pitiful",
+      "explanation": "かわいそう is its own word."
+    },
+    {
+      "prompt": "Review: complete <ruby>少<rt>すこ</rt></ruby>しずつ<ruby>話<rt>はな</rt></ruby>せる＿＿なりました。",
+      "options": [
+        "そうに",
+        "ために",
+        "ことに",
+        "ように"
+      ],
+      "correct": "ように",
+      "explanation": "A new ability: ようになる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-3-and-also",
+    "japanese-n4-unit-3-now-i-can",
+    "japanese-n5-unit-6-adjectives"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

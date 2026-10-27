@@ -1,0 +1,440 @@
+{
+  "id": "japanese-n4-unit-6-oh-no",
+  "slug": "n4-unit-6-oh-no",
+  "unit": "Japanese N4 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Oh No, I Did It",
+  "title_jp": "〜て しまう",
+  "objectives": [
+    "I can say something is completely done, or happened by mistake.",
+    "Say something is finished with 〜てしまう",
+    "Express regret with 〜てしまう",
+    "Use the casual forms 〜ちゃう and 〜じゃう"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>悪<rt>わる</rt></ruby>い",
+      "",
+      "bad"
+    ],
+    [
+      "<ruby>死<rt>し</rt></ruby>ぬ",
+      "",
+      "to die"
+    ],
+    [
+      "<ruby>不安<rt>ふあん</rt></ruby>",
+      "",
+      "uneasy, worried"
+    ],
+    [
+      "なくす",
+      "",
+      "to lose"
+    ],
+    [
+      "わすれる",
+      "",
+      "to forget, to leave behind"
+    ],
+    [
+      "こわれる",
+      "",
+      "to break (intransitive)"
+    ],
+    [
+      "こわす",
+      "",
+      "to break (something)"
+    ],
+    [
+      "おとす",
+      "",
+      "to drop"
+    ],
+    [
+      "ちこく",
+      "",
+      "being late (+ する: to be late)"
+    ],
+    [
+      "まちがえる",
+      "",
+      "to make a mistake"
+    ],
+    [
+      "ぜんぶ",
+      "",
+      "all, everything"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "悪い",
+      "word_reading": "わるい"
+    },
+    {
+      "word_japanese": "死ぬ",
+      "word_reading": "しぬ"
+    },
+    {
+      "word_japanese": "不安",
+      "word_reading": "ふあん"
+    }
+  ],
+  "concept": {
+    "title": "All done, or oh no",
+    "text": "〜てしまう has two uses.\n\nCompletely done:\n<ruby>本<rt>ほん</rt></ruby>をぜんぶ<ruby>読<rt>よ</rt></ruby>んでしまいました。 I've read the whole book.\n\nSomething you regret or didn't mean to do:\nさいふをなくしてしまいました。 I've lost my wallet (oh no).\n\nIn casual speech it shortens:\n〜てしまう → 〜ちゃう: わすれちゃった (I forgot)\n〜でしまう → 〜じゃう: <ruby>飲<rt>の</rt></ruby>んじゃった (I drank it)",
+    "examples": [
+      "V-て しまう (all done / regret)",
+      "〜てしまう → 〜ちゃう",
+      "〜でしまう → 〜じゃう"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Done or regretted: 〜てしまう",
+      "pattern": "V-て + しまう",
+      "explanation": "The context tells you which meaning is meant: finishing something, or something unwanted happening.",
+      "examples": [
+        {
+          "japanese": "しゅくだいはもうぜんぶやってしまいました。",
+          "romaji": "",
+          "meaning": "I've already finished all my homework."
+        },
+        {
+          "japanese": "<ruby>電車<rt>でんしゃ</rt></ruby>にかさをわすれてしまいました。",
+          "romaji": "",
+          "meaning": "I left my umbrella on the train."
+        },
+        {
+          "japanese": "さいふをなくしてしまったんです。",
+          "romaji": "",
+          "meaning": "I've lost my wallet."
+        },
+        {
+          "japanese": "かいだんでスマホをおとして、こわしてしまいました。",
+          "romaji": "",
+          "meaning": "I dropped my phone on the stairs and broke it."
+        },
+        {
+          "japanese": "かってたねこが<ruby>死<rt>し</rt></ruby>んでしまって、とてもかなしいです。",
+          "romaji": "",
+          "meaning": "Our cat died, and I'm very sad."
+        }
+      ],
+      "notes": [
+        "Often with もう or ぜんぶ for \"all done\".",
+        "An apology often uses it: おそくなってしまって、すみません."
+      ]
+    },
+    {
+      "title": "Casual: 〜ちゃう / 〜じゃう",
+      "pattern": "〜てしまう → 〜ちゃう / 〜でしまう → 〜じゃう",
+      "explanation": "Friends shorten てしまう to ちゃう, and でしまう to じゃう.",
+      "examples": [
+        {
+          "japanese": "あ、わすれちゃった。",
+          "romaji": "",
+          "meaning": "Oh, I forgot."
+        },
+        {
+          "japanese": "ケーキ、ぜんぶ<ruby>食<rt>た</rt></ruby>べちゃったよ。",
+          "romaji": "",
+          "meaning": "I ate all the cake."
+        },
+        {
+          "japanese": "ジュースをぜんぶ<ruby>飲<rt>の</rt></ruby>んじゃった。",
+          "romaji": "",
+          "meaning": "I drank all the juice."
+        },
+        {
+          "japanese": "また、ちこくしちゃった。",
+          "romaji": "",
+          "meaning": "I was late again."
+        }
+      ],
+      "notes": [
+        "Past: 〜ちゃった / 〜じゃった. Keep 〜てしまう in polite speech."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>天気<rt>てんき</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>いですね。",
+      "The weather's bad today, isn't it?"
+    ],
+    [
+      "<ruby>明日<rt>あした</rt></ruby>の<ruby>試験<rt>しけん</rt></ruby>が<ruby>不安<rt>ふあん</rt></ruby>です。",
+      "I'm worried about tomorrow's exam."
+    ],
+    [
+      "パソコンがこわれました。",
+      "My computer broke."
+    ],
+    [
+      "かんじをまちがえないように、<ruby>気<rt>き</rt></ruby>をつけます。",
+      "I'll be careful not to get the kanji wrong."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "どうしたんですか。",
+      "アナ",
+      "さいふをなくしてしまったんです。"
+    ],
+    [
+      "リー",
+      "あ、かさをわすれちゃった。",
+      "マイ",
+      "わたしのかさに<ruby>入<rt>はい</rt></ruby>りますか。"
+    ],
+    [
+      "たなか",
+      "しゅくだいは？",
+      "リン",
+      "もうぜんぶやってしまいました。"
+    ],
+    [
+      "ゆき",
+      "おそくなってしまって、すみません。",
+      "けん",
+      "いいえ、だいじょうぶですよ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "悪",
+      "onyomi": [
+        "アク",
+        "オ"
+      ],
+      "kunyomi": [
+        "わる.い",
+        "わる-",
+        "あ.し",
+        "にく.い",
+        "-にく.い",
+        "ああ",
+        "いずくに",
+        "いずくんぞ",
+        "にく.む"
+      ],
+      "meaning_en": "bad",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "悪い",
+          "reading": "わるい",
+          "en": "bad"
+        },
+        {
+          "word": "悪口",
+          "reading": "わるぐち",
+          "en": "bad-mouthing"
+        }
+      ],
+      "mnemonic": "A heart (心) that is second-rate (亜): bad."
+    },
+    {
+      "char": "死",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "し.ぬ",
+        "し.に-"
+      ],
+      "meaning_en": "die",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "死ぬ",
+          "reading": "しぬ",
+          "en": "to die"
+        },
+        {
+          "word": "死者",
+          "reading": "ししゃ",
+          "en": "the dead"
+        }
+      ],
+      "mnemonic": "Bones (歹) of a person bent over (匕): death."
+    },
+    {
+      "char": "不",
+      "onyomi": [
+        "フ",
+        "ブ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "not, un-",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "不安",
+          "reading": "ふあん",
+          "en": "uneasy"
+        },
+        {
+          "word": "不便",
+          "reading": "ふべん",
+          "en": "inconvenient"
+        }
+      ],
+      "mnemonic": "A bird flying up and not coming down: not."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete このくつをはいて＿＿ください。 (try)",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>て",
+        "おいて",
+        "みて",
+        "しまって"
+      ],
+      "correct": "みて",
+      "explanation": "Try: 〜てみる."
+    },
+    {
+      "prompt": "Complete: <ruby>本<rt>ほん</rt></ruby>をぜんぶ<ruby>読<rt>よ</rt></ruby>んで＿＿。 (finished)",
+      "options": [
+        "みました",
+        "おきました",
+        "ありました",
+        "しまいました"
+      ],
+      "correct": "しまいました",
+      "explanation": "All done: 〜てしまう."
+    },
+    {
+      "prompt": "Complete: <ruby>電車<rt>でんしゃ</rt></ruby>にかさをわすれて＿＿。 (oh no)",
+      "options": [
+        "しまいました",
+        "みました",
+        "おきました",
+        "いきました"
+      ],
+      "correct": "しまいました",
+      "explanation": "Regret: 〜てしまう."
+    },
+    {
+      "prompt": "What is the casual form of <ruby>食<rt>た</rt></ruby>べてしまった?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べじゃった",
+        "<ruby>食<rt>た</rt></ruby>べちゃった",
+        "<ruby>食<rt>た</rt></ruby>べしまった",
+        "<ruby>食<rt>た</rt></ruby>べちった"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べちゃった",
+      "explanation": "てしまった → ちゃった."
+    },
+    {
+      "prompt": "What is the casual form of <ruby>飲<rt>の</rt></ruby>んでしまった?",
+      "options": [
+        "<ruby>飲<rt>の</rt></ruby>んちゃった",
+        "<ruby>飲<rt>の</rt></ruby>みちゃった",
+        "<ruby>飲<rt>の</rt></ruby>んじゃった",
+        "<ruby>飲<rt>の</rt></ruby>んしまった"
+      ],
+      "correct": "<ruby>飲<rt>の</rt></ruby>んじゃった",
+      "explanation": "でしまった → じゃった."
+    },
+    {
+      "prompt": "How is 不安⁠ read?",
+      "options": [
+        "ぶあん",
+        "ふやす",
+        "ふあい",
+        "ふあん"
+      ],
+      "correct": "ふあん",
+      "explanation": "不安⁠ is read ふあん."
+    },
+    {
+      "prompt": "Choose the meaning of パソコンがこわれました。",
+      "options": [
+        "My computer broke.",
+        "I broke my computer on purpose.",
+        "My computer is new.",
+        "I fixed my computer."
+      ],
+      "correct": "My computer broke.",
+      "explanation": "こわれる: break (by itself)."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You arrive late to a meeting. What do you say?",
+      "options": [
+        "おそくなってしまって、すみません。",
+        "おそくなってみて、すみません。",
+        "おそくなっておいて、すみません。",
+        "おそくなりちゃって、すみません。"
+      ],
+      "correct": "おそくなってしまって、すみません。",
+      "explanation": "An apology: 〜てしまって、すみません."
+    },
+    {
+      "prompt": "Which verb is transitive?",
+      "options": [
+        "こわれる",
+        "こわす",
+        "<ruby>死<rt>し</rt></ruby>ぬ",
+        "ちこくする"
+      ],
+      "correct": "こわす",
+      "explanation": "こわす: break something."
+    },
+    {
+      "prompt": "To a friend: \"I forgot!\"",
+      "options": [
+        "わすれじゃった！",
+        "わすれてみた！",
+        "わすれちゃった！",
+        "わすれておいた！"
+      ],
+      "correct": "わすれちゃった！",
+      "explanation": "Casual てしまった: ちゃった."
+    },
+    {
+      "prompt": "Read: しゅくだいはもうぜんぶやってしまいました。 What does the speaker mean?",
+      "options": [
+        "The homework was done badly.",
+        "The homework is lost.",
+        "The homework is not started.",
+        "The homework is all finished."
+      ],
+      "correct": "The homework is all finished.",
+      "explanation": "もうぜんぶ + てしまう: all done."
+    },
+    {
+      "prompt": "Review (Unit 5): complete <ruby>来週<rt>らいしゅう</rt></ruby>はしゅっちょう＿＿よていです。",
+      "options": [
+        "の",
+        "な",
+        "を",
+        "が"
+      ],
+      "correct": "の",
+      "explanation": "N の よてい."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-6-try-it",
+    "japanese-n4-unit-5-i-intend-to",
+    "japanese-n4-unit-1-what-happened"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

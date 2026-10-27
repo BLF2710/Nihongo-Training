@@ -1,0 +1,437 @@
+{
+  "id": "japanese-n4-unit-5-in-order-to",
+  "slug": "n4-unit-5-in-order-to",
+  "unit": "Japanese N4 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "In Order To…",
+  "title_jp": "〜ために",
+  "objectives": [
+    "I can give the purpose of an action.",
+    "Give a purpose with ために",
+    "Say what something is used for with のに",
+    "Talk about banks, shops and saving"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>銀行<rt>ぎんこう</rt></ruby>",
+      "",
+      "bank"
+    ],
+    [
+      "<ruby>銀<rt>ぎん</rt></ruby>",
+      "",
+      "silver"
+    ],
+    [
+      "<ruby>会社員<rt>かいしゃいん</rt></ruby>",
+      "",
+      "company employee"
+    ],
+    [
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "",
+      "shop assistant"
+    ],
+    [
+      "<ruby>用事<rt>ようじ</rt></ruby>",
+      "",
+      "errand, something to do"
+    ],
+    [
+      "ちょきん",
+      "",
+      "savings (+ する: to save money)"
+    ],
+    [
+      "おろす",
+      "",
+      "to withdraw (money)"
+    ],
+    [
+      "はさみ",
+      "",
+      "scissors"
+    ],
+    [
+      "けんこう",
+      "",
+      "health"
+    ],
+    [
+      "パスポート",
+      "",
+      "passport"
+    ],
+    [
+      "ひつよう",
+      "",
+      "necessary"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "銀行",
+      "word_reading": "ぎんこう"
+    },
+    {
+      "word_japanese": "銀",
+      "word_reading": "ぎん"
+    },
+    {
+      "word_japanese": "会社員",
+      "word_reading": "かいしゃいん"
+    },
+    {
+      "word_japanese": "店員",
+      "word_reading": "てんいん"
+    },
+    {
+      "word_japanese": "用事",
+      "word_reading": "ようじ"
+    }
+  ],
+  "concept": {
+    "title": "For what? ために and のに",
+    "text": "ために gives the purpose of an action you choose to do:\n<ruby>家<rt>いえ</rt></ruby>を<ruby>買<rt>か</rt></ruby>うために、ちょきんしています。 I'm saving to buy a house.\nけんこうのために、<ruby>毎日<rt>まいにち</rt></ruby><ruby>歩<rt>ある</rt></ruby>きます。 I walk every day for my health.\n\nのに says what a thing is used for, with words like つかう, べんり, いい, ひつよう:\nこのはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>るのにべんりです。 These scissors are handy for cutting paper.\n\nUse ために with verbs of will (<ruby>買<rt>か</rt></ruby>う, <ruby>行<rt>い</rt></ruby>く). For verbs like <ruby>分<rt>わ</rt></ruby>かる or できる, ように comes in N3.",
+    "examples": [
+      "V-る / N の + ために (purpose)",
+      "V-る + のに + べんり・いい・ひつよう (used for)",
+      "ために: actions you choose"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Purpose: ために",
+      "pattern": "V-る / N の + ために、〜",
+      "explanation": "The second half is an action you do on purpose. The subject of both halves is usually the same.",
+      "examples": [
+        {
+          "japanese": "<ruby>家<rt>いえ</rt></ruby>を<ruby>買<rt>か</rt></ruby>うために、ちょきんしています。",
+          "romaji": "",
+          "meaning": "I'm saving up to buy a house."
+        },
+        {
+          "japanese": "けんこうのために、<ruby>毎日<rt>まいにち</rt></ruby><ruby>歩<rt>ある</rt></ruby>いています。",
+          "romaji": "",
+          "meaning": "I walk every day for my health."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>大学<rt>だいがく</rt></ruby>に<ruby>入<rt>はい</rt></ruby>るために、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しています。",
+          "romaji": "",
+          "meaning": "I'm studying Japanese to get into a Japanese university."
+        },
+        {
+          "japanese": "かぞくのために<ruby>働<rt>はたら</rt></ruby>いています。",
+          "romaji": "",
+          "meaning": "I work for my family."
+        },
+        {
+          "japanese": "パスポートをとるために、<ruby>写真<rt>しゃしん</rt></ruby>をとりました。",
+          "romaji": "",
+          "meaning": "I had a photo taken to get a passport."
+        }
+      ],
+      "notes": [
+        "N のために can also mean \"for the sake of\": <ruby>子<rt>こ</rt></ruby>どものために.",
+        "Not with ability verbs: <ruby>話<rt>はな</rt></ruby>せるために is wrong."
+      ]
+    },
+    {
+      "title": "Used for: のに",
+      "pattern": "V-る + のに + べんり / いい / ひつよう / つかう",
+      "explanation": "のに after a dictionary-form verb names the use or purpose of a thing.",
+      "examples": [
+        {
+          "japanese": "このはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>るのにべんりです。",
+          "romaji": "",
+          "meaning": "These scissors are handy for cutting paper."
+        },
+        {
+          "japanese": "パスポートをとるのに、<ruby>一週間<rt>いっしゅうかん</rt></ruby>かかります。",
+          "romaji": "",
+          "meaning": "It takes a week to get a passport."
+        },
+        {
+          "japanese": "この<ruby>店<rt>みせ</rt></ruby>はかいものするのにいいですよ。",
+          "romaji": "",
+          "meaning": "This shop is good for shopping."
+        },
+        {
+          "japanese": "りゅうがくするのに、お<ruby>金<rt>かね</rt></ruby>がたくさんひつようです。",
+          "romaji": "",
+          "meaning": "You need a lot of money to study abroad."
+        }
+      ],
+      "notes": [
+        "Do not mix up with のに \"even though\" (Unit 9): the meaning comes from what follows."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>銀行<rt>ぎんこう</rt></ruby>でお<ruby>金<rt>かね</rt></ruby>をおろしました。",
+      "I withdrew money at the bank."
+    ],
+    [
+      "<ruby>兄<rt>あに</rt></ruby>は<ruby>会社員<rt>かいしゃいん</rt></ruby>です。",
+      "My older brother is a company employee."
+    ],
+    [
+      "<ruby>店員<rt>てんいん</rt></ruby>さんに<ruby>聞<rt>き</rt></ruby>いてみましょう。",
+      "Let's ask a shop assistant."
+    ],
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>用事<rt>ようじ</rt></ruby>があるので、<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ます。",
+      "I have something to do today, so I'll leave early."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "どうしてちょきんしているんですか。",
+      "リー",
+      "りゅうがくするためにちょきんしているんです。"
+    ],
+    [
+      "けん",
+      "このはさみ、どうですか。",
+      "マイ",
+      "<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>るのにべんりですよ。"
+    ],
+    [
+      "ゆき",
+      "<ruby>銀行<rt>ぎんこう</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>までですか。",
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "<ruby>三時<rt>さんじ</rt></ruby>までです。"
+    ],
+    [
+      "たなか",
+      "<ruby>今日<rt>きょう</rt></ruby>、いっしょにごはんを<ruby>食<rt>た</rt></ruby>べませんか。",
+      "リン",
+      "すみません、<ruby>今日<rt>きょう</rt></ruby>は<ruby>用事<rt>ようじ</rt></ruby>があるんです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "銀",
+      "onyomi": [
+        "ギン"
+      ],
+      "kunyomi": [
+        "しろがね"
+      ],
+      "meaning_en": "silver",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "銀",
+          "reading": "ぎん",
+          "en": "silver"
+        },
+        {
+          "word": "銀行",
+          "reading": "ぎんこう",
+          "en": "bank"
+        }
+      ],
+      "mnemonic": "Metal (金) that stays bright (艮): silver."
+    },
+    {
+      "char": "員",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [],
+      "meaning_en": "member",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "会社員",
+          "reading": "かいしゃいん",
+          "en": "company employee"
+        },
+        {
+          "word": "店員",
+          "reading": "てんいん",
+          "en": "shop assistant"
+        }
+      ],
+      "mnemonic": "A mouth (口) over a shell (貝): a paid member of a group."
+    },
+    {
+      "char": "用",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [
+        "もち.いる"
+      ],
+      "meaning_en": "use, business",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "用事",
+          "reading": "ようじ",
+          "en": "errand"
+        },
+        {
+          "word": "用意",
+          "reading": "ようい",
+          "en": "preparation"
+        }
+      ],
+      "mnemonic": "A wooden fence put to use."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>来年<rt>らいねん</rt></ruby>、けっこんする＿＿です。",
+      "options": [
+        "つもり",
+        "よう",
+        "そう",
+        "ため"
+      ],
+      "correct": "つもり",
+      "explanation": "Intention: つもり."
+    },
+    {
+      "prompt": "Complete: <ruby>家<rt>いえ</rt></ruby>を<ruby>買<rt>か</rt></ruby>う＿＿、ちょきんしています。",
+      "options": [
+        "のに",
+        "ために",
+        "ように",
+        "つもり"
+      ],
+      "correct": "ために",
+      "explanation": "Purpose: ために."
+    },
+    {
+      "prompt": "Complete: けんこう＿＿ために、<ruby>毎日<rt>まいにち</rt></ruby><ruby>歩<rt>ある</rt></ruby>きます。",
+      "options": [
+        "な",
+        "が",
+        "の",
+        "に"
+      ],
+      "correct": "の",
+      "explanation": "N の ために."
+    },
+    {
+      "prompt": "Complete: このはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>る＿＿べんりです。",
+      "options": [
+        "ために",
+        "ように",
+        "から",
+        "のに"
+      ],
+      "correct": "のに",
+      "explanation": "Used for: のに."
+    },
+    {
+      "prompt": "Which word means \"shop assistant\"?",
+      "options": [
+        "<ruby>店員<rt>てんいん</rt></ruby>",
+        "<ruby>会社員<rt>かいしゃいん</rt></ruby>",
+        "<ruby>銀行<rt>ぎんこう</rt></ruby>",
+        "<ruby>用事<rt>ようじ</rt></ruby>"
+      ],
+      "correct": "<ruby>店員<rt>てんいん</rt></ruby>",
+      "explanation": "<ruby>店員<rt>てんいん</rt></ruby>: shop assistant."
+    },
+    {
+      "prompt": "How is 銀行⁠ read?",
+      "options": [
+        "きんこう",
+        "ぎんこう",
+        "ぎんいき",
+        "ぎんぎょう"
+      ],
+      "correct": "ぎんこう",
+      "explanation": "銀行⁠ is read ぎんこう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>今日<rt>きょう</rt></ruby>は<ruby>用事<rt>ようじ</rt></ruby>があります。",
+      "options": [
+        "I'm using something today.",
+        "I'm free today.",
+        "I have something to do today.",
+        "I have an appointment at the bank."
+      ],
+      "correct": "I have something to do today.",
+      "explanation": "<ruby>用事<rt>ようじ</rt></ruby>: an errand."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "りゅうがくするために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "<ruby>試験<rt>しけん</rt></ruby>のために、<ruby>勉強<rt>べんきょう</rt></ruby>します。"
+      ],
+      "correct": "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+      "explanation": "No ability verbs before ために."
+    },
+    {
+      "prompt": "Choose: \"You need a lot of money to study abroad.\"",
+      "options": [
+        "りゅうがくしたら、お<ruby>金<rt>かね</rt></ruby>がひつようでした。",
+        "りゅうがくしても、お<ruby>金<rt>かね</rt></ruby>はひつようです。",
+        "りゅうがくするから、お<ruby>金<rt>かね</rt></ruby>をあげます。",
+        "りゅうがくするのに、お<ruby>金<rt>かね</rt></ruby>がたくさんひつようです。"
+      ],
+      "correct": "りゅうがくするのに、お<ruby>金<rt>かね</rt></ruby>がたくさんひつようです。",
+      "explanation": "Used for: のに + ひつよう."
+    },
+    {
+      "prompt": "Read: かぞくのために<ruby>働<rt>はたら</rt></ruby>いています。 What does it mean?",
+      "options": [
+        "I work for my family.",
+        "My family works for me.",
+        "I work at my family's company.",
+        "I don't work because of my family."
+      ],
+      "correct": "I work for my family.",
+      "explanation": "N のために: for the sake of."
+    },
+    {
+      "prompt": "What does <ruby>会社員<rt>かいしゃいん</rt></ruby> mean?",
+      "options": [
+        "company president",
+        "company employee",
+        "shop assistant",
+        "bank"
+      ],
+      "correct": "company employee",
+      "explanation": "<ruby>員<rt>いん</rt></ruby>: member."
+    },
+    {
+      "prompt": "Review (Unit 4): complete いくらさがし＿＿、<ruby>見<rt>み</rt></ruby>つかりません。",
+      "options": [
+        "たら",
+        "ば",
+        "ても",
+        "と"
+      ],
+      "correct": "ても",
+      "explanation": "いくら〜ても."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-5-i-intend-to",
+    "japanese-n4-unit-4-even-if",
+    "japanese-n4-unit-2-doing-favours"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

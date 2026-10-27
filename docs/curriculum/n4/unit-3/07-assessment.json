@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-3-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "potential-group2",
+      "prompt": "What is the potential form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べさせる",
+        "<ruby>食<rt>た</rt></ruby>べられる",
+        "<ruby>食<rt>た</rt></ruby>べらる",
+        "<ruby>食<rt>た</rt></ruby>べれられる"
+      ],
+      "correctIndex": 1,
+      "explanation": "Group 2: る → られる."
+    },
+    {
+      "id": "potential-suru",
+      "prompt": "Complete: <ruby>兄<rt>あに</rt></ruby>は<ruby>車<rt>くるま</rt></ruby>の<ruby>運転<rt>うんてん</rt></ruby>が＿＿。 (can drive)",
+      "options": [
+        "します",
+        "されます",
+        "しられます",
+        "できます"
+      ],
+      "correctIndex": 3,
+      "explanation": "する → できる."
+    },
+    {
+      "id": "potential-kuru",
+      "prompt": "Choose: \"Can you come tomorrow?\"",
+      "options": [
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られますか。",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>き</rt></ruby>られますか。",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>く</rt></ruby>られますか。",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>き</rt></ruby>ますか。"
+      ],
+      "correctIndex": 0,
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる."
+    },
+    {
+      "id": "potential-ga",
+      "prompt": "Complete: わたしはなっとう＿＿<ruby>食<rt>た</rt></ruby>べられます。",
+      "options": [
+        "に",
+        "で",
+        "が",
+        "と"
+      ],
+      "correctIndex": 2,
+      "explanation": "What you can do usually takes が."
+    },
+    {
+      "id": "potential-group1",
+      "prompt": "What is the potential form of <ruby>話<rt>はな</rt></ruby>す?",
+      "options": [
+        "<ruby>話<rt>はな</rt></ruby>される",
+        "<ruby>話<rt>はな</rt></ruby>しれる",
+        "<ruby>話<rt>はな</rt></ruby>せられる",
+        "<ruby>話<rt>はな</rt></ruby>せる"
+      ],
+      "correctIndex": 3,
+      "explanation": "す → せる."
+    },
+    {
+      "id": "potential-past",
+      "prompt": "Choose: \"I couldn't swim as a child.\"",
+      "options": [
+        "<ruby>子<rt>こ</rt></ruby>どものとき、およぎませんでした。",
+        "<ruby>子<rt>こ</rt></ruby>どものとき、およげませんでした。",
+        "<ruby>子<rt>こ</rt></ruby>どものとき、およげました。",
+        "<ruby>子<rt>こ</rt></ruby>どものとき、およげません。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Past negative potential."
+    },
+    {
+      "id": "wakaru",
+      "prompt": "Which verb has no potential form?",
+      "options": [
+        "<ruby>分<rt>わ</rt></ruby>かる",
+        "<ruby>歌<rt>うた</rt></ruby>う",
+        "<ruby>待<rt>ま</rt></ruby>つ",
+        "<ruby>読<rt>よ</rt></ruby>む"
+      ],
+      "correctIndex": 0,
+      "explanation": "<ruby>分<rt>わ</rt></ruby>かる already means \"can understand\"."
+    },
+    {
+      "id": "you-ni-naru",
+      "prompt": "Complete: なっとうが<ruby>食<rt>た</rt></ruby>べられる＿＿なりました。",
+      "options": [
+        "ために",
+        "ことに",
+        "ように",
+        "そうに"
+      ],
+      "correctIndex": 2,
+      "explanation": "A new ability: ようになる."
+    },
+    {
+      "id": "naku-naru",
+      "prompt": "Choose: \"I stopped smoking last year.\"",
+      "options": [
+        "<ruby>去年<rt>きょねん</rt></ruby>からたばこをすえるようになりました。",
+        "<ruby>去年<rt>きょねん</rt></ruby>からたばこをすわなくなりました。",
+        "<ruby>去年<rt>きょねん</rt></ruby>からたばこをすいませんでした。",
+        "<ruby>去年<rt>きょねん</rt></ruby>からたばこをすうようになりました。"
+      ],
+      "correctIndex": 1,
+      "explanation": "No longer: V-なくなる."
+    },
+    {
+      "id": "hajimaru",
+      "prompt": "Complete: じゅぎょうは<ruby>九時<rt>くじ</rt></ruby>に＿＿。",
+      "options": [
+        "<ruby>始<rt>はじ</rt></ruby>めます",
+        "<ruby>始<rt>はじ</rt></ruby>められます",
+        "<ruby>終<rt>お</rt></ruby>えます",
+        "<ruby>始<rt>はじ</rt></ruby>まります"
+      ],
+      "correctIndex": 3,
+      "explanation": "Intransitive: <ruby>始<rt>はじ</rt></ruby>まる."
+    },
+    {
+      "id": "shi",
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>＿＿し、さむいし、<ruby>出<rt>で</rt></ruby>かけたくないです。",
+      "options": [
+        "な",
+        "の",
+        "だ",
+        "で"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nouns take だ before し."
+    },
+    {
+      "id": "soreni",
+      "prompt": "Which word adds one more point in the same direction?",
+      "options": [
+        "それに",
+        "でも",
+        "それで",
+        "だから"
+      ],
+      "correctIndex": 0,
+      "explanation": "それに: besides."
+    },
+    {
+      "id": "sou-looks",
+      "prompt": "Complete: そのかばんは<ruby>高<rt>たか</rt></ruby>＿＿ですね。 (looks expensive)",
+      "options": [
+        "よう",
+        "らしい",
+        "の",
+        "そう"
+      ],
+      "correctIndex": 3,
+      "explanation": "Looks: stem + そう."
+    },
+    {
+      "id": "sou-yosasou",
+      "prompt": "What is \"looks good\"?",
+      "options": [
+        "いいそう",
+        "よさそう",
+        "よそう",
+        "いそう"
+      ],
+      "correctIndex": 1,
+      "explanation": "いい → よさそう."
+    },
+    {
+      "id": "kanji-kyonen",
+      "prompt": "How is 去年⁠ read?",
+      "options": [
+        "きょとし",
+        "さるとし",
+        "きょねん",
+        "こねん"
+      ],
+      "correctIndex": 2,
+      "explanation": "去年⁠ is read きょねん."
+    }
+  ]
+}

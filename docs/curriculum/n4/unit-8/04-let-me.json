@@ -1,0 +1,465 @@
+{
+  "id": "japanese-n4-unit-8-let-me",
+  "slug": "n4-unit-8-let-me",
+  "unit": "Japanese N4 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Please Let Me…",
+  "title_jp": "〜させて ください",
+  "objectives": [
+    "I can ask to be allowed to do something.",
+    "Ask for permission with 〜させてください",
+    "Ask more politely with 〜させてもらえませんか",
+    "Talk about questions, problems and going home"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>帰<rt>かえ</rt></ruby>る",
+      "",
+      "to go home, to return"
+    ],
+    [
+      "<ruby>帰<rt>かえ</rt></ruby>り",
+      "",
+      "the way home, return"
+    ],
+    [
+      "<ruby>問題<rt>もんだい</rt></ruby>",
+      "",
+      "problem, question (on a test)"
+    ],
+    [
+      "<ruby>質問<rt>しつもん</rt></ruby>",
+      "",
+      "question (+ する: to ask)"
+    ],
+    [
+      "<ruby>話題<rt>わだい</rt></ruby>",
+      "",
+      "topic"
+    ],
+    [
+      "しゅくだい",
+      "",
+      "homework"
+    ],
+    [
+      "せつめい",
+      "",
+      "explanation (+ する: to explain)"
+    ],
+    [
+      "<ruby>先<rt>さき</rt></ruby>に",
+      "",
+      "first, ahead"
+    ],
+    [
+      "いっしょうけんめい",
+      "",
+      "as hard as one can"
+    ],
+    [
+      "そうたい",
+      "",
+      "leaving early (+ する)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "帰る",
+      "word_reading": "かえる"
+    },
+    {
+      "word_japanese": "帰り",
+      "word_reading": "かえり"
+    },
+    {
+      "word_japanese": "問題",
+      "word_reading": "もんだい"
+    },
+    {
+      "word_japanese": "質問",
+      "word_reading": "しつもん"
+    },
+    {
+      "word_japanese": "話題",
+      "word_reading": "わだい"
+    },
+    {
+      "word_japanese": "先に",
+      "word_reading": "さきに"
+    }
+  ],
+  "concept": {
+    "title": "Please let me…",
+    "text": "The causative て-form + ください asks to be allowed to do something:\n\nすみません、<ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>らせてください。 Please let me go home early today.\nわたしにやらせてください。 Let me do it.\n\nMore politely, ask with もらえませんか or いただけませんか:\n<ruby>少<rt>すこ</rt></ruby>し<ruby>考<rt>かんが</rt></ruby>えさせてもらえませんか。 Could you let me think about it a little?\n\nIt sounds humbler than 〜てもいいですか, because you ask the other person to allow it.",
+    "examples": [
+      "V-させてください",
+      "V-させてもらえませんか",
+      "V-させていただけませんか (most polite)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Let me: 〜させてください",
+      "pattern": "V(causative)-て + ください",
+      "explanation": "Use it to offer to do something, or to ask for permission.",
+      "examples": [
+        {
+          "japanese": "すみません、<ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>らせてください。",
+          "romaji": "",
+          "meaning": "Excuse me, please let me go home early today."
+        },
+        {
+          "japanese": "その<ruby>仕事<rt>しごと</rt></ruby>、わたしにやらせてください。",
+          "romaji": "",
+          "meaning": "Please let me do that job."
+        },
+        {
+          "japanese": "<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>させてください。",
+          "romaji": "",
+          "meaning": "Let me ask one question."
+        },
+        {
+          "japanese": "ここは、わたしにはらわせてください。",
+          "romaji": "",
+          "meaning": "Please let me pay for this."
+        }
+      ],
+      "notes": [
+        "An offer: わたしにやらせてください (I'll do it).",
+        "Leaving early because you're ill: そうたいさせてください."
+      ]
+    },
+    {
+      "title": "More politely: 〜させてもらえませんか",
+      "pattern": "V(causative)-て + もらえませんか / いただけませんか",
+      "explanation": "A question form is softer. いただけませんか is the most polite, for a boss or a teacher.",
+      "examples": [
+        {
+          "japanese": "<ruby>少<rt>すこ</rt></ruby>し<ruby>考<rt>かんが</rt></ruby>えさせてもらえませんか。",
+          "romaji": "",
+          "meaning": "Could you let me think about it a little?"
+        },
+        {
+          "japanese": "このパソコンを<ruby>使<rt>つか</rt></ruby>わせてもらえませんか。",
+          "romaji": "",
+          "meaning": "Could you let me use this computer?"
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>、<ruby>休<rt>やす</rt></ruby>ませていただけませんか。",
+          "romaji": "",
+          "meaning": "Would you allow me to take tomorrow off?"
+        },
+        {
+          "japanese": "<ruby>先<rt>さき</rt></ruby>にせつめいさせていただけませんか。",
+          "romaji": "",
+          "meaning": "May I explain first?"
+        }
+      ],
+      "notes": [
+        "〜させてもらう means \"be allowed to\": <ruby>休<rt>やす</rt></ruby>ませてもらいました (I was allowed to take time off)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>何<rt>なに</rt></ruby>か<ruby>質問<rt>しつもん</rt></ruby>がありますか。",
+      "Are there any questions?"
+    ],
+    [
+      "この<ruby>問題<rt>もんだい</rt></ruby>はむずかしいですね。",
+      "This question is hard, isn't it?"
+    ],
+    [
+      "<ruby>帰<rt>かえ</rt></ruby>りにスーパーによります。",
+      "I'll stop by the supermarket on the way home."
+    ],
+    [
+      "さいきん、そのニュースが<ruby>話題<rt>わだい</rt></ruby>になっています。",
+      "That news has been a hot topic recently."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リー",
+      "ぶちょう、ねつがあるので、そうたいさせてください。",
+      "ぶちょう",
+      "それはたいへんですね。<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>ってください。"
+    ],
+    [
+      "アナ",
+      "その<ruby>仕事<rt>しごと</rt></ruby>、わたしにやらせてください。",
+      "たなか",
+      "ありがとう。じゃあ、おねがいします。"
+    ],
+    [
+      "マイ",
+      "<ruby>先生<rt>せんせい</rt></ruby>、<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>させてください。",
+      "<ruby>先生<rt>せんせい</rt></ruby>",
+      "はい、どうぞ。"
+    ],
+    [
+      "けん",
+      "この<ruby>話<rt>はなし</rt></ruby>、<ruby>少<rt>すこ</rt></ruby>し<ruby>考<rt>かんが</rt></ruby>えさせてもらえませんか。",
+      "ゆき",
+      "ええ、いいですよ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "帰",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "かえ.る",
+        "かえ.す",
+        "おく.る",
+        "とつ.ぐ"
+      ],
+      "meaning_en": "return",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "帰る",
+          "reading": "かえる",
+          "en": "to go home"
+        },
+        {
+          "word": "帰り",
+          "reading": "かえり",
+          "en": "the way home"
+        }
+      ],
+      "mnemonic": "A woman with a broom (帚) going back to her home."
+    },
+    {
+      "char": "問",
+      "onyomi": [
+        "モン"
+      ],
+      "kunyomi": [
+        "と.う",
+        "と.い",
+        "とん"
+      ],
+      "meaning_en": "ask",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "問題",
+          "reading": "もんだい",
+          "en": "problem"
+        },
+        {
+          "word": "質問",
+          "reading": "しつもん",
+          "en": "question"
+        }
+      ],
+      "mnemonic": "A mouth (口) at the gate (門): asking."
+    },
+    {
+      "char": "題",
+      "onyomi": [
+        "ダイ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "topic, title",
+      "stroke_count": 18,
+      "example_words": [
+        {
+          "word": "問題",
+          "reading": "もんだい",
+          "en": "problem"
+        },
+        {
+          "word": "話題",
+          "reading": "わだい",
+          "en": "topic"
+        }
+      ],
+      "mnemonic": "The head (頁) of a page: its title."
+    },
+    {
+      "char": "質",
+      "onyomi": [
+        "シツ",
+        "シチ",
+        "チ"
+      ],
+      "kunyomi": [
+        "たち",
+        "ただ.す",
+        "もと",
+        "わりふ"
+      ],
+      "meaning_en": "quality, question",
+      "stroke_count": 15,
+      "example_words": [
+        {
+          "word": "質問",
+          "reading": "しつもん",
+          "en": "question"
+        },
+        {
+          "word": "品質",
+          "reading": "ひんしつ",
+          "en": "quality"
+        }
+      ],
+      "mnemonic": "Two axes (斤) weighed against money (貝): quality."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the causative form of <ruby>書<rt>か</rt></ruby>く?",
+      "options": [
+        "<ruby>書<rt>か</rt></ruby>かせる",
+        "<ruby>書<rt>か</rt></ruby>かれる",
+        "<ruby>書<rt>か</rt></ruby>けさせる",
+        "<ruby>書<rt>か</rt></ruby>きさせる"
+      ],
+      "correct": "<ruby>書<rt>か</rt></ruby>かせる",
+      "explanation": "く → かせる."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>ら＿＿ください。",
+      "options": [
+        "れて",
+        "せて",
+        "させて",
+        "って"
+      ],
+      "correct": "せて",
+      "explanation": "<ruby>帰<rt>かえ</rt></ruby>る → <ruby>帰<rt>かえ</rt></ruby>らせる → <ruby>帰<rt>かえ</rt></ruby>らせて."
+    },
+    {
+      "prompt": "Complete: <ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>＿＿ください。",
+      "options": [
+        "して",
+        "されて",
+        "させて",
+        "できて"
+      ],
+      "correct": "させて",
+      "explanation": "する → させて."
+    },
+    {
+      "prompt": "Which request is the most polite?",
+      "options": [
+        "<ruby>休<rt>やす</rt></ruby>ませてください。",
+        "<ruby>休<rt>やす</rt></ruby>ませてもらえませんか。",
+        "<ruby>休<rt>やす</rt></ruby>んでもいい？",
+        "<ruby>休<rt>やす</rt></ruby>ませていただけませんか。"
+      ],
+      "correct": "<ruby>休<rt>やす</rt></ruby>ませていただけませんか。",
+      "explanation": "いただけませんか is the most polite."
+    },
+    {
+      "prompt": "Which word means \"homework\"?",
+      "options": [
+        "しゅくだい",
+        "<ruby>問題<rt>もんだい</rt></ruby>",
+        "<ruby>話題<rt>わだい</rt></ruby>",
+        "<ruby>質問<rt>しつもん</rt></ruby>"
+      ],
+      "correct": "しゅくだい",
+      "explanation": "しゅくだい: homework."
+    },
+    {
+      "prompt": "How is 質問⁠ read?",
+      "options": [
+        "しちもん",
+        "しつもん",
+        "しつぶん",
+        "じつもん"
+      ],
+      "correct": "しつもん",
+      "explanation": "質問⁠ is read しつもん."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>帰<rt>かえ</rt></ruby>りにスーパーによります。",
+      "options": [
+        "I'll go home from the supermarket.",
+        "I'll come back to the supermarket.",
+        "I'll stop by the supermarket on the way home.",
+        "I'll go home before the supermarket."
+      ],
+      "correct": "I'll stop by the supermarket on the way home.",
+      "explanation": "<ruby>帰<rt>かえ</rt></ruby>りに: on the way home."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to pay for a friend's lunch. What do you say?",
+      "options": [
+        "ここは、わたしがはらわれてください。",
+        "ここは、わたしにはらってください。",
+        "ここは、わたしにはらわせてください。",
+        "ここは、わたしをはらわせました。"
+      ],
+      "correct": "ここは、わたしにはらわせてください。",
+      "explanation": "An offer: 〜させてください."
+    },
+    {
+      "prompt": "You feel ill at work. What do you say to your manager?",
+      "options": [
+        "そうたいされてください。",
+        "そうたいしてあげます。",
+        "そうたいさせましょう。",
+        "そうたいさせていただけませんか。"
+      ],
+      "correct": "そうたいさせていただけませんか。",
+      "explanation": "Polite permission: させていただけませんか."
+    },
+    {
+      "prompt": "What does <ruby>休<rt>やす</rt></ruby>ませてもらいました mean?",
+      "options": [
+        "I was allowed to take time off.",
+        "I made someone rest.",
+        "I was told to rest.",
+        "Someone rested for me."
+      ],
+      "correct": "I was allowed to take time off.",
+      "explanation": "〜させてもらう: be allowed to."
+    },
+    {
+      "prompt": "Read: そのニュースが<ruby>話題<rt>わだい</rt></ruby>になっています。 What is true about the news?",
+      "options": [
+        "It is a question on a test.",
+        "Everyone is talking about it.",
+        "It caused a problem.",
+        "Nobody has heard it."
+      ],
+      "correct": "Everyone is talking about it.",
+      "explanation": "<ruby>話題<rt>わだい</rt></ruby>になる: become a hot topic."
+    },
+    {
+      "prompt": "Review: complete <ruby>父<rt>ちち</rt></ruby>はむすめ＿＿やさいを<ruby>食<rt>た</rt></ruby>べさせました。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "With an object: に."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-8-made-to-do",
+    "japanese-n4-unit-2-would-you-mind",
+    "japanese-n4-unit-1-what-happened"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

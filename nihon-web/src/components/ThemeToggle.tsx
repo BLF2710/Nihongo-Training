@@ -16,13 +16,3 @@ export function ThemeButton({ className = "" }: { className?: string }) {
   </button>;
 }
 
-/** All three choices side by side, for menus and settings. */
-export function ThemeChoice() {
-  const preference = useThemePreference();
-  return <div role="radiogroup" aria-label="Theme" className="grid grid-cols-3 gap-1 rounded-xl bg-gray-100 p-1">
-    {ORDER.map(option => <button key={option} type="button" role="radio" aria-checked={preference === option} onClick={() => setThemePreference(option)}
-      className={`rounded-lg px-2 py-1.5 text-xs font-bold transition focus-visible:outline-2 focus-visible:outline-emerald-600 ${preference === option ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"}`}>
-      <span aria-hidden="true">{ICONS[option]} </span>{THEME_LABELS[option]}
-    </button>)}
-  </div>;
-}

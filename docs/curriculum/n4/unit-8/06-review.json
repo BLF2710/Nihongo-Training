@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n4-unit-8-review",
+  "slug": "n4-unit-8-review",
+  "unit": "Japanese N4 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 8 Review",
+  "title_jp": "ユニット8のふくしゅう",
+  "objectives": [
+    "I can talk about what was done, what I was made to do and what I want others to do.",
+    "Use the passive for facts and for trouble",
+    "Use the causative to make or let",
+    "Ask permission with 〜させてください and make requests with 〜てほしい",
+    "Read a short story about a part-time job"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>使<rt>つか</rt></ruby>う",
+      "",
+      "to use"
+    ],
+    [
+      "<ruby>作<rt>つく</rt></ruby>る",
+      "",
+      "to make"
+    ],
+    [
+      "<ruby>建物<rt>たてもの</rt></ruby>",
+      "",
+      "building"
+    ],
+    [
+      "<ruby>売<rt>う</rt></ruby>る",
+      "",
+      "to sell"
+    ],
+    [
+      "しかる",
+      "",
+      "to scold"
+    ],
+    [
+      "ほめる",
+      "",
+      "to praise"
+    ],
+    [
+      "<ruby>家族<rt>かぞく</rt></ruby>",
+      "",
+      "family"
+    ],
+    [
+      "<ruby>注意<rt>ちゅうい</rt></ruby>",
+      "",
+      "care, warning (+ する: to warn, to be careful)"
+    ],
+    [
+      "<ruby>帰<rt>かえ</rt></ruby>る",
+      "",
+      "to go home, to return"
+    ],
+    [
+      "<ruby>質問<rt>しつもん</rt></ruby>",
+      "",
+      "question (+ する: to ask)"
+    ],
+    [
+      "<ruby>工場<rt>こうじょう</rt></ruby>",
+      "",
+      "factory"
+    ],
+    [
+      "たのむ",
+      "",
+      "to ask (a favour), to order"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Who does what to whom",
+    "text": "Passive (group 1: あ-row + れる; group 2: られる; される; <ruby>来<rt>こ</rt></ruby>られる):\nfacts: この<ruby>建物<rt>たてもの</rt></ruby>は<ruby>百年前<rt>ひゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられた.\ndone to me: <ruby>先生<rt>せんせい</rt></ruby>にしかられた / <ruby>足<rt>あし</rt></ruby>をふまれた / <ruby>雨<rt>あめ</rt></ruby>にふられた.\n\nCausative (group 1: あ-row + せる; group 2: させる; させる; <ruby>来<rt>こ</rt></ruby>させる):\nperson を<ruby>行<rt>い</rt></ruby>かせる / person に N を<ruby>食<rt>た</rt></ruby>べさせる. make or let.\n\nLet me: 〜させてください / 〜させてもらえませんか.\nWant you to: 〜てほしい; passed on: 〜ように<ruby>言<rt>い</rt></ruby>う.",
+    "examples": [
+      "V-(ら)れる (passive)",
+      "V-(さ)せる (causative)",
+      "〜させてください / 〜てほしい / 〜ように<ruby>言<rt>い</rt></ruby>う"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "この<ruby>建物<rt>たてもの</rt></ruby>は<ruby>百年前<rt>ひゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。",
+      "This building was built a hundred years ago."
+    ],
+    [
+      "きのう、<ruby>店長<rt>てんちょう</rt></ruby>にしかられました。",
+      "I was scolded by the manager yesterday."
+    ],
+    [
+      "<ruby>母<rt>はは</rt></ruby>は<ruby>子<rt>こ</rt></ruby>どもたちにやさいを<ruby>食<rt>た</rt></ruby>べさせます。",
+      "The mother makes her children eat vegetables."
+    ],
+    [
+      "すみません、<ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>らせてください。",
+      "Excuse me, please let me go home early today."
+    ],
+    [
+      "<ruby>友<rt>とも</rt></ruby>だちにもっと<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>してほしいです。",
+      "I want my friends to talk to me in Japanese more."
+    ],
+    [
+      "この<ruby>工場<rt>こうじょう</rt></ruby>で<ruby>作<rt>つく</rt></ruby>られた<ruby>車<rt>くるま</rt></ruby>は、<ruby>外国<rt>がいこく</rt></ruby>で<ruby>売<rt>う</rt></ruby>られています。",
+      "Cars made in this factory are sold abroad."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "げんきがないですね。",
+      "けん",
+      "<ruby>店長<rt>てんちょう</rt></ruby>にしかられたんです。"
+    ],
+    [
+      "マイ",
+      "この<ruby>建物<rt>たてもの</rt></ruby>、<ruby>古<rt>ふる</rt></ruby>いですね。",
+      "リー",
+      "<ruby>百年前<rt>ひゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられたそうですよ。"
+    ],
+    [
+      "ゆき",
+      "<ruby>先生<rt>せんせい</rt></ruby>、<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>させてください。",
+      "たなか",
+      "はい、どうぞ。"
+    ],
+    [
+      "リン",
+      "<ruby>家族<rt>かぞく</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をしてほしいですか。",
+      "アナ",
+      "もっと<ruby>電話<rt>でんわ</rt></ruby>してほしいです。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Short story",
+    "text_jp": "わたしは<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>のパン<ruby>屋<rt>や</rt></ruby>でアルバイトをしています。この<ruby>店<rt>みせ</rt></ruby>は<ruby>五十年前<rt>ごじゅうねんまえ</rt></ruby>に<ruby>作<rt>つく</rt></ruby>られた<ruby>古<rt>ふる</rt></ruby>い<ruby>店<rt>みせ</rt></ruby>で、<ruby>町<rt>まち</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>たちによく<ruby>知<rt>し</rt></ruby>られています。はじめの<ruby>日<rt>ひ</rt></ruby>、<ruby>店長<rt>てんちょう</rt></ruby>はわたしにパンのならべ<ruby>方<rt>かた</rt></ruby>を<ruby>何<rt>なん</rt></ruby><ruby>度<rt>ど</rt></ruby>もれんしゅうさせました。<ruby>先週<rt>せんしゅう</rt></ruby>、わたしはおきゃくさんにおつりをまちがえて、<ruby>店長<rt>てんちょう</rt></ruby>にしかられました。でも、きのうはおきゃくさんに「ありがとう」と<ruby>言<rt>い</rt></ruby>われて、<ruby>店長<rt>てんちょう</rt></ruby>にもほめられました。<ruby>来月<rt>らいげつ</rt></ruby>は、パンを<ruby>作<rt>つく</rt></ruby>る<ruby>仕事<rt>しごと</rt></ruby>もやらせてもらえるそうです。とても<ruby>楽<rt>たの</rt></ruby>しみです。",
+    "en_translation": "I work part-time at a bakery in front of the station. This shop is an old shop that was started fifty years ago, and it is well known to the people of the town. On my first day, the manager made me practise setting out the bread many times. Last week I gave a customer the wrong change and was scolded by the manager. But yesterday a customer said \"thank you\" to me, and the manager praised me too. I hear that next month I'll be allowed to make bread as well. I'm really looking forward to it.",
+    "questions": [
+      {
+        "prompt": "What did the manager make the writer do on the first day?",
+        "options": [
+          "Make bread",
+          "Practise setting out the bread",
+          "Count change",
+          "Clean the shop"
+        ],
+        "correct": "Practise setting out the bread",
+        "explanation": "パンのならべ<ruby>方<rt>かた</rt></ruby>を<ruby>何<rt>なん</rt></ruby><ruby>度<rt>ど</rt></ruby>もれんしゅうさせました。"
+      },
+      {
+        "prompt": "Why was the writer scolded?",
+        "options": [
+          "She was late.",
+          "She dropped the bread.",
+          "She gave a customer the wrong change.",
+          "She was rude to a customer."
+        ],
+        "correct": "She gave a customer the wrong change.",
+        "explanation": "おつりをまちがえて、<ruby>店長<rt>てんちょう</rt></ruby>にしかられました。"
+      },
+      {
+        "prompt": "What will happen next month?",
+        "options": [
+          "She will quit.",
+          "The shop will close.",
+          "She will become manager.",
+          "She will be allowed to make bread."
+        ],
+        "correct": "She will be allowed to make bread.",
+        "explanation": "パンを<ruby>作<rt>つく</rt></ruby>る<ruby>仕事<rt>しごと</rt></ruby>もやらせてもらえるそうです。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "What is the passive form of <ruby>作<rt>つく</rt></ruby>る?",
+      "options": [
+        "<ruby>作<rt>つく</rt></ruby>れる",
+        "<ruby>作<rt>つく</rt></ruby>らせる",
+        "<ruby>作<rt>つく</rt></ruby>られる",
+        "<ruby>作<rt>つく</rt></ruby>りれる"
+      ],
+      "correct": "<ruby>作<rt>つく</rt></ruby>られる",
+      "explanation": "る → られる."
+    },
+    {
+      "prompt": "Complete: <ruby>店長<rt>てんちょう</rt></ruby>＿＿しかられました。",
+      "options": [
+        "を",
+        "が",
+        "で",
+        "に"
+      ],
+      "correct": "に",
+      "explanation": "The person who did it: に."
+    },
+    {
+      "prompt": "Complete: <ruby>出<rt>で</rt></ruby>かけたら、<ruby>雨<rt>あめ</rt></ruby>に＿＿。",
+      "options": [
+        "ふられました",
+        "ふりました",
+        "ふらせました",
+        "ふってほしいです"
+      ],
+      "correct": "ふられました",
+      "explanation": "Passive of inconvenience."
+    },
+    {
+      "prompt": "What is the causative form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>かれる",
+        "<ruby>行<rt>い</rt></ruby>かせる",
+        "<ruby>行<rt>い</rt></ruby>かさせる",
+        "<ruby>行<rt>い</rt></ruby>けさせる"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>かせる",
+      "explanation": "く → かせる."
+    },
+    {
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>は<ruby>子<rt>こ</rt></ruby>ども＿＿やさいを<ruby>食<rt>た</rt></ruby>べさせます。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "With an object: に."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>ら＿＿ください。",
+      "options": [
+        "れて",
+        "させて",
+        "って",
+        "せて"
+      ],
+      "correct": "せて",
+      "explanation": "<ruby>帰<rt>かえ</rt></ruby>らせてください."
+    },
+    {
+      "prompt": "Complete: <ruby>友<rt>とも</rt></ruby>だちに<ruby>来<rt>き</rt></ruby>て＿＿です。",
+      "options": [
+        "ほしい",
+        "たい",
+        "あげたい",
+        "ください"
+      ],
+      "correct": "ほしい",
+      "explanation": "〜てほしい."
+    },
+    {
+      "prompt": "Complete: <ruby>医者<rt>いしゃ</rt></ruby>にたばこをすわない＿＿<ruby>言<rt>い</rt></ruby>われました。",
+      "options": [
+        "ために",
+        "ように",
+        "のに",
+        "そうに"
+      ],
+      "correct": "ように",
+      "explanation": "〜ように<ruby>言<rt>い</rt></ruby>われる."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the story: why is the bakery well known?",
+      "options": [
+        "It is an old shop known to the townspeople.",
+        "It was on TV.",
+        "It sells cheap bread.",
+        "It is near a factory."
+      ],
+      "correct": "It is an old shop known to the townspeople.",
+      "explanation": "<ruby>町<rt>まち</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>たちによく<ruby>知<rt>し</rt></ruby>られています."
+    },
+    {
+      "prompt": "Which sentence uses the causative to mean \"let\"?",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>にさくぶんを<ruby>書<rt>か</rt></ruby>かせました。",
+        "りょうしんはわたしを<ruby>海外<rt>かいがい</rt></ruby>に<ruby>行<rt>い</rt></ruby>かせてくれました。",
+        "<ruby>店長<rt>てんちょう</rt></ruby>はわたしにれんしゅうさせました。",
+        "<ruby>母<rt>はは</rt></ruby>は<ruby>子<rt>こ</rt></ruby>どもにやさいを<ruby>食<rt>た</rt></ruby>べさせました。"
+      ],
+      "correct": "りょうしんはわたしを<ruby>海外<rt>かいがい</rt></ruby>に<ruby>行<rt>い</rt></ruby>かせてくれました。",
+      "explanation": "〜させてくれる: let (kindly)."
+    },
+    {
+      "prompt": "Which sentence is a passive of inconvenience?",
+      "options": [
+        "この<ruby>本<rt>ほん</rt></ruby>は<ruby>作家<rt>さっか</rt></ruby>によって<ruby>書<rt>か</rt></ruby>かれました。",
+        "オリンピックは<ruby>四年<rt>よねん</rt></ruby>に<ruby>一度<rt>いちど</rt></ruby><ruby>行<rt>おこな</rt></ruby>われます。",
+        "どろぼうにさいふをぬすまれました。",
+        "このパンはこむぎで<ruby>作<rt>つく</rt></ruby>られています。"
+      ],
+      "correct": "どろぼうにさいふをぬすまれました。",
+      "explanation": "Something bad done to me."
+    },
+    {
+      "prompt": "What is the causative form of する?",
+      "options": [
+        "される",
+        "しさせる",
+        "すらせる",
+        "させる"
+      ],
+      "correct": "させる",
+      "explanation": "する → させる."
+    },
+    {
+      "prompt": "Review (Unit 7): complete リーさんがうそをつく＿＿がない。",
+      "options": [
+        "はず",
+        "よう",
+        "つもり",
+        "そう"
+      ],
+      "correct": "はず",
+      "explanation": "はずがない: can't be."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-8-was-made",
+    "japanese-n4-unit-8-i-got-scolded",
+    "japanese-n4-unit-8-made-to-do",
+    "japanese-n4-unit-8-let-me",
+    "japanese-n4-unit-8-i-want-you-to",
+    "japanese-n4-unit-7-should-be"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

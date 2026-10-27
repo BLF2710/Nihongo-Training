@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import { completeLesson, completionCelebration } from "../api/lessons";
+import { recordLessonChallenge } from "../api/mistakes";
 import { getUserName } from "../lib/authStorage";
 
 const LESSON_ID = "japanese-n5-unit-1-hello";
@@ -60,6 +61,7 @@ export default function JapaneseHelloLessonPage() {
     const score = Math.round((challengeScore / challenge.length) * 100);
     try {
       const result = await completeLesson(LESSON_ID, score);
+      recordLessonChallenge(LESSON_ID, challenge, challengeAnswers);
       setCompletedScore(score);
       session.complete();
       localStorage.setItem(storageKey, JSON.stringify({ completed: true, score, completedAt: new Date().toISOString() }));

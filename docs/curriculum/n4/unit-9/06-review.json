@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n4-unit-9-review",
+  "slug": "n4-unit-9-review",
+  "unit": "Japanese N4 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 9 Review",
+  "title_jp": "ユニット9のふくしゅう",
+  "objectives": [
+    "I can use basic polite Japanese and a set of useful patterns.",
+    "Choose honorific and humble verbs",
+    "Use ながら, すぎる, やすい and にくい",
+    "Express disappointment with のに",
+    "Read a polite email to a teacher"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>公園<rt>こうえん</rt></ruby>",
+      "",
+      "park"
+    ],
+    [
+      "<ruby>社長<rt>しゃちょう</rt></ruby>",
+      "",
+      "company president"
+    ],
+    [
+      "いらっしゃる",
+      "",
+      "to be, to go, to come (honorific)"
+    ],
+    [
+      "めしあがる",
+      "",
+      "to eat, to drink (honorific)"
+    ],
+    [
+      "まいる",
+      "",
+      "to go, to come (humble)"
+    ],
+    [
+      "いただく",
+      "",
+      "to receive; to eat, to drink (humble)"
+    ],
+    [
+      "<ruby>作文<rt>さくぶん</rt></ruby>",
+      "",
+      "essay, composition"
+    ],
+    [
+      "<ruby>顔<rt>かお</rt></ruby>",
+      "",
+      "face"
+    ],
+    [
+      "<ruby>地下鉄<rt>ちかてつ</rt></ruby>",
+      "",
+      "underground (railway), subway"
+    ],
+    [
+      "<ruby>通<rt>かよ</rt></ruby>う",
+      "",
+      "to commute, to attend regularly"
+    ],
+    [
+      "<ruby>無理<rt>むり</rt></ruby>",
+      "",
+      "impossible, unreasonable"
+    ],
+    [
+      "せっかく",
+      "",
+      "with much trouble, specially"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Polite Japanese and useful patterns",
+    "text": "Honorific (raise others): いらっしゃる, めしあがる, ごらんになる, おっしゃる, なさる, くださる; お V-stem になる; お V-stem ください.\nHumble (lower yourself): まいる, いただく, もうす, いたす, おる, うかがう; お V-stem する / ご N する.\n\nながら: while (same person). すぎる: too much.\nやすい / にくい: easy / hard to do.\nのに: even though (with feeling); not \"used for\" here.",
+    "examples": [
+      "そんけいご / けんじょうご",
+      "〜ながら / 〜すぎる",
+      "〜やすい・〜にくい / 〜のに"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>社長<rt>しゃちょう</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>にいらっしゃいますか。",
+      "What time will the president come?"
+    ],
+    [
+      "<ruby>明日<rt>あした</rt></ruby>、<ruby>十時<rt>じゅうじ</rt></ruby>にまいります。",
+      "I'll come at ten tomorrow."
+    ],
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>、どうぞめしあがってください。",
+      "Please, help yourself."
+    ],
+    [
+      "<ruby>地下鉄<rt>ちかてつ</rt></ruby>で<ruby>大学<rt>だいがく</rt></ruby>に<ruby>通<rt>かよ</rt></ruby>っています。",
+      "I commute to university by underground."
+    ],
+    [
+      "<ruby>作文<rt>さくぶん</rt></ruby>を<ruby>書<rt>か</rt></ruby>きすぎて、<ruby>手<rt>て</rt></ruby>がいたいです。",
+      "I've written so much my hand hurts."
+    ],
+    [
+      "せっかく<ruby>公園<rt>こうえん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たのに、<ruby>雨<rt>あめ</rt></ruby>がふってきました。",
+      "We came all the way to the park, and it started to rain."
+    ]
+  ],
+  "dialogue": [
+    [
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "いらっしゃいませ。<ruby>何<rt>なに</rt></ruby>をめしあがりますか。",
+      "アナ",
+      "コーヒーをおねがいします。"
+    ],
+    [
+      "リー",
+      "<ruby>先生<rt>せんせい</rt></ruby>、<ruby>明日<rt>あした</rt></ruby><ruby>研究室<rt>けんきゅうしつ</rt></ruby>にうかがってもよろしいですか。",
+      "たなか<ruby>先生<rt>せんせい</rt></ruby>",
+      "ええ、<ruby>三時<rt>さんじ</rt></ruby>ごろ<ruby>来<rt>き</rt></ruby>てください。"
+    ],
+    [
+      "マイ",
+      "このアプリ、<ruby>使<rt>つか</rt></ruby>いやすいですか。",
+      "けん",
+      "はい、とても<ruby>分<rt>わ</rt></ruby>かりやすいですよ。"
+    ],
+    [
+      "ゆき",
+      "せっかく<ruby>来<rt>き</rt></ruby>たのに、しまっていますね。",
+      "リン",
+      "ざんねんですね。また<ruby>来<rt>き</rt></ruby>ましょう。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Email to a teacher",
+    "text_jp": "たなか<ruby>先生<rt>せんせい</rt></ruby>。いつもお<ruby>世話<rt>せわ</rt></ruby>になっております。リンです。<ruby>先週<rt>せんしゅう</rt></ruby>は、<ruby>作文<rt>さくぶん</rt></ruby>をていねいに<ruby>読<rt>よ</rt></ruby>んでくださって、ありがとうございました。<ruby>先生<rt>せんせい</rt></ruby>がおっしゃったとおり、<ruby>文<rt>ぶん</rt></ruby>がながすぎて、<ruby>読<rt>よ</rt></ruby>みにくいところがありました。もう<ruby>一度<rt>いちど</rt></ruby><ruby>書<rt>か</rt></ruby>きなおしましたので、お<ruby>時間<rt>じかん</rt></ruby>があるときに、ごらんいただけませんか。<ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>月曜日<rt>げつようび</rt></ruby>、<ruby>三時<rt>さんじ</rt></ruby>に<ruby>研究室<rt>けんきゅうしつ</rt></ruby>にうかがってもよろしいでしょうか。<ruby>地下鉄<rt>ちかてつ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっていなければ、<ruby>時間<rt>じかん</rt></ruby>どおりにまいります。どうぞよろしくおねがいいたします。リン",
+    "en_translation": "Dear Professor Tanaka, thank you for all your help. This is Lin. Last week, thank you for reading my essay so carefully. As you said, some sentences were too long and hard to read. I have rewritten it once more, so could you look at it when you have time? Would it be all right if I visited your office at three next Monday? Unless the underground has stopped, I'll come on time. Thank you very much. Lin",
+    "questions": [
+      {
+        "prompt": "What problem did the teacher point out in the essay?",
+        "options": [
+          "It was too short.",
+          "Some sentences were too long and hard to read.",
+          "It had too many kanji.",
+          "It was handed in late."
+        ],
+        "correct": "Some sentences were too long and hard to read.",
+        "explanation": "<ruby>文<rt>ぶん</rt></ruby>がながすぎて、<ruby>読<rt>よ</rt></ruby>みにくいところがありました。"
+      },
+      {
+        "prompt": "What does Lin ask the teacher to do?",
+        "options": [
+          "Write a new essay",
+          "Come to Lin's house",
+          "Look at the rewritten essay",
+          "Call on Monday"
+        ],
+        "correct": "Look at the rewritten essay",
+        "explanation": "ごらんいただけませんか。"
+      },
+      {
+        "prompt": "When does Lin want to visit?",
+        "options": [
+          "This Monday at ten",
+          "Next Friday at three",
+          "Tomorrow morning",
+          "Next Monday at three"
+        ],
+        "correct": "Next Monday at three",
+        "explanation": "<ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>月曜日<rt>げつようび</rt></ruby>、<ruby>三時<rt>さんじ</rt></ruby>に."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "What is the honorific form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "まいる",
+        "うかがう",
+        "いらっしゃる",
+        "おる"
+      ],
+      "correct": "いらっしゃる",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → いらっしゃる."
+    },
+    {
+      "prompt": "What is the humble form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "いらっしゃる",
+        "なさる",
+        "めしあがる",
+        "まいる"
+      ],
+      "correct": "まいる",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → まいる."
+    },
+    {
+      "prompt": "What is the honorific form of <ruby>見<rt>み</rt></ruby>る?",
+      "options": [
+        "ごらんになる",
+        "はいけんする",
+        "お<ruby>見<rt>み</rt></ruby>する",
+        "<ruby>見<rt>み</rt></ruby>せる"
+      ],
+      "correct": "ごらんになる",
+      "explanation": "<ruby>見<rt>み</rt></ruby>る → ごらんになる."
+    },
+    {
+      "prompt": "Complete: にもつをお<ruby>持<rt>も</rt></ruby>ち＿＿ましょうか。",
+      "options": [
+        "に",
+        "し",
+        "なり",
+        "ください"
+      ],
+      "correct": "し",
+      "explanation": "Humble: お V-stem する."
+    },
+    {
+      "prompt": "Complete: <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き＿＿、<ruby>歩<rt>ある</rt></ruby>きます。",
+      "options": [
+        "すぎて",
+        "やすく",
+        "ながら",
+        "のに"
+      ],
+      "correct": "ながら",
+      "explanation": "While: ながら."
+    },
+    {
+      "prompt": "Complete: このかばんは<ruby>高<rt>たか</rt></ruby>＿＿ます。 (too expensive)",
+      "options": [
+        "いすぎ",
+        "くすぎ",
+        "なすぎ",
+        "すぎ"
+      ],
+      "correct": "すぎ",
+      "explanation": "Too: stem + すぎる."
+    },
+    {
+      "prompt": "Complete: この<ruby>地図<rt>ちず</rt></ruby>は<ruby>見<rt>み</rt></ruby>＿＿です。 (hard to read)",
+      "options": [
+        "にくい",
+        "やすい",
+        "すぎる",
+        "ながら"
+      ],
+      "correct": "にくい",
+      "explanation": "Hard to: にくい."
+    },
+    {
+      "prompt": "Complete: たくさん<ruby>勉強<rt>べんきょう</rt></ruby>した＿＿、おちました。",
+      "options": [
+        "ので",
+        "のに",
+        "ために",
+        "から"
+      ],
+      "correct": "のに",
+      "explanation": "Even though: のに."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the email: why does Lin say <ruby>地下鉄<rt>ちかてつ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっていなければ?",
+      "options": [
+        "Lin will be on time unless the underground stops.",
+        "The underground is closed on Monday.",
+        "Lin doesn't take the underground.",
+        "The teacher should take the underground."
+      ],
+      "correct": "Lin will be on time unless the underground stops.",
+      "explanation": "〜なければ、<ruby>時間<rt>じかん</rt></ruby>どおりにまいります."
+    },
+    {
+      "prompt": "Which sentence mixes up honorific and humble speech?",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>がいらっしゃいました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>がまいりました。",
+        "わたしがまいりました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>がおっしゃいました。"
+      ],
+      "correct": "<ruby>先生<rt>せんせい</rt></ruby>がまいりました。",
+      "explanation": "まいる is humble: not for the teacher."
+    },
+    {
+      "prompt": "Which is NOT correct?",
+      "options": [
+        "わたしは<ruby>歌<rt>うた</rt></ruby>いながら、おどりました。",
+        "テレビを<ruby>見<rt>み</rt></ruby>ながら、<ruby>食<rt>た</rt></ruby>べました。",
+        "わたしは<ruby>歌<rt>うた</rt></ruby>いながら、<ruby>母<rt>はは</rt></ruby>がおどりました。",
+        "アルバイトをしながら、<ruby>大学<rt>だいがく</rt></ruby>に<ruby>通<rt>かよ</rt></ruby>っています。"
+      ],
+      "correct": "わたしは<ruby>歌<rt>うた</rt></ruby>いながら、<ruby>母<rt>はは</rt></ruby>がおどりました。",
+      "explanation": "ながら: same subject."
+    },
+    {
+      "prompt": "What does <ruby>書<rt>か</rt></ruby>きやすいペン mean?",
+      "options": [
+        "A cheap pen",
+        "A pen that is too thin",
+        "A pen that is hard to use",
+        "A pen that is easy to write with"
+      ],
+      "correct": "A pen that is easy to write with",
+      "explanation": "やすい: easy to."
+    },
+    {
+      "prompt": "Review (Unit 8): what is the passive form of <ruby>使<rt>つか</rt></ruby>う?",
+      "options": [
+        "<ruby>使<rt>つか</rt></ruby>われる",
+        "<ruby>使<rt>つか</rt></ruby>える",
+        "<ruby>使<rt>つか</rt></ruby>わせる",
+        "<ruby>使<rt>つか</rt></ruby>あれる"
+      ],
+      "correct": "<ruby>使<rt>つか</rt></ruby>われる",
+      "explanation": "う → われる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-9-honorific",
+    "japanese-n4-unit-9-humble",
+    "japanese-n4-unit-9-while-doing",
+    "japanese-n4-unit-9-easy-to-use",
+    "japanese-n4-unit-9-even-though",
+    "japanese-n4-unit-8-was-made"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

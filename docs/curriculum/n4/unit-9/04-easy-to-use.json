@@ -1,0 +1,457 @@
+{
+  "id": "japanese-n4-unit-9-easy-to-use",
+  "slug": "n4-unit-9-easy-to-use",
+  "unit": "Japanese N4 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Easy to Use",
+  "title_jp": "〜やすい・〜にくい",
+  "objectives": [
+    "I can say something is easy or hard to do.",
+    "Say something is easy to do with 〜やすい",
+    "Say something is hard to do with 〜にくい",
+    "Talk about maps, the underground and getting around"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>地図<rt>ちず</rt></ruby>",
+      "",
+      "map"
+    ],
+    [
+      "<ruby>地下<rt>ちか</rt></ruby>",
+      "",
+      "underground, basement"
+    ],
+    [
+      "<ruby>地下鉄<rt>ちかてつ</rt></ruby>",
+      "",
+      "underground (railway), subway"
+    ],
+    [
+      "<ruby>土地<rt>とち</rt></ruby>",
+      "",
+      "land"
+    ],
+    [
+      "<ruby>鉄<rt>てつ</rt></ruby>",
+      "",
+      "iron"
+    ],
+    [
+      "<ruby>通<rt>とお</rt></ruby>る",
+      "",
+      "to pass, to go through"
+    ],
+    [
+      "<ruby>通<rt>かよ</rt></ruby>う",
+      "",
+      "to commute, to attend regularly"
+    ],
+    [
+      "<ruby>通<rt>とお</rt></ruby>り",
+      "",
+      "street, avenue"
+    ],
+    [
+      "〜やすい",
+      "",
+      "easy to …"
+    ],
+    [
+      "〜にくい",
+      "",
+      "hard to …"
+    ],
+    [
+      "のりかえる",
+      "",
+      "to change (trains)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "地図",
+      "word_reading": "ちず"
+    },
+    {
+      "word_japanese": "地下",
+      "word_reading": "ちか"
+    },
+    {
+      "word_japanese": "地下鉄",
+      "word_reading": "ちかてつ"
+    },
+    {
+      "word_japanese": "土地",
+      "word_reading": "とち"
+    },
+    {
+      "word_japanese": "鉄",
+      "word_reading": "てつ"
+    },
+    {
+      "word_japanese": "通る",
+      "word_reading": "とおる"
+    },
+    {
+      "word_japanese": "通う",
+      "word_reading": "かよう"
+    },
+    {
+      "word_japanese": "通り",
+      "word_reading": "とおり"
+    }
+  ],
+  "concept": {
+    "title": "Easy or hard to do",
+    "text": "V-stem + やすい: easy to do. V-stem + にくい: hard to do.\n\nこのペンは<ruby>書<rt>か</rt></ruby>きやすいです。 This pen is easy to write with.\nこの<ruby>字<rt>じ</rt></ruby>は<ruby>読<rt>よ</rt></ruby>みにくいです。 This handwriting is hard to read.\n\nBoth change like い-adjectives: <ruby>書<rt>か</rt></ruby>きやすくて, <ruby>読<rt>よ</rt></ruby>みにくかった.\n\nやすい also describes things that happen easily: このコップはわれやすい (this glass breaks easily).",
+    "examples": [
+      "V-stem + やすい (easy to)",
+      "V-stem + にくい (hard to)",
+      "〜やすくて / 〜にくかった (い-adjective forms)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Easy and hard to do: 〜やすい / 〜にくい",
+      "pattern": "V-stem + やすい / にくい",
+      "explanation": "The subject is the thing that is easy or hard to use, read, understand, and so on.",
+      "examples": [
+        {
+          "japanese": "このペンは<ruby>書<rt>か</rt></ruby>きやすいです。",
+          "romaji": "",
+          "meaning": "This pen is easy to write with."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>のせつめいは<ruby>分<rt>わ</rt></ruby>かりやすいです。",
+          "romaji": "",
+          "meaning": "The teacher's explanations are easy to understand."
+        },
+        {
+          "japanese": "この<ruby>地図<rt>ちず</rt></ruby>は<ruby>見<rt>み</rt></ruby>にくいですね。",
+          "romaji": "",
+          "meaning": "This map is hard to read."
+        },
+        {
+          "japanese": "このくつははきやすくて、つかれません。",
+          "romaji": "",
+          "meaning": "These shoes are comfortable, so I don't get tired."
+        },
+        {
+          "japanese": "この<ruby>通<rt>とお</rt></ruby>りは<ruby>車<rt>くるま</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くて、<ruby>歩<rt>ある</rt></ruby>きにくいです。",
+          "romaji": "",
+          "meaning": "This street has lots of cars, so it's hard to walk along."
+        }
+      ],
+      "notes": [
+        "Do not confuse with <ruby>安<rt>やす</rt></ruby>い (cheap): <ruby>書<rt>か</rt></ruby>きやすい has nothing to do with price."
+      ]
+    },
+    {
+      "title": "Happens easily: 〜やすい",
+      "pattern": "V-stem + やすい (tendency)",
+      "explanation": "With verbs like こわれる, わすれる, つかれる, やすい means \"likely to\".",
+      "examples": [
+        {
+          "japanese": "このコップはわれやすいので、<ruby>気<rt>き</rt></ruby>をつけてください。",
+          "romaji": "",
+          "meaning": "This glass breaks easily, so please be careful."
+        },
+        {
+          "japanese": "<ruby>冬<rt>ふゆ</rt></ruby>はかぜをひきやすいです。",
+          "romaji": "",
+          "meaning": "It's easy to catch a cold in winter."
+        },
+        {
+          "japanese": "<ruby>人<rt>ひと</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>はわすれやすいです。",
+          "romaji": "",
+          "meaning": "People's names are easy to forget."
+        },
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>は<ruby>道<rt>みち</rt></ruby>がすべりやすいです。",
+          "romaji": "",
+          "meaning": "Roads are slippery on rainy days."
+        }
+      ],
+      "notes": [
+        "にくい can also mean \"not likely to\": このくつはよごれにくい (these shoes don't get dirty easily)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>地下鉄<rt>ちかてつ</rt></ruby>で<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>通<rt>かよ</rt></ruby>っています。",
+      "I commute to work on the underground."
+    ],
+    [
+      "つぎの<ruby>駅<rt>えき</rt></ruby>でのりかえてください。",
+      "Please change at the next station."
+    ],
+    [
+      "このバスは<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>を<ruby>通<rt>とお</rt></ruby>ります。",
+      "This bus goes past the front of the station."
+    ],
+    [
+      "にもつは<ruby>地下<rt>ちか</rt></ruby>の<ruby>一<rt>いっ</rt></ruby>かいにあります。",
+      "The luggage is on the first basement floor."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>会社<rt>かいしゃ</rt></ruby>まで<ruby>何<rt>なに</rt></ruby>で<ruby>通<rt>かよ</rt></ruby>っていますか。",
+      "けん",
+      "<ruby>地下鉄<rt>ちかてつ</rt></ruby>で<ruby>通<rt>かよ</rt></ruby>っています。"
+    ],
+    [
+      "リー",
+      "この<ruby>地図<rt>ちず</rt></ruby>、ちょっと<ruby>見<rt>み</rt></ruby>にくいですね。",
+      "マイ",
+      "こっちの<ruby>地図<rt>ちず</rt></ruby>のほうが<ruby>見<rt>み</rt></ruby>やすいですよ。"
+    ],
+    [
+      "ゆき",
+      "<ruby>新<rt>あたら</rt></ruby>しいパソコンはどうですか。",
+      "リン",
+      "かるくて、<ruby>使<rt>つか</rt></ruby>いやすいです。"
+    ],
+    [
+      "たなか",
+      "この<ruby>通<rt>とお</rt></ruby>りは<ruby>歩<rt>ある</rt></ruby>きやすいですね。",
+      "アナ",
+      "ええ、<ruby>車<rt>くるま</rt></ruby>があまり<ruby>通<rt>とお</rt></ruby>りませんから。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "地",
+      "onyomi": [
+        "チ",
+        "ジ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "ground, earth",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "地図",
+          "reading": "ちず",
+          "en": "map"
+        },
+        {
+          "word": "地下",
+          "reading": "ちか",
+          "en": "underground"
+        }
+      ],
+      "mnemonic": "Earth (土) spread out like a snake (也): the ground."
+    },
+    {
+      "char": "鉄",
+      "onyomi": [
+        "テツ"
+      ],
+      "kunyomi": [
+        "くろがね"
+      ],
+      "meaning_en": "iron",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "鉄",
+          "reading": "てつ",
+          "en": "iron"
+        },
+        {
+          "word": "地下鉄",
+          "reading": "ちかてつ",
+          "en": "subway"
+        }
+      ],
+      "mnemonic": "A metal (金) that loses (失) its shine: iron."
+    },
+    {
+      "char": "通",
+      "onyomi": [
+        "ツウ",
+        "ツ"
+      ],
+      "kunyomi": [
+        "とお.る",
+        "とお.り",
+        "-とお.り",
+        "-どお.り",
+        "とお.す",
+        "とお.し",
+        "-どお.し",
+        "かよ.う"
+      ],
+      "meaning_en": "pass, commute",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "通る",
+          "reading": "とおる",
+          "en": "to pass"
+        },
+        {
+          "word": "通う",
+          "reading": "かよう",
+          "en": "to commute"
+        }
+      ],
+      "mnemonic": "A path (辶) used over and over (甬): passing through."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き＿＿、<ruby>料理<rt>りょうり</rt></ruby>をします。",
+      "options": [
+        "ながら",
+        "すぎて",
+        "やすく",
+        "にくく"
+      ],
+      "correct": "ながら",
+      "explanation": "While: ながら."
+    },
+    {
+      "prompt": "Complete: このペンは<ruby>書<rt>か</rt></ruby>き＿＿です。 (easy to write with)",
+      "options": [
+        "にくい",
+        "やすい",
+        "すぎ",
+        "ながら"
+      ],
+      "correct": "やすい",
+      "explanation": "Easy to: やすい."
+    },
+    {
+      "prompt": "Complete: この<ruby>字<rt>じ</rt></ruby>は<ruby>読<rt>よ</rt></ruby>み＿＿です。 (hard to read)",
+      "options": [
+        "やすい",
+        "すぎる",
+        "にくい",
+        "たい"
+      ],
+      "correct": "にくい",
+      "explanation": "Hard to: にくい."
+    },
+    {
+      "prompt": "Complete: このくつははき＿＿て、つかれません。",
+      "options": [
+        "やすい",
+        "やすくない",
+        "にくくて",
+        "やすく"
+      ],
+      "correct": "やすく",
+      "explanation": "い-adjective て-form: やすくて."
+    },
+    {
+      "prompt": "Which verb means \"to commute\"?",
+      "options": [
+        "<ruby>通<rt>かよ</rt></ruby>う",
+        "<ruby>通<rt>とお</rt></ruby>る",
+        "のりかえる",
+        "<ruby>歩<rt>ある</rt></ruby>く"
+      ],
+      "correct": "<ruby>通<rt>かよ</rt></ruby>う",
+      "explanation": "<ruby>通<rt>かよ</rt></ruby>う: commute, attend."
+    },
+    {
+      "prompt": "How is 地下鉄⁠ read?",
+      "options": [
+        "じかてつ",
+        "ちかてつ",
+        "ちげてつ",
+        "ちかでつ"
+      ],
+      "correct": "ちかてつ",
+      "explanation": "地下鉄⁠ is read ちかてつ."
+    },
+    {
+      "prompt": "Choose the meaning of このコップはわれやすいです。",
+      "options": [
+        "This glass is cheap.",
+        "This glass is easy to wash.",
+        "This glass breaks easily.",
+        "This glass is unbreakable."
+      ],
+      "correct": "This glass breaks easily.",
+      "explanation": "われやすい: breaks easily."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What does <ruby>書<rt>か</rt></ruby>きやすいペン mean?",
+      "options": [
+        "A cheap pen",
+        "A pen for writing kanji",
+        "A pen that is easy to write with",
+        "A pen that is hard to use"
+      ],
+      "correct": "A pen that is easy to write with",
+      "explanation": "やすい here: easy to, not cheap."
+    },
+    {
+      "prompt": "Which sentence describes a tendency?",
+      "options": [
+        "このペンは<ruby>書<rt>か</rt></ruby>きやすいです。",
+        "この<ruby>地図<rt>ちず</rt></ruby>は<ruby>見<rt>み</rt></ruby>にくいです。",
+        "このパソコンは<ruby>使<rt>つか</rt></ruby>いやすいです。",
+        "<ruby>冬<rt>ふゆ</rt></ruby>はかぜをひきやすいです。"
+      ],
+      "correct": "<ruby>冬<rt>ふゆ</rt></ruby>はかぜをひきやすいです。",
+      "explanation": "ひきやすい: likely to catch."
+    },
+    {
+      "prompt": "Complete: つぎの<ruby>駅<rt>えき</rt></ruby>で＿＿ください。 (change trains)",
+      "options": [
+        "のりかえて",
+        "<ruby>通<rt>かよ</rt></ruby>って",
+        "<ruby>通<rt>とお</rt></ruby>って",
+        "おりかえて"
+      ],
+      "correct": "のりかえて",
+      "explanation": "のりかえる: change trains."
+    },
+    {
+      "prompt": "Read: <ruby>車<rt>くるま</rt></ruby>があまり<ruby>通<rt>とお</rt></ruby>りませんから。 Why is the street easy to walk along?",
+      "options": [
+        "There are many shops.",
+        "Not many cars go through it.",
+        "It is wide.",
+        "It is near the station."
+      ],
+      "correct": "Not many cars go through it.",
+      "explanation": "あまり<ruby>通<rt>とお</rt></ruby>りません: not many pass."
+    },
+    {
+      "prompt": "Review: what is the humble form of いる?",
+      "options": [
+        "いらっしゃる",
+        "まいる",
+        "おる",
+        "いたす"
+      ],
+      "correct": "おる",
+      "explanation": "いる → おる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-9-while-doing",
+    "japanese-n4-unit-4-turn-right",
+    "japanese-n4-unit-3-and-also"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

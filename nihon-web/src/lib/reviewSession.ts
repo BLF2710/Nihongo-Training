@@ -17,8 +17,9 @@ const SPEAKING_QUESTIONS = 2;
 const SPARE_VOCABULARY_QUESTIONS = 2;
 
 /**
- * Mixes server-graded questions (assessment + question bank) with vocabulary, listening and speaking
- * drawn from the unit's lessons. `reserve` holds replacements for questions the learner cannot do.
+ * Mixes server-graded question-bank questions with vocabulary, listening and speaking drawn from the unit's
+ * lessons. When a unit has few bank questions, extra vocabulary questions fill the round. `reserve` holds
+ * replacements for questions the learner cannot do.
  */
 export function buildReviewSession(
   questions: ReviewQuestion[], unit: SkillUnit, can: { hear: boolean; speak: boolean }, random: () => number = Math.random, size = REVIEW_SIZE,
@@ -32,8 +33,11 @@ export function buildReviewSession(
   const skills = [...vocabulary.slice(0, VOCABULARY_QUESTIONS), ...listening, ...speaking];
   const bank = questions.map((question): ReviewItem => ({ kind: "bank", id: question.id, question }));
   const bankShare = Math.max(0, size - skills.length);
+  const fromBank = bank.slice(0, bankShare);
+  const extraVocabulary = vocabulary.slice(VOCABULARY_QUESTIONS, VOCABULARY_QUESTIONS + bankShare - fromBank.length);
+  const spareFrom = VOCABULARY_QUESTIONS + extraVocabulary.length;
   return {
-    items: shuffle([...skills, ...bank.slice(0, bankShare)], random),
-    reserve: [...bank.slice(bankShare), ...vocabulary.slice(VOCABULARY_QUESTIONS, VOCABULARY_QUESTIONS + SPARE_VOCABULARY_QUESTIONS)],
+    items: shuffle([...skills, ...fromBank, ...extraVocabulary], random),
+    reserve: [...bank.slice(bankShare), ...vocabulary.slice(spareFrom, spareFrom + SPARE_VOCABULARY_QUESTIONS)],
   };
 }

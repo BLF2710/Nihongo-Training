@@ -1,0 +1,443 @@
+{
+  "id": "japanese-n4-unit-5-before-and-after",
+  "slug": "n4-unit-5-before-and-after",
+  "unit": "Japanese N4 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Before & After",
+  "title_jp": "〜まえに・〜あとで",
+  "objectives": [
+    "I can put plans in order with before and after.",
+    "Say what happens before with まえに",
+    "Say what happens after with あとで",
+    "Name the days of the week and talk about the evening"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>夕方<rt>ゆうがた</rt></ruby>",
+      "",
+      "early evening"
+    ],
+    [
+      "<ruby>曜日<rt>ようび</rt></ruby>",
+      "",
+      "day of the week"
+    ],
+    [
+      "<ruby>月曜日<rt>げつようび</rt></ruby>",
+      "",
+      "Monday"
+    ],
+    [
+      "<ruby>金曜日<rt>きんようび</rt></ruby>",
+      "",
+      "Friday"
+    ],
+    [
+      "<ruby>日曜日<rt>にちようび</rt></ruby>",
+      "",
+      "Sunday"
+    ],
+    [
+      "<ruby>夕<rt>ゆう</rt></ruby>ごはん",
+      "",
+      "dinner"
+    ],
+    [
+      "<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>",
+      "",
+      "how to read (something)"
+    ],
+    [
+      "<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>",
+      "",
+      "how to write (something)"
+    ],
+    [
+      "はをみがく",
+      "",
+      "to brush one's teeth"
+    ],
+    [
+      "シャワーをあびる",
+      "",
+      "to take a shower"
+    ],
+    [
+      "じゅんび",
+      "",
+      "preparation"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "夕方",
+      "word_reading": "ゆうがた"
+    },
+    {
+      "word_japanese": "曜日",
+      "word_reading": "ようび"
+    },
+    {
+      "word_japanese": "月曜日",
+      "word_reading": "げつようび"
+    },
+    {
+      "word_japanese": "金曜日",
+      "word_reading": "きんようび"
+    },
+    {
+      "word_japanese": "日曜日",
+      "word_reading": "にちようび"
+    },
+    {
+      "word_japanese": "読み方",
+      "word_reading": "よみかた"
+    },
+    {
+      "word_japanese": "書き方",
+      "word_reading": "かきかた"
+    }
+  ],
+  "concept": {
+    "title": "Putting things in order",
+    "text": "まえに: before. Always the dictionary form, even when the sentence is in the past.\nねるまえに、はをみがきます。 Before I go to bed, I brush my teeth.\n\nあとで: after. The た-form.\n<ruby>夕<rt>ゆう</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べたあとで、シャワーをあびます。 After dinner, I take a shower.\n\nWith nouns: しごとのまえに / しごとのあとで.\n\n<ruby>方<rt>かた</rt></ruby> after a verb stem means \"how to\": <ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby> (how to read).",
+    "examples": [
+      "V-る まえに / N の まえに",
+      "V-た あとで / N の あとで",
+      "V-stem + <ruby>方<rt>かた</rt></ruby> (how to)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Before: まえに",
+      "pattern": "V-る / N の + まえに、〜",
+      "explanation": "The verb before まえに is always in the dictionary form.",
+      "examples": [
+        {
+          "japanese": "ねるまえに、はをみがきます。",
+          "romaji": "",
+          "meaning": "I brush my teeth before going to bed."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>るまえに、<ruby>少<rt>すこ</rt></ruby>し<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+          "romaji": "",
+          "meaning": "I studied a little Japanese before coming to Japan."
+        },
+        {
+          "japanese": "しごとのまえに、コーヒーを<ruby>飲<rt>の</rt></ruby>みます。",
+          "romaji": "",
+          "meaning": "I drink coffee before work."
+        },
+        {
+          "japanese": "<ruby>食<rt>た</rt></ruby>べるまえに、<ruby>手<rt>て</rt></ruby>をあらってください。",
+          "romaji": "",
+          "meaning": "Please wash your hands before eating."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>来<rt>き</rt></ruby>たまえに. Even about the past, まえに takes the dictionary form.",
+        "Time + まえに means \"ago\": <ruby>三年<rt>さんねん</rt></ruby>まえに (three years ago)."
+      ]
+    },
+    {
+      "title": "After: あとで",
+      "pattern": "V-た / N の + あとで、〜",
+      "explanation": "The verb before あとで is in the た-form.",
+      "examples": [
+        {
+          "japanese": "<ruby>夕<rt>ゆう</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べたあとで、シャワーをあびます。",
+          "romaji": "",
+          "meaning": "I take a shower after dinner."
+        },
+        {
+          "japanese": "しごとが<ruby>終<rt>お</rt></ruby>わったあとで、ジムに<ruby>行<rt>い</rt></ruby>きます。",
+          "romaji": "",
+          "meaning": "I go to the gym after work finishes."
+        },
+        {
+          "japanese": "じゅぎょうのあとで、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>きました。",
+          "romaji": "",
+          "meaning": "I asked the teacher after the lesson."
+        },
+        {
+          "japanese": "<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>たあとで、レストランに<ruby>行<rt>い</rt></ruby>きました。",
+          "romaji": "",
+          "meaning": "After the film we went to a restaurant."
+        }
+      ],
+      "notes": [
+        "あとで on its own means \"later\": あとで<ruby>電話<rt>でんわ</rt></ruby>します.",
+        "〜てから (N5) is close in meaning; あとで stresses the order a little more."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>何曜日<rt>なんようび</rt></ruby>ですか。",
+      "What day of the week is it today?"
+    ],
+    [
+      "<ruby>月曜日<rt>げつようび</rt></ruby>から<ruby>金曜日<rt>きんようび</rt></ruby>まで<ruby>働<rt>はたら</rt></ruby>いています。",
+      "I work from Monday to Friday."
+    ],
+    [
+      "<ruby>夕方<rt>ゆうがた</rt></ruby>になると、すずしくなります。",
+      "It gets cool in the early evening."
+    ],
+    [
+      "このことばの<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてください。",
+      "Please tell me how to read this word."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>何曜日<rt>なんようび</rt></ruby>ですか。",
+      "けん",
+      "<ruby>金曜日<rt>きんようび</rt></ruby>ですよ。"
+    ],
+    [
+      "リー",
+      "ねるまえに、<ruby>何<rt>なに</rt></ruby>をしますか。",
+      "マイ",
+      "シャワーをあびて、はをみがきます。"
+    ],
+    [
+      "ゆき",
+      "じゅぎょうのあとで、<ruby>何<rt>なに</rt></ruby>をしますか。",
+      "リン",
+      "<ruby>夕方<rt>ゆうがた</rt></ruby>までアルバイトです。"
+    ],
+    [
+      "たなか",
+      "このことばの<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かりますか。",
+      "アナ",
+      "いいえ、あとでしらべます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "夕",
+      "onyomi": [
+        "セキ"
+      ],
+      "kunyomi": [
+        "ゆう"
+      ],
+      "meaning_en": "evening",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "夕方",
+          "reading": "ゆうがた",
+          "en": "early evening"
+        },
+        {
+          "word": "夕べ",
+          "reading": "ゆうべ",
+          "en": "last night"
+        }
+      ],
+      "mnemonic": "A half moon just rising: evening."
+    },
+    {
+      "char": "方",
+      "onyomi": [
+        "ホウ"
+      ],
+      "kunyomi": [
+        "かた",
+        "-かた",
+        "-がた"
+      ],
+      "meaning_en": "direction, person, way",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "夕方",
+          "reading": "ゆうがた",
+          "en": "early evening"
+        },
+        {
+          "word": "読み方",
+          "reading": "よみかた",
+          "en": "how to read"
+        }
+      ],
+      "mnemonic": "A boat with two hulls pointing one way: a direction, a way."
+    },
+    {
+      "char": "曜",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "day of the week",
+      "stroke_count": 18,
+      "example_words": [
+        {
+          "word": "曜日",
+          "reading": "ようび",
+          "en": "day of the week"
+        },
+        {
+          "word": "日曜日",
+          "reading": "にちようび",
+          "en": "Sunday"
+        }
+      ],
+      "mnemonic": "Sun (日) and a bird spreading its wings (翟): the days that fly by."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete けんこう＿＿ために、<ruby>運動<rt>うんどう</rt></ruby>しています。",
+      "options": [
+        "な",
+        "の",
+        "に",
+        "を"
+      ],
+      "correct": "の",
+      "explanation": "N の ために."
+    },
+    {
+      "prompt": "Complete: ねる＿＿、はをみがきます。",
+      "options": [
+        "あとで",
+        "ために",
+        "まえに",
+        "から"
+      ],
+      "correct": "まえに",
+      "explanation": "Before: V-る まえに."
+    },
+    {
+      "prompt": "Complete: <ruby>夕<rt>ゆう</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べ＿＿あとで、テレビを<ruby>見<rt>み</rt></ruby>ます。",
+      "options": [
+        "る",
+        "て",
+        "ない",
+        "た"
+      ],
+      "correct": "た",
+      "explanation": "After: V-た あとで."
+    },
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>に＿＿まえに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+      "options": [
+        "<ruby>来<rt>く</rt></ruby>る",
+        "<ruby>来<rt>き</rt></ruby>た",
+        "<ruby>来<rt>き</rt></ruby>て",
+        "<ruby>来<rt>こ</rt></ruby>よう"
+      ],
+      "correct": "<ruby>来<rt>く</rt></ruby>る",
+      "explanation": "まえに always takes the dictionary form."
+    },
+    {
+      "prompt": "Complete: じゅぎょう＿＿あとで、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>きます。",
+      "options": [
+        "が",
+        "の",
+        "に",
+        "で"
+      ],
+      "correct": "の",
+      "explanation": "N の あとで."
+    },
+    {
+      "prompt": "How is 金曜日⁠ read?",
+      "options": [
+        "かねようび",
+        "きんようひ",
+        "きんようび",
+        "こんようび"
+      ],
+      "correct": "きんようび",
+      "explanation": "金曜日⁠ is read きんようび."
+    },
+    {
+      "prompt": "Choose the meaning of このことばの<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてください。",
+      "options": [
+        "Please write this word for me.",
+        "Please teach me to read.",
+        "Who wrote this word?",
+        "Please tell me how to write this word."
+      ],
+      "correct": "Please tell me how to write this word.",
+      "explanation": "V-stem + <ruby>方<rt>かた</rt></ruby>: how to."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>るまえに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たあとで、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>てから、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たまえに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。"
+      ],
+      "correct": "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たまえに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+      "explanation": "まえに always takes the dictionary form."
+    },
+    {
+      "prompt": "Which day comes just before <ruby>土<rt>ど</rt></ruby>よう<ruby>日<rt>び</rt></ruby>?",
+      "options": [
+        "<ruby>金曜日<rt>きんようび</rt></ruby>",
+        "<ruby>月曜日<rt>げつようび</rt></ruby>",
+        "<ruby>日曜日<rt>にちようび</rt></ruby>",
+        "<ruby>水曜日<rt>すいようび</rt></ruby>"
+      ],
+      "correct": "<ruby>金曜日<rt>きんようび</rt></ruby>",
+      "explanation": "<ruby>金<rt>きん</rt></ruby> → <ruby>土<rt>ど</rt></ruby>."
+    },
+    {
+      "prompt": "What does あとで mean on its own?",
+      "options": [
+        "before",
+        "later",
+        "already",
+        "every day"
+      ],
+      "correct": "later",
+      "explanation": "あとで<ruby>電話<rt>でんわ</rt></ruby>します: I'll call later."
+    },
+    {
+      "prompt": "Read: <ruby>月曜日<rt>げつようび</rt></ruby>から<ruby>金曜日<rt>きんようび</rt></ruby>まで<ruby>働<rt>はたら</rt></ruby>いています。 When does the speaker not work?",
+      "options": [
+        "On Mondays",
+        "In the evening",
+        "At the weekend",
+        "On Fridays"
+      ],
+      "correct": "At the weekend",
+      "explanation": "Monday to Friday: not Saturday or Sunday."
+    },
+    {
+      "prompt": "Review: choose \"I'm thinking of going to the sea.\"",
+      "options": [
+        "<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>っています。",
+        "<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こうと<ruby>言<rt>い</rt></ruby>っています。",
+        "<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きたいと<ruby>思<rt>おも</rt></ruby>いましょう。",
+        "<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。"
+      ],
+      "correct": "<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。",
+      "explanation": "Volitional + と<ruby>思<rt>おも</rt></ruby>っています."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-5-in-order-to",
+    "japanese-n4-unit-5-thinking-of",
+    "japanese-n5-unit-5-daily-routine"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

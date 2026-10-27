@@ -1,0 +1,466 @@
+{
+  "id": "japanese-n4-unit-4-even-if",
+  "slug": "n4-unit-4-even-if",
+  "unit": "Japanese N4 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Even If…",
+  "title_jp": "〜ても",
+  "objectives": [
+    "I can say \"even if\".",
+    "Make ても with verbs, adjectives and nouns",
+    "Use いくら〜ても",
+    "Talk about opening, cutting and getting up"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>開<rt>あ</rt></ruby>ける",
+      "",
+      "to open (something)"
+    ],
+    [
+      "<ruby>開<rt>あ</rt></ruby>く",
+      "",
+      "to open (intransitive)"
+    ],
+    [
+      "<ruby>切<rt>き</rt></ruby>る",
+      "",
+      "to cut"
+    ],
+    [
+      "<ruby>切手<rt>きって</rt></ruby>",
+      "",
+      "postage stamp"
+    ],
+    [
+      "<ruby>大切<rt>たいせつ</rt></ruby>",
+      "",
+      "important, precious"
+    ],
+    [
+      "<ruby>起<rt>お</rt></ruby>きる",
+      "",
+      "to get up, to wake up"
+    ],
+    [
+      "<ruby>起<rt>お</rt></ruby>こす",
+      "",
+      "to wake (someone) up"
+    ],
+    [
+      "まど",
+      "",
+      "window"
+    ],
+    [
+      "ドア",
+      "",
+      "door"
+    ],
+    [
+      "いくら〜ても",
+      "",
+      "however much …"
+    ],
+    [
+      "あきらめる",
+      "",
+      "to give up"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "開ける",
+      "word_reading": "あける"
+    },
+    {
+      "word_japanese": "開く",
+      "word_reading": "あく"
+    },
+    {
+      "word_japanese": "切る",
+      "word_reading": "きる"
+    },
+    {
+      "word_japanese": "切手",
+      "word_reading": "きって"
+    },
+    {
+      "word_japanese": "大切",
+      "word_reading": "たいせつ"
+    },
+    {
+      "word_japanese": "起きる",
+      "word_reading": "おきる"
+    },
+    {
+      "word_japanese": "起こす",
+      "word_reading": "おこす"
+    }
+  ],
+  "concept": {
+    "title": "Even if…",
+    "text": "ても says that the result does not change, whatever happens.\n\nVerbs: て-form + も. <ruby>雨<rt>あめ</rt></ruby>がふっても、<ruby>行<rt>い</rt></ruby>きます。 Even if it rains, I'll go.\nい-adjectives: 〜くても. <ruby>高<rt>たか</rt></ruby>くても、<ruby>買<rt>か</rt></ruby>います。 Even if it's expensive, I'll buy it.\nな-adjectives and nouns: 〜でも. ひまでも / <ruby>雨<rt>あめ</rt></ruby>でも\nNegative: 〜なくても. <ruby>行<rt>い</rt></ruby>かなくても (even if you don't go)\n\nいくら〜ても means \"however much\":\nいくら<ruby>勉強<rt>べんきょう</rt></ruby>しても、<ruby>分<rt>わ</rt></ruby>かりません。 However much I study, I don't understand.",
+    "examples": [
+      "V-ても / V-なくても",
+      "い-adj-くても / な-adj・N でも",
+      "いくら〜ても"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Even if: ても",
+      "pattern": "V-て + も / い-adj-くても / N・な-adj + でも",
+      "explanation": "The first part does not stop the second part from happening.",
+      "examples": [
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>がふっても、サッカーをします。",
+          "romaji": "",
+          "meaning": "Even if it rains, we'll play football."
+        },
+        {
+          "japanese": "<ruby>高<rt>たか</rt></ruby>くても、このカメラを<ruby>買<rt>か</rt></ruby>いたいです。",
+          "romaji": "",
+          "meaning": "Even if it's expensive, I want to buy this camera."
+        },
+        {
+          "japanese": "<ruby>休<rt>やす</rt></ruby>みの<ruby>日<rt>ひ</rt></ruby>でも、<ruby>早<rt>はや</rt></ruby>く<ruby>起<rt>お</rt></ruby>きます。",
+          "romaji": "",
+          "meaning": "I get up early even on my days off."
+        },
+        {
+          "japanese": "まどを<ruby>開<rt>あ</rt></ruby>けても、あつくてねられません。",
+          "romaji": "",
+          "meaning": "Even with the window open, it's too hot to sleep."
+        },
+        {
+          "japanese": "<ruby>分<rt>わ</rt></ruby>からなくても、あきらめないでください。",
+          "romaji": "",
+          "meaning": "Even if you don't understand, please don't give up."
+        }
+      ],
+      "notes": [
+        "ても also gives permission: <ruby>開<rt>あ</rt></ruby>けてもいいですか (may I open it?)—the same form.",
+        "Wrong: <ruby>高<rt>たか</rt></ruby>いでも. い-adjectives take くても."
+      ]
+    },
+    {
+      "title": "However much: いくら〜ても",
+      "pattern": "いくら V-ても / いくら adj-くても",
+      "explanation": "いくら in front strengthens ても: \"however much…, still…\".",
+      "examples": [
+        {
+          "japanese": "いくら<ruby>勉強<rt>べんきょう</rt></ruby>しても、このことばはおぼえられません。",
+          "romaji": "",
+          "meaning": "However much I study, I can't remember this word."
+        },
+        {
+          "japanese": "いくらよんでも、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>起<rt>お</rt></ruby>きません。",
+          "romaji": "",
+          "meaning": "However often I call, my younger brother doesn't wake up."
+        },
+        {
+          "japanese": "いくら<ruby>高<rt>たか</rt></ruby>くても、<ruby>大切<rt>たいせつ</rt></ruby>なものは<ruby>買<rt>か</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "However expensive, I buy things that matter."
+        },
+        {
+          "japanese": "いくらさがしても、かぎが<ruby>見<rt>み</rt></ruby>つかりません。",
+          "romaji": "",
+          "meaning": "However hard I look, I can't find the key."
+        }
+      ],
+      "notes": [
+        "いくら on its own also means \"how much\" (price): いくらですか."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "ドアが<ruby>開<rt>あ</rt></ruby>きました。",
+      "The door opened."
+    ],
+    [
+      "はさみで<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>ってください。",
+      "Please cut the paper with scissors."
+    ],
+    [
+      "ゆうびんきょくで<ruby>切手<rt>きって</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。",
+      "I bought stamps at the post office."
+    ],
+    [
+      "<ruby>明日<rt>あした</rt></ruby>、<ruby>七時<rt>しちじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>こしてください。",
+      "Please wake me up at seven tomorrow."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "まどを<ruby>開<rt>あ</rt></ruby>けてもいいですか。",
+      "けん",
+      "ええ、どうぞ。"
+    ],
+    [
+      "リー",
+      "<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>何時<rt>なんじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きますか。",
+      "マイ",
+      "<ruby>六時<rt>ろくじ</rt></ruby>です。<ruby>休<rt>やす</rt></ruby>みの<ruby>日<rt>ひ</rt></ruby>でも<ruby>早<rt>はや</rt></ruby>く<ruby>起<rt>お</rt></ruby>きます。"
+    ],
+    [
+      "ゆき",
+      "<ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>がふったらどうしますか。",
+      "たなか",
+      "<ruby>雨<rt>あめ</rt></ruby>がふっても、<ruby>行<rt>い</rt></ruby>きますよ。"
+    ],
+    [
+      "リン",
+      "このかばん、<ruby>高<rt>たか</rt></ruby>いですね。",
+      "アナ",
+      "<ruby>高<rt>たか</rt></ruby>くても、ずっと<ruby>大切<rt>たいせつ</rt></ruby>に<ruby>持<rt>も</rt></ruby>ちたいんです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "開",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "ひら.く",
+        "ひら.き",
+        "-びら.き",
+        "ひら.ける",
+        "あ.く",
+        "あ.ける"
+      ],
+      "meaning_en": "open",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "開ける",
+          "reading": "あける",
+          "en": "to open"
+        },
+        {
+          "word": "開く",
+          "reading": "あく",
+          "en": "to open (by itself)"
+        }
+      ],
+      "mnemonic": "Two hands lifting the bar (开) of a gate (門): open."
+    },
+    {
+      "char": "切",
+      "onyomi": [
+        "セツ",
+        "サイ"
+      ],
+      "kunyomi": [
+        "き.る",
+        "-き.る",
+        "き.り",
+        "-き.り",
+        "-ぎ.り",
+        "き.れる",
+        "-き.れる",
+        "き.れ",
+        "-き.れ",
+        "-ぎ.れ"
+      ],
+      "meaning_en": "cut",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "切る",
+          "reading": "きる",
+          "en": "to cut"
+        },
+        {
+          "word": "大切",
+          "reading": "たいせつ",
+          "en": "important"
+        }
+      ],
+      "mnemonic": "A knife (刀) cutting seven (七) times."
+    },
+    {
+      "char": "起",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "お.きる",
+        "お.こる",
+        "お.こす",
+        "おこ.す",
+        "た.つ"
+      ],
+      "meaning_en": "rise, wake",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "起きる",
+          "reading": "おきる",
+          "en": "to get up"
+        },
+        {
+          "word": "起こす",
+          "reading": "おこす",
+          "en": "to wake someone"
+        }
+      ],
+      "mnemonic": "Running (走) off as soon as you are up (己)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: A: すしが<ruby>食<rt>た</rt></ruby>べたいです。 B: すし＿＿、あの<ruby>店<rt>みせ</rt></ruby>がいいですよ。",
+      "options": [
+        "は",
+        "なら",
+        "でも",
+        "と"
+      ],
+      "correct": "なら",
+      "explanation": "Picking up a topic: なら."
+    },
+    {
+      "prompt": "Make the ても form of <ruby>行<rt>い</rt></ruby>く.",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>きても",
+        "<ruby>行<rt>い</rt></ruby>くても",
+        "<ruby>行<rt>い</rt></ruby>っても",
+        "<ruby>行<rt>い</rt></ruby>けても"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>っても",
+      "explanation": "て-form <ruby>行<rt>い</rt></ruby>って + も."
+    },
+    {
+      "prompt": "Make the ても form of <ruby>高<rt>たか</rt></ruby>い.",
+      "options": [
+        "<ruby>高<rt>たか</rt></ruby>いでも",
+        "<ruby>高<rt>たか</rt></ruby>いても",
+        "<ruby>高<rt>たか</rt></ruby>かっても",
+        "<ruby>高<rt>たか</rt></ruby>くても"
+      ],
+      "correct": "<ruby>高<rt>たか</rt></ruby>くても",
+      "explanation": "い-adjective: くても."
+    },
+    {
+      "prompt": "Complete: <ruby>休<rt>やす</rt></ruby>みの<ruby>日<rt>ひ</rt></ruby>＿＿、<ruby>早<rt>はや</rt></ruby>く<ruby>起<rt>お</rt></ruby>きます。",
+      "options": [
+        "でも",
+        "くても",
+        "ても",
+        "なら"
+      ],
+      "correct": "でも",
+      "explanation": "Noun + でも."
+    },
+    {
+      "prompt": "Complete: いくらさがし＿＿、<ruby>見<rt>み</rt></ruby>つかりません。",
+      "options": [
+        "たら",
+        "ても",
+        "ば",
+        "と"
+      ],
+      "correct": "ても",
+      "explanation": "いくら〜ても."
+    },
+    {
+      "prompt": "Which verb is intransitive?",
+      "options": [
+        "<ruby>開<rt>あ</rt></ruby>ける",
+        "<ruby>切<rt>き</rt></ruby>る",
+        "<ruby>開<rt>あ</rt></ruby>く",
+        "<ruby>起<rt>お</rt></ruby>こす"
+      ],
+      "correct": "<ruby>開<rt>あ</rt></ruby>く",
+      "explanation": "<ruby>開<rt>あ</rt></ruby>く: something opens."
+    },
+    {
+      "prompt": "How is 大切⁠ read?",
+      "options": [
+        "だいせつ",
+        "おおきり",
+        "たいきり",
+        "たいせつ"
+      ],
+      "correct": "たいせつ",
+      "explanation": "大切⁠ is read たいせつ."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Choose: \"Even if it rains, I'll go.\"",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>がふったら、<ruby>行<rt>い</rt></ruby>きます。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふると、<ruby>行<rt>い</rt></ruby>きます。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふれば、<ruby>行<rt>い</rt></ruby>きます。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふっても、<ruby>行<rt>い</rt></ruby>きます。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>がふっても、<ruby>行<rt>い</rt></ruby>きます。",
+      "explanation": "Even if: ても."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>高<rt>たか</rt></ruby>いでも、<ruby>買<rt>か</rt></ruby>います。",
+        "<ruby>高<rt>たか</rt></ruby>くても、<ruby>買<rt>か</rt></ruby>います。",
+        "ひまでも、<ruby>行<rt>い</rt></ruby>きません。",
+        "<ruby>雨<rt>あめ</rt></ruby>でも、<ruby>行<rt>い</rt></ruby>きます。"
+      ],
+      "correct": "<ruby>高<rt>たか</rt></ruby>いでも、<ruby>買<rt>か</rt></ruby>います。",
+      "explanation": "い-adjectives take くても."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>、<ruby>六時<rt>ろくじ</rt></ruby>に＿＿ください。 (please wake me)",
+      "options": [
+        "<ruby>起<rt>お</rt></ruby>きて",
+        "<ruby>起<rt>お</rt></ruby>こして",
+        "<ruby>起<rt>お</rt></ruby>きられて",
+        "<ruby>起<rt>お</rt></ruby>こされて"
+      ],
+      "correct": "<ruby>起<rt>お</rt></ruby>こして",
+      "explanation": "Wake someone: <ruby>起<rt>お</rt></ruby>こす."
+    },
+    {
+      "prompt": "Read: いくらよんでも、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>起<rt>お</rt></ruby>きません。 What is happening?",
+      "options": [
+        "The younger brother wakes up easily.",
+        "The speaker won't wake the brother.",
+        "The younger brother won't wake up however much he is called.",
+        "The brother calls the speaker many times."
+      ],
+      "correct": "The younger brother won't wake up however much he is called.",
+      "explanation": "いくら〜ても: however much."
+    },
+    {
+      "prompt": "Review: complete <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>く＿＿、<ruby>秋<rt>あき</rt></ruby>がいいですよ。",
+      "options": [
+        "と",
+        "ても",
+        "ので",
+        "なら"
+      ],
+      "correct": "なら",
+      "explanation": "Advice for a plan: なら."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-4-if-its-kyoto",
+    "japanese-n4-unit-4-if-it-rains",
+    "japanese-n5-unit-8-permission"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

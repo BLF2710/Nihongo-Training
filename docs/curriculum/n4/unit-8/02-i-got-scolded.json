@@ -1,0 +1,444 @@
+{
+  "id": "japanese-n4-unit-8-i-got-scolded",
+  "slug": "n4-unit-8-i-got-scolded",
+  "unit": "Japanese N4 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "I Got Scolded",
+  "title_jp": "しかられた",
+  "objectives": [
+    "I can complain about something done to me.",
+    "Say what someone did to you with N に V-られる",
+    "Use the passive for trouble: <ruby>雨<rt>あめ</rt></ruby>にふられる",
+    "Talk about shops, prices and the town"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>売<rt>う</rt></ruby>る",
+      "",
+      "to sell"
+    ],
+    [
+      "<ruby>時代<rt>じだい</rt></ruby>",
+      "",
+      "era, period"
+    ],
+    [
+      "<ruby>電気代<rt>でんきだい</rt></ruby>",
+      "",
+      "electricity bill"
+    ],
+    [
+      "<ruby>代<rt>か</rt></ruby>わりに",
+      "",
+      "instead"
+    ],
+    [
+      "<ruby>町<rt>まち</rt></ruby>",
+      "",
+      "town"
+    ],
+    [
+      "しかる",
+      "",
+      "to scold"
+    ],
+    [
+      "ほめる",
+      "",
+      "to praise"
+    ],
+    [
+      "ふむ",
+      "",
+      "to step on"
+    ],
+    [
+      "ぬすむ",
+      "",
+      "to steal"
+    ],
+    [
+      "どろぼう",
+      "",
+      "thief"
+    ],
+    [
+      "わらう",
+      "",
+      "to laugh, to smile"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "売る",
+      "word_reading": "うる"
+    },
+    {
+      "word_japanese": "時代",
+      "word_reading": "じだい"
+    },
+    {
+      "word_japanese": "電気代",
+      "word_reading": "でんきだい"
+    },
+    {
+      "word_japanese": "町",
+      "word_reading": "まち"
+    }
+  ],
+  "concept": {
+    "title": "Something happened to me",
+    "text": "The passive is also used for things other people do to you. The person who does it takes に.\n\n<ruby>先生<rt>せんせい</rt></ruby>にしかられました。 I was scolded by the teacher.\n<ruby>先生<rt>せんせい</rt></ruby>にほめられました。 I was praised by the teacher.\n\nWhen something of yours is affected, it takes を:\n<ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>足<rt>あし</rt></ruby>をふまれました。 Someone stepped on my foot on the train.\nどろぼうにさいふをぬすまれました。 My wallet was stolen by a thief.\n\nEven intransitive verbs can be used this way to say you were troubled:\n<ruby>雨<rt>あめ</rt></ruby>にふられました。 I got caught in the rain.",
+    "examples": [
+      "person に V-られる",
+      "person に (my) N を V-られる",
+      "<ruby>雨<rt>あめ</rt></ruby>にふられる (trouble)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Done to me: N に V-られる",
+      "pattern": "わたしは person に V-られる",
+      "explanation": "The person who did it takes に. The subject (often わたし) is usually left out.",
+      "examples": [
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どものとき、よく<ruby>母<rt>はは</rt></ruby>にしかられました。",
+          "romaji": "",
+          "meaning": "I was often scolded by my mother as a child."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>にさくぶんをほめられました。",
+          "romaji": "",
+          "meaning": "My teacher praised my essay."
+        },
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちにわらわれて、はずかしかったです。",
+          "romaji": "",
+          "meaning": "I was laughed at by my friends and felt embarrassed."
+        },
+        {
+          "japanese": "<ruby>知<rt>し</rt></ruby>らない<ruby>人<rt>ひと</rt></ruby>に<ruby>道<rt>みち</rt></ruby>を<ruby>聞<rt>き</rt></ruby>かれました。",
+          "romaji": "",
+          "meaning": "A stranger asked me the way."
+        }
+      ],
+      "notes": [
+        "The passive often shows how the speaker felt: being laughed at, scolded, praised."
+      ]
+    },
+    {
+      "title": "Trouble: the passive of inconvenience",
+      "pattern": "person に (my) N を V-られる / <ruby>雨<rt>あめ</rt></ruby>にふられる",
+      "explanation": "The passive says you were troubled by what happened, even when the verb has no object.",
+      "examples": [
+        {
+          "japanese": "<ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>足<rt>あし</rt></ruby>をふまれました。",
+          "romaji": "",
+          "meaning": "Someone stepped on my foot on the train."
+        },
+        {
+          "japanese": "どろぼうにさいふをぬすまれました。",
+          "romaji": "",
+          "meaning": "My wallet was stolen by a thief."
+        },
+        {
+          "japanese": "<ruby>出<rt>で</rt></ruby>かけたら、<ruby>雨<rt>あめ</rt></ruby>にふられました。",
+          "romaji": "",
+          "meaning": "When I went out, I got caught in the rain."
+        },
+        {
+          "japanese": "<ruby>夜<rt>よる</rt></ruby>おそくまでとなりの<ruby>人<rt>ひと</rt></ruby>にさわがれて、ねられませんでした。",
+          "romaji": "",
+          "meaning": "The neighbours made noise till late and I couldn't sleep."
+        },
+        {
+          "japanese": "<ruby>弟<rt>おとうと</rt></ruby>にケーキを<ruby>食<rt>た</rt></ruby>べられてしまいました。",
+          "romaji": "",
+          "meaning": "My little brother ate my cake (and I'm annoyed)."
+        }
+      ],
+      "notes": [
+        "Wrong: わたしのさいふはぬすまれました is possible, but Japanese prefers さいふをぬすまれました when it's yours."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "このスーパーでは<ruby>安<rt>やす</rt></ruby>い<ruby>肉<rt>にく</rt></ruby>を<ruby>売<rt>う</rt></ruby>っています。",
+      "This supermarket sells cheap meat."
+    ],
+    [
+      "<ruby>今月<rt>こんげつ</rt></ruby>は<ruby>電気代<rt>でんきだい</rt></ruby>が<ruby>高<rt>たか</rt></ruby>かったです。",
+      "The electricity bill was high this month."
+    ],
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>の<ruby>代<rt>か</rt></ruby>わりに、たなかさんがじゅぎょうをします。",
+      "Today Tanaka will teach instead of the teacher."
+    ],
+    [
+      "わたしの<ruby>町<rt>まち</rt></ruby>はしずかで、<ruby>住<rt>す</rt></ruby>みやすいです。",
+      "My town is quiet and easy to live in."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "どうしたんですか。",
+      "けん",
+      "<ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>足<rt>あし</rt></ruby>をふまれたんです。"
+    ],
+    [
+      "マイ",
+      "げんきがないですね。",
+      "リー",
+      "しごとでミスをして、ぶちょうにしかられたんです。"
+    ],
+    [
+      "ゆき",
+      "かさは？",
+      "リン",
+      "<ruby>持<rt>も</rt></ruby>ってこなかったので、<ruby>雨<rt>あめ</rt></ruby>にふられてしまいました。"
+    ],
+    [
+      "たなか",
+      "さくぶん、よく<ruby>書<rt>か</rt></ruby>けていますね。",
+      "アナ",
+      "ありがとうございます。<ruby>先生<rt>せんせい</rt></ruby>にほめられて、うれしいです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "売",
+      "onyomi": [
+        "バイ"
+      ],
+      "kunyomi": [
+        "う.る",
+        "う.れる"
+      ],
+      "meaning_en": "sell",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "売る",
+          "reading": "うる",
+          "en": "to sell"
+        },
+        {
+          "word": "売り場",
+          "reading": "うりば",
+          "en": "sales counter"
+        }
+      ],
+      "mnemonic": "A scholar (士) going out (儿) with goods: selling."
+    },
+    {
+      "char": "代",
+      "onyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "kunyomi": [
+        "か.わる",
+        "かわ.る",
+        "かわ.り",
+        "か.わり",
+        "-がわ.り",
+        "-が.わり",
+        "か.える",
+        "よ",
+        "しろ"
+      ],
+      "meaning_en": "replace, era, fee",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "時代",
+          "reading": "じだい",
+          "en": "era"
+        },
+        {
+          "word": "代わりに",
+          "reading": "かわりに",
+          "en": "instead"
+        }
+      ],
+      "mnemonic": "A person (亻) taking another's place with a stake (弋): replacing."
+    },
+    {
+      "char": "町",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "まち"
+      ],
+      "meaning_en": "town",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "町",
+          "reading": "まち",
+          "en": "town"
+        },
+        {
+          "word": "町長",
+          "reading": "ちょうちょう",
+          "en": "mayor of a town"
+        }
+      ],
+      "mnemonic": "Fields (田) along a street (丁): a town."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the passive form of <ruby>作<rt>つく</rt></ruby>る?",
+      "options": [
+        "<ruby>作<rt>つく</rt></ruby>れる",
+        "<ruby>作<rt>つく</rt></ruby>させる",
+        "<ruby>作<rt>つく</rt></ruby>られる",
+        "<ruby>作<rt>つく</rt></ruby>りれる"
+      ],
+      "correct": "<ruby>作<rt>つく</rt></ruby>られる",
+      "explanation": "る → られる."
+    },
+    {
+      "prompt": "Complete: <ruby>子<rt>こ</rt></ruby>どものとき、<ruby>母<rt>はは</rt></ruby>＿＿しかられました。",
+      "options": [
+        "を",
+        "が",
+        "で",
+        "に"
+      ],
+      "correct": "に",
+      "explanation": "The person who did it: に."
+    },
+    {
+      "prompt": "Complete: <ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>足<rt>あし</rt></ruby>＿＿ふまれました。",
+      "options": [
+        "を",
+        "に",
+        "が",
+        "で"
+      ],
+      "correct": "を",
+      "explanation": "Your body part or thing: を."
+    },
+    {
+      "prompt": "Complete: <ruby>出<rt>で</rt></ruby>かけたら、<ruby>雨<rt>あめ</rt></ruby>に＿＿。 (got caught in the rain)",
+      "options": [
+        "ふりました",
+        "ふられました",
+        "ふらせました",
+        "ふってしまいました"
+      ],
+      "correct": "ふられました",
+      "explanation": "Trouble: <ruby>雨<rt>あめ</rt></ruby>にふられる."
+    },
+    {
+      "prompt": "Which word means \"to praise\"?",
+      "options": [
+        "しかる",
+        "わらう",
+        "ほめる",
+        "ぬすむ"
+      ],
+      "correct": "ほめる",
+      "explanation": "ほめる: praise."
+    },
+    {
+      "prompt": "How is 電気代⁠ read?",
+      "options": [
+        "でんきがわり",
+        "でんきたい",
+        "でんきよ",
+        "でんきだい"
+      ],
+      "correct": "でんきだい",
+      "explanation": "電気代⁠ is read でんきだい."
+    },
+    {
+      "prompt": "Choose the meaning of どろぼうにさいふをぬすまれました。",
+      "options": [
+        "My wallet was stolen by a thief.",
+        "I stole a wallet from a thief.",
+        "The thief lost his wallet.",
+        "I caught a thief with my wallet."
+      ],
+      "correct": "My wallet was stolen by a thief.",
+      "explanation": "ぬすまれる: be stolen."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Someone stepped on your foot. How do you tell a friend?",
+      "options": [
+        "<ruby>足<rt>あし</rt></ruby>をふまれました。",
+        "<ruby>足<rt>あし</rt></ruby>がふみました。",
+        "<ruby>足<rt>あし</rt></ruby>をふませました。",
+        "<ruby>足<rt>あし</rt></ruby>にふまれました。"
+      ],
+      "correct": "<ruby>足<rt>あし</rt></ruby>をふまれました。",
+      "explanation": "Your foot takes を: <ruby>足<rt>あし</rt></ruby>をふまれる."
+    },
+    {
+      "prompt": "Which sentence shows the speaker was annoyed?",
+      "options": [
+        "<ruby>弟<rt>おとうと</rt></ruby>がケーキを<ruby>食<rt>た</rt></ruby>べました。",
+        "<ruby>弟<rt>おとうと</rt></ruby>にケーキを<ruby>食<rt>た</rt></ruby>べられてしまいました。",
+        "<ruby>弟<rt>おとうと</rt></ruby>にケーキをあげました。",
+        "<ruby>弟<rt>おとうと</rt></ruby>とケーキを<ruby>食<rt>た</rt></ruby>べました。"
+      ],
+      "correct": "<ruby>弟<rt>おとうと</rt></ruby>にケーキを<ruby>食<rt>た</rt></ruby>べられてしまいました。",
+      "explanation": "Passive of inconvenience + てしまう."
+    },
+    {
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>の＿＿に、たなかさんがじゅぎょうをします。",
+      "options": [
+        "<ruby>時代<rt>じだい</rt></ruby>",
+        "<ruby>代<rt>だい</rt></ruby>",
+        "<ruby>代<rt>か</rt></ruby>わり",
+        "<ruby>売<rt>う</rt></ruby>り"
+      ],
+      "correct": "<ruby>代<rt>か</rt></ruby>わり",
+      "explanation": "<ruby>代<rt>か</rt></ruby>わりに: instead."
+    },
+    {
+      "prompt": "Read: <ruby>先生<rt>せんせい</rt></ruby>にほめられて、うれしいです。 How does Anna feel?",
+      "options": [
+        "Sad to be scolded",
+        "Worried about the teacher",
+        "Proud of the teacher",
+        "Happy to be praised"
+      ],
+      "correct": "Happy to be praised",
+      "explanation": "ほめられる: be praised."
+    },
+    {
+      "prompt": "Review (Unit 7): complete てんきよほう＿＿、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>だそうです。",
+      "options": [
+        "によると",
+        "によって",
+        "について",
+        "にとって"
+      ],
+      "correct": "によると",
+      "explanation": "Source: によると."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-8-was-made",
+    "japanese-n4-unit-6-oh-no",
+    "japanese-n4-unit-7-i-heard"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

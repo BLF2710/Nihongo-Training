@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n4-unit-6-review",
+  "slug": "n4-unit-6-review",
+  "unit": "Japanese N4 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 6 Review",
+  "title_jp": "ユニット6のふくしゅう",
+  "objectives": [
+    "I can talk about trying, finishing and preparing things.",
+    "Use 〜てみる, 〜てしまう and 〜ておく",
+    "Describe states with 〜ている and 〜てある",
+    "Describe changes with なる and する",
+    "Read a diary entry about a New Year party"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>着<rt>き</rt></ruby>る",
+      "",
+      "to wear, to put on (clothes on the upper body)"
+    ],
+    [
+      "<ruby>試着<rt>しちゃく</rt></ruby>",
+      "",
+      "trying on (clothes)"
+    ],
+    [
+      "ご<ruby>飯<rt>はん</rt></ruby>",
+      "",
+      "cooked rice, a meal"
+    ],
+    [
+      "なくす",
+      "",
+      "to lose"
+    ],
+    [
+      "わすれる",
+      "",
+      "to forget, to leave behind"
+    ],
+    [
+      "<ruby>料理<rt>りょうり</rt></ruby>",
+      "",
+      "cooking, a dish (+ する: to cook)"
+    ],
+    [
+      "よやく",
+      "",
+      "reservation (+ する: to book)"
+    ],
+    [
+      "じゅんび",
+      "",
+      "preparation (+ する: to prepare)"
+    ],
+    [
+      "<ruby>図書館<rt>としょかん</rt></ruby>",
+      "",
+      "library"
+    ],
+    [
+      "<ruby>電気<rt>でんき</rt></ruby>",
+      "",
+      "light, electricity"
+    ],
+    [
+      "<ruby>同<rt>おな</rt></ruby>じ",
+      "",
+      "the same"
+    ],
+    [
+      "お<ruby>正月<rt>しょうがつ</rt></ruby>",
+      "",
+      "New Year"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Five て-form patterns",
+    "text": "〜てみる: try and see.\n〜てしまう: all done, or done by mistake (casual 〜ちゃう / 〜じゃう).\n〜ておく: do in advance, or leave as it is (casual 〜とく).\n〜ている (intransitive): the state now. ドアが<ruby>開<rt>あ</rt></ruby>いている.\n〜てある (transitive): left that way on purpose. ドアが<ruby>開<rt>あ</rt></ruby>けてある.\n\nChanges: 〜くなる / 〜になる (it became), 〜くする / 〜にする (I made it; I'll have).",
+    "examples": [
+      "〜てみる / 〜てしまう / 〜ておく",
+      "〜ている / 〜てある",
+      "〜くなる・〜になる / 〜くする・〜にする"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "この<ruby>服<rt>ふく</rt></ruby>、<ruby>着<rt>き</rt></ruby>てみてもいいですか。",
+      "May I try this on?"
+    ],
+    [
+      "<ruby>電車<rt>でんしゃ</rt></ruby>にかさをわすれてしまいました。",
+      "I left my umbrella on the train."
+    ],
+    [
+      "パーティーのまえに、<ruby>料理<rt>りょうり</rt></ruby>をつくっておきます。",
+      "Before the party I'll make the food."
+    ],
+    [
+      "<ruby>図書館<rt>としょかん</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby>しまっています。",
+      "The library is closed today."
+    ],
+    [
+      "テーブルにご<ruby>飯<rt>はん</rt></ruby>がならべてあります。",
+      "The food has been set out on the table."
+    ],
+    [
+      "さむくなったので、<ruby>電気<rt>でんき</rt></ruby>ストーブをつけました。",
+      "It got cold, so I turned on the electric heater."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "このセーター、<ruby>試着<rt>しちゃく</rt></ruby>してもいいですか。",
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "はい、どうぞ<ruby>着<rt>き</rt></ruby>てみてください。"
+    ],
+    [
+      "けん",
+      "どうしたんですか。",
+      "リー",
+      "けいたいをなくしてしまったんです。"
+    ],
+    [
+      "マイ",
+      "レストランのよやくは？",
+      "ゆき",
+      "もうしてありますよ。"
+    ],
+    [
+      "リン",
+      "お<ruby>正月<rt>しょうがつ</rt></ruby>のじゅんびはできましたか。",
+      "たなか",
+      "はい、<ruby>料理<rt>りょうり</rt></ruby>もつくっておきました。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Diary",
+    "text_jp": "<ruby>一月<rt>いちがつ</rt></ruby><ruby>一日<rt>ついたち</rt></ruby>、お<ruby>正月<rt>しょうがつ</rt></ruby>。<ruby>今日<rt>きょう</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちをよんで、パーティーをしました。きのうのうちに、へやをそうじして、<ruby>料理<rt>りょうり</rt></ruby>をつくっておきました。<ruby>朝<rt>あさ</rt></ruby>、テーブルにおさらをならべて、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>もひやしておきました。<ruby>友<rt>とも</rt></ruby>だちはみんな<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>て<ruby>来<rt>き</rt></ruby>ました。わたしも<ruby>着<rt>き</rt></ruby>てみたかったですが、<ruby>持<rt>も</rt></ruby>っていません。<ruby>来年<rt>らいねん</rt></ruby>はレンタルしてみようと<ruby>思<rt>おも</rt></ruby>います。パーティーは<ruby>楽<rt>たの</rt></ruby>しかったですが、ケーキをぜんぶ<ruby>食<rt>た</rt></ruby>べてしまって、<ruby>少<rt>すこ</rt></ruby>しふとってしまいました。",
+    "en_translation": "January 1st, New Year. Today I invited friends and had a party. I had cleaned the room and made the food yesterday. In the morning I set the plates out on the table and chilled the drinks. All my friends came in kimono. I wanted to try wearing one too, but I don't have one. Next year I think I'll try renting one. The party was fun, but I ate all the cake and put on a little weight.",
+    "questions": [
+      {
+        "prompt": "What did the writer do the day before the party?",
+        "options": [
+          "Bought a kimono",
+          "Cleaned the room and made the food",
+          "Invited friends",
+          "Chilled the drinks"
+        ],
+        "correct": "Cleaned the room and made the food",
+        "explanation": "きのうのうちに、へやをそうじして、<ruby>料理<rt>りょうり</rt></ruby>をつくっておきました。"
+      },
+      {
+        "prompt": "Why didn't the writer wear a kimono?",
+        "options": [
+          "It was too cold.",
+          "It didn't suit her.",
+          "She doesn't have one.",
+          "She forgot it."
+        ],
+        "correct": "She doesn't have one.",
+        "explanation": "<ruby>持<rt>も</rt></ruby>っていません。"
+      },
+      {
+        "prompt": "What happened at the end of the party?",
+        "options": [
+          "The writer lost weight.",
+          "The plates broke.",
+          "The friends left early.",
+          "The writer ate all the cake."
+        ],
+        "correct": "The writer ate all the cake.",
+        "explanation": "ケーキをぜんぶ<ruby>食<rt>た</rt></ruby>べてしまって."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: この<ruby>服<rt>ふく</rt></ruby>、<ruby>着<rt>き</rt></ruby>て＿＿もいいですか。 (try on)",
+      "options": [
+        "しまって",
+        "おいて",
+        "みて",
+        "あって"
+      ],
+      "correct": "みて",
+      "explanation": "Try: 〜てみる."
+    },
+    {
+      "prompt": "Complete: さいふをなくして＿＿。 (oh no)",
+      "options": [
+        "みました",
+        "おきました",
+        "ありました",
+        "しまいました"
+      ],
+      "correct": "しまいました",
+      "explanation": "Regret: 〜てしまう."
+    },
+    {
+      "prompt": "Complete: パーティーのまえに、<ruby>料理<rt>りょうり</rt></ruby>をつくって＿＿。",
+      "options": [
+        "おきます",
+        "しまいます",
+        "みます",
+        "います"
+      ],
+      "correct": "おきます",
+      "explanation": "In advance: 〜ておく."
+    },
+    {
+      "prompt": "Complete: <ruby>図書館<rt>としょかん</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby>しまっ＿＿。",
+      "options": [
+        "てあります",
+        "ています",
+        "ておきます",
+        "てみます"
+      ],
+      "correct": "ています",
+      "explanation": "Intransitive + ている."
+    },
+    {
+      "prompt": "Complete: テーブルにおさらがならべて＿＿。",
+      "options": [
+        "います",
+        "しまいます",
+        "あります",
+        "みます"
+      ],
+      "correct": "あります",
+      "explanation": "Transitive + てある."
+    },
+    {
+      "prompt": "Complete: さむ＿＿なりました。",
+      "options": [
+        "に",
+        "な",
+        "で",
+        "く"
+      ],
+      "correct": "く",
+      "explanation": "い-adjective: くなる."
+    },
+    {
+      "prompt": "Complete: わたしはお<ruby>茶<rt>ちゃ</rt></ruby>＿＿します。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "Choose: N にする."
+    },
+    {
+      "prompt": "What is the casual form of わすれてしまった?",
+      "options": [
+        "わすれじゃった",
+        "わすれちゃった",
+        "わすれとった",
+        "わすれしまった"
+      ],
+      "correct": "わすれちゃった",
+      "explanation": "てしまった → ちゃった."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read: <ruby>友<rt>とも</rt></ruby>だちはみんな<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>て<ruby>来<rt>き</rt></ruby>ました。 What did the friends do?",
+      "options": [
+        "They came wearing kimono.",
+        "They brought kimono as presents.",
+        "They rented kimono at the party.",
+        "They tried on the writer's kimono."
+      ],
+      "correct": "They came wearing kimono.",
+      "explanation": "<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>て<ruby>来<rt>く</rt></ruby>る: come wearing a kimono."
+    },
+    {
+      "prompt": "Which sentence says someone opened the window on purpose?",
+      "options": [
+        "まどが<ruby>開<rt>あ</rt></ruby>いています。",
+        "まどが<ruby>開<rt>あ</rt></ruby>けてあります。",
+        "まどが<ruby>開<rt>あ</rt></ruby>きました。",
+        "まどを<ruby>開<rt>あ</rt></ruby>けてみます。"
+      ],
+      "correct": "まどが<ruby>開<rt>あ</rt></ruby>けてあります。",
+      "explanation": "〜てある: done on purpose."
+    },
+    {
+      "prompt": "Choose: \"I'll book it in advance\" (casual).",
+      "options": [
+        "よやくしちゃうね。",
+        "よやくしてるね。",
+        "よやくしとくね。",
+        "よやくしてみるね。"
+      ],
+      "correct": "よやくしとくね。",
+      "explanation": "〜とく: casual 〜ておく."
+    },
+    {
+      "prompt": "What is the difference: <ruby>小<rt>ちい</rt></ruby>さくなる / <ruby>小<rt>ちい</rt></ruby>さくする?",
+      "options": [
+        "It is small / it was small",
+        "It gets bigger / it gets smaller",
+        "There is no difference.",
+        "It gets smaller / someone makes it smaller"
+      ],
+      "correct": "It gets smaller / someone makes it smaller",
+      "explanation": "なる: happens; する: done."
+    },
+    {
+      "prompt": "Review (Unit 5): complete <ruby>来年<rt>らいねん</rt></ruby>、<ruby>海外<rt>かいがい</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こう＿＿<ruby>思<rt>おも</rt></ruby>っています。",
+      "options": [
+        "と",
+        "を",
+        "が",
+        "に"
+      ],
+      "correct": "と",
+      "explanation": "Volitional + と<ruby>思<rt>おも</rt></ruby>っています."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-6-try-it",
+    "japanese-n4-unit-6-oh-no",
+    "japanese-n4-unit-6-getting-ready",
+    "japanese-n4-unit-6-the-door-is-open",
+    "japanese-n4-unit-6-becoming",
+    "japanese-n4-unit-5-thinking-of"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

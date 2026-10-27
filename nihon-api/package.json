@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit",
     "test:grading": "node --test scripts/test-speaking-grading.cjs",
     "test:auth": "node --test scripts/test-google-sign-in.cjs",
+    "test:learning": "node --test scripts/test-learning.cjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "admin:grant": "ts-node src/scripts/grant-admin.ts"
   },

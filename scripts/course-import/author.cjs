@@ -101,11 +101,22 @@ function lesson(level, unitNumber, number, def) {
   };
 }
 
+/**
+ * A word written with furigana shorthand whose kanji are not all taught yet is shown in kana: 作{つく}る → つくる.
+ * Authors can then write naturally; learners never meet a kanji before its lesson. Bare kanji are still refused.
+ */
+function kanaForUntaught(value, taught) {
+  const toKana = text => text.replace(SHORTHAND, (match, kanji, reading) => [...kanji].every(character => taught.has(character)) ? match : reading);
+  return typeof value === "string" ? toKana(value)
+    : Array.isArray(value) ? value.map(item => kanaForUntaught(item, taught))
+    : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, kanaForUntaught(item, taught)])) : value;
+}
+
 /** The lesson with its furigana shorthand expanded, checked for untaught kanji. */
 function finishedLesson(level, unitNumber, number, def) {
   const built = lesson(level, unitNumber, number, def);
   const { introduced_kanji: kanji, kanji_form: forms, ...rest } = built;
-  const done = { ...deepFurigana(rest), introduced_kanji: kanji, kanji_form: forms };
+  const done = { ...deepFurigana(kanaForUntaught(rest, taughtKanji(level, built.id))), introduced_kanji: kanji, kanji_form: forms };
   checkScript(level, built.id, done);
   return Object.fromEntries(Object.keys(built).map(key => [key, done[key]]));
 }
@@ -122,9 +133,10 @@ function assessment(level, unitNumber, questions) {
       return { id, prompt, options, correctIndex: positions[index], explanation };
     }),
   };
-  const done = deepFurigana(built);
   // The assessment comes after the review lesson, so it may use every kanji of the unit.
-  checkScript(level, `japanese-${level.toLowerCase()}-unit-${unitNumber}-review`, done);
+  const reviewId = `japanese-${level.toLowerCase()}-unit-${unitNumber}-review`;
+  const done = deepFurigana(kanaForUntaught(built, taughtKanji(level, reviewId)));
+  checkScript(level, reviewId, done);
   return done;
 }
 

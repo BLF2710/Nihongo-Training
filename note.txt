@@ -5,7 +5,9 @@ Done
 ----
 [x] add admin page
 [x] add Nghe, nói (listening and speaking)
-[x] Dark mode: Light / Dark / System, saved per browser (header button, sidebar "Display", admin header)
+[x] Dark mode: Light / Dark / System, saved per browser (header button, admin header)
+[x] Learning language chosen from a menu in the top bar; the sidebar shows only the chosen language
+[x] N4 finished: Units 3–9 written and imported (54 lessons, 147 N4 kanji, 250 in total), N4 mock exam, N4 review bank (migration 021)
 [x] Streak system: daily streaks now update, follow the learner's time zone, and were rebuilt from past activity
 [x] Listening, speaking, reading and mock exams count toward the streak (a finished round, passage or submitted exam is saved on the server)
 [x] Analytics on the admin overview: active learners (today / 7 / 30 days), 14-day daily actives, unit completion funnel with pass rates, biggest drop-off points, practice volume
@@ -45,14 +47,17 @@ Before anyone else uses the site
 [ ] Google sign-in for the public: add a privacy policy page, add the real site address to Authorized JavaScript origins, and publish the app (In production) in Google Cloud Console
 [ ] Move seedGameScoresTable() (runs at server start) into a migration
 [ ] Real test command and CI: lint, typecheck, build, API tests (the verify scripts and browser tests exist)
-[ ] Split the large frontend bundles (main ~528 KB, all lesson data ~468 KB in one file) by unit or level
+[ ] Split the large frontend bundles by level: with N4 the main bundle is ~1.6 MB (lesson data ~1.1 MB), loaded by everyone
+[ ] Have a Japanese teacher review N4 Units 3–9 (sentences, distractors, kanji example words)
 
 Learning features
-[ ] Spaced repetition for vocabulary and kanji flashcards ("due today" queue on the dashboard)
-[ ] Connect the profile's daily goal to real daily activity (pairs with the streak)
-[ ] Statistics beyond kana: lessons, assessments, kanji mastery over time, reviews, mock-exam results (mock results are browser-only today)
-[ ] Mistake notebook: collect wrong answers across lessons, reviews and assessments for targeted practice
-[ ] Keep assessment questions out of Unit Review (they are visible before the real assessment)
+[x] Spaced repetition for vocabulary and kanji (Daily review at /srs, "due today" tile on the dashboard, 20 new cards a day)
+[x] Daily goal tied to real activity: active study time on learning pages, shown against the goal on the dashboard
+[x] Statistics beyond kana: study time, lessons per week, assessments, kanji, reviews, mistakes, mock exams, practice, speaking
+[x] Mock exam results graded and saved on the server, with history
+[x] Mistake notebook (/mistakes): lessons, reviews, assessments and mock exams; assessment answers hidden until passed
+[x] Unit Review no longer shows assessment questions (question bank only)
+[ ] Spaced repetition: let learners add or suspend single cards, and a "review ahead" option
 [ ] XP overhaul (postponed by choice); imported units ignore XP levels for now
 
 Communication and the assistant

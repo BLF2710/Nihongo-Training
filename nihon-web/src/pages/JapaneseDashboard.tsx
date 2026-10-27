@@ -15,6 +15,7 @@ import { COURSE_LEVELS, inLevel, useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
 import EmailVerificationBanner from "../components/EmailVerificationBanner";
+import TodayPanel from "../components/TodayPanel";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600";
 // min-w-0 lets cards shrink inside grid columns, so truncated text never widens the page.
@@ -28,6 +29,8 @@ const studyTools = [
   { title: "Grammar summary", mark: "要", href: "/grammar/summary", description: "Every pattern of your level on one page." },
 ];
 const practiceTools = [
+  { title: "Daily review", icon: "🗂️", href: "/srs", description: "Spaced repetition for your words and kanji." },
+  { title: "Mistake notebook", icon: "📒", href: "/mistakes", description: "Practise the questions you got wrong." },
   { title: "Unit review", icon: "🔄", href: "/review", description: "Mixed questions per unit or level." },
   { title: "Listening", icon: "🎧", href: "/listening", description: "Words, sentences and dialogues." },
   { title: "Speaking", icon: "🎤", href: "/speaking", description: "Say it aloud and get checked." },
@@ -161,6 +164,8 @@ export default function JapaneseDashboard() {
             <p className="mt-1 text-xs text-gray-500">{profile.achievements_count} achievements · <Link to="/profile" className="font-semibold text-emerald-700 hover:underline">see them</Link></p></>}
         </section>
       </div>
+
+      <TodayPanel units={units} />
 
       <section aria-labelledby="path-heading" className="mt-8">
         <div className="mb-3 flex flex-wrap items-end justify-between gap-2">

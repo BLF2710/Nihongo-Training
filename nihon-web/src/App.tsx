@@ -25,6 +25,7 @@ import ProfilePage from "./pages/ProfilePage";
 import HiraganaLearningPage from "./pages/HiraganaLearningPage";
 import ActivitySessionBoundary from "./components/ActivitySessionBoundary";
 import SiteGate from "./components/SiteGate";
+import StudyTimeTracker from "./components/StudyTimeTracker";
 
 import { LanguageProvider } from "./context/LanguageProvider";
 
@@ -51,6 +52,8 @@ const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const VerifyEmailPage = lazy(() => import("./pages/VerifyEmailPage"));
 const SkillPracticePage = lazy(() => import("./pages/SkillPracticePage"));
+const SrsReviewPage = lazy(() => import("./pages/SrsReviewPage"));
+const MistakesPage = lazy(() => import("./pages/MistakesPage"));
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 
 function LoadingPage({ label }: { label: string }) {
@@ -71,6 +74,7 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <StudyTimeTracker />
         <SiteGate><ActivitySessionBoundary><Routes>
           <Route path="/admin/*" element={<ProtectedRoute><Suspense fallback={<p role="status" className="mx-auto max-w-lg p-8">Loading admin…</p>}><AdminPage /></Suspense></ProtectedRoute>} />
           <Route path="/learn/kanji" element={signedInLazy("Loading Kanji…", <KanjiPage />)} />
@@ -95,6 +99,8 @@ function App() {
           <Route path="/review/hiragana" element={signedIn(<ReviewPage key="hiragana-review" script="hiragana" />)} />
           <Route path="/review/katakana" element={signedIn(<ReviewPage key="katakana-review" script="katakana" />)} />
           <Route path="/review" element={signedInLazy("Loading review…", <UnitReviewPage />)} />
+          <Route path="/srs" element={signedInLazy("Loading your daily review…", <SrsReviewPage />)} />
+          <Route path="/mistakes" element={signedInLazy("Loading your mistakes…", <MistakesPage />)} />
           <Route path="/reading" element={signedInLazy("Loading reading…", <ReadingPage />)} />
           <Route path="/listening" element={signedInLazy("Loading listening…", <SkillPracticePage key="listening" skill="listening" />)} />
           <Route path="/speaking/test" element={signedInLazy("Loading the speaking test…", <SpeakingTestPage />)} />

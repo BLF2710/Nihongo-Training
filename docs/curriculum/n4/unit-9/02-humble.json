@@ -1,0 +1,442 @@
+{
+  "id": "japanese-n4-unit-9-humble",
+  "slug": "n4-unit-9-humble",
+  "unit": "Japanese N4 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Humble Speech",
+  "title_jp": "けんじょうご",
+  "objectives": [
+    "I can talk humbly about myself to a senior.",
+    "Recognise and use special humble verbs",
+    "Make humble forms with お V-する",
+    "Introduce yourself politely"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>文<rt>ぶん</rt></ruby>",
+      "",
+      "sentence"
+    ],
+    [
+      "<ruby>作文<rt>さくぶん</rt></ruby>",
+      "",
+      "essay, composition"
+    ],
+    [
+      "<ruby>品物<rt>しなもの</rt></ruby>",
+      "",
+      "goods, article"
+    ],
+    [
+      "<ruby>作品<rt>さくひん</rt></ruby>",
+      "",
+      "work (of art)"
+    ],
+    [
+      "<ruby>作業<rt>さぎょう</rt></ruby>",
+      "",
+      "work, task"
+    ],
+    [
+      "<ruby>工業<rt>こうぎょう</rt></ruby>",
+      "",
+      "industry"
+    ],
+    [
+      "まいる",
+      "",
+      "to go, to come (humble)"
+    ],
+    [
+      "いただく",
+      "",
+      "to receive; to eat, to drink (humble)"
+    ],
+    [
+      "もうす",
+      "",
+      "to be called, to say (humble)"
+    ],
+    [
+      "いたす",
+      "",
+      "to do (humble)"
+    ],
+    [
+      "うかがう",
+      "",
+      "to visit, to ask (humble)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "文",
+      "word_reading": "ぶん"
+    },
+    {
+      "word_japanese": "品物",
+      "word_reading": "しなもの"
+    },
+    {
+      "word_japanese": "作品",
+      "word_reading": "さくひん"
+    },
+    {
+      "word_japanese": "作業",
+      "word_reading": "さぎょう"
+    },
+    {
+      "word_japanese": "工業",
+      "word_reading": "こうぎょう"
+    }
+  ],
+  "concept": {
+    "title": "Lowering yourself: けんじょうご",
+    "text": "Humble speech (けんじょうご) lowers what you do, which raises the person you do it for. Use it about yourself and your side, never about the other person.\n\nSpecial humble verbs:\n<ruby>行<rt>い</rt></ruby>く・<ruby>来<rt>く</rt></ruby>る → まいる\n<ruby>食<rt>た</rt></ruby>べる・<ruby>飲<rt>の</rt></ruby>む・もらう → いただく\n<ruby>言<rt>い</rt></ruby>う → もうす\nする → いたす\nいる → おる\n<ruby>見<rt>み</rt></ruby>る → はいけんする\n<ruby>聞<rt>き</rt></ruby>く・たずねる → うかがう\n\nOther verbs: お + stem + する. <ruby>持<rt>も</rt></ruby>つ → お<ruby>持<rt>も</rt></ruby>ちする (I'll carry it for you)\nする verbs: ご + noun + する. ごあんないします (I'll show you the way)",
+    "examples": [
+      "special verbs: まいる・いただく・もうす・いたす",
+      "お V-stem する / ご N する",
+      "わたしは〜ともうします (introducing yourself)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Special humble verbs",
+      "pattern": "まいる / いただく / もうす / いたす / おる / うかがう",
+      "explanation": "These verbs describe your own actions modestly, to someone above you.",
+      "examples": [
+        {
+          "japanese": "はじめまして。アナともうします。",
+          "romaji": "",
+          "meaning": "How do you do. My name is Anna."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>、<ruby>三時<rt>さんじ</rt></ruby>にまいります。",
+          "romaji": "",
+          "meaning": "I'll come at three tomorrow."
+        },
+        {
+          "japanese": "では、いただきます。",
+          "romaji": "",
+          "meaning": "Then I'll gladly have some."
+        },
+        {
+          "japanese": "かいぎのじゅんびはわたしがいたします。",
+          "romaji": "",
+          "meaning": "I'll prepare for the meeting."
+        },
+        {
+          "japanese": "<ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>先生<rt>せんせい</rt></ruby>の<ruby>研究室<rt>けんきゅうしつ</rt></ruby>にうかがってもよろしいですか。",
+          "romaji": "",
+          "meaning": "May I visit your office next week?"
+        }
+      ],
+      "notes": [
+        "Compare: <ruby>先生<rt>せんせい</rt></ruby>がいらっしゃる (honorific, the teacher comes) / わたしがまいる (humble, I come)."
+      ]
+    },
+    {
+      "title": "Regular humble forms: お V-する / ご N する",
+      "pattern": "お + V-stem + する / ご + N + する",
+      "explanation": "Offering to do something for the other person, politely.",
+      "examples": [
+        {
+          "japanese": "にもつをお<ruby>持<rt>も</rt></ruby>ちしましょうか。",
+          "romaji": "",
+          "meaning": "Shall I carry your luggage for you?"
+        },
+        {
+          "japanese": "かさをお<ruby>貸<rt>か</rt></ruby>ししましょうか。",
+          "romaji": "",
+          "meaning": "Shall I lend you an umbrella?"
+        },
+        {
+          "japanese": "<ruby>会場<rt>かいじょう</rt></ruby>までごあんないします。",
+          "romaji": "",
+          "meaning": "I'll show you the way to the venue."
+        },
+        {
+          "japanese": "<ruby>後<rt>あと</rt></ruby>でお<ruby>電話<rt>でんわ</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "I'll call you later."
+        }
+      ],
+      "notes": [
+        "Even more humble: お V-いたします (おまちいたします)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "この<ruby>文<rt>ぶん</rt></ruby>の<ruby>意味<rt>いみ</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かりません。",
+      "I don't understand the meaning of this sentence."
+    ],
+    [
+      "<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>作文<rt>さくぶん</rt></ruby>を<ruby>書<rt>か</rt></ruby>きました。",
+      "I wrote an essay in Japanese."
+    ],
+    [
+      "このお<ruby>店<rt>みせ</rt></ruby>の<ruby>品物<rt>しなもの</rt></ruby>はどれも<ruby>安<rt>やす</rt></ruby>いです。",
+      "Everything in this shop is cheap."
+    ],
+    [
+      "びじゅつかんで<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>作品<rt>さくひん</rt></ruby>を<ruby>見<rt>み</rt></ruby>ました。",
+      "I saw a famous work at the art museum."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか<ruby>先生<rt>せんせい</rt></ruby>",
+      "お<ruby>名前<rt>なまえ</rt></ruby>は？",
+      "リン",
+      "リンともうします。どうぞよろしくおねがいいたします。"
+    ],
+    [
+      "アナ",
+      "にもつをお<ruby>持<rt>も</rt></ruby>ちしましょうか。",
+      "<ruby>社長<rt>しゃちょう</rt></ruby>",
+      "ありがとう。たすかります。"
+    ],
+    [
+      "リー",
+      "<ruby>明日<rt>あした</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>に<ruby>来<rt>き</rt></ruby>ますか。",
+      "マイ",
+      "<ruby>十時<rt>じゅうじ</rt></ruby>にまいります。"
+    ],
+    [
+      "けん",
+      "ケーキをどうぞ。",
+      "ゆき",
+      "ありがとうございます。いただきます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "文",
+      "onyomi": [
+        "ブン",
+        "モン"
+      ],
+      "kunyomi": [
+        "ふみ",
+        "あや"
+      ],
+      "meaning_en": "sentence, writing",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "文",
+          "reading": "ぶん",
+          "en": "sentence"
+        },
+        {
+          "word": "作文",
+          "reading": "さくぶん",
+          "en": "essay"
+        }
+      ],
+      "mnemonic": "A person with a pattern on his chest: lines of writing."
+    },
+    {
+      "char": "品",
+      "onyomi": [
+        "ヒン",
+        "ホン"
+      ],
+      "kunyomi": [
+        "しな"
+      ],
+      "meaning_en": "goods, quality",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "品物",
+          "reading": "しなもの",
+          "en": "goods"
+        },
+        {
+          "word": "作品",
+          "reading": "さくひん",
+          "en": "work"
+        }
+      ],
+      "mnemonic": "Three boxes (口) stacked up: goods."
+    },
+    {
+      "char": "業",
+      "onyomi": [
+        "ギョウ",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "わざ"
+      ],
+      "meaning_en": "business, work",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "作業",
+          "reading": "さぎょう",
+          "en": "task"
+        },
+        {
+          "word": "工業",
+          "reading": "こうぎょう",
+          "en": "industry"
+        }
+      ],
+      "mnemonic": "A frame for hanging musical instruments, the craft it took: work."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the honorific form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "まいる",
+        "うかがう",
+        "いらっしゃる",
+        "おる"
+      ],
+      "correct": "いらっしゃる",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → いらっしゃる."
+    },
+    {
+      "prompt": "What is the humble form of <ruby>言<rt>い</rt></ruby>う?",
+      "options": [
+        "おっしゃる",
+        "いたす",
+        "まいる",
+        "もうす"
+      ],
+      "correct": "もうす",
+      "explanation": "<ruby>言<rt>い</rt></ruby>う → もうす."
+    },
+    {
+      "prompt": "What is the humble form of する?",
+      "options": [
+        "いたす",
+        "なさる",
+        "もうす",
+        "いただく"
+      ],
+      "correct": "いたす",
+      "explanation": "する → いたす."
+    },
+    {
+      "prompt": "What is the humble form of もらう?",
+      "options": [
+        "くださる",
+        "いただく",
+        "めしあがる",
+        "まいる"
+      ],
+      "correct": "いただく",
+      "explanation": "もらう → いただく."
+    },
+    {
+      "prompt": "Complete: にもつをお<ruby>持<rt>も</rt></ruby>ち＿＿ましょうか。",
+      "options": [
+        "に",
+        "なり",
+        "し",
+        "くださり"
+      ],
+      "correct": "し",
+      "explanation": "お V-stem する."
+    },
+    {
+      "prompt": "How is 作品⁠ read?",
+      "options": [
+        "さくしな",
+        "つくりもの",
+        "さくぴん",
+        "さくひん"
+      ],
+      "correct": "さくひん",
+      "explanation": "作品⁠ is read さくひん."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>会場<rt>かいじょう</rt></ruby>までごあんないします。",
+      "options": [
+        "I'll show you the way to the venue.",
+        "Please show me the way to the venue.",
+        "The venue is guided.",
+        "Please wait at the venue."
+      ],
+      "correct": "I'll show you the way to the venue.",
+      "explanation": "ご N する: I'll do it for you."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You meet your teacher's family for the first time. How do you give your name?",
+      "options": [
+        "リーともうします。",
+        "リーとおっしゃいます。",
+        "リーといらっしゃいます。",
+        "リーといただきます。"
+      ],
+      "correct": "リーともうします。",
+      "explanation": "Humble: もうす."
+    },
+    {
+      "prompt": "Which sentence uses humble speech correctly?",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>が<ruby>明日<rt>あした</rt></ruby>まいります。",
+        "<ruby>明日<rt>あした</rt></ruby>、<ruby>三時<rt>さんじ</rt></ruby>にまいります。",
+        "<ruby>明日<rt>あした</rt></ruby>、<ruby>三時<rt>さんじ</rt></ruby>にいらっしゃいます（わたしが）。",
+        "<ruby>先生<rt>せんせい</rt></ruby>がいただきました。"
+      ],
+      "correct": "<ruby>明日<rt>あした</rt></ruby>、<ruby>三時<rt>さんじ</rt></ruby>にまいります。",
+      "explanation": "まいる: I go/come."
+    },
+    {
+      "prompt": "What is the difference: いらっしゃる / まいる?",
+      "options": [
+        "Humble (me) / honorific (others)",
+        "Past / present",
+        "Honorific (others) / humble (me)",
+        "There is no difference."
+      ],
+      "correct": "Honorific (others) / humble (me)",
+      "explanation": "Raise others, lower yourself."
+    },
+    {
+      "prompt": "Read: このお<ruby>店<rt>みせ</rt></ruby>の<ruby>品物<rt>しなもの</rt></ruby>はどれも<ruby>安<rt>やす</rt></ruby>いです。 What is true?",
+      "options": [
+        "Only some goods are cheap.",
+        "The shop is expensive.",
+        "The shop sells art.",
+        "Everything in the shop is cheap."
+      ],
+      "correct": "Everything in the shop is cheap.",
+      "explanation": "どれも: every one."
+    },
+    {
+      "prompt": "Review (Unit 8): complete <ruby>医者<rt>いしゃ</rt></ruby>にたばこをすわない＿＿<ruby>言<rt>い</rt></ruby>われました。",
+      "options": [
+        "ように",
+        "ために",
+        "のに",
+        "そうに"
+      ],
+      "correct": "ように",
+      "explanation": "〜ように<ruby>言<rt>い</rt></ruby>われる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-9-honorific",
+    "japanese-n4-unit-8-i-want-you-to",
+    "japanese-n5-unit-1-introductions"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

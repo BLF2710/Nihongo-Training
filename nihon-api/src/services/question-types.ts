@@ -11,6 +11,8 @@ export type PresentedQuestion =
   | { type: "word_match"; prompt: string; left: string[]; right: string[] }
   | { type: "word_scramble"; hint: string; letters: string[] };
 export type Graded = { correct: boolean; solution: string; explanation?: string };
+/** The question and the learner's answer in words, for the mistake notebook. */
+export type AnsweredQuestion = { prompt: string; options?: string[]; given: string };
 
 // Everything the bank needs to know about one kind of question. Add a kind by adding an entry.
 type QuestionType<Content> = {
@@ -19,6 +21,8 @@ type QuestionType<Content> = {
   present(content: Content): PresentedQuestion;
   /** Null when the submitted answer has the wrong shape for this kind. */
   grade(content: Content, answer: unknown): Graded | null;
+  /** Called only with an answer that `grade` accepted. */
+  describe(content: Content, answer: unknown): AnsweredQuestion;
 };
 
 const text = (value: unknown, max: number) => typeof value === "string" && value.trim() && value.trim().length <= max ? value.trim() : null;
@@ -41,6 +45,7 @@ const multipleChoice: QuestionType<MultipleChoiceContent> = {
     if (typeof answer !== "number" || !Number.isInteger(answer) || answer < 0 || answer >= content.options.length) return null;
     return { correct: answer === content.correctIndex, solution: content.options[content.correctIndex], explanation: content.explanation };
   },
+  describe: ({ prompt, options }, answer) => ({ prompt, options, given: typeof answer === "number" ? options[answer] ?? "" : "" }),
 };
 
 const wordMatch: QuestionType<WordMatchContent> = {
@@ -65,6 +70,10 @@ const wordMatch: QuestionType<WordMatchContent> = {
       solution: content.pairs.map(pair => `${pair.left} = ${pair.right}`).join(" · "),
     };
   },
+  describe: ({ prompt, pairs }, answer) => ({
+    prompt: prompt ?? "Match each word with its meaning.",
+    given: pairs.map((pair, index) => `${pair.left} = ${Array.isArray(answer) ? String(answer[index]) : ""}`).join(" · "),
+  }),
 };
 
 const wordScramble: QuestionType<WordScrambleContent> = {
@@ -85,6 +94,7 @@ const wordScramble: QuestionType<WordScrambleContent> = {
     if (typeof answer !== "string") return null;
     return { correct: sameText(answer, content.answer), solution: content.answer };
   },
+  describe: ({ hint }, answer) => ({ prompt: `Unscramble the word: ${hint}`, given: typeof answer === "string" ? answer : "" }),
 };
 
 export const QUESTION_TYPES = { multiple_choice: multipleChoice, word_match: wordMatch, word_scramble: wordScramble } as const;

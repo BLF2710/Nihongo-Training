@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n4-unit-7-review",
+  "slug": "n4-unit-7-review",
+  "unit": "Japanese N4 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 7 Review",
+  "title_jp": "ユニット7のふくしゅう",
+  "objectives": [
+    "I can pass on what I heard and say what seems to be true.",
+    "Choose between そうです, らしい, ようです and みたい",
+    "Compare things with のような and みたいな",
+    "Say what should be true with はず",
+    "Read a local news notice"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>特別<rt>とくべつ</rt></ruby>",
+      "",
+      "special"
+    ],
+    [
+      "てんきよほう",
+      "",
+      "weather forecast"
+    ],
+    [
+      "〜によると",
+      "",
+      "according to …"
+    ],
+    [
+      "<ruby>有名<rt>ゆうめい</rt></ruby>",
+      "",
+      "famous"
+    ],
+    [
+      "おまつり",
+      "",
+      "festival"
+    ],
+    [
+      "<ruby>人気<rt>にんき</rt></ruby>",
+      "",
+      "popularity"
+    ],
+    [
+      "まるで",
+      "",
+      "just like, as if"
+    ],
+    [
+      "るす",
+      "",
+      "being out, away from home"
+    ],
+    [
+      "<ruby>英語<rt>えいご</rt></ruby>",
+      "",
+      "English (language)"
+    ],
+    [
+      "ゆめ",
+      "",
+      "dream"
+    ],
+    [
+      "<ruby>集<rt>あつ</rt></ruby>まる",
+      "",
+      "to gather (intransitive)"
+    ],
+    [
+      "<ruby>今度<rt>こんど</rt></ruby>",
+      "",
+      "next time, this time"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Heard it, think it, expect it",
+    "text": "そうです: I heard it (plain form + そうです).\nらしい: apparently, from what I heard; N らしい: typical of N.\nようです / みたい: it seems, from what I see; みたい is casual.\nのような / みたいな: like (before a noun); のように / みたいに: like (before a verb).\nはずです: it should be; はずがない: it can't be.\n\nRemember the two そう: ふりそう (looks like) / ふるそう (I hear).",
+    "examples": [
+      "〜そうです / 〜らしい",
+      "〜ようです / 〜みたい",
+      "〜はずです / 〜はずがない"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "てんきよほうによると、<ruby>今度<rt>こんど</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>ははれるそうです。",
+      "According to the forecast, it'll be sunny this Sunday."
+    ],
+    [
+      "あのおまつりはとても<ruby>有名<rt>ゆうめい</rt></ruby>らしいです。",
+      "That festival is apparently very famous."
+    ],
+    [
+      "となりの<ruby>家<rt>いえ</rt></ruby>はだれもいないようです。",
+      "There doesn't seem to be anyone next door."
+    ],
+    [
+      "マイさんは<ruby>英語<rt>えいご</rt></ruby>がペラペラみたい。",
+      "Mai seems to speak fluent English."
+    ],
+    [
+      "にもつは<ruby>明日<rt>あした</rt></ruby>とどくはずです。",
+      "The parcel should arrive tomorrow."
+    ],
+    [
+      "まるでゆめのような<ruby>一日<rt>いちにち</rt></ruby>でした。",
+      "It was a day just like a dream."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>今度<rt>こんど</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>がふるそうですよ。",
+      "けん",
+      "えっ、おまつりの<ruby>日<rt>ひ</rt></ruby>なのに……。"
+    ],
+    [
+      "リー",
+      "このおまつり、<ruby>人気<rt>にんき</rt></ruby>があるらしいですね。",
+      "マイ",
+      "はい、<ruby>毎年<rt>まいとし</rt></ruby>たくさん<ruby>人<rt>ひと</rt></ruby>が<ruby>集<rt>あつ</rt></ruby>まるそうです。"
+    ],
+    [
+      "ゆき",
+      "たなかさん、<ruby>電話<rt>でんわ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ませんね。",
+      "リン",
+      "るすみたいですね。"
+    ],
+    [
+      "たなか",
+      "リーさんはもう<ruby>着<rt>つ</rt></ruby>きましたか。",
+      "アナ",
+      "<ruby>十時<rt>じゅうじ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>くはずです。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Community notice",
+    "text_jp": "さくらまちのおまつりのお<ruby>知<rt>し</rt></ruby>らせ。<ruby>今年<rt>ことし</rt></ruby>も<ruby>八月<rt>はちがつ</rt></ruby><ruby>十五日<rt>じゅうごにち</rt></ruby>に、さくらこうえんでおまつりがあります。このおまつりは<ruby>百年<rt>ひゃくねん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>つづいている<ruby>有名<rt>ゆうめい</rt></ruby>なおまつりで、<ruby>毎年<rt>まいとし</rt></ruby>、まちの<ruby>外<rt>そと</rt></ruby>からも<ruby>人<rt>ひと</rt></ruby>がたくさん<ruby>集<rt>あつ</rt></ruby>まります。てんきよほうによると、とうじつははれるそうです。<ruby>夜<rt>よる</rt></ruby>にははなびもあるらしいです。<ruby>今年<rt>ことし</rt></ruby>は<ruby>特別<rt>とくべつ</rt></ruby>に、<ruby>子<rt>こ</rt></ruby>どものための<ruby>英語<rt>えいご</rt></ruby>のゲームもあります。ゆかたを<ruby>着<rt>き</rt></ruby>て<ruby>来<rt>く</rt></ruby>ると、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>が<ruby>一<rt>ひと</rt></ruby>つただになります。",
+    "en_translation": "Notice of the Sakura Town festival. This year again, on August 15th, there will be a festival in Sakura Park. It is a famous festival that has continued for more than a hundred years, and every year many people gather from outside the town too. According to the weather forecast, it will be sunny on the day. Apparently there will also be fireworks at night. This year, as something special, there will also be English games for children. If you come in a yukata, you get one drink free.",
+    "questions": [
+      {
+        "prompt": "How long has the festival been held?",
+        "options": [
+          "Fifteen years",
+          "Over a hundred years",
+          "Since last year",
+          "About eight years"
+        ],
+        "correct": "Over a hundred years",
+        "explanation": "<ruby>百年<rt>ひゃくねん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>つづいている."
+      },
+      {
+        "prompt": "What does the forecast say about the day?",
+        "options": [
+          "It will rain.",
+          "There will be a typhoon.",
+          "It will be sunny.",
+          "It will be cold."
+        ],
+        "correct": "It will be sunny.",
+        "explanation": "とうじつははれるそうです。"
+      },
+      {
+        "prompt": "What is special this year?",
+        "options": [
+          "Fireworks",
+          "Free food for everyone",
+          "A new park",
+          "English games for children"
+        ],
+        "correct": "English games for children",
+        "explanation": "<ruby>今年<rt>ことし</rt></ruby>は<ruby>特別<rt>とくべつ</rt></ruby>に、<ruby>子<rt>こ</rt></ruby>どものための<ruby>英語<rt>えいご</rt></ruby>のゲームもあります。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿です。 (I hear)",
+      "options": [
+        "よう",
+        "はず",
+        "そう",
+        "らしく"
+      ],
+      "correct": "そう",
+      "explanation": "Hearsay: plain form + そうです."
+    },
+    {
+      "prompt": "Complete: リーさんは<ruby>歌手<rt>かしゅ</rt></ruby>＿＿です。 (apparently)",
+      "options": [
+        "だらしい",
+        "のらしい",
+        "そうな",
+        "らしい"
+      ],
+      "correct": "らしい",
+      "explanation": "Noun + らしい."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>春<rt>はる</rt></ruby>＿＿<ruby>天気<rt>てんき</rt></ruby>ですね。 (typical)",
+      "options": [
+        "らしい",
+        "そうな",
+        "のよう",
+        "はずの"
+      ],
+      "correct": "らしい",
+      "explanation": "N らしい N."
+    },
+    {
+      "prompt": "Complete: だれもいない＿＿です。 (seems)",
+      "options": [
+        "そう",
+        "よう",
+        "はず",
+        "らしく"
+      ],
+      "correct": "よう",
+      "explanation": "It seems: ようです."
+    },
+    {
+      "prompt": "Complete: ゆめ＿＿な<ruby>話<rt>はなし</rt></ruby>ですね。 (casual)",
+      "options": [
+        "のみたい",
+        "らしい",
+        "みたい",
+        "よう"
+      ],
+      "correct": "みたい",
+      "explanation": "N みたいな N."
+    },
+    {
+      "prompt": "Complete: にもつは<ruby>明日<rt>あした</rt></ruby>とどく＿＿です。",
+      "options": [
+        "つもり",
+        "よう",
+        "そう",
+        "はず"
+      ],
+      "correct": "はず",
+      "explanation": "Expectation: はず."
+    },
+    {
+      "prompt": "Complete: <ruby>鳥<rt>とり</rt></ruby>の＿＿とびたいです。",
+      "options": [
+        "ように",
+        "ような",
+        "みたいな",
+        "らしく"
+      ],
+      "correct": "ように",
+      "explanation": "Before a verb: のように."
+    },
+    {
+      "prompt": "Which word means \"according to\"?",
+      "options": [
+        "〜みたい",
+        "〜によると",
+        "〜らしい",
+        "〜はず"
+      ],
+      "correct": "〜によると",
+      "explanation": "〜によると: according to."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the notice: what happens if you come in a yukata?",
+      "options": [
+        "You get one free drink.",
+        "You get in free.",
+        "You can join the English games.",
+        "You can watch the fireworks."
+      ],
+      "correct": "You get one free drink.",
+      "explanation": "ゆかたを<ruby>着<rt>き</rt></ruby>て<ruby>来<rt>く</rt></ruby>ると、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>が<ruby>一<rt>ひと</rt></ruby>つただになります。"
+    },
+    {
+      "prompt": "Which sentence passes on hearsay most directly?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>がふりそうです。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふるそうです。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふるはずです。",
+        "<ruby>雨<rt>あめ</rt></ruby>みたいです。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>がふるそうです。",
+      "explanation": "plain form + そうです."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しかったそうです。",
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しそうです。",
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しいそうでした。",
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しかったらしいです。"
+      ],
+      "correct": "パーティーは<ruby>楽<rt>たの</rt></ruby>しいそうでした。",
+      "explanation": "そうです does not go into the past."
+    },
+    {
+      "prompt": "You're sure Lee wouldn't forget. What do you say?",
+      "options": [
+        "リーさんがわすれるはずです。",
+        "リーさんがわすれたそうです。",
+        "リーさんがわすれるみたいです。",
+        "リーさんがわすれるはずがありません。"
+      ],
+      "correct": "リーさんがわすれるはずがありません。",
+      "explanation": "はずがない: can't be."
+    },
+    {
+      "prompt": "Review (Unit 6): complete テーブルにおさらがならべて＿＿。",
+      "options": [
+        "あります",
+        "います",
+        "おきます",
+        "みます"
+      ],
+      "correct": "あります",
+      "explanation": "Transitive + てある."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-7-i-heard",
+    "japanese-n4-unit-7-apparently",
+    "japanese-n4-unit-7-it-seems",
+    "japanese-n4-unit-7-like-a",
+    "japanese-n4-unit-7-should-be",
+    "japanese-n4-unit-6-the-door-is-open"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

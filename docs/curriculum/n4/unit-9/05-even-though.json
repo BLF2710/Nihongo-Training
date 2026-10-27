@@ -1,0 +1,456 @@
+{
+  "id": "japanese-n4-unit-9-even-though",
+  "slug": "n4-unit-9-even-though",
+  "unit": "Japanese N4 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Even Though…",
+  "title_jp": "〜のに",
+  "objectives": [
+    "I can say something happened despite expectations.",
+    "Express surprise or frustration with 〜のに",
+    "Tell this のに from のに \"used for\"",
+    "Talk about free things, times and counters"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>無理<rt>むり</rt></ruby>",
+      "",
+      "impossible, unreasonable"
+    ],
+    [
+      "<ruby>無料<rt>むりょう</rt></ruby>",
+      "",
+      "free of charge"
+    ],
+    [
+      "<ruby>回<rt>まわ</rt></ruby>る",
+      "",
+      "to turn, to go round"
+    ],
+    [
+      "<ruby>一回<rt>いっかい</rt></ruby>",
+      "",
+      "once, one time"
+    ],
+    [
+      "〜<ruby>回<rt>かい</rt></ruby>",
+      "",
+      "… times"
+    ],
+    [
+      "<ruby>台風<rt>たいふう</rt></ruby>",
+      "",
+      "typhoon"
+    ],
+    [
+      "<ruby>一台<rt>いちだい</rt></ruby>",
+      "",
+      "one (machine, vehicle)"
+    ],
+    [
+      "せっかく",
+      "",
+      "with much trouble, specially"
+    ],
+    [
+      "ざんねん",
+      "",
+      "a pity, too bad"
+    ],
+    [
+      "〜のに",
+      "",
+      "even though"
+    ],
+    [
+      "がっかりする",
+      "",
+      "to be disappointed"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "無理",
+      "word_reading": "むり"
+    },
+    {
+      "word_japanese": "無料",
+      "word_reading": "むりょう"
+    },
+    {
+      "word_japanese": "回る",
+      "word_reading": "まわる"
+    },
+    {
+      "word_japanese": "一回",
+      "word_reading": "いっかい"
+    },
+    {
+      "word_japanese": "台風",
+      "word_reading": "たいふう"
+    },
+    {
+      "word_japanese": "一台",
+      "word_reading": "いちだい"
+    }
+  ],
+  "concept": {
+    "title": "Even though…",
+    "text": "Plain form + のに joins two facts where the result is not what you expected. It often shows surprise, disappointment or frustration:\n\nたくさん<ruby>勉強<rt>べんきょう</rt></ruby>したのに、<ruby>試験<rt>しけん</rt></ruby>におちました。 Even though I studied a lot, I failed the exam.\n\nな-adjectives and nouns take な: しずかなのに, <ruby>日曜日<rt>にちようび</rt></ruby>なのに.\n\nAt the end of a sentence, のに is pure regret: <ruby>来<rt>く</rt></ruby>ればよかったのに (you should have come).\n\nIn Unit 5, のに meant \"used for\": <ruby>切<rt>き</rt></ruby>るのにべんり. That のに follows a dictionary form and goes with words like べんり or ひつよう.",
+    "examples": [
+      "plain form + のに (even though)",
+      "な-adj / N + なのに",
+      "〜のに。(regret at the end)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Even though: 〜のに",
+      "pattern": "plain form + のに、result",
+      "explanation": "のに is used for facts, not for requests or plans. The speaker's feeling comes through.",
+      "examples": [
+        {
+          "japanese": "たくさん<ruby>勉強<rt>べんきょう</rt></ruby>したのに、<ruby>試験<rt>しけん</rt></ruby>におちました。",
+          "romaji": "",
+          "meaning": "Even though I studied a lot, I failed the exam."
+        },
+        {
+          "japanese": "<ruby>日曜日<rt>にちようび</rt></ruby>なのに、<ruby>仕事<rt>しごと</rt></ruby>に<ruby>行<rt>い</rt></ruby>かなければなりません。",
+          "romaji": "",
+          "meaning": "Even though it's Sunday, I have to go to work."
+        },
+        {
+          "japanese": "やくそくしたのに、<ruby>友<rt>とも</rt></ruby>だちが<ruby>来<rt>き</rt></ruby>ませんでした。",
+          "romaji": "",
+          "meaning": "My friend didn't come, even though we'd arranged it."
+        },
+        {
+          "japanese": "このレストランは<ruby>高<rt>たか</rt></ruby>いのに、あまりおいしくないです。",
+          "romaji": "",
+          "meaning": "This restaurant is expensive, yet not very good."
+        },
+        {
+          "japanese": "せっかく<ruby>作<rt>つく</rt></ruby>ったのに、だれも<ruby>食<rt>た</rt></ruby>べてくれませんでした。",
+          "romaji": "",
+          "meaning": "I went to the trouble of making it, but nobody ate it."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>雨<rt>あめ</rt></ruby>なのに、<ruby>出<rt>で</rt></ruby>かけましょう. のに can't be followed by a suggestion; use けど or ても.",
+        "けど is neutral \"but\"; のに adds disappointment."
+      ]
+    },
+    {
+      "title": "Regret: 〜のに at the end",
+      "pattern": "〜ばよかったのに / 〜のに。",
+      "explanation": "Ending the sentence with のに leaves the frustration unsaid.",
+      "examples": [
+        {
+          "japanese": "<ruby>言<rt>い</rt></ruby>ってくれればよかったのに。",
+          "romaji": "",
+          "meaning": "You should have told me."
+        },
+        {
+          "japanese": "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>来<rt>く</rt></ruby>ればよかったのに。",
+          "romaji": "",
+          "meaning": "You should have come earlier."
+        },
+        {
+          "japanese": "せっかくの<ruby>休<rt>やす</rt></ruby>みなのに……。",
+          "romaji": "",
+          "meaning": "And it's my day off, too…"
+        },
+        {
+          "japanese": "<ruby>台風<rt>たいふう</rt></ruby>がなければ、<ruby>旅行<rt>りょこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>けたのに。",
+          "romaji": "",
+          "meaning": "If it weren't for the typhoon, I could have gone on the trip."
+        }
+      ],
+      "notes": [
+        "This のに sounds personal; avoid it with seniors."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>ははくぶつかんが<ruby>無料<rt>むりょう</rt></ruby>です。",
+      "The museum is free today."
+    ],
+    [
+      "<ruby>一日<rt>いちにち</rt></ruby>でぜんぶ<ruby>読<rt>よ</rt></ruby>むのは<ruby>無理<rt>むり</rt></ruby>です。",
+      "Reading it all in one day is impossible."
+    ],
+    [
+      "<ruby>一週間<rt>いっしゅうかん</rt></ruby>に<ruby>三回<rt>さんかい</rt></ruby>ジムに<ruby>行<rt>い</rt></ruby>きます。",
+      "I go to the gym three times a week."
+    ],
+    [
+      "うちには<ruby>車<rt>くるま</rt></ruby>が<ruby>一台<rt>いちだい</rt></ruby>あります。",
+      "We have one car."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>試験<rt>しけん</rt></ruby>、どうでしたか。",
+      "けん",
+      "たくさん<ruby>勉強<rt>べんきょう</rt></ruby>したのに、おちてしまいました。"
+    ],
+    [
+      "リー",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>なのに、<ruby>仕事<rt>しごと</rt></ruby>ですか。",
+      "マイ",
+      "ええ、いそがしくて……。"
+    ],
+    [
+      "ゆき",
+      "<ruby>旅行<rt>りょこう</rt></ruby>、どうでしたか。",
+      "リン",
+      "<ruby>台風<rt>たいふう</rt></ruby>で<ruby>行<rt>い</rt></ruby>けなかったんです。ざんねんでした。"
+    ],
+    [
+      "たなか",
+      "パーティー、<ruby>楽<rt>たの</rt></ruby>しかったですよ。",
+      "アナ",
+      "わたしも<ruby>行<rt>い</rt></ruby>けばよかったのに。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "無",
+      "onyomi": [
+        "ム",
+        "ブ"
+      ],
+      "kunyomi": [
+        "な.い"
+      ],
+      "meaning_en": "nothing, without",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "無理",
+          "reading": "むり",
+          "en": "impossible"
+        },
+        {
+          "word": "無料",
+          "reading": "むりょう",
+          "en": "free"
+        }
+      ],
+      "mnemonic": "A forest burned to nothing by fire (灬)."
+    },
+    {
+      "char": "回",
+      "onyomi": [
+        "カイ",
+        "エ"
+      ],
+      "kunyomi": [
+        "まわ.る",
+        "-まわ.る",
+        "-まわ.り",
+        "まわ.す",
+        "-まわ.す",
+        "まわ.し-",
+        "-まわ.し",
+        "もとお.る",
+        "か.える"
+      ],
+      "meaning_en": "turn, times",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "回る",
+          "reading": "まわる",
+          "en": "to turn"
+        },
+        {
+          "word": "一回",
+          "reading": "いっかい",
+          "en": "once"
+        }
+      ],
+      "mnemonic": "A box going round inside a box: turning."
+    },
+    {
+      "char": "台",
+      "onyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "kunyomi": [
+        "うてな",
+        "われ",
+        "つかさ"
+      ],
+      "meaning_en": "stand, counter for machines",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "台風",
+          "reading": "たいふう",
+          "en": "typhoon"
+        },
+        {
+          "word": "一台",
+          "reading": "いちだい",
+          "en": "one (machine)"
+        }
+      ],
+      "mnemonic": "A mouth (口) on a raised platform (ム): a stand."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete このペンは<ruby>書<rt>か</rt></ruby>き＿＿です。 (easy)",
+      "options": [
+        "にくい",
+        "やすい",
+        "すぎ",
+        "たい"
+      ],
+      "correct": "やすい",
+      "explanation": "Easy to: やすい."
+    },
+    {
+      "prompt": "Complete: たくさん<ruby>勉強<rt>べんきょう</rt></ruby>した＿＿、<ruby>試験<rt>しけん</rt></ruby>におちました。",
+      "options": [
+        "ので",
+        "ために",
+        "のに",
+        "ながら"
+      ],
+      "correct": "のに",
+      "explanation": "Even though: のに."
+    },
+    {
+      "prompt": "Complete: <ruby>日曜日<rt>にちようび</rt></ruby>＿＿のに、<ruby>仕事<rt>しごと</rt></ruby>です。",
+      "options": [
+        "だ",
+        "の",
+        "で",
+        "な"
+      ],
+      "correct": "な",
+      "explanation": "Noun + なのに."
+    },
+    {
+      "prompt": "Complete: <ruby>言<rt>い</rt></ruby>ってくれればよかった＿＿。 (you should have told me)",
+      "options": [
+        "のに",
+        "ので",
+        "から",
+        "ても"
+      ],
+      "correct": "のに",
+      "explanation": "Regret: のに at the end."
+    },
+    {
+      "prompt": "Which word means \"free of charge\"?",
+      "options": [
+        "<ruby>無理<rt>むり</rt></ruby>",
+        "<ruby>無料<rt>むりょう</rt></ruby>",
+        "<ruby>一回<rt>いっかい</rt></ruby>",
+        "せっかく"
+      ],
+      "correct": "<ruby>無料<rt>むりょう</rt></ruby>",
+      "explanation": "<ruby>無料<rt>むりょう</rt></ruby>: free."
+    },
+    {
+      "prompt": "How is 一回⁠ read?",
+      "options": [
+        "いちかい",
+        "ひとまわり",
+        "いっかい",
+        "いちまわ"
+      ],
+      "correct": "いっかい",
+      "explanation": "一回⁠ is read いっかい."
+    },
+    {
+      "prompt": "Choose the meaning of うちには<ruby>車<rt>くるま</rt></ruby>が<ruby>一台<rt>いちだい</rt></ruby>あります。",
+      "options": [
+        "We have one floor.",
+        "We have a car stand.",
+        "We had a car once.",
+        "We have one car."
+      ],
+      "correct": "We have one car.",
+      "explanation": "<ruby>台<rt>だい</rt></ruby>: counter for machines."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>なのに、<ruby>出<rt>で</rt></ruby>かけました。",
+        "<ruby>雨<rt>あめ</rt></ruby>でも、<ruby>出<rt>で</rt></ruby>かけましょう。",
+        "<ruby>雨<rt>あめ</rt></ruby>だけど、<ruby>出<rt>で</rt></ruby>かけましょう。",
+        "<ruby>雨<rt>あめ</rt></ruby>なのに、<ruby>出<rt>で</rt></ruby>かけましょう。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>なのに、<ruby>出<rt>で</rt></ruby>かけましょう。",
+      "explanation": "No suggestions after のに."
+    },
+    {
+      "prompt": "Which のに means \"used for\"?",
+      "options": [
+        "このはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>るのにべんりです。",
+        "<ruby>高<rt>たか</rt></ruby>いのに、おいしくないです。",
+        "<ruby>勉強<rt>べんきょう</rt></ruby>したのに、おちました。",
+        "<ruby>言<rt>い</rt></ruby>ってくれればよかったのに。"
+      ],
+      "correct": "このはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>るのにべんりです。",
+      "explanation": "Dictionary form + のに + べんり: used for."
+    },
+    {
+      "prompt": "You made dinner, but nobody ate it. What do you say?",
+      "options": [
+        "せっかく<ruby>作<rt>つく</rt></ruby>ったので……。",
+        "せっかく<ruby>作<rt>つく</rt></ruby>ったのに……。",
+        "せっかく<ruby>作<rt>つく</rt></ruby>りながら……。",
+        "せっかく<ruby>作<rt>つく</rt></ruby>るために……。"
+      ],
+      "correct": "せっかく<ruby>作<rt>つく</rt></ruby>ったのに……。",
+      "explanation": "Disappointment: のに."
+    },
+    {
+      "prompt": "Read: <ruby>台風<rt>たいふう</rt></ruby>で<ruby>行<rt>い</rt></ruby>けなかったんです。ざんねんでした。 How does Lin feel?",
+      "options": [
+        "Relieved",
+        "Excited",
+        "Disappointed",
+        "Angry with Yuki"
+      ],
+      "correct": "Disappointed",
+      "explanation": "ざんねん: a pity."
+    },
+    {
+      "prompt": "Review: what is the honorific form of する?",
+      "options": [
+        "いたす",
+        "される",
+        "もうす",
+        "なさる"
+      ],
+      "correct": "なさる",
+      "explanation": "する → なさる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-9-easy-to-use",
+    "japanese-n4-unit-5-in-order-to",
+    "japanese-n4-unit-4-if-you-study"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

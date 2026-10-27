@@ -168,7 +168,7 @@
       "japanese-n4-unit-3-review"
     ],
     "assessmentId": "japanese-n4-unit-3-assessment",
-    "published": false
+    "published": true
   },
   {
     "id": "japanese-n4-unit-4",
@@ -187,7 +187,7 @@
       "japanese-n4-unit-4-review"
     ],
     "assessmentId": "japanese-n4-unit-4-assessment",
-    "published": false
+    "published": true
   },
   {
     "id": "japanese-n4-unit-5",
@@ -206,7 +206,7 @@
       "japanese-n4-unit-5-review"
     ],
     "assessmentId": "japanese-n4-unit-5-assessment",
-    "published": false
+    "published": true
   },
   {
     "id": "japanese-n4-unit-6",
@@ -225,7 +225,7 @@
       "japanese-n4-unit-6-review"
     ],
     "assessmentId": "japanese-n4-unit-6-assessment",
-    "published": false
+    "published": true
   },
   {
     "id": "japanese-n4-unit-7",
@@ -244,7 +244,7 @@
       "japanese-n4-unit-7-review"
     ],
     "assessmentId": "japanese-n4-unit-7-assessment",
-    "published": false
+    "published": true
   },
   {
     "id": "japanese-n4-unit-8",
@@ -263,7 +263,7 @@
       "japanese-n4-unit-8-review"
     ],
     "assessmentId": "japanese-n4-unit-8-assessment",
-    "published": false
+    "published": true
   },
   {
     "id": "japanese-n4-unit-9",
@@ -282,6 +282,6 @@
       "japanese-n4-unit-9-review"
     ],
     "assessmentId": "japanese-n4-unit-9-assessment",
-    "published": false
+    "published": true
   }
 ]

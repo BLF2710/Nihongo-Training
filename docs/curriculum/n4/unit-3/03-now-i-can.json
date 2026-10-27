@@ -1,0 +1,441 @@
+{
+  "id": "japanese-n4-unit-3-now-i-can",
+  "slug": "n4-unit-3-now-i-can",
+  "unit": "Japanese N4 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Now I Can…",
+  "title_jp": "〜ように なりました",
+  "objectives": [
+    "I can describe how my abilities or habits have changed.",
+    "Say you have become able to do something with ようになる",
+    "Say you no longer do something with なくなる",
+    "Talk about things starting and ending"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>始<rt>はじ</rt></ruby>まる",
+      "hajimaru",
+      "to begin (intransitive)"
+    ],
+    [
+      "<ruby>始<rt>はじ</rt></ruby>める",
+      "hajimeru",
+      "to start (something)"
+    ],
+    [
+      "<ruby>終<rt>お</rt></ruby>わる",
+      "owaru",
+      "to end, to finish"
+    ],
+    [
+      "<ruby>去年<rt>きょねん</rt></ruby>",
+      "kyonen",
+      "last year"
+    ],
+    [
+      "さいきん",
+      "saikin",
+      "recently, these days"
+    ],
+    [
+      "だんだん",
+      "dandan",
+      "gradually"
+    ],
+    [
+      "<ruby>少<rt>すこ</rt></ruby>しずつ",
+      "sukoshi zutsu",
+      "little by little"
+    ],
+    [
+      "やっと",
+      "yatto",
+      "at last, finally"
+    ],
+    [
+      "はし",
+      "hashi",
+      "chopsticks"
+    ],
+    [
+      "<ruby>早<rt>はや</rt></ruby>おき",
+      "hayaoki",
+      "getting up early"
+    ],
+    [
+      "たばこ",
+      "tabako",
+      "cigarettes, smoking"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "始まる",
+      "word_reading": "はじまる"
+    },
+    {
+      "word_japanese": "始める",
+      "word_reading": "はじめる"
+    },
+    {
+      "word_japanese": "終わる",
+      "word_reading": "おわる"
+    },
+    {
+      "word_japanese": "去年",
+      "word_reading": "きょねん"
+    }
+  ],
+  "concept": {
+    "title": "Changes over time",
+    "text": "To say that a change happened, add ようになる to a verb:\n\nはしがつかえるようになりました。 I've become able to use chopsticks.\n<ruby>毎朝<rt>まいあさ</rt></ruby>はしるようになりました。 I've started running every morning.\n\nWith the potential form it means a new ability; with an ordinary verb, a new habit.\n\nFor something that stopped, use the ない-form: drop い and add くなる.\nたばこをすわなくなりました。 I don't smoke any more.",
+    "examples": [
+      "V-る ようになる (new ability or habit)",
+      "V-ない → V-なくなる (no longer)",
+      "N が<ruby>始<rt>はじ</rt></ruby>まる / N を<ruby>始<rt>はじ</rt></ruby>める"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Becoming able to, starting to: ようになる",
+      "pattern": "V-る / V-(ら)れる + ようになる",
+      "explanation": "ようになる marks a change that came about gradually. After a potential verb it is a new ability; after an ordinary verb, a new habit.",
+      "examples": [
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て、はしがつかえるようになりました。",
+          "romaji": "",
+          "meaning": "Since coming to Japan, I've learned to use chopsticks."
+        },
+        {
+          "japanese": "やっとひらがなが<ruby>読<rt>よ</rt></ruby>めるようになりました。",
+          "romaji": "",
+          "meaning": "At last I can read hiragana."
+        },
+        {
+          "japanese": "さいきん、<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>運動<rt>うんどう</rt></ruby>するようになりました。",
+          "romaji": "",
+          "meaning": "Recently I've started exercising every morning."
+        },
+        {
+          "japanese": "<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるようになりました。",
+          "romaji": "",
+          "meaning": "Little by little I've become able to speak Japanese."
+        }
+      ],
+      "notes": [
+        "It describes a change, not a plan: for \"I've decided to\", ことにする comes later.",
+        "ようになる does not take the ます-form: <ruby>話<rt>はな</rt></ruby>せるようになる, not <ruby>話<rt>はな</rt></ruby>せますようになる."
+      ]
+    },
+    {
+      "title": "No longer: なくなる",
+      "pattern": "V-ない → V-なくなる",
+      "explanation": "Drop the final い of the ない-form and add くなる to say that something has stopped.",
+      "examples": [
+        {
+          "japanese": "<ruby>去年<rt>きょねん</rt></ruby>からたばこをすわなくなりました。",
+          "romaji": "",
+          "meaning": "I stopped smoking last year."
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもが<ruby>大<rt>おお</rt></ruby>きくなって、<ruby>手<rt>て</rt></ruby>がかからなくなりました。",
+          "romaji": "",
+          "meaning": "The children have grown, so they don't need so much looking after."
+        },
+        {
+          "japanese": "さいきん、テレビを<ruby>見<rt>み</rt></ruby>なくなりました。",
+          "romaji": "",
+          "meaning": "I hardly watch TV any more."
+        },
+        {
+          "japanese": "いそがしくて、<ruby>本<rt>ほん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めなくなりました。",
+          "romaji": "",
+          "meaning": "I'm so busy I can't read books any more."
+        }
+      ],
+      "notes": [
+        "Compare: <ruby>食<rt>た</rt></ruby>べなくなった (stopped eating it) and <ruby>食<rt>た</rt></ruby>べられなくなった (became unable to eat it)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "じゅぎょうは<ruby>九時<rt>くじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まります。",
+      "Classes start at nine."
+    ],
+    [
+      "<ruby>来月<rt>らいげつ</rt></ruby>からピアノを<ruby>始<rt>はじ</rt></ruby>めます。",
+      "I'm starting the piano next month."
+    ],
+    [
+      "しごとは<ruby>六時<rt>ろくじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わります。",
+      "Work finishes at six."
+    ],
+    [
+      "<ruby>早<rt>はや</rt></ruby>おきはたいへんですが、だんだんなれました。",
+      "Getting up early is hard, but I've gradually got used to it."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "はしが<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+      "リー",
+      "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て、つかえるようになったんです。"
+    ],
+    [
+      "アナ",
+      "さいきん、たばこをすいませんね。",
+      "けん",
+      "<ruby>去年<rt>きょねん</rt></ruby>からすわなくなりました。"
+    ],
+    [
+      "ゆき",
+      "コンサートは<ruby>何時<rt>なんじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まりますか。",
+      "マイ",
+      "<ruby>七時<rt>しちじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まって、<ruby>九時<rt>くじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わります。"
+    ],
+    [
+      "リン",
+      "<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>新聞<rt>しんぶん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めますか。",
+      "アナ",
+      "<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>読<rt>よ</rt></ruby>めるようになりました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "始",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "はじ.める",
+        "-はじ.める",
+        "はじ.まる"
+      ],
+      "meaning_en": "begin",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "始まる",
+          "reading": "はじまる",
+          "en": "to begin"
+        },
+        {
+          "word": "始める",
+          "reading": "はじめる",
+          "en": "to start"
+        }
+      ],
+      "mnemonic": "A woman (女) at the beginning (台) of everything."
+    },
+    {
+      "char": "終",
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "お.わる",
+        "-お.わる",
+        "おわ.る",
+        "お.える",
+        "つい",
+        "つい.に"
+      ],
+      "meaning_en": "end",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "終わる",
+          "reading": "おわる",
+          "en": "to end"
+        },
+        {
+          "word": "終電",
+          "reading": "しゅうでん",
+          "en": "the last train"
+        }
+      ],
+      "mnemonic": "The thread (糸) runs out in winter (冬): the end."
+    },
+    {
+      "char": "去",
+      "onyomi": [
+        "キョ",
+        "コ"
+      ],
+      "kunyomi": [
+        "さ.る",
+        "-さ.る"
+      ],
+      "meaning_en": "leave, past",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "去年",
+          "reading": "きょねん",
+          "en": "last year"
+        },
+        {
+          "word": "過去",
+          "reading": "かこ",
+          "en": "the past"
+        }
+      ],
+      "mnemonic": "Earth (土) and something leaving it (ム): gone, past."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the potential form of <ruby>読<rt>よ</rt></ruby>む?",
+      "options": [
+        "<ruby>読<rt>よ</rt></ruby>まれる",
+        "<ruby>読<rt>よ</rt></ruby>みれる",
+        "<ruby>読<rt>よ</rt></ruby>められる",
+        "<ruby>読<rt>よ</rt></ruby>める"
+      ],
+      "correct": "<ruby>読<rt>よ</rt></ruby>める",
+      "explanation": "む → める."
+    },
+    {
+      "prompt": "Complete: やっとひらがなが<ruby>読<rt>よ</rt></ruby>める＿＿なりました。",
+      "options": [
+        "ように",
+        "ために",
+        "ことに",
+        "そうに"
+      ],
+      "correct": "ように",
+      "explanation": "A new ability: ようになる."
+    },
+    {
+      "prompt": "Complete: <ruby>去年<rt>きょねん</rt></ruby>からたばこをすわ＿＿なりました。",
+      "options": [
+        "ない",
+        "なく",
+        "なくて",
+        "ないで"
+      ],
+      "correct": "なく",
+      "explanation": "No longer: V-なくなる."
+    },
+    {
+      "prompt": "Which verb is intransitive?",
+      "options": [
+        "<ruby>始<rt>はじ</rt></ruby>める",
+        "<ruby>教<rt>おし</rt></ruby>える",
+        "<ruby>始<rt>はじ</rt></ruby>まる",
+        "<ruby>送<rt>おく</rt></ruby>る"
+      ],
+      "correct": "<ruby>始<rt>はじ</rt></ruby>まる",
+      "explanation": "<ruby>始<rt>はじ</rt></ruby>まる: something begins by itself."
+    },
+    {
+      "prompt": "Complete: じゅぎょうは<ruby>九時<rt>くじ</rt></ruby>に＿＿。",
+      "options": [
+        "<ruby>始<rt>はじ</rt></ruby>めます",
+        "<ruby>始<rt>はじ</rt></ruby>められます",
+        "<ruby>始<rt>はじ</rt></ruby>まられます",
+        "<ruby>始<rt>はじ</rt></ruby>まります"
+      ],
+      "correct": "<ruby>始<rt>はじ</rt></ruby>まります",
+      "explanation": "The class begins: <ruby>始<rt>はじ</rt></ruby>まる."
+    },
+    {
+      "prompt": "How is 去年⁠ read?",
+      "options": [
+        "きょねん",
+        "さるとし",
+        "こねん",
+        "きょとし"
+      ],
+      "correct": "きょねん",
+      "explanation": "去年⁠ is read きょねん."
+    },
+    {
+      "prompt": "Choose the meaning of さいきん、テレビを<ruby>見<rt>み</rt></ruby>なくなりました。",
+      "options": [
+        "Recently I can't see the TV.",
+        "Recently I've stopped watching TV.",
+        "Recently I've started watching TV.",
+        "I didn't watch TV recently."
+      ],
+      "correct": "Recently I've stopped watching TV.",
+      "explanation": "<ruby>見<rt>み</rt></ruby>なくなった: no longer watch."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You started jogging every morning a few months ago. What do you say?",
+      "options": [
+        "<ruby>毎朝<rt>まいあさ</rt></ruby>はしりますようになりました。",
+        "<ruby>毎朝<rt>まいあさ</rt></ruby>はしるようになりました。",
+        "<ruby>毎朝<rt>まいあさ</rt></ruby>はしることになりました。",
+        "<ruby>毎朝<rt>まいあさ</rt></ruby>はしらなくなりました。"
+      ],
+      "correct": "<ruby>毎朝<rt>まいあさ</rt></ruby>はしるようになりました。",
+      "explanation": "A new habit: V-る ようになる."
+    },
+    {
+      "prompt": "Which sentence means \"I can't read books any more\"?",
+      "options": [
+        "<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>まなくなりました。",
+        "<ruby>本<rt>ほん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めるようになりました。",
+        "<ruby>本<rt>ほん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めなくなりました。",
+        "<ruby>本<rt>ほん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めませんでした。"
+      ],
+      "correct": "<ruby>本<rt>ほん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めなくなりました。",
+      "explanation": "Became unable: <ruby>読<rt>よ</rt></ruby>めなくなる."
+    },
+    {
+      "prompt": "Complete: <ruby>来月<rt>らいげつ</rt></ruby>からピアノを＿＿。 (I'll start)",
+      "options": [
+        "<ruby>始<rt>はじ</rt></ruby>まります",
+        "<ruby>終<rt>お</rt></ruby>わります",
+        "<ruby>始<rt>はじ</rt></ruby>まれます",
+        "<ruby>始<rt>はじ</rt></ruby>めます"
+      ],
+      "correct": "<ruby>始<rt>はじ</rt></ruby>めます",
+      "explanation": "Start something: <ruby>始<rt>はじ</rt></ruby>める."
+    },
+    {
+      "prompt": "Read: <ruby>早<rt>はや</rt></ruby>おきはたいへんですが、だんだんなれました。 How does the speaker feel now?",
+      "options": [
+        "Used to getting up early",
+        "Unable to get up early",
+        "Tired of getting up early",
+        "Happy to sleep late"
+      ],
+      "correct": "Used to getting up early",
+      "explanation": "だんだんなれました: gradually got used to it."
+    },
+    {
+      "prompt": "Review: complete リーさんはスキーが＿＿。 (can ski)",
+      "options": [
+        "します",
+        "できます",
+        "されます",
+        "しられます"
+      ],
+      "correct": "できます",
+      "explanation": "N ができる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-3-i-can-drive",
+    "japanese-n4-unit-3-i-can-sing",
+    "japanese-n5-unit-9-plain-forms"
+  ],
+  "skill_notes": "",
+  "review_flags": [
+    "VERIFY: つかう and はしる stay in kana: 使 is taught in Unit 8 and 走 in Unit 4."
+  ]
+}

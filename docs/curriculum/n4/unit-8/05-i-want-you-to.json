@@ -1,0 +1,460 @@
+{
+  "id": "japanese-n4-unit-8-i-want-you-to",
+  "slug": "n4-unit-8-i-want-you-to",
+  "unit": "Japanese N4 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "I Want You To…",
+  "title_jp": "〜て ほしい",
+  "objectives": [
+    "I can say what I want someone to do.",
+    "Say what you want someone to do with 〜てほしい",
+    "Pass on a request with 〜ように<ruby>言<rt>い</rt></ruby>う / たのむ",
+    "Talk about research, factories and places"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>研究<rt>けんきゅう</rt></ruby>",
+      "",
+      "research (+ する: to research)"
+    ],
+    [
+      "<ruby>研究室<rt>けんきゅうしつ</rt></ruby>",
+      "",
+      "(professor's) office, laboratory"
+    ],
+    [
+      "<ruby>工場<rt>こうじょう</rt></ruby>",
+      "",
+      "factory"
+    ],
+    [
+      "ばしょ",
+      "",
+      "place"
+    ],
+    [
+      "<ruby>会場<rt>かいじょう</rt></ruby>",
+      "",
+      "venue"
+    ],
+    [
+      "<ruby>工事<rt>こうじ</rt></ruby>",
+      "",
+      "construction work"
+    ],
+    [
+      "たのむ",
+      "",
+      "to ask (a favour), to order"
+    ],
+    [
+      "つたえる",
+      "",
+      "to pass on (a message)"
+    ],
+    [
+      "〜てほしい",
+      "",
+      "want (someone) to …"
+    ],
+    [
+      "ていねい",
+      "",
+      "polite, careful"
+    ],
+    [
+      "しずかに",
+      "",
+      "quietly"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "研究",
+      "word_reading": "けんきゅう"
+    },
+    {
+      "word_japanese": "研究室",
+      "word_reading": "けんきゅうしつ"
+    },
+    {
+      "word_japanese": "工場",
+      "word_reading": "こうじょう"
+    },
+    {
+      "word_japanese": "会場",
+      "word_reading": "かいじょう"
+    },
+    {
+      "word_japanese": "工事",
+      "word_reading": "こうじ"
+    }
+  ],
+  "concept": {
+    "title": "I want you to…",
+    "text": "〜たい is for what you want to do yourself. For what you want someone else to do, use 〜てほしい. The other person takes に:\n\n<ruby>友<rt>とも</rt></ruby>だちに<ruby>来<rt>き</rt></ruby>てほしいです。 I want my friend to come.\nもっとゆっくり<ruby>話<rt>はな</rt></ruby>してほしい。 I want you to speak more slowly.\nあまりしんぱいしないでほしい。 I don't want you to worry too much.\n\nTo pass a request on, use 〜ように<ruby>言<rt>い</rt></ruby>う / たのむ / つたえる:\n<ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>にしずかにするように<ruby>言<rt>い</rt></ruby>いました。\nThe teacher told the students to be quiet.",
+    "examples": [
+      "person に V-て ほしい",
+      "V-ないで ほしい",
+      "V-る / V-ない ように <ruby>言<rt>い</rt></ruby>う・たのむ・つたえる"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Want someone to: 〜てほしい",
+      "pattern": "person に V-て + ほしい / V-ないで + ほしい",
+      "explanation": "ほしい changes like an い-adjective. Saying it directly to someone above you can sound demanding; soften it with んですが.",
+      "examples": [
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちにパーティーに<ruby>来<rt>き</rt></ruby>てほしいです。",
+          "romaji": "",
+          "meaning": "I want my friends to come to the party."
+        },
+        {
+          "japanese": "もう<ruby>少<rt>すこ</rt></ruby>しゆっくり<ruby>話<rt>はな</rt></ruby>してほしいんですが。",
+          "romaji": "",
+          "meaning": "I'd like you to speak a little more slowly."
+        },
+        {
+          "japanese": "<ruby>工事<rt>こうじ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>がうるさいので、<ruby>早<rt>はや</rt></ruby>く<ruby>終<rt>お</rt></ruby>わってほしいです。",
+          "romaji": "",
+          "meaning": "The construction is noisy, so I want it to end soon."
+        },
+        {
+          "japanese": "あまりしんぱいしないでほしい。",
+          "romaji": "",
+          "meaning": "I don't want you to worry too much."
+        }
+      ],
+      "notes": [
+        "Compare: <ruby>行<rt>い</rt></ruby>きたい (I want to go) / <ruby>行<rt>い</rt></ruby>ってほしい (I want you to go).",
+        "Things and events can be the subject too: <ruby>雨<rt>あめ</rt></ruby>がやんでほしい (I want the rain to stop)."
+      ]
+    },
+    {
+      "title": "Passing on a request: 〜ように<ruby>言<rt>い</rt></ruby>う / たのむ",
+      "pattern": "person に V-る / V-ない + ように <ruby>言<rt>い</rt></ruby>う・たのむ・つたえる",
+      "explanation": "ように turns a request into reported speech.",
+      "examples": [
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>にしずかにするように<ruby>言<rt>い</rt></ruby>いました。",
+          "romaji": "",
+          "meaning": "The teacher told the students to be quiet."
+        },
+        {
+          "japanese": "リーさんに<ruby>明日<rt>あした</rt></ruby><ruby>研究室<rt>けんきゅうしつ</rt></ruby>に<ruby>来<rt>く</rt></ruby>るようにつたえてください。",
+          "romaji": "",
+          "meaning": "Please tell Lee to come to the office tomorrow."
+        },
+        {
+          "japanese": "<ruby>医者<rt>いしゃ</rt></ruby>にたばこをすわないように<ruby>言<rt>い</rt></ruby>われました。",
+          "romaji": "",
+          "meaning": "The doctor told me not to smoke."
+        },
+        {
+          "japanese": "となりの<ruby>人<rt>ひと</rt></ruby>に<ruby>夜<rt>よる</rt></ruby>はしずかにしてくれるようにたのみました。",
+          "romaji": "",
+          "meaning": "I asked my neighbour to keep quiet at night."
+        }
+      ],
+      "notes": [
+        "The direct words would be <ruby>来<rt>き</rt></ruby>てください; reported, they become <ruby>来<rt>く</rt></ruby>るように."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>大学<rt>だいがく</rt></ruby>で<ruby>日本<rt>にほん</rt></ruby>のれきしを<ruby>研究<rt>けんきゅう</rt></ruby>しています。",
+      "I'm researching Japanese history at university."
+    ],
+    [
+      "この<ruby>工場<rt>こうじょう</rt></ruby>では<ruby>車<rt>くるま</rt></ruby>を<ruby>作<rt>つく</rt></ruby>っています。",
+      "Cars are made in this factory."
+    ],
+    [
+      "パーティーの<ruby>会場<rt>かいじょう</rt></ruby>はどこですか。",
+      "Where is the party being held?"
+    ],
+    [
+      "<ruby>待<rt>ま</rt></ruby>ちあわせのばしょをきめましょう。",
+      "Let's decide where to meet."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "しゅうまつ、<ruby>何<rt>なに</rt></ruby>をしてほしいですか。",
+      "けん",
+      "そうじを<ruby>手<rt>て</rt></ruby>つだってほしいです。"
+    ],
+    [
+      "リー",
+      "<ruby>先生<rt>せんせい</rt></ruby>、<ruby>何<rt>なに</rt></ruby>か<ruby>言<rt>い</rt></ruby>っていましたか。",
+      "マイ",
+      "<ruby>明日<rt>あした</rt></ruby><ruby>研究室<rt>けんきゅうしつ</rt></ruby>に<ruby>来<rt>く</rt></ruby>るように<ruby>言<rt>い</rt></ruby>っていましたよ。"
+    ],
+    [
+      "ゆき",
+      "となりの<ruby>工事<rt>こうじ</rt></ruby>、うるさいですね。",
+      "リン",
+      "<ruby>早<rt>はや</rt></ruby>く<ruby>終<rt>お</rt></ruby>わってほしいですね。"
+    ],
+    [
+      "たなか",
+      "<ruby>会場<rt>かいじょう</rt></ruby>のばしょが<ruby>分<rt>わ</rt></ruby>かりますか。",
+      "アナ",
+      "はい、ちずを<ruby>送<rt>おく</rt></ruby>ってもらいました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "研",
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "と.ぐ"
+      ],
+      "meaning_en": "polish, study",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "研究",
+          "reading": "けんきゅう",
+          "en": "research"
+        },
+        {
+          "word": "研修",
+          "reading": "けんしゅう",
+          "en": "training"
+        }
+      ],
+      "mnemonic": "Grinding a stone (石) until it is even (开): polishing, studying."
+    },
+    {
+      "char": "究",
+      "onyomi": [
+        "キュウ",
+        "ク"
+      ],
+      "kunyomi": [
+        "きわ.める"
+      ],
+      "meaning_en": "investigate",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "研究",
+          "reading": "けんきゅう",
+          "en": "research"
+        },
+        {
+          "word": "究明",
+          "reading": "きゅうめい",
+          "en": "investigation"
+        }
+      ],
+      "mnemonic": "Going nine (九) times into a cave (穴): getting to the bottom."
+    },
+    {
+      "char": "工",
+      "onyomi": [
+        "コウ",
+        "ク",
+        "グ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "craft, work",
+      "stroke_count": 3,
+      "example_words": [
+        {
+          "word": "工場",
+          "reading": "こうじょう",
+          "en": "factory"
+        },
+        {
+          "word": "工事",
+          "reading": "こうじ",
+          "en": "construction"
+        }
+      ],
+      "mnemonic": "A carpenter's square: craft and building work."
+    },
+    {
+      "char": "場",
+      "onyomi": [
+        "ジョウ",
+        "チョウ"
+      ],
+      "kunyomi": [
+        "ば"
+      ],
+      "meaning_en": "place",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "場所",
+          "reading": "ばしょ",
+          "en": "place"
+        },
+        {
+          "word": "会場",
+          "reading": "かいじょう",
+          "en": "venue"
+        }
+      ],
+      "mnemonic": "Ground (土) in the sun (昜): an open place."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>＿＿ください。",
+      "options": [
+        "して",
+        "させて",
+        "されて",
+        "させられて"
+      ],
+      "correct": "させて",
+      "explanation": "Let me: させてください."
+    },
+    {
+      "prompt": "Complete: <ruby>友<rt>とも</rt></ruby>だち＿＿<ruby>来<rt>き</rt></ruby>てほしいです。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "The other person takes に."
+    },
+    {
+      "prompt": "Complete: あまりしんぱいし＿＿ほしい。 (don't want you to)",
+      "options": [
+        "なくて",
+        "ない",
+        "ません",
+        "ないで"
+      ],
+      "correct": "ないで",
+      "explanation": "V-ないでほしい."
+    },
+    {
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>にしずかにする＿＿<ruby>言<rt>い</rt></ruby>いました。",
+      "options": [
+        "ように",
+        "ために",
+        "そうに",
+        "のに"
+      ],
+      "correct": "ように",
+      "explanation": "Reported request: ように<ruby>言<rt>い</rt></ruby>う."
+    },
+    {
+      "prompt": "Which word means \"factory\"?",
+      "options": [
+        "<ruby>会場<rt>かいじょう</rt></ruby>",
+        "<ruby>工場<rt>こうじょう</rt></ruby>",
+        "<ruby>研究<rt>けんきゅう</rt></ruby>",
+        "ばしょ"
+      ],
+      "correct": "<ruby>工場<rt>こうじょう</rt></ruby>",
+      "explanation": "<ruby>工場<rt>こうじょう</rt></ruby>: factory."
+    },
+    {
+      "prompt": "How is 研究⁠ read?",
+      "options": [
+        "けんきゅ",
+        "げんきゅう",
+        "けんきゅう",
+        "けんく"
+      ],
+      "correct": "けんきゅう",
+      "explanation": "研究⁠ is read けんきゅう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>医者<rt>いしゃ</rt></ruby>にたばこをすわないように<ruby>言<rt>い</rt></ruby>われました。",
+      "options": [
+        "I told the doctor not to smoke.",
+        "The doctor doesn't smoke.",
+        "I asked the doctor if I could smoke.",
+        "The doctor told me not to smoke."
+      ],
+      "correct": "The doctor told me not to smoke.",
+      "explanation": "ように<ruby>言<rt>い</rt></ruby>われる: be told to."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What is the difference: <ruby>行<rt>い</rt></ruby>きたい / <ruby>行<rt>い</rt></ruby>ってほしい?",
+      "options": [
+        "I want you to go / I want to go",
+        "I went / I'll go",
+        "There is no difference.",
+        "I want to go / I want you to go"
+      ],
+      "correct": "I want to go / I want you to go",
+      "explanation": "〜てほしい: what you want from someone else."
+    },
+    {
+      "prompt": "You want to pass on to Lee that he should come tomorrow. What do you ask your friend?",
+      "options": [
+        "リーさんに<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>く</rt></ruby>るようにつたえてください。",
+        "リーさんに<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>き</rt></ruby>てほしいつたえてください。",
+        "リーさんに<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>く</rt></ruby>るためにつたえてください。",
+        "リーさんが<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>く</rt></ruby>るそうにつたえてください。"
+      ],
+      "correct": "リーさんに<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>く</rt></ruby>るようにつたえてください。",
+      "explanation": "〜ようにつたえる."
+    },
+    {
+      "prompt": "Which is more polite to a teacher?",
+      "options": [
+        "もっとゆっくり<ruby>話<rt>はな</rt></ruby>してほしい。",
+        "もう<ruby>少<rt>すこ</rt></ruby>しゆっくり<ruby>話<rt>はな</rt></ruby>していただけませんか。",
+        "ゆっくり<ruby>話<rt>はな</rt></ruby>せ。",
+        "ゆっくり<ruby>話<rt>はな</rt></ruby>してほしいよ。"
+      ],
+      "correct": "もう<ruby>少<rt>すこ</rt></ruby>しゆっくり<ruby>話<rt>はな</rt></ruby>していただけませんか。",
+      "explanation": "〜てほしい can sound demanding to a senior."
+    },
+    {
+      "prompt": "Read: <ruby>工事<rt>こうじ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>がうるさいので、<ruby>早<rt>はや</rt></ruby>く<ruby>終<rt>お</rt></ruby>わってほしいです。 What does the speaker want?",
+      "options": [
+        "To start construction",
+        "To work at a construction site",
+        "For the construction to finish soon",
+        "To be quiet"
+      ],
+      "correct": "For the construction to finish soon",
+      "explanation": "<ruby>早<rt>はや</rt></ruby>く<ruby>終<rt>お</rt></ruby>わってほしい."
+    },
+    {
+      "prompt": "Review: what is the passive form of <ruby>言<rt>い</rt></ruby>う?",
+      "options": [
+        "<ruby>言<rt>い</rt></ruby>える",
+        "<ruby>言<rt>い</rt></ruby>わせる",
+        "<ruby>言<rt>い</rt></ruby>いられる",
+        "<ruby>言<rt>い</rt></ruby>われる"
+      ],
+      "correct": "<ruby>言<rt>い</rt></ruby>われる",
+      "explanation": "う → われる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-8-let-me",
+    "japanese-n4-unit-8-i-got-scolded",
+    "japanese-n4-unit-2-would-you-mind"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -117,7 +117,7 @@ const blueprintUnits = units.map(([title, titleJp, description, canDo, lessons],
 });
 
 const blueprint = {
-  blueprint_version: 1, stage: "0", part: "N4 (part 2 of 6)", status: "draft: Units 1–2 generated; Units 3–9 planned", level: "N4",
+  blueprint_version: 1, stage: "0", part: "N4 (part 2 of 6)", status: "complete: Units 1–9 generated and imported; mock exam and review bank built", level: "N4",
   defaults: {
     unit_shape: "5 content lessons + 1 review lesson + 1 assessment (15 questions, pass at 12/15), as in N5 from Unit 4",
     script: "Every kanji is written with furigana (<ruby>). Kanji already taught are used in kanji; words whose kanji are not yet taught stay in kana. Sentences are written without word spaces.",

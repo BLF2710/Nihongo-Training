@@ -1,0 +1,433 @@
+{
+  "id": "japanese-n4-unit-6-getting-ready",
+  "slug": "n4-unit-6-getting-ready",
+  "unit": "Japanese N4 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Getting Ready",
+  "title_jp": "〜て おく",
+  "objectives": [
+    "I can say what I will do in advance.",
+    "Prepare in advance with 〜ておく",
+    "Leave things as they are with 〜ておく",
+    "Use the casual form 〜とく"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>料理<rt>りょうり</rt></ruby>",
+      "",
+      "cooking, a dish (+ する: to cook)"
+    ],
+    [
+      "<ruby>料金<rt>りょうきん</rt></ruby>",
+      "",
+      "fee, charge"
+    ],
+    [
+      "<ruby>計画<rt>けいかく</rt></ruby>",
+      "",
+      "plan (+ する: to plan)"
+    ],
+    [
+      "<ruby>時計<rt>とけい</rt></ruby>",
+      "",
+      "clock, watch"
+    ],
+    [
+      "よやく",
+      "",
+      "reservation (+ する: to book)"
+    ],
+    [
+      "じゅんび",
+      "",
+      "preparation (+ する: to prepare)"
+    ],
+    [
+      "かたづける",
+      "",
+      "to tidy up"
+    ],
+    [
+      "ならべる",
+      "",
+      "to line up, to set out"
+    ],
+    [
+      "しらべる",
+      "",
+      "to look up, to check"
+    ],
+    [
+      "ひやす",
+      "",
+      "to chill"
+    ],
+    [
+      "そのまま",
+      "",
+      "as it is"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "料理",
+      "word_reading": "りょうり"
+    },
+    {
+      "word_japanese": "料金",
+      "word_reading": "りょうきん"
+    },
+    {
+      "word_japanese": "計画",
+      "word_reading": "けいかく"
+    },
+    {
+      "word_japanese": "時計",
+      "word_reading": "とけい"
+    }
+  ],
+  "concept": {
+    "title": "Doing it ahead of time",
+    "text": "〜ておく says you do something now so that it is ready for later.\n\nパーティーのまえに、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>をひやしておきます。\nBefore the party, I'll chill the drinks.\n\nIt can also mean \"leave it that way\":\nまどは<ruby>開<rt>あ</rt></ruby>けておいてください。 Please leave the window open.\n\nCasual speech shortens it: 〜ておく → 〜とく, 〜でおく → 〜どく.\n<ruby>買<rt>か</rt></ruby>っとくね。 I'll buy it (in advance).",
+    "examples": [
+      "V-て おく (do in advance)",
+      "V-て おく (leave as it is)",
+      "〜ておく → 〜とく / 〜でおく → 〜どく"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "In advance: 〜ておく",
+      "pattern": "V-て + おく",
+      "explanation": "Something done beforehand, in preparation for what comes next.",
+      "examples": [
+        {
+          "japanese": "<ruby>旅行<rt>りょこう</rt></ruby>のまえに、ホテルをよやくしておきます。",
+          "romaji": "",
+          "meaning": "I'll book a hotel before the trip."
+        },
+        {
+          "japanese": "おきゃくさんが<ruby>来<rt>く</rt></ruby>るまえに、へやをかたづけておきましょう。",
+          "romaji": "",
+          "meaning": "Let's tidy the room before the guests come."
+        },
+        {
+          "japanese": "かいぎのしりょうをコピーしておきました。",
+          "romaji": "",
+          "meaning": "I've made copies of the meeting papers."
+        },
+        {
+          "japanese": "パーティーのまえに、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>をひやしておきます。",
+          "romaji": "",
+          "meaning": "Before the party I'll chill the drinks."
+        },
+        {
+          "japanese": "<ruby>試験<rt>しけん</rt></ruby>のまえに、ことばをおぼえておいてください。",
+          "romaji": "",
+          "meaning": "Please learn the words before the exam."
+        }
+      ],
+      "notes": [
+        "It often goes with まえに, or with a goal: 〜のために."
+      ]
+    },
+    {
+      "title": "Leave as it is; casual 〜とく",
+      "pattern": "V-て + おく / 〜とく",
+      "explanation": "With a state, 〜ておく means leaving it that way. Friends say 〜とく.",
+      "examples": [
+        {
+          "japanese": "まどは<ruby>開<rt>あ</rt></ruby>けておいてください。",
+          "romaji": "",
+          "meaning": "Please leave the window open."
+        },
+        {
+          "japanese": "つかったものはそのままにしておいてください。",
+          "romaji": "",
+          "meaning": "Please leave what you used where it is."
+        },
+        {
+          "japanese": "ビール、ひやしとくね。",
+          "romaji": "",
+          "meaning": "I'll put the beer in to chill."
+        },
+        {
+          "japanese": "わたしがよやくしとくよ。",
+          "romaji": "",
+          "meaning": "I'll make the booking."
+        }
+      ],
+      "notes": [
+        "おいて + ください: 〜ておいてください (please do it in advance / leave it)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>母<rt>はは</rt></ruby>は<ruby>料理<rt>りょうり</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>です。",
+      "My mother is good at cooking."
+    ],
+    [
+      "このホテルの<ruby>料金<rt>りょうきん</rt></ruby>はいくらですか。",
+      "How much does this hotel charge?"
+    ],
+    [
+      "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>旅行<rt>りょこう</rt></ruby>の<ruby>計画<rt>けいかく</rt></ruby>を<ruby>立<rt>た</rt></ruby>てました。",
+      "I've made a plan for the summer holiday trip."
+    ],
+    [
+      "<ruby>時計<rt>とけい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ると、もう<ruby>九時<rt>くじ</rt></ruby>でした。",
+      "When I looked at the clock, it was already nine."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>明日<rt>あした</rt></ruby>のパーティーのじゅんびはできましたか。",
+      "けん",
+      "はい、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>もひやしておきました。"
+    ],
+    [
+      "リー",
+      "レストランのよやく、どうしますか。",
+      "ゆき",
+      "わたしがよやくしとくよ。"
+    ],
+    [
+      "マイ",
+      "このまど、しめましょうか。",
+      "たなか",
+      "いいえ、<ruby>開<rt>あ</rt></ruby>けておいてください。"
+    ],
+    [
+      "リン",
+      "<ruby>旅行<rt>りょこう</rt></ruby>のまえに、<ruby>何<rt>なに</rt></ruby>をしておきますか。",
+      "アナ",
+      "ホテルをよやくして、<ruby>計画<rt>けいかく</rt></ruby>を<ruby>立<rt>た</rt></ruby>てておきます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "料",
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "fee, materials",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "料理",
+          "reading": "りょうり",
+          "en": "cooking"
+        },
+        {
+          "word": "料金",
+          "reading": "りょうきん",
+          "en": "fee"
+        }
+      ],
+      "mnemonic": "Rice (米) measured out with a ladle (斗): materials, and what they cost."
+    },
+    {
+      "char": "理",
+      "onyomi": [
+        "リ"
+      ],
+      "kunyomi": [
+        "ことわり"
+      ],
+      "meaning_en": "reason, logic",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "料理",
+          "reading": "りょうり",
+          "en": "cooking"
+        },
+        {
+          "word": "理由",
+          "reading": "りゆう",
+          "en": "reason"
+        }
+      ],
+      "mnemonic": "The grain of a jewel (王) in a field (里): the natural order of things."
+    },
+    {
+      "char": "計",
+      "onyomi": [
+        "ケイ"
+      ],
+      "kunyomi": [
+        "はか.る",
+        "はか.らう"
+      ],
+      "meaning_en": "measure, plan",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "時計",
+          "reading": "とけい",
+          "en": "clock"
+        },
+        {
+          "word": "計画",
+          "reading": "けいかく",
+          "en": "plan"
+        }
+      ],
+      "mnemonic": "Words (言) counted in tens (十): measuring."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete さいふをなくして＿＿。 (oh no)",
+      "options": [
+        "おきました",
+        "みました",
+        "ありました",
+        "しまいました"
+      ],
+      "correct": "しまいました",
+      "explanation": "Regret: 〜てしまう."
+    },
+    {
+      "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>のまえに、ホテルをよやくして＿＿。 (in advance)",
+      "options": [
+        "おきます",
+        "しまいます",
+        "みます",
+        "あります"
+      ],
+      "correct": "おきます",
+      "explanation": "In advance: 〜ておく."
+    },
+    {
+      "prompt": "Complete: まどは<ruby>開<rt>あ</rt></ruby>けて＿＿ください。 (leave open)",
+      "options": [
+        "しまって",
+        "おいて",
+        "みて",
+        "いて"
+      ],
+      "correct": "おいて",
+      "explanation": "Leave it: 〜ておいてください."
+    },
+    {
+      "prompt": "What is the casual form of よやくしておく?",
+      "options": [
+        "よやくしちゃう",
+        "よやくしどく",
+        "よやくしとく",
+        "よやくしおく"
+      ],
+      "correct": "よやくしとく",
+      "explanation": "ておく → とく."
+    },
+    {
+      "prompt": "Which word means \"clock, watch\"?",
+      "options": [
+        "<ruby>計画<rt>けいかく</rt></ruby>",
+        "<ruby>料金<rt>りょうきん</rt></ruby>",
+        "<ruby>時間<rt>じかん</rt></ruby>",
+        "<ruby>時計<rt>とけい</rt></ruby>"
+      ],
+      "correct": "<ruby>時計<rt>とけい</rt></ruby>",
+      "explanation": "<ruby>時計<rt>とけい</rt></ruby>: clock."
+    },
+    {
+      "prompt": "How is 料理⁠ read?",
+      "options": [
+        "りょうり",
+        "りょり",
+        "りょうじ",
+        "りょうい"
+      ],
+      "correct": "りょうり",
+      "explanation": "料理⁠ is read りょうり."
+    },
+    {
+      "prompt": "Choose the meaning of へやをかたづけておきましょう。",
+      "options": [
+        "Let's leave the room messy.",
+        "Let's tidy the room in advance.",
+        "We tidied the room by mistake.",
+        "Let's try tidying the room."
+      ],
+      "correct": "Let's tidy the room in advance.",
+      "explanation": "かたづける + ておく."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Guests are coming tonight. Which sentence fits?",
+      "options": [
+        "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>をひやしてしまいます。",
+        "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>をひやしておきます。",
+        "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>をひやしてみます。",
+        "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>がひやしてあります か。"
+      ],
+      "correct": "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>をひやしておきます。",
+      "explanation": "Preparation: 〜ておく."
+    },
+    {
+      "prompt": "Your colleague is about to close the window, but you want it open. What do you say?",
+      "options": [
+        "<ruby>開<rt>あ</rt></ruby>けてしまってください。",
+        "<ruby>開<rt>あ</rt></ruby>けてみてください。",
+        "<ruby>開<rt>あ</rt></ruby>けておいてください。",
+        "<ruby>開<rt>あ</rt></ruby>いてください。"
+      ],
+      "correct": "<ruby>開<rt>あ</rt></ruby>けておいてください。",
+      "explanation": "Leave it open: 〜ておいてください."
+    },
+    {
+      "prompt": "Which pair is right?",
+      "options": [
+        "〜ておく → 〜ちゃう / 〜でおく → 〜じゃう",
+        "〜ておく → 〜とく / 〜でおく → 〜とく",
+        "〜ておく → 〜おく / 〜でおく → 〜どく",
+        "〜ておく → 〜とく / 〜でおく → 〜どく"
+      ],
+      "correct": "〜ておく → 〜とく / 〜でおく → 〜どく",
+      "explanation": "Casual: とく / どく."
+    },
+    {
+      "prompt": "Read: <ruby>時計<rt>とけい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ると、もう<ruby>九時<rt>くじ</rt></ruby>でした。 What happened?",
+      "options": [
+        "The speaker looked at the clock and found it was already nine.",
+        "The speaker bought a watch at nine.",
+        "The clock stopped at nine.",
+        "The speaker will look at the clock at nine."
+      ],
+      "correct": "The speaker looked at the clock and found it was already nine.",
+      "explanation": "と + past: a discovery."
+    },
+    {
+      "prompt": "Review: what is the casual form of <ruby>飲<rt>の</rt></ruby>んでしまった?",
+      "options": [
+        "<ruby>飲<rt>の</rt></ruby>んちゃった",
+        "<ruby>飲<rt>の</rt></ruby>んじゃった",
+        "<ruby>飲<rt>の</rt></ruby>んどいた",
+        "<ruby>飲<rt>の</rt></ruby>みちゃった"
+      ],
+      "correct": "<ruby>飲<rt>の</rt></ruby>んじゃった",
+      "explanation": "でしまった → じゃった."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-6-oh-no",
+    "japanese-n4-unit-5-before-and-after",
+    "japanese-n4-unit-4-turn-right"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

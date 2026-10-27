@@ -1,0 +1,434 @@
+{
+  "id": "japanese-n4-unit-5-thinking-of",
+  "slug": "n4-unit-5-thinking-of",
+  "unit": "Japanese N4 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "I'm Thinking of…",
+  "title_jp": "〜(よ)うと おもって います",
+  "objectives": [
+    "I can say what I am thinking of doing.",
+    "Say what you're planning with volitional + と<ruby>思<rt>おも</rt></ruby>っています",
+    "Say what you've just decided with volitional + と<ruby>思<rt>おも</rt></ruby>います",
+    "Talk about travel abroad and dreams"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>世界<rt>せかい</rt></ruby>",
+      "",
+      "the world"
+    ],
+    [
+      "<ruby>海<rt>うみ</rt></ruby>",
+      "",
+      "sea"
+    ],
+    [
+      "<ruby>海外<rt>かいがい</rt></ruby>",
+      "",
+      "overseas, abroad"
+    ],
+    [
+      "<ruby>世界中<rt>せかいじゅう</rt></ruby>",
+      "",
+      "all over the world"
+    ],
+    [
+      "<ruby>世話<rt>せわ</rt></ruby>",
+      "",
+      "care, looking after (+ をする: to look after)"
+    ],
+    [
+      "りゅうがく",
+      "",
+      "study abroad (+ する)"
+    ],
+    [
+      "ひっこす",
+      "",
+      "to move house"
+    ],
+    [
+      "やめる",
+      "",
+      "to quit, to stop"
+    ],
+    [
+      "しょうらい",
+      "",
+      "the future"
+    ],
+    [
+      "ゆめ",
+      "",
+      "dream"
+    ],
+    [
+      "こんど",
+      "",
+      "next time, this time"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "世界",
+      "word_reading": "せかい"
+    },
+    {
+      "word_japanese": "海",
+      "word_reading": "うみ"
+    },
+    {
+      "word_japanese": "海外",
+      "word_reading": "かいがい"
+    },
+    {
+      "word_japanese": "世界中",
+      "word_reading": "せかいじゅう"
+    },
+    {
+      "word_japanese": "世話",
+      "word_reading": "せわ"
+    }
+  ],
+  "concept": {
+    "title": "What I'm planning",
+    "text": "Volitional + と<ruby>思<rt>おも</rt></ruby>っています says what you have been thinking of doing for some time.\n\n<ruby>来年<rt>らいねん</rt></ruby>、<ruby>海外<rt>かいがい</rt></ruby>でりゅうがくしようと<ruby>思<rt>おも</rt></ruby>っています。\nI'm thinking of studying abroad next year.\n\nVolitional + と<ruby>思<rt>おも</rt></ruby>います is a decision made just now, as you speak:\nじゃあ、わたしも<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います。 Then I think I'll go too.\n\nFor other people, use only と<ruby>思<rt>おも</rt></ruby>っています:\n<ruby>兄<rt>あに</rt></ruby>はひっこそうと<ruby>思<rt>おも</rt></ruby>っています。 My brother is thinking of moving.",
+    "examples": [
+      "V-(よ)うと<ruby>思<rt>おも</rt></ruby>っています (a plan for a while)",
+      "V-(よ)うと<ruby>思<rt>おも</rt></ruby>います (deciding now)",
+      "others: V-(よ)うと<ruby>思<rt>おも</rt></ruby>っています"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Thinking of doing: volitional + と<ruby>思<rt>おも</rt></ruby>っています",
+      "pattern": "V-(よ)うと<ruby>思<rt>おも</rt></ruby>っています",
+      "explanation": "A plan you have been considering. It is softer than a firm decision.",
+      "examples": [
+        {
+          "japanese": "<ruby>来年<rt>らいねん</rt></ruby>、<ruby>海外<rt>かいがい</rt></ruby>でりゅうがくしようと<ruby>思<rt>おも</rt></ruby>っています。",
+          "romaji": "",
+          "meaning": "I'm thinking of studying abroad next year."
+        },
+        {
+          "japanese": "<ruby>夏休<rt>なつやす</rt></ruby>みに<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。",
+          "romaji": "",
+          "meaning": "I'm thinking of going to the seaside in the summer holidays."
+        },
+        {
+          "japanese": "<ruby>今<rt>いま</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>をやめようと<ruby>思<rt>おも</rt></ruby>っています。",
+          "romaji": "",
+          "meaning": "I'm thinking of leaving my current company."
+        },
+        {
+          "japanese": "<ruby>姉<rt>あね</rt></ruby>はひっこそうと<ruby>思<rt>おも</rt></ruby>っています。",
+          "romaji": "",
+          "meaning": "My older sister is thinking of moving house."
+        }
+      ],
+      "notes": [
+        "Use it to talk about other people's plans too.",
+        "To ask about plans: <ruby>何<rt>なに</rt></ruby>をしようと<ruby>思<rt>おも</rt></ruby>っていますか."
+      ]
+    },
+    {
+      "title": "I think I'll…: volitional + と<ruby>思<rt>おも</rt></ruby>います",
+      "pattern": "V-(よ)うと<ruby>思<rt>おも</rt></ruby>います",
+      "explanation": "A decision you make while speaking. Use it only for yourself.",
+      "examples": [
+        {
+          "japanese": "じゃあ、わたしも<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "Then I think I'll go too."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>くねようと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think I'll go to bed early tonight."
+        },
+        {
+          "japanese": "こんど、<ruby>世界<rt>せかい</rt></ruby>の<ruby>歌<rt>うた</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いてみようと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "Next time I think I'll try listening to songs from around the world."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>から<ruby>毎日<rt>まいにち</rt></ruby><ruby>運動<rt>うんどう</rt></ruby>しようと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "From tomorrow I think I'll exercise every day."
+        }
+      ],
+      "notes": [
+        "Compare plain form + と<ruby>思<rt>おも</rt></ruby>います (Unit 1): <ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>います means \"I think (someone) will go\"."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>世界中<rt>せかいじゅう</rt></ruby>を<ruby>旅行<rt>りょこう</rt></ruby>するのがゆめです。",
+      "My dream is to travel all over the world."
+    ],
+    [
+      "しょうらい、<ruby>何<rt>なに</rt></ruby>をしたいですか。",
+      "What do you want to do in the future?"
+    ],
+    [
+      "となりの<ruby>人<rt>ひと</rt></ruby>にねこの<ruby>世話<rt>せわ</rt></ruby>をたのみました。",
+      "I asked my neighbour to look after the cat."
+    ],
+    [
+      "<ruby>海<rt>うみ</rt></ruby>が<ruby>見<rt>み</rt></ruby>えるへやがいいです。",
+      "I'd like a room with a sea view."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "<ruby>夏休<rt>なつやす</rt></ruby>みはどうしますか。",
+      "アナ",
+      "<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。"
+    ],
+    [
+      "けん",
+      "しょうらいのゆめは<ruby>何<rt>なん</rt></ruby>ですか。",
+      "リン",
+      "<ruby>世界中<rt>せかいじゅう</rt></ruby>を<ruby>旅行<rt>りょこう</rt></ruby>することです。"
+    ],
+    [
+      "マイ",
+      "<ruby>来年<rt>らいねん</rt></ruby>、<ruby>海外<rt>かいがい</rt></ruby>でりゅうがくしようと<ruby>思<rt>おも</rt></ruby>っているんです。",
+      "ゆき",
+      "へえ、いいですね。どこへ<ruby>行<rt>い</rt></ruby>くんですか。"
+    ],
+    [
+      "リー",
+      "<ruby>明日<rt>あした</rt></ruby>のパーティー、みんな<ruby>行<rt>い</rt></ruby>くそうですよ。",
+      "アナ",
+      "じゃあ、わたしも<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "世",
+      "onyomi": [
+        "セイ",
+        "セ",
+        "ソウ"
+      ],
+      "kunyomi": [
+        "よ"
+      ],
+      "meaning_en": "world, generation",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "世界",
+          "reading": "せかい",
+          "en": "world"
+        },
+        {
+          "word": "世話",
+          "reading": "せわ",
+          "en": "care"
+        }
+      ],
+      "mnemonic": "Three tens (十) joined together: thirty years, a generation, the world."
+    },
+    {
+      "char": "界",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "boundary, world",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "世界",
+          "reading": "せかい",
+          "en": "world"
+        },
+        {
+          "word": "業界",
+          "reading": "ぎょうかい",
+          "en": "industry"
+        }
+      ],
+      "mnemonic": "A field (田) and the line (介) that divides it: a boundary."
+    },
+    {
+      "char": "海",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "うみ"
+      ],
+      "meaning_en": "sea",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "海",
+          "reading": "うみ",
+          "en": "sea"
+        },
+        {
+          "word": "海外",
+          "reading": "かいがい",
+          "en": "abroad"
+        }
+      ],
+      "mnemonic": "Water (氵) that every mother (毎) knows: the sea."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the volitional form of <ruby>飲<rt>の</rt></ruby>む?",
+      "options": [
+        "<ruby>飲<rt>の</rt></ruby>みよう",
+        "<ruby>飲<rt>の</rt></ruby>めよう",
+        "<ruby>飲<rt>の</rt></ruby>もう",
+        "<ruby>飲<rt>の</rt></ruby>むよう"
+      ],
+      "correct": "<ruby>飲<rt>の</rt></ruby>もう",
+      "explanation": "む → もう."
+    },
+    {
+      "prompt": "Complete: <ruby>来年<rt>らいねん</rt></ruby>、りゅうがくしよう＿＿<ruby>思<rt>おも</rt></ruby>っています。",
+      "options": [
+        "を",
+        "に",
+        "が",
+        "と"
+      ],
+      "correct": "と",
+      "explanation": "Volitional + と<ruby>思<rt>おも</rt></ruby>っています."
+    },
+    {
+      "prompt": "Complete: <ruby>兄<rt>あに</rt></ruby>は<ruby>会社<rt>かいしゃ</rt></ruby>をやめよう＿＿。 (is thinking of)",
+      "options": [
+        "と<ruby>思<rt>おも</rt></ruby>っています",
+        "と<ruby>思<rt>おも</rt></ruby>います",
+        "と<ruby>言<rt>い</rt></ruby>いましょう",
+        "つもりでした"
+      ],
+      "correct": "と<ruby>思<rt>おも</rt></ruby>っています",
+      "explanation": "For other people: と<ruby>思<rt>おも</rt></ruby>っています."
+    },
+    {
+      "prompt": "Which sentence is a decision made just now?",
+      "options": [
+        "<ruby>来年<rt>らいねん</rt></ruby>、<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。",
+        "じゃあ、わたしも<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>兄<rt>あに</rt></ruby>は<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。",
+        "<ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      "correct": "じゃあ、わたしも<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います。",
+      "explanation": "と<ruby>思<rt>おも</rt></ruby>います: deciding now."
+    },
+    {
+      "prompt": "Which word means \"abroad\"?",
+      "options": [
+        "<ruby>世界<rt>せかい</rt></ruby>",
+        "<ruby>海<rt>うみ</rt></ruby>",
+        "<ruby>海外<rt>かいがい</rt></ruby>",
+        "<ruby>世話<rt>せわ</rt></ruby>"
+      ],
+      "correct": "<ruby>海外<rt>かいがい</rt></ruby>",
+      "explanation": "<ruby>海外<rt>かいがい</rt></ruby>: overseas."
+    },
+    {
+      "prompt": "How is 世界⁠ read?",
+      "options": [
+        "せいかい",
+        "よかい",
+        "せけい",
+        "せかい"
+      ],
+      "correct": "せかい",
+      "explanation": "世界⁠ is read せかい."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>世界中<rt>せかいじゅう</rt></ruby>を<ruby>旅行<rt>りょこう</rt></ruby>するのがゆめです。",
+      "options": [
+        "My dream is to travel all over the world.",
+        "I dreamt about the world.",
+        "I travelled around the world.",
+        "Everyone in the world has a dream."
+      ],
+      "correct": "My dream is to travel all over the world.",
+      "explanation": "ゆめ: dream; <ruby>世界中<rt>せかいじゅう</rt></ruby>: all over the world."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What is the difference between <ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います and <ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>います?",
+      "options": [
+        "\"I think I'll go\" / \"I think (someone) will go\"",
+        "\"I went\" / \"I'll go\"",
+        "\"Let's go\" / \"I won't go\"",
+        "There is no difference."
+      ],
+      "correct": "\"I think I'll go\" / \"I think (someone) will go\"",
+      "explanation": "Volitional: my intention; plain: a guess."
+    },
+    {
+      "prompt": "You've been planning to move house for a while. What do you say?",
+      "options": [
+        "ひっこすと<ruby>思<rt>おも</rt></ruby>っています。",
+        "ひっこそうと<ruby>思<rt>おも</rt></ruby>っています。",
+        "ひっこしたと<ruby>思<rt>おも</rt></ruby>っています。",
+        "ひっこそうと<ruby>言<rt>い</rt></ruby>っています。"
+      ],
+      "correct": "ひっこそうと<ruby>思<rt>おも</rt></ruby>っています。",
+      "explanation": "A plan for a while: と<ruby>思<rt>おも</rt></ruby>っています."
+    },
+    {
+      "prompt": "What is the volitional form of やめる?",
+      "options": [
+        "やめろう",
+        "やもう",
+        "やめよう",
+        "やめこう"
+      ],
+      "correct": "やめよう",
+      "explanation": "Group 2: る → よう."
+    },
+    {
+      "prompt": "Read: となりの<ruby>人<rt>ひと</rt></ruby>にねこの<ruby>世話<rt>せわ</rt></ruby>をたのみました。 What did the speaker do?",
+      "options": [
+        "Looked after the neighbour's cat",
+        "Gave the cat to the neighbour",
+        "Bought a cat from the neighbour",
+        "Asked the neighbour to look after the cat"
+      ],
+      "correct": "Asked the neighbour to look after the cat",
+      "explanation": "<ruby>世話<rt>せわ</rt></ruby>をたのむ: ask someone to look after."
+    },
+    {
+      "prompt": "Review: complete にもつ、<ruby>持<rt>も</rt></ruby>＿＿か。 (shall I carry)",
+      "options": [
+        "とう",
+        "ちよう",
+        "てよう",
+        "つよう"
+      ],
+      "correct": "とう",
+      "explanation": "<ruby>持<rt>も</rt></ruby>つ → <ruby>持<rt>も</rt></ruby>とう."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-5-lets-go",
+    "japanese-n4-unit-1-i-think",
+    "japanese-n4-unit-4-if-its-kyoto"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

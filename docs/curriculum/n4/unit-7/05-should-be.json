@@ -1,0 +1,451 @@
+{
+  "id": "japanese-n4-unit-7-should-be",
+  "slug": "n4-unit-7-should-be",
+  "unit": "Japanese N4 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "It Should Be…",
+  "title_jp": "〜はずです",
+  "objectives": [
+    "I can say what should be true.",
+    "Say what you expect with はずです",
+    "Say something can't be true with はずがない",
+    "Talk about amounts, times and gathering"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>以上<rt>いじょう</rt></ruby>",
+      "",
+      "or more, over"
+    ],
+    [
+      "<ruby>以下<rt>いか</rt></ruby>",
+      "",
+      "or less, under"
+    ],
+    [
+      "<ruby>以前<rt>いぜん</rt></ruby>",
+      "",
+      "before, formerly"
+    ],
+    [
+      "<ruby>今度<rt>こんど</rt></ruby>",
+      "",
+      "next time, this time"
+    ],
+    [
+      "<ruby>一度<rt>いちど</rt></ruby>",
+      "",
+      "once"
+    ],
+    [
+      "〜<ruby>度<rt>ど</rt></ruby>",
+      "",
+      "… degrees"
+    ],
+    [
+      "<ruby>集<rt>あつ</rt></ruby>める",
+      "",
+      "to collect, to gather"
+    ],
+    [
+      "<ruby>集<rt>あつ</rt></ruby>まる",
+      "",
+      "to gather (intransitive)"
+    ],
+    [
+      "しめきり",
+      "",
+      "deadline"
+    ],
+    [
+      "とどく",
+      "",
+      "to arrive, to be delivered"
+    ],
+    [
+      "はず",
+      "",
+      "should (be), is expected to"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "以上",
+      "word_reading": "いじょう"
+    },
+    {
+      "word_japanese": "以下",
+      "word_reading": "いか"
+    },
+    {
+      "word_japanese": "以前",
+      "word_reading": "いぜん"
+    },
+    {
+      "word_japanese": "今度",
+      "word_reading": "こんど"
+    },
+    {
+      "word_japanese": "一度",
+      "word_reading": "いちど"
+    },
+    {
+      "word_japanese": "集める",
+      "word_reading": "あつめる"
+    },
+    {
+      "word_japanese": "集まる",
+      "word_reading": "あつまる"
+    }
+  ],
+  "concept": {
+    "title": "It should be…",
+    "text": "Plain form + はずです says what you expect to be true, from what you know:\n\nにもつは<ruby>明日<rt>あした</rt></ruby>とどくはずです。 The parcel should arrive tomorrow.\n\nな-adjectives keep な and nouns take の: しずかなはず, <ruby>休<rt>やす</rt></ruby>みのはず.\n\nはずがない says something cannot be true:\nそんなはずがありません。 That can't be right.\nリーさんがうそをつくはずがない。 Lee would never lie.",
+    "examples": [
+      "plain form + はずです (should be)",
+      "な-adj な / N の + はずです",
+      "〜はずがない (can't be)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Should be: はずです",
+      "pattern": "V / い-adj (plain) + はずです / な-adj な・N の + はずです",
+      "explanation": "はず is a strong expectation with a reason behind it: a timetable, something you were told, how things usually are.",
+      "examples": [
+        {
+          "japanese": "にもつは<ruby>明日<rt>あした</rt></ruby>とどくはずです。",
+          "romaji": "",
+          "meaning": "The parcel should arrive tomorrow."
+        },
+        {
+          "japanese": "かいぎは<ruby>三時<rt>さんじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わるはずです。",
+          "romaji": "",
+          "meaning": "The meeting should finish at three."
+        },
+        {
+          "japanese": "リーさんは<ruby>以前<rt>いぜん</rt></ruby><ruby>東京<rt>とうきょう</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいたので、<ruby>東京<rt>とうきょう</rt></ruby>にくわしいはずです。",
+          "romaji": "",
+          "meaning": "Lee used to live in Tokyo, so he should know it well."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>日曜日<rt>にちようび</rt></ruby>だから、<ruby>銀行<rt>ぎんこう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みのはずです。",
+          "romaji": "",
+          "meaning": "It's Sunday, so the bank should be closed."
+        },
+        {
+          "japanese": "あの<ruby>店<rt>みせ</rt></ruby>はしずかなはずです。",
+          "romaji": "",
+          "meaning": "That shop should be quiet."
+        }
+      ],
+      "notes": [
+        "はず is about what you expect, not your plan: for your own plan use つもり."
+      ]
+    },
+    {
+      "title": "Can't be: はずがない",
+      "pattern": "plain form + はずがない / はずがありません",
+      "explanation": "はずがない denies something strongly: you are sure it is not so.",
+      "examples": [
+        {
+          "japanese": "そんなはずがありません。",
+          "romaji": "",
+          "meaning": "That can't be right."
+        },
+        {
+          "japanese": "リーさんがうそをつくはずがない。",
+          "romaji": "",
+          "meaning": "Lee would never lie."
+        },
+        {
+          "japanese": "<ruby>一度<rt>いちど</rt></ruby>しか<ruby>会<rt>あ</rt></ruby>っていないから、わたしの<ruby>名前<rt>なまえ</rt></ruby>をおぼえているはずがない。",
+          "romaji": "",
+          "meaning": "We've met only once, so he can't remember my name."
+        },
+        {
+          "japanese": "こんなにかんたんなもんだいをまちがえるはずがないです。",
+          "romaji": "",
+          "meaning": "There's no way I'd get such an easy question wrong."
+        }
+      ],
+      "notes": [
+        "Also 〜ないはずです (should not): <ruby>今日<rt>きょう</rt></ruby>は<ruby>来<rt>こ</rt></ruby>ないはずです."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "このクラスには<ruby>学生<rt>がくせい</rt></ruby>が<ruby>二十人<rt>にじゅうにん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>います。",
+      "There are twenty or more students in this class."
+    ],
+    [
+      "きのうは<ruby>三十五度<rt>さんじゅうごど</rt></ruby>でした。",
+      "It was thirty-five degrees yesterday."
+    ],
+    [
+      "<ruby>今度<rt>こんど</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>、みんなで<ruby>集<rt>あつ</rt></ruby>まりましょう。",
+      "Let's all get together this Sunday."
+    ],
+    [
+      "<ruby>切手<rt>きって</rt></ruby>を<ruby>集<rt>あつ</rt></ruby>めるのがしゅみです。",
+      "Collecting stamps is my hobby."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "にもつはいつとどきますか。",
+      "けん",
+      "<ruby>明日<rt>あした</rt></ruby>とどくはずです。"
+    ],
+    [
+      "マイ",
+      "しめきりは<ruby>今日<rt>きょう</rt></ruby>ですか。",
+      "リー",
+      "いいえ、<ruby>金曜日<rt>きんようび</rt></ruby>のはずですよ。"
+    ],
+    [
+      "ゆき",
+      "リーさんがうそをついたってほんとう？",
+      "たなか",
+      "そんなはずがないよ。"
+    ],
+    [
+      "リン",
+      "<ruby>今度<rt>こんど</rt></ruby>、どこに<ruby>集<rt>あつ</rt></ruby>まりますか。",
+      "アナ",
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>集<rt>あつ</rt></ruby>まりましょう。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "以",
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [
+        "もっ.て"
+      ],
+      "meaning_en": "from, by means of",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "以上",
+          "reading": "いじょう",
+          "en": "or more"
+        },
+        {
+          "word": "以下",
+          "reading": "いか",
+          "en": "or less"
+        }
+      ],
+      "mnemonic": "A person (人) holding a plough: using it as the starting point."
+    },
+    {
+      "char": "度",
+      "onyomi": [
+        "ド",
+        "ト",
+        "タク"
+      ],
+      "kunyomi": [
+        "たび",
+        "-た.い"
+      ],
+      "meaning_en": "degree, times",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "今度",
+          "reading": "こんど",
+          "en": "next time"
+        },
+        {
+          "word": "一度",
+          "reading": "いちど",
+          "en": "once"
+        }
+      ],
+      "mnemonic": "A hand (又) measuring under a roof (广): degrees and times."
+    },
+    {
+      "char": "集",
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "あつ.まる",
+        "あつ.める",
+        "つど.う"
+      ],
+      "meaning_en": "gather",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "集める",
+          "reading": "あつめる",
+          "en": "to collect"
+        },
+        {
+          "word": "集まる",
+          "reading": "あつまる",
+          "en": "to gather"
+        }
+      ],
+      "mnemonic": "Birds (隹) gathering on a tree (木)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete ゆめ＿＿<ruby>話<rt>はなし</rt></ruby>ですね。",
+      "options": [
+        "みたいに",
+        "みたいな",
+        "のみたいな",
+        "みたいだ"
+      ],
+      "correct": "みたいな",
+      "explanation": "Before a noun: みたいな."
+    },
+    {
+      "prompt": "Complete: にもつは<ruby>明日<rt>あした</rt></ruby>とどく＿＿です。 (should)",
+      "options": [
+        "つもり",
+        "よう",
+        "はず",
+        "そう"
+      ],
+      "correct": "はず",
+      "explanation": "Expectation: はずです."
+    },
+    {
+      "prompt": "Complete: <ruby>銀行<rt>ぎんこう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>み＿＿はずです。",
+      "options": [
+        "な",
+        "だ",
+        "が",
+        "の"
+      ],
+      "correct": "の",
+      "explanation": "Noun + のはず."
+    },
+    {
+      "prompt": "Complete: そんな＿＿がありません。 (can't be)",
+      "options": [
+        "はず",
+        "つもり",
+        "よう",
+        "そう"
+      ],
+      "correct": "はず",
+      "explanation": "はずがない."
+    },
+    {
+      "prompt": "Which verb is intransitive?",
+      "options": [
+        "<ruby>集<rt>あつ</rt></ruby>める",
+        "<ruby>集<rt>あつ</rt></ruby>まる",
+        "とどける",
+        "しめる"
+      ],
+      "correct": "<ruby>集<rt>あつ</rt></ruby>まる",
+      "explanation": "<ruby>集<rt>あつ</rt></ruby>まる: people gather."
+    },
+    {
+      "prompt": "How is 以上⁠ read?",
+      "options": [
+        "いうえ",
+        "いしょう",
+        "いじょう",
+        "いじょ"
+      ],
+      "correct": "いじょう",
+      "explanation": "以上⁠ is read いじょう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>今度<rt>こんど</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>、みんなで<ruby>集<rt>あつ</rt></ruby>まりましょう。",
+      "options": [
+        "We all got together last Sunday.",
+        "Let's collect everything on Sunday.",
+        "Everyone gathers every Sunday.",
+        "Let's all get together this Sunday."
+      ],
+      "correct": "Let's all get together this Sunday.",
+      "explanation": "<ruby>今度<rt>こんど</rt></ruby>: this coming."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What is the difference between つもり and はず?",
+      "options": [
+        "つもり: what I expect / はず: my plan",
+        "Both mean \"want to\".",
+        "Both mean \"can\".",
+        "つもり: my plan / はず: what I expect"
+      ],
+      "correct": "つもり: my plan / はず: what I expect",
+      "explanation": "はず is an expectation."
+    },
+    {
+      "prompt": "A friend says Lee lied. You're sure he didn't. What do you say?",
+      "options": [
+        "そんなはずがないよ。",
+        "そんなはずだよ。",
+        "そんなつもりがないよ。",
+        "そうみたいだよ。"
+      ],
+      "correct": "そんなはずがないよ。",
+      "explanation": "はずがない: can't be."
+    },
+    {
+      "prompt": "Complete: しめきりは<ruby>金曜日<rt>きんようび</rt></ruby>＿＿はずです。",
+      "options": [
+        "な",
+        "の",
+        "だ",
+        "に"
+      ],
+      "correct": "の",
+      "explanation": "Noun + のはず."
+    },
+    {
+      "prompt": "Read: このクラスには<ruby>学生<rt>がくせい</rt></ruby>が<ruby>二十人<rt>にじゅうにん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>います。 How many students are there?",
+      "options": [
+        "Fewer than twenty",
+        "Exactly twenty",
+        "Twenty or more",
+        "About twelve"
+      ],
+      "correct": "Twenty or more",
+      "explanation": "<ruby>以上<rt>いじょう</rt></ruby>: or more."
+    },
+    {
+      "prompt": "Review: which is your own judgement from evidence?",
+      "options": [
+        "るすだそうです。",
+        "るすらしいです。",
+        "るすだと<ruby>言<rt>い</rt></ruby>っていました。",
+        "<ruby>電気<rt>でんき</rt></ruby>がきえています。るすのようです。"
+      ],
+      "correct": "<ruby>電気<rt>でんき</rt></ruby>がきえています。るすのようです。",
+      "explanation": "ようです: your own judgement."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-7-like-a",
+    "japanese-n4-unit-7-it-seems",
+    "japanese-n4-unit-5-i-intend-to"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

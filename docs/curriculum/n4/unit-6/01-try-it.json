@@ -1,0 +1,482 @@
+{
+  "id": "japanese-n4-unit-6-try-it",
+  "slug": "n4-unit-6-try-it",
+  "unit": "Japanese N4 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Try It On",
+  "title_jp": "〜て みる",
+  "objectives": [
+    "I can say I will try something.",
+    "Try something out with 〜てみる",
+    "Say you want to try with 〜てみたい",
+    "Talk about clothes, food and drink"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>着<rt>き</rt></ruby>る",
+      "",
+      "to wear, to put on (clothes on the upper body)"
+    ],
+    [
+      "<ruby>着<rt>つ</rt></ruby>く",
+      "",
+      "to arrive"
+    ],
+    [
+      "はく",
+      "",
+      "to wear, to put on (shoes, trousers, skirts)"
+    ],
+    [
+      "<ruby>試着<rt>しちゃく</rt></ruby>",
+      "",
+      "trying on (clothes)"
+    ],
+    [
+      "<ruby>肉<rt>にく</rt></ruby>",
+      "",
+      "meat"
+    ],
+    [
+      "お<ruby>茶<rt>ちゃ</rt></ruby>",
+      "",
+      "tea, green tea"
+    ],
+    [
+      "<ruby>茶色<rt>ちゃいろ</rt></ruby>",
+      "",
+      "brown"
+    ],
+    [
+      "ご<ruby>飯<rt>はん</rt></ruby>",
+      "",
+      "cooked rice, a meal"
+    ],
+    [
+      "<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>",
+      "",
+      "breakfast"
+    ],
+    [
+      "<ruby>着物<rt>きもの</rt></ruby>",
+      "",
+      "kimono"
+    ],
+    [
+      "にあう",
+      "",
+      "to suit, to look good on"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "着る",
+      "word_reading": "きる"
+    },
+    {
+      "word_japanese": "着く",
+      "word_reading": "つく"
+    },
+    {
+      "word_japanese": "試着",
+      "word_reading": "しちゃく"
+    },
+    {
+      "word_japanese": "肉",
+      "word_reading": "にく"
+    },
+    {
+      "word_japanese": "お茶",
+      "word_reading": "おちゃ"
+    },
+    {
+      "word_japanese": "茶色",
+      "word_reading": "ちゃいろ"
+    },
+    {
+      "word_japanese": "ご飯",
+      "word_reading": "ごはん"
+    },
+    {
+      "word_japanese": "朝ご飯",
+      "word_reading": "あさごはん"
+    },
+    {
+      "word_japanese": "着物",
+      "word_reading": "きもの"
+    }
+  ],
+  "concept": {
+    "title": "Try it and see",
+    "text": "〜てみる means \"do something to see what it is like\". It joins the て-form with みる, written in kana.\n\nこのシャツを<ruby>着<rt>き</rt></ruby>てみてもいいですか。 May I try this shirt on?\n<ruby>日本<rt>にほん</rt></ruby>のお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んでみました。 I tried Japanese tea.\n\nWith たい it says what you would like to try:\nいつか<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>てみたいです。 I'd like to try wearing a kimono some day.\n\nみる changes like any group 2 verb: 〜てみます, 〜てみた, 〜てみたい, 〜てみてください.",
+    "examples": [
+      "V-て みる (try and see)",
+      "V-て みたい (want to try)",
+      "V-て みてください (please try)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Try and see: 〜てみる",
+      "pattern": "V-て + みる",
+      "explanation": "You do something to find out what it is like. みる here is written in kana.",
+      "examples": [
+        {
+          "japanese": "このシャツを<ruby>着<rt>き</rt></ruby>てみてもいいですか。",
+          "romaji": "",
+          "meaning": "May I try this shirt on?"
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>のお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んでみました。おいしかったです。",
+          "romaji": "",
+          "meaning": "I tried Japanese tea. It was good."
+        },
+        {
+          "japanese": "このくつをはいてみてください。",
+          "romaji": "",
+          "meaning": "Please try these shoes on."
+        },
+        {
+          "japanese": "<ruby>分<rt>わ</rt></ruby>からないことばは、じしょでしらべてみます。",
+          "romaji": "",
+          "meaning": "I'll look up the words I don't know in the dictionary."
+        },
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>新<rt>あたら</rt></ruby>しい<ruby>店<rt>みせ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ってみましょう。",
+          "romaji": "",
+          "meaning": "Let's try the new shop in front of the station."
+        }
+      ],
+      "notes": [
+        "<ruby>見<rt>み</rt></ruby>る (to look) is written in kanji; 〜てみる (to try) in kana.",
+        "Try on clothes: <ruby>着<rt>き</rt></ruby>てみる (tops, dresses), はいてみる (shoes, trousers)."
+      ]
+    },
+    {
+      "title": "Want to try: 〜てみたい",
+      "pattern": "V-て + みたい",
+      "explanation": "Add たい to みる to say what you would like to try.",
+      "examples": [
+        {
+          "japanese": "いつか<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>てみたいです。",
+          "romaji": "",
+          "meaning": "I'd like to try wearing a kimono some day."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べてみたいです。",
+          "romaji": "",
+          "meaning": "I'd like to try a Japanese breakfast."
+        },
+        {
+          "japanese": "<ruby>海外<rt>かいがい</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いてみたいと<ruby>思<rt>おも</rt></ruby>っています。",
+          "romaji": "",
+          "meaning": "I'm thinking I'd like to try working abroad."
+        },
+        {
+          "japanese": "このゲーム、わたしもやってみたい。",
+          "romaji": "",
+          "meaning": "I want to try this game too."
+        }
+      ],
+      "notes": [
+        "いつか (some day) often goes with 〜てみたい."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby>、<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べます。",
+      "I eat breakfast every morning."
+    ],
+    [
+      "<ruby>肉<rt>にく</rt></ruby>より<ruby>魚<rt>さかな</rt></ruby>のほうがすきです。",
+      "I like fish more than meat."
+    ],
+    [
+      "<ruby>茶色<rt>ちゃいろ</rt></ruby>のかばんをさがしています。",
+      "I'm looking for a brown bag."
+    ],
+    [
+      "<ruby>何時<rt>なんじ</rt></ruby>に<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>きますか。",
+      "What time do we get to the station?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、これを<ruby>試着<rt>しちゃく</rt></ruby>してもいいですか。",
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "はい、どうぞ。<ruby>着<rt>き</rt></ruby>てみてください。"
+    ],
+    [
+      "リー",
+      "<ruby>日本<rt>にほん</rt></ruby>のお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んでみましたか。",
+      "マイ",
+      "はい、<ruby>少<rt>すこ</rt></ruby>しにがかったですが、おいしかったです。"
+    ],
+    [
+      "けん",
+      "そのセーター、よくにあっていますね。",
+      "ゆき",
+      "ありがとう。<ruby>先週<rt>せんしゅう</rt></ruby><ruby>買<rt>か</rt></ruby>ったんです。"
+    ],
+    [
+      "たなか",
+      "<ruby>何<rt>なに</rt></ruby>かやってみたいことがありますか。",
+      "リン",
+      "<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>てみたいです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "着",
+      "onyomi": [
+        "チャク",
+        "ジャク"
+      ],
+      "kunyomi": [
+        "き.る",
+        "き.せる",
+        "つ.く",
+        "つ.ける"
+      ],
+      "meaning_en": "wear, arrive",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "着る",
+          "reading": "きる",
+          "en": "to wear"
+        },
+        {
+          "word": "着く",
+          "reading": "つく",
+          "en": "to arrive"
+        }
+      ],
+      "mnemonic": "A sheep (羊) with its eye (目) on new clothes: wearing, and arriving dressed."
+    },
+    {
+      "char": "肉",
+      "onyomi": [
+        "ニク"
+      ],
+      "kunyomi": [
+        "しし"
+      ],
+      "meaning_en": "meat",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "肉",
+          "reading": "にく",
+          "en": "meat"
+        },
+        {
+          "word": "牛肉",
+          "reading": "ぎゅうにく",
+          "en": "beef"
+        }
+      ],
+      "mnemonic": "Cuts of meat hanging inside a frame."
+    },
+    {
+      "char": "茶",
+      "onyomi": [
+        "チャ",
+        "サ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "tea",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "お茶",
+          "reading": "おちゃ",
+          "en": "tea"
+        },
+        {
+          "word": "茶色",
+          "reading": "ちゃいろ",
+          "en": "brown"
+        }
+      ],
+      "mnemonic": "A plant (艹) a person (人) picks from a tree (木): tea."
+    },
+    {
+      "char": "飯",
+      "onyomi": [
+        "ハン"
+      ],
+      "kunyomi": [
+        "めし"
+      ],
+      "meaning_en": "meal, rice",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "ご飯",
+          "reading": "ごはん",
+          "en": "rice, meal"
+        },
+        {
+          "word": "朝ご飯",
+          "reading": "あさごはん",
+          "en": "breakfast"
+        }
+      ],
+      "mnemonic": "Food (食) you come back (反) to every day: a meal."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 5): complete ねる＿＿、はをみがきます。",
+      "options": [
+        "あとで",
+        "まえに",
+        "ために",
+        "のに"
+      ],
+      "correct": "まえに",
+      "explanation": "Before: V-る まえに."
+    },
+    {
+      "prompt": "Complete: このシャツを<ruby>着<rt>き</rt></ruby>て＿＿もいいですか。 (try on)",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>て",
+        "いて",
+        "みて",
+        "おいて"
+      ],
+      "correct": "みて",
+      "explanation": "Try: 〜てみる, in kana."
+    },
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>のお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んで＿＿。 (I tried it)",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>ました",
+        "いました",
+        "しまいました",
+        "みました"
+      ],
+      "correct": "みました",
+      "explanation": "〜てみました."
+    },
+    {
+      "prompt": "Complete: いつか<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>て＿＿です。 (want to try)",
+      "options": [
+        "みたい",
+        "<ruby>見<rt>み</rt></ruby>たい",
+        "ほしい",
+        "いたい"
+      ],
+      "correct": "みたい",
+      "explanation": "〜てみたい."
+    },
+    {
+      "prompt": "Which verb is used for shoes?",
+      "options": [
+        "<ruby>着<rt>き</rt></ruby>る",
+        "はく",
+        "かぶる",
+        "する"
+      ],
+      "correct": "はく",
+      "explanation": "Shoes and trousers: はく."
+    },
+    {
+      "prompt": "How is 茶色⁠ read?",
+      "options": [
+        "ちゃしょく",
+        "さいろ",
+        "ちゃいろ",
+        "ちゃいる"
+      ],
+      "correct": "ちゃいろ",
+      "explanation": "茶色⁠ is read ちゃいろ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>何時<rt>なんじ</rt></ruby>に<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>きますか。",
+      "options": [
+        "What time do we leave the station?",
+        "What should I wear to the station?",
+        "How long is it to the station?",
+        "What time do we get to the station?"
+      ],
+      "correct": "What time do we get to the station?",
+      "explanation": "<ruby>着<rt>つ</rt></ruby>く: to arrive."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "In a shop, you want to try on a jacket. What do you say?",
+      "options": [
+        "これ、<ruby>着<rt>き</rt></ruby>てもいいでしたか。",
+        "これ、<ruby>着<rt>き</rt></ruby>てしまいました。",
+        "これ、<ruby>見<rt>み</rt></ruby>てみたいです か。",
+        "これ、<ruby>着<rt>き</rt></ruby>てみてもいいですか。"
+      ],
+      "correct": "これ、<ruby>着<rt>き</rt></ruby>てみてもいいですか。",
+      "explanation": "〜てみてもいいですか."
+    },
+    {
+      "prompt": "Which sentence uses みる to mean \"try\"?",
+      "options": [
+        "このケーキを<ruby>食<rt>た</rt></ruby>べてみます。",
+        "テレビを<ruby>見<rt>み</rt></ruby>ます。",
+        "<ruby>山<rt>やま</rt></ruby>が<ruby>見<rt>み</rt></ruby>えます。",
+        "この<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>てください。"
+      ],
+      "correct": "このケーキを<ruby>食<rt>た</rt></ruby>べてみます。",
+      "explanation": "〜てみる (kana): try and see."
+    },
+    {
+      "prompt": "What does <ruby>茶色<rt>ちゃいろ</rt></ruby> mean?",
+      "options": [
+        "green",
+        "brown",
+        "tea-time",
+        "black"
+      ],
+      "correct": "brown",
+      "explanation": "<ruby>茶色<rt>ちゃいろ</rt></ruby>: brown."
+    },
+    {
+      "prompt": "Read: <ruby>少<rt>すこ</rt></ruby>しにがかったですが、おいしかったです。 How was the tea?",
+      "options": [
+        "Very sweet",
+        "Too bitter to drink",
+        "A little bitter but good",
+        "Cold"
+      ],
+      "correct": "A little bitter but good",
+      "explanation": "にがい: bitter."
+    },
+    {
+      "prompt": "Review (Unit 5): complete りゅうがくする＿＿、ちょきんしています。",
+      "options": [
+        "のに",
+        "まえに",
+        "あとで",
+        "ために"
+      ],
+      "correct": "ために",
+      "explanation": "Purpose: ために."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-5-before-and-after",
+    "japanese-n4-unit-5-in-order-to",
+    "japanese-n5-unit-3-food"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,452 @@
+{
+  "id": "japanese-n4-unit-3-i-can-sing",
+  "slug": "n4-unit-3-i-can-sing",
+  "unit": "Japanese N4 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "I Can Sing It",
+  "title_jp": "うたえる",
+  "objectives": [
+    "I can say what I can and cannot do with group 1 verbs.",
+    "Make the potential form of group 1 verbs",
+    "Use the potential in the negative and the past",
+    "Talk about music and karaoke"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>歌<rt>うた</rt></ruby>",
+      "uta",
+      "song"
+    ],
+    [
+      "<ruby>歌<rt>うた</rt></ruby>う",
+      "utau",
+      "to sing"
+    ],
+    [
+      "<ruby>音楽<rt>おんがく</rt></ruby>",
+      "ongaku",
+      "music"
+    ],
+    [
+      "<ruby>音<rt>おと</rt></ruby>",
+      "oto",
+      "sound"
+    ],
+    [
+      "<ruby>楽<rt>たの</rt></ruby>しい",
+      "tanoshii",
+      "fun, enjoyable"
+    ],
+    [
+      "<ruby>楽<rt>たの</rt></ruby>しみ",
+      "tanoshimi",
+      "something to look forward to"
+    ],
+    [
+      "ひく",
+      "hiku",
+      "to play (a string or keyboard instrument)"
+    ],
+    [
+      "ギター",
+      "gitaa",
+      "guitar"
+    ],
+    [
+      "カラオケ",
+      "karaoke",
+      "karaoke"
+    ],
+    [
+      "およぐ",
+      "oyogu",
+      "to swim"
+    ],
+    [
+      "<ruby>話<rt>はな</rt></ruby>せる",
+      "hanaseru",
+      "can speak"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "歌",
+      "word_reading": "うた"
+    },
+    {
+      "word_japanese": "歌う",
+      "word_reading": "うたう"
+    },
+    {
+      "word_japanese": "音楽",
+      "word_reading": "おんがく"
+    },
+    {
+      "word_japanese": "音",
+      "word_reading": "おと"
+    },
+    {
+      "word_japanese": "楽しい",
+      "word_reading": "たのしい"
+    },
+    {
+      "word_japanese": "楽しみ",
+      "word_reading": "たのしみ"
+    }
+  ],
+  "concept": {
+    "title": "Group 1 verbs: change the last sound",
+    "text": "For group 1 verbs, change the last sound from the う-row to the え-row and add る.\n\n<ruby>歌<rt>うた</rt></ruby>う → <ruby>歌<rt>うた</rt></ruby>える\n<ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>ける\n<ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>せる\n<ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>てる\n<ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>める\n\nThe new verb is a group 2 verb, so it changes like one:\n<ruby>歌<rt>うた</rt></ruby>えない (can't sing), <ruby>歌<rt>うた</rt></ruby>えた (could sing), <ruby>歌<rt>うた</rt></ruby>えなかった (couldn't sing).",
+    "examples": [
+      "う → える, く → ける, す → せる",
+      "つ → てる, む → める, ぐ → げる",
+      "V-える → V-えない / V-えた / V-えなかった"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Potential form: group 1 verbs",
+      "pattern": "V(う-row) → V(え-row) + る",
+      "explanation": "Change the final sound to the matching え-row sound and add る. <ruby>行<rt>い</rt></ruby>く becomes <ruby>行<rt>い</rt></ruby>ける.",
+      "examples": [
+        {
+          "japanese": "リンさんは<ruby>日本<rt>にほん</rt></ruby>の<ruby>歌<rt>うた</rt></ruby>が<ruby>歌<rt>うた</rt></ruby>えます。",
+          "romaji": "",
+          "meaning": "Lin can sing Japanese songs."
+        },
+        {
+          "japanese": "わたしはギターがひけます。",
+          "romaji": "",
+          "meaning": "I can play the guitar."
+        },
+        {
+          "japanese": "アナさんは<ruby>中国語<rt>ちゅうごくご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。",
+          "romaji": "",
+          "meaning": "Anna can speak Chinese too."
+        },
+        {
+          "japanese": "ここから<ruby>駅<rt>えき</rt></ruby>まであるいて<ruby>行<rt>い</rt></ruby>けますか。",
+          "romaji": "",
+          "meaning": "Can I walk to the station from here?"
+        },
+        {
+          "japanese": "このかんじが<ruby>読<rt>よ</rt></ruby>めますか。",
+          "romaji": "",
+          "meaning": "Can you read this kanji?"
+        }
+      ],
+      "notes": [
+        "<ruby>分<rt>わ</rt></ruby>かる has no potential form: it already means \"can understand\".",
+        "ある has none either: use こともある or another verb."
+      ]
+    },
+    {
+      "title": "Negative and past",
+      "pattern": "V-えない / V-えた / V-えなかった",
+      "explanation": "The potential form changes like a group 2 verb, so the negative and past are regular.",
+      "examples": [
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どものとき、およげませんでした。",
+          "romaji": "",
+          "meaning": "I couldn't swim when I was a child."
+        },
+        {
+          "japanese": "きのうはよくねられなかったんです。",
+          "romaji": "",
+          "meaning": "I couldn't sleep well last night."
+        },
+        {
+          "japanese": "やっと<ruby>先生<rt>せんせい</rt></ruby>と<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>せました。",
+          "romaji": "",
+          "meaning": "At last I was able to talk with my teacher in Japanese."
+        },
+        {
+          "japanese": "<ruby>音<rt>おと</rt></ruby>が<ruby>小<rt>ちい</rt></ruby>さくて、よく<ruby>聞<rt>き</rt></ruby>けません。",
+          "romaji": "",
+          "meaning": "The sound is quiet, so I can't hear it well."
+        }
+      ],
+      "notes": [
+        "<ruby>聞<rt>き</rt></ruby>こえる and <ruby>見<rt>み</rt></ruby>える mean something is heard or seen without trying; they come later.",
+        "The plain negative <ruby>歌<rt>うた</rt></ruby>えない is used before a noun: <ruby>歌<rt>うた</rt></ruby>えない<ruby>歌<rt>うた</rt></ruby> (a song I can't sing)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "カラオケは<ruby>楽<rt>たの</rt></ruby>しいですね。",
+      "Karaoke is fun, isn't it?"
+    ],
+    [
+      "どんな<ruby>音楽<rt>おんがく</rt></ruby>がすきですか。",
+      "What kind of music do you like?"
+    ],
+    [
+      "<ruby>来週<rt>らいしゅう</rt></ruby>のコンサートが<ruby>楽<rt>たの</rt></ruby>しみです。",
+      "I'm looking forward to next week's concert."
+    ],
+    [
+      "<ruby>外<rt>そと</rt></ruby>から<ruby>車<rt>くるま</rt></ruby>の<ruby>音<rt>おと</rt></ruby>が<ruby>聞<rt>き</rt></ruby>こえます。",
+      "I can hear cars outside."
+    ]
+  ],
+  "dialogue": [
+    [
+      "リン",
+      "カラオケで<ruby>何<rt>なに</rt></ruby>を<ruby>歌<rt>うた</rt></ruby>いますか。",
+      "けん",
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>歌<rt>うた</rt></ruby>を<ruby>歌<rt>うた</rt></ruby>いたいです。"
+    ],
+    [
+      "アナ",
+      "ギターがひけますか。",
+      "リー",
+      "<ruby>少<rt>すこ</rt></ruby>しひけます。"
+    ],
+    [
+      "ゆき",
+      "およげますか。",
+      "マイ",
+      "いいえ、およげないんです。"
+    ],
+    [
+      "たなか",
+      "<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>手紙<rt>てがみ</rt></ruby>が<ruby>書<rt>か</rt></ruby>けますか。",
+      "リン",
+      "はい、かんたんな<ruby>手紙<rt>てがみ</rt></ruby>なら<ruby>書<rt>か</rt></ruby>けます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "歌",
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [
+        "うた",
+        "うた.う"
+      ],
+      "meaning_en": "song, sing",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "歌",
+          "reading": "うた",
+          "en": "song"
+        },
+        {
+          "word": "歌う",
+          "reading": "うたう",
+          "en": "to sing"
+        }
+      ],
+      "mnemonic": "Two voices (可可) with a wide-open mouth (欠): singing."
+    },
+    {
+      "char": "音",
+      "onyomi": [
+        "オン",
+        "イン",
+        "-ノン"
+      ],
+      "kunyomi": [
+        "おと",
+        "ね"
+      ],
+      "meaning_en": "sound",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "音",
+          "reading": "おと",
+          "en": "sound"
+        },
+        {
+          "word": "音楽",
+          "reading": "おんがく",
+          "en": "music"
+        }
+      ],
+      "mnemonic": "Someone standing (立) with words coming out (日): a sound."
+    },
+    {
+      "char": "楽",
+      "onyomi": [
+        "ガク",
+        "ラク",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "たの.しい",
+        "たの.しむ",
+        "この.む"
+      ],
+      "meaning_en": "fun, music",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "楽しい",
+          "reading": "たのしい",
+          "en": "fun"
+        },
+        {
+          "word": "音楽",
+          "reading": "おんがく",
+          "en": "music"
+        }
+      ],
+      "mnemonic": "Bells and drums hung on a wooden (木) stand: music, and the fun it brings."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the potential form of <ruby>見<rt>み</rt></ruby>る?",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>える",
+        "<ruby>見<rt>み</rt></ruby>せる",
+        "<ruby>見<rt>み</rt></ruby>られる",
+        "<ruby>見<rt>み</rt></ruby>らる"
+      ],
+      "correct": "<ruby>見<rt>み</rt></ruby>られる",
+      "explanation": "Group 2: る → られる."
+    },
+    {
+      "prompt": "What is the potential form of <ruby>書<rt>か</rt></ruby>く?",
+      "options": [
+        "<ruby>書<rt>か</rt></ruby>かれる",
+        "<ruby>書<rt>か</rt></ruby>きれる",
+        "<ruby>書<rt>か</rt></ruby>けられる",
+        "<ruby>書<rt>か</rt></ruby>ける"
+      ],
+      "correct": "<ruby>書<rt>か</rt></ruby>ける",
+      "explanation": "く → ける."
+    },
+    {
+      "prompt": "What is the potential form of <ruby>話<rt>はな</rt></ruby>す?",
+      "options": [
+        "<ruby>話<rt>はな</rt></ruby>せる",
+        "<ruby>話<rt>はな</rt></ruby>される",
+        "<ruby>話<rt>はな</rt></ruby>しれる",
+        "<ruby>話<rt>はな</rt></ruby>せられる"
+      ],
+      "correct": "<ruby>話<rt>はな</rt></ruby>せる",
+      "explanation": "す → せる."
+    },
+    {
+      "prompt": "What is the potential form of <ruby>待<rt>ま</rt></ruby>つ?",
+      "options": [
+        "<ruby>待<rt>ま</rt></ruby>たれる",
+        "<ruby>待<rt>ま</rt></ruby>てる",
+        "<ruby>待<rt>ま</rt></ruby>ちれる",
+        "<ruby>待<rt>ま</rt></ruby>つれる"
+      ],
+      "correct": "<ruby>待<rt>ま</rt></ruby>てる",
+      "explanation": "つ → てる."
+    },
+    {
+      "prompt": "Complete: <ruby>子<rt>こ</rt></ruby>どものとき、およげ＿＿。 (couldn't swim)",
+      "options": [
+        "ます",
+        "ません",
+        "ませんでした",
+        "ました"
+      ],
+      "correct": "ませんでした",
+      "explanation": "Past negative: およげませんでした."
+    },
+    {
+      "prompt": "How is 音楽⁠ read?",
+      "options": [
+        "おとがく",
+        "おんらく",
+        "おとたの",
+        "おんがく"
+      ],
+      "correct": "おんがく",
+      "explanation": "音楽⁠ is read おんがく."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>来週<rt>らいしゅう</rt></ruby>のコンサートが<ruby>楽<rt>たの</rt></ruby>しみです。",
+      "options": [
+        "I'm looking forward to next week's concert.",
+        "Next week's concert was fun.",
+        "I enjoyed the concert last week.",
+        "The concert next week is cheap."
+      ],
+      "correct": "I'm looking forward to next week's concert.",
+      "explanation": "<ruby>楽<rt>たの</rt></ruby>しみ: something to look forward to."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which verb has no potential form because it already means \"can understand\"?",
+      "options": [
+        "<ruby>分<rt>わ</rt></ruby>かる",
+        "<ruby>読<rt>よ</rt></ruby>む",
+        "<ruby>書<rt>か</rt></ruby>く",
+        "<ruby>話<rt>はな</rt></ruby>す"
+      ],
+      "correct": "<ruby>分<rt>わ</rt></ruby>かる",
+      "explanation": "<ruby>分<rt>わ</rt></ruby>かる needs no potential form."
+    },
+    {
+      "prompt": "Choose: \"At last I was able to talk in Japanese.\"",
+      "options": [
+        "やっと<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>しました。",
+        "やっと<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>せました。",
+        "やっと<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>せません。",
+        "やっと<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>されました。"
+      ],
+      "correct": "やっと<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>せました。",
+      "explanation": "Could talk: <ruby>話<rt>はな</rt></ruby>せました."
+    },
+    {
+      "prompt": "What is the potential form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>かれる",
+        "<ruby>行<rt>い</rt></ruby>きれる",
+        "<ruby>行<rt>い</rt></ruby>ける",
+        "<ruby>行<rt>い</rt></ruby>けられる"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>ける",
+      "explanation": "く → ける, as for every group 1 verb."
+    },
+    {
+      "prompt": "Read: <ruby>音<rt>おと</rt></ruby>が<ruby>小<rt>ちい</rt></ruby>さくて、よく<ruby>聞<rt>き</rt></ruby>けません。 What is the problem?",
+      "options": [
+        "The sound is too loud.",
+        "The speaker can't play music.",
+        "The room is too small.",
+        "The sound is too quiet to hear."
+      ],
+      "correct": "The sound is too quiet to hear.",
+      "explanation": "<ruby>小<rt>ちい</rt></ruby>さい<ruby>音<rt>おと</rt></ruby>: a quiet sound."
+    },
+    {
+      "prompt": "Review (Unit 2): complete <ruby>友<rt>とも</rt></ruby>だちにギターを<ruby>教<rt>おし</rt></ruby>えて＿＿。 (my friend taught me)",
+      "options": [
+        "もらいました",
+        "あげました",
+        "くれませんか",
+        "ください"
+      ],
+      "correct": "もらいました",
+      "explanation": "Helper に + てもらう."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-3-i-can-drive",
+    "japanese-n4-unit-2-doing-favours",
+    "japanese-n5-unit-8-can-and-cannot"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

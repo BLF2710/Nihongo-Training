@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import LearningOverview from "../components/LearningOverview";
 import { apiErrorMessage, isUnauthorized } from "../api/errors";
 import { fetchStatistics as loadStatistics } from "../api/statistics";
 import type { StatisticsResponse } from "../api/statistics";
@@ -151,6 +152,8 @@ export default function StatisticsPage() {
               {/* ============================================= */}
               {langTab === "japanese" && (
                 <>
+                  <LearningOverview />
+                  <h2 className="mb-4 text-2xl font-black text-gray-900">Kana quizzes</h2>
                   {/* Overall Summary Cards */}
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
                     <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">

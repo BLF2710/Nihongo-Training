@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n4-unit-3-review",
+  "slug": "n4-unit-3-review",
+  "unit": "Japanese N4 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 3 Review",
+  "title_jp": "ユニット3のふくしゅう",
+  "objectives": [
+    "I can talk about what I can do and how things have changed.",
+    "Use the potential form of every verb group",
+    "Describe changes with ようになる and なくなる",
+    "Give reasons with し and say how things look with そう",
+    "Read a short blog post about a year in Japan"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>運転<rt>うんてん</rt></ruby>",
+      "unten",
+      "driving (+ する: to drive)"
+    ],
+    [
+      "できる",
+      "dekiru",
+      "can do, to be able to"
+    ],
+    [
+      "<ruby>来<rt>こ</rt></ruby>られる",
+      "korareru",
+      "can come"
+    ],
+    [
+      "<ruby>歌<rt>うた</rt></ruby>う",
+      "utau",
+      "to sing"
+    ],
+    [
+      "<ruby>音楽<rt>おんがく</rt></ruby>",
+      "ongaku",
+      "music"
+    ],
+    [
+      "<ruby>楽<rt>たの</rt></ruby>しい",
+      "tanoshii",
+      "fun, enjoyable"
+    ],
+    [
+      "<ruby>始<rt>はじ</rt></ruby>まる",
+      "hajimaru",
+      "to begin (intransitive)"
+    ],
+    [
+      "<ruby>終<rt>お</rt></ruby>わる",
+      "owaru",
+      "to end, to finish"
+    ],
+    [
+      "<ruby>去年<rt>きょねん</rt></ruby>",
+      "kyonen",
+      "last year"
+    ],
+    [
+      "<ruby>住<rt>す</rt></ruby>む",
+      "sumu",
+      "to live (somewhere)"
+    ],
+    [
+      "<ruby>近<rt>ちか</rt></ruby>い",
+      "chikai",
+      "near, close"
+    ],
+    [
+      "<ruby>味<rt>あじ</rt></ruby>",
+      "aji",
+      "taste, flavour"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Can, changes, reasons and looks",
+    "text": "Potential form:\ngroup 2: <ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べられる\ngroup 1: <ruby>歌<rt>うた</rt></ruby>う → <ruby>歌<rt>うた</rt></ruby>える, <ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>ける\nirregular: する → できる, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる\n\nChanges: V-るようになる (now I do / can), V-なくなる (not any more).\n\nReasons: plain form + し、〜し; それに adds a point.\n\nLooks: おいしそう, よさそう; about to: ふりそう.",
+    "examples": [
+      "V-(ら)れる / V-える",
+      "V-るようになる / V-なくなる",
+      "〜し、〜し / adjective stem + そう"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>手紙<rt>てがみ</rt></ruby>が<ruby>書<rt>か</rt></ruby>けるようになりました。",
+      "I've become able to write letters in Japanese."
+    ],
+    [
+      "わたしは<ruby>車<rt>くるま</rt></ruby>の<ruby>運転<rt>うんてん</rt></ruby>ができません。",
+      "I can't drive a car."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>いし、しずかだし、いいへやです。",
+      "It's near the station and quiet: a nice flat."
+    ],
+    [
+      "このラーメン、おいしそうですね。",
+      "This ramen looks good, doesn't it?"
+    ],
+    [
+      "コンサートは<ruby>七時<rt>しちじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まって、<ruby>九時<rt>くじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わります。",
+      "The concert starts at seven and finishes at nine."
+    ],
+    [
+      "<ruby>去年<rt>きょねん</rt></ruby>から<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>習<rt>なら</rt></ruby>っています。",
+      "I've been learning music since last year."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "にちようびのカラオケ、<ruby>来<rt>こ</rt></ruby>られますか。",
+      "リー",
+      "はい、<ruby>行<rt>い</rt></ruby>けます。<ruby>楽<rt>たの</rt></ruby>しみです。"
+    ],
+    [
+      "けん",
+      "どこに<ruby>住<rt>す</rt></ruby>んでいますか。",
+      "マイ",
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くです。べんりだし、しずかです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>日本語<rt>にほんご</rt></ruby>がとても<ruby>上手<rt>じょうず</rt></ruby>になりましたね。",
+      "リン",
+      "ありがとう。テレビが<ruby>分<rt>わ</rt></ruby>かるようになりました。"
+    ],
+    [
+      "たなか",
+      "このケーキ、どんな<ruby>味<rt>あじ</rt></ruby>ですか。",
+      "アナ",
+      "あまくて、おいしいですよ。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Blog post",
+    "text_jp": "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て、もうすぐ<ruby>一年<rt>いちねん</rt></ruby>です。<ruby>去年<rt>きょねん</rt></ruby>の<ruby>今<rt>いま</rt></ruby>ごろは、<ruby>日本語<rt>にほんご</rt></ruby>がぜんぜん<ruby>話<rt>はな</rt></ruby>せませんでした。<ruby>今<rt>いま</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>話<rt>はな</rt></ruby>せるようになりました。はしもつかえるようになりましたし、なっとうも<ruby>食<rt>た</rt></ruby>べられるようになりました。わたしのへやは<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>いし、しずかだし、とても<ruby>住<rt>す</rt></ruby>みやすいです。でも、まだ<ruby>車<rt>くるま</rt></ruby>の<ruby>運転<rt>うんてん</rt></ruby>はできません。<ruby>来年<rt>らいねん</rt></ruby>はめんきょをとりたいです。にちようびは<ruby>友<rt>とも</rt></ruby>だちとカラオケに<ruby>行<rt>い</rt></ruby>きます。<ruby>日本<rt>にほん</rt></ruby>の<ruby>歌<rt>うた</rt></ruby>を<ruby>歌<rt>うた</rt></ruby>うのが<ruby>楽<rt>たの</rt></ruby>しみです。",
+    "en_translation": "It will soon be a year since I came to Japan. This time last year I couldn't speak Japanese at all. Now I've become able to speak little by little. I can use chopsticks now, and I can even eat natto. My flat is near the station and quiet, so it's very easy to live in. But I still can't drive. Next year I want to get a licence. On Sunday I'm going to karaoke with friends. I'm looking forward to singing Japanese songs.",
+    "questions": [
+      {
+        "prompt": "What could the writer not do a year ago?",
+        "options": [
+          "Use the train",
+          "Speak Japanese",
+          "Find a flat",
+          "Sing"
+        ],
+        "correct": "Speak Japanese",
+        "explanation": "<ruby>去年<rt>きょねん</rt></ruby>の<ruby>今<rt>いま</rt></ruby>ごろは、<ruby>日本語<rt>にほんご</rt></ruby>がぜんぜん<ruby>話<rt>はな</rt></ruby>せませんでした。"
+      },
+      {
+        "prompt": "Why is the writer's flat easy to live in?",
+        "options": [
+          "It is big and cheap.",
+          "It is new and bright.",
+          "It is near the station and quiet.",
+          "It has a car park."
+        ],
+        "correct": "It is near the station and quiet.",
+        "explanation": "<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>いし、しずかだし."
+      },
+      {
+        "prompt": "What does the writer want to do next year?",
+        "options": [
+          "Learn the guitar",
+          "Move flats",
+          "Go home",
+          "Get a driving licence"
+        ],
+        "correct": "Get a driving licence",
+        "explanation": "<ruby>来年<rt>らいねん</rt></ruby>はめんきょをとりたいです。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "What is the potential form of <ruby>歌<rt>うた</rt></ruby>う?",
+      "options": [
+        "<ruby>歌<rt>うた</rt></ruby>われる",
+        "<ruby>歌<rt>うた</rt></ruby>いれる",
+        "<ruby>歌<rt>うた</rt></ruby>える",
+        "<ruby>歌<rt>うた</rt></ruby>えられる"
+      ],
+      "correct": "<ruby>歌<rt>うた</rt></ruby>える",
+      "explanation": "う → える."
+    },
+    {
+      "prompt": "What is the potential form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>き</rt></ruby>られる",
+        "<ruby>来<rt>く</rt></ruby>れる",
+        "<ruby>来<rt>く</rt></ruby>られる",
+        "<ruby>来<rt>こ</rt></ruby>られる"
+      ],
+      "correct": "<ruby>来<rt>こ</rt></ruby>られる",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる."
+    },
+    {
+      "prompt": "Complete: <ruby>車<rt>くるま</rt></ruby>の<ruby>運転<rt>うんてん</rt></ruby>＿＿できます。",
+      "options": [
+        "が",
+        "を",
+        "に",
+        "で"
+      ],
+      "correct": "が",
+      "explanation": "N ができる."
+    },
+    {
+      "prompt": "Complete: テレビが<ruby>分<rt>わ</rt></ruby>かる＿＿なりました。",
+      "options": [
+        "そうに",
+        "ように",
+        "ために",
+        "ことに"
+      ],
+      "correct": "ように",
+      "explanation": "A change: ようになる."
+    },
+    {
+      "prompt": "Complete: さいきん、テレビを<ruby>見<rt>み</rt></ruby>＿＿なりました。 (I no longer watch)",
+      "options": [
+        "ない",
+        "ないで",
+        "なく",
+        "なくて"
+      ],
+      "correct": "なく",
+      "explanation": "No longer: なくなる."
+    },
+    {
+      "prompt": "Complete: <ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>い＿＿、しずかだし、いいへやです。",
+      "options": [
+        "から",
+        "て",
+        "が",
+        "し"
+      ],
+      "correct": "し",
+      "explanation": "〜し、〜し."
+    },
+    {
+      "prompt": "Complete: このケーキはおいし＿＿ですね。 (looks)",
+      "options": [
+        "そう",
+        "よう",
+        "らしい",
+        "の"
+      ],
+      "correct": "そう",
+      "explanation": "Looks: stem + そう."
+    },
+    {
+      "prompt": "Which verb is intransitive?",
+      "options": [
+        "<ruby>始<rt>はじ</rt></ruby>める",
+        "<ruby>終<rt>お</rt></ruby>わる",
+        "<ruby>教<rt>おし</rt></ruby>える",
+        "<ruby>住<rt>す</rt></ruby>む"
+      ],
+      "correct": "<ruby>終<rt>お</rt></ruby>わる",
+      "explanation": "<ruby>終<rt>お</rt></ruby>わる: something ends."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read: <ruby>今<rt>いま</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>話<rt>はな</rt></ruby>せるようになりました。 What does the writer mean?",
+      "options": [
+        "Little by little they have become able to speak.",
+        "They speak a little every day.",
+        "They have stopped speaking.",
+        "They will start speaking soon."
+      ],
+      "correct": "Little by little they have become able to speak.",
+      "explanation": "<ruby>話<rt>はな</rt></ruby>せるようになった: became able to speak."
+    },
+    {
+      "prompt": "What is \"looks good\" from いい?",
+      "options": [
+        "いいそう",
+        "よさそう",
+        "よいそう",
+        "よそう"
+      ],
+      "correct": "よさそう",
+      "explanation": "いい → よさそう."
+    },
+    {
+      "prompt": "You can't come to class tomorrow. What do you tell the teacher?",
+      "options": [
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>ません。",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>れられません。",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られません。",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>き</rt></ruby>られません。"
+      ],
+      "correct": "<ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>られません。",
+      "explanation": "<ruby>来<rt>こ</rt></ruby>られません."
+    },
+    {
+      "prompt": "Which sentence means \"It looks like it's going to rain\"?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>がふるそうです。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふったそうです。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふりたいです。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふりそうです。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>がふりそうです。",
+      "explanation": "About to: V-stem + そう."
+    },
+    {
+      "prompt": "Review (Unit 2): complete <ruby>母<rt>はは</rt></ruby>が<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>って＿＿。 (for me)",
+      "options": [
+        "くれました",
+        "あげました",
+        "もらいました",
+        "ください"
+      ],
+      "correct": "くれました",
+      "explanation": "Toward me: てくれる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-3-i-can-drive",
+    "japanese-n4-unit-3-i-can-sing",
+    "japanese-n4-unit-3-now-i-can",
+    "japanese-n4-unit-3-and-also",
+    "japanese-n4-unit-3-looks-tasty",
+    "japanese-n4-unit-2-they-gave-me"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

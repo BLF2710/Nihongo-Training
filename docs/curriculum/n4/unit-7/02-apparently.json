@@ -1,0 +1,450 @@
+{
+  "id": "japanese-n4-unit-7-apparently",
+  "slug": "n4-unit-7-apparently",
+  "unit": "Japanese N4 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Apparently…",
+  "title_jp": "〜らしい",
+  "objectives": [
+    "I can say what seems to be the case from what I heard.",
+    "Say \"apparently\" with plain form + らしい",
+    "Say \"typical of\" with N らしい",
+    "Talk about famous places and freedom"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>自分<rt>じぶん</rt></ruby>",
+      "",
+      "oneself"
+    ],
+    [
+      "<ruby>自転車<rt>じてんしゃ</rt></ruby>",
+      "",
+      "bicycle"
+    ],
+    [
+      "じゆう",
+      "",
+      "freedom, free"
+    ],
+    [
+      "<ruby>主人<rt>しゅじん</rt></ruby>",
+      "",
+      "(my) husband, master"
+    ],
+    [
+      "<ruby>主<rt>おも</rt></ruby>な",
+      "",
+      "main, chief"
+    ],
+    [
+      "<ruby>有名<rt>ゆうめい</rt></ruby>",
+      "",
+      "famous"
+    ],
+    [
+      "ほんとう",
+      "",
+      "true, real"
+    ],
+    [
+      "けっこんしき",
+      "",
+      "wedding"
+    ],
+    [
+      "〜らしい",
+      "",
+      "apparently; typical of"
+    ],
+    [
+      "おまつり",
+      "",
+      "festival"
+    ],
+    [
+      "<ruby>人気<rt>にんき</rt></ruby>",
+      "",
+      "popularity"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "自分",
+      "word_reading": "じぶん"
+    },
+    {
+      "word_japanese": "自転車",
+      "word_reading": "じてんしゃ"
+    },
+    {
+      "word_japanese": "主人",
+      "word_reading": "しゅじん"
+    },
+    {
+      "word_japanese": "主な",
+      "word_reading": "おもな"
+    },
+    {
+      "word_japanese": "有名",
+      "word_reading": "ゆうめい"
+    },
+    {
+      "word_japanese": "人気",
+      "word_reading": "にんき"
+    }
+  ],
+  "concept": {
+    "title": "Apparently… / Just like a…",
+    "text": "Plain form + らしい says something seems true, based on what you heard or saw. It is less direct than そうです:\n\nあのレストランは<ruby>人気<rt>にんき</rt></ruby>があるらしいです。 That restaurant is apparently popular.\n\nな-adjectives and nouns join directly: しずからしい, <ruby>学生<rt>がくせい</rt></ruby>らしい.\n\nAfter a noun, らしい can also mean \"typical of\", \"true to type\":\n<ruby>今日<rt>きょう</rt></ruby>は<ruby>春<rt>はる</rt></ruby>らしい<ruby>天気<rt>てんき</rt></ruby>ですね。 It's real spring weather today.\n\nThis らしい is an い-adjective: <ruby>春<rt>はる</rt></ruby>らしい<ruby>天気<rt>てんき</rt></ruby>, <ruby>男<rt>おとこ</rt></ruby>らしくない.",
+    "examples": [
+      "plain form + らしい (apparently)",
+      "な-adj / N + らしい (no だ)",
+      "N らしい N (typical of)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Apparently: plain form + らしい",
+      "pattern": "V / い-adj (plain) + らしい / な-adj・N + らしい",
+      "explanation": "らしい is a conclusion drawn from what you heard or saw. It sounds a little less sure than そうです.",
+      "examples": [
+        {
+          "japanese": "あのレストランは<ruby>人気<rt>にんき</rt></ruby>があるらしいです。",
+          "romaji": "",
+          "meaning": "That restaurant is apparently popular."
+        },
+        {
+          "japanese": "リーさんは<ruby>自転車<rt>じてんしゃ</rt></ruby>で<ruby>日本中<rt>にほんじゅう</rt></ruby>を<ruby>旅行<rt>りょこう</rt></ruby>したらしいです。",
+          "romaji": "",
+          "meaning": "Apparently Lee travelled all over Japan by bicycle."
+        },
+        {
+          "japanese": "<ruby>来週<rt>らいしゅう</rt></ruby>、まちでおまつりがあるらしいよ。",
+          "romaji": "",
+          "meaning": "There's apparently a festival in town next week."
+        },
+        {
+          "japanese": "となりの<ruby>人<rt>ひと</rt></ruby>は<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>歌手<rt>かしゅ</rt></ruby>らしいです。",
+          "romaji": "",
+          "meaning": "My neighbour is apparently a famous singer."
+        },
+        {
+          "japanese": "この<ruby>試験<rt>しけん</rt></ruby>はむずかしいらしいです。",
+          "romaji": "",
+          "meaning": "This exam is apparently hard."
+        }
+      ],
+      "notes": [
+        "Nouns and な-adjectives take らしい directly: <ruby>歌手<rt>かしゅ</rt></ruby>らしい, not <ruby>歌手<rt>かしゅ</rt></ruby>だらしい."
+      ]
+    },
+    {
+      "title": "Typical of: N らしい",
+      "pattern": "N + らしい + N",
+      "explanation": "N らしい describes something with the qualities you expect from N.",
+      "examples": [
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>春<rt>はる</rt></ruby>らしい<ruby>天気<rt>てんき</rt></ruby>ですね。",
+          "romaji": "",
+          "meaning": "It's real spring weather today."
+        },
+        {
+          "japanese": "それはリーさんらしい<ruby>考<rt>かんが</rt></ruby>えですね。",
+          "romaji": "",
+          "meaning": "That's just like Lee's way of thinking."
+        },
+        {
+          "japanese": "もっと<ruby>自分<rt>じぶん</rt></ruby>らしく<ruby>生<rt>い</rt></ruby>きたいです。",
+          "romaji": "",
+          "meaning": "I want to live more like myself."
+        },
+        {
+          "japanese": "<ruby>京都<rt>きょうと</rt></ruby>らしいおてらを<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。",
+          "romaji": "",
+          "meaning": "I went to see a temple that is typical of Kyoto."
+        }
+      ],
+      "notes": [
+        "Out of context, <ruby>学生<rt>がくせい</rt></ruby>らしい can mean either \"apparently a student\" or \"student-like\"."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>自分<rt>じぶん</rt></ruby>のことは<ruby>自分<rt>じぶん</rt></ruby>でします。",
+      "I do my own things myself."
+    ],
+    [
+      "<ruby>日曜日<rt>にちようび</rt></ruby>はじゆうな<ruby>時間<rt>じかん</rt></ruby>がたくさんあります。",
+      "I have lots of free time on Sundays."
+    ],
+    [
+      "<ruby>主人<rt>しゅじん</rt></ruby>は<ruby>銀行<rt>ぎんこう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いています。",
+      "My husband works at a bank."
+    ],
+    [
+      "<ruby>京都<rt>きょうと</rt></ruby>はおてらで<ruby>有名<rt>ゆうめい</rt></ruby>です。",
+      "Kyoto is famous for its temples."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "あのレストラン、いつも<ruby>人<rt>ひと</rt></ruby>がたくさんいますね。",
+      "けん",
+      "<ruby>人気<rt>にんき</rt></ruby>があるらしいですよ。"
+    ],
+    [
+      "リー",
+      "マイさんのけっこんしきはいつですか。",
+      "ゆき",
+      "<ruby>来年<rt>らいねん</rt></ruby>の<ruby>春<rt>はる</rt></ruby>らしいです。"
+    ],
+    [
+      "たなか",
+      "<ruby>今日<rt>きょう</rt></ruby>はあたたかいですね。",
+      "リン",
+      "ほんとうに<ruby>春<rt>はる</rt></ruby>らしい<ruby>天気<rt>てんき</rt></ruby>ですね。"
+    ],
+    [
+      "マイ",
+      "<ruby>駅<rt>えき</rt></ruby>まで<ruby>何<rt>なに</rt></ruby>で<ruby>行<rt>い</rt></ruby>きますか。",
+      "アナ",
+      "<ruby>自転車<rt>じてんしゃ</rt></ruby>で<ruby>行<rt>い</rt></ruby>きます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "自",
+      "onyomi": [
+        "ジ",
+        "シ"
+      ],
+      "kunyomi": [
+        "みずか.ら",
+        "おの.ずから",
+        "おの.ずと"
+      ],
+      "meaning_en": "self",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "自分",
+          "reading": "じぶん",
+          "en": "oneself"
+        },
+        {
+          "word": "自転車",
+          "reading": "じてんしゃ",
+          "en": "bicycle"
+        }
+      ],
+      "mnemonic": "A nose: in Japan you point to your nose for \"me\"."
+    },
+    {
+      "char": "主",
+      "onyomi": [
+        "シュ",
+        "ス",
+        "シュウ"
+      ],
+      "kunyomi": [
+        "ぬし",
+        "おも",
+        "あるじ"
+      ],
+      "meaning_en": "master, main",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "主人",
+          "reading": "しゅじん",
+          "en": "husband, master"
+        },
+        {
+          "word": "主な",
+          "reading": "おもな",
+          "en": "main"
+        }
+      ],
+      "mnemonic": "A lamp with its flame on top: the one in charge."
+    },
+    {
+      "char": "有",
+      "onyomi": [
+        "ユウ",
+        "ウ"
+      ],
+      "kunyomi": [
+        "あ.る"
+      ],
+      "meaning_en": "have, exist",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "有名",
+          "reading": "ゆうめい",
+          "en": "famous"
+        },
+        {
+          "word": "有料",
+          "reading": "ゆうりょう",
+          "en": "charged, not free"
+        }
+      ],
+      "mnemonic": "A hand holding meat (月): to have."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿です。 (I hear)",
+      "options": [
+        "よう",
+        "らしく",
+        "そう",
+        "はず"
+      ],
+      "correct": "そう",
+      "explanation": "Hearsay: そうです."
+    },
+    {
+      "prompt": "Complete: あのレストランは<ruby>人気<rt>にんき</rt></ruby>がある＿＿です。 (apparently)",
+      "options": [
+        "そうな",
+        "ような",
+        "みたいな",
+        "らしい"
+      ],
+      "correct": "らしい",
+      "explanation": "Apparently: らしい."
+    },
+    {
+      "prompt": "Complete: となりの<ruby>人<rt>ひと</rt></ruby>は<ruby>歌手<rt>かしゅ</rt></ruby>＿＿です。 (apparently a singer)",
+      "options": [
+        "らしい",
+        "だらしい",
+        "ならしい",
+        "のらしい"
+      ],
+      "correct": "らしい",
+      "explanation": "Noun + らしい, no だ."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>春<rt>はる</rt></ruby>＿＿<ruby>天気<rt>てんき</rt></ruby>ですね。 (real spring weather)",
+      "options": [
+        "そうな",
+        "らしい",
+        "だそうな",
+        "のような"
+      ],
+      "correct": "らしい",
+      "explanation": "Typical of: N らしい."
+    },
+    {
+      "prompt": "Which word means \"famous\"?",
+      "options": [
+        "じゆう",
+        "<ruby>主人<rt>しゅじん</rt></ruby>",
+        "<ruby>有名<rt>ゆうめい</rt></ruby>",
+        "ほんとう"
+      ],
+      "correct": "<ruby>有名<rt>ゆうめい</rt></ruby>",
+      "explanation": "<ruby>有名<rt>ゆうめい</rt></ruby>: famous."
+    },
+    {
+      "prompt": "How is 自分⁠ read?",
+      "options": [
+        "じふん",
+        "しぶん",
+        "じぶ",
+        "じぶん"
+      ],
+      "correct": "じぶん",
+      "explanation": "自分⁠ is read じぶん."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>主人<rt>しゅじん</rt></ruby>は<ruby>銀行<rt>ぎんこう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いています。",
+      "options": [
+        "My husband works at a bank.",
+        "The bank manager works hard.",
+        "The owner of the bank is my friend.",
+        "My boss works at a bank."
+      ],
+      "correct": "My husband works at a bank.",
+      "explanation": "<ruby>主人<rt>しゅじん</rt></ruby>: (my) husband."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence describes something typical, not hearsay?",
+      "options": [
+        "それはリーさんらしい<ruby>考<rt>かんが</rt></ruby>えですね。",
+        "リーさんは<ruby>来年<rt>らいねん</rt></ruby>かえるらしいです。",
+        "リーさんは<ruby>病気<rt>びょうき</rt></ruby>らしいです。",
+        "リーさんはけっこんしたらしいです。"
+      ],
+      "correct": "それはリーさんらしい<ruby>考<rt>かんが</rt></ruby>えですね。",
+      "explanation": "N らしい N: typical of."
+    },
+    {
+      "prompt": "Which is the strongest statement that you heard something?",
+      "options": [
+        "<ruby>来<rt>く</rt></ruby>るらしいです。",
+        "<ruby>来<rt>く</rt></ruby>るそうです。",
+        "<ruby>来<rt>く</rt></ruby>るみたいです。",
+        "<ruby>来<rt>く</rt></ruby>るかもしれません。"
+      ],
+      "correct": "<ruby>来<rt>く</rt></ruby>るそうです。",
+      "explanation": "そうです reports directly."
+    },
+    {
+      "prompt": "Complete: もっと<ruby>自分<rt>じぶん</rt></ruby>らし＿＿<ruby>生<rt>い</rt></ruby>きたいです。",
+      "options": [
+        "い",
+        "な",
+        "く",
+        "に"
+      ],
+      "correct": "く",
+      "explanation": "らしい is an い-adjective: らしく."
+    },
+    {
+      "prompt": "Read: <ruby>京都<rt>きょうと</rt></ruby>はおてらで<ruby>有名<rt>ゆうめい</rt></ruby>です。 What is Kyoto known for?",
+      "options": [
+        "Its festivals",
+        "Its food",
+        "Its bicycles",
+        "Its temples"
+      ],
+      "correct": "Its temples",
+      "explanation": "N で<ruby>有名<rt>ゆうめい</rt></ruby>: famous for N."
+    },
+    {
+      "prompt": "Review (Unit 6): complete <ruby>本<rt>ほん</rt></ruby>をぜんぶ<ruby>読<rt>よ</rt></ruby>んで＿＿。 (finished)",
+      "options": [
+        "しまいました",
+        "みました",
+        "おきました",
+        "ありました"
+      ],
+      "correct": "しまいました",
+      "explanation": "All done: 〜てしまう."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-7-i-heard",
+    "japanese-n4-unit-6-oh-no",
+    "japanese-n4-unit-4-if-its-kyoto"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

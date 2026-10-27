@@ -1,0 +1,438 @@
+{
+  "id": "japanese-n4-unit-4-if-its-kyoto",
+  "slug": "n4-unit-4-if-its-kyoto",
+  "unit": "Japanese N4 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "If It's Kyoto…",
+  "title_jp": "きょうとなら",
+  "objectives": [
+    "I can give advice about a topic someone raises.",
+    "Pick up a topic with N なら",
+    "Give advice with plain form + なら",
+    "Talk about travel and sightseeing"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>京都<rt>きょうと</rt></ruby>",
+      "",
+      "Kyoto"
+    ],
+    [
+      "<ruby>東京<rt>とうきょう</rt></ruby>",
+      "",
+      "Tokyo"
+    ],
+    [
+      "<ruby>旅行<rt>りょこう</rt></ruby>",
+      "",
+      "travel, a trip (+ する: to travel)"
+    ],
+    [
+      "<ruby>旅<rt>たび</rt></ruby>",
+      "",
+      "journey"
+    ],
+    [
+      "<ruby>都会<rt>とかい</rt></ruby>",
+      "",
+      "city, urban area"
+    ],
+    [
+      "おてら",
+      "",
+      "temple"
+    ],
+    [
+      "じんじゃ",
+      "",
+      "shrine"
+    ],
+    [
+      "おすすめ",
+      "",
+      "recommendation"
+    ],
+    [
+      "しんかんせん",
+      "",
+      "bullet train"
+    ],
+    [
+      "きっぷ",
+      "",
+      "ticket"
+    ],
+    [
+      "ホテル",
+      "",
+      "hotel"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "京都",
+      "word_reading": "きょうと"
+    },
+    {
+      "word_japanese": "東京",
+      "word_reading": "とうきょう"
+    },
+    {
+      "word_japanese": "旅行",
+      "word_reading": "りょこう"
+    },
+    {
+      "word_japanese": "旅",
+      "word_reading": "たび"
+    },
+    {
+      "word_japanese": "都会",
+      "word_reading": "とかい"
+    }
+  ],
+  "concept": {
+    "title": "Picking up what someone said: なら",
+    "text": "なら takes up a topic the other person has just raised, and says something about it.\n\nA: <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。\nB: <ruby>京都<rt>きょうと</rt></ruby>なら、<ruby>秋<rt>あき</rt></ruby>がいいですよ。 If it's Kyoto, autumn is best.\n\nAfter a verb or adjective it gives advice for a plan someone has:\n<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>くなら、しんかんせんがべんりですよ。 If you're going to Kyoto, the bullet train is handy.\n\nUnlike たら, the advice can come before the action: you buy the ticket before you travel.",
+    "examples": [
+      "N なら、〜 (as for N, if it's N)",
+      "plain form + なら、advice",
+      "<ruby>行<rt>い</rt></ruby>くなら (before going) / <ruby>行<rt>い</rt></ruby>ったら (after going)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "As for that: N なら",
+      "pattern": "N なら、〜",
+      "explanation": "なら picks up something the listener mentioned and gives information or an opinion about it.",
+      "examples": [
+        {
+          "japanese": "<ruby>京都<rt>きょうと</rt></ruby>なら、<ruby>秋<rt>あき</rt></ruby>がいちばんきれいですよ。",
+          "romaji": "",
+          "meaning": "If it's Kyoto, autumn is the most beautiful time."
+        },
+        {
+          "japanese": "すしなら、<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>がおいしいです。",
+          "romaji": "",
+          "meaning": "If it's sushi you want, the shop in front of the station is good."
+        },
+        {
+          "japanese": "じしょなら、つくえの<ruby>上<rt>うえ</rt></ruby>にありますよ。",
+          "romaji": "",
+          "meaning": "If it's the dictionary, it's on the desk."
+        },
+        {
+          "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>なら、<ruby>少<rt>すこ</rt></ruby>し<ruby>話<rt>はな</rt></ruby>せます。",
+          "romaji": "",
+          "meaning": "Japanese I can speak a little."
+        }
+      ],
+      "notes": [
+        "なら needs a topic from the conversation; it does not start a new topic.",
+        "Compare は: <ruby>京都<rt>きょうと</rt></ruby>は<ruby>古<rt>ふる</rt></ruby>いです (a plain statement)."
+      ]
+    },
+    {
+      "title": "Advice: plain form + なら",
+      "pattern": "V / adjective (plain) + なら、advice",
+      "explanation": "If the listener is going to do something, なら gives advice for it. The advice can come before the action.",
+      "examples": [
+        {
+          "japanese": "<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>くなら、しんかんせんがべんりですよ。",
+          "romaji": "",
+          "meaning": "If you're going to Kyoto, the bullet train is handy."
+        },
+        {
+          "japanese": "カメラを<ruby>買<rt>か</rt></ruby>うなら、あの<ruby>店<rt>みせ</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "If you're buying a camera, that shop is cheap."
+        },
+        {
+          "japanese": "さむいなら、まどをしめましょうか。",
+          "romaji": "",
+          "meaning": "If you're cold, shall I close the window?"
+        },
+        {
+          "japanese": "<ruby>旅行<rt>りょこう</rt></ruby>するなら、<ruby>早<rt>はや</rt></ruby>くホテルをよやくしたほうがいいです。",
+          "romaji": "",
+          "meaning": "If you're going to travel, you should book a hotel early."
+        }
+      ],
+      "notes": [
+        "<ruby>行<rt>い</rt></ruby>くなら: before going. <ruby>行<rt>い</rt></ruby>ったら: after arriving.",
+        "な-adjectives and nouns take なら directly: ひまなら, <ruby>学生<rt>がくせい</rt></ruby>なら."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>東京<rt>とうきょう</rt></ruby>から<ruby>京都<rt>きょうと</rt></ruby>までしんかんせんで<ruby>二時間<rt>にじかん</rt></ruby>ぐらいです。",
+      "It's about two hours from Tokyo to Kyoto by bullet train."
+    ],
+    [
+      "<ruby>京都<rt>きょうと</rt></ruby>には<ruby>古<rt>ふる</rt></ruby>いおてらやじんじゃがたくさんあります。",
+      "Kyoto has many old temples and shrines."
+    ],
+    [
+      "<ruby>一人<rt>ひとり</rt></ruby>で<ruby>旅<rt>たび</rt></ruby>をするのがすきです。",
+      "I like travelling alone."
+    ],
+    [
+      "<ruby>都会<rt>とかい</rt></ruby>はべんりですが、<ruby>少<rt>すこ</rt></ruby>しうるさいです。",
+      "The city is convenient, but a little noisy."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>秋<rt>あき</rt></ruby>に<ruby>京都<rt>きょうと</rt></ruby>へ<ruby>旅行<rt>りょこう</rt></ruby>したいんです。",
+      "たなか",
+      "<ruby>京都<rt>きょうと</rt></ruby>なら、おてらがおすすめですよ。"
+    ],
+    [
+      "リー",
+      "しんかんせんのきっぷを<ruby>買<rt>か</rt></ruby>いたいんですが。",
+      "ゆき",
+      "きっぷを<ruby>買<rt>か</rt></ruby>うなら、<ruby>駅<rt>えき</rt></ruby>のみどりのまどぐちですよ。"
+    ],
+    [
+      "けん",
+      "<ruby>東京<rt>とうきょう</rt></ruby>でおいしいラーメンを<ruby>食<rt>た</rt></ruby>べたいです。",
+      "マイ",
+      "ラーメンなら、いい<ruby>店<rt>みせ</rt></ruby>を<ruby>知<rt>し</rt></ruby>っていますよ。"
+    ],
+    [
+      "リン",
+      "ホテルはどこがいいですか。",
+      "アナ",
+      "<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>いホテルなら、べんりですよ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "京",
+      "onyomi": [
+        "キョウ",
+        "ケイ",
+        "キン"
+      ],
+      "kunyomi": [
+        "みやこ"
+      ],
+      "meaning_en": "capital",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "京都",
+          "reading": "きょうと",
+          "en": "Kyoto"
+        },
+        {
+          "word": "東京",
+          "reading": "とうきょう",
+          "en": "Tokyo"
+        }
+      ],
+      "mnemonic": "A tall building on a hill: the capital."
+    },
+    {
+      "char": "都",
+      "onyomi": [
+        "ト",
+        "ツ"
+      ],
+      "kunyomi": [
+        "みやこ"
+      ],
+      "meaning_en": "city, capital",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "京都",
+          "reading": "きょうと",
+          "en": "Kyoto"
+        },
+        {
+          "word": "都会",
+          "reading": "とかい",
+          "en": "city"
+        }
+      ],
+      "mnemonic": "Many people (者) living in a town (阝): a city."
+    },
+    {
+      "char": "旅",
+      "onyomi": [
+        "リョ"
+      ],
+      "kunyomi": [
+        "たび"
+      ],
+      "meaning_en": "journey",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "旅行",
+          "reading": "りょこう",
+          "en": "travel"
+        },
+        {
+          "word": "旅",
+          "reading": "たび",
+          "en": "journey"
+        }
+      ],
+      "mnemonic": "People under a flag (方) setting out together: a journey."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete このボタンをおす＿＿、<ruby>水<rt>みず</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます。",
+      "options": [
+        "と",
+        "なら",
+        "ても",
+        "のに"
+      ],
+      "correct": "と",
+      "explanation": "A machine's result: と."
+    },
+    {
+      "prompt": "A: <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。 B: <ruby>京都<rt>きょうと</rt></ruby>＿＿、<ruby>秋<rt>あき</rt></ruby>がいいですよ。",
+      "options": [
+        "は",
+        "なら",
+        "だと",
+        "でも"
+      ],
+      "correct": "なら",
+      "explanation": "Picking up the topic: なら."
+    },
+    {
+      "prompt": "Complete: カメラを<ruby>買<rt>か</rt></ruby>う＿＿、あの<ruby>店<rt>みせ</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いですよ。",
+      "options": [
+        "と",
+        "ば",
+        "なら",
+        "ても"
+      ],
+      "correct": "なら",
+      "explanation": "Advice for a plan: なら."
+    },
+    {
+      "prompt": "Complete: ひま＿＿、<ruby>手<rt>て</rt></ruby>つだってください。",
+      "options": [
+        "だなら",
+        "ななら",
+        "のなら",
+        "なら"
+      ],
+      "correct": "なら",
+      "explanation": "な-adjective + なら."
+    },
+    {
+      "prompt": "Which word means \"bullet train\"?",
+      "options": [
+        "しんかんせん",
+        "ちかてつ",
+        "でんしゃ",
+        "ひこうき"
+      ],
+      "correct": "しんかんせん",
+      "explanation": "しんかんせん: bullet train."
+    },
+    {
+      "prompt": "How is 京都⁠ read?",
+      "options": [
+        "きょうど",
+        "きょうと",
+        "けいと",
+        "きょうみやこ"
+      ],
+      "correct": "きょうと",
+      "explanation": "京都⁠ is read きょうと."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>旅行<rt>りょこう</rt></ruby>するなら、<ruby>早<rt>はや</rt></ruby>くホテルをよやくしたほうがいいです。",
+      "options": [
+        "After travelling, book a hotel early.",
+        "I booked a hotel early for my trip.",
+        "If you're going to travel, you should book a hotel early.",
+        "If the hotel is early, you can travel."
+      ],
+      "correct": "If you're going to travel, you should book a hotel early.",
+      "explanation": "するなら: if you're going to."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend is going to Kyoto next week. Which advice fits?",
+      "options": [
+        "<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったら、きっぷを<ruby>早<rt>はや</rt></ruby>く<ruby>買<rt>か</rt></ruby>ったほうがいいですよ。",
+        "<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>くと、きっぷを<ruby>買<rt>か</rt></ruby>ってください。",
+        "<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>くなら、きっぷを<ruby>早<rt>はや</rt></ruby>く<ruby>買<rt>か</rt></ruby>ったほうがいいですよ。",
+        "<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>けば、きっぷを<ruby>買<rt>か</rt></ruby>いました。"
+      ],
+      "correct": "<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>くなら、きっぷを<ruby>早<rt>はや</rt></ruby>く<ruby>買<rt>か</rt></ruby>ったほうがいいですよ。",
+      "explanation": "Advice before the action: なら."
+    },
+    {
+      "prompt": "Which sentence picks up a topic the listener raised?",
+      "options": [
+        "すしは、あの<ruby>店<rt>みせ</rt></ruby>がおいしいです。",
+        "すしだったら、<ruby>食<rt>た</rt></ruby>べません。",
+        "すしを<ruby>食<rt>た</rt></ruby>べると、おいしいです。",
+        "すしなら、あの<ruby>店<rt>みせ</rt></ruby>がおいしいですよ。"
+      ],
+      "correct": "すしなら、あの<ruby>店<rt>みせ</rt></ruby>がおいしいですよ。",
+      "explanation": "N なら takes up the topic."
+    },
+    {
+      "prompt": "What is the difference: <ruby>行<rt>い</rt></ruby>くなら / <ruby>行<rt>い</rt></ruby>ったら?",
+      "options": [
+        "Before going / after arriving",
+        "After arriving / before going",
+        "If / even if",
+        "Always / sometimes"
+      ],
+      "correct": "Before going / after arriving",
+      "explanation": "なら can come first; たら after."
+    },
+    {
+      "prompt": "Read: <ruby>都会<rt>とかい</rt></ruby>はべんりですが、<ruby>少<rt>すこ</rt></ruby>しうるさいです。 What does the speaker think of the city?",
+      "options": [
+        "Quiet and convenient",
+        "Convenient but a bit noisy",
+        "Noisy and inconvenient",
+        "Cheap and quiet"
+      ],
+      "correct": "Convenient but a bit noisy",
+      "explanation": "べんりですが、うるさい."
+    },
+    {
+      "prompt": "Review: make the ば form of する.",
+      "options": [
+        "しれば",
+        "せば",
+        "すれば",
+        "するば"
+      ],
+      "correct": "すれば",
+      "explanation": "する → すれば."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-4-turn-right",
+    "japanese-n4-unit-4-if-it-rains",
+    "japanese-n4-unit-2-you-should"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

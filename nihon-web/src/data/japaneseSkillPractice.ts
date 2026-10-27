@@ -1,5 +1,6 @@
 import { N5_LESSONS } from "./japaneseN5Lessons";
 import { JAPANESE_STUDY_UNITS } from "./japaneseStudyUnits";
+import { toPlain } from "../lib/furigana";
 
 // Speaking and Listening material for one unit. This is the whole contract the practice screens
 // depend on, so another source (for example generated material) only has to produce this shape.
@@ -26,7 +27,8 @@ export const JAPANESE_SKILL_UNITS: SkillUnit[] = JAPANESE_STUDY_UNITS.map(unit =
       sentence => sentence.japanese),
     dialogues: lessons.flatMap(lesson => lesson.dialogue.map(([speakerA, lineA, speakerB, lineB], index) => ({
       id: `${lesson.id}:dialogue-${index + 1}`, topic: lesson.title,
-      lines: [{ speaker: speakerA, japanese: lineA }, { speaker: speakerB, japanese: lineB }],
+      // Speaker names are labels in English sentences ("What does … answer?"), so they are shown without furigana.
+      lines: [{ speaker: toPlain(speakerA), japanese: lineA }, { speaker: toPlain(speakerB), japanese: lineB }],
     }))),
   };
 });

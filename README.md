@@ -1,6 +1,6 @@
 # NihonWeb
 
-A language-learning website with a Japanese N5 course, Kana learning tools, practice games, and learner progression.
+A language-learning website with a Japanese N5–N4 course, Kana learning tools, practice games, and learner progression.
 
 ## Implemented
 
@@ -20,6 +20,14 @@ These features exist in the repository; this is not a claim that every edge case
 - [x] Course-linked Kanji reference, search/filters, per-user progress, shared flashcards, KanjiVG stroke animation, and meaning/reading/vocabulary practice (10 verified characters).
 - [x] Dashboard and English game section.
 - [x] Messages between learners (by exact username, with block and report), Help & support requests with an admin support inbox, and a study assistant chat (migration `011_communication.sql`).
+- [x] Learning records (migration `020_learning_records.sql`):
+  - **Daily review** (`/srs`): spaced repetition (SM-2 style: Again / Hard / Good / Easy) for the words and kanji of completed lessons, at most 20 new cards a day, with a "due today" tile on the dashboard. The scheduler is pure (`nihon-api/src/learning/srsScheduler.ts`).
+  - **Mistake notebook** (`/mistakes`): wrong answers from lesson challenges, unit reviews, assessments and mock exams; cleared after two right answers in a row. An assessment's right answers stay hidden (and can't be practised) until the learner passes it.
+  - **Mock exams** are graded and saved on the server, with history; they count as practice and toward the streak.
+  - **Daily goal**: active study time on learning pages (visible page, input in the last 90 s), reported about once a minute; the server never credits more than the time that really passed. Shown against the goal in Settings.
+  - **Statistics overview**: study time, lessons per week, assessments, kanji mastery, reviews, mistakes, mock exams, practice and speaking results.
+- [x] Unit reviews use only the question bank, never the unit assessment's questions.
+- [x] N4 complete: 9 units (54 lessons, 147 new kanji, 250 in the course), unit assessments, an N4 mock exam and a review question bank (migration `021_n4_review_bank.sql`). Sources live in `docs/curriculum/n4/sources/`; listening, speaking and reading practice come from the lessons.
 
 ### Study assistant configuration
 
@@ -150,6 +158,8 @@ Run from `nihon-api`:
 ```sh
 npm run typecheck
 npm run test:grading
+npm run test:auth
+npm run test:learning
 ```
 
 Additional verification scripts live in each project's `scripts` directory. Some need a configured database or browser; check their setup requirements before running them. Backend `npm test` is currently a placeholder.

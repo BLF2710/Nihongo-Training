@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-7-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "hearsay",
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿です。 (I hear)",
+      "options": [
+        "よう",
+        "そう",
+        "はず",
+        "みたい"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hearsay: plain form + そうです."
+    },
+    {
+      "id": "hearsay-noun",
+      "prompt": "Complete: たなかさんのお<ruby>兄<rt>にい</rt></ruby>さんは<ruby>医者<rt>いしゃ</rt></ruby>＿＿そうです。",
+      "options": [
+        "な",
+        "の",
+        "で",
+        "だ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Noun + だそうです."
+    },
+    {
+      "id": "two-sou",
+      "prompt": "What is the difference: ふりそうです / ふるそうです?",
+      "options": [
+        "It looks like rain / I hear it will rain",
+        "I hear it will rain / it looks like rain",
+        "It rained / it will rain",
+        "There is no difference."
+      ],
+      "correctIndex": 0,
+      "explanation": "Stem + そう / plain + そう."
+    },
+    {
+      "id": "niyoruto",
+      "prompt": "Complete: ニュース＿＿、きのうじしんがあったそうです。",
+      "options": [
+        "によって",
+        "について",
+        "によると",
+        "にとって"
+      ],
+      "correctIndex": 2,
+      "explanation": "Source: によると."
+    },
+    {
+      "id": "rashii",
+      "prompt": "Complete: あのレストランは<ruby>人気<rt>にんき</rt></ruby>がある＿＿です。 (apparently)",
+      "options": [
+        "らしく",
+        "そうな",
+        "はずの",
+        "らしい"
+      ],
+      "correctIndex": 3,
+      "explanation": "Apparently: らしい."
+    },
+    {
+      "id": "rashii-typical",
+      "prompt": "Which sentence means \"typical of\"?",
+      "options": [
+        "リーさんはかえるらしいです。",
+        "<ruby>今日<rt>きょう</rt></ruby>は<ruby>春<rt>はる</rt></ruby>らしい<ruby>天気<rt>てんき</rt></ruby>ですね。",
+        "<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>らしいです。",
+        "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>らしいです。"
+      ],
+      "correctIndex": 1,
+      "explanation": "N らしい N: typical of."
+    },
+    {
+      "id": "you-da",
+      "prompt": "Complete: たなかさんはるす＿＿ようです。",
+      "options": [
+        "の",
+        "な",
+        "だ",
+        "が"
+      ],
+      "correctIndex": 0,
+      "explanation": "Noun + のようです."
+    },
+    {
+      "id": "you-na",
+      "prompt": "Complete: このへんはしずか＿＿ようです。",
+      "options": [
+        "の",
+        "だ",
+        "な",
+        "に"
+      ],
+      "correctIndex": 2,
+      "explanation": "な-adjective + なようです."
+    },
+    {
+      "id": "no-you-ni",
+      "prompt": "Complete: <ruby>鳥<rt>とり</rt></ruby>の＿＿<ruby>空<rt>そら</rt></ruby>をとびたいです。",
+      "options": [
+        "ような",
+        "ように",
+        "ようだ",
+        "みたいな"
+      ],
+      "correctIndex": 1,
+      "explanation": "Before a verb: のように."
+    },
+    {
+      "id": "mitai",
+      "prompt": "Complete: あのお<ruby>店<rt>みせ</rt></ruby>、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>み＿＿だよ。",
+      "options": [
+        "のみたい",
+        "なみたい",
+        "らしいの",
+        "みたい"
+      ],
+      "correctIndex": 3,
+      "explanation": "Noun + みたい."
+    },
+    {
+      "id": "mitaina",
+      "prompt": "Choose: \"It sounds like a dream.\"",
+      "options": [
+        "ゆめみたいに<ruby>話<rt>はなし</rt></ruby>ですね。",
+        "ゆめのみたいな<ruby>話<rt>はなし</rt></ruby>ですね。",
+        "ゆめみたいな<ruby>話<rt>はなし</rt></ruby>ですね。",
+        "ゆめらしく<ruby>話<rt>はなし</rt></ruby>ですね。"
+      ],
+      "correctIndex": 2,
+      "explanation": "N みたいな N."
+    },
+    {
+      "id": "hazu",
+      "prompt": "Complete: にもつは<ruby>明日<rt>あした</rt></ruby>とどく＿＿です。",
+      "options": [
+        "はず",
+        "つもり",
+        "よう",
+        "そう"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expectation: はず."
+    },
+    {
+      "id": "hazu-ga-nai",
+      "prompt": "You're sure it isn't true. What do you say?",
+      "options": [
+        "そんなはずです。",
+        "そんなつもりです。",
+        "そんなようです。",
+        "そんなはずがありません。"
+      ],
+      "correctIndex": 3,
+      "explanation": "はずがない: can't be."
+    },
+    {
+      "id": "kanji-ijou",
+      "prompt": "What does <ruby>以上<rt>いじょう</rt></ruby> mean?",
+      "options": [
+        "or less",
+        "or more",
+        "before",
+        "after"
+      ],
+      "correctIndex": 1,
+      "explanation": "<ruby>以上<rt>いじょう</rt></ruby>: or more."
+    },
+    {
+      "id": "kanji-eigo",
+      "prompt": "How is 英語⁠ read?",
+      "options": [
+        "えご",
+        "えいこ",
+        "えいご",
+        "えいがく"
+      ],
+      "correctIndex": 2,
+      "explanation": "英語⁠ is read えいご."
+    }
+  ]
+}

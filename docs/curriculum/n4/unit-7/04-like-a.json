@@ -1,0 +1,438 @@
+{
+  "id": "japanese-n4-unit-7-like-a",
+  "slug": "n4-unit-7-like-a",
+  "unit": "Japanese N4 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Just Like…",
+  "title_jp": "〜みたい",
+  "objectives": [
+    "I can compare something to something else in casual speech.",
+    "Use みたい for \"seems\" and \"like\"",
+    "Use N みたいな N and N みたいに",
+    "Talk about kanji and English"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>漢字<rt>かんじ</rt></ruby>",
+      "",
+      "kanji"
+    ],
+    [
+      "<ruby>字<rt>じ</rt></ruby>",
+      "",
+      "character, handwriting"
+    ],
+    [
+      "<ruby>英語<rt>えいご</rt></ruby>",
+      "",
+      "English (language)"
+    ],
+    [
+      "<ruby>英会話<rt>えいかいわ</rt></ruby>",
+      "",
+      "English conversation"
+    ],
+    [
+      "うそ",
+      "",
+      "lie"
+    ],
+    [
+      "<ruby>本物<rt>ほんもの</rt></ruby>",
+      "",
+      "the real thing"
+    ],
+    [
+      "ゆめ",
+      "",
+      "dream"
+    ],
+    [
+      "おとな",
+      "",
+      "adult"
+    ],
+    [
+      "ロボット",
+      "",
+      "robot"
+    ],
+    [
+      "ふく",
+      "",
+      "to blow (of wind)"
+    ],
+    [
+      "〜みたい",
+      "",
+      "seems; like (casual)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "漢字",
+      "word_reading": "かんじ"
+    },
+    {
+      "word_japanese": "字",
+      "word_reading": "じ"
+    },
+    {
+      "word_japanese": "英語",
+      "word_reading": "えいご"
+    },
+    {
+      "word_japanese": "英会話",
+      "word_reading": "えいかいわ"
+    },
+    {
+      "word_japanese": "本物",
+      "word_reading": "ほんもの"
+    }
+  ],
+  "concept": {
+    "title": "Casual ようです: みたい",
+    "text": "みたい means the same as ようです, but it is casual and very common in speech.\n\nだれもいないみたい。 Nobody seems to be in.\n\nNouns and な-adjectives join directly, without の or な:\nるすみたい, しずかみたい\n\nLike のような / のように, it also compares:\nゆめみたい！ It's like a dream!\nおとなみたいな<ruby>子<rt>こ</rt></ruby>ども a child like an adult\nロボットみたいに<ruby>話<rt>はな</rt></ruby>す talk like a robot",
+    "examples": [
+      "plain form + みたい (seems)",
+      "N / な-adj + みたい (no の, no な)",
+      "N みたいな N / N みたいに V"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Seems: みたい",
+      "pattern": "V / い-adj (plain) + みたい / N・な-adj + みたい",
+      "explanation": "みたい is the spoken form of ようです. It changes like a な-adjective.",
+      "examples": [
+        {
+          "japanese": "リーさんはまだ<ruby>来<rt>き</rt></ruby>ていないみたいです。",
+          "romaji": "",
+          "meaning": "Lee doesn't seem to have come yet."
+        },
+        {
+          "japanese": "この<ruby>字<rt>じ</rt></ruby>、ちょっとむずかしいみたい。",
+          "romaji": "",
+          "meaning": "This character seems a bit hard."
+        },
+        {
+          "japanese": "<ruby>外<rt>そと</rt></ruby>は<ruby>風<rt>かぜ</rt></ruby>がつよいみたいですね。",
+          "romaji": "",
+          "meaning": "It seems windy outside."
+        },
+        {
+          "japanese": "あのお<ruby>店<rt>みせ</rt></ruby>、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みみたいだよ。",
+          "romaji": "",
+          "meaning": "That shop seems to be closed today."
+        },
+        {
+          "japanese": "マイさんは<ruby>英語<rt>えいご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>みたいです。",
+          "romaji": "",
+          "meaning": "Mai seems to be good at English."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>休<rt>やす</rt></ruby>みのみたい. Nouns take みたい directly."
+      ]
+    },
+    {
+      "title": "Like: N みたいな / N みたいに",
+      "pattern": "N みたいな N / N みたいに V",
+      "explanation": "みたいな before a noun and みたいに before a verb compare, in casual speech.",
+      "examples": [
+        {
+          "japanese": "ゆめみたいな<ruby>話<rt>はなし</rt></ruby>ですね。",
+          "romaji": "",
+          "meaning": "It sounds like a dream."
+        },
+        {
+          "japanese": "あの<ruby>子<rt>こ</rt></ruby>はおとなみたいに<ruby>話<rt>はな</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "That child talks like an adult."
+        },
+        {
+          "japanese": "<ruby>本物<rt>ほんもの</rt></ruby>みたいなロボットですね。",
+          "romaji": "",
+          "meaning": "That robot looks just like the real thing."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>みたいに<ruby>漢字<rt>かんじ</rt></ruby>をきれいに<ruby>書<rt>か</rt></ruby>きたいです。",
+          "romaji": "",
+          "meaning": "I want to write kanji beautifully like my teacher."
+        }
+      ],
+      "notes": [
+        "In writing, use のような / のように instead."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>漢字<rt>かんじ</rt></ruby>をいくつ<ruby>知<rt>し</rt></ruby>っていますか。",
+      "How many kanji do you know?"
+    ],
+    [
+      "<ruby>毎週<rt>まいしゅう</rt></ruby>、<ruby>英会話<rt>えいかいわ</rt></ruby>を<ruby>習<rt>なら</rt></ruby>っています。",
+      "I take English conversation lessons every week."
+    ],
+    [
+      "それ、うそでしょう？",
+      "That's not true, is it?"
+    ],
+    [
+      "これは<ruby>本物<rt>ほんもの</rt></ruby>のダイヤですか。",
+      "Is this a real diamond?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "この<ruby>字<rt>じ</rt></ruby>、<ruby>読<rt>よ</rt></ruby>めますか。",
+      "アナ",
+      "うーん、ちょっとむずかしいみたい。"
+    ],
+    [
+      "マイ",
+      "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て、ゆめみたいです。",
+      "リー",
+      "よかったですね。"
+    ],
+    [
+      "ゆき",
+      "あの<ruby>子<rt>こ</rt></ruby>、おとなみたいに<ruby>話<rt>はな</rt></ruby>しますね。",
+      "たなか",
+      "ほんとうですね。"
+    ],
+    [
+      "リン",
+      "<ruby>英語<rt>えいご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+      "けん",
+      "いいえ、まだまだです。<ruby>英会話<rt>えいかいわ</rt></ruby>を<ruby>習<rt>なら</rt></ruby>っているんです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "漢",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [],
+      "meaning_en": "China, Han",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "漢字",
+          "reading": "かんじ",
+          "en": "kanji"
+        },
+        {
+          "word": "漢文",
+          "reading": "かんぶん",
+          "en": "classical Chinese"
+        }
+      ],
+      "mnemonic": "Water (氵) of the Han river: China, where the characters came from."
+    },
+    {
+      "char": "字",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "あざ",
+        "あざな",
+        "-な"
+      ],
+      "meaning_en": "character, letter",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "漢字",
+          "reading": "かんじ",
+          "en": "kanji"
+        },
+        {
+          "word": "字",
+          "reading": "じ",
+          "en": "character"
+        }
+      ],
+      "mnemonic": "A child (子) under a roof (宀) learning to write: characters."
+    },
+    {
+      "char": "英",
+      "onyomi": [
+        "エイ"
+      ],
+      "kunyomi": [
+        "はなぶさ"
+      ],
+      "meaning_en": "England, excellent",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "英語",
+          "reading": "えいご",
+          "en": "English"
+        },
+        {
+          "word": "英会話",
+          "reading": "えいかいわ",
+          "en": "English conversation"
+        }
+      ],
+      "mnemonic": "A flower (艹) in the middle (央) of a field: excellent, and England."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete たなかさんはるすの＿＿です。 (seems)",
+      "options": [
+        "よう",
+        "そう",
+        "らしい",
+        "みたい"
+      ],
+      "correct": "よう",
+      "explanation": "N のようです."
+    },
+    {
+      "prompt": "Complete: あのお<ruby>店<rt>みせ</rt></ruby>、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>み＿＿だよ。",
+      "options": [
+        "のみたい",
+        "みたい",
+        "なみたい",
+        "だみたい"
+      ],
+      "correct": "みたい",
+      "explanation": "Noun + みたい."
+    },
+    {
+      "prompt": "Complete: ゆめ＿＿<ruby>話<rt>はなし</rt></ruby>ですね。",
+      "options": [
+        "みたいに",
+        "みたいだ",
+        "みたいな",
+        "のみたいな"
+      ],
+      "correct": "みたいな",
+      "explanation": "Before a noun: みたいな."
+    },
+    {
+      "prompt": "Complete: あの<ruby>子<rt>こ</rt></ruby>はおとな＿＿<ruby>話<rt>はな</rt></ruby>します。",
+      "options": [
+        "みたいな",
+        "みたいの",
+        "のみたい",
+        "みたいに"
+      ],
+      "correct": "みたいに",
+      "explanation": "Before a verb: みたいに."
+    },
+    {
+      "prompt": "Which word means \"lie\"?",
+      "options": [
+        "うそ",
+        "ゆめ",
+        "<ruby>本物<rt>ほんもの</rt></ruby>",
+        "<ruby>字<rt>じ</rt></ruby>"
+      ],
+      "correct": "うそ",
+      "explanation": "うそ: a lie."
+    },
+    {
+      "prompt": "How is 英語⁠ read?",
+      "options": [
+        "えご",
+        "えいご",
+        "えいこ",
+        "えいがく"
+      ],
+      "correct": "えいご",
+      "explanation": "英語⁠ is read えいご."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>漢字<rt>かんじ</rt></ruby>をいくつ<ruby>知<rt>し</rt></ruby>っていますか。",
+      "options": [
+        "How much are these kanji?",
+        "When did you learn kanji?",
+        "How many kanji do you know?",
+        "Can you write these kanji?"
+      ],
+      "correct": "How many kanji do you know?",
+      "explanation": "いくつ: how many."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which is the most casual?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>のようです。",
+        "<ruby>雨<rt>あめ</rt></ruby>らしいです。",
+        "<ruby>雨<rt>あめ</rt></ruby>みたい。",
+        "<ruby>雨<rt>あめ</rt></ruby>だそうです。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>みたい。",
+      "explanation": "みたい is casual."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>みたいです。",
+        "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>のようです。",
+        "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>らしいです。",
+        "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>のみたいです。"
+      ],
+      "correct": "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>のみたいです。",
+      "explanation": "Nouns take みたい directly."
+    },
+    {
+      "prompt": "You finally arrive in Japan after years of study. What might you say?",
+      "options": [
+        "ゆめみたい！",
+        "ゆめらしい！",
+        "ゆめだそう！",
+        "ゆめのそう！"
+      ],
+      "correct": "ゆめみたい！",
+      "explanation": "Like a dream: ゆめみたい."
+    },
+    {
+      "prompt": "Read: <ruby>英会話<rt>えいかいわ</rt></ruby>を<ruby>習<rt>なら</rt></ruby>っているんです。 What is Ken doing?",
+      "options": [
+        "Teaching English",
+        "Taking English conversation lessons",
+        "Learning kanji",
+        "Writing in English"
+      ],
+      "correct": "Taking English conversation lessons",
+      "explanation": "<ruby>英会話<rt>えいかいわ</rt></ruby>を<ruby>習<rt>なら</rt></ruby>う."
+    },
+    {
+      "prompt": "Review: which is your own judgement from what you see?",
+      "options": [
+        "ねつがあるそうです。",
+        "ねつがあるらしいです。",
+        "かおが<ruby>赤<rt>あか</rt></ruby>いです。ねつがあるようです。",
+        "ねつがあると<ruby>言<rt>い</rt></ruby>っていました。"
+      ],
+      "correct": "かおが<ruby>赤<rt>あか</rt></ruby>いです。ねつがあるようです。",
+      "explanation": "ようです: your own judgement."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-7-it-seems",
+    "japanese-n4-unit-7-apparently",
+    "japanese-n4-unit-2-doing-favours"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

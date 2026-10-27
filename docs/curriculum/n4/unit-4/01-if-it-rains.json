@@ -1,0 +1,471 @@
+{
+  "id": "japanese-n4-unit-4-if-it-rains",
+  "slug": "n4-unit-4-if-it-rains",
+  "unit": "Japanese N4 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "If It Rains",
+  "title_jp": "あめが ふったら",
+  "objectives": [
+    "I can say what I will do if or when something happens.",
+    "Make conditions with たら",
+    "Use たら for \"when\" (after something happens)",
+    "Talk about the four seasons"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>春<rt>はる</rt></ruby>",
+      "",
+      "spring"
+    ],
+    [
+      "<ruby>夏<rt>なつ</rt></ruby>",
+      "",
+      "summer"
+    ],
+    [
+      "<ruby>秋<rt>あき</rt></ruby>",
+      "",
+      "autumn"
+    ],
+    [
+      "<ruby>冬<rt>ふゆ</rt></ruby>",
+      "",
+      "winter"
+    ],
+    [
+      "<ruby>夏休<rt>なつやす</rt></ruby>み",
+      "",
+      "summer holidays"
+    ],
+    [
+      "もし",
+      "",
+      "if (at the start of a condition)"
+    ],
+    [
+      "はれる",
+      "",
+      "to clear up, to be sunny"
+    ],
+    [
+      "ゆき",
+      "",
+      "snow"
+    ],
+    [
+      "つく",
+      "",
+      "to arrive"
+    ],
+    [
+      "<ruby>花見<rt>はなみ</rt></ruby>",
+      "",
+      "cherry-blossom viewing"
+    ],
+    [
+      "きせつ",
+      "",
+      "season"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "春",
+      "word_reading": "はる"
+    },
+    {
+      "word_japanese": "夏",
+      "word_reading": "なつ"
+    },
+    {
+      "word_japanese": "秋",
+      "word_reading": "あき"
+    },
+    {
+      "word_japanese": "冬",
+      "word_reading": "ふゆ"
+    },
+    {
+      "word_japanese": "夏休み",
+      "word_reading": "なつやすみ"
+    },
+    {
+      "word_japanese": "花見",
+      "word_reading": "はなみ"
+    }
+  ],
+  "concept": {
+    "title": "If… and when…",
+    "text": "たら is made from the past tense: add ら to the た-form.\n\n<ruby>行<rt>い</rt></ruby>った → <ruby>行<rt>い</rt></ruby>ったら\n<ruby>高<rt>たか</rt></ruby>かった → <ruby>高<rt>たか</rt></ruby>かったら\nひまだった → ひまだったら\n<ruby>雨<rt>あめ</rt></ruby>だった → <ruby>雨<rt>あめ</rt></ruby>だったら\n\nIt has two uses:\nIf: <ruby>雨<rt>あめ</rt></ruby>がふったら、<ruby>行<rt>い</rt></ruby>きません。 If it rains, I won't go.\nWhen (once it has happened): <ruby>駅<rt>えき</rt></ruby>についたら、<ruby>電話<rt>でんわ</rt></ruby>します。 When I get to the station, I'll call.\n\nもし at the start makes \"if\" clearer.",
+    "examples": [
+      "V-たら / い-adj-かったら",
+      "な-adj / N だったら",
+      "もし〜たら (if) / 〜たら (when, after)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "If: たら",
+      "pattern": "V-た + ら / い-adj-かった + ら / N・な-adj + だったら",
+      "explanation": "Take the plain past and add ら. The result comes in the second half of the sentence.",
+      "examples": [
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>がふったら、<ruby>出<rt>で</rt></ruby>かけません。",
+          "romaji": "",
+          "meaning": "If it rains, I won't go out."
+        },
+        {
+          "japanese": "もし<ruby>高<rt>たか</rt></ruby>かったら、<ruby>買<rt>か</rt></ruby>いません。",
+          "romaji": "",
+          "meaning": "If it's expensive, I won't buy it."
+        },
+        {
+          "japanese": "ひまだったら、いっしょに<ruby>花見<rt>はなみ</rt></ruby>をしませんか。",
+          "romaji": "",
+          "meaning": "If you're free, shall we go and see the cherry blossoms?"
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>はれたら、<ruby>山<rt>やま</rt></ruby>に<ruby>行<rt>い</rt></ruby>きましょう。",
+          "romaji": "",
+          "meaning": "If it's sunny tomorrow, let's go to the mountains."
+        },
+        {
+          "japanese": "わたしだったら、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>きます。",
+          "romaji": "",
+          "meaning": "If I were you, I'd ask the teacher."
+        }
+      ],
+      "notes": [
+        "The negative is V-なかったら: <ruby>来<rt>こ</rt></ruby>なかったら (if they don't come).",
+        "わたしだったら is a common way to give advice: \"if I were you\"."
+      ]
+    },
+    {
+      "title": "When (after): たら",
+      "pattern": "V-たら、〜",
+      "explanation": "When the first part is sure to happen, たら means \"when\" or \"once\": the second part happens after it.",
+      "examples": [
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>についたら、<ruby>電話<rt>でんわ</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "I'll call when I get to the station."
+        },
+        {
+          "japanese": "<ruby>夏休<rt>なつやす</rt></ruby>みになったら、<ruby>国<rt>くに</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きます。",
+          "romaji": "",
+          "meaning": "When the summer holidays start, I'll go back home."
+        },
+        {
+          "japanese": "しごとが<ruby>終<rt>お</rt></ruby>わったら、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きましょう。",
+          "romaji": "",
+          "meaning": "Once work's over, let's go for a drink."
+        },
+        {
+          "japanese": "<ruby>春<rt>はる</rt></ruby>になったら、<ruby>花<rt>はな</rt></ruby>がたくさんさきます。",
+          "romaji": "",
+          "meaning": "When spring comes, lots of flowers bloom."
+        }
+      ],
+      "notes": [
+        "With this use, もし is not used: the event is certain.",
+        "Compare: <ruby>家<rt>いえ</rt></ruby>についたら (when I get home) is about a sure event."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>にはきせつが<ruby>四<rt>よっ</rt></ruby>つあります。",
+      "Japan has four seasons."
+    ],
+    [
+      "どのきせつがいちばんすきですか。",
+      "Which season do you like best?"
+    ],
+    [
+      "<ruby>秋<rt>あき</rt></ruby>はすずしくて、<ruby>気<rt>き</rt></ruby>もちがいいです。",
+      "Autumn is cool and pleasant."
+    ],
+    [
+      "<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>山<rt>やま</rt></ruby>にゆきがふります。",
+      "In winter it snows in the mountains."
+    ]
+  ],
+  "dialogue": [
+    [
+      "ゆき",
+      "どのきせつがすきですか。",
+      "リー",
+      "<ruby>春<rt>はる</rt></ruby>です。<ruby>花見<rt>はなみ</rt></ruby>ができますから。"
+    ],
+    [
+      "けん",
+      "<ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>がふったらどうしますか。",
+      "アナ",
+      "<ruby>雨<rt>あめ</rt></ruby>だったら、<ruby>家<rt>いえ</rt></ruby>でDVDを<ruby>見<rt>み</rt></ruby>ます。"
+    ],
+    [
+      "マイ",
+      "<ruby>駅<rt>えき</rt></ruby>についたら、<ruby>電話<rt>でんわ</rt></ruby>してください。",
+      "リン",
+      "はい、わかりました。"
+    ],
+    [
+      "たなか",
+      "<ruby>夏休<rt>なつやす</rt></ruby>みに<ruby>何<rt>なに</rt></ruby>をしますか。",
+      "アナ",
+      "お<ruby>金<rt>かね</rt></ruby>があったら、りょこうしたいです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "春",
+      "onyomi": [
+        "シュン"
+      ],
+      "kunyomi": [
+        "はる"
+      ],
+      "meaning_en": "spring",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "春",
+          "reading": "はる",
+          "en": "spring"
+        },
+        {
+          "word": "春休み",
+          "reading": "はるやすみ",
+          "en": "spring holidays"
+        }
+      ],
+      "mnemonic": "Plants pushing up under the sun (日): spring."
+    },
+    {
+      "char": "夏",
+      "onyomi": [
+        "カ",
+        "ガ",
+        "ゲ"
+      ],
+      "kunyomi": [
+        "なつ"
+      ],
+      "meaning_en": "summer",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "夏",
+          "reading": "なつ",
+          "en": "summer"
+        },
+        {
+          "word": "夏休み",
+          "reading": "なつやすみ",
+          "en": "summer holidays"
+        }
+      ],
+      "mnemonic": "A figure walking slowly (夂) in the heat: summer."
+    },
+    {
+      "char": "秋",
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "あき",
+        "とき"
+      ],
+      "meaning_en": "autumn",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "秋",
+          "reading": "あき",
+          "en": "autumn"
+        },
+        {
+          "word": "秋分",
+          "reading": "しゅうぶん",
+          "en": "autumn equinox"
+        }
+      ],
+      "mnemonic": "Rice plants (禾) next to a fire (火): the autumn harvest is dried."
+    },
+    {
+      "char": "冬",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "ふゆ"
+      ],
+      "meaning_en": "winter",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "冬",
+          "reading": "ふゆ",
+          "en": "winter"
+        },
+        {
+          "word": "冬休み",
+          "reading": "ふゆやすみ",
+          "en": "winter holidays"
+        }
+      ],
+      "mnemonic": "Footsteps (夂) over ice (冫): winter."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 3): complete このケーキはおいし＿＿ですね。 (looks delicious)",
+      "options": [
+        "よう",
+        "そう",
+        "らしい",
+        "みたい"
+      ],
+      "correct": "そう",
+      "explanation": "Looks: stem + そう."
+    },
+    {
+      "prompt": "Make the たら form of <ruby>行<rt>い</rt></ruby>く.",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>きたら",
+        "<ruby>行<rt>い</rt></ruby>くたら",
+        "<ruby>行<rt>い</rt></ruby>ったら",
+        "<ruby>行<rt>い</rt></ruby>けたら"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>ったら",
+      "explanation": "Plain past <ruby>行<rt>い</rt></ruby>った + ら."
+    },
+    {
+      "prompt": "Make the たら form of <ruby>高<rt>たか</rt></ruby>い.",
+      "options": [
+        "<ruby>高<rt>たか</rt></ruby>いだったら",
+        "<ruby>高<rt>たか</rt></ruby>いたら",
+        "<ruby>高<rt>たか</rt></ruby>くたら",
+        "<ruby>高<rt>たか</rt></ruby>かったら"
+      ],
+      "correct": "<ruby>高<rt>たか</rt></ruby>かったら",
+      "explanation": "い-adjective: 〜かったら."
+    },
+    {
+      "prompt": "Complete: ひま＿＿、あそびに<ruby>来<rt>き</rt></ruby>てください。",
+      "options": [
+        "だったら",
+        "かったら",
+        "たら",
+        "なったら"
+      ],
+      "correct": "だったら",
+      "explanation": "な-adjective: だったら."
+    },
+    {
+      "prompt": "Complete: <ruby>駅<rt>えき</rt></ruby>につい＿＿、<ruby>電話<rt>でんわ</rt></ruby>します。 (when I arrive)",
+      "options": [
+        "ても",
+        "たら",
+        "ので",
+        "のに"
+      ],
+      "correct": "たら",
+      "explanation": "When, after: たら."
+    },
+    {
+      "prompt": "How is 夏⁠ read?",
+      "options": [
+        "はる",
+        "あき",
+        "なつ",
+        "ふゆ"
+      ],
+      "correct": "なつ",
+      "explanation": "夏⁠ is read なつ."
+    },
+    {
+      "prompt": "Choose the meaning of わたしだったら、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>きます。",
+      "options": [
+        "I asked the teacher myself.",
+        "The teacher asked me.",
+        "When I'm a teacher, I'll ask.",
+        "If I were you, I'd ask the teacher."
+      ],
+      "correct": "If I were you, I'd ask the teacher.",
+      "explanation": "わたしだったら: if I were you."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence uses たら for \"when\", not \"if\"?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>がふったら、<ruby>行<rt>い</rt></ruby>きません。",
+        "もし<ruby>高<rt>たか</rt></ruby>かったら、<ruby>買<rt>か</rt></ruby>いません。",
+        "ひまだったら、<ruby>来<rt>き</rt></ruby>てください。",
+        "しごとが<ruby>終<rt>お</rt></ruby>わったら、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きましょう。"
+      ],
+      "correct": "しごとが<ruby>終<rt>お</rt></ruby>わったら、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きましょう。",
+      "explanation": "Work will surely end: \"once\"."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby><ruby>来<rt>こ</rt></ruby>＿＿、<ruby>電話<rt>でんわ</rt></ruby>してください。 (if you don't come)",
+      "options": [
+        "なかったら",
+        "なくたら",
+        "ないたら",
+        "ないだったら"
+      ],
+      "correct": "なかったら",
+      "explanation": "Negative: V-なかったら."
+    },
+    {
+      "prompt": "Which season comes after <ruby>夏<rt>なつ</rt></ruby>?",
+      "options": [
+        "<ruby>冬<rt>ふゆ</rt></ruby>",
+        "<ruby>秋<rt>あき</rt></ruby>",
+        "<ruby>春<rt>はる</rt></ruby>",
+        "<ruby>夏休<rt>なつやす</rt></ruby>み"
+      ],
+      "correct": "<ruby>秋<rt>あき</rt></ruby>",
+      "explanation": "なつ → あき."
+    },
+    {
+      "prompt": "Read: お<ruby>金<rt>かね</rt></ruby>があったら、りょこうしたいです。 What is true?",
+      "options": [
+        "The speaker has lots of money.",
+        "The speaker travelled last year.",
+        "The speaker will travel only if they have money.",
+        "The speaker doesn't like travelling."
+      ],
+      "correct": "The speaker will travel only if they have money.",
+      "explanation": "あったら: if there is."
+    },
+    {
+      "prompt": "Review (Unit 3): what is the potential form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>き</rt></ruby>られる",
+        "<ruby>来<rt>く</rt></ruby>られる",
+        "<ruby>来<rt>こ</rt></ruby>れる",
+        "<ruby>来<rt>こ</rt></ruby>られる"
+      ],
+      "correct": "<ruby>来<rt>こ</rt></ruby>られる",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-3-looks-tasty",
+    "japanese-n4-unit-3-i-can-drive",
+    "japanese-n5-unit-9-plain-forms"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

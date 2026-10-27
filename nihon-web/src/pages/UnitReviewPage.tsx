@@ -72,7 +72,7 @@ export default function UnitReviewPage() {
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <div className="mt-6"><LevelSwitch level={level} /></div>
     <h1 className="mt-3 text-3xl font-black">Unit Review</h1>
-    <p className="mt-2 text-gray-600">A mixed set for one unit: assessment and question-bank questions, word games, vocabulary, listening, and speaking.</p>
+    <p className="mt-2 text-gray-600">A mixed set for one unit: question-bank questions, word games, vocabulary, listening, and speaking.</p>
     {unitsError && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !unitsError && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
     {units && !selected && <p className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">No unit is open for review yet. A unit appears here as soon as you reach it on the Lessons page.</p>}

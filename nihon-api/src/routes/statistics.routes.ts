@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { getStatistics }
+import { getStatistics, getStatisticsOverview }
 from "../controllers/statistics.controller";
 
 import { authenticate }
@@ -13,5 +13,7 @@ router.get(
   authenticate,
   getStatistics
 );
+
+router.get("/overview", authenticate, getStatisticsOverview);
 
 export default router;

@@ -1,7 +1,11 @@
 import { UNIT_ASSESSMENTS } from "../data/unit-assessments";
 import { recordLearningActivity } from "./streak.service";
 import type { UnitAssessment } from "../data/unit-assessments";
+import { pool } from "../config/db";
 import { saveAssessmentAttempt } from "../repositories/assessment.repository";
+import { recordAnswerOutcomes } from "../repositories/mistake.repository";
+import type { AnswerOutcome } from "../repositories/mistake.repository";
+import { mistakeKeys } from "./mistake.service";
 import { HttpError } from "../utils/http-error";
 import { getUserUnits } from "./unit.service";
 
@@ -28,6 +32,14 @@ export function gradeAssessment(assessment: UnitAssessment, answers: number[]) {
   return { correct, total, accuracy, passed };
 }
 
+/** Every answer for the mistake notebook; the notebook keeps the right answers hidden until the assessment is passed. */
+function toAnswerOutcomes(assessment: UnitAssessment, unitNumber: number, answers: number[]): AnswerOutcome[] {
+  return assessment.questions.map((question, index) => ({
+    source: "assessment", itemKey: mistakeKeys.assessment(assessment.id, question.id), correct: answers[index] === question.correctIndex,
+    payload: { label: `Unit ${unitNumber} assessment`, prompt: question.prompt, options: question.options, answer: question.options[question.correctIndex], given: question.options[answers[index]] },
+  }));
+}
+
 /** Assessment questions for the client; answer keys never leave the server. */
 export async function getAssessment(userId: number, unitId: unknown) {
   const { unit, assessment } = await getUnlockedAssessment(userId, unitId);
@@ -46,6 +58,7 @@ export async function submitAssessment(userId: number, unitId: unknown, submissi
   }
   const { correct, total, accuracy, passed } = gradeAssessment(assessment, answers);
   const saved = await saveAssessmentAttempt(userId, assessment.id, accuracy, passed);
+  await recordAnswerOutcomes(pool, userId, toAnswerOutcomes(assessment, unit.number, answers));
   await recordLearningActivity(userId);
   return {
     correct, wrong: total - correct, total, accuracy, passed, passPercent: assessment.passPercent,

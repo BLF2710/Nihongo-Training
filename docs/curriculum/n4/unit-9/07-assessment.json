@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-9-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "honorific-irassharu",
+      "prompt": "What is the honorific form of いる / <ruby>行<rt>い</rt></ruby>く / <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "まいる",
+        "いらっしゃる",
+        "おる",
+        "うかがう"
+      ],
+      "correctIndex": 1,
+      "explanation": "いらっしゃる (honorific)."
+    },
+    {
+      "id": "honorific-meshiagaru",
+      "prompt": "To a guest: \"Please help yourself.\"",
+      "options": [
+        "どうぞいただいてください。",
+        "どうぞまいってください。",
+        "どうぞ<ruby>食<rt>た</rt></ruby>べさせてください。",
+        "どうぞめしあがってください。"
+      ],
+      "correctIndex": 3,
+      "explanation": "Honorific <ruby>食<rt>た</rt></ruby>べる: めしあがる."
+    },
+    {
+      "id": "honorific-o-ni-naru",
+      "prompt": "Complete: <ruby>社長<rt>しゃちょう</rt></ruby>はもうお<ruby>帰<rt>かえ</rt></ruby>り＿＿なりました。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "correctIndex": 0,
+      "explanation": "お V-stem に なる."
+    },
+    {
+      "id": "o-kudasai",
+      "prompt": "A shop assistant asks you to wait. What do they say?",
+      "options": [
+        "しょうしょうお<ruby>待<rt>ま</rt></ruby>ちします。",
+        "しょうしょう<ruby>待<rt>ま</rt></ruby>ってあげます。",
+        "しょうしょうお<ruby>待<rt>ま</rt></ruby>ちください。",
+        "しょうしょうお<ruby>待<rt>ま</rt></ruby>ちになります。"
+      ],
+      "correctIndex": 2,
+      "explanation": "お V-stem ください."
+    },
+    {
+      "id": "humble-mousu",
+      "prompt": "How do you give your name politely?",
+      "options": [
+        "リーとおっしゃいます。",
+        "リーといたします。",
+        "リーといらっしゃいます。",
+        "リーともうします。"
+      ],
+      "correctIndex": 3,
+      "explanation": "Humble <ruby>言<rt>い</rt></ruby>う: もうす."
+    },
+    {
+      "id": "humble-mairu",
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>、<ruby>十時<rt>じゅうじ</rt></ruby>に＿＿。 (I'll come)",
+      "options": [
+        "いらっしゃいます",
+        "まいります",
+        "めしあがります",
+        "なさいます"
+      ],
+      "correctIndex": 1,
+      "explanation": "Humble <ruby>来<rt>く</rt></ruby>る: まいる."
+    },
+    {
+      "id": "humble-o-suru",
+      "prompt": "Complete: にもつをお<ruby>持<rt>も</rt></ruby>ち＿＿ましょうか。",
+      "options": [
+        "し",
+        "に",
+        "なり",
+        "ください"
+      ],
+      "correctIndex": 0,
+      "explanation": "お V-stem する."
+    },
+    {
+      "id": "keigo-wrong",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>がいらっしゃいました。",
+        "わたしがまいりました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>がまいりました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>がおっしゃいました。"
+      ],
+      "correctIndex": 2,
+      "explanation": "まいる is humble."
+    },
+    {
+      "id": "nagara",
+      "prompt": "Complete: <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き＿＿、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+      "options": [
+        "すぎて",
+        "ながら",
+        "やすく",
+        "のに"
+      ],
+      "correctIndex": 1,
+      "explanation": "While: ながら."
+    },
+    {
+      "id": "sugiru",
+      "prompt": "Complete: きのうは<ruby>飲<rt>の</rt></ruby>み＿＿て、ずつうがします。",
+      "options": [
+        "ながら",
+        "やす",
+        "にく",
+        "すぎ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Too much: すぎる."
+    },
+    {
+      "id": "sugiru-adj",
+      "prompt": "What is \"too good\"?",
+      "options": [
+        "いすぎる",
+        "いいすぎる",
+        "よすぎる",
+        "よくすぎる"
+      ],
+      "correctIndex": 2,
+      "explanation": "いい → よすぎる."
+    },
+    {
+      "id": "yasui",
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>のせつめいは<ruby>分<rt>わ</rt></ruby>かり＿＿です。 (easy to understand)",
+      "options": [
+        "やすい",
+        "にくい",
+        "すぎる",
+        "ながら"
+      ],
+      "correctIndex": 0,
+      "explanation": "Easy to: やすい."
+    },
+    {
+      "id": "nikui",
+      "prompt": "Complete: この<ruby>地図<rt>ちず</rt></ruby>は<ruby>見<rt>み</rt></ruby>＿＿です。 (hard to read)",
+      "options": [
+        "やすい",
+        "すぎる",
+        "たい",
+        "にくい"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hard to: にくい."
+    },
+    {
+      "id": "noni",
+      "prompt": "Complete: <ruby>日曜日<rt>にちようび</rt></ruby>＿＿のに、<ruby>仕事<rt>しごと</rt></ruby>です。",
+      "options": [
+        "だ",
+        "な",
+        "の",
+        "で"
+      ],
+      "correctIndex": 1,
+      "explanation": "Noun + なのに."
+    },
+    {
+      "id": "kanji-chikatetsu",
+      "prompt": "How is 地下鉄⁠ read?",
+      "options": [
+        "じかてつ",
+        "ちげてつ",
+        "ちかてつ",
+        "ちかでつ"
+      ],
+      "correctIndex": 2,
+      "explanation": "地下鉄⁠ is read ちかてつ."
+    }
+  ]
+}

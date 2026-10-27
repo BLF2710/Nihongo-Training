@@ -2731,6 +2731,2295 @@
       "jlptLevel": null,
       "strokeCount": 4,
       "source": "https://kanjiapi.dev/v1/kanji/%E5%BF%83"
+    },
+    {
+      "id": "kanji-904b",
+      "character": "運",
+      "meanings": [
+        "carry",
+        "luck",
+        "destiny",
+        "fate",
+        "lot",
+        "transport",
+        "progress",
+        "advance"
+      ],
+      "onyomi": [
+        "ウン"
+      ],
+      "kunyomi": [
+        "はこ.ぶ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 12,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%81%8B"
+    },
+    {
+      "id": "kanji-8ee2",
+      "character": "転",
+      "meanings": [
+        "revolve",
+        "turn around",
+        "change"
+      ],
+      "onyomi": [
+        "テン"
+      ],
+      "kunyomi": [
+        "ころ.がる",
+        "ころ.げる",
+        "ころ.がす",
+        "ころ.ぶ",
+        "まろ.ぶ",
+        "うたた",
+        "うつ.る",
+        "くる.めく"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%BB%A2"
+    },
+    {
+      "id": "kanji-52d5",
+      "character": "動",
+      "meanings": [
+        "move",
+        "motion",
+        "change",
+        "confusion",
+        "shift",
+        "shake"
+      ],
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "うご.く",
+        "うご.かす"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%8B%95"
+    },
+    {
+      "id": "kanji-6b4c",
+      "character": "歌",
+      "meanings": [
+        "song",
+        "sing"
+      ],
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [
+        "うた",
+        "うた.う"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 14,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%AD%8C"
+    },
+    {
+      "id": "kanji-97f3",
+      "character": "音",
+      "meanings": [
+        "sound",
+        "noise"
+      ],
+      "onyomi": [
+        "オン",
+        "イン",
+        "-ノン"
+      ],
+      "kunyomi": [
+        "おと",
+        "ね"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%9F%B3"
+    },
+    {
+      "id": "kanji-697d",
+      "character": "楽",
+      "meanings": [
+        "music",
+        "comfort",
+        "ease"
+      ],
+      "onyomi": [
+        "ガク",
+        "ラク",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "たの.しい",
+        "たの.しむ",
+        "この.む"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%A5%BD"
+    },
+    {
+      "id": "kanji-59cb",
+      "character": "始",
+      "meanings": [
+        "commence",
+        "begin"
+      ],
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "はじ.める",
+        "-はじ.める",
+        "はじ.まる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%A7%8B"
+    },
+    {
+      "id": "kanji-7d42",
+      "character": "終",
+      "meanings": [
+        "end",
+        "finish"
+      ],
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "お.わる",
+        "-お.わる",
+        "おわ.る",
+        "お.える",
+        "つい",
+        "つい.に"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%B5%82"
+    },
+    {
+      "id": "kanji-53bb",
+      "character": "去",
+      "meanings": [
+        "gone",
+        "past",
+        "quit",
+        "leave",
+        "elapse",
+        "eliminate",
+        "divorce"
+      ],
+      "onyomi": [
+        "キョ",
+        "コ"
+      ],
+      "kunyomi": [
+        "さ.る",
+        "-さ.る"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%8E%BB"
+    },
+    {
+      "id": "kanji-5e83",
+      "character": "広",
+      "meanings": [
+        "wide",
+        "broad",
+        "spacious"
+      ],
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "ひろ.い",
+        "ひろ.まる",
+        "ひろ.める",
+        "ひろ.がる",
+        "ひろ.げる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%BA%83"
+    },
+    {
+      "id": "kanji-8fd1",
+      "character": "近",
+      "meanings": [
+        "near",
+        "early",
+        "akin",
+        "tantamount"
+      ],
+      "onyomi": [
+        "キン",
+        "コン"
+      ],
+      "kunyomi": [
+        "ちか.い"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%BF%91"
+    },
+    {
+      "id": "kanji-4f4f",
+      "character": "住",
+      "meanings": [
+        "dwell",
+        "reside",
+        "live",
+        "inhabit"
+      ],
+      "onyomi": [
+        "ジュウ",
+        "ヂュウ",
+        "チュウ"
+      ],
+      "kunyomi": [
+        "す.む",
+        "す.まう",
+        "-ず.まい"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BD%8F"
+    },
+    {
+      "id": "kanji-5473",
+      "character": "味",
+      "meanings": [
+        "flavor",
+        "taste"
+      ],
+      "onyomi": [
+        "ミ"
+      ],
+      "kunyomi": [
+        "あじ",
+        "あじ.わう"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%91%B3"
+    },
+    {
+      "id": "kanji-8272",
+      "character": "色",
+      "meanings": [
+        "color"
+      ],
+      "onyomi": [
+        "ショク",
+        "シキ"
+      ],
+      "kunyomi": [
+        "いろ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%89%B2"
+    },
+    {
+      "id": "kanji-8d64",
+      "character": "赤",
+      "meanings": [
+        "red"
+      ],
+      "onyomi": [
+        "セキ",
+        "シャク"
+      ],
+      "kunyomi": [
+        "あか",
+        "あか-",
+        "あか.い",
+        "あか.らむ",
+        "あか.らめる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%B5%A4"
+    },
+    {
+      "id": "kanji-9752",
+      "character": "青",
+      "meanings": [
+        "blue",
+        "green"
+      ],
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "あお",
+        "あお-",
+        "あお.い"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%9D%92"
+    },
+    {
+      "id": "kanji-6625",
+      "character": "春",
+      "meanings": [
+        "springtime",
+        "spring (season)"
+      ],
+      "onyomi": [
+        "シュン"
+      ],
+      "kunyomi": [
+        "はる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%98%A5"
+    },
+    {
+      "id": "kanji-590f",
+      "character": "夏",
+      "meanings": [
+        "summer"
+      ],
+      "onyomi": [
+        "カ",
+        "ガ",
+        "ゲ"
+      ],
+      "kunyomi": [
+        "なつ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%A4%8F"
+    },
+    {
+      "id": "kanji-79cb",
+      "character": "秋",
+      "meanings": [
+        "autumn"
+      ],
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "あき",
+        "とき"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%A7%8B"
+    },
+    {
+      "id": "kanji-51ac",
+      "character": "冬",
+      "meanings": [
+        "winter"
+      ],
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "ふゆ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%86%AC"
+    },
+    {
+      "id": "kanji-8a66",
+      "character": "試",
+      "meanings": [
+        "test",
+        "try",
+        "attempt",
+        "experiment",
+        "ordeal"
+      ],
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "こころ.みる",
+        "ため.す"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%A9%A6"
+    },
+    {
+      "id": "kanji-9a13",
+      "character": "験",
+      "meanings": [
+        "verification",
+        "effect",
+        "testing"
+      ],
+      "onyomi": [
+        "ケン",
+        "ゲン"
+      ],
+      "kunyomi": [
+        "あかし",
+        "しるし",
+        "ため.す",
+        "ためし"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 18,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%A8%93"
+    },
+    {
+      "id": "kanji-52c9",
+      "character": "勉",
+      "meanings": [
+        "exertion",
+        "endeavour",
+        "encourage",
+        "strive",
+        "make effort",
+        "diligent"
+      ],
+      "onyomi": [
+        "ベン"
+      ],
+      "kunyomi": [
+        "つと.める"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%8B%89"
+    },
+    {
+      "id": "kanji-5f37",
+      "character": "強",
+      "meanings": [
+        "strong"
+      ],
+      "onyomi": [
+        "キョウ",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "つよ.い",
+        "つよ.まる",
+        "つよ.める",
+        "し.いる",
+        "こわ.い"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%BC%B7"
+    },
+    {
+      "id": "kanji-6b69",
+      "character": "歩",
+      "meanings": [
+        "walk",
+        "counter for steps"
+      ],
+      "onyomi": [
+        "ホ",
+        "ブ",
+        "フ"
+      ],
+      "kunyomi": [
+        "ある.く",
+        "あゆ.む"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%AD%A9"
+    },
+    {
+      "id": "kanji-8d70",
+      "character": "走",
+      "meanings": [
+        "run"
+      ],
+      "onyomi": [
+        "ソウ"
+      ],
+      "kunyomi": [
+        "はし.る"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%B5%B0"
+    },
+    {
+      "id": "kanji-6b62",
+      "character": "止",
+      "meanings": [
+        "stop",
+        "halt"
+      ],
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "と.まる",
+        "-ど.まり",
+        "と.める",
+        "-と.める",
+        "-ど.め",
+        "とど.める",
+        "とど.め",
+        "とど.まる",
+        "や.める",
+        "や.む",
+        "-や.む",
+        "よ.す",
+        "-さ.す",
+        "-さ.し"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%AD%A2"
+    },
+    {
+      "id": "kanji-4eac",
+      "character": "京",
+      "meanings": [
+        "capital",
+        "10**16"
+      ],
+      "onyomi": [
+        "キョウ",
+        "ケイ",
+        "キン"
+      ],
+      "kunyomi": [
+        "みやこ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BA%AC"
+    },
+    {
+      "id": "kanji-90fd",
+      "character": "都",
+      "meanings": [
+        "metropolis",
+        "capital",
+        "all",
+        "everything"
+      ],
+      "onyomi": [
+        "ト",
+        "ツ"
+      ],
+      "kunyomi": [
+        "みやこ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%83%BD"
+    },
+    {
+      "id": "kanji-65c5",
+      "character": "旅",
+      "meanings": [
+        "trip",
+        "travel"
+      ],
+      "onyomi": [
+        "リョ"
+      ],
+      "kunyomi": [
+        "たび"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%97%85"
+    },
+    {
+      "id": "kanji-958b",
+      "character": "開",
+      "meanings": [
+        "open",
+        "unfold",
+        "unseal"
+      ],
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "ひら.く",
+        "ひら.き",
+        "-びら.き",
+        "ひら.ける",
+        "あ.く",
+        "あ.ける"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 12,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%96%8B"
+    },
+    {
+      "id": "kanji-5207",
+      "character": "切",
+      "meanings": [
+        "cut",
+        "cutoff",
+        "be sharp"
+      ],
+      "onyomi": [
+        "セツ",
+        "サイ"
+      ],
+      "kunyomi": [
+        "き.る",
+        "-き.る",
+        "き.り",
+        "-き.り",
+        "-ぎ.り",
+        "き.れる",
+        "-き.れる",
+        "き.れ",
+        "-き.れ",
+        "-ぎ.れ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%88%87"
+    },
+    {
+      "id": "kanji-8d77",
+      "character": "起",
+      "meanings": [
+        "rouse",
+        "wake up",
+        "get up"
+      ],
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "お.きる",
+        "お.こる",
+        "お.こす",
+        "おこ.す",
+        "た.つ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%B5%B7"
+    },
+    {
+      "id": "kanji-6620",
+      "character": "映",
+      "meanings": [
+        "reflect",
+        "reflection",
+        "projection"
+      ],
+      "onyomi": [
+        "エイ"
+      ],
+      "kunyomi": [
+        "うつ.る",
+        "うつ.す",
+        "は.える",
+        "-ば.え"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%98%A0"
+    },
+    {
+      "id": "kanji-753b",
+      "character": "画",
+      "meanings": [
+        "brush-stroke",
+        "picture"
+      ],
+      "onyomi": [
+        "ガ",
+        "カク",
+        "エ",
+        "カイ"
+      ],
+      "kunyomi": [
+        "えが.く",
+        "かく.する",
+        "かぎ.る",
+        "はかりごと",
+        "はか.る"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%94%BB"
+    },
+    {
+      "id": "kanji-6d0b",
+      "character": "洋",
+      "meanings": [
+        "ocean",
+        "sea",
+        "foreign",
+        "Western style"
+      ],
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%B4%8B"
+    },
+    {
+      "id": "kanji-670d",
+      "character": "服",
+      "meanings": [
+        "clothing",
+        "admit",
+        "obey",
+        "discharge"
+      ],
+      "onyomi": [
+        "フク"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%9C%8D"
+    },
+    {
+      "id": "kanji-4e16",
+      "character": "世",
+      "meanings": [
+        "generation",
+        "world",
+        "society",
+        "public"
+      ],
+      "onyomi": [
+        "セイ",
+        "セ",
+        "ソウ"
+      ],
+      "kunyomi": [
+        "よ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%96"
+    },
+    {
+      "id": "kanji-754c",
+      "character": "界",
+      "meanings": [
+        "world",
+        "boundary"
+      ],
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%95%8C"
+    },
+    {
+      "id": "kanji-6d77",
+      "character": "海",
+      "meanings": [
+        "sea",
+        "ocean"
+      ],
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "うみ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%B5%B7"
+    },
+    {
+      "id": "kanji-4ed5",
+      "character": "仕",
+      "meanings": [
+        "attend",
+        "doing",
+        "official",
+        "serve"
+      ],
+      "onyomi": [
+        "シ",
+        "ジ"
+      ],
+      "kunyomi": [
+        "つか.える"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BB%95"
+    },
+    {
+      "id": "kanji-4e8b",
+      "character": "事",
+      "meanings": [
+        "matter",
+        "thing",
+        "fact",
+        "business",
+        "reason",
+        "possibly"
+      ],
+      "onyomi": [
+        "ジ",
+        "ズ"
+      ],
+      "kunyomi": [
+        "こと",
+        "つか.う",
+        "つか.える"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BA%8B"
+    },
+    {
+      "id": "kanji-50cd",
+      "character": "働",
+      "meanings": [
+        "work",
+        "(kokuji)"
+      ],
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "はたら.く"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%83%8D"
+    },
+    {
+      "id": "kanji-9280",
+      "character": "銀",
+      "meanings": [
+        "silver"
+      ],
+      "onyomi": [
+        "ギン"
+      ],
+      "kunyomi": [
+        "しろがね"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 14,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%8A%80"
+    },
+    {
+      "id": "kanji-54e1",
+      "character": "員",
+      "meanings": [
+        "employee",
+        "member",
+        "number",
+        "the one in charge"
+      ],
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%93%A1"
+    },
+    {
+      "id": "kanji-7528",
+      "character": "用",
+      "meanings": [
+        "utilize",
+        "business",
+        "service",
+        "use",
+        "employ"
+      ],
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [
+        "もち.いる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%94%A8"
+    },
+    {
+      "id": "kanji-5915",
+      "character": "夕",
+      "meanings": [
+        "evening"
+      ],
+      "onyomi": [
+        "セキ"
+      ],
+      "kunyomi": [
+        "ゆう"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 3,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%A4%95"
+    },
+    {
+      "id": "kanji-65b9",
+      "character": "方",
+      "meanings": [
+        "direction",
+        "person",
+        "alternative"
+      ],
+      "onyomi": [
+        "ホウ"
+      ],
+      "kunyomi": [
+        "かた",
+        "-かた",
+        "-がた"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%96%B9"
+    },
+    {
+      "id": "kanji-66dc",
+      "character": "曜",
+      "meanings": [
+        "weekday"
+      ],
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 18,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%9B%9C"
+    },
+    {
+      "id": "kanji-7740",
+      "character": "着",
+      "meanings": [
+        "don",
+        "arrive",
+        "wear",
+        "counter for suits of clothing"
+      ],
+      "onyomi": [
+        "チャク",
+        "ジャク"
+      ],
+      "kunyomi": [
+        "き.る",
+        "き.せる",
+        "つ.く",
+        "つ.ける"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 12,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%9D%80"
+    },
+    {
+      "id": "kanji-8089",
+      "character": "肉",
+      "meanings": [
+        "meat"
+      ],
+      "onyomi": [
+        "ニク"
+      ],
+      "kunyomi": [
+        "しし"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%82%89"
+    },
+    {
+      "id": "kanji-8336",
+      "character": "茶",
+      "meanings": [
+        "tea"
+      ],
+      "onyomi": [
+        "チャ",
+        "サ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%8C%B6"
+    },
+    {
+      "id": "kanji-98ef",
+      "character": "飯",
+      "meanings": [
+        "meal",
+        "boiled rice"
+      ],
+      "onyomi": [
+        "ハン"
+      ],
+      "kunyomi": [
+        "めし"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 12,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%A3%AF"
+    },
+    {
+      "id": "kanji-60aa",
+      "character": "悪",
+      "meanings": [
+        "bad",
+        "vice",
+        "rascal",
+        "false",
+        "evil",
+        "wrong"
+      ],
+      "onyomi": [
+        "アク",
+        "オ"
+      ],
+      "kunyomi": [
+        "わる.い",
+        "わる-",
+        "あ.し",
+        "にく.い",
+        "-にく.い",
+        "ああ",
+        "いずくに",
+        "いずくんぞ",
+        "にく.む"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%82%AA"
+    },
+    {
+      "id": "kanji-6b7b",
+      "character": "死",
+      "meanings": [
+        "death",
+        "die"
+      ],
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "し.ぬ",
+        "し.に-"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%AD%BB"
+    },
+    {
+      "id": "kanji-4e0d",
+      "character": "不",
+      "meanings": [
+        "negative",
+        "non-",
+        "bad",
+        "ugly",
+        "clumsy"
+      ],
+      "onyomi": [
+        "フ",
+        "ブ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%8D"
+    },
+    {
+      "id": "kanji-6599",
+      "character": "料",
+      "meanings": [
+        "fee",
+        "materials"
+      ],
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%96%99"
+    },
+    {
+      "id": "kanji-7406",
+      "character": "理",
+      "meanings": [
+        "logic",
+        "arrangement",
+        "reason",
+        "justice",
+        "truth"
+      ],
+      "onyomi": [
+        "リ"
+      ],
+      "kunyomi": [
+        "ことわり"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%90%86"
+    },
+    {
+      "id": "kanji-8a08",
+      "character": "計",
+      "meanings": [
+        "plot",
+        "plan",
+        "scheme",
+        "measure"
+      ],
+      "onyomi": [
+        "ケイ"
+      ],
+      "kunyomi": [
+        "はか.る",
+        "はか.らう"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%A8%88"
+    },
+    {
+      "id": "kanji-5ba4",
+      "character": "室",
+      "meanings": [
+        "room",
+        "apartment",
+        "chamber",
+        "greenhouse",
+        "cellar"
+      ],
+      "onyomi": [
+        "シツ"
+      ],
+      "kunyomi": [
+        "むろ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%AE%A4"
+    },
+    {
+      "id": "kanji-5802",
+      "character": "堂",
+      "meanings": [
+        "public chamber",
+        "hall"
+      ],
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%A0%82"
+    },
+    {
+      "id": "kanji-9928",
+      "character": "館",
+      "meanings": [
+        "building",
+        "mansion",
+        "large building",
+        "palace"
+      ],
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [
+        "やかた",
+        "たて"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 16,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%A4%A8"
+    },
+    {
+      "id": "kanji-56f3",
+      "character": "図",
+      "meanings": [
+        "map",
+        "drawing",
+        "plan",
+        "extraordinary",
+        "audacious"
+      ],
+      "onyomi": [
+        "ズ",
+        "ト"
+      ],
+      "kunyomi": [
+        "え",
+        "はか.る"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%9B%B3"
+    },
+    {
+      "id": "kanji-91cd",
+      "character": "重",
+      "meanings": [
+        "heavy",
+        "important",
+        "esteem",
+        "respect",
+        "heap up",
+        "pile up",
+        "nest of boxes",
+        "-fold"
+      ],
+      "onyomi": [
+        "ジュウ",
+        "チョウ"
+      ],
+      "kunyomi": [
+        "え",
+        "おも.い",
+        "おも.り",
+        "おも.なう",
+        "かさ.ねる",
+        "かさ.なる",
+        "おも"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%87%8D"
+    },
+    {
+      "id": "kanji-6b63",
+      "character": "正",
+      "meanings": [
+        "correct",
+        "justice",
+        "righteous",
+        "10**40"
+      ],
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "ただ.しい",
+        "ただ.す",
+        "まさ",
+        "まさ.に"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%AD%A3"
+    },
+    {
+      "id": "kanji-540c",
+      "character": "同",
+      "meanings": [
+        "same",
+        "agree",
+        "equal"
+      ],
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "おな.じ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%90%8C"
+    },
+    {
+      "id": "kanji-7279",
+      "character": "特",
+      "meanings": [
+        "special"
+      ],
+      "onyomi": [
+        "トク"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%89%B9"
+    },
+    {
+      "id": "kanji-5225",
+      "character": "別",
+      "meanings": [
+        "separate",
+        "branch off",
+        "diverge",
+        "fork",
+        "another",
+        "extra",
+        "specially"
+      ],
+      "onyomi": [
+        "ベツ"
+      ],
+      "kunyomi": [
+        "わか.れる",
+        "わ.ける"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%88%A5"
+    },
+    {
+      "id": "kanji-767a",
+      "character": "発",
+      "meanings": [
+        "departure",
+        "discharge",
+        "publish",
+        "emit",
+        "start from",
+        "disclose",
+        "counter for gunshots"
+      ],
+      "onyomi": [
+        "ハツ",
+        "ホツ"
+      ],
+      "kunyomi": [
+        "た.つ",
+        "あば.く",
+        "おこ.る",
+        "つか.わす",
+        "はな.つ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%99%BA"
+    },
+    {
+      "id": "kanji-81ea",
+      "character": "自",
+      "meanings": [
+        "oneself"
+      ],
+      "onyomi": [
+        "ジ",
+        "シ"
+      ],
+      "kunyomi": [
+        "みずか.ら",
+        "おの.ずから",
+        "おの.ずと"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%87%AA"
+    },
+    {
+      "id": "kanji-4e3b",
+      "character": "主",
+      "meanings": [
+        "lord",
+        "chief",
+        "master",
+        "main thing",
+        "principal"
+      ],
+      "onyomi": [
+        "シュ",
+        "ス",
+        "シュウ"
+      ],
+      "kunyomi": [
+        "ぬし",
+        "おも",
+        "あるじ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%B8%BB"
+    },
+    {
+      "id": "kanji-6709",
+      "character": "有",
+      "meanings": [
+        "possess",
+        "have",
+        "exist",
+        "happen",
+        "occur",
+        "approx"
+      ],
+      "onyomi": [
+        "ユウ",
+        "ウ"
+      ],
+      "kunyomi": [
+        "あ.る"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%9C%89"
+    },
+    {
+      "id": "kanji-9ed2",
+      "character": "黒",
+      "meanings": [
+        "black"
+      ],
+      "onyomi": [
+        "コク"
+      ],
+      "kunyomi": [
+        "くろ",
+        "くろ.ずむ",
+        "くろ.い"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%BB%92"
+    },
+    {
+      "id": "kanji-9ce5",
+      "character": "鳥",
+      "meanings": [
+        "bird",
+        "chicken"
+      ],
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "とり"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%B3%A5"
+    },
+    {
+      "id": "kanji-72ac",
+      "character": "犬",
+      "meanings": [
+        "dog"
+      ],
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "いぬ",
+        "いぬ-"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%8A%AC"
+    },
+    {
+      "id": "kanji-6f22",
+      "character": "漢",
+      "meanings": [
+        "Sino-",
+        "China"
+      ],
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%BC%A2"
+    },
+    {
+      "id": "kanji-5b57",
+      "character": "字",
+      "meanings": [
+        "character",
+        "letter",
+        "word",
+        "section of village"
+      ],
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "あざ",
+        "あざな",
+        "-な"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%AD%97"
+    },
+    {
+      "id": "kanji-82f1",
+      "character": "英",
+      "meanings": [
+        "England",
+        "English",
+        "hero",
+        "outstanding",
+        "calyx"
+      ],
+      "onyomi": [
+        "エイ"
+      ],
+      "kunyomi": [
+        "はなぶさ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%8B%B1"
+    },
+    {
+      "id": "kanji-4ee5",
+      "character": "以",
+      "meanings": [
+        "by means of",
+        "because",
+        "in view of",
+        "compared with"
+      ],
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [
+        "もっ.て"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BB%A5"
+    },
+    {
+      "id": "kanji-5ea6",
+      "character": "度",
+      "meanings": [
+        "degrees",
+        "occurrence",
+        "time",
+        "counter for occurrences",
+        "consider",
+        "attitude"
+      ],
+      "onyomi": [
+        "ド",
+        "ト",
+        "タク"
+      ],
+      "kunyomi": [
+        "たび",
+        "-た.い"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%BA%A6"
+    },
+    {
+      "id": "kanji-96c6",
+      "character": "集",
+      "meanings": [
+        "gather",
+        "meet",
+        "congregate",
+        "swarm",
+        "flock"
+      ],
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "あつ.まる",
+        "あつ.める",
+        "つど.う"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 12,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%9B%86"
+    },
+    {
+      "id": "kanji-4f7f",
+      "character": "使",
+      "meanings": [
+        "use",
+        "send on a mission",
+        "order",
+        "messenger",
+        "envoy",
+        "ambassador",
+        "cause"
+      ],
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "つか.う",
+        "つか.い",
+        "-つか.い",
+        "-づか.い"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BD%BF"
+    },
+    {
+      "id": "kanji-4f5c",
+      "character": "作",
+      "meanings": [
+        "make",
+        "production",
+        "prepare",
+        "build"
+      ],
+      "onyomi": [
+        "サク",
+        "サ"
+      ],
+      "kunyomi": [
+        "つく.る",
+        "つく.り",
+        "-づく.り"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BD%9C"
+    },
+    {
+      "id": "kanji-5efa",
+      "character": "建",
+      "meanings": [
+        "build"
+      ],
+      "onyomi": [
+        "ケン",
+        "コン"
+      ],
+      "kunyomi": [
+        "た.てる",
+        "た.て",
+        "-だ.て",
+        "た.つ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%BB%BA"
+    },
+    {
+      "id": "kanji-58f2",
+      "character": "売",
+      "meanings": [
+        "sell"
+      ],
+      "onyomi": [
+        "バイ"
+      ],
+      "kunyomi": [
+        "う.る",
+        "う.れる"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%A3%B2"
+    },
+    {
+      "id": "kanji-4ee3",
+      "character": "代",
+      "meanings": [
+        "substitute",
+        "change",
+        "convert",
+        "replace",
+        "period",
+        "age",
+        "counter for decades of ages, eras, etc.",
+        "generation",
+        "charge",
+        "rate",
+        "fee"
+      ],
+      "onyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "kunyomi": [
+        "か.わる",
+        "かわ.る",
+        "かわ.り",
+        "か.わり",
+        "-がわ.り",
+        "-が.わり",
+        "か.える",
+        "よ",
+        "しろ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E4%BB%A3"
+    },
+    {
+      "id": "kanji-753a",
+      "character": "町",
+      "meanings": [
+        "town",
+        "village",
+        "block",
+        "street"
+      ],
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "まち"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%94%BA"
+    },
+    {
+      "id": "kanji-89aa",
+      "character": "親",
+      "meanings": [
+        "parent",
+        "intimacy",
+        "relative",
+        "familiarity",
+        "dealer (cards)"
+      ],
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "おや",
+        "おや-",
+        "した.しい",
+        "した.しむ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 16,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%A6%AA"
+    },
+    {
+      "id": "kanji-6ce8",
+      "character": "注",
+      "meanings": [
+        "pour",
+        "irrigate",
+        "shed (tears)",
+        "flow into",
+        "concentrate on",
+        "notes",
+        "comment",
+        "annotate"
+      ],
+      "onyomi": [
+        "チュウ"
+      ],
+      "kunyomi": [
+        "そそ.ぐ",
+        "さ.す",
+        "つ.ぐ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 8,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%B3%A8"
+    },
+    {
+      "id": "kanji-65cf",
+      "character": "族",
+      "meanings": [
+        "tribe",
+        "family"
+      ],
+      "onyomi": [
+        "ゾク"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%97%8F"
+    },
+    {
+      "id": "kanji-5e30",
+      "character": "帰",
+      "meanings": [
+        "homecoming",
+        "arrive at",
+        "lead to",
+        "result in"
+      ],
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "かえ.る",
+        "かえ.す",
+        "おく.る",
+        "とつ.ぐ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%B8%B0"
+    },
+    {
+      "id": "kanji-554f",
+      "character": "問",
+      "meanings": [
+        "question",
+        "ask",
+        "problem"
+      ],
+      "onyomi": [
+        "モン"
+      ],
+      "kunyomi": [
+        "と.う",
+        "と.い",
+        "とん"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 11,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%95%8F"
+    },
+    {
+      "id": "kanji-984c",
+      "character": "題",
+      "meanings": [
+        "topic",
+        "subject"
+      ],
+      "onyomi": [
+        "ダイ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 18,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%A1%8C"
+    },
+    {
+      "id": "kanji-8cea",
+      "character": "質",
+      "meanings": [
+        "substance",
+        "quality",
+        "matter",
+        "temperament"
+      ],
+      "onyomi": [
+        "シツ",
+        "シチ",
+        "チ"
+      ],
+      "kunyomi": [
+        "たち",
+        "ただ.す",
+        "もと",
+        "わりふ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 15,
+      "source": "https://kanjiapi.dev/v1/kanji/%E8%B3%AA"
+    },
+    {
+      "id": "kanji-7814",
+      "character": "研",
+      "meanings": [
+        "polish",
+        "study of",
+        "sharpen"
+      ],
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "と.ぐ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%A0%94"
+    },
+    {
+      "id": "kanji-7a76",
+      "character": "究",
+      "meanings": [
+        "research",
+        "study"
+      ],
+      "onyomi": [
+        "キュウ",
+        "ク"
+      ],
+      "kunyomi": [
+        "きわ.める"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%A9%B6"
+    },
+    {
+      "id": "kanji-5de5",
+      "character": "工",
+      "meanings": [
+        "craft",
+        "construction",
+        "katakana e radical (no. 48)"
+      ],
+      "onyomi": [
+        "コウ",
+        "ク",
+        "グ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 3,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%B7%A5"
+    },
+    {
+      "id": "kanji-5834",
+      "character": "場",
+      "meanings": [
+        "location",
+        "place"
+      ],
+      "onyomi": [
+        "ジョウ",
+        "チョウ"
+      ],
+      "kunyomi": [
+        "ば"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 12,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%A0%B4"
+    },
+    {
+      "id": "kanji-516c",
+      "character": "公",
+      "meanings": [
+        "public",
+        "prince",
+        "official",
+        "governmental"
+      ],
+      "onyomi": [
+        "コウ",
+        "ク"
+      ],
+      "kunyomi": [
+        "おおやけ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%85%AC"
+    },
+    {
+      "id": "kanji-5712",
+      "character": "園",
+      "meanings": [
+        "park",
+        "garden",
+        "yard",
+        "farm"
+      ],
+      "onyomi": [
+        "エン"
+      ],
+      "kunyomi": [
+        "その"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%9C%92"
+    },
+    {
+      "id": "kanji-5e02",
+      "character": "市",
+      "meanings": [
+        "market",
+        "city",
+        "town"
+      ],
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "いち"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%B8%82"
+    },
+    {
+      "id": "kanji-6587",
+      "character": "文",
+      "meanings": [
+        "sentence",
+        "literature",
+        "style",
+        "art",
+        "decoration",
+        "figures",
+        "plan",
+        "literary radical (no. 67)"
+      ],
+      "onyomi": [
+        "ブン",
+        "モン"
+      ],
+      "kunyomi": [
+        "ふみ",
+        "あや"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 4,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%96%87"
+    },
+    {
+      "id": "kanji-54c1",
+      "character": "品",
+      "meanings": [
+        "goods",
+        "refinement",
+        "dignity",
+        "article",
+        "counter for meal courses"
+      ],
+      "onyomi": [
+        "ヒン",
+        "ホン"
+      ],
+      "kunyomi": [
+        "しな"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 9,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%93%81"
+    },
+    {
+      "id": "kanji-696d",
+      "character": "業",
+      "meanings": [
+        "business",
+        "vocation",
+        "arts",
+        "performance"
+      ],
+      "onyomi": [
+        "ギョウ",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "わざ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E6%A5%AD"
+    },
+    {
+      "id": "kanji-982d",
+      "character": "頭",
+      "meanings": [
+        "head",
+        "counter for large animals"
+      ],
+      "onyomi": [
+        "トウ",
+        "ズ",
+        "ト"
+      ],
+      "kunyomi": [
+        "あたま",
+        "かしら",
+        "-がしら",
+        "かぶり"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 16,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%A0%AD"
+    },
+    {
+      "id": "kanji-9854",
+      "character": "顔",
+      "meanings": [
+        "face",
+        "expression"
+      ],
+      "onyomi": [
+        "ガン"
+      ],
+      "kunyomi": [
+        "かお"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 18,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%A1%94"
+    },
+    {
+      "id": "kanji-58f0",
+      "character": "声",
+      "meanings": [
+        "voice"
+      ],
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "こえ",
+        "こわ-"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 7,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%A3%B0"
+    },
+    {
+      "id": "kanji-5730",
+      "character": "地",
+      "meanings": [
+        "ground",
+        "earth"
+      ],
+      "onyomi": [
+        "チ",
+        "ジ"
+      ],
+      "kunyomi": [],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%9C%B0"
+    },
+    {
+      "id": "kanji-9244",
+      "character": "鉄",
+      "meanings": [
+        "iron"
+      ],
+      "onyomi": [
+        "テツ"
+      ],
+      "kunyomi": [
+        "くろがね"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 13,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%89%84"
+    },
+    {
+      "id": "kanji-901a",
+      "character": "通",
+      "meanings": [
+        "traffic",
+        "pass through",
+        "avenue",
+        "commute",
+        "counter for letters, notes, documents, etc."
+      ],
+      "onyomi": [
+        "ツウ",
+        "ツ"
+      ],
+      "kunyomi": [
+        "とお.る",
+        "とお.り",
+        "-とお.り",
+        "-どお.り",
+        "とお.す",
+        "とお.し",
+        "-どお.し",
+        "かよ.う"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 10,
+      "source": "https://kanjiapi.dev/v1/kanji/%E9%80%9A"
+    },
+    {
+      "id": "kanji-7121",
+      "character": "無",
+      "meanings": [
+        "nothingness",
+        "none",
+        "ain't",
+        "nothing",
+        "nil",
+        "not"
+      ],
+      "onyomi": [
+        "ム",
+        "ブ"
+      ],
+      "kunyomi": [
+        "な.い"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 12,
+      "source": "https://kanjiapi.dev/v1/kanji/%E7%84%A1"
+    },
+    {
+      "id": "kanji-56de",
+      "character": "回",
+      "meanings": [
+        "-times",
+        "round",
+        "game",
+        "revolve",
+        "counter for occurrences"
+      ],
+      "onyomi": [
+        "カイ",
+        "エ"
+      ],
+      "kunyomi": [
+        "まわ.る",
+        "-まわ.る",
+        "-まわ.り",
+        "まわ.す",
+        "-まわ.す",
+        "まわ.し-",
+        "-まわ.し",
+        "もとお.る",
+        "か.える"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 6,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%9B%9E"
+    },
+    {
+      "id": "kanji-53f0",
+      "character": "台",
+      "meanings": [
+        "pedestal",
+        "a stand",
+        "counter for machines and vehicles"
+      ],
+      "onyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "kunyomi": [
+        "うてな",
+        "われ",
+        "つかさ"
+      ],
+      "jlptLevel": null,
+      "strokeCount": 5,
+      "source": "https://kanjiapi.dev/v1/kanji/%E5%8F%B0"
     }
   ],
   "vocabularyForms": [
@@ -3964,7 +6253,8 @@
       "written": "空",
       "reading": "そら",
       "vocabularyIds": [
-        "japanese-n5-unit-8-reasons-and-states:そら"
+        "japanese-n5-unit-8-reasons-and-states:そら",
+        "japanese-n4-unit-3-looks-tasty:<ruby>空<rt>そら</rt></ruby>"
       ],
       "kanjiIds": [
         "kanji-7a7a"
@@ -4037,7 +6327,8 @@
       "written": "花見",
       "reading": "はなみ",
       "vocabularyIds": [
-        "japanese-n5-unit-9-things-i-can-do:はなみ"
+        "japanese-n5-unit-9-things-i-can-do:はなみ",
+        "japanese-n4-unit-4-if-it-rains:<ruby>花見<rt>はなみ</rt></ruby>"
       ],
       "kanjiIds": [
         "kanji-82b1",
@@ -4114,7 +6405,9 @@
       "written": "人気",
       "reading": "にんき",
       "vocabularyIds": [
-        "japanese-n4-unit-1-i-think:<ruby>人気<rt>にんき</rt></ruby>"
+        "japanese-n4-unit-1-i-think:<ruby>人気<rt>にんき</rt></ruby>",
+        "japanese-n4-unit-7-apparently:<ruby>人気<rt>にんき</rt></ruby>",
+        "japanese-n4-unit-7-review:<ruby>人気<rt>にんき</rt></ruby>"
       ],
       "kanjiIds": [
         "kanji-4eba",
@@ -4719,6 +7012,2382 @@
         "kanji-6c17"
       ],
       "source": "https://kanjiapi.dev/v1/words/%E6%B0%97"
+    },
+    {
+      "id": "form-904b-8ee2",
+      "written": "運転",
+      "reading": "うんてん",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-i-can-drive:<ruby>運転<rt>うんてん</rt></ruby>",
+        "japanese-n4-unit-3-review:<ruby>運転<rt>うんてん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-904b",
+        "kanji-8ee2"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%81%8B"
+    },
+    {
+      "id": "form-904b-52d5",
+      "written": "運動",
+      "reading": "うんどう",
+      "vocabularyIds": [
+        "japanese-n4-unit-2-you-should:うんどう",
+        "japanese-n4-unit-3-i-can-drive:<ruby>運動<rt>うんどう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-904b",
+        "kanji-52d5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%81%8B"
+    },
+    {
+      "id": "form-52d5",
+      "written": "動く",
+      "reading": "うごく",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-i-can-drive:<ruby>動<rt>うご</rt></ruby>く"
+      ],
+      "kanjiIds": [
+        "kanji-52d5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%8B%95"
+    },
+    {
+      "id": "form-6b4c",
+      "written": "歌",
+      "reading": "うた",
+      "vocabularyIds": [
+        "japanese-n5-unit-8-right-now:うた",
+        "japanese-n4-unit-3-i-can-sing:<ruby>歌<rt>うた</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6b4c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%8C"
+    },
+    {
+      "id": "form-6b4c-2",
+      "written": "歌う",
+      "reading": "うたう",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-i-can-sing:<ruby>歌<rt>うた</rt></ruby>う",
+        "japanese-n4-unit-3-review:<ruby>歌<rt>うた</rt></ruby>う"
+      ],
+      "kanjiIds": [
+        "kanji-6b4c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%8C"
+    },
+    {
+      "id": "form-97f3-697d",
+      "written": "音楽",
+      "reading": "おんがく",
+      "vocabularyIds": [
+        "japanese-n5-unit-5-what-did-you-do:おんがく",
+        "japanese-n4-unit-3-i-can-sing:<ruby>音楽<rt>おんがく</rt></ruby>",
+        "japanese-n4-unit-3-review:<ruby>音楽<rt>おんがく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-97f3",
+        "kanji-697d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9F%B3"
+    },
+    {
+      "id": "form-97f3",
+      "written": "音",
+      "reading": "おと",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-i-can-sing:<ruby>音<rt>おと</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-97f3"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9F%B3"
+    },
+    {
+      "id": "form-697d",
+      "written": "楽しい",
+      "reading": "たのしい",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-i-adjectives:たのしい",
+        "japanese-n5-unit-6-review:たのしい",
+        "japanese-n4-unit-3-i-can-sing:<ruby>楽<rt>たの</rt></ruby>しい",
+        "japanese-n4-unit-3-review:<ruby>楽<rt>たの</rt></ruby>しい"
+      ],
+      "kanjiIds": [
+        "kanji-697d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%A5%BD"
+    },
+    {
+      "id": "form-697d-2",
+      "written": "楽しみ",
+      "reading": "たのしみ",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-i-can-sing:<ruby>楽<rt>たの</rt></ruby>しみ"
+      ],
+      "kanjiIds": [
+        "kanji-697d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%A5%BD"
+    },
+    {
+      "id": "form-59cb",
+      "written": "始まる",
+      "reading": "はじまる",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-now-i-can:<ruby>始<rt>はじ</rt></ruby>まる",
+        "japanese-n4-unit-3-review:<ruby>始<rt>はじ</rt></ruby>まる"
+      ],
+      "kanjiIds": [
+        "kanji-59cb"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A7%8B"
+    },
+    {
+      "id": "form-59cb-2",
+      "written": "始める",
+      "reading": "はじめる",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-now-i-can:<ruby>始<rt>はじ</rt></ruby>める"
+      ],
+      "kanjiIds": [
+        "kanji-59cb"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A7%8B"
+    },
+    {
+      "id": "form-7d42",
+      "written": "終わる",
+      "reading": "おわる",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-now-i-can:<ruby>終<rt>お</rt></ruby>わる",
+        "japanese-n4-unit-3-review:<ruby>終<rt>お</rt></ruby>わる"
+      ],
+      "kanjiIds": [
+        "kanji-7d42"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%B5%82"
+    },
+    {
+      "id": "form-53bb-5e74",
+      "written": "去年",
+      "reading": "きょねん",
+      "vocabularyIds": [
+        "japanese-n5-unit-5-what-did-you-do:きょねん",
+        "japanese-n4-unit-3-now-i-can:<ruby>去年<rt>きょねん</rt></ruby>",
+        "japanese-n4-unit-3-review:<ruby>去年<rt>きょねん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-53bb",
+        "kanji-5e74"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%8E%BB"
+    },
+    {
+      "id": "form-5e83",
+      "written": "広い",
+      "reading": "ひろい",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-what-kind:ひろい",
+        "japanese-n4-unit-3-and-also:<ruby>広<rt>ひろ</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-5e83"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%BA%83"
+    },
+    {
+      "id": "form-8fd1",
+      "written": "近い",
+      "reading": "ちかい",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-and-also:<ruby>近<rt>ちか</rt></ruby>い",
+        "japanese-n4-unit-3-review:<ruby>近<rt>ちか</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-8fd1"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%BF%91"
+    },
+    {
+      "id": "form-8fd1-2",
+      "written": "近く",
+      "reading": "ちかく",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-my-town:ちかく",
+        "japanese-n4-unit-3-and-also:<ruby>近<rt>ちか</rt></ruby>く"
+      ],
+      "kanjiIds": [
+        "kanji-8fd1"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%BF%91"
+    },
+    {
+      "id": "form-4f4f",
+      "written": "住む",
+      "reading": "すむ",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-and-also:<ruby>住<rt>す</rt></ruby>む",
+        "japanese-n4-unit-3-review:<ruby>住<rt>す</rt></ruby>む"
+      ],
+      "kanjiIds": [
+        "kanji-4f4f"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%8F"
+    },
+    {
+      "id": "form-5473",
+      "written": "味",
+      "reading": "あじ",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-looks-tasty:<ruby>味<rt>あじ</rt></ruby>",
+        "japanese-n4-unit-3-review:<ruby>味<rt>あじ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5473"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%91%B3"
+    },
+    {
+      "id": "form-8272",
+      "written": "色",
+      "reading": "いろ",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-how-was-the-trip:いろ",
+        "japanese-n4-unit-3-looks-tasty:<ruby>色<rt>いろ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8272"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%89%B2"
+    },
+    {
+      "id": "form-8d64",
+      "written": "赤い",
+      "reading": "あかい",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-how-was-the-trip:あかい",
+        "japanese-n4-unit-3-looks-tasty:<ruby>赤<rt>あか</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-8d64"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%B5%A4"
+    },
+    {
+      "id": "form-9752",
+      "written": "青い",
+      "reading": "あおい",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-how-was-the-trip:あおい",
+        "japanese-n4-unit-3-looks-tasty:<ruby>青<rt>あお</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-9752"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9D%92"
+    },
+    {
+      "id": "form-4f55-8272",
+      "written": "何色",
+      "reading": "なにいろ",
+      "vocabularyIds": [
+        "japanese-n4-unit-3-looks-tasty:<ruby>何色<rt>なにいろ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4f55",
+        "kanji-8272"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%95"
+    },
+    {
+      "id": "form-6625",
+      "written": "春",
+      "reading": "はる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-it-rains:<ruby>春<rt>はる</rt></ruby>",
+        "japanese-n4-unit-4-review:<ruby>春<rt>はる</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6625"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%98%A5"
+    },
+    {
+      "id": "form-590f",
+      "written": "夏",
+      "reading": "なつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-it-rains:<ruby>夏<rt>なつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-590f"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A4%8F"
+    },
+    {
+      "id": "form-79cb",
+      "written": "秋",
+      "reading": "あき",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-it-rains:<ruby>秋<rt>あき</rt></ruby>",
+        "japanese-n4-unit-4-review:<ruby>秋<rt>あき</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-79cb"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%A7%8B"
+    },
+    {
+      "id": "form-51ac",
+      "written": "冬",
+      "reading": "ふゆ",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-it-rains:<ruby>冬<rt>ふゆ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-51ac"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%86%AC"
+    },
+    {
+      "id": "form-590f-4f11",
+      "written": "夏休み",
+      "reading": "なつやすみ",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-it-rains:<ruby>夏休<rt>なつやす</rt></ruby>み"
+      ],
+      "kanjiIds": [
+        "kanji-590f",
+        "kanji-4f11"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A4%8F"
+    },
+    {
+      "id": "form-8a66-9a13",
+      "written": "試験",
+      "reading": "しけん",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-you-study:<ruby>試験<rt>しけん</rt></ruby>",
+        "japanese-n4-unit-4-review:<ruby>試験<rt>しけん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8a66",
+        "kanji-9a13"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A9%A6"
+    },
+    {
+      "id": "form-52c9-5f37",
+      "written": "勉強",
+      "reading": "べんきょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-you-study:<ruby>勉強<rt>べんきょう</rt></ruby>",
+        "japanese-n4-unit-4-review:<ruby>勉強<rt>べんきょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-52c9",
+        "kanji-5f37"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%8B%89"
+    },
+    {
+      "id": "form-5f37",
+      "written": "強い",
+      "reading": "つよい",
+      "vocabularyIds": [
+        "japanese-n4-unit-1-probably:つよい",
+        "japanese-n4-unit-4-if-you-study:<ruby>強<rt>つよ</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-5f37"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%BC%B7"
+    },
+    {
+      "id": "form-8a66",
+      "written": "試す",
+      "reading": "ためす",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-you-study:<ruby>試<rt>ため</rt></ruby>す"
+      ],
+      "kanjiIds": [
+        "kanji-8a66"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A9%A6"
+    },
+    {
+      "id": "form-6b69",
+      "written": "歩く",
+      "reading": "あるく",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-turn-right:<ruby>歩<rt>ある</rt></ruby>く",
+        "japanese-n4-unit-4-review:<ruby>歩<rt>ある</rt></ruby>く"
+      ],
+      "kanjiIds": [
+        "kanji-6b69"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%A9"
+    },
+    {
+      "id": "form-8d70",
+      "written": "走る",
+      "reading": "はしる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-turn-right:<ruby>走<rt>はし</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-8d70"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%B5%B0"
+    },
+    {
+      "id": "form-6b62",
+      "written": "止まる",
+      "reading": "とまる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-turn-right:<ruby>止<rt>と</rt></ruby>まる"
+      ],
+      "kanjiIds": [
+        "kanji-6b62"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%A2"
+    },
+    {
+      "id": "form-6b62-2",
+      "written": "止める",
+      "reading": "とめる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-turn-right:<ruby>止<rt>と</rt></ruby>める"
+      ],
+      "kanjiIds": [
+        "kanji-6b62"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%A2"
+    },
+    {
+      "id": "form-898b",
+      "written": "見える",
+      "reading": "みえる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-turn-right:<ruby>見<rt>み</rt></ruby>える"
+      ],
+      "kanjiIds": [
+        "kanji-898b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A6%8B"
+    },
+    {
+      "id": "form-4eac-90fd",
+      "written": "京都",
+      "reading": "きょうと",
+      "vocabularyIds": [
+        "japanese-n5-unit-9-i-want-to-go:きょうと",
+        "japanese-n4-unit-4-if-its-kyoto:<ruby>京都<rt>きょうと</rt></ruby>",
+        "japanese-n4-unit-4-review:<ruby>京都<rt>きょうと</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4eac",
+        "kanji-90fd"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BA%AC"
+    },
+    {
+      "id": "form-6771-4eac",
+      "written": "東京",
+      "reading": "とうきょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-its-kyoto:<ruby>東京<rt>とうきょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6771",
+        "kanji-4eac"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9D%B1"
+    },
+    {
+      "id": "form-65c5-884c",
+      "written": "旅行",
+      "reading": "りょこう",
+      "vocabularyIds": [
+        "japanese-n5-unit-5-how-was-it:りょこう",
+        "japanese-n5-unit-5-review:りょこう",
+        "japanese-n4-unit-4-if-its-kyoto:<ruby>旅行<rt>りょこう</rt></ruby>",
+        "japanese-n4-unit-4-review:<ruby>旅行<rt>りょこう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-65c5",
+        "kanji-884c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%97%85"
+    },
+    {
+      "id": "form-65c5",
+      "written": "旅",
+      "reading": "たび",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-its-kyoto:<ruby>旅<rt>たび</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-65c5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%97%85"
+    },
+    {
+      "id": "form-90fd-4f1a",
+      "written": "都会",
+      "reading": "とかい",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-its-kyoto:<ruby>都会<rt>とかい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-90fd",
+        "kanji-4f1a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%83%BD"
+    },
+    {
+      "id": "form-958b",
+      "written": "開ける",
+      "reading": "あける",
+      "vocabularyIds": [
+        "japanese-n4-unit-2-would-you-mind:あける",
+        "japanese-n4-unit-4-even-if:<ruby>開<rt>あ</rt></ruby>ける",
+        "japanese-n4-unit-4-review:<ruby>開<rt>あ</rt></ruby>ける"
+      ],
+      "kanjiIds": [
+        "kanji-958b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%96%8B"
+    },
+    {
+      "id": "form-958b-2",
+      "written": "開く",
+      "reading": "あく",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-even-if:<ruby>開<rt>あ</rt></ruby>く"
+      ],
+      "kanjiIds": [
+        "kanji-958b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%96%8B"
+    },
+    {
+      "id": "form-5207",
+      "written": "切る",
+      "reading": "きる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-even-if:<ruby>切<rt>き</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-5207"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%88%87"
+    },
+    {
+      "id": "form-5207-624b",
+      "written": "切手",
+      "reading": "きって",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-even-if:<ruby>切手<rt>きって</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5207",
+        "kanji-624b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%88%87"
+    },
+    {
+      "id": "form-5927-5207",
+      "written": "大切",
+      "reading": "たいせつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-even-if:<ruby>大切<rt>たいせつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5927",
+        "kanji-5207"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A4%A7"
+    },
+    {
+      "id": "form-8d77",
+      "written": "起きる",
+      "reading": "おきる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-even-if:<ruby>起<rt>お</rt></ruby>きる",
+        "japanese-n4-unit-4-review:<ruby>起<rt>お</rt></ruby>きる"
+      ],
+      "kanjiIds": [
+        "kanji-8d77"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%B5%B7"
+    },
+    {
+      "id": "form-8d77-2",
+      "written": "起こす",
+      "reading": "おこす",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-even-if:<ruby>起<rt>お</rt></ruby>こす"
+      ],
+      "kanjiIds": [
+        "kanji-8d77"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%B5%B7"
+    },
+    {
+      "id": "form-6620-753b",
+      "written": "映画",
+      "reading": "えいが",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-my-week:えいが",
+        "japanese-n4-unit-5-lets-go:<ruby>映画<rt>えいが</rt></ruby>",
+        "japanese-n4-unit-5-review:<ruby>映画<rt>えいが</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6620",
+        "kanji-753b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%98%A0"
+    },
+    {
+      "id": "form-6d0b-670d",
+      "written": "洋服",
+      "reading": "ようふく",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-lets-go:<ruby>洋服<rt>ようふく</rt></ruby>",
+        "japanese-n4-unit-5-review:<ruby>洋服<rt>ようふく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6d0b",
+        "kanji-670d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%B4%8B"
+    },
+    {
+      "id": "form-670d",
+      "written": "服",
+      "reading": "ふく",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-lets-go:<ruby>服<rt>ふく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-670d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9C%8D"
+    },
+    {
+      "id": "form-6d0b-98df",
+      "written": "洋食",
+      "reading": "ようしょく",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-lets-go:<ruby>洋食<rt>ようしょく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6d0b",
+        "kanji-98df"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%B4%8B"
+    },
+    {
+      "id": "form-4e16-754c",
+      "written": "世界",
+      "reading": "せかい",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-thinking-of:<ruby>世界<rt>せかい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e16",
+        "kanji-754c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%96"
+    },
+    {
+      "id": "form-6d77",
+      "written": "海",
+      "reading": "うみ",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-what-kind:うみ",
+        "japanese-n4-unit-5-thinking-of:<ruby>海<rt>うみ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6d77"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%B5%B7"
+    },
+    {
+      "id": "form-6d77-5916",
+      "written": "海外",
+      "reading": "かいがい",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-thinking-of:<ruby>海外<rt>かいがい</rt></ruby>",
+        "japanese-n4-unit-5-review:<ruby>海外<rt>かいがい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6d77",
+        "kanji-5916"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%B5%B7"
+    },
+    {
+      "id": "form-4e16-754c-4e2d",
+      "written": "世界中",
+      "reading": "せかいじゅう",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-thinking-of:<ruby>世界中<rt>せかいじゅう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e16",
+        "kanji-754c",
+        "kanji-4e2d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%96"
+    },
+    {
+      "id": "form-4e16-8a71",
+      "written": "世話",
+      "reading": "せわ",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-thinking-of:<ruby>世話<rt>せわ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e16",
+        "kanji-8a71"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%96"
+    },
+    {
+      "id": "form-4ed5-4e8b",
+      "written": "仕事",
+      "reading": "しごと",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-daily-routine:しごと",
+        "japanese-n4-unit-5-i-intend-to:<ruby>仕事<rt>しごと</rt></ruby>",
+        "japanese-n4-unit-5-review:<ruby>仕事<rt>しごと</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4ed5",
+        "kanji-4e8b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%95"
+    },
+    {
+      "id": "form-50cd",
+      "written": "働く",
+      "reading": "はたらく",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-i-intend-to:<ruby>働<rt>はたら</rt></ruby>く",
+        "japanese-n4-unit-5-review:<ruby>働<rt>はたら</rt></ruby>く"
+      ],
+      "kanjiIds": [
+        "kanji-50cd"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%83%8D"
+    },
+    {
+      "id": "form-5927-4e8b",
+      "written": "大事",
+      "reading": "だいじ",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-i-intend-to:<ruby>大事<rt>だいじ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5927",
+        "kanji-4e8b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A4%A7"
+    },
+    {
+      "id": "form-4e8b",
+      "written": "事",
+      "reading": "こと",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-i-intend-to:<ruby>事<rt>こと</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e8b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BA%8B"
+    },
+    {
+      "id": "form-9280-884c",
+      "written": "銀行",
+      "reading": "ぎんこう",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-my-town:ぎんこう",
+        "japanese-n4-unit-5-in-order-to:<ruby>銀行<rt>ぎんこう</rt></ruby>",
+        "japanese-n4-unit-5-review:<ruby>銀行<rt>ぎんこう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-9280",
+        "kanji-884c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%8A%80"
+    },
+    {
+      "id": "form-9280",
+      "written": "銀",
+      "reading": "ぎん",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-in-order-to:<ruby>銀<rt>ぎん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-9280"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%8A%80"
+    },
+    {
+      "id": "form-4f1a-793e-54e1",
+      "written": "会社員",
+      "reading": "かいしゃいん",
+      "vocabularyIds": [
+        "japanese-n5-unit-5-where-with-how:かいしゃいん",
+        "japanese-n4-unit-5-in-order-to:<ruby>会社員<rt>かいしゃいん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4f1a",
+        "kanji-793e",
+        "kanji-54e1"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BC%9A"
+    },
+    {
+      "id": "form-5e97-54e1",
+      "written": "店員",
+      "reading": "てんいん",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-in-order-to:<ruby>店員<rt>てんいん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5e97",
+        "kanji-54e1"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%BA%97"
+    },
+    {
+      "id": "form-7528-4e8b",
+      "written": "用事",
+      "reading": "ようじ",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-in-order-to:<ruby>用事<rt>ようじ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-7528",
+        "kanji-4e8b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%94%A8"
+    },
+    {
+      "id": "form-5915-65b9",
+      "written": "夕方",
+      "reading": "ゆうがた",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-before-and-after:<ruby>夕方<rt>ゆうがた</rt></ruby>",
+        "japanese-n4-unit-5-review:<ruby>夕方<rt>ゆうがた</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5915",
+        "kanji-65b9"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A4%95"
+    },
+    {
+      "id": "form-66dc-65e5",
+      "written": "曜日",
+      "reading": "ようび",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-before-and-after:<ruby>曜日<rt>ようび</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-66dc",
+        "kanji-65e5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9B%9C"
+    },
+    {
+      "id": "form-6708-66dc-65e5",
+      "written": "月曜日",
+      "reading": "げつようび",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-days-and-schedules:げつようび",
+        "japanese-n4-unit-5-before-and-after:<ruby>月曜日<rt>げつようび</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6708",
+        "kanji-66dc",
+        "kanji-65e5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9C%88"
+    },
+    {
+      "id": "form-91d1-66dc-65e5",
+      "written": "金曜日",
+      "reading": "きんようび",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-days-and-schedules:きんようび",
+        "japanese-n4-unit-5-before-and-after:<ruby>金曜日<rt>きんようび</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-91d1",
+        "kanji-66dc",
+        "kanji-65e5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%87%91"
+    },
+    {
+      "id": "form-65e5-66dc-65e5",
+      "written": "日曜日",
+      "reading": "にちようび",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-days-and-schedules:にちようび",
+        "japanese-n4-unit-5-before-and-after:<ruby>日曜日<rt>にちようび</rt></ruby>",
+        "japanese-n4-unit-5-review:<ruby>日曜日<rt>にちようび</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-65e5",
+        "kanji-66dc",
+        "kanji-65e5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%97%A5"
+    },
+    {
+      "id": "form-8aad-65b9",
+      "written": "読み方",
+      "reading": "よみかた",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-before-and-after:<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8aad",
+        "kanji-65b9"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%AA%AD"
+    },
+    {
+      "id": "form-66f8-65b9",
+      "written": "書き方",
+      "reading": "かきかた",
+      "vocabularyIds": [
+        "japanese-n4-unit-5-before-and-after:<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-66f8",
+        "kanji-65b9"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9B%B8"
+    },
+    {
+      "id": "form-7740",
+      "written": "着る",
+      "reading": "きる",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-even-if:<ruby>切<rt>き</rt></ruby>る",
+        "japanese-n4-unit-6-try-it:<ruby>着<rt>き</rt></ruby>る",
+        "japanese-n4-unit-6-review:<ruby>着<rt>き</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-7740"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%9D%80"
+    },
+    {
+      "id": "form-7740-2",
+      "written": "着く",
+      "reading": "つく",
+      "vocabularyIds": [
+        "japanese-n4-unit-4-if-it-rains:つく",
+        "japanese-n4-unit-6-try-it:<ruby>着<rt>つ</rt></ruby>く",
+        "japanese-n4-unit-6-the-door-is-open:つく"
+      ],
+      "kanjiIds": [
+        "kanji-7740"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%9D%80"
+    },
+    {
+      "id": "form-8a66-7740",
+      "written": "試着",
+      "reading": "しちゃく",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-try-it:<ruby>試着<rt>しちゃく</rt></ruby>",
+        "japanese-n4-unit-6-review:<ruby>試着<rt>しちゃく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8a66",
+        "kanji-7740"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A9%A6"
+    },
+    {
+      "id": "form-8089",
+      "written": "肉",
+      "reading": "にく",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-try-it:<ruby>肉<rt>にく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8089"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%82%89"
+    },
+    {
+      "id": "form-8336",
+      "written": "お茶",
+      "reading": "おちゃ",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-try-it:お<ruby>茶<rt>ちゃ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8336"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%8C%B6"
+    },
+    {
+      "id": "form-8336-8272",
+      "written": "茶色",
+      "reading": "ちゃいろ",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-try-it:<ruby>茶色<rt>ちゃいろ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8336",
+        "kanji-8272"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%8C%B6"
+    },
+    {
+      "id": "form-98ef",
+      "written": "ご飯",
+      "reading": "ごはん",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-try-it:ご<ruby>飯<rt>はん</rt></ruby>",
+        "japanese-n4-unit-6-review:ご<ruby>飯<rt>はん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-98ef"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%A3%AF"
+    },
+    {
+      "id": "form-671d-98ef",
+      "written": "朝ご飯",
+      "reading": "あさごはん",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-try-it:<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-671d",
+        "kanji-98ef"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9C%9D"
+    },
+    {
+      "id": "form-7740-7269",
+      "written": "着物",
+      "reading": "きもの",
+      "vocabularyIds": [
+        "japanese-n5-unit-9-have-you-ever:きもの",
+        "japanese-n4-unit-6-try-it:<ruby>着物<rt>きもの</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-7740",
+        "kanji-7269"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%9D%80"
+    },
+    {
+      "id": "form-60aa",
+      "written": "悪い",
+      "reading": "わるい",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-oh-no:<ruby>悪<rt>わる</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-60aa"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%82%AA"
+    },
+    {
+      "id": "form-6b7b",
+      "written": "死ぬ",
+      "reading": "しぬ",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-oh-no:<ruby>死<rt>し</rt></ruby>ぬ"
+      ],
+      "kanjiIds": [
+        "kanji-6b7b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%BB"
+    },
+    {
+      "id": "form-4e0d-5b89",
+      "written": "不安",
+      "reading": "ふあん",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-oh-no:<ruby>不安<rt>ふあん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e0d",
+        "kanji-5b89"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%8D"
+    },
+    {
+      "id": "form-6599-7406",
+      "written": "料理",
+      "reading": "りょうり",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-getting-ready:<ruby>料理<rt>りょうり</rt></ruby>",
+        "japanese-n4-unit-6-review:<ruby>料理<rt>りょうり</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6599",
+        "kanji-7406"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%96%99"
+    },
+    {
+      "id": "form-6599-91d1",
+      "written": "料金",
+      "reading": "りょうきん",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-getting-ready:<ruby>料金<rt>りょうきん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6599",
+        "kanji-91d1"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%96%99"
+    },
+    {
+      "id": "form-8a08-753b",
+      "written": "計画",
+      "reading": "けいかく",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-getting-ready:<ruby>計画<rt>けいかく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8a08",
+        "kanji-753b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A8%88"
+    },
+    {
+      "id": "form-6642-8a08",
+      "written": "時計",
+      "reading": "とけい",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-telling-time:とけい",
+        "japanese-n4-unit-6-getting-ready:<ruby>時計<rt>とけい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6642",
+        "kanji-8a08"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%99%82"
+    },
+    {
+      "id": "form-6559-5ba4",
+      "written": "教室",
+      "reading": "きょうしつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-the-door-is-open:<ruby>教室<rt>きょうしつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6559",
+        "kanji-5ba4"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%95%99"
+    },
+    {
+      "id": "form-98df-5802",
+      "written": "食堂",
+      "reading": "しょくどう",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-the-door-is-open:<ruby>食堂<rt>しょくどう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-98df",
+        "kanji-5802"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%A3%9F"
+    },
+    {
+      "id": "form-56f3-66f8-9928",
+      "written": "図書館",
+      "reading": "としょかん",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-going-places:としょかん",
+        "japanese-n5-unit-4-review:としょかん",
+        "japanese-n4-unit-6-the-door-is-open:<ruby>図書館<rt>としょかん</rt></ruby>",
+        "japanese-n4-unit-6-review:<ruby>図書館<rt>としょかん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-56f3",
+        "kanji-66f8",
+        "kanji-9928"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9B%B3"
+    },
+    {
+      "id": "form-6620-753b-9928",
+      "written": "映画館",
+      "reading": "えいがかん",
+      "vocabularyIds": [
+        "japanese-n5-unit-5-invitations:えいがかん",
+        "japanese-n4-unit-6-the-door-is-open:<ruby>映画館<rt>えいがかん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6620",
+        "kanji-753b",
+        "kanji-9928"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%98%A0"
+    },
+    {
+      "id": "form-56f3",
+      "written": "図",
+      "reading": "ず",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-the-door-is-open:<ruby>図<rt>ず</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-56f3"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9B%B3"
+    },
+    {
+      "id": "form-96fb-6c17",
+      "written": "電気",
+      "reading": "でんき",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-the-door-is-open:<ruby>電気<rt>でんき</rt></ruby>",
+        "japanese-n4-unit-6-review:<ruby>電気<rt>でんき</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-96fb",
+        "kanji-6c17"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9B%BB"
+    },
+    {
+      "id": "form-91cd",
+      "written": "重い",
+      "reading": "おもい",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-becoming:<ruby>重<rt>おも</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-91cd"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%87%8D"
+    },
+    {
+      "id": "form-4f53-91cd",
+      "written": "体重",
+      "reading": "たいじゅう",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-becoming:<ruby>体重<rt>たいじゅう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4f53",
+        "kanji-91cd"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%93"
+    },
+    {
+      "id": "form-6b63",
+      "written": "正しい",
+      "reading": "ただしい",
+      "vocabularyIds": [
+        "japanese-n4-unit-1-i-think:ただしい",
+        "japanese-n4-unit-6-becoming:<ruby>正<rt>ただ</rt></ruby>しい"
+      ],
+      "kanjiIds": [
+        "kanji-6b63"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%A3"
+    },
+    {
+      "id": "form-6b63-6708",
+      "written": "お正月",
+      "reading": "おしょうがつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-becoming:お<ruby>正月<rt>しょうがつ</rt></ruby>",
+        "japanese-n4-unit-6-review:お<ruby>正月<rt>しょうがつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6b63",
+        "kanji-6708"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%AD%A3"
+    },
+    {
+      "id": "form-540c",
+      "written": "同じ",
+      "reading": "おなじ",
+      "vocabularyIds": [
+        "japanese-n4-unit-6-becoming:<ruby>同<rt>おな</rt></ruby>じ",
+        "japanese-n4-unit-6-review:<ruby>同<rt>おな</rt></ruby>じ"
+      ],
+      "kanjiIds": [
+        "kanji-540c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%90%8C"
+    },
+    {
+      "id": "form-7279",
+      "written": "特に",
+      "reading": "とくに",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-i-heard:<ruby>特<rt>とく</rt></ruby>に"
+      ],
+      "kanjiIds": [
+        "kanji-7279"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%89%B9"
+    },
+    {
+      "id": "form-7279-5225",
+      "written": "特別",
+      "reading": "とくべつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-i-heard:<ruby>特別<rt>とくべつ</rt></ruby>",
+        "japanese-n4-unit-7-review:<ruby>特別<rt>とくべつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-7279",
+        "kanji-5225"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%89%B9"
+    },
+    {
+      "id": "form-51fa-767a",
+      "written": "出発",
+      "reading": "しゅっぱつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-i-heard:<ruby>出発<rt>しゅっぱつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-51fa",
+        "kanji-767a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%87%BA"
+    },
+    {
+      "id": "form-81ea-5206",
+      "written": "自分",
+      "reading": "じぶん",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-apparently:<ruby>自分<rt>じぶん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-81ea",
+        "kanji-5206"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%87%AA"
+    },
+    {
+      "id": "form-81ea-8ee2-8eca",
+      "written": "自転車",
+      "reading": "じてんしゃ",
+      "vocabularyIds": [
+        "japanese-n5-unit-4-going-places:じてんしゃ",
+        "japanese-n4-unit-7-apparently:<ruby>自転車<rt>じてんしゃ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-81ea",
+        "kanji-8ee2",
+        "kanji-8eca"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%87%AA"
+    },
+    {
+      "id": "form-4e3b-4eba",
+      "written": "主人",
+      "reading": "しゅじん",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-apparently:<ruby>主人<rt>しゅじん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e3b",
+        "kanji-4eba"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%BB"
+    },
+    {
+      "id": "form-4e3b",
+      "written": "主な",
+      "reading": "おもな",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-apparently:<ruby>主<rt>おも</rt></ruby>な"
+      ],
+      "kanjiIds": [
+        "kanji-4e3b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%BB"
+    },
+    {
+      "id": "form-6709-540d",
+      "written": "有名",
+      "reading": "ゆうめい",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-na-adjectives:ゆうめい",
+        "japanese-n4-unit-7-apparently:<ruby>有名<rt>ゆうめい</rt></ruby>",
+        "japanese-n4-unit-7-review:<ruby>有名<rt>ゆうめい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6709",
+        "kanji-540d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9C%89"
+    },
+    {
+      "id": "form-9ed2",
+      "written": "黒い",
+      "reading": "くろい",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-how-was-the-trip:くろい",
+        "japanese-n4-unit-7-it-seems:<ruby>黒<rt>くろ</rt></ruby>い"
+      ],
+      "kanjiIds": [
+        "kanji-9ed2"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%BB%92"
+    },
+    {
+      "id": "form-9ed2-2",
+      "written": "黒",
+      "reading": "くろ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-it-seems:<ruby>黒<rt>くろ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-9ed2"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%BB%92"
+    },
+    {
+      "id": "form-9ce5",
+      "written": "鳥",
+      "reading": "とり",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-it-seems:<ruby>鳥<rt>とり</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-9ce5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%B3%A5"
+    },
+    {
+      "id": "form-5c0f-9ce5",
+      "written": "小鳥",
+      "reading": "ことり",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-it-seems:<ruby>小鳥<rt>ことり</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5c0f",
+        "kanji-9ce5"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B0%8F"
+    },
+    {
+      "id": "form-72ac",
+      "written": "犬",
+      "reading": "いぬ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-it-seems:<ruby>犬<rt>いぬ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-72ac"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%8A%AC"
+    },
+    {
+      "id": "form-5b50-72ac",
+      "written": "子犬",
+      "reading": "こいぬ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-it-seems:<ruby>子犬<rt>こいぬ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5b50",
+        "kanji-72ac"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%AD%90"
+    },
+    {
+      "id": "form-6f22-5b57",
+      "written": "漢字",
+      "reading": "かんじ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-like-a:<ruby>漢字<rt>かんじ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6f22",
+        "kanji-5b57"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%BC%A2"
+    },
+    {
+      "id": "form-5b57",
+      "written": "字",
+      "reading": "じ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-like-a:<ruby>字<rt>じ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5b57"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%AD%97"
+    },
+    {
+      "id": "form-82f1-8a9e",
+      "written": "英語",
+      "reading": "えいご",
+      "vocabularyIds": [
+        "japanese-n5-unit-8-please-do:えいご",
+        "japanese-n4-unit-7-like-a:<ruby>英語<rt>えいご</rt></ruby>",
+        "japanese-n4-unit-7-review:<ruby>英語<rt>えいご</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-82f1",
+        "kanji-8a9e"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%8B%B1"
+    },
+    {
+      "id": "form-82f1-4f1a-8a71",
+      "written": "英会話",
+      "reading": "えいかいわ",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-like-a:<ruby>英会話<rt>えいかいわ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-82f1",
+        "kanji-4f1a",
+        "kanji-8a71"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%8B%B1"
+    },
+    {
+      "id": "form-672c-7269",
+      "written": "本物",
+      "reading": "ほんもの",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-like-a:<ruby>本物<rt>ほんもの</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-672c",
+        "kanji-7269"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%9C%AC"
+    },
+    {
+      "id": "form-4ee5-4e0a",
+      "written": "以上",
+      "reading": "いじょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-should-be:<ruby>以上<rt>いじょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4ee5",
+        "kanji-4e0a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%A5"
+    },
+    {
+      "id": "form-4ee5-4e0b",
+      "written": "以下",
+      "reading": "いか",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-should-be:<ruby>以下<rt>いか</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4ee5",
+        "kanji-4e0b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%A5"
+    },
+    {
+      "id": "form-4ee5-524d",
+      "written": "以前",
+      "reading": "いぜん",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-should-be:<ruby>以前<rt>いぜん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4ee5",
+        "kanji-524d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%A5"
+    },
+    {
+      "id": "form-4eca-5ea6",
+      "written": "今度",
+      "reading": "こんど",
+      "vocabularyIds": [
+        "japanese-n5-unit-5-invitations:こんど",
+        "japanese-n4-unit-5-thinking-of:こんど",
+        "japanese-n4-unit-7-should-be:<ruby>今度<rt>こんど</rt></ruby>",
+        "japanese-n4-unit-7-review:<ruby>今度<rt>こんど</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4eca",
+        "kanji-5ea6"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BB%8A"
+    },
+    {
+      "id": "form-4e00-5ea6",
+      "written": "一度",
+      "reading": "いちど",
+      "vocabularyIds": [
+        "japanese-n5-unit-9-have-you-ever:いちど",
+        "japanese-n5-unit-9-review:いちど",
+        "japanese-n4-unit-7-should-be:<ruby>一度<rt>いちど</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e00",
+        "kanji-5ea6"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%80"
+    },
+    {
+      "id": "form-96c6",
+      "written": "集める",
+      "reading": "あつめる",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-should-be:<ruby>集<rt>あつ</rt></ruby>める"
+      ],
+      "kanjiIds": [
+        "kanji-96c6"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9B%86"
+    },
+    {
+      "id": "form-96c6-2",
+      "written": "集まる",
+      "reading": "あつまる",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-should-be:<ruby>集<rt>あつ</rt></ruby>まる",
+        "japanese-n4-unit-7-review:<ruby>集<rt>あつ</rt></ruby>まる"
+      ],
+      "kanjiIds": [
+        "kanji-96c6"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9B%86"
+    },
+    {
+      "id": "form-4f7f",
+      "written": "使う",
+      "reading": "つかう",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-was-made:<ruby>使<rt>つか</rt></ruby>う",
+        "japanese-n4-unit-8-review:<ruby>使<rt>つか</rt></ruby>う"
+      ],
+      "kanjiIds": [
+        "kanji-4f7f"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%BF"
+    },
+    {
+      "id": "form-4f5c",
+      "written": "作る",
+      "reading": "つくる",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-was-made:<ruby>作<rt>つく</rt></ruby>る",
+        "japanese-n4-unit-8-review:<ruby>作<rt>つく</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-4f5c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%9C"
+    },
+    {
+      "id": "form-5efa",
+      "written": "建てる",
+      "reading": "たてる",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-was-made:<ruby>建<rt>た</rt></ruby>てる"
+      ],
+      "kanjiIds": [
+        "kanji-5efa"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%BB%BA"
+    },
+    {
+      "id": "form-5efa-2",
+      "written": "建つ",
+      "reading": "たつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-was-made:<ruby>建<rt>た</rt></ruby>つ"
+      ],
+      "kanjiIds": [
+        "kanji-5efa"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%BB%BA"
+    },
+    {
+      "id": "form-5efa-7269",
+      "written": "建物",
+      "reading": "たてもの",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-what-kind:たてもの",
+        "japanese-n4-unit-8-was-made:<ruby>建物<rt>たてもの</rt></ruby>",
+        "japanese-n4-unit-8-review:<ruby>建物<rt>たてもの</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5efa",
+        "kanji-7269"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%BB%BA"
+    },
+    {
+      "id": "form-4f5c-5bb6",
+      "written": "作家",
+      "reading": "さっか",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-was-made:<ruby>作家<rt>さっか</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4f5c",
+        "kanji-5bb6"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%9C"
+    },
+    {
+      "id": "form-767a-660e",
+      "written": "発明",
+      "reading": "はつめい",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-was-made:<ruby>発明<rt>はつめい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-767a",
+        "kanji-660e"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%99%BA"
+    },
+    {
+      "id": "form-884c",
+      "written": "行う",
+      "reading": "おこなう",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-was-made:<ruby>行<rt>おこな</rt></ruby>う"
+      ],
+      "kanjiIds": [
+        "kanji-884c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A1%8C"
+    },
+    {
+      "id": "form-58f2",
+      "written": "売る",
+      "reading": "うる",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-got-scolded:<ruby>売<rt>う</rt></ruby>る",
+        "japanese-n4-unit-8-review:<ruby>売<rt>う</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-58f2"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A3%B2"
+    },
+    {
+      "id": "form-6642-4ee3",
+      "written": "時代",
+      "reading": "じだい",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-got-scolded:<ruby>時代<rt>じだい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6642",
+        "kanji-4ee3"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%99%82"
+    },
+    {
+      "id": "form-96fb-6c17-4ee3",
+      "written": "電気代",
+      "reading": "でんきだい",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-got-scolded:<ruby>電気代<rt>でんきだい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-96fb",
+        "kanji-6c17",
+        "kanji-4ee3"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%9B%BB"
+    },
+    {
+      "id": "form-753a",
+      "written": "町",
+      "reading": "まち",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-got-scolded:<ruby>町<rt>まち</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-753a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%94%BA"
+    },
+    {
+      "id": "form-89aa",
+      "written": "親",
+      "reading": "おや",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-made-to-do:<ruby>親<rt>おや</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-89aa"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A6%AA"
+    },
+    {
+      "id": "form-89aa-5207",
+      "written": "親切",
+      "reading": "しんせつ",
+      "vocabularyIds": [
+        "japanese-n5-unit-6-na-adjectives:しんせつ",
+        "japanese-n4-unit-8-made-to-do:<ruby>親切<rt>しんせつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-89aa",
+        "kanji-5207"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A6%AA"
+    },
+    {
+      "id": "form-5bb6-65cf",
+      "written": "家族",
+      "reading": "かぞく",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-made-to-do:<ruby>家族<rt>かぞく</rt></ruby>",
+        "japanese-n4-unit-8-review:<ruby>家族<rt>かぞく</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5bb6",
+        "kanji-65cf"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%AE%B6"
+    },
+    {
+      "id": "form-6ce8-610f",
+      "written": "注意",
+      "reading": "ちゅうい",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-made-to-do:<ruby>注意<rt>ちゅうい</rt></ruby>",
+        "japanese-n4-unit-8-review:<ruby>注意<rt>ちゅうい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6ce8",
+        "kanji-610f"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%B3%A8"
+    },
+    {
+      "id": "form-5e30",
+      "written": "帰る",
+      "reading": "かえる",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-let-me:<ruby>帰<rt>かえ</rt></ruby>る",
+        "japanese-n4-unit-8-review:<ruby>帰<rt>かえ</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-5e30"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B8%B0"
+    },
+    {
+      "id": "form-5e30-2",
+      "written": "帰り",
+      "reading": "かえり",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-let-me:<ruby>帰<rt>かえ</rt></ruby>り"
+      ],
+      "kanjiIds": [
+        "kanji-5e30"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B8%B0"
+    },
+    {
+      "id": "form-554f-984c",
+      "written": "問題",
+      "reading": "もんだい",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-let-me:<ruby>問題<rt>もんだい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-554f",
+        "kanji-984c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%95%8F"
+    },
+    {
+      "id": "form-8cea-554f",
+      "written": "質問",
+      "reading": "しつもん",
+      "vocabularyIds": [
+        "japanese-n4-unit-1-they-said:しつもん",
+        "japanese-n4-unit-8-let-me:<ruby>質問<rt>しつもん</rt></ruby>",
+        "japanese-n4-unit-8-review:<ruby>質問<rt>しつもん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8cea",
+        "kanji-554f"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%B3%AA"
+    },
+    {
+      "id": "form-8a71-984c",
+      "written": "話題",
+      "reading": "わだい",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-let-me:<ruby>話題<rt>わだい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-8a71",
+        "kanji-984c"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E8%A9%B1"
+    },
+    {
+      "id": "form-5148",
+      "written": "先に",
+      "reading": "さきに",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-let-me:<ruby>先<rt>さき</rt></ruby>に"
+      ],
+      "kanjiIds": [
+        "kanji-5148"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%85%88"
+    },
+    {
+      "id": "form-7814-7a76",
+      "written": "研究",
+      "reading": "けんきゅう",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-want-you-to:<ruby>研究<rt>けんきゅう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-7814",
+        "kanji-7a76"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%A0%94"
+    },
+    {
+      "id": "form-7814-7a76-5ba4",
+      "written": "研究室",
+      "reading": "けんきゅうしつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-want-you-to:<ruby>研究室<rt>けんきゅうしつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-7814",
+        "kanji-7a76",
+        "kanji-5ba4"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%A0%94"
+    },
+    {
+      "id": "form-5de5-5834",
+      "written": "工場",
+      "reading": "こうじょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-want-you-to:<ruby>工場<rt>こうじょう</rt></ruby>",
+        "japanese-n4-unit-8-review:<ruby>工場<rt>こうじょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5de5",
+        "kanji-5834"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B7%A5"
+    },
+    {
+      "id": "form-4f1a-5834",
+      "written": "会場",
+      "reading": "かいじょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-want-you-to:<ruby>会場<rt>かいじょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4f1a",
+        "kanji-5834"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BC%9A"
+    },
+    {
+      "id": "form-5de5-4e8b",
+      "written": "工事",
+      "reading": "こうじ",
+      "vocabularyIds": [
+        "japanese-n4-unit-8-i-want-you-to:<ruby>工事<rt>こうじ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5de5",
+        "kanji-4e8b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B7%A5"
+    },
+    {
+      "id": "form-516c-5712",
+      "written": "公園",
+      "reading": "こうえん",
+      "vocabularyIds": [
+        "japanese-n5-unit-5-where-with-how:こうえん",
+        "japanese-n4-unit-9-honorific:<ruby>公園<rt>こうえん</rt></ruby>",
+        "japanese-n4-unit-9-review:<ruby>公園<rt>こうえん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-516c",
+        "kanji-5712"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%85%AC"
+    },
+    {
+      "id": "form-5e02",
+      "written": "市",
+      "reading": "し",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-honorific:<ruby>市<rt>し</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5e02"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B8%82"
+    },
+    {
+      "id": "form-5e02-9577",
+      "written": "市長",
+      "reading": "しちょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-honorific:<ruby>市長<rt>しちょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5e02",
+        "kanji-9577"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B8%82"
+    },
+    {
+      "id": "form-793e-9577",
+      "written": "社長",
+      "reading": "しゃちょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-honorific:<ruby>社長<rt>しゃちょう</rt></ruby>",
+        "japanese-n4-unit-9-review:<ruby>社長<rt>しゃちょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-793e",
+        "kanji-9577"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%A4%BE"
+    },
+    {
+      "id": "form-6587",
+      "written": "文",
+      "reading": "ぶん",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-humble:<ruby>文<rt>ぶん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-6587"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E6%96%87"
+    },
+    {
+      "id": "form-54c1-7269",
+      "written": "品物",
+      "reading": "しなもの",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-humble:<ruby>品物<rt>しなもの</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-54c1",
+        "kanji-7269"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%93%81"
+    },
+    {
+      "id": "form-4f5c-54c1",
+      "written": "作品",
+      "reading": "さくひん",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-humble:<ruby>作品<rt>さくひん</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4f5c",
+        "kanji-54c1"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%9C"
+    },
+    {
+      "id": "form-4f5c-696d",
+      "written": "作業",
+      "reading": "さぎょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-humble:<ruby>作業<rt>さぎょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4f5c",
+        "kanji-696d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%BD%9C"
+    },
+    {
+      "id": "form-5de5-696d",
+      "written": "工業",
+      "reading": "こうぎょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-humble:<ruby>工業<rt>こうぎょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5de5",
+        "kanji-696d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%B7%A5"
+    },
+    {
+      "id": "form-982d",
+      "written": "頭",
+      "reading": "あたま",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-while-doing:<ruby>頭<rt>あたま</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-982d"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%A0%AD"
+    },
+    {
+      "id": "form-9854",
+      "written": "顔",
+      "reading": "かお",
+      "vocabularyIds": [
+        "japanese-n5-unit-8-first-then:かお",
+        "japanese-n4-unit-9-while-doing:<ruby>顔<rt>かお</rt></ruby>",
+        "japanese-n4-unit-9-review:<ruby>顔<rt>かお</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-9854"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%A1%94"
+    },
+    {
+      "id": "form-58f0",
+      "written": "声",
+      "reading": "こえ",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-while-doing:<ruby>声<rt>こえ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-58f0"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A3%B0"
+    },
+    {
+      "id": "form-5927-58f0",
+      "written": "大声",
+      "reading": "おおごえ",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-while-doing:<ruby>大声<rt>おおごえ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5927",
+        "kanji-58f0"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%A4%A7"
+    },
+    {
+      "id": "form-5730-56f3",
+      "written": "地図",
+      "reading": "ちず",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>地図<rt>ちず</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5730",
+        "kanji-56f3"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9C%B0"
+    },
+    {
+      "id": "form-5730-4e0b",
+      "written": "地下",
+      "reading": "ちか",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>地下<rt>ちか</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5730",
+        "kanji-4e0b"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9C%B0"
+    },
+    {
+      "id": "form-5730-4e0b-9244",
+      "written": "地下鉄",
+      "reading": "ちかてつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>地下鉄<rt>ちかてつ</rt></ruby>",
+        "japanese-n4-unit-9-review:<ruby>地下鉄<rt>ちかてつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-5730",
+        "kanji-4e0b",
+        "kanji-9244"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9C%B0"
+    },
+    {
+      "id": "form-571f-5730",
+      "written": "土地",
+      "reading": "とち",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>土地<rt>とち</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-571f",
+        "kanji-5730"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9C%9F"
+    },
+    {
+      "id": "form-9244",
+      "written": "鉄",
+      "reading": "てつ",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>鉄<rt>てつ</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-9244"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%89%84"
+    },
+    {
+      "id": "form-901a",
+      "written": "通る",
+      "reading": "とおる",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>通<rt>とお</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-901a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%80%9A"
+    },
+    {
+      "id": "form-901a-2",
+      "written": "通う",
+      "reading": "かよう",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>通<rt>かよ</rt></ruby>う",
+        "japanese-n4-unit-9-review:<ruby>通<rt>かよ</rt></ruby>う"
+      ],
+      "kanjiIds": [
+        "kanji-901a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%80%9A"
+    },
+    {
+      "id": "form-901a-3",
+      "written": "通り",
+      "reading": "とおり",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-easy-to-use:<ruby>通<rt>とお</rt></ruby>り"
+      ],
+      "kanjiIds": [
+        "kanji-901a"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E9%80%9A"
+    },
+    {
+      "id": "form-7121-7406",
+      "written": "無理",
+      "reading": "むり",
+      "vocabularyIds": [
+        "japanese-n4-unit-2-you-should:むり",
+        "japanese-n4-unit-9-even-though:<ruby>無理<rt>むり</rt></ruby>",
+        "japanese-n4-unit-9-review:<ruby>無理<rt>むり</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-7121",
+        "kanji-7406"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%84%A1"
+    },
+    {
+      "id": "form-7121-6599",
+      "written": "無料",
+      "reading": "むりょう",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-even-though:<ruby>無料<rt>むりょう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-7121",
+        "kanji-6599"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E7%84%A1"
+    },
+    {
+      "id": "form-56de",
+      "written": "回る",
+      "reading": "まわる",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-even-though:<ruby>回<rt>まわ</rt></ruby>る"
+      ],
+      "kanjiIds": [
+        "kanji-56de"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%9B%9E"
+    },
+    {
+      "id": "form-4e00-56de",
+      "written": "一回",
+      "reading": "いっかい",
+      "vocabularyIds": [
+        "japanese-n5-unit-7-in-the-store:いっかい",
+        "japanese-n4-unit-9-even-though:<ruby>一回<rt>いっかい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e00",
+        "kanji-56de"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%80"
+    },
+    {
+      "id": "form-53f0-98a8",
+      "written": "台風",
+      "reading": "たいふう",
+      "vocabularyIds": [
+        "japanese-n4-unit-7-i-heard:たいふう",
+        "japanese-n4-unit-9-even-though:<ruby>台風<rt>たいふう</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-53f0",
+        "kanji-98a8"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E5%8F%B0"
+    },
+    {
+      "id": "form-4e00-53f0",
+      "written": "一台",
+      "reading": "いちだい",
+      "vocabularyIds": [
+        "japanese-n4-unit-9-even-though:<ruby>一台<rt>いちだい</rt></ruby>"
+      ],
+      "kanjiIds": [
+        "kanji-4e00",
+        "kanji-53f0"
+      ],
+      "source": "https://kanjiapi.dev/v1/words/%E4%B8%80"
     }
   ],
   "lessonIntroductions": [
@@ -5067,6 +9736,294 @@
         "kanji-4f53",
         "kanji-65e9",
         "kanji-5fc3"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-3-i-can-drive",
+      "introducedKanji": [
+        "kanji-904b",
+        "kanji-8ee2",
+        "kanji-52d5"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-3-i-can-sing",
+      "introducedKanji": [
+        "kanji-6b4c",
+        "kanji-97f3",
+        "kanji-697d"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-3-now-i-can",
+      "introducedKanji": [
+        "kanji-59cb",
+        "kanji-7d42",
+        "kanji-53bb"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-3-and-also",
+      "introducedKanji": [
+        "kanji-5e83",
+        "kanji-8fd1",
+        "kanji-4f4f"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-3-looks-tasty",
+      "introducedKanji": [
+        "kanji-5473",
+        "kanji-8272",
+        "kanji-8d64",
+        "kanji-9752"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-4-if-it-rains",
+      "introducedKanji": [
+        "kanji-6625",
+        "kanji-590f",
+        "kanji-79cb",
+        "kanji-51ac"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-4-if-you-study",
+      "introducedKanji": [
+        "kanji-8a66",
+        "kanji-9a13",
+        "kanji-52c9",
+        "kanji-5f37"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-4-turn-right",
+      "introducedKanji": [
+        "kanji-6b69",
+        "kanji-8d70",
+        "kanji-6b62"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-4-if-its-kyoto",
+      "introducedKanji": [
+        "kanji-4eac",
+        "kanji-90fd",
+        "kanji-65c5"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-4-even-if",
+      "introducedKanji": [
+        "kanji-958b",
+        "kanji-5207",
+        "kanji-8d77"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-5-lets-go",
+      "introducedKanji": [
+        "kanji-6620",
+        "kanji-753b",
+        "kanji-6d0b",
+        "kanji-670d"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-5-thinking-of",
+      "introducedKanji": [
+        "kanji-4e16",
+        "kanji-754c",
+        "kanji-6d77"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-5-i-intend-to",
+      "introducedKanji": [
+        "kanji-4ed5",
+        "kanji-4e8b",
+        "kanji-50cd"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-5-in-order-to",
+      "introducedKanji": [
+        "kanji-9280",
+        "kanji-54e1",
+        "kanji-7528"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-5-before-and-after",
+      "introducedKanji": [
+        "kanji-5915",
+        "kanji-65b9",
+        "kanji-66dc"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-6-try-it",
+      "introducedKanji": [
+        "kanji-7740",
+        "kanji-8089",
+        "kanji-8336",
+        "kanji-98ef"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-6-oh-no",
+      "introducedKanji": [
+        "kanji-60aa",
+        "kanji-6b7b",
+        "kanji-4e0d"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-6-getting-ready",
+      "introducedKanji": [
+        "kanji-6599",
+        "kanji-7406",
+        "kanji-8a08"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-6-the-door-is-open",
+      "introducedKanji": [
+        "kanji-5ba4",
+        "kanji-5802",
+        "kanji-9928",
+        "kanji-56f3"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-6-becoming",
+      "introducedKanji": [
+        "kanji-91cd",
+        "kanji-6b63",
+        "kanji-540c"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-7-i-heard",
+      "introducedKanji": [
+        "kanji-7279",
+        "kanji-5225",
+        "kanji-767a"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-7-apparently",
+      "introducedKanji": [
+        "kanji-81ea",
+        "kanji-4e3b",
+        "kanji-6709"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-7-it-seems",
+      "introducedKanji": [
+        "kanji-9ed2",
+        "kanji-9ce5",
+        "kanji-72ac"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-7-like-a",
+      "introducedKanji": [
+        "kanji-6f22",
+        "kanji-5b57",
+        "kanji-82f1"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-7-should-be",
+      "introducedKanji": [
+        "kanji-4ee5",
+        "kanji-5ea6",
+        "kanji-96c6"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-8-was-made",
+      "introducedKanji": [
+        "kanji-4f7f",
+        "kanji-4f5c",
+        "kanji-5efa"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-8-i-got-scolded",
+      "introducedKanji": [
+        "kanji-58f2",
+        "kanji-4ee3",
+        "kanji-753a"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-8-made-to-do",
+      "introducedKanji": [
+        "kanji-89aa",
+        "kanji-6ce8",
+        "kanji-65cf"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-8-let-me",
+      "introducedKanji": [
+        "kanji-5e30",
+        "kanji-554f",
+        "kanji-984c",
+        "kanji-8cea"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-8-i-want-you-to",
+      "introducedKanji": [
+        "kanji-7814",
+        "kanji-7a76",
+        "kanji-5de5",
+        "kanji-5834"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-9-honorific",
+      "introducedKanji": [
+        "kanji-516c",
+        "kanji-5712",
+        "kanji-5e02"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-9-humble",
+      "introducedKanji": [
+        "kanji-6587",
+        "kanji-54c1",
+        "kanji-696d"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-9-while-doing",
+      "introducedKanji": [
+        "kanji-982d",
+        "kanji-9854",
+        "kanji-58f0"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-9-easy-to-use",
+      "introducedKanji": [
+        "kanji-5730",
+        "kanji-9244",
+        "kanji-901a"
+      ]
+    },
+    {
+      "lessonId": "japanese-n4-unit-9-even-though",
+      "introducedKanji": [
+        "kanji-7121",
+        "kanji-56de",
+        "kanji-53f0"
       ]
     }
   ]

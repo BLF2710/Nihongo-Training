@@ -143,3 +143,6 @@ vite.config.ts.timestamp-*
 .vite/
 
 CLAUDE.md
+# Local test scripts (fixture/browser checks kept out of the repository)
+local-tests/
+ROADMAP.md

@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-5-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "volitional-group1",
+      "prompt": "What is the volitional form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>きよう",
+        "<ruby>行<rt>い</rt></ruby>こう",
+        "<ruby>行<rt>い</rt></ruby>けよう",
+        "<ruby>行<rt>い</rt></ruby>くよう"
+      ],
+      "correctIndex": 1,
+      "explanation": "く → こう."
+    },
+    {
+      "id": "volitional-group2",
+      "prompt": "What is the volitional form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べろう",
+        "<ruby>食<rt>た</rt></ruby>べこう",
+        "<ruby>食<rt>た</rt></ruby>べおう",
+        "<ruby>食<rt>た</rt></ruby>べよう"
+      ],
+      "correctIndex": 3,
+      "explanation": "Group 2: る → よう."
+    },
+    {
+      "id": "volitional-kuru",
+      "prompt": "What is the volitional form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>こ</rt></ruby>よう",
+        "<ruby>来<rt>き</rt></ruby>よう",
+        "<ruby>来<rt>く</rt></ruby>よう",
+        "<ruby>来<rt>こ</rt></ruby>ろう"
+      ],
+      "correctIndex": 0,
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう."
+    },
+    {
+      "id": "volitional-ka",
+      "prompt": "To a close friend: \"Shall I carry your bag?\"",
+      "options": [
+        "にもつ、<ruby>持<rt>も</rt></ruby>ちたいか。",
+        "にもつ、<ruby>持<rt>も</rt></ruby>ってか。",
+        "にもつ、<ruby>持<rt>も</rt></ruby>とうか。",
+        "にもつ、<ruby>持<rt>も</rt></ruby>つか。"
+      ],
+      "correctIndex": 2,
+      "explanation": "V-(よ)うか: an offer."
+    },
+    {
+      "id": "omotte-iru",
+      "prompt": "Complete: <ruby>来年<rt>らいねん</rt></ruby>、りゅうがくしよう＿＿。 (I'm thinking of)",
+      "options": [
+        "と<ruby>言<rt>い</rt></ruby>っています",
+        "つもりでしょう",
+        "ようです",
+        "と<ruby>思<rt>おも</rt></ruby>っています"
+      ],
+      "correctIndex": 3,
+      "explanation": "Volitional + と<ruby>思<rt>おも</rt></ruby>っています."
+    },
+    {
+      "id": "omou-vs",
+      "prompt": "Which sentence means \"I think I'll go\"?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>行<rt>い</rt></ruby>ったと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>行<rt>い</rt></ruby>かないと<ruby>思<rt>おも</rt></ruby>います。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Volitional + と<ruby>思<rt>おも</rt></ruby>う: my intention."
+    },
+    {
+      "id": "tsumori",
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>はざんぎょうし＿＿つもりです。 (don't intend)",
+      "options": [
+        "ない",
+        "ません",
+        "なくて",
+        "ないで"
+      ],
+      "correctIndex": 0,
+      "explanation": "V-ない つもり."
+    },
+    {
+      "id": "yotei",
+      "prompt": "Complete: <ruby>来週<rt>らいしゅう</rt></ruby>はしゅっちょう＿＿よていです。",
+      "options": [
+        "な",
+        "を",
+        "の",
+        "が"
+      ],
+      "correctIndex": 2,
+      "explanation": "N の よてい."
+    },
+    {
+      "id": "tame-ni",
+      "prompt": "Complete: <ruby>家<rt>いえ</rt></ruby>を<ruby>買<rt>か</rt></ruby>う＿＿、ちょきんしています。",
+      "options": [
+        "のに",
+        "ために",
+        "まえに",
+        "あとで"
+      ],
+      "correctIndex": 1,
+      "explanation": "Purpose: ために."
+    },
+    {
+      "id": "tame-ni-wrong",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "<ruby>試験<rt>しけん</rt></ruby>のために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "りゅうがくするために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるために、<ruby>勉強<rt>べんきょう</rt></ruby>します。"
+      ],
+      "correctIndex": 3,
+      "explanation": "No ability verbs before ために."
+    },
+    {
+      "id": "noni-use",
+      "prompt": "Complete: このはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>る＿＿べんりです。",
+      "options": [
+        "ために",
+        "ように",
+        "のに",
+        "まえに"
+      ],
+      "correctIndex": 2,
+      "explanation": "Used for: のに."
+    },
+    {
+      "id": "mae-ni",
+      "prompt": "Choose: \"Before coming to Japan, I studied Japanese.\"",
+      "options": [
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>るまえに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たまえに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>るあとで、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>てまえに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。"
+      ],
+      "correctIndex": 0,
+      "explanation": "まえに: dictionary form."
+    },
+    {
+      "id": "ato-de",
+      "prompt": "Complete: <ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>＿＿あとで、ごはんを<ruby>食<rt>た</rt></ruby>べました。",
+      "options": [
+        "る",
+        "て",
+        "よう",
+        "た"
+      ],
+      "correctIndex": 3,
+      "explanation": "After: V-た あとで."
+    },
+    {
+      "id": "kanji-eiga",
+      "prompt": "How is 映画⁠ read?",
+      "options": [
+        "えいかく",
+        "えいが",
+        "えが",
+        "えいかい"
+      ],
+      "correctIndex": 1,
+      "explanation": "映画⁠ is read えいが."
+    },
+    {
+      "id": "kanji-yuugata",
+      "prompt": "What does <ruby>夕方<rt>ゆうがた</rt></ruby> mean?",
+      "options": [
+        "early morning",
+        "noon",
+        "early evening",
+        "late night"
+      ],
+      "correctIndex": 2,
+      "explanation": "<ruby>夕方<rt>ゆうがた</rt></ruby>: early evening."
+    }
+  ]
+}

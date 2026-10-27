@@ -1,0 +1,434 @@
+{
+  "id": "japanese-n4-unit-8-made-to-do",
+  "slug": "n4-unit-8-made-to-do",
+  "unit": "Japanese N4 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Made to Do It",
+  "title_jp": "させる",
+  "objectives": [
+    "I can say who made or let someone do something.",
+    "Make the causative form of every verb group",
+    "Mark the person with を or に",
+    "Talk about parents, family and being careful"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>親<rt>おや</rt></ruby>",
+      "",
+      "parent"
+    ],
+    [
+      "りょうしん",
+      "",
+      "(my) parents"
+    ],
+    [
+      "<ruby>親切<rt>しんせつ</rt></ruby>",
+      "",
+      "kind"
+    ],
+    [
+      "<ruby>家族<rt>かぞく</rt></ruby>",
+      "",
+      "family"
+    ],
+    [
+      "<ruby>注意<rt>ちゅうい</rt></ruby>",
+      "",
+      "care, warning (+ する: to warn, to be careful)"
+    ],
+    [
+      "ちゅうもん",
+      "",
+      "order (+ する: to order)"
+    ],
+    [
+      "やさい",
+      "",
+      "vegetables"
+    ],
+    [
+      "むすこ",
+      "",
+      "(my) son"
+    ],
+    [
+      "むすめ",
+      "",
+      "(my) daughter"
+    ],
+    [
+      "じゅく",
+      "",
+      "cram school"
+    ],
+    [
+      "〜たち",
+      "",
+      "(plural for people)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "親",
+      "word_reading": "おや"
+    },
+    {
+      "word_japanese": "親切",
+      "word_reading": "しんせつ"
+    },
+    {
+      "word_japanese": "家族",
+      "word_reading": "かぞく"
+    },
+    {
+      "word_japanese": "注意",
+      "word_reading": "ちゅうい"
+    }
+  ],
+  "concept": {
+    "title": "Making and letting",
+    "text": "The causative says that someone makes or lets another person do something.\n\nGroup 1: change the last sound to the あ-row and add せる.\n<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>かせる, <ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>ませる, <ruby>使<rt>つか</rt></ruby>う → <ruby>使<rt>つか</rt></ruby>わせる\nGroup 2: る → させる. <ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べさせる\nIrregular: する → させる, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>させる\n\nWith verbs that have no object, the person takes を:\n<ruby>母<rt>はは</rt></ruby>はむすこをじゅくに<ruby>行<rt>い</rt></ruby>かせました。 The mother made her son go to cram school.\nWith verbs that have an object, the person takes に:\n<ruby>母<rt>はは</rt></ruby>はむすめにやさいを<ruby>食<rt>た</rt></ruby>べさせました。 The mother made her daughter eat vegetables.\n\nWhether it means \"make\" or \"let\" comes from the context.",
+    "examples": [
+      "V(あ-row) + せる / V-る → V-させる",
+      "する → させる / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>させる",
+      "person を V-させる / person に N を V-させる"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "The causative form",
+      "pattern": "<ruby>行<rt>い</rt></ruby>かせる / <ruby>食<rt>た</rt></ruby>べさせる / させる / <ruby>来<rt>こ</rt></ruby>させる",
+      "explanation": "The person in control is the subject. The causative is a group 2 verb.",
+      "examples": [
+        {
+          "japanese": "<ruby>母<rt>はは</rt></ruby>はむすこをじゅくに<ruby>行<rt>い</rt></ruby>かせました。",
+          "romaji": "",
+          "meaning": "The mother made her son go to cram school."
+        },
+        {
+          "japanese": "<ruby>父<rt>ちち</rt></ruby>はむすめにやさいを<ruby>食<rt>た</rt></ruby>べさせました。",
+          "romaji": "",
+          "meaning": "The father made his daughter eat vegetables."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>たちに<ruby>漢字<rt>かんじ</rt></ruby>を<ruby>書<rt>か</rt></ruby>かせました。",
+          "romaji": "",
+          "meaning": "The teacher had the students write kanji."
+        },
+        {
+          "japanese": "ぶちょうはリーさんにしりょうをコピーさせました。",
+          "romaji": "",
+          "meaning": "The manager had Lee copy the documents."
+        }
+      ],
+      "notes": [
+        "Group 1 う-verbs: う → わせる (<ruby>使<rt>つか</rt></ruby>わせる, <ruby>言<rt>い</rt></ruby>わせる).",
+        "Do not use the causative for people above you: <ruby>先生<rt>せんせい</rt></ruby>に<ruby>言<rt>い</rt></ruby>わせる sounds rude."
+      ]
+    },
+    {
+      "title": "Make or let?",
+      "pattern": "person を / に V-させる",
+      "explanation": "The same form can mean forcing someone or allowing them. The situation tells you which.",
+      "examples": [
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもをじゆうにあそばせました。",
+          "romaji": "",
+          "meaning": "I let the children play freely."
+        },
+        {
+          "japanese": "りょうしんはわたしを<ruby>海外<rt>かいがい</rt></ruby>にりゅうがくさせてくれました。",
+          "romaji": "",
+          "meaning": "My parents let me study abroad."
+        },
+        {
+          "japanese": "わたしはよく<ruby>友<rt>とも</rt></ruby>だちをわらわせます。",
+          "romaji": "",
+          "meaning": "I often make my friends laugh."
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもにすきなものをちゅうもんさせました。",
+          "romaji": "",
+          "meaning": "I let the child order whatever he liked."
+        }
+      ],
+      "notes": [
+        "〜させてくれる (let me, kindly) shows it was permission, not force.",
+        "Feelings: わらわせる (make laugh), なかせる (make cry), びっくりさせる (surprise)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "わたしの<ruby>家族<rt>かぞく</rt></ruby>は<ruby>四人<rt>よにん</rt></ruby>です。",
+      "There are four people in my family."
+    ],
+    [
+      "りょうしんはおおさかに<ruby>住<rt>す</rt></ruby>んでいます。",
+      "My parents live in Osaka."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>がとても<ruby>親切<rt>しんせつ</rt></ruby>でした。",
+      "The station staff were very kind."
+    ],
+    [
+      "<ruby>車<rt>くるま</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>してください。",
+      "Please watch out for cars."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>子<rt>こ</rt></ruby>どものとき、じゅくに<ruby>行<rt>い</rt></ruby>きましたか。",
+      "けん",
+      "はい、<ruby>親<rt>おや</rt></ruby>がじゅくに<ruby>行<rt>い</rt></ruby>かせたんです。"
+    ],
+    [
+      "リー",
+      "<ruby>子<rt>こ</rt></ruby>どもにやさいを<ruby>食<rt>た</rt></ruby>べさせるのはたいへんですね。",
+      "マイ",
+      "ほんとうですね。"
+    ],
+    [
+      "ゆき",
+      "りゅうがく、よかったですね。",
+      "リン",
+      "りょうしんが<ruby>行<rt>い</rt></ruby>かせてくれたんです。"
+    ],
+    [
+      "たなか",
+      "すみません、ちゅうもんをおねがいします。",
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "はい、<ruby>何<rt>なに</rt></ruby>になさいますか。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "親",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "おや",
+        "おや-",
+        "した.しい",
+        "した.しむ"
+      ],
+      "meaning_en": "parent, close",
+      "stroke_count": 16,
+      "example_words": [
+        {
+          "word": "親",
+          "reading": "おや",
+          "en": "parent"
+        },
+        {
+          "word": "親切",
+          "reading": "しんせつ",
+          "en": "kind"
+        }
+      ],
+      "mnemonic": "Standing (立) by a tree (木) to see (見) the children come home: a parent."
+    },
+    {
+      "char": "注",
+      "onyomi": [
+        "チュウ"
+      ],
+      "kunyomi": [
+        "そそ.ぐ",
+        "さ.す",
+        "つ.ぐ"
+      ],
+      "meaning_en": "pour, attention",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "注意",
+          "reading": "ちゅうい",
+          "en": "care"
+        },
+        {
+          "word": "注文",
+          "reading": "ちゅうもん",
+          "en": "order"
+        }
+      ],
+      "mnemonic": "Water (氵) poured steadily, like a master (主) pouring his attention."
+    },
+    {
+      "char": "族",
+      "onyomi": [
+        "ゾク"
+      ],
+      "kunyomi": [],
+      "meaning_en": "family, tribe",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "家族",
+          "reading": "かぞく",
+          "en": "family"
+        },
+        {
+          "word": "民族",
+          "reading": "みんぞく",
+          "en": "ethnic group"
+        }
+      ],
+      "mnemonic": "People under one flag (方) with arrows (矢): a clan."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>足<rt>あし</rt></ruby>を＿＿。 (someone stepped on)",
+      "options": [
+        "ふみました",
+        "ふませました",
+        "ふんでいました",
+        "ふまれました"
+      ],
+      "correct": "ふまれました",
+      "explanation": "Passive of inconvenience."
+    },
+    {
+      "prompt": "What is the causative form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>かせる",
+        "<ruby>行<rt>い</rt></ruby>かれる",
+        "<ruby>行<rt>い</rt></ruby>けさせる",
+        "<ruby>行<rt>い</rt></ruby>きさせる"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>かせる",
+      "explanation": "く → かせる."
+    },
+    {
+      "prompt": "What is the causative form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べられる",
+        "<ruby>食<rt>た</rt></ruby>べさせる",
+        "<ruby>食<rt>た</rt></ruby>べせる",
+        "<ruby>食<rt>た</rt></ruby>べらせる"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べさせる",
+      "explanation": "Group 2: る → させる."
+    },
+    {
+      "prompt": "What is the causative form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>き</rt></ruby>させる",
+        "<ruby>来<rt>く</rt></ruby>させる",
+        "<ruby>来<rt>こ</rt></ruby>させる",
+        "<ruby>来<rt>こ</rt></ruby>られる"
+      ],
+      "correct": "<ruby>来<rt>こ</rt></ruby>させる",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>させる."
+    },
+    {
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>はむすこ＿＿じゅくに<ruby>行<rt>い</rt></ruby>かせました。",
+      "options": [
+        "に",
+        "が",
+        "で",
+        "を"
+      ],
+      "correct": "を",
+      "explanation": "No object: the person takes を."
+    },
+    {
+      "prompt": "Complete: <ruby>父<rt>ちち</rt></ruby>はむすめ＿＿やさいを<ruby>食<rt>た</rt></ruby>べさせました。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "With an object: the person takes に."
+    },
+    {
+      "prompt": "How is 家族⁠ read?",
+      "options": [
+        "いえぞく",
+        "かぞく",
+        "かそく",
+        "けぞく"
+      ],
+      "correct": "かぞく",
+      "explanation": "家族⁠ is read かぞく."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence means \"My parents let me study abroad\"?",
+      "options": [
+        "りょうしんにりゅうがくされました。",
+        "りょうしんはわたしをりゅうがくさせてくれました。",
+        "りょうしんはりゅうがくしたそうです。",
+        "りょうしんをりゅうがくさせました。"
+      ],
+      "correct": "りょうしんはわたしをりゅうがくさせてくれました。",
+      "explanation": "〜させてくれる: let me (kindly)."
+    },
+    {
+      "prompt": "What is the causative form of <ruby>使<rt>つか</rt></ruby>う?",
+      "options": [
+        "<ruby>使<rt>つか</rt></ruby>あせる",
+        "<ruby>使<rt>つか</rt></ruby>われる",
+        "<ruby>使<rt>つか</rt></ruby>わせる",
+        "<ruby>使<rt>つか</rt></ruby>いさせる"
+      ],
+      "correct": "<ruby>使<rt>つか</rt></ruby>わせる",
+      "explanation": "う → わせる."
+    },
+    {
+      "prompt": "Which sentence is rude?",
+      "options": [
+        "<ruby>学生<rt>がくせい</rt></ruby>にせつめいさせました。",
+        "<ruby>子<rt>こ</rt></ruby>どもにせつめいさせました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>にせつめいしてもらいました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>にせつめいさせました。"
+      ],
+      "correct": "<ruby>先生<rt>せんせい</rt></ruby>にせつめいさせました。",
+      "explanation": "Don't use the causative for people above you."
+    },
+    {
+      "prompt": "Read: わたしはよく<ruby>友<rt>とも</rt></ruby>だちをわらわせます。 What does the speaker do?",
+      "options": [
+        "Makes friends laugh",
+        "Gets laughed at by friends",
+        "Laughs with friends",
+        "Doesn't let friends laugh"
+      ],
+      "correct": "Makes friends laugh",
+      "explanation": "わらわせる: make laugh."
+    },
+    {
+      "prompt": "Review: complete <ruby>先生<rt>せんせい</rt></ruby>にさくぶんを＿＿。 (was praised)",
+      "options": [
+        "ほめました",
+        "ほめられました",
+        "ほめさせました",
+        "ほめてくれました"
+      ],
+      "correct": "ほめられました",
+      "explanation": "Passive: ほめられる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-8-i-got-scolded",
+    "japanese-n4-unit-2-they-gave-me",
+    "japanese-n4-unit-5-thinking-of"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

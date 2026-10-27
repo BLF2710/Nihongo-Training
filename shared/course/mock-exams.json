@@ -509,5 +509,510 @@
         ]
       }
     ]
+  },
+  "N4": {
+    "id": "japanese-n4-mock-exam",
+    "level": "N4",
+    "title": "N4 Mock Exam",
+    "minutes": 50,
+    "passPercent": 60,
+    "sectionMinPercent": 40,
+    "sections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary & Kanji",
+        "titleJp": "もじ・ごい",
+        "groups": [
+          {
+            "instruction": "Choose the reading of the word in 【 】.",
+            "questions": [
+              {
+                "id": "vocabulary-1",
+                "prompt": "【試験】は<ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>月曜日<rt>げつようび</rt></ruby>です。",
+                "options": [
+                  "しげん",
+                  "しけん",
+                  "ためけん",
+                  "しけい"
+                ],
+                "correctIndex": 1,
+                "explanation": "試験 is read しけん: exam."
+              },
+              {
+                "id": "vocabulary-2",
+                "prompt": "この【建物】はとても<ruby>古<rt>ふる</rt></ruby>いです。",
+                "options": [
+                  "けんぶつ",
+                  "たちもの",
+                  "けんもの",
+                  "たてもの"
+                ],
+                "correctIndex": 3,
+                "explanation": "建物 is read たてもの: building."
+              },
+              {
+                "id": "vocabulary-3",
+                "prompt": "<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに【住】んでいます。",
+                "options": [
+                  "す",
+                  "じゅう",
+                  "い",
+                  "ちか"
+                ],
+                "correctIndex": 0,
+                "explanation": "住む is read すむ: to live."
+              },
+              {
+                "id": "vocabulary-4",
+                "prompt": "【家族】は<ruby>四人<rt>よにん</rt></ruby>です。",
+                "options": [
+                  "いえぞく",
+                  "かそく",
+                  "かぞく",
+                  "けぞく"
+                ],
+                "correctIndex": 2,
+                "explanation": "家族 is read かぞく: family."
+              },
+              {
+                "id": "vocabulary-5",
+                "prompt": "<ruby>先生<rt>せんせい</rt></ruby>に【質問】しました。",
+                "options": [
+                  "しちもん",
+                  "しつぶん",
+                  "じつもん",
+                  "しつもん"
+                ],
+                "correctIndex": 3,
+                "explanation": "質問 is read しつもん: question."
+              }
+            ]
+          },
+          {
+            "instruction": "Choose the kanji for the word in 【 】.",
+            "questions": [
+              {
+                "id": "vocabulary-6",
+                "prompt": "【えいが】を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きませんか。",
+                "options": [
+                  "英画",
+                  "映画",
+                  "映会",
+                  "映話"
+                ],
+                "correctIndex": 1,
+                "explanation": "えいが, film, is written 映画."
+              },
+              {
+                "id": "vocabulary-7",
+                "prompt": "<ruby>毎朝<rt>まいあさ</rt></ruby>【はしって】います。",
+                "options": [
+                  "走って",
+                  "歩って",
+                  "起って",
+                  "通って"
+                ],
+                "correctIndex": 0,
+                "explanation": "はしる, to run, is written 走る."
+              },
+              {
+                "id": "vocabulary-8",
+                "prompt": "【としょかん】で<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+                "options": [
+                  "図書間",
+                  "地書館",
+                  "図書館",
+                  "図画館"
+                ],
+                "correctIndex": 2,
+                "explanation": "としょかん, library, is written 図書館."
+              },
+              {
+                "id": "vocabulary-9",
+                "prompt": "この<ruby>問題<rt>もんだい</rt></ruby>は【むり】です。",
+                "options": [
+                  "無理",
+                  "無料",
+                  "不理",
+                  "無代"
+                ],
+                "correctIndex": 0,
+                "explanation": "むり, impossible, is written 無理."
+              }
+            ]
+          },
+          {
+            "instruction": "Choose the best word for (　　).",
+            "questions": [
+              {
+                "id": "vocabulary-10",
+                "prompt": "ねつがあるので、<ruby>会社<rt>かいしゃ</rt></ruby>を（　　）しました。",
+                "options": [
+                  "<ruby>出発<rt>しゅっぱつ</rt></ruby>",
+                  "はっぴょう",
+                  "<ruby>注文<rt>ちゅうもん</rt></ruby>",
+                  "そうたい"
+                ],
+                "correctIndex": 3,
+                "explanation": "Leaving work early: そうたい."
+              },
+              {
+                "id": "vocabulary-11",
+                "prompt": "にもつが（　　）ので、<ruby>持<rt>も</rt></ruby>ってもらえませんか。",
+                "options": [
+                  "かるい",
+                  "<ruby>正<rt>ただ</rt></ruby>しい",
+                  "<ruby>重<rt>おも</rt></ruby>い",
+                  "<ruby>同<rt>おな</rt></ruby>じ"
+                ],
+                "correctIndex": 2,
+                "explanation": "A heavy bag: <ruby>重<rt>おも</rt></ruby>い."
+              },
+              {
+                "id": "vocabulary-12",
+                "prompt": "<ruby>電車<rt>でんしゃ</rt></ruby>にかさを（　　）しまいました。",
+                "options": [
+                  "おぼえて",
+                  "わすれて",
+                  "あつめて",
+                  "しらべて"
+                ],
+                "correctIndex": 1,
+                "explanation": "Leaving something behind: わすれる."
+              },
+              {
+                "id": "vocabulary-13",
+                "prompt": "つぎの<ruby>駅<rt>えき</rt></ruby>で<ruby>電車<rt>でんしゃ</rt></ruby>を（　　）ください。",
+                "options": [
+                  "<ruby>通<rt>かよ</rt></ruby>って",
+                  "のりかえて",
+                  "<ruby>走<rt>はし</rt></ruby>って",
+                  "<ruby>止<rt>と</rt></ruby>まって"
+                ],
+                "correctIndex": 1,
+                "explanation": "To change trains: のりかえる."
+              }
+            ]
+          },
+          {
+            "instruction": "Choose the sentence closest in meaning.",
+            "questions": [
+              {
+                "id": "vocabulary-14",
+                "prompt": "この<ruby>本<rt>ほん</rt></ruby>は<ruby>読<rt>よ</rt></ruby>みにくいです。",
+                "options": [
+                  "この<ruby>本<rt>ほん</rt></ruby>はすぐ<ruby>読<rt>よ</rt></ruby>めます。",
+                  "この<ruby>本<rt>ほん</rt></ruby>は<ruby>読<rt>よ</rt></ruby>みたくないです。",
+                  "この<ruby>本<rt>ほん</rt></ruby>はもう<ruby>読<rt>よ</rt></ruby>みました。",
+                  "この<ruby>本<rt>ほん</rt></ruby>はかんたんに<ruby>読<rt>よ</rt></ruby>めません。"
+                ],
+                "correctIndex": 3,
+                "explanation": "<ruby>読<rt>よ</rt></ruby>みにくい: hard to read."
+              },
+              {
+                "id": "vocabulary-15",
+                "prompt": "リーさんはるすです。",
+                "options": [
+                  "リーさんは<ruby>家<rt>いえ</rt></ruby>にいません。",
+                  "リーさんはねています。",
+                  "リーさんはいそがしいです。",
+                  "リーさんは<ruby>家<rt>いえ</rt></ruby>にいます。"
+                ],
+                "correctIndex": 0,
+                "explanation": "るす: not at home."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grammar",
+        "title": "Grammar",
+        "titleJp": "ぶんぽう",
+        "groups": [
+          {
+            "instruction": "Choose the best word or form for (　　).",
+            "questions": [
+              {
+                "id": "grammar-16",
+                "prompt": "てんきよほうによると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる（　　）です。",
+                "options": [
+                  "よう",
+                  "はず",
+                  "そう",
+                  "みたい"
+                ],
+                "correctIndex": 2,
+                "explanation": "Hearsay: plain form + そうです."
+              },
+              {
+                "id": "grammar-17",
+                "prompt": "このケーキはおいし（　　）ですね。<ruby>食<rt>た</rt></ruby>べてもいいですか。",
+                "options": [
+                  "らしい",
+                  "はず",
+                  "よう",
+                  "そう"
+                ],
+                "correctIndex": 3,
+                "explanation": "Looks: adjective stem + そう."
+              },
+              {
+                "id": "grammar-18",
+                "prompt": "<ruby>毎日<rt>まいにち</rt></ruby>れんしゅうす（　　）、<ruby>上手<rt>じょうず</rt></ruby>になりますよ。",
+                "options": [
+                  "ると",
+                  "れば",
+                  "ても",
+                  "るなら"
+                ],
+                "correctIndex": 1,
+                "explanation": "A condition and its result: すれば."
+              },
+              {
+                "id": "grammar-19",
+                "prompt": "<ruby>駅<rt>えき</rt></ruby>につい（　　）、<ruby>電話<rt>でんわ</rt></ruby>してください。",
+                "options": [
+                  "たら",
+                  "と",
+                  "ば",
+                  "ても"
+                ],
+                "correctIndex": 0,
+                "explanation": "A request can follow たら."
+              },
+              {
+                "id": "grammar-20",
+                "prompt": "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せる（　　）なりました。",
+                "options": [
+                  "ために",
+                  "そうに",
+                  "ように",
+                  "ことに"
+                ],
+                "correctIndex": 2,
+                "explanation": "A new ability: ようになる."
+              },
+              {
+                "id": "grammar-21",
+                "prompt": "ねる（　　）、はをみがきます。",
+                "options": [
+                  "まえに",
+                  "あとで",
+                  "ながら",
+                  "のに"
+                ],
+                "correctIndex": 0,
+                "explanation": "まえに takes the dictionary form."
+              },
+              {
+                "id": "grammar-22",
+                "prompt": "わたしは<ruby>先生<rt>せんせい</rt></ruby>（　　）しかられました。",
+                "options": [
+                  "を",
+                  "が",
+                  "で",
+                  "に"
+                ],
+                "correctIndex": 3,
+                "explanation": "The person who did it takes に."
+              },
+              {
+                "id": "grammar-23",
+                "prompt": "<ruby>母<rt>はは</rt></ruby>は<ruby>弟<rt>おとうと</rt></ruby>（　　）やさいを<ruby>食<rt>た</rt></ruby>べさせました。",
+                "options": [
+                  "を",
+                  "が",
+                  "に",
+                  "で"
+                ],
+                "correctIndex": 2,
+                "explanation": "Causative with an object: に."
+              },
+              {
+                "id": "grammar-24",
+                "prompt": "<ruby>雨<rt>あめ</rt></ruby>がふっ（　　）、<ruby>出<rt>で</rt></ruby>かけます。",
+                "options": [
+                  "たら",
+                  "ても",
+                  "ば",
+                  "と"
+                ],
+                "correctIndex": 1,
+                "explanation": "Even if: ても."
+              },
+              {
+                "id": "grammar-25",
+                "prompt": "たくさん<ruby>勉強<rt>べんきょう</rt></ruby>した（　　）、<ruby>試験<rt>しけん</rt></ruby>におちました。",
+                "options": [
+                  "ので",
+                  "のに",
+                  "ために",
+                  "から"
+                ],
+                "correctIndex": 1,
+                "explanation": "Even though: のに."
+              },
+              {
+                "id": "grammar-26",
+                "prompt": "すみません、<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>（　　）ください。",
+                "options": [
+                  "して",
+                  "されて",
+                  "させられて",
+                  "させて"
+                ],
+                "correctIndex": 3,
+                "explanation": "Let me: させてください."
+              }
+            ]
+          },
+          {
+            "instruction": "Choose the most suitable polite expression.",
+            "questions": [
+              {
+                "id": "grammar-27",
+                "prompt": "（<ruby>店員<rt>てんいん</rt></ruby>がおきゃくさんに）<ruby>少々<rt>しょうしょう</rt></ruby>（　　）ください。",
+                "options": [
+                  "お<ruby>待<rt>ま</rt></ruby>ち",
+                  "<ruby>待<rt>ま</rt></ruby>って",
+                  "お<ruby>待<rt>ま</rt></ruby>ちし",
+                  "<ruby>待<rt>ま</rt></ruby>たせて"
+                ],
+                "correctIndex": 0,
+                "explanation": "Staff use お V-stem ください."
+              },
+              {
+                "id": "grammar-28",
+                "prompt": "（<ruby>先生<rt>せんせい</rt></ruby>に）<ruby>明日<rt>あした</rt></ruby>、<ruby>研究室<rt>けんきゅうしつ</rt></ruby>に（　　）もよろしいですか。",
+                "options": [
+                  "いらっしゃって",
+                  "めしあがって",
+                  "うかがって",
+                  "なさって"
+                ],
+                "correctIndex": 2,
+                "explanation": "Humble visit: うかがう."
+              },
+              {
+                "id": "grammar-29",
+                "prompt": "（<ruby>自分<rt>じぶん</rt></ruby>のことを）はじめまして。リーと（　　）。",
+                "options": [
+                  "おっしゃいます",
+                  "いらっしゃいます",
+                  "なさいます",
+                  "もうします"
+                ],
+                "correctIndex": 3,
+                "explanation": "Humble <ruby>言<rt>い</rt></ruby>う: もうす."
+              },
+              {
+                "id": "grammar-30",
+                "prompt": "<ruby>社長<rt>しゃちょう</rt></ruby>はもうお<ruby>帰<rt>かえ</rt></ruby>りに（　　）。",
+                "options": [
+                  "しました",
+                  "なりました",
+                  "いたしました",
+                  "まいりました"
+                ],
+                "correctIndex": 1,
+                "explanation": "Honorific: お V-stem になる."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": "Reading",
+        "titleJp": "どっかい",
+        "groups": [
+          {
+            "instruction": "Read the message and answer the questions.",
+            "passage": "アナさんへ\n<ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>土曜日<rt>どようび</rt></ruby>、みんなで<ruby>公園<rt>こうえん</rt></ruby>でバーベキューをしようと<ruby>思<rt>おも</rt></ruby>っています。<ruby>肉<rt>にく</rt></ruby>とやさいはわたしがじゅんびしておきます。<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>ってきてもらえませんか。てんきよほうによると、<ruby>土曜日<rt>どようび</rt></ruby>ははれるそうです。もし<ruby>雨<rt>あめ</rt></ruby>がふったら、わたしの<ruby>家<rt>いえ</rt></ruby>でやりましょう。\nけん",
+            "questions": [
+              {
+                "id": "reading-31",
+                "prompt": "What does Ken ask Anna to bring?",
+                "options": [
+                  "Drinks",
+                  "Meat",
+                  "Vegetables",
+                  "A tent"
+                ],
+                "correctIndex": 0,
+                "explanation": "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>ってきてもらえませんか。"
+              },
+              {
+                "id": "reading-32",
+                "prompt": "What will happen if it rains?",
+                "options": [
+                  "They will cancel it.",
+                  "They will go another day.",
+                  "They will have it at Ken's house.",
+                  "They will go to a restaurant."
+                ],
+                "correctIndex": 2,
+                "explanation": "もし<ruby>雨<rt>あめ</rt></ruby>がふったら、わたしの<ruby>家<rt>いえ</rt></ruby>でやりましょう。"
+              },
+              {
+                "id": "reading-33",
+                "prompt": "What does the forecast say?",
+                "options": [
+                  "It will be sunny on Saturday.",
+                  "It will rain on Saturday.",
+                  "It will be cold on Saturday.",
+                  "There will be a typhoon."
+                ],
+                "correctIndex": 0,
+                "explanation": "<ruby>土曜日<rt>どようび</rt></ruby>ははれるそうです。"
+              }
+            ]
+          },
+          {
+            "instruction": "Read the notice and answer the questions.",
+            "passage": "<ruby>市<rt>し</rt></ruby>の<ruby>図書館<rt>としょかん</rt></ruby>からのお<ruby>知<rt>し</rt></ruby>らせ\n<ruby>来月<rt>らいげつ</rt></ruby>から、<ruby>図書館<rt>としょかん</rt></ruby>は<ruby>月曜日<rt>げつようび</rt></ruby>が<ruby>休<rt>やす</rt></ruby>みになります。<ruby>本<rt>ほん</rt></ruby>は<ruby>一回<rt>いっかい</rt></ruby>にじゅっさつまで、<ruby>二週間<rt>にしゅうかん</rt></ruby><ruby>借<rt>か</rt></ruby>りることができます。<ruby>地下<rt>ちか</rt></ruby>のへやは<ruby>勉強<rt>べんきょう</rt></ruby>に<ruby>使<rt>つか</rt></ruby>うことができますが、<ruby>中<rt>なか</rt></ruby>で<ruby>物<rt>もの</rt></ruby>を<ruby>食<rt>た</rt></ruby>べてはいけません。インターネットは<ruby>無料<rt>むりょう</rt></ruby>で<ruby>使<rt>つか</rt></ruby>えます。",
+            "questions": [
+              {
+                "id": "reading-34",
+                "prompt": "When will the library be closed from next month?",
+                "options": [
+                  "On Sundays",
+                  "On weekends",
+                  "Every day in the evening",
+                  "On Mondays"
+                ],
+                "correctIndex": 3,
+                "explanation": "<ruby>月曜日<rt>げつようび</rt></ruby>が<ruby>休<rt>やす</rt></ruby>みになります。"
+              },
+              {
+                "id": "reading-35",
+                "prompt": "How many books can you borrow at once?",
+                "options": [
+                  "Up to two",
+                  "Up to twelve",
+                  "Up to ten",
+                  "As many as you like"
+                ],
+                "correctIndex": 2,
+                "explanation": "<ruby>一回<rt>いっかい</rt></ruby>にじゅっさつまで."
+              },
+              {
+                "id": "reading-36",
+                "prompt": "Which is NOT allowed in the basement room?",
+                "options": [
+                  "Studying",
+                  "Eating",
+                  "Using the internet",
+                  "Reading"
+                ],
+                "correctIndex": 1,
+                "explanation": "<ruby>中<rt>なか</rt></ruby>で<ruby>物<rt>もの</rt></ruby>を<ruby>食<rt>た</rt></ruby>べてはいけません。"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

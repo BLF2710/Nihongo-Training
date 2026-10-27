@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-4-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "tara-if",
+      "prompt": "Make the たら form of <ruby>高<rt>たか</rt></ruby>い.",
+      "options": [
+        "<ruby>高<rt>たか</rt></ruby>いたら",
+        "<ruby>高<rt>たか</rt></ruby>かったら",
+        "<ruby>高<rt>たか</rt></ruby>いだったら",
+        "<ruby>高<rt>たか</rt></ruby>くたら"
+      ],
+      "correctIndex": 1,
+      "explanation": "い-adjective: かったら."
+    },
+    {
+      "id": "tara-when",
+      "prompt": "Choose: \"I'll call when I get to the station.\"",
+      "options": [
+        "<ruby>駅<rt>えき</rt></ruby>につけば、<ruby>電話<rt>でんわ</rt></ruby>します。",
+        "<ruby>駅<rt>えき</rt></ruby>につくなら、<ruby>電話<rt>でんわ</rt></ruby>しました。",
+        "<ruby>駅<rt>えき</rt></ruby>についても、<ruby>電話<rt>でんわ</rt></ruby>します。",
+        "<ruby>駅<rt>えき</rt></ruby>についたら、<ruby>電話<rt>でんわ</rt></ruby>します。"
+      ],
+      "correctIndex": 3,
+      "explanation": "When (after): たら."
+    },
+    {
+      "id": "tara-noun",
+      "prompt": "Complete: わたし＿＿、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>きます。 (if I were you)",
+      "options": [
+        "だったら",
+        "かったら",
+        "たら",
+        "なら だ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Noun: だったら."
+    },
+    {
+      "id": "ba-form",
+      "prompt": "Make the ば form of <ruby>行<rt>い</rt></ruby>く.",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>きば",
+        "<ruby>行<rt>い</rt></ruby>くば",
+        "<ruby>行<rt>い</rt></ruby>けば",
+        "<ruby>行<rt>い</rt></ruby>ければ"
+      ],
+      "correctIndex": 2,
+      "explanation": "く → けば."
+    },
+    {
+      "id": "ba-ii",
+      "prompt": "Make the ば form of いい.",
+      "options": [
+        "いければ",
+        "いいば",
+        "よいば",
+        "よければ"
+      ],
+      "correctIndex": 3,
+      "explanation": "いい → よければ."
+    },
+    {
+      "id": "ba-regret",
+      "prompt": "You missed the train because you left late. What do you say?",
+      "options": [
+        "<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>たらいい。",
+        "<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ればよかった。",
+        "<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ても、よかった。",
+        "<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ると、よかった。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regret: ばよかった."
+    },
+    {
+      "id": "to-result",
+      "prompt": "Complete: このボタンをおす＿＿、きっぷが<ruby>出<rt>で</rt></ruby>ます。",
+      "options": [
+        "と",
+        "なら",
+        "ても",
+        "のに"
+      ],
+      "correctIndex": 0,
+      "explanation": "A machine's result: と."
+    },
+    {
+      "id": "to-no-request",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>家<rt>いえ</rt></ruby>についたら、<ruby>電話<rt>でんわ</rt></ruby>してください。",
+        "<ruby>家<rt>いえ</rt></ruby>につくと、ねこが<ruby>来<rt>き</rt></ruby>ます。",
+        "<ruby>家<rt>いえ</rt></ruby>につくと、<ruby>電話<rt>でんわ</rt></ruby>してください。",
+        "<ruby>春<rt>はる</rt></ruby>になると、あたたかくなります。"
+      ],
+      "correctIndex": 2,
+      "explanation": "No requests after と."
+    },
+    {
+      "id": "to-directions",
+      "prompt": "Complete: かど＿＿<ruby>左<rt>ひだり</rt></ruby>にまがると、<ruby>駅<rt>えき</rt></ruby>があります。",
+      "options": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "correctIndex": 1,
+      "explanation": "The corner you turn at takes を."
+    },
+    {
+      "id": "nara-topic",
+      "prompt": "A: <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。 B: <ruby>京都<rt>きょうと</rt></ruby>＿＿、<ruby>秋<rt>あき</rt></ruby>がいいですよ。",
+      "options": [
+        "は",
+        "と",
+        "ても",
+        "なら"
+      ],
+      "correctIndex": 3,
+      "explanation": "Picking up a topic: なら."
+    },
+    {
+      "id": "nara-advice",
+      "prompt": "A friend is about to buy a camera. Which advice fits?",
+      "options": [
+        "カメラを<ruby>買<rt>か</rt></ruby>ったら、あの<ruby>店<rt>みせ</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いですよ。",
+        "カメラを<ruby>買<rt>か</rt></ruby>うと、あの<ruby>店<rt>みせ</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いです。",
+        "カメラを<ruby>買<rt>か</rt></ruby>うなら、あの<ruby>店<rt>みせ</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いですよ。",
+        "カメラを<ruby>買<rt>か</rt></ruby>っても、あの<ruby>店<rt>みせ</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いです。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Advice before the action: なら."
+    },
+    {
+      "id": "temo",
+      "prompt": "Complete: <ruby>高<rt>たか</rt></ruby>＿＿、<ruby>買<rt>か</rt></ruby>います。 (even if it's expensive)",
+      "options": [
+        "くても",
+        "いでも",
+        "かったら",
+        "ければ"
+      ],
+      "correctIndex": 0,
+      "explanation": "い-adjective: くても."
+    },
+    {
+      "id": "ikura-temo",
+      "prompt": "Choose: \"However much I study, I can't remember it.\"",
+      "options": [
+        "いくら<ruby>勉強<rt>べんきょう</rt></ruby>したら、おぼえられません。",
+        "いくら<ruby>勉強<rt>べんきょう</rt></ruby>すれば、おぼえられます。",
+        "いくら<ruby>勉強<rt>べんきょう</rt></ruby>すると、おぼえません。",
+        "いくら<ruby>勉強<rt>べんきょう</rt></ruby>しても、おぼえられません。"
+      ],
+      "correctIndex": 3,
+      "explanation": "いくら〜ても."
+    },
+    {
+      "id": "kanji-season",
+      "prompt": "How is 冬⁠ read?",
+      "options": [
+        "はる",
+        "ふゆ",
+        "なつ",
+        "あき"
+      ],
+      "correctIndex": 1,
+      "explanation": "冬⁠ is read ふゆ."
+    },
+    {
+      "id": "kanji-okosu",
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>、<ruby>六時<rt>ろくじ</rt></ruby>に＿＿ください。 (please wake me)",
+      "options": [
+        "<ruby>起<rt>お</rt></ruby>きて",
+        "<ruby>開<rt>あ</rt></ruby>けて",
+        "<ruby>起<rt>お</rt></ruby>こして",
+        "<ruby>切<rt>き</rt></ruby>って"
+      ],
+      "correctIndex": 2,
+      "explanation": "Wake someone: <ruby>起<rt>お</rt></ruby>こす."
+    }
+  ]
+}

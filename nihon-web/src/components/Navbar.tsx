@@ -9,16 +9,18 @@ import LiveNotifications from "./LiveNotifications";
 import { useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
-import { ThemeButton, ThemeChoice } from "./ThemeToggle";
+import { ThemeButton } from "./ThemeToggle";
+import LanguageMenu from "./LanguageMenu";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { language, supportedLanguages, setLanguage } = useLanguage();
+  const { language, supportedLanguages } = useLanguage();
   const courseLevel = useCourseLevel();
+  const currentLanguage = supportedLanguages.find(item => item.id === language);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [sectionsOpen, setSectionsOpen] = useState({ language: true, learn: true, practice: true, games: true, community: true });
+  const [sectionsOpen, setSectionsOpen] = useState({ learn: true, practice: true, games: true, community: true });
   const inbox = useInboxSummary();
   useEffect(() => { syncTimeZone(); }, []);
   const handle = useUserHandle();
@@ -27,7 +29,6 @@ export default function Navbar() {
   const userEmail = getUserEmail() || "";
 
   const go = (path: string) => { navigate(path); setSidebarOpen(false); };
-  const selectLanguage = (id: string) => { setLanguage(id); go("/"); };
   const logout = () => { clearSession(); go("/"); };
   const active = (isActive: boolean) => isActive
     ? "bg-indigo-50 text-indigo-700 font-bold"
@@ -42,6 +43,10 @@ export default function Navbar() {
       <span aria-hidden="true">{icon}</span><span aria-hidden="true" className="hidden xl:inline"> {label}</span>
       {count > 0 && <span aria-hidden="true" className="absolute -right-1 -top-1 min-w-5 rounded-full bg-red-600 px-1.5 text-center text-[11px] font-bold leading-5 text-white">{count > 9 ? "9+" : count}</span>}
     </button>
+  );
+  const navItem = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer";
+  const link = (path: string, icon: string, label: string, isActive: boolean) => (
+    <button onClick={() => go(path)} className={`${navItem} ${active(isActive)}`}><span>{icon}</span> {label}</button>
   );
   const sectionButton = (label: string, section: keyof typeof sectionsOpen) => (
     <button onClick={() => toggleSection(section)} className="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold tracking-wider uppercase text-gray-400 hover:text-gray-700 transition cursor-pointer" aria-expanded={sectionsOpen[section]}>
@@ -59,6 +64,7 @@ export default function Navbar() {
               <span className="w-9 h-9 bg-linear-to-br from-indigo-600 to-emerald-500 rounded-xl flex items-center justify-center text-white text-lg shadow-sm">🌐</span>
               <span className="max-[420px]:sr-only">Lingo<span className="text-emerald-600">Hub</span></span>
             </button>
+            {token && !isAdmin() && <LanguageMenu onChange={() => go("/")} />}
           </div>
 
           <div className="flex items-center gap-1 sm:gap-2 xl:gap-3">
@@ -97,36 +103,33 @@ export default function Navbar() {
         <div className="h-full overflow-y-auto p-4 flex flex-col">
           <div className="mb-5"><p className="px-3 text-[11px] font-bold tracking-wider uppercase text-gray-400">Navigation</p>
             <button onClick={() => go("/")} className={`mt-2 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/")}`}><span>⌂</span> Dashboard</button>
+            {currentLanguage && <p className="mt-3 px-3 text-sm font-bold text-gray-800"><span aria-hidden="true">{currentLanguage.flag} </span>{currentLanguage.name}</p>}
           </div>
-          <div className="mb-4">{sectionButton("Learning language", "language")}{sectionsOpen.language && <div className="mt-1 space-y-1">
-            {supportedLanguages.map((item) => <button key={item.id} disabled={!item.enabled} onClick={() => item.enabled && selectLanguage(item.id)} className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm transition ${item.enabled ? "cursor-pointer" : "cursor-not-allowed opacity-45"} ${language === item.id ? "bg-emerald-50 text-emerald-800 font-bold" : "text-gray-600 hover:bg-gray-100"}`}>
-              <span className="flex items-center gap-3"><span className="text-lg">{item.flag}</span>{item.name}</span>{language === item.id ? <span>✓</span> : !item.enabled && <span className="text-[10px] font-bold">Soon</span>}
-            </button>)}
-          </div>}</div>
-          <div className="mb-4">{sectionButton("Learn", "learn")}{sectionsOpen.learn && <div className="mt-1 space-y-1">
-            {language === "japanese" && <button onClick={() => go("/levels")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/levels")}`}><span lang="ja">道</span> Level <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">{courseLevel} · Change</span></button>}
-            <button onClick={() => language === "japanese" && go("/lessons")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/lessons"))}` : "text-gray-400 cursor-not-allowed"}`}><span>📖</span> Lessons {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
-            <button onClick={() => language === "japanese" && go("/vocabulary")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/vocabulary"))}` : "text-gray-400 cursor-not-allowed"}`}><span>🧠</span> Vocabulary</button>
-            <button onClick={() => language === "japanese" && go("/grammar")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/grammar"))}` : "text-gray-400 cursor-not-allowed"}`}><span>✍️</span> Grammar</button>
-            {language === "japanese" && <>
-              <button onClick={() => go("/learn/hiragana")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/learn/hiragana") || location.pathname.startsWith("/learn/katakana"))}`}><span>あ</span> Kana</button>
-              <button onClick={() => language === "japanese" && go("/learn/kanji")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/learn/kanji"))}` : "text-gray-400 cursor-not-allowed"}`}><span>漢</span> Kanji {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
-            </>}
-          </div>}</div>
-          <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
-            <div>{sectionButton("🎮 Games", "games")}{sectionsOpen.games && <div className="ml-3 mt-1 space-y-1 border-l border-gray-100 pl-2">
-              {language === "english" ? <button onClick={() => go("/arcade")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/arcade"))}`}><span>🧩</span> English Arcade</button> : <>
-                <button onClick={() => go("/practice?type=hiragana")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/practice")}`}><span>あ</span> Hiragana Speed Quiz</button>
-                <button onClick={() => go("/practice?type=katakana")} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/practice")}`}><span>ア</span> Katakana Speed Quiz</button>
-              </>}
+          {language === "japanese" ? <>
+            <div className="mb-4">{sectionButton("Learn", "learn")}{sectionsOpen.learn && <div className="mt-1 space-y-1">
+              <button onClick={() => go("/levels")} className={`${navItem} ${active(location.pathname === "/levels")}`}><span lang="ja">道</span> Level <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">{courseLevel} · Change</span></button>
+              {link("/lessons", "📖", "Lessons", location.pathname.startsWith("/lessons"))}
+              {link("/vocabulary", "🧠", "Vocabulary", location.pathname.startsWith("/vocabulary"))}
+              {link("/grammar", "✍️", "Grammar", location.pathname.startsWith("/grammar"))}
+              {link("/learn/hiragana", "あ", "Kana", location.pathname.startsWith("/learn/hiragana") || location.pathname.startsWith("/learn/katakana"))}
+              {link("/learn/kanji", "漢", "Kanji", location.pathname.startsWith("/learn/kanji"))}
             </div>}</div>
-            <button onClick={() => language === "japanese" && go("/quizzes")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/quizzes"))}` : "text-gray-400 cursor-not-allowed"}`}><span>📝</span> Quizzes {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
-            <button onClick={() => language === "japanese" && go("/listening")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/listening"))}` : "text-gray-400 cursor-not-allowed"}`}><span>🎧</span> Listening {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
-            <button onClick={() => language === "japanese" && go("/speaking")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/speaking"))}` : "text-gray-400 cursor-not-allowed"}`}><span>🎤</span> Speaking {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
-            <button onClick={() => language === "japanese" && go("/reading")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname.startsWith("/reading"))}` : "text-gray-400 cursor-not-allowed"}`}><span>📄</span> Reading {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
-            <button onClick={() => language === "japanese" && go("/review")} disabled={language !== "japanese"} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition ${language === "japanese" ? `cursor-pointer ${active(location.pathname === "/review")}` : "text-gray-400 cursor-not-allowed"}`}><span>🔄</span> Review {language !== "japanese" && <span className="ml-auto text-[10px]">Soon</span>}</button>
-          </div>}</div>
-          <div className="mt-4 px-3"><p className="mb-2 text-[11px] font-bold tracking-wider uppercase text-gray-400">Display</p><ThemeChoice /></div>
+            <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
+              <div>{sectionButton("🎮 Games", "games")}{sectionsOpen.games && <div className="ml-3 mt-1 space-y-1 border-l border-gray-100 pl-2">
+                {link("/practice?type=hiragana", "あ", "Hiragana Speed Quiz", location.pathname === "/practice")}
+                {link("/practice?type=katakana", "ア", "Katakana Speed Quiz", location.pathname === "/practice")}
+              </div>}</div>
+              {link("/quizzes", "📝", "Quizzes", location.pathname.startsWith("/quizzes"))}
+              {link("/listening", "🎧", "Listening", location.pathname.startsWith("/listening"))}
+              {link("/speaking", "🎤", "Speaking", location.pathname.startsWith("/speaking"))}
+              {link("/reading", "📄", "Reading", location.pathname.startsWith("/reading"))}
+              {link("/review", "🔄", "Review", location.pathname === "/review")}
+              {link("/srs", "🗂️", "Daily review", location.pathname === "/srs")}
+              {link("/mistakes", "📒", "Mistake notebook", location.pathname === "/mistakes")}
+            </div>}</div>
+          </> : <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
+            {link("/arcade", "🧩", "English Arcade", location.pathname.startsWith("/arcade"))}
+          </div>}</div>}
           <div className="mt-4">{sectionButton("Community", "community")}{sectionsOpen.community && <div className="mt-1 space-y-1">
             {[["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
               <button key={path as string} onClick={() => go(path as string)} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith(path as string))}`}>

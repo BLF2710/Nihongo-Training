@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n4-unit-5-review",
+  "slug": "n4-unit-5-review",
+  "unit": "Japanese N4 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 5 Review",
+  "title_jp": "ユニット5のふくしゅう",
+  "objectives": [
+    "I can talk about my plans, intentions and their purpose.",
+    "Suggest plans with the volitional form",
+    "Say what you're thinking of doing and what you intend to do",
+    "Give purposes and put plans in order",
+    "Read a short plan for the summer"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>映画<rt>えいが</rt></ruby>",
+      "",
+      "film, movie"
+    ],
+    [
+      "<ruby>洋服<rt>ようふく</rt></ruby>",
+      "",
+      "(Western) clothes"
+    ],
+    [
+      "<ruby>海外<rt>かいがい</rt></ruby>",
+      "",
+      "overseas, abroad"
+    ],
+    [
+      "りゅうがく",
+      "",
+      "study abroad (+ する)"
+    ],
+    [
+      "<ruby>仕事<rt>しごと</rt></ruby>",
+      "",
+      "work, job"
+    ],
+    [
+      "<ruby>働<rt>はたら</rt></ruby>く",
+      "",
+      "to work"
+    ],
+    [
+      "つもり",
+      "",
+      "intention, plan"
+    ],
+    [
+      "よてい",
+      "",
+      "plan, schedule"
+    ],
+    [
+      "<ruby>銀行<rt>ぎんこう</rt></ruby>",
+      "",
+      "bank"
+    ],
+    [
+      "ちょきん",
+      "",
+      "savings (+ する: to save money)"
+    ],
+    [
+      "<ruby>夕方<rt>ゆうがた</rt></ruby>",
+      "",
+      "early evening"
+    ],
+    [
+      "<ruby>日曜日<rt>にちようび</rt></ruby>",
+      "",
+      "Sunday"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Plans, from casual to firm",
+    "text": "Let's: <ruby>行<rt>い</rt></ruby>こう / <ruby>食<rt>た</rt></ruby>べよう / しよう / <ruby>来<rt>こ</rt></ruby>よう; shall we: 〜(よ)うか.\nThinking of: 〜(よ)うと<ruby>思<rt>おも</rt></ruby>っています.\nIntend: V-る / V-ない + つもりです. Scheduled: V-る / N の + よていです.\nPurpose: V-る / N の + ために; used for: V-る + のに.\nOrder: V-る まえに / V-た あとで.",
+    "examples": [
+      "V-(よ)う / V-(よ)うと<ruby>思<rt>おも</rt></ruby>っています",
+      "つもり / よてい",
+      "ために / のに / まえに / あとで"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>日曜日<rt>にちようび</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>こう。",
+      "Let's go and see a film on Sunday."
+    ],
+    [
+      "<ruby>来年<rt>らいねん</rt></ruby>、<ruby>海外<rt>かいがい</rt></ruby>でりゅうがくしようと<ruby>思<rt>おも</rt></ruby>っています。",
+      "I'm thinking of studying abroad next year."
+    ],
+    [
+      "りゅうがくのために、ちょきんしています。",
+      "I'm saving up to study abroad."
+    ],
+    [
+      "<ruby>大学<rt>だいがく</rt></ruby>を<ruby>出<rt>で</rt></ruby>たら、<ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くつもりです。",
+      "After university I intend to work in Japan."
+    ],
+    [
+      "<ruby>仕事<rt>しごと</rt></ruby>のあとで、<ruby>銀行<rt>ぎんこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+      "I'll go to the bank after work."
+    ],
+    [
+      "<ruby>来週<rt>らいしゅう</rt></ruby>はしゅっちょうのよていです。",
+      "I'm scheduled for a business trip next week."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>こうよ。",
+      "アナ",
+      "いいね。<ruby>映画<rt>えいが</rt></ruby>のあとで、<ruby>洋服<rt>ようふく</rt></ruby>も<ruby>見<rt>み</rt></ruby>ようか。"
+    ],
+    [
+      "たなか",
+      "<ruby>夏休<rt>なつやす</rt></ruby>みはどうするつもりですか。",
+      "リー",
+      "<ruby>海外<rt>かいがい</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。"
+    ],
+    [
+      "マイ",
+      "どうしてアルバイトをしているんですか。",
+      "リン",
+      "りゅうがくするためにちょきんしているんです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>夕方<rt>ゆうがた</rt></ruby>、<ruby>時間<rt>じかん</rt></ruby>がありますか。",
+      "けん",
+      "すみません、<ruby>仕事<rt>しごと</rt></ruby>のよていがあるんです。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Diary",
+    "text_jp": "<ruby>来年<rt>らいねん</rt></ruby>の<ruby>春<rt>はる</rt></ruby>、カナダで<ruby>一年<rt>いちねん</rt></ruby>りゅうがくしようと<ruby>思<rt>おも</rt></ruby>っています。そのために、<ruby>今<rt>いま</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby>アルバイトをしてちょきんしています。<ruby>月曜日<rt>げつようび</rt></ruby>から<ruby>金曜日<rt>きんようび</rt></ruby>までは<ruby>大学<rt>だいがく</rt></ruby>に<ruby>行<rt>い</rt></ruby>って、<ruby>夕方<rt>ゆうがた</rt></ruby>から<ruby>夜<rt>よる</rt></ruby>までレストランで<ruby>働<rt>はたら</rt></ruby>いています。<ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>休<rt>やす</rt></ruby>むつもりですが、ときどき<ruby>友<rt>とも</rt></ruby>だちとえいごで<ruby>話<rt>はな</rt></ruby>しています。<ruby>行<rt>い</rt></ruby>くまえに、パスポートもとらなければなりません。<ruby>来月<rt>らいげつ</rt></ruby>、<ruby>銀行<rt>ぎんこう</rt></ruby>でお<ruby>金<rt>かね</rt></ruby>をおろして、ひこうきのきっぷを<ruby>買<rt>か</rt></ruby>うよていです。",
+    "en_translation": "Next spring I'm thinking of studying in Canada for a year. For that, I'm now working part-time every day and saving money. From Monday to Friday I go to university, and from early evening until night I work at a restaurant. I intend to rest on Sundays, but sometimes I talk with friends in English. Before I go, I also have to get a passport. Next month I plan to withdraw money at the bank and buy a plane ticket.",
+    "questions": [
+      {
+        "prompt": "Where is the writer thinking of studying?",
+        "options": [
+          "In Japan",
+          "In Canada",
+          "In England",
+          "At a restaurant"
+        ],
+        "correct": "In Canada",
+        "explanation": "カナダで<ruby>一年<rt>いちねん</rt></ruby>りゅうがくしようと<ruby>思<rt>おも</rt></ruby>っています。"
+      },
+      {
+        "prompt": "When does the writer work at the restaurant?",
+        "options": [
+          "In the morning",
+          "On Sundays",
+          "From early evening until night",
+          "All day on weekdays"
+        ],
+        "correct": "From early evening until night",
+        "explanation": "<ruby>夕方<rt>ゆうがた</rt></ruby>から<ruby>夜<rt>よる</rt></ruby>までレストランで<ruby>働<rt>はたら</rt></ruby>いています。"
+      },
+      {
+        "prompt": "What does the writer still need before going?",
+        "options": [
+          "A visa",
+          "A job",
+          "A flat in Canada",
+          "A passport"
+        ],
+        "correct": "A passport",
+        "explanation": "パスポートもとらなければなりません。"
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "What is the volitional form of <ruby>見<rt>み</rt></ruby>る?",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>ろう",
+        "<ruby>見<rt>み</rt></ruby>おう",
+        "<ruby>見<rt>み</rt></ruby>よう",
+        "<ruby>見<rt>み</rt></ruby>こう"
+      ],
+      "correct": "<ruby>見<rt>み</rt></ruby>よう",
+      "explanation": "Group 2: る → よう."
+    },
+    {
+      "prompt": "Complete: <ruby>海外<rt>かいがい</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こう＿＿<ruby>思<rt>おも</rt></ruby>っています。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "と"
+      ],
+      "correct": "と",
+      "explanation": "Volitional + と<ruby>思<rt>おも</rt></ruby>っています."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>はざんぎょうし＿＿つもりです。",
+      "options": [
+        "ない",
+        "ません",
+        "なくて",
+        "なかった"
+      ],
+      "correct": "ない",
+      "explanation": "V-ない つもり."
+    },
+    {
+      "prompt": "Complete: りゅうがく＿＿ために、ちょきんしています。",
+      "options": [
+        "な",
+        "の",
+        "が",
+        "を"
+      ],
+      "correct": "の",
+      "explanation": "N の ために."
+    },
+    {
+      "prompt": "Complete: このはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>る＿＿べんりです。",
+      "options": [
+        "ために",
+        "まえに",
+        "のに",
+        "あとで"
+      ],
+      "correct": "のに",
+      "explanation": "Used for: のに."
+    },
+    {
+      "prompt": "Complete: ねる＿＿、はをみがきます。",
+      "options": [
+        "あとで",
+        "ために",
+        "のに",
+        "まえに"
+      ],
+      "correct": "まえに",
+      "explanation": "Before: まえに."
+    },
+    {
+      "prompt": "Complete: <ruby>仕事<rt>しごと</rt></ruby>が<ruby>終<rt>お</rt></ruby>わっ＿＿あとで、<ruby>銀行<rt>ぎんこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+      "options": [
+        "た",
+        "て",
+        "る",
+        "ない"
+      ],
+      "correct": "た",
+      "explanation": "After: V-た あとで."
+    },
+    {
+      "prompt": "Which word describes a timetable, not someone's will?",
+      "options": [
+        "つもり",
+        "よてい",
+        "ゆめ",
+        "ために"
+      ],
+      "correct": "よてい",
+      "explanation": "よてい: schedule."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the diary: why is the writer working part-time?",
+      "options": [
+        "To save money to study abroad",
+        "To practise English",
+        "To buy a car",
+        "Because university is closed"
+      ],
+      "correct": "To save money to study abroad",
+      "explanation": "そのために、<ruby>今<rt>いま</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby>アルバイトをしてちょきんしています。"
+    },
+    {
+      "prompt": "Read the diary: what will the writer do at the bank next month?",
+      "options": [
+        "Open an account",
+        "Withdraw money",
+        "Get a passport",
+        "Start working there"
+      ],
+      "correct": "Withdraw money",
+      "explanation": "<ruby>銀行<rt>ぎんこう</rt></ruby>でお<ruby>金<rt>かね</rt></ruby>をおろして."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べるまえに、<ruby>手<rt>て</rt></ruby>をあらいます。",
+        "<ruby>食<rt>た</rt></ruby>べたあとで、はをみがきます。",
+        "<ruby>食<rt>た</rt></ruby>べたまえに、<ruby>手<rt>て</rt></ruby>をあらいます。",
+        "ごはんのまえに、<ruby>手<rt>て</rt></ruby>をあらいます。"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べたまえに、<ruby>手<rt>て</rt></ruby>をあらいます。",
+      "explanation": "まえに always takes the dictionary form."
+    },
+    {
+      "prompt": "To a teacher, which offer is right?",
+      "options": [
+        "にもつを<ruby>持<rt>も</rt></ruby>とうか。",
+        "にもつを<ruby>持<rt>も</rt></ruby>とう。",
+        "にもつを<ruby>持<rt>も</rt></ruby>つつもりです。",
+        "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。"
+      ],
+      "correct": "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+      "explanation": "Polite: 〜ましょうか."
+    },
+    {
+      "prompt": "Review (Unit 4): complete <ruby>毎日<rt>まいにち</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>す＿＿、ごうかくできます。",
+      "options": [
+        "れば",
+        "ると",
+        "ても",
+        "るなら"
+      ],
+      "correct": "れば",
+      "explanation": "Conditional ば: すれば."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-5-lets-go",
+    "japanese-n4-unit-5-thinking-of",
+    "japanese-n4-unit-5-i-intend-to",
+    "japanese-n4-unit-5-in-order-to",
+    "japanese-n4-unit-5-before-and-after",
+    "japanese-n4-unit-4-if-you-study"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

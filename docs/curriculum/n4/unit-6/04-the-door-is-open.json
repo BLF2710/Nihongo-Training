@@ -1,0 +1,478 @@
+{
+  "id": "japanese-n4-unit-6-the-door-is-open",
+  "slug": "n4-unit-6-the-door-is-open",
+  "unit": "Japanese N4 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "The Door Is Open",
+  "title_jp": "〜て ある・〜て いる",
+  "objectives": [
+    "I can describe the state of things around me.",
+    "Pair transitive and intransitive verbs",
+    "Say something has been done on purpose with 〜てある",
+    "Describe a resulting state with 〜ている"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>教室<rt>きょうしつ</rt></ruby>",
+      "",
+      "classroom"
+    ],
+    [
+      "<ruby>食堂<rt>しょくどう</rt></ruby>",
+      "",
+      "cafeteria, dining hall"
+    ],
+    [
+      "<ruby>図書館<rt>としょかん</rt></ruby>",
+      "",
+      "library"
+    ],
+    [
+      "<ruby>映画館<rt>えいがかん</rt></ruby>",
+      "",
+      "cinema"
+    ],
+    [
+      "<ruby>図<rt>ず</rt></ruby>",
+      "",
+      "diagram, figure"
+    ],
+    [
+      "しまる",
+      "",
+      "to close (intransitive)"
+    ],
+    [
+      "しめる",
+      "",
+      "to close (something)"
+    ],
+    [
+      "つく",
+      "",
+      "to come on (of a light)"
+    ],
+    [
+      "つける",
+      "",
+      "to turn on"
+    ],
+    [
+      "きえる",
+      "",
+      "to go out, to go off"
+    ],
+    [
+      "けす",
+      "",
+      "to turn off"
+    ],
+    [
+      "<ruby>電気<rt>でんき</rt></ruby>",
+      "",
+      "light, electricity"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "教室",
+      "word_reading": "きょうしつ"
+    },
+    {
+      "word_japanese": "食堂",
+      "word_reading": "しょくどう"
+    },
+    {
+      "word_japanese": "図書館",
+      "word_reading": "としょかん"
+    },
+    {
+      "word_japanese": "映画館",
+      "word_reading": "えいがかん"
+    },
+    {
+      "word_japanese": "図",
+      "word_reading": "ず"
+    },
+    {
+      "word_japanese": "電気",
+      "word_reading": "でんき"
+    }
+  ],
+  "concept": {
+    "title": "Who did it? 〜てある and 〜ている",
+    "text": "Many verbs come in pairs: one where someone does something (transitive, を), one where it just happens (intransitive, が).\n\n<ruby>開<rt>あ</rt></ruby>ける / <ruby>開<rt>あ</rt></ruby>く, しめる / しまる, つける / つく, けす / きえる, <ruby>始<rt>はじ</rt></ruby>める / <ruby>始<rt>はじ</rt></ruby>まる, <ruby>止<rt>と</rt></ruby>める / <ruby>止<rt>と</rt></ruby>まる\n\nTo describe a state:\nIntransitive + ている: ドアが<ruby>開<rt>あ</rt></ruby>いています。 The door is open.\nTransitive + てある: ドアが<ruby>開<rt>あ</rt></ruby>けてあります。 The door has been left open (someone opened it, on purpose).\n\nWith てある, the thing takes が, and who did it is not said.",
+    "examples": [
+      "N を V(transitive) / N が V(intransitive)",
+      "N が V(intransitive)-ている (state)",
+      "N が V(transitive)-てある (done on purpose)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Transitive and intransitive pairs",
+      "pattern": "N を <ruby>開<rt>あ</rt></ruby>ける / N が <ruby>開<rt>あ</rt></ruby>く",
+      "explanation": "With a transitive verb someone acts on a thing (を). With an intransitive verb the thing changes by itself (が).",
+      "examples": [
+        {
+          "japanese": "リーさんがまどを<ruby>開<rt>あ</rt></ruby>けました。",
+          "romaji": "",
+          "meaning": "Lee opened the window."
+        },
+        {
+          "japanese": "<ruby>風<rt>かぜ</rt></ruby>でまどが<ruby>開<rt>あ</rt></ruby>きました。",
+          "romaji": "",
+          "meaning": "The window opened in the wind."
+        },
+        {
+          "japanese": "<ruby>電気<rt>でんき</rt></ruby>をけしてください。",
+          "romaji": "",
+          "meaning": "Please turn off the light."
+        },
+        {
+          "japanese": "きゅうに<ruby>電気<rt>でんき</rt></ruby>がきえました。",
+          "romaji": "",
+          "meaning": "Suddenly the lights went out."
+        },
+        {
+          "japanese": "<ruby>電車<rt>でんしゃ</rt></ruby>のドアがしまります。",
+          "romaji": "",
+          "meaning": "The train doors are closing."
+        }
+      ],
+      "notes": [
+        "Learn verbs in pairs: つける / つく, けす / きえる, しめる / しまる."
+      ]
+    },
+    {
+      "title": "States: 〜ている and 〜てある",
+      "pattern": "N が V(intransitive)-ている / N が V(transitive)-てある",
+      "explanation": "Both describe how things are now. 〜てある adds that someone did it on purpose, usually as preparation.",
+      "examples": [
+        {
+          "japanese": "<ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>電気<rt>でんき</rt></ruby>がついています。",
+          "romaji": "",
+          "meaning": "The classroom lights are on."
+        },
+        {
+          "japanese": "<ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>電気<rt>でんき</rt></ruby>がつけてあります。",
+          "romaji": "",
+          "meaning": "The classroom lights have been put on (by someone)."
+        },
+        {
+          "japanese": "まどがしまっています。",
+          "romaji": "",
+          "meaning": "The window is closed."
+        },
+        {
+          "japanese": "つくえの<ruby>上<rt>うえ</rt></ruby>に<ruby>名前<rt>なまえ</rt></ruby>が<ruby>書<rt>か</rt></ruby>いてあります。",
+          "romaji": "",
+          "meaning": "A name is written on the desk."
+        },
+        {
+          "japanese": "かべに<ruby>図<rt>ず</rt></ruby>がはってあります。",
+          "romaji": "",
+          "meaning": "A diagram has been put up on the wall."
+        }
+      ],
+      "notes": [
+        "With てある, the thing takes が: <ruby>名前<rt>なまえ</rt></ruby>が<ruby>書<rt>か</rt></ruby>いてある.",
+        "〜てある often follows 〜ておく: よやくしておいた → よやくしてある."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>本<rt>ほん</rt></ruby>を<ruby>借<rt>か</rt></ruby>りました。",
+      "I borrowed a book from the library."
+    ],
+    [
+      "<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>は<ruby>大学<rt>だいがく</rt></ruby>の<ruby>食堂<rt>しょくどう</rt></ruby>で<ruby>食<rt>た</rt></ruby>べます。",
+      "I eat lunch in the university cafeteria."
+    ],
+    [
+      "<ruby>映画館<rt>えいがかん</rt></ruby>は<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くにあります。",
+      "The cinema is near the station."
+    ],
+    [
+      "へやを<ruby>出<rt>で</rt></ruby>るときは、<ruby>電気<rt>でんき</rt></ruby>をけしてください。",
+      "Please turn off the light when you leave the room."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "あれ、<ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>電気<rt>でんき</rt></ruby>がついていますね。",
+      "けん",
+      "だれかがつけたんでしょう。けしましょう。"
+    ],
+    [
+      "リー",
+      "<ruby>図書館<rt>としょかん</rt></ruby>は<ruby>開<rt>あ</rt></ruby>いていますか。",
+      "マイ",
+      "いいえ、<ruby>日曜日<rt>にちようび</rt></ruby>はしまっています。"
+    ],
+    [
+      "ゆき",
+      "レストランのよやくは？",
+      "たなか",
+      "もうよやくしてありますよ。"
+    ],
+    [
+      "リン",
+      "このかみに<ruby>何<rt>なに</rt></ruby>が<ruby>書<rt>か</rt></ruby>いてありますか。",
+      "アナ",
+      "<ruby>食堂<rt>しょくどう</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>が<ruby>書<rt>か</rt></ruby>いてあります。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "室",
+      "onyomi": [
+        "シツ"
+      ],
+      "kunyomi": [
+        "むろ"
+      ],
+      "meaning_en": "room",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "教室",
+          "reading": "きょうしつ",
+          "en": "classroom"
+        },
+        {
+          "word": "室内",
+          "reading": "しつない",
+          "en": "indoors"
+        }
+      ],
+      "mnemonic": "Under a roof (宀), the place you reach (至): a room."
+    },
+    {
+      "char": "堂",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "hall",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "食堂",
+          "reading": "しょくどう",
+          "en": "cafeteria"
+        },
+        {
+          "word": "講堂",
+          "reading": "こうどう",
+          "en": "auditorium"
+        }
+      ],
+      "mnemonic": "A building raised on earth (土): a hall."
+    },
+    {
+      "char": "館",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [
+        "やかた",
+        "たて"
+      ],
+      "meaning_en": "building, hall",
+      "stroke_count": 16,
+      "example_words": [
+        {
+          "word": "図書館",
+          "reading": "としょかん",
+          "en": "library"
+        },
+        {
+          "word": "映画館",
+          "reading": "えいがかん",
+          "en": "cinema"
+        }
+      ],
+      "mnemonic": "Where food (食) is served to guests under a roof (官): a large building."
+    },
+    {
+      "char": "図",
+      "onyomi": [
+        "ズ",
+        "ト"
+      ],
+      "kunyomi": [
+        "え",
+        "はか.る"
+      ],
+      "meaning_en": "diagram, plan",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "図",
+          "reading": "ず",
+          "en": "diagram"
+        },
+        {
+          "word": "図書館",
+          "reading": "としょかん",
+          "en": "library"
+        }
+      ],
+      "mnemonic": "A plan drawn inside a frame (囗)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>旅行<rt>りょこう</rt></ruby>のまえに、ホテルをよやくして＿＿。",
+      "options": [
+        "おきます",
+        "しまいます",
+        "みます",
+        "います"
+      ],
+      "correct": "おきます",
+      "explanation": "In advance: 〜ておく."
+    },
+    {
+      "prompt": "Which verb is intransitive?",
+      "options": [
+        "けす",
+        "きえる",
+        "つける",
+        "しめる"
+      ],
+      "correct": "きえる",
+      "explanation": "きえる: go out by itself."
+    },
+    {
+      "prompt": "Complete: リーさんがまど＿＿<ruby>開<rt>あ</rt></ruby>けました。",
+      "options": [
+        "が",
+        "に",
+        "を",
+        "で"
+      ],
+      "correct": "を",
+      "explanation": "Transitive verb: を."
+    },
+    {
+      "prompt": "Complete: <ruby>風<rt>かぜ</rt></ruby>でドア＿＿<ruby>開<rt>あ</rt></ruby>きました。",
+      "options": [
+        "を",
+        "に",
+        "で",
+        "が"
+      ],
+      "correct": "が",
+      "explanation": "Intransitive verb: が."
+    },
+    {
+      "prompt": "Complete: <ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>電気<rt>でんき</rt></ruby>がつい＿＿。 (are on)",
+      "options": [
+        "ています",
+        "てあります",
+        "ておきます",
+        "てしまいます"
+      ],
+      "correct": "ています",
+      "explanation": "Intransitive + ている: a state."
+    },
+    {
+      "prompt": "Complete: つくえの<ruby>上<rt>うえ</rt></ruby>に<ruby>名前<rt>なまえ</rt></ruby>が<ruby>書<rt>か</rt></ruby>いて＿＿。",
+      "options": [
+        "います",
+        "あります",
+        "おきます",
+        "みます"
+      ],
+      "correct": "あります",
+      "explanation": "Transitive + てある: done on purpose."
+    },
+    {
+      "prompt": "How is 図書館⁠ read?",
+      "options": [
+        "ずしょかん",
+        "としょうかん",
+        "としょかん",
+        "とうしょかん"
+      ],
+      "correct": "としょかん",
+      "explanation": "図書館⁠ is read としょかん."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What is the difference: ドアが<ruby>開<rt>あ</rt></ruby>いています / ドアが<ruby>開<rt>あ</rt></ruby>けてあります?",
+      "options": [
+        "Opened on purpose / just open",
+        "Opening now / will open",
+        "Just open / opened by someone on purpose",
+        "Closed / open"
+      ],
+      "correct": "Just open / opened by someone on purpose",
+      "explanation": "てある: someone did it, deliberately."
+    },
+    {
+      "prompt": "Which pair is NOT transitive / intransitive?",
+      "options": [
+        "けす / きえる",
+        "しめる / しまる",
+        "<ruby>止<rt>と</rt></ruby>める / <ruby>止<rt>と</rt></ruby>まる",
+        "<ruby>食<rt>た</rt></ruby>べる / <ruby>飲<rt>の</rt></ruby>む"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べる / <ruby>飲<rt>の</rt></ruby>む",
+      "explanation": "<ruby>食<rt>た</rt></ruby>べる and <ruby>飲<rt>の</rt></ruby>む are both transitive."
+    },
+    {
+      "prompt": "Choose: \"The restaurant has been booked.\"",
+      "options": [
+        "レストランはよやくしてあります。",
+        "レストランはよやくしています。",
+        "レストランはよやくしてしまいます。",
+        "レストランをよやくしてあります。"
+      ],
+      "correct": "レストランはよやくしてあります。",
+      "explanation": "Done in advance: 〜てある, with は/が."
+    },
+    {
+      "prompt": "Read: <ruby>日曜日<rt>にちようび</rt></ruby>はしまっています。 What does it mean?",
+      "options": [
+        "It closes early on Sunday.",
+        "It is closed on Sundays.",
+        "Someone closed it on Sunday.",
+        "It opens on Sunday."
+      ],
+      "correct": "It is closed on Sundays.",
+      "explanation": "しまっている: is closed."
+    },
+    {
+      "prompt": "Review: what is the casual form of よやくしておく?",
+      "options": [
+        "よやくしちゃう",
+        "よやくしどく",
+        "よやくしとく",
+        "よやくしてく"
+      ],
+      "correct": "よやくしとく",
+      "explanation": "ておく → とく."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-6-getting-ready",
+    "japanese-n4-unit-4-even-if",
+    "japanese-n4-unit-3-now-i-can"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

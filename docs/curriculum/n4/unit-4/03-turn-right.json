@@ -1,0 +1,451 @@
+{
+  "id": "japanese-n4-unit-4-turn-right",
+  "slug": "n4-unit-4-turn-right",
+  "unit": "Japanese N4 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Turn Right and…",
+  "title_jp": "まがると",
+  "objectives": [
+    "I can give directions with と.",
+    "State a natural or automatic result with と",
+    "Give and follow directions",
+    "Talk about walking, running and stopping"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>歩<rt>ある</rt></ruby>く",
+      "",
+      "to walk"
+    ],
+    [
+      "<ruby>走<rt>はし</rt></ruby>る",
+      "",
+      "to run"
+    ],
+    [
+      "<ruby>止<rt>と</rt></ruby>まる",
+      "",
+      "to stop (intransitive)"
+    ],
+    [
+      "<ruby>止<rt>と</rt></ruby>める",
+      "",
+      "to stop, to park (something)"
+    ],
+    [
+      "まがる",
+      "",
+      "to turn"
+    ],
+    [
+      "まっすぐ",
+      "",
+      "straight"
+    ],
+    [
+      "しんごう",
+      "",
+      "traffic lights"
+    ],
+    [
+      "かど",
+      "",
+      "corner"
+    ],
+    [
+      "わたる",
+      "",
+      "to cross"
+    ],
+    [
+      "<ruby>見<rt>み</rt></ruby>える",
+      "",
+      "can be seen, to be visible"
+    ],
+    [
+      "おす",
+      "",
+      "to push, to press"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "歩く",
+      "word_reading": "あるく"
+    },
+    {
+      "word_japanese": "走る",
+      "word_reading": "はしる"
+    },
+    {
+      "word_japanese": "止まる",
+      "word_reading": "とまる"
+    },
+    {
+      "word_japanese": "止める",
+      "word_reading": "とめる"
+    },
+    {
+      "word_japanese": "見える",
+      "word_reading": "みえる"
+    }
+  ],
+  "concept": {
+    "title": "When this happens, that happens: と",
+    "text": "と after the plain present says that the second thing always follows the first: a natural result, a habit, or the way a machine works.\n\nこのボタンをおすと、きっぷが<ruby>出<rt>で</rt></ruby>ます。 When you press this button, the ticket comes out.\n<ruby>春<rt>はる</rt></ruby>になると、あたたかくなります。 When spring comes, it gets warm.\n\nIt is very common in directions:\nかどを<ruby>右<rt>みぎ</rt></ruby>にまがると、<ruby>駅<rt>えき</rt></ruby>があります。 Turn right at the corner and the station is there.\n\nThe second half cannot be a request, wish or plan.",
+    "examples": [
+      "V-る / V-ない + と、〜",
+      "N を<ruby>右<rt>みぎ</rt></ruby>・<ruby>左<rt>ひだり</rt></ruby>にまがると",
+      "と: no requests or plans after it"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Natural result: と",
+      "pattern": "plain present + と、result",
+      "explanation": "と links a cause and what always follows from it.",
+      "examples": [
+        {
+          "japanese": "このボタンをおすと、きっぷが<ruby>出<rt>で</rt></ruby>ます。",
+          "romaji": "",
+          "meaning": "When you press this button, the ticket comes out."
+        },
+        {
+          "japanese": "<ruby>春<rt>はる</rt></ruby>になると、あたたかくなります。",
+          "romaji": "",
+          "meaning": "When spring comes, it gets warm."
+        },
+        {
+          "japanese": "お<ruby>金<rt>かね</rt></ruby>を<ruby>入<rt>い</rt></ruby>れないと、<ruby>動<rt>うご</rt></ruby>きません。",
+          "romaji": "",
+          "meaning": "If you don't put money in, it won't work."
+        },
+        {
+          "japanese": "この<ruby>道<rt>みち</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>になると、<ruby>人<rt>ひと</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なくなります。",
+          "romaji": "",
+          "meaning": "This road gets quiet at night."
+        }
+      ],
+      "notes": [
+        "Wrong: <ruby>駅<rt>えき</rt></ruby>につくと、<ruby>電話<rt>でんわ</rt></ruby>してください. For requests and plans, use たら.",
+        "With a past result, と describes a discovery: <ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>ると、<ruby>雨<rt>あめ</rt></ruby>がふっていました (when I went out, it was raining)."
+      ]
+    },
+    {
+      "title": "Directions with と",
+      "pattern": "N を まがると / わたると / <ruby>行<rt>い</rt></ruby>くと、〜があります",
+      "explanation": "Each step of the way ends in と, and the last part says what you find.",
+      "examples": [
+        {
+          "japanese": "<ruby>二<rt>ふた</rt></ruby>つ<ruby>目<rt>め</rt></ruby>のしんごうを<ruby>左<rt>ひだり</rt></ruby>にまがると、<ruby>右<rt>みぎ</rt></ruby>にあります。",
+          "romaji": "",
+          "meaning": "Turn left at the second set of lights, and it's on the right."
+        },
+        {
+          "japanese": "はしをわたると、<ruby>大<rt>おお</rt></ruby>きいビルが<ruby>見<rt>み</rt></ruby>えます。",
+          "romaji": "",
+          "meaning": "Cross the bridge and you'll see a big building."
+        },
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>から<ruby>五分<rt>ごふん</rt></ruby><ruby>歩<rt>ある</rt></ruby>くと、<ruby>学校<rt>がっこう</rt></ruby>につきます。",
+          "romaji": "",
+          "meaning": "Walk five minutes from the station and you'll reach the school."
+        },
+        {
+          "japanese": "まっすぐ<ruby>行<rt>い</rt></ruby>くと、かどにコンビニがあります。",
+          "romaji": "",
+          "meaning": "Go straight on and there's a convenience store on the corner."
+        }
+      ],
+      "notes": [
+        "N を まがる / わたる: the place you turn at or cross takes を.",
+        "<ruby>目<rt>め</rt></ruby> after a number means \"the …th\": <ruby>二<rt>ふた</rt></ruby>つ<ruby>目<rt>め</rt></ruby> (the second)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>駅<rt>えき</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>いて<ruby>十分<rt>じゅっぷん</rt></ruby>です。",
+      "It's ten minutes' walk to the station."
+    ],
+    [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby>こうえんを<ruby>走<rt>はし</rt></ruby>っています。",
+      "I run in the park every morning."
+    ],
+    [
+      "ここに<ruby>車<rt>くるま</rt></ruby>を<ruby>止<rt>と</rt></ruby>めないでください。",
+      "Please don't park your car here."
+    ],
+    [
+      "バスが<ruby>止<rt>と</rt></ruby>まりました。",
+      "The bus stopped."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、ゆうびんきょくはどこですか。",
+      "けん",
+      "この<ruby>道<rt>みち</rt></ruby>をまっすぐ<ruby>行<rt>い</rt></ruby>くと、<ruby>左<rt>ひだり</rt></ruby>にありますよ。"
+    ],
+    [
+      "リー",
+      "ここに<ruby>車<rt>くるま</rt></ruby>を<ruby>止<rt>と</rt></ruby>めてもいいですか。",
+      "たなか",
+      "すみません、ここは<ruby>止<rt>と</rt></ruby>められません。"
+    ],
+    [
+      "マイ",
+      "このボタンをおすと、どうなりますか。",
+      "リン",
+      "<ruby>水<rt>みず</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます。"
+    ],
+    [
+      "ゆき",
+      "<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>走<rt>はし</rt></ruby>っているんですか。",
+      "リー",
+      "はい、<ruby>走<rt>はし</rt></ruby>ると、<ruby>気<rt>き</rt></ruby>もちがいいですから。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "歩",
+      "onyomi": [
+        "ホ",
+        "ブ",
+        "フ"
+      ],
+      "kunyomi": [
+        "ある.く",
+        "あゆ.む"
+      ],
+      "meaning_en": "walk",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "歩く",
+          "reading": "あるく",
+          "en": "to walk"
+        },
+        {
+          "word": "散歩",
+          "reading": "さんぽ",
+          "en": "a walk, a stroll"
+        }
+      ],
+      "mnemonic": "One foot stopping (止), the other moving on (少): walking."
+    },
+    {
+      "char": "走",
+      "onyomi": [
+        "ソウ"
+      ],
+      "kunyomi": [
+        "はし.る"
+      ],
+      "meaning_en": "run",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "走る",
+          "reading": "はしる",
+          "en": "to run"
+        },
+        {
+          "word": "走者",
+          "reading": "そうしゃ",
+          "en": "runner"
+        }
+      ],
+      "mnemonic": "Earth (土) kicked up by a fast foot: running."
+    },
+    {
+      "char": "止",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "と.まる",
+        "-ど.まり",
+        "と.める",
+        "-と.める",
+        "-ど.め",
+        "とど.める",
+        "とど.め",
+        "とど.まる",
+        "や.める",
+        "や.む",
+        "-や.む",
+        "よ.す",
+        "-さ.す",
+        "-さ.し"
+      ],
+      "meaning_en": "stop",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "止まる",
+          "reading": "とまる",
+          "en": "to stop"
+        },
+        {
+          "word": "止める",
+          "reading": "とめる",
+          "en": "to stop something"
+        }
+      ],
+      "mnemonic": "A footprint planted on the ground: stop."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: make the ば form of <ruby>読<rt>よ</rt></ruby>む.",
+      "options": [
+        "<ruby>読<rt>よ</rt></ruby>みば",
+        "<ruby>読<rt>よ</rt></ruby>むば",
+        "<ruby>読<rt>よ</rt></ruby>まれば",
+        "<ruby>読<rt>よ</rt></ruby>めば"
+      ],
+      "correct": "<ruby>読<rt>よ</rt></ruby>めば",
+      "explanation": "む → めば."
+    },
+    {
+      "prompt": "Complete: このボタンをおす＿＿、きっぷが<ruby>出<rt>で</rt></ruby>ます。",
+      "options": [
+        "と",
+        "たら",
+        "ても",
+        "なら"
+      ],
+      "correct": "と",
+      "explanation": "A machine's result: と."
+    },
+    {
+      "prompt": "Complete: かど＿＿<ruby>右<rt>みぎ</rt></ruby>にまがってください。",
+      "options": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "correct": "を",
+      "explanation": "The place you turn at takes を."
+    },
+    {
+      "prompt": "Complete: <ruby>春<rt>はる</rt></ruby>になる＿＿、あたたかくなります。",
+      "options": [
+        "ば",
+        "ても",
+        "と",
+        "のに"
+      ],
+      "correct": "と",
+      "explanation": "A natural result: と."
+    },
+    {
+      "prompt": "Which verb is transitive?",
+      "options": [
+        "<ruby>止<rt>と</rt></ruby>まる",
+        "<ruby>歩<rt>ある</rt></ruby>く",
+        "<ruby>走<rt>はし</rt></ruby>る",
+        "<ruby>止<rt>と</rt></ruby>める"
+      ],
+      "correct": "<ruby>止<rt>と</rt></ruby>める",
+      "explanation": "<ruby>止<rt>と</rt></ruby>める: stop something."
+    },
+    {
+      "prompt": "How is 歩⁠く read?",
+      "options": [
+        "あるく",
+        "はしる",
+        "とまる",
+        "あゆく"
+      ],
+      "correct": "あるく",
+      "explanation": "歩⁠く is read あるく."
+    },
+    {
+      "prompt": "Choose the meaning of はしをわたると、<ruby>大<rt>おお</rt></ruby>きいビルが<ruby>見<rt>み</rt></ruby>えます。",
+      "options": [
+        "Don't cross the bridge to the big building.",
+        "Cross the bridge and you'll see a big building.",
+        "There's a big building under the bridge.",
+        "Walk past the big building to the bridge."
+      ],
+      "correct": "Cross the bridge and you'll see a big building.",
+      "explanation": "わたると: when you cross."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>駅<rt>えき</rt></ruby>についたら、<ruby>電話<rt>でんわ</rt></ruby>してください。",
+        "<ruby>駅<rt>えき</rt></ruby>につくと、<ruby>電話<rt>でんわ</rt></ruby>してください。",
+        "<ruby>駅<rt>えき</rt></ruby>につくと、すぐ<ruby>分<rt>わ</rt></ruby>かります。",
+        "<ruby>駅<rt>えき</rt></ruby>につくと、<ruby>目<rt>め</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にあります。"
+      ],
+      "correct": "<ruby>駅<rt>えき</rt></ruby>につくと、<ruby>電話<rt>でんわ</rt></ruby>してください。",
+      "explanation": "No requests after と."
+    },
+    {
+      "prompt": "Someone asks the way to the bank. Which answer is a direction?",
+      "options": [
+        "<ruby>二<rt>ふた</rt></ruby>つ<ruby>目<rt>め</rt></ruby>のしんごうを<ruby>右<rt>みぎ</rt></ruby>にまがってもいいですよ。",
+        "<ruby>二<rt>ふた</rt></ruby>つ<ruby>目<rt>め</rt></ruby>のしんごうはまがりません。",
+        "<ruby>二<rt>ふた</rt></ruby>つ<ruby>目<rt>め</rt></ruby>のしんごうを<ruby>右<rt>みぎ</rt></ruby>にまがると、ありますよ。",
+        "<ruby>二<rt>ふた</rt></ruby>つ<ruby>目<rt>め</rt></ruby>のしんごうを<ruby>右<rt>みぎ</rt></ruby>にまがりたいです。"
+      ],
+      "correct": "<ruby>二<rt>ふた</rt></ruby>つ<ruby>目<rt>め</rt></ruby>のしんごうを<ruby>右<rt>みぎ</rt></ruby>にまがると、ありますよ。",
+      "explanation": "Directions: 〜と、〜があります."
+    },
+    {
+      "prompt": "Complete: ここに<ruby>車<rt>くるま</rt></ruby>を＿＿ないでください。 (don't park)",
+      "options": [
+        "<ruby>止<rt>と</rt></ruby>まら",
+        "<ruby>止<rt>と</rt></ruby>まり",
+        "<ruby>止<rt>と</rt></ruby>めら",
+        "<ruby>止<rt>と</rt></ruby>め"
+      ],
+      "correct": "<ruby>止<rt>と</rt></ruby>め",
+      "explanation": "Park a car: <ruby>止<rt>と</rt></ruby>める."
+    },
+    {
+      "prompt": "Read: <ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>ると、<ruby>雨<rt>あめ</rt></ruby>がふっていました。 What happened?",
+      "options": [
+        "When the speaker went out, it was raining.",
+        "The speaker went out because it was raining.",
+        "If it rains, the speaker goes out.",
+        "The speaker didn't go out in the rain."
+      ],
+      "correct": "When the speaker went out, it was raining.",
+      "explanation": "と + past: a discovery."
+    },
+    {
+      "prompt": "Review: complete あのかばん、<ruby>買<rt>か</rt></ruby>え＿＿よかった。 (I wish I'd bought it)",
+      "options": [
+        "たら",
+        "ば",
+        "て",
+        "と"
+      ],
+      "correct": "ば",
+      "explanation": "Regret: V-ばよかった."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-4-if-you-study",
+    "japanese-n4-unit-4-if-it-rains",
+    "japanese-n5-unit-4-places"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

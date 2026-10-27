@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-8-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "passive-group1",
+      "prompt": "What is the passive form of <ruby>書<rt>か</rt></ruby>く?",
+      "options": [
+        "<ruby>書<rt>か</rt></ruby>かせる",
+        "<ruby>書<rt>か</rt></ruby>かれる",
+        "<ruby>書<rt>か</rt></ruby>ける",
+        "<ruby>書<rt>か</rt></ruby>きれる"
+      ],
+      "correctIndex": 1,
+      "explanation": "く → かれる."
+    },
+    {
+      "id": "passive-u",
+      "prompt": "What is the passive form of <ruby>使<rt>つか</rt></ruby>う?",
+      "options": [
+        "<ruby>使<rt>つか</rt></ruby>あれる",
+        "<ruby>使<rt>つか</rt></ruby>える",
+        "<ruby>使<rt>つか</rt></ruby>わせる",
+        "<ruby>使<rt>つか</rt></ruby>われる"
+      ],
+      "correctIndex": 3,
+      "explanation": "う → われる."
+    },
+    {
+      "id": "passive-fact",
+      "prompt": "Choose: \"This temple was built 600 years ago.\"",
+      "options": [
+        "このおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。",
+        "このおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てさせました。",
+        "このおてらを<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>ちました。",
+        "このおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>ててほしいです。"
+      ],
+      "correctIndex": 0,
+      "explanation": "Passive: <ruby>建<rt>た</rt></ruby>てられる."
+    },
+    {
+      "id": "niyotte",
+      "prompt": "Complete: この<ruby>本<rt>ほん</rt></ruby>は<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>作家<rt>さっか</rt></ruby>＿＿<ruby>書<rt>か</rt></ruby>かれました。",
+      "options": [
+        "によると",
+        "について",
+        "によって",
+        "にとって"
+      ],
+      "correctIndex": 2,
+      "explanation": "The creator: によって."
+    },
+    {
+      "id": "passive-ni",
+      "prompt": "Complete: <ruby>子<rt>こ</rt></ruby>どものとき、<ruby>母<rt>はは</rt></ruby>＿＿よくしかられました。",
+      "options": [
+        "を",
+        "が",
+        "で",
+        "に"
+      ],
+      "correctIndex": 3,
+      "explanation": "The person who did it: に."
+    },
+    {
+      "id": "passive-trouble",
+      "prompt": "Someone stepped on your foot. What do you say?",
+      "options": [
+        "<ruby>足<rt>あし</rt></ruby>がふみました。",
+        "<ruby>足<rt>あし</rt></ruby>をふまれました。",
+        "<ruby>足<rt>あし</rt></ruby>をふませました。",
+        "<ruby>足<rt>あし</rt></ruby>にふまれました。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Your foot takes を."
+    },
+    {
+      "id": "furareru",
+      "prompt": "You got caught in the rain. What do you say?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>にふられました。",
+        "<ruby>雨<rt>あめ</rt></ruby>がふらせました。",
+        "<ruby>雨<rt>あめ</rt></ruby>をふられました。",
+        "<ruby>雨<rt>あめ</rt></ruby>にふってほしかったです。"
+      ],
+      "correctIndex": 0,
+      "explanation": "<ruby>雨<rt>あめ</rt></ruby>にふられる."
+    },
+    {
+      "id": "causative-form",
+      "prompt": "What is the causative form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べられる",
+        "<ruby>食<rt>た</rt></ruby>べらせる",
+        "<ruby>食<rt>た</rt></ruby>べさせる",
+        "<ruby>食<rt>た</rt></ruby>べせる"
+      ],
+      "correctIndex": 2,
+      "explanation": "Group 2: る → させる."
+    },
+    {
+      "id": "causative-wo",
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>はむすこ＿＿じゅくに<ruby>行<rt>い</rt></ruby>かせました。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "correctIndex": 1,
+      "explanation": "No object: を."
+    },
+    {
+      "id": "causative-ni",
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>＿＿<ruby>漢字<rt>かんじ</rt></ruby>を<ruby>書<rt>か</rt></ruby>かせました。",
+      "options": [
+        "を",
+        "が",
+        "で",
+        "に"
+      ],
+      "correctIndex": 3,
+      "explanation": "With an object: に."
+    },
+    {
+      "id": "sasete-kudasai",
+      "prompt": "You want to ask one question. What do you say?",
+      "options": [
+        "<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>されてください。",
+        "<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>してほしいです。",
+        "<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>させてください。",
+        "<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>させました。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Let me: させてください."
+    },
+    {
+      "id": "sasete-polite",
+      "prompt": "Which request is the most polite?",
+      "options": [
+        "<ruby>休<rt>やす</rt></ruby>ませていただけませんか。",
+        "<ruby>休<rt>やす</rt></ruby>ませてください。",
+        "<ruby>休<rt>やす</rt></ruby>ませてもらえる？",
+        "<ruby>休<rt>やす</rt></ruby>みたいです。"
+      ],
+      "correctIndex": 0,
+      "explanation": "いただけませんか is the most polite."
+    },
+    {
+      "id": "te-hoshii",
+      "prompt": "Choose: \"I want my friends to come.\"",
+      "options": [
+        "<ruby>友<rt>とも</rt></ruby>だちに<ruby>来<rt>き</rt></ruby>たいです。",
+        "<ruby>友<rt>とも</rt></ruby>だちを<ruby>来<rt>こ</rt></ruby>させたいです。",
+        "<ruby>友<rt>とも</rt></ruby>だちが<ruby>来<rt>く</rt></ruby>るはずです。",
+        "<ruby>友<rt>とも</rt></ruby>だちに<ruby>来<rt>き</rt></ruby>てほしいです。"
+      ],
+      "correctIndex": 3,
+      "explanation": "〜てほしい."
+    },
+    {
+      "id": "you-ni-iu",
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>にしずかにする＿＿<ruby>言<rt>い</rt></ruby>いました。",
+      "options": [
+        "ために",
+        "ように",
+        "のに",
+        "そうに"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reported request: ように."
+    },
+    {
+      "id": "kanji-kazoku",
+      "prompt": "How is 家族⁠ read?",
+      "options": [
+        "いえぞく",
+        "かそく",
+        "かぞく",
+        "けぞく"
+      ],
+      "correctIndex": 2,
+      "explanation": "家族⁠ is read かぞく."
+    }
+  ]
+}

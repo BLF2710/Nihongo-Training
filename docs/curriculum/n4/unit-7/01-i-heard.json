@@ -1,0 +1,435 @@
+{
+  "id": "japanese-n4-unit-7-i-heard",
+  "slug": "n4-unit-7-i-heard",
+  "unit": "Japanese N4 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "I Heard That…",
+  "title_jp": "〜そうです",
+  "objectives": [
+    "I can pass on information I heard or read.",
+    "Report hearsay with plain form + そうです",
+    "Name your source with 〜によると",
+    "Talk about news and weather forecasts"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>特<rt>とく</rt></ruby>に",
+      "",
+      "especially, particularly"
+    ],
+    [
+      "<ruby>特別<rt>とくべつ</rt></ruby>",
+      "",
+      "special"
+    ],
+    [
+      "<ruby>別<rt>べつ</rt></ruby>の",
+      "",
+      "another, different"
+    ],
+    [
+      "<ruby>出発<rt>しゅっぱつ</rt></ruby>",
+      "",
+      "departure (+ する: to leave)"
+    ],
+    [
+      "はっぴょう",
+      "",
+      "presentation, announcement"
+    ],
+    [
+      "ニュース",
+      "",
+      "news"
+    ],
+    [
+      "てんきよほう",
+      "",
+      "weather forecast"
+    ],
+    [
+      "うわさ",
+      "",
+      "rumour"
+    ],
+    [
+      "たいふう",
+      "",
+      "typhoon"
+    ],
+    [
+      "じしん",
+      "",
+      "earthquake"
+    ],
+    [
+      "〜によると",
+      "",
+      "according to …"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "特に",
+      "word_reading": "とくに"
+    },
+    {
+      "word_japanese": "特別",
+      "word_reading": "とくべつ"
+    },
+    {
+      "word_japanese": "出発",
+      "word_reading": "しゅっぱつ"
+    }
+  ],
+  "concept": {
+    "title": "Passing on what you heard",
+    "text": "Plain form + そうです reports something you heard or read:\n\nてんきよほうによると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるそうです。\nAccording to the forecast, it's going to rain tomorrow.\n\nIt follows any plain form: ふるそう, ふったそう, <ruby>高<rt>たか</rt></ruby>いそう, しずかだそう, <ruby>学生<rt>がくせい</rt></ruby>だそう.\n\nDo not mix it up with the そう of Unit 3, which follows a stem and says how something looks:\nふりそうです (it looks like rain) / ふるそうです (I hear it will rain).\n\nThe source of the news takes によると.",
+    "examples": [
+      "plain form + そうです (I hear)",
+      "な-adj / N + だそうです",
+      "N によると、〜そうです"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Hearsay: plain form + そうです",
+      "pattern": "V / い-adj (plain) + そうです / な-adj・N + だそうです",
+      "explanation": "そうです passes on information from someone else. It does not change for past or negative; the plain form before it does.",
+      "examples": [
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふるそうです。",
+          "romaji": "",
+          "meaning": "I hear it's going to rain tomorrow."
+        },
+        {
+          "japanese": "リーさんは<ruby>来月<rt>らいげつ</rt></ruby><ruby>国<rt>くに</rt></ruby>へかえるそうです。",
+          "romaji": "",
+          "meaning": "I hear Lee is going back home next month."
+        },
+        {
+          "japanese": "あの<ruby>店<rt>みせ</rt></ruby>のラーメンはとてもおいしいそうです。",
+          "romaji": "",
+          "meaning": "Apparently the ramen at that shop is very good."
+        },
+        {
+          "japanese": "たなかさんのお<ruby>兄<rt>にい</rt></ruby>さんは<ruby>医者<rt>いしゃ</rt></ruby>だそうです。",
+          "romaji": "",
+          "meaning": "I hear Tanaka's older brother is a doctor."
+        },
+        {
+          "japanese": "きのうのパーティーは<ruby>楽<rt>たの</rt></ruby>しかったそうです。",
+          "romaji": "",
+          "meaning": "I heard yesterday's party was fun."
+        }
+      ],
+      "notes": [
+        "Wrong: ふるそうでした. The past goes in the plain form: ふったそうです.",
+        "Compare: おいしそう (looks good) / おいしいそう (I hear it's good)."
+      ]
+    },
+    {
+      "title": "The source: 〜によると",
+      "pattern": "N によると、〜そうです",
+      "explanation": "によると names where the information came from: a person, the news, a forecast.",
+      "examples": [
+        {
+          "japanese": "てんきよほうによると、たいふうが<ruby>来<rt>く</rt></ruby>るそうです。",
+          "romaji": "",
+          "meaning": "According to the forecast, a typhoon is coming."
+        },
+        {
+          "japanese": "ニュースによると、きのうじしんがあったそうです。",
+          "romaji": "",
+          "meaning": "According to the news, there was an earthquake yesterday."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>によると、<ruby>試験<rt>しけん</rt></ruby>はかんたんだそうです。",
+          "romaji": "",
+          "meaning": "According to the teacher, the exam is easy."
+        },
+        {
+          "japanese": "うわさによると、あの<ruby>二人<rt>ふたり</rt></ruby>はけっこんするそうです。",
+          "romaji": "",
+          "meaning": "Rumour has it those two are getting married."
+        }
+      ],
+      "notes": [
+        "によると usually ends with そうです or らしい (next lesson)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>特<rt>とく</rt></ruby>にさむいですね。",
+      "It's especially cold today, isn't it?"
+    ],
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>日<rt>ひ</rt></ruby>です。",
+      "Today is a special day."
+    ],
+    [
+      "<ruby>別<rt>べつ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>にしてもいいですか。",
+      "Could we make it another day?"
+    ],
+    [
+      "ひこうきは<ruby>十時<rt>じゅうじ</rt></ruby>に<ruby>出発<rt>しゅっぱつ</rt></ruby>します。",
+      "The plane leaves at ten."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>明日<rt>あした</rt></ruby>の<ruby>天気<rt>てんき</rt></ruby>はどうですか。",
+      "けん",
+      "てんきよほうによると、<ruby>雨<rt>あめ</rt></ruby>がふるそうですよ。"
+    ],
+    [
+      "リー",
+      "リンさんはどこですか。",
+      "マイ",
+      "かぜで<ruby>休<rt>やす</rt></ruby>むそうです。"
+    ],
+    [
+      "ゆき",
+      "あの<ruby>店<rt>みせ</rt></ruby>、<ruby>行<rt>い</rt></ruby>ったことがありますか。",
+      "たなか",
+      "いいえ。でも、とてもおいしいそうですよ。"
+    ],
+    [
+      "リン",
+      "<ruby>明日<rt>あした</rt></ruby>のはっぴょう、<ruby>何時<rt>なんじ</rt></ruby>からですか。",
+      "アナ",
+      "<ruby>十時<rt>じゅうじ</rt></ruby>からだそうです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "特",
+      "onyomi": [
+        "トク"
+      ],
+      "kunyomi": [],
+      "meaning_en": "special",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "特に",
+          "reading": "とくに",
+          "en": "especially"
+        },
+        {
+          "word": "特別",
+          "reading": "とくべつ",
+          "en": "special"
+        }
+      ],
+      "mnemonic": "A bull (牛) kept at the temple (寺): a special one."
+    },
+    {
+      "char": "別",
+      "onyomi": [
+        "ベツ"
+      ],
+      "kunyomi": [
+        "わか.れる",
+        "わ.ける"
+      ],
+      "meaning_en": "separate, other",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "特別",
+          "reading": "とくべつ",
+          "en": "special"
+        },
+        {
+          "word": "別れる",
+          "reading": "わかれる",
+          "en": "to part"
+        }
+      ],
+      "mnemonic": "A knife (刂) separating bones: apart, other."
+    },
+    {
+      "char": "発",
+      "onyomi": [
+        "ハツ",
+        "ホツ"
+      ],
+      "kunyomi": [
+        "た.つ",
+        "あば.く",
+        "おこ.る",
+        "つか.わす",
+        "はな.つ"
+      ],
+      "meaning_en": "depart, emit",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "出発",
+          "reading": "しゅっぱつ",
+          "en": "departure"
+        },
+        {
+          "word": "発表",
+          "reading": "はっぴょう",
+          "en": "presentation"
+        }
+      ],
+      "mnemonic": "Two feet (癶) setting off: departure."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 6): complete わたしはお<ruby>茶<rt>ちゃ</rt></ruby>＿＿します。",
+      "options": [
+        "を",
+        "に",
+        "が",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "Choose: N にする."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>がふる＿＿です。 (I hear)",
+      "options": [
+        "よう",
+        "みたい",
+        "そう",
+        "はず"
+      ],
+      "correct": "そう",
+      "explanation": "Hearsay: plain form + そうです."
+    },
+    {
+      "prompt": "Complete: たなかさんのお<ruby>兄<rt>にい</rt></ruby>さんは<ruby>医者<rt>いしゃ</rt></ruby>＿＿そうです。",
+      "options": [
+        "な",
+        "の",
+        "で",
+        "だ"
+      ],
+      "correct": "だ",
+      "explanation": "Noun + だそうです."
+    },
+    {
+      "prompt": "Complete: てんきよほう＿＿、たいふうが<ruby>来<rt>く</rt></ruby>るそうです。",
+      "options": [
+        "によると",
+        "によって",
+        "について",
+        "にとって"
+      ],
+      "correct": "によると",
+      "explanation": "Source: によると."
+    },
+    {
+      "prompt": "Which sentence means \"I hear the ramen is good\"?",
+      "options": [
+        "ラーメンはおいしそうです。",
+        "ラーメンはおいしいそうです。",
+        "ラーメンはおいしいです。",
+        "ラーメンはおいしかったです。"
+      ],
+      "correct": "ラーメンはおいしいそうです。",
+      "explanation": "おいしいそう: hearsay."
+    },
+    {
+      "prompt": "How is 特別⁠ read?",
+      "options": [
+        "とくべち",
+        "とっべつ",
+        "とくべつ",
+        "どくべつ"
+      ],
+      "correct": "とくべつ",
+      "explanation": "特別⁠ is read とくべつ."
+    },
+    {
+      "prompt": "Choose the meaning of ひこうきは<ruby>十時<rt>じゅうじ</rt></ruby>に<ruby>出発<rt>しゅっぱつ</rt></ruby>します。",
+      "options": [
+        "The plane arrives at ten.",
+        "The plane is ten minutes late.",
+        "The plane is ten hours long.",
+        "The plane leaves at ten."
+      ],
+      "correct": "The plane leaves at ten.",
+      "explanation": "<ruby>出発<rt>しゅっぱつ</rt></ruby>: departure."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What is the difference: ふりそうです / ふるそうです?",
+      "options": [
+        "I hear it will rain / it looks like rain",
+        "It rained / it will rain",
+        "There is no difference.",
+        "It looks like rain / I hear it will rain"
+      ],
+      "correct": "It looks like rain / I hear it will rain",
+      "explanation": "Stem + そう: looks; plain + そう: hearsay."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しいそうでした。",
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しかったそうです。",
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しいそうです。",
+        "パーティーは<ruby>楽<rt>たの</rt></ruby>しそうです。"
+      ],
+      "correct": "パーティーは<ruby>楽<rt>たの</rt></ruby>しいそうでした。",
+      "explanation": "そうです does not take a past form."
+    },
+    {
+      "prompt": "You read in the news that there was an earthquake. What do you say?",
+      "options": [
+        "ニュースによると、じしんがありそうです。",
+        "ニュースによると、じしんがあったそうです。",
+        "ニュースによって、じしんがありました。",
+        "ニュースによると、じしんがあるでしょう。"
+      ],
+      "correct": "ニュースによると、じしんがあったそうです。",
+      "explanation": "によると + そうです."
+    },
+    {
+      "prompt": "Read: かぜで<ruby>休<rt>やす</rt></ruby>むそうです。 What does the speaker mean?",
+      "options": [
+        "They think Lin looks ill.",
+        "They are off sick themselves.",
+        "They heard Lin is off sick with a cold.",
+        "Lin will come despite her cold."
+      ],
+      "correct": "They heard Lin is off sick with a cold.",
+      "explanation": "Hearsay: <ruby>休<rt>やす</rt></ruby>むそうです."
+    },
+    {
+      "prompt": "Review (Unit 6): what is the intransitive partner of つける?",
+      "options": [
+        "けす",
+        "きえる",
+        "しめる",
+        "つく"
+      ],
+      "correct": "つく",
+      "explanation": "つける / つく."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-6-becoming",
+    "japanese-n4-unit-6-the-door-is-open",
+    "japanese-n4-unit-3-looks-tasty"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

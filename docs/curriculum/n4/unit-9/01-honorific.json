@@ -1,0 +1,436 @@
+{
+  "id": "japanese-n4-unit-9-honorific",
+  "slug": "n4-unit-9-honorific",
+  "unit": "Japanese N4 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Honorific Speech",
+  "title_jp": "そんけいご",
+  "objectives": [
+    "I can understand basic honorific speech from staff and teachers.",
+    "Recognise and use special honorific verbs",
+    "Make honorific forms with お V-になる",
+    "Ask politely with お V-ください"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>公園<rt>こうえん</rt></ruby>",
+      "",
+      "park"
+    ],
+    [
+      "<ruby>市<rt>し</rt></ruby>",
+      "",
+      "city"
+    ],
+    [
+      "<ruby>市長<rt>しちょう</rt></ruby>",
+      "",
+      "mayor"
+    ],
+    [
+      "<ruby>社長<rt>しゃちょう</rt></ruby>",
+      "",
+      "company president"
+    ],
+    [
+      "おきゃくさま",
+      "",
+      "customer, guest (honorific)"
+    ],
+    [
+      "いらっしゃる",
+      "",
+      "to be, to go, to come (honorific)"
+    ],
+    [
+      "めしあがる",
+      "",
+      "to eat, to drink (honorific)"
+    ],
+    [
+      "ごらんになる",
+      "",
+      "to see, to look (honorific)"
+    ],
+    [
+      "おっしゃる",
+      "",
+      "to say (honorific)"
+    ],
+    [
+      "なさる",
+      "",
+      "to do (honorific)"
+    ],
+    [
+      "くださる",
+      "",
+      "to give (to me) (honorific)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "公園",
+      "word_reading": "こうえん"
+    },
+    {
+      "word_japanese": "市",
+      "word_reading": "し"
+    },
+    {
+      "word_japanese": "市長",
+      "word_reading": "しちょう"
+    },
+    {
+      "word_japanese": "社長",
+      "word_reading": "しゃちょう"
+    }
+  ],
+  "concept": {
+    "title": "Raising the other person: そんけいご",
+    "text": "Honorific speech (そんけいご) raises the person who does the action. You use it about teachers, bosses, customers and strangers, never about yourself.\n\nSome verbs have special honorific forms:\nいる・<ruby>行<rt>い</rt></ruby>く・<ruby>来<rt>く</rt></ruby>る → いらっしゃる\n<ruby>食<rt>た</rt></ruby>べる・<ruby>飲<rt>の</rt></ruby>む → めしあがる\n<ruby>見<rt>み</rt></ruby>る → ごらんになる\n<ruby>言<rt>い</rt></ruby>う → おっしゃる\nする → なさる\nくれる → くださる\n\nOther verbs: お + stem + になる. <ruby>帰<rt>かえ</rt></ruby>る → お<ruby>帰<rt>かえ</rt></ruby>りになる, <ruby>待<rt>ま</rt></ruby>つ → お<ruby>待<rt>ま</rt></ruby>ちになる\n\nShop staff use お + stem + ください: お<ruby>待<rt>ま</rt></ruby>ちください (please wait).",
+    "examples": [
+      "special verbs: いらっしゃる・めしあがる・ごらんになる…",
+      "お V-stem に なる",
+      "お V-stem ください"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Special honorific verbs",
+      "pattern": "いらっしゃる / めしあがる / ごらんになる / おっしゃる / なさる",
+      "explanation": "These verbs replace ordinary verbs when the subject is someone you respect. いらっしゃる, おっしゃる, なさる and くださる have ます-forms ending in 〜います: いらっしゃいます.",
+      "examples": [
+        {
+          "japanese": "<ruby>社長<rt>しゃちょう</rt></ruby>は<ruby>今<rt>いま</rt></ruby>、かいぎ<ruby>室<rt>しつ</rt></ruby>にいらっしゃいます。",
+          "romaji": "",
+          "meaning": "The president is in the meeting room now."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>、<ruby>何<rt>なに</rt></ruby>をめしあがりますか。",
+          "romaji": "",
+          "meaning": "What would you like to eat, sir?"
+        },
+        {
+          "japanese": "この<ruby>写真<rt>しゃしん</rt></ruby>をごらんになりましたか。",
+          "romaji": "",
+          "meaning": "Have you seen this photo?"
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>がそうおっしゃいました。",
+          "romaji": "",
+          "meaning": "The teacher said so."
+        },
+        {
+          "japanese": "しゅうまつは<ruby>何<rt>なに</rt></ruby>をなさいますか。",
+          "romaji": "",
+          "meaning": "What will you be doing at the weekend?"
+        }
+      ],
+      "notes": [
+        "Never use honorific verbs about yourself: わたしはいらっしゃいます is wrong.",
+        "いらっしゃいませ (welcome) in shops comes from いらっしゃる."
+      ]
+    },
+    {
+      "title": "Regular honorific forms: お V-になる / お V-ください",
+      "pattern": "お + V-stem + に なる / お + V-stem + ください",
+      "explanation": "For verbs without a special form, put お before the stem and add になる. お + stem + ください is a polite request.",
+      "examples": [
+        {
+          "japanese": "<ruby>市長<rt>しちょう</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>にお<ruby>帰<rt>かえ</rt></ruby>りになりますか。",
+          "romaji": "",
+          "meaning": "What time will the mayor be returning?"
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>はもうお<ruby>読<rt>よ</rt></ruby>みになりました。",
+          "romaji": "",
+          "meaning": "The teacher has already read it."
+        },
+        {
+          "japanese": "しょうしょうお<ruby>待<rt>ま</rt></ruby>ちください。",
+          "romaji": "",
+          "meaning": "Please wait a moment."
+        },
+        {
+          "japanese": "どうぞおすわりください。",
+          "romaji": "",
+          "meaning": "Please have a seat."
+        }
+      ],
+      "notes": [
+        "Verbs of one syllable (<ruby>見<rt>み</rt></ruby>る, ねる) and する verbs use other forms: ごらんになる, おやすみになる, なさる."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>日曜日<rt>にちようび</rt></ruby>に<ruby>公園<rt>こうえん</rt></ruby>をさんぽしました。",
+      "I took a walk in the park on Sunday."
+    ],
+    [
+      "わたしはさくら<ruby>市<rt>し</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます。",
+      "I live in Sakura City."
+    ],
+    [
+      "おきゃくさまがいらっしゃいました。",
+      "A guest has arrived."
+    ],
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>がこの<ruby>本<rt>ほん</rt></ruby>をくださいました。",
+      "My teacher gave me this book."
+    ]
+  ],
+  "dialogue": [
+    [
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "いらっしゃいませ。<ruby>何名<rt>なんめい</rt></ruby>さまですか。",
+      "アナ",
+      "<ruby>二人<rt>ふたり</rt></ruby>です。"
+    ],
+    [
+      "リー",
+      "<ruby>先生<rt>せんせい</rt></ruby>、しゅうまつは<ruby>何<rt>なに</rt></ruby>をなさいますか。",
+      "たなか<ruby>先生<rt>せんせい</rt></ruby>",
+      "<ruby>公園<rt>こうえん</rt></ruby>でテニスをします。"
+    ],
+    [
+      "マイ",
+      "<ruby>社長<rt>しゃちょう</rt></ruby>はいらっしゃいますか。",
+      "けん",
+      "すみません、<ruby>今日<rt>きょう</rt></ruby>はもうお<ruby>帰<rt>かえ</rt></ruby>りになりました。"
+    ],
+    [
+      "<ruby>店員<rt>てんいん</rt></ruby>",
+      "しょうしょうお<ruby>待<rt>ま</rt></ruby>ちください。",
+      "リン",
+      "はい。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "公",
+      "onyomi": [
+        "コウ",
+        "ク"
+      ],
+      "kunyomi": [
+        "おおやけ"
+      ],
+      "meaning_en": "public",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "公園",
+          "reading": "こうえん",
+          "en": "park"
+        },
+        {
+          "word": "公共",
+          "reading": "こうきょう",
+          "en": "public"
+        }
+      ],
+      "mnemonic": "Something private (ム) opened up (八) to all: public."
+    },
+    {
+      "char": "園",
+      "onyomi": [
+        "エン"
+      ],
+      "kunyomi": [
+        "その"
+      ],
+      "meaning_en": "garden, park",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "公園",
+          "reading": "こうえん",
+          "en": "park"
+        },
+        {
+          "word": "動物園",
+          "reading": "どうぶつえん",
+          "en": "zoo"
+        }
+      ],
+      "mnemonic": "A garden with a long robe (袁) of plants inside a fence (囗)."
+    },
+    {
+      "char": "市",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "いち"
+      ],
+      "meaning_en": "city, market",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "市",
+          "reading": "し",
+          "en": "city"
+        },
+        {
+          "word": "市長",
+          "reading": "しちょう",
+          "en": "mayor"
+        }
+      ],
+      "mnemonic": "A cloth (巾) hung under a roof at the market: a city."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 8): complete <ruby>友<rt>とも</rt></ruby>だちに<ruby>来<rt>き</rt></ruby>て＿＿です。",
+      "options": [
+        "たい",
+        "ほしい",
+        "あげたい",
+        "ください"
+      ],
+      "correct": "ほしい",
+      "explanation": "〜てほしい."
+    },
+    {
+      "prompt": "What is the honorific form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "いただく",
+        "まいる",
+        "めしあがる",
+        "おっしゃる"
+      ],
+      "correct": "めしあがる",
+      "explanation": "<ruby>食<rt>た</rt></ruby>べる → めしあがる."
+    },
+    {
+      "prompt": "What is the honorific form of <ruby>言<rt>い</rt></ruby>う?",
+      "options": [
+        "もうす",
+        "なさる",
+        "いらっしゃる",
+        "おっしゃる"
+      ],
+      "correct": "おっしゃる",
+      "explanation": "<ruby>言<rt>い</rt></ruby>う → おっしゃる."
+    },
+    {
+      "prompt": "What is the honorific form of する?",
+      "options": [
+        "なさる",
+        "いたす",
+        "させる",
+        "めしあがる"
+      ],
+      "correct": "なさる",
+      "explanation": "する → なさる."
+    },
+    {
+      "prompt": "Complete: <ruby>社長<rt>しゃちょう</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>にお<ruby>帰<rt>かえ</rt></ruby>り＿＿なりますか。",
+      "options": [
+        "を",
+        "に",
+        "が",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "お V-stem に なる."
+    },
+    {
+      "prompt": "How is 公園⁠ read?",
+      "options": [
+        "こうえ",
+        "くえん",
+        "こうえん",
+        "こうおん"
+      ],
+      "correct": "こうえん",
+      "explanation": "公園⁠ is read こうえん."
+    },
+    {
+      "prompt": "Choose the meaning of しょうしょうお<ruby>待<rt>ま</rt></ruby>ちください。",
+      "options": [
+        "I'll wait a moment.",
+        "Please don't wait.",
+        "Thank you for waiting.",
+        "Please wait a moment."
+      ],
+      "correct": "Please wait a moment.",
+      "explanation": "お V-stem ください: a polite request."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>はわたしの<ruby>家<rt>いえ</rt></ruby>にいらっしゃいました。",
+        "<ruby>社長<rt>しゃちょう</rt></ruby>はいらっしゃいますか。",
+        "おきゃくさまがいらっしゃいました。",
+        "わたしは<ruby>先生<rt>せんせい</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>にいらっしゃいました。"
+      ],
+      "correct": "わたしは<ruby>先生<rt>せんせい</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>にいらっしゃいました。",
+      "explanation": "Honorific verbs are never used about yourself."
+    },
+    {
+      "prompt": "What is the honorific form of <ruby>見<rt>み</rt></ruby>る?",
+      "options": [
+        "ごらんになる",
+        "お<ruby>見<rt>み</rt></ruby>になる",
+        "はいけんする",
+        "<ruby>見<rt>み</rt></ruby>せる"
+      ],
+      "correct": "ごらんになる",
+      "explanation": "<ruby>見<rt>み</rt></ruby>る → ごらんになる."
+    },
+    {
+      "prompt": "A shop assistant says <ruby>何名<rt>なんめい</rt></ruby>さまですか. What do they want to know?",
+      "options": [
+        "Your name",
+        "How many people are in your group",
+        "What you want to buy",
+        "Whether you have a reservation"
+      ],
+      "correct": "How many people are in your group",
+      "explanation": "<ruby>何名<rt>なんめい</rt></ruby>さま: how many people (honorific)."
+    },
+    {
+      "prompt": "Read: <ruby>先生<rt>せんせい</rt></ruby>がこの<ruby>本<rt>ほん</rt></ruby>をくださいました。 What happened?",
+      "options": [
+        "The speaker gave the teacher this book.",
+        "The teacher read this book.",
+        "The teacher gave the speaker this book.",
+        "The teacher asked for this book."
+      ],
+      "correct": "The teacher gave the speaker this book.",
+      "explanation": "くださる: honorific くれる."
+    },
+    {
+      "prompt": "Review (Unit 8): what is the causative form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>かれる",
+        "<ruby>行<rt>い</rt></ruby>けさせる",
+        "<ruby>行<rt>い</rt></ruby>きさせる",
+        "<ruby>行<rt>い</rt></ruby>かせる"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>かせる",
+      "explanation": "く → かせる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-8-i-want-you-to",
+    "japanese-n4-unit-8-made-to-do",
+    "japanese-n4-unit-2-they-gave-me"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

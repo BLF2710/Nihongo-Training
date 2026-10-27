@@ -1,0 +1,456 @@
+{
+  "id": "japanese-n4-unit-8-was-made",
+  "slug": "n4-unit-8-was-made",
+  "unit": "Japanese N4 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "It Was Made In…",
+  "title_jp": "つくられる",
+  "objectives": [
+    "I can say what was done, and by whom.",
+    "Make the passive form of every verb group",
+    "Describe facts about things with the passive",
+    "Name the creator with によって"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>使<rt>つか</rt></ruby>う",
+      "",
+      "to use"
+    ],
+    [
+      "<ruby>作<rt>つく</rt></ruby>る",
+      "",
+      "to make"
+    ],
+    [
+      "<ruby>建<rt>た</rt></ruby>てる",
+      "",
+      "to build"
+    ],
+    [
+      "<ruby>建<rt>た</rt></ruby>つ",
+      "",
+      "to be built, to stand"
+    ],
+    [
+      "<ruby>建物<rt>たてもの</rt></ruby>",
+      "",
+      "building"
+    ],
+    [
+      "<ruby>作家<rt>さっか</rt></ruby>",
+      "",
+      "writer, author"
+    ],
+    [
+      "<ruby>発明<rt>はつめい</rt></ruby>",
+      "",
+      "invention (+ する: to invent)"
+    ],
+    [
+      "ゆしゅつ",
+      "",
+      "export (+ する: to export)"
+    ],
+    [
+      "<ruby>行<rt>おこな</rt></ruby>う",
+      "",
+      "to hold, to carry out"
+    ],
+    [
+      "〜によって",
+      "",
+      "by (the creator)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "使う",
+      "word_reading": "つかう"
+    },
+    {
+      "word_japanese": "作る",
+      "word_reading": "つくる"
+    },
+    {
+      "word_japanese": "建てる",
+      "word_reading": "たてる"
+    },
+    {
+      "word_japanese": "建つ",
+      "word_reading": "たつ"
+    },
+    {
+      "word_japanese": "建物",
+      "word_reading": "たてもの"
+    },
+    {
+      "word_japanese": "作家",
+      "word_reading": "さっか"
+    },
+    {
+      "word_japanese": "発明",
+      "word_reading": "はつめい"
+    },
+    {
+      "word_japanese": "行う",
+      "word_reading": "おこなう"
+    }
+  ],
+  "concept": {
+    "title": "Saying what was done",
+    "text": "The passive puts the thing that something was done to first.\n\nGroup 1: change the last sound to the あ-row and add れる.\n<ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>かれる, <ruby>使<rt>つか</rt></ruby>う → <ruby>使<rt>つか</rt></ruby>われる (う → われる)\nGroup 2: る → られる. <ruby>建<rt>た</rt></ruby>てる → <ruby>建<rt>た</rt></ruby>てられる\nIrregular: する → される, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる\n\nこのおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。 This temple was built 600 years ago.\n<ruby>日本<rt>にほん</rt></ruby>の<ruby>車<rt>くるま</rt></ruby>は<ruby>世界中<rt>せかいじゅう</rt></ruby>にゆしゅつされています。 Japanese cars are exported all over the world.\n\nFor the person who wrote, built or invented something, use によって.",
+    "examples": [
+      "V(あ-row) + れる / V-る → V-られる",
+      "する → される / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる",
+      "N は (person によって) V-られる"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "The passive form",
+      "pattern": "<ruby>書<rt>か</rt></ruby>かれる / <ruby>使<rt>つか</rt></ruby>われる / <ruby>建<rt>た</rt></ruby>てられる / される",
+      "explanation": "The passive describes what happens to the subject. It is common for facts about places, things and events.",
+      "examples": [
+        {
+          "japanese": "このおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。",
+          "romaji": "",
+          "meaning": "This temple was built six hundred years ago."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>車<rt>くるま</rt></ruby>は<ruby>世界中<rt>せかいじゅう</rt></ruby>にゆしゅつされています。",
+          "romaji": "",
+          "meaning": "Japanese cars are exported all over the world."
+        },
+        {
+          "japanese": "このへやはかいぎに<ruby>使<rt>つか</rt></ruby>われています。",
+          "romaji": "",
+          "meaning": "This room is used for meetings."
+        },
+        {
+          "japanese": "オリンピックは<ruby>四年<rt>よねん</rt></ruby>に<ruby>一度<rt>いちど</rt></ruby><ruby>行<rt>おこな</rt></ruby>われます。",
+          "romaji": "",
+          "meaning": "The Olympics are held once every four years."
+        },
+        {
+          "japanese": "このパンは<ruby>北海道<rt>ほっかいどう</rt></ruby>のこむぎで<ruby>作<rt>つく</rt></ruby>られています。",
+          "romaji": "",
+          "meaning": "This bread is made with wheat from Hokkaido."
+        }
+      ],
+      "notes": [
+        "The passive is a group 2 verb: <ruby>使<rt>つか</rt></ruby>われます, <ruby>使<rt>つか</rt></ruby>われない, <ruby>使<rt>つか</rt></ruby>われた.",
+        "う-verbs become われる, not あれる: <ruby>使<rt>つか</rt></ruby>う → <ruby>使<rt>つか</rt></ruby>われる."
+      ]
+    },
+    {
+      "title": "By whom: によって",
+      "pattern": "N は person によって V-られる",
+      "explanation": "によって names who created, built or found something.",
+      "examples": [
+        {
+          "japanese": "この<ruby>本<rt>ほん</rt></ruby>は<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>作家<rt>さっか</rt></ruby>によって<ruby>書<rt>か</rt></ruby>かれました。",
+          "romaji": "",
+          "meaning": "This book was written by a famous author."
+        },
+        {
+          "japanese": "<ruby>電話<rt>でんわ</rt></ruby>はベルによって<ruby>発明<rt>はつめい</rt></ruby>されました。",
+          "romaji": "",
+          "meaning": "The telephone was invented by Bell."
+        },
+        {
+          "japanese": "この<ruby>建物<rt>たてもの</rt></ruby>は<ruby>外国<rt>がいこく</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>によって<ruby>作<rt>つく</rt></ruby>られました。",
+          "romaji": "",
+          "meaning": "This building was made by a foreigner."
+        },
+        {
+          "japanese": "この<ruby>歌<rt>うた</rt></ruby>は<ruby>子<rt>こ</rt></ruby>どもたちによって<ruby>歌<rt>うた</rt></ruby>われています。",
+          "romaji": "",
+          "meaning": "This song is sung by children."
+        }
+      ],
+      "notes": [
+        "For everyday actions done to you, use に instead (next lesson): <ruby>先生<rt>せんせい</rt></ruby>にほめられた."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "このペンを<ruby>使<rt>つか</rt></ruby>ってもいいですか。",
+      "May I use this pen?"
+    ],
+    [
+      "<ruby>母<rt>はは</rt></ruby>がケーキを<ruby>作<rt>つく</rt></ruby>ってくれました。",
+      "My mother made me a cake."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>新<rt>あたら</rt></ruby>しいビルが<ruby>建<rt>た</rt></ruby>ちました。",
+      "A new building has gone up in front of the station."
+    ],
+    [
+      "あの<ruby>古<rt>ふる</rt></ruby>い<ruby>建物<rt>たてもの</rt></ruby>は<ruby>図書館<rt>としょかん</rt></ruby>です。",
+      "That old building is a library."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "このおてらはいつ<ruby>建<rt>た</rt></ruby>てられたんですか。",
+      "ガイド",
+      "<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。"
+    ],
+    [
+      "リー",
+      "この<ruby>本<rt>ほん</rt></ruby>、だれが<ruby>書<rt>か</rt></ruby>いたんですか。",
+      "けん",
+      "<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>作家<rt>さっか</rt></ruby>によって<ruby>書<rt>か</rt></ruby>かれた<ruby>本<rt>ほん</rt></ruby>ですよ。"
+    ],
+    [
+      "マイ",
+      "このへやは<ruby>何<rt>なに</rt></ruby>に<ruby>使<rt>つか</rt></ruby>われていますか。",
+      "たなか",
+      "かいぎに<ruby>使<rt>つか</rt></ruby>われています。"
+    ],
+    [
+      "ゆき",
+      "おまつりはいつ<ruby>行<rt>おこな</rt></ruby>われますか。",
+      "リン",
+      "<ruby>毎年<rt>まいとし</rt></ruby><ruby>八月<rt>はちがつ</rt></ruby>に<ruby>行<rt>おこな</rt></ruby>われます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "使",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "つか.う",
+        "つか.い",
+        "-つか.い",
+        "-づか.い"
+      ],
+      "meaning_en": "use",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "使う",
+          "reading": "つかう",
+          "en": "to use"
+        },
+        {
+          "word": "大使館",
+          "reading": "たいしかん",
+          "en": "embassy"
+        }
+      ],
+      "mnemonic": "A person (亻) carrying out an official's (吏) orders: use."
+    },
+    {
+      "char": "作",
+      "onyomi": [
+        "サク",
+        "サ"
+      ],
+      "kunyomi": [
+        "つく.る",
+        "つく.り",
+        "-づく.り"
+      ],
+      "meaning_en": "make",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "作る",
+          "reading": "つくる",
+          "en": "to make"
+        },
+        {
+          "word": "作家",
+          "reading": "さっか",
+          "en": "writer"
+        }
+      ],
+      "mnemonic": "A person (亻) at work with a tool (乍): making."
+    },
+    {
+      "char": "建",
+      "onyomi": [
+        "ケン",
+        "コン"
+      ],
+      "kunyomi": [
+        "た.てる",
+        "た.て",
+        "-だ.て",
+        "た.つ"
+      ],
+      "meaning_en": "build",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "建てる",
+          "reading": "たてる",
+          "en": "to build"
+        },
+        {
+          "word": "建物",
+          "reading": "たてもの",
+          "en": "building"
+        }
+      ],
+      "mnemonic": "A brush (聿) drawing plans, and long strides (廴) to build them."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 7): complete にもつは<ruby>明日<rt>あした</rt></ruby>とどく＿＿です。 (should)",
+      "options": [
+        "つもり",
+        "はず",
+        "よう",
+        "そう"
+      ],
+      "correct": "はず",
+      "explanation": "Expectation: はず."
+    },
+    {
+      "prompt": "What is the passive form of <ruby>書<rt>か</rt></ruby>く?",
+      "options": [
+        "<ruby>書<rt>か</rt></ruby>けられる",
+        "<ruby>書<rt>か</rt></ruby>かせる",
+        "<ruby>書<rt>か</rt></ruby>かれる",
+        "<ruby>書<rt>か</rt></ruby>きれる"
+      ],
+      "correct": "<ruby>書<rt>か</rt></ruby>かれる",
+      "explanation": "く → かれる."
+    },
+    {
+      "prompt": "What is the passive form of <ruby>使<rt>つか</rt></ruby>う?",
+      "options": [
+        "<ruby>使<rt>つか</rt></ruby>あれる",
+        "<ruby>使<rt>つか</rt></ruby>える",
+        "<ruby>使<rt>つか</rt></ruby>わせる",
+        "<ruby>使<rt>つか</rt></ruby>われる"
+      ],
+      "correct": "<ruby>使<rt>つか</rt></ruby>われる",
+      "explanation": "う → われる."
+    },
+    {
+      "prompt": "What is the passive form of <ruby>建<rt>た</rt></ruby>てる?",
+      "options": [
+        "<ruby>建<rt>た</rt></ruby>てられる",
+        "<ruby>建<rt>た</rt></ruby>てれる",
+        "<ruby>建<rt>た</rt></ruby>たれる",
+        "<ruby>建<rt>た</rt></ruby>てさせる"
+      ],
+      "correct": "<ruby>建<rt>た</rt></ruby>てられる",
+      "explanation": "Group 2: る → られる."
+    },
+    {
+      "prompt": "What is the passive form of する?",
+      "options": [
+        "しられる",
+        "される",
+        "させる",
+        "できる"
+      ],
+      "correct": "される",
+      "explanation": "する → される."
+    },
+    {
+      "prompt": "Complete: この<ruby>本<rt>ほん</rt></ruby>は<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>作家<rt>さっか</rt></ruby>＿＿<ruby>書<rt>か</rt></ruby>かれました。",
+      "options": [
+        "によると",
+        "について",
+        "によって",
+        "にとって"
+      ],
+      "correct": "によって",
+      "explanation": "The creator: によって."
+    },
+    {
+      "prompt": "How is 建物⁠ read?",
+      "options": [
+        "けんぶつ",
+        "たちもの",
+        "けんもの",
+        "たてもの"
+      ],
+      "correct": "たてもの",
+      "explanation": "建物⁠ is read たてもの."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is a fact stated with the passive?",
+      "options": [
+        "このおてらを<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てました。",
+        "このおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>ちたいです。",
+        "このおてらを<ruby>建<rt>た</rt></ruby>てさせました。",
+        "このおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。"
+      ],
+      "correct": "このおてらは<ruby>六百年前<rt>ろっぴゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。",
+      "explanation": "Passive: <ruby>建<rt>た</rt></ruby>てられました."
+    },
+    {
+      "prompt": "Choose: \"The telephone was invented by Bell.\"",
+      "options": [
+        "<ruby>電話<rt>でんわ</rt></ruby>はベルによって<ruby>発明<rt>はつめい</rt></ruby>されました。",
+        "<ruby>電話<rt>でんわ</rt></ruby>はベルに<ruby>発明<rt>はつめい</rt></ruby>させました。",
+        "<ruby>電話<rt>でんわ</rt></ruby>はベルによると<ruby>発明<rt>はつめい</rt></ruby>しました。",
+        "ベルは<ruby>電話<rt>でんわ</rt></ruby>に<ruby>発明<rt>はつめい</rt></ruby>されました。"
+      ],
+      "correct": "<ruby>電話<rt>でんわ</rt></ruby>はベルによって<ruby>発明<rt>はつめい</rt></ruby>されました。",
+      "explanation": "によって + される."
+    },
+    {
+      "prompt": "Which verb is intransitive?",
+      "options": [
+        "<ruby>建<rt>た</rt></ruby>てる",
+        "<ruby>建<rt>た</rt></ruby>つ",
+        "<ruby>作<rt>つく</rt></ruby>る",
+        "<ruby>使<rt>つか</rt></ruby>う"
+      ],
+      "correct": "<ruby>建<rt>た</rt></ruby>つ",
+      "explanation": "<ruby>建<rt>た</rt></ruby>つ: a building goes up."
+    },
+    {
+      "prompt": "Read: オリンピックは<ruby>四年<rt>よねん</rt></ruby>に<ruby>一度<rt>いちど</rt></ruby><ruby>行<rt>おこな</rt></ruby>われます。 How often are the Olympics held?",
+      "options": [
+        "Four times a year",
+        "Once a year",
+        "Every four years",
+        "Every fourteen years"
+      ],
+      "correct": "Every four years",
+      "explanation": "<ruby>四年<rt>よねん</rt></ruby>に<ruby>一度<rt>いちど</rt></ruby>: once in four years."
+    },
+    {
+      "prompt": "Review (Unit 7): complete あの<ruby>子<rt>こ</rt></ruby>はおとな＿＿<ruby>話<rt>はな</rt></ruby>します。",
+      "options": [
+        "みたいな",
+        "らしい",
+        "のよう",
+        "みたいに"
+      ],
+      "correct": "みたいに",
+      "explanation": "Before a verb: みたいに."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-7-should-be",
+    "japanese-n4-unit-7-like-a",
+    "japanese-n4-unit-6-the-door-is-open"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

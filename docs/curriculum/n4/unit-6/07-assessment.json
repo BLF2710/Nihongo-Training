@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n4-unit-6-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "te-miru",
+      "prompt": "Complete: このシャツを<ruby>着<rt>き</rt></ruby>て＿＿もいいですか。",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>て",
+        "みて",
+        "しまって",
+        "おいて"
+      ],
+      "correctIndex": 1,
+      "explanation": "Try: 〜てみる (kana)."
+    },
+    {
+      "id": "te-mitai",
+      "prompt": "Choose: \"I'd like to try a kimono some day.\"",
+      "options": [
+        "いつか<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>てしまいたいです。",
+        "いつか<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>ておきたいです。",
+        "いつか<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>てあります。",
+        "いつか<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>てみたいです。"
+      ],
+      "correctIndex": 3,
+      "explanation": "〜てみたい."
+    },
+    {
+      "id": "te-shimau-done",
+      "prompt": "Complete: <ruby>本<rt>ほん</rt></ruby>をぜんぶ<ruby>読<rt>よ</rt></ruby>んで＿＿。 (finished)",
+      "options": [
+        "しまいました",
+        "みました",
+        "ありました",
+        "いました"
+      ],
+      "correctIndex": 0,
+      "explanation": "All done: 〜てしまう."
+    },
+    {
+      "id": "te-shimau-regret",
+      "prompt": "You left your umbrella on the train. What do you say?",
+      "options": [
+        "<ruby>電車<rt>でんしゃ</rt></ruby>にかさをわすれておきました。",
+        "<ruby>電車<rt>でんしゃ</rt></ruby>にかさをわすれてみました。",
+        "<ruby>電車<rt>でんしゃ</rt></ruby>にかさをわすれてしまいました。",
+        "<ruby>電車<rt>でんしゃ</rt></ruby>にかさがわすれてあります。"
+      ],
+      "correctIndex": 2,
+      "explanation": "Regret: 〜てしまう."
+    },
+    {
+      "id": "chau",
+      "prompt": "What is the casual form of <ruby>飲<rt>の</rt></ruby>んでしまった?",
+      "options": [
+        "<ruby>飲<rt>の</rt></ruby>んちゃった",
+        "<ruby>飲<rt>の</rt></ruby>んどいた",
+        "<ruby>飲<rt>の</rt></ruby>みちゃった",
+        "<ruby>飲<rt>の</rt></ruby>んじゃった"
+      ],
+      "correctIndex": 3,
+      "explanation": "でしまった → じゃった."
+    },
+    {
+      "id": "te-oku",
+      "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>のまえに、ホテルをよやくして＿＿。",
+      "options": [
+        "しまいます",
+        "おきます",
+        "みます",
+        "あります"
+      ],
+      "correctIndex": 1,
+      "explanation": "In advance: 〜ておく."
+    },
+    {
+      "id": "te-oku-leave",
+      "prompt": "You want the window left open. What do you say?",
+      "options": [
+        "まどは<ruby>開<rt>あ</rt></ruby>けておいてください。",
+        "まどは<ruby>開<rt>あ</rt></ruby>けてしまってください。",
+        "まどは<ruby>開<rt>あ</rt></ruby>いてください。",
+        "まどは<ruby>開<rt>あ</rt></ruby>けてみてください。"
+      ],
+      "correctIndex": 0,
+      "explanation": "Leave it: 〜ておいてください."
+    },
+    {
+      "id": "toku",
+      "prompt": "What is the casual form of よやくしておく?",
+      "options": [
+        "よやくしちゃう",
+        "よやくしどく",
+        "よやくしとく",
+        "よやくしてく"
+      ],
+      "correctIndex": 2,
+      "explanation": "ておく → とく."
+    },
+    {
+      "id": "intransitive",
+      "prompt": "Complete: <ruby>風<rt>かぜ</rt></ruby>でドア＿＿<ruby>開<rt>あ</rt></ruby>きました。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "で"
+      ],
+      "correctIndex": 1,
+      "explanation": "Intransitive verb: が."
+    },
+    {
+      "id": "pair",
+      "prompt": "Which verb is the intransitive partner of けす?",
+      "options": [
+        "つける",
+        "しめる",
+        "つく",
+        "きえる"
+      ],
+      "correctIndex": 3,
+      "explanation": "けす / きえる."
+    },
+    {
+      "id": "te-iru-state",
+      "prompt": "Complete: <ruby>図書館<rt>としょかん</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby>しまって＿＿。",
+      "options": [
+        "あります",
+        "おきます",
+        "います",
+        "みます"
+      ],
+      "correctIndex": 2,
+      "explanation": "Intransitive + ている: a state."
+    },
+    {
+      "id": "te-aru",
+      "prompt": "Which sentence says someone wrote the name on purpose?",
+      "options": [
+        "つくえに<ruby>名前<rt>なまえ</rt></ruby>が<ruby>書<rt>か</rt></ruby>いてあります。",
+        "つくえに<ruby>名前<rt>なまえ</rt></ruby>が<ruby>書<rt>か</rt></ruby>いています。",
+        "つくえに<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてしまいました。",
+        "つくえに<ruby>名前<rt>なまえ</rt></ruby>が<ruby>書<rt>か</rt></ruby>けます。"
+      ],
+      "correctIndex": 0,
+      "explanation": "Transitive + てある."
+    },
+    {
+      "id": "naru",
+      "prompt": "Complete: <ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>＿＿なりましたね。",
+      "options": [
+        "く",
+        "な",
+        "で",
+        "に"
+      ],
+      "correctIndex": 3,
+      "explanation": "な-adjective + になる."
+    },
+    {
+      "id": "ni-suru",
+      "prompt": "At a café: \"I'll have coffee.\"",
+      "options": [
+        "コーヒーになります。",
+        "コーヒーにします。",
+        "コーヒーがします。",
+        "コーヒーをなります。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Choose: N にする."
+    },
+    {
+      "id": "kanji-toshokan",
+      "prompt": "How is 図書館⁠ read?",
+      "options": [
+        "ずしょかん",
+        "としょうかん",
+        "としょかん",
+        "とうしょかん"
+      ],
+      "correctIndex": 2,
+      "explanation": "図書館⁠ is read としょかん."
+    }
+  ]
+}

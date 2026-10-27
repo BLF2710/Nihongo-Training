@@ -1,0 +1,442 @@
+{
+  "id": "japanese-n4-unit-9-while-doing",
+  "slug": "n4-unit-9-while-doing",
+  "unit": "Japanese N4 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "While & Too Much",
+  "title_jp": "〜ながら・〜すぎる",
+  "objectives": [
+    "I can say I do two things at once, or do too much.",
+    "Do two things at once with 〜ながら",
+    "Say something is too much with 〜すぎる",
+    "Talk about your head, face and voice"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>頭<rt>あたま</rt></ruby>",
+      "",
+      "head"
+    ],
+    [
+      "<ruby>顔<rt>かお</rt></ruby>",
+      "",
+      "face"
+    ],
+    [
+      "<ruby>声<rt>こえ</rt></ruby>",
+      "",
+      "voice"
+    ],
+    [
+      "<ruby>大声<rt>おおごえ</rt></ruby>",
+      "",
+      "loud voice"
+    ],
+    [
+      "<ruby>頭<rt>あたま</rt></ruby>がいい",
+      "",
+      "clever"
+    ],
+    [
+      "ずつう",
+      "",
+      "headache"
+    ],
+    [
+      "あらう",
+      "",
+      "to wash"
+    ],
+    [
+      "〜ながら",
+      "",
+      "while …ing"
+    ],
+    [
+      "〜すぎる",
+      "",
+      "too …, … too much"
+    ],
+    [
+      "<ruby>食<rt>た</rt></ruby>べすぎる",
+      "",
+      "to eat too much"
+    ],
+    [
+      "<ruby>飲<rt>の</rt></ruby>みすぎる",
+      "",
+      "to drink too much"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "頭",
+      "word_reading": "あたま"
+    },
+    {
+      "word_japanese": "顔",
+      "word_reading": "かお"
+    },
+    {
+      "word_japanese": "声",
+      "word_reading": "こえ"
+    },
+    {
+      "word_japanese": "大声",
+      "word_reading": "おおごえ"
+    }
+  ],
+  "concept": {
+    "title": "At the same time, and too much",
+    "text": "V-stem + ながら joins two actions done at the same time by the same person. The main action comes last:\n\n<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら、<ruby>勉強<rt>べんきょう</rt></ruby>します。 I study while listening to music.\n\nすぎる after a verb stem or adjective stem says \"too much\":\n<ruby>食<rt>た</rt></ruby>べすぎました。 I ate too much.\nこのかばんは<ruby>高<rt>たか</rt></ruby>すぎます。 This bag is too expensive.\nこのへやはしずかすぎます。 This room is too quiet.\nいい → よすぎる, ない → なさすぎる\n\nすぎる is a group 2 verb: <ruby>食<rt>た</rt></ruby>べすぎた, <ruby>高<rt>たか</rt></ruby>すぎない.",
+    "examples": [
+      "V-stem + ながら (while)",
+      "V-stem + すぎる (do too much)",
+      "adjective stem + すぎる (too …)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "While: 〜ながら",
+      "pattern": "V-stem + ながら、main action",
+      "explanation": "Both actions are done by the same person at the same time. The second action is the main one.",
+      "examples": [
+        {
+          "japanese": "<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "I study while listening to music."
+        },
+        {
+          "japanese": "スマホを<ruby>見<rt>み</rt></ruby>ながら<ruby>歩<rt>ある</rt></ruby>かないでください。",
+          "romaji": "",
+          "meaning": "Please don't walk while looking at your phone."
+        },
+        {
+          "japanese": "アルバイトをしながら、<ruby>大学<rt>だいがく</rt></ruby>にかよっています。",
+          "romaji": "",
+          "meaning": "I go to university while working part-time."
+        },
+        {
+          "japanese": "<ruby>歌<rt>うた</rt></ruby>を<ruby>歌<rt>うた</rt></ruby>いながら、<ruby>顔<rt>かお</rt></ruby>をあらいました。",
+          "romaji": "",
+          "meaning": "I washed my face while singing."
+        }
+      ],
+      "notes": [
+        "Use ながら only when the subject is the same: two different people take 〜ている<ruby>間<rt>あいだ</rt></ruby>に (N3)."
+      ]
+    },
+    {
+      "title": "Too much: 〜すぎる",
+      "pattern": "V-stem / い-adj stem / な-adj + すぎる",
+      "explanation": "すぎる says something goes beyond what is good. It is often used for complaints.",
+      "examples": [
+        {
+          "japanese": "きのうは<ruby>飲<rt>の</rt></ruby>みすぎて、ずつうがします。",
+          "romaji": "",
+          "meaning": "I drank too much yesterday and have a headache."
+        },
+        {
+          "japanese": "このかばんは<ruby>高<rt>たか</rt></ruby>すぎて、<ruby>買<rt>か</rt></ruby>えません。",
+          "romaji": "",
+          "meaning": "This bag is too expensive for me to buy."
+        },
+        {
+          "japanese": "となりの<ruby>人<rt>ひと</rt></ruby>の<ruby>声<rt>こえ</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きすぎます。",
+          "romaji": "",
+          "meaning": "The person next door is too loud."
+        },
+        {
+          "japanese": "この<ruby>問題<rt>もんだい</rt></ruby>はかんたんすぎます。",
+          "romaji": "",
+          "meaning": "This question is too easy."
+        },
+        {
+          "japanese": "<ruby>食<rt>た</rt></ruby>べすぎないように<ruby>気<rt>き</rt></ruby>をつけています。",
+          "romaji": "",
+          "meaning": "I'm careful not to overeat."
+        }
+      ],
+      "notes": [
+        "いい → よすぎる; ない → なさすぎる.",
+        "As a noun: <ruby>食<rt>た</rt></ruby>べすぎ (overeating), <ruby>飲<rt>の</rt></ruby>みすぎ (drinking too much)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>朝<rt>あさ</rt></ruby>おきて、<ruby>顔<rt>かお</rt></ruby>をあらいます。",
+      "I get up and wash my face in the morning."
+    ],
+    [
+      "<ruby>頭<rt>あたま</rt></ruby>がいたいので、<ruby>休<rt>やす</rt></ruby>みます。",
+      "I have a headache, so I'll rest."
+    ],
+    [
+      "リーさんは<ruby>頭<rt>あたま</rt></ruby>がいいですね。",
+      "Lee is clever, isn't he?"
+    ],
+    [
+      "としょかんで<ruby>大声<rt>おおごえ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>さないでください。",
+      "Please don't talk loudly in the library."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "げんきがないですね。",
+      "けん",
+      "きのう<ruby>飲<rt>の</rt></ruby>みすぎて、ずつうがするんです。"
+    ],
+    [
+      "マイ",
+      "<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら<ruby>勉強<rt>べんきょう</rt></ruby>しますか。",
+      "リー",
+      "いいえ、しずかなところで<ruby>勉強<rt>べんきょう</rt></ruby>します。"
+    ],
+    [
+      "ゆき",
+      "このくつ、どうですか。",
+      "リン",
+      "ちょっと<ruby>大<rt>おお</rt></ruby>きすぎますね。"
+    ],
+    [
+      "たなか",
+      "<ruby>声<rt>こえ</rt></ruby>がちょっと<ruby>小<rt>ちい</rt></ruby>さいですね。",
+      "アナ",
+      "すみません。もう<ruby>少<rt>すこ</rt></ruby>し<ruby>大<rt>おお</rt></ruby>きい<ruby>声<rt>こえ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>します。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "頭",
+      "onyomi": [
+        "トウ",
+        "ズ",
+        "ト"
+      ],
+      "kunyomi": [
+        "あたま",
+        "かしら",
+        "-がしら",
+        "かぶり"
+      ],
+      "meaning_en": "head",
+      "stroke_count": 16,
+      "example_words": [
+        {
+          "word": "頭",
+          "reading": "あたま",
+          "en": "head"
+        },
+        {
+          "word": "頭痛",
+          "reading": "ずつう",
+          "en": "headache"
+        }
+      ],
+      "mnemonic": "A bean-shaped pot (豆) on top of a page-head (頁): the head."
+    },
+    {
+      "char": "顔",
+      "onyomi": [
+        "ガン"
+      ],
+      "kunyomi": [
+        "かお"
+      ],
+      "meaning_en": "face",
+      "stroke_count": 18,
+      "example_words": [
+        {
+          "word": "顔",
+          "reading": "かお",
+          "en": "face"
+        },
+        {
+          "word": "笑顔",
+          "reading": "えがお",
+          "en": "smiling face"
+        }
+      ],
+      "mnemonic": "A handsome (彦) head (頁): the face."
+    },
+    {
+      "char": "声",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "こえ",
+        "こわ-"
+      ],
+      "meaning_en": "voice",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "声",
+          "reading": "こえ",
+          "en": "voice"
+        },
+        {
+          "word": "大声",
+          "reading": "おおごえ",
+          "en": "loud voice"
+        }
+      ],
+      "mnemonic": "A scholar (士) with a sound coming out: voice."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the humble form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "いらっしゃる",
+        "うかがう",
+        "おる",
+        "まいる"
+      ],
+      "correct": "まいる",
+      "explanation": "<ruby>行<rt>い</rt></ruby>く → まいる."
+    },
+    {
+      "prompt": "Complete: <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き＿＿、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+      "options": [
+        "ながら",
+        "すぎて",
+        "ために",
+        "のに"
+      ],
+      "correct": "ながら",
+      "explanation": "While: ながら."
+    },
+    {
+      "prompt": "Complete: きのうは<ruby>飲<rt>の</rt></ruby>み＿＿て、ずつうがします。",
+      "options": [
+        "ながら",
+        "すぎ",
+        "たく",
+        "やす"
+      ],
+      "correct": "すぎ",
+      "explanation": "Too much: すぎる."
+    },
+    {
+      "prompt": "Complete: このかばんは<ruby>高<rt>たか</rt></ruby>＿＿ます。 (too expensive)",
+      "options": [
+        "いすぎ",
+        "くすぎ",
+        "すぎ",
+        "さすぎ"
+      ],
+      "correct": "すぎ",
+      "explanation": "い-adj stem + すぎる."
+    },
+    {
+      "prompt": "What is \"too good\" from いい?",
+      "options": [
+        "いすぎる",
+        "いいすぎる",
+        "よくすぎる",
+        "よすぎる"
+      ],
+      "correct": "よすぎる",
+      "explanation": "いい → よすぎる."
+    },
+    {
+      "prompt": "How is 大声⁠ read?",
+      "options": [
+        "おおごえ",
+        "だいせい",
+        "おおこえ",
+        "たいせい"
+      ],
+      "correct": "おおごえ",
+      "explanation": "大声⁠ is read おおごえ."
+    },
+    {
+      "prompt": "Choose the meaning of アルバイトをしながら、<ruby>大学<rt>だいがく</rt></ruby>にかよっています。",
+      "options": [
+        "I work part-time at the university.",
+        "I go to university while working part-time.",
+        "I quit my job to go to university.",
+        "I'll work after university."
+      ],
+      "correct": "I go to university while working part-time.",
+      "explanation": "ながら: two things at the same time."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "わたしは<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら、<ruby>料理<rt>りょうり</rt></ruby>しました。",
+        "わたしは<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら、<ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>しました。",
+        "<ruby>母<rt>はは</rt></ruby>は<ruby>歌<rt>うた</rt></ruby>いながら、<ruby>料理<rt>りょうり</rt></ruby>しました。",
+        "テレビを<ruby>見<rt>み</rt></ruby>ながら、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べました。"
+      ],
+      "correct": "わたしは<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら、<ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>しました。",
+      "explanation": "ながら needs the same subject."
+    },
+    {
+      "prompt": "You ate too much at a party. What do you say?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べながらしまいました。",
+        "<ruby>食<rt>た</rt></ruby>べやすかったです。",
+        "<ruby>食<rt>た</rt></ruby>べすぎてしまいました。",
+        "<ruby>食<rt>た</rt></ruby>べたすぎました。"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べすぎてしまいました。",
+      "explanation": "V-stem + すぎる."
+    },
+    {
+      "prompt": "Complete: この<ruby>問題<rt>もんだい</rt></ruby>はかんたん＿＿ます。 (too easy)",
+      "options": [
+        "なすぎ",
+        "にすぎ",
+        "くすぎ",
+        "すぎ"
+      ],
+      "correct": "すぎ",
+      "explanation": "な-adjective + すぎる."
+    },
+    {
+      "prompt": "Read: としょかんで<ruby>大声<rt>おおごえ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>さないでください。 What is the rule?",
+      "options": [
+        "Don't talk loudly in the library.",
+        "Talk loudly in the library.",
+        "Don't talk in the library at all.",
+        "Speak clearly in the library."
+      ],
+      "correct": "Don't talk loudly in the library.",
+      "explanation": "<ruby>大声<rt>おおごえ</rt></ruby>: a loud voice."
+    },
+    {
+      "prompt": "Review: what is the honorific form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "いただく",
+        "めしあがる",
+        "まいる",
+        "もうす"
+      ],
+      "correct": "めしあがる",
+      "explanation": "<ruby>食<rt>た</rt></ruby>べる → めしあがる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-9-humble",
+    "japanese-n4-unit-6-oh-no",
+    "japanese-n4-unit-3-i-can-sing"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

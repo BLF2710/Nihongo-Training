@@ -1,0 +1,445 @@
+{
+  "id": "japanese-n4-unit-7-it-seems",
+  "slug": "n4-unit-7-it-seems",
+  "unit": "Japanese N4 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "It Seems…",
+  "title_jp": "〜ようです",
+  "objectives": [
+    "I can say what seems to be the case.",
+    "Make a judgement from what you see with ようです",
+    "Compare with N のような / N のように",
+    "Talk about animals and colours"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>黒<rt>くろ</rt></ruby>い",
+      "",
+      "black"
+    ],
+    [
+      "<ruby>黒<rt>くろ</rt></ruby>",
+      "",
+      "black (noun)"
+    ],
+    [
+      "<ruby>鳥<rt>とり</rt></ruby>",
+      "",
+      "bird"
+    ],
+    [
+      "<ruby>小鳥<rt>ことり</rt></ruby>",
+      "",
+      "small bird"
+    ],
+    [
+      "<ruby>犬<rt>いぬ</rt></ruby>",
+      "",
+      "dog"
+    ],
+    [
+      "<ruby>子犬<rt>こいぬ</rt></ruby>",
+      "",
+      "puppy"
+    ],
+    [
+      "まるで",
+      "",
+      "just like, as if"
+    ],
+    [
+      "くも",
+      "",
+      "cloud"
+    ],
+    [
+      "におい",
+      "",
+      "smell"
+    ],
+    [
+      "るす",
+      "",
+      "being out, away from home"
+    ],
+    [
+      "かぜをひく",
+      "",
+      "to catch a cold"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "黒い",
+      "word_reading": "くろい"
+    },
+    {
+      "word_japanese": "黒",
+      "word_reading": "くろ"
+    },
+    {
+      "word_japanese": "鳥",
+      "word_reading": "とり"
+    },
+    {
+      "word_japanese": "小鳥",
+      "word_reading": "ことり"
+    },
+    {
+      "word_japanese": "犬",
+      "word_reading": "いぬ"
+    },
+    {
+      "word_japanese": "子犬",
+      "word_reading": "こいぬ"
+    }
+  ],
+  "concept": {
+    "title": "It seems… / like…",
+    "text": "Plain form + ようです is a judgement you make from what you see, hear or feel yourself:\n\nだれもいないようです。 There seems to be nobody here.\nかぜをひいたようです。 I seem to have caught a cold.\n\nな-adjectives keep な and nouns take の: しずかなようです, るすのようです.\n\nN のような N / N のように V compares one thing to another:\nくものような<ruby>白<rt>しろ</rt></ruby>い<ruby>犬<rt>いぬ</rt></ruby> a dog as white as a cloud\n<ruby>鳥<rt>とり</rt></ruby>のようにとびたい I want to fly like a bird\n\nまるで makes the comparison stronger.",
+    "examples": [
+      "plain form + ようです (it seems)",
+      "な-adj な / N の + ようです",
+      "N のような N / N のように V"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "It seems: ようです",
+      "pattern": "V / い-adj (plain) + ようです / な-adj な・N の + ようです",
+      "explanation": "ようです is your own judgement, based on evidence. It is more formal than みたい (next lesson).",
+      "examples": [
+        {
+          "japanese": "<ruby>電気<rt>でんき</rt></ruby>がきえています。だれもいないようです。",
+          "romaji": "",
+          "meaning": "The lights are off. Nobody seems to be in."
+        },
+        {
+          "japanese": "のどがいたいです。かぜをひいたようです。",
+          "romaji": "",
+          "meaning": "My throat hurts. I seem to have caught a cold."
+        },
+        {
+          "japanese": "たなかさんはるすのようです。",
+          "romaji": "",
+          "meaning": "Tanaka seems to be out."
+        },
+        {
+          "japanese": "このへんはしずかなようですね。",
+          "romaji": "",
+          "meaning": "This area seems quiet."
+        },
+        {
+          "japanese": "いいにおいがしますね。カレーをつくっているようです。",
+          "romaji": "",
+          "meaning": "Something smells good. Someone seems to be making curry."
+        }
+      ],
+      "notes": [
+        "Compare: らしい (from what you heard) / ようです (from what you see yourself)."
+      ]
+    },
+    {
+      "title": "Like: N のような / N のように",
+      "pattern": "N のような N / N のように V・adjective",
+      "explanation": "のような compares before a noun; のように compares before a verb or adjective.",
+      "examples": [
+        {
+          "japanese": "くものような<ruby>白<rt>しろ</rt></ruby>い<ruby>犬<rt>いぬ</rt></ruby>がいます。",
+          "romaji": "",
+          "meaning": "There's a dog as white as a cloud."
+        },
+        {
+          "japanese": "<ruby>鳥<rt>とり</rt></ruby>のように<ruby>空<rt>そら</rt></ruby>をとびたいです。",
+          "romaji": "",
+          "meaning": "I want to fly in the sky like a bird."
+        },
+        {
+          "japanese": "リーさんはまるで<ruby>日本人<rt>にほんじん</rt></ruby>のように<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "Lee speaks Japanese just like a Japanese person."
+        },
+        {
+          "japanese": "<ruby>東京<rt>とうきょう</rt></ruby>のような<ruby>大<rt>おお</rt></ruby>きいまちに<ruby>住<rt>す</rt></ruby>みたいです。",
+          "romaji": "",
+          "meaning": "I want to live in a big city like Tokyo."
+        }
+      ],
+      "notes": [
+        "のような can also give an example: <ruby>東京<rt>とうきょう</rt></ruby>のようなまち (a city such as Tokyo)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>黒<rt>くろ</rt></ruby>いねこと<ruby>白<rt>しろ</rt></ruby>い<ruby>犬<rt>いぬ</rt></ruby>をかっています。",
+      "I have a black cat and a white dog."
+    ],
+    [
+      "となりの<ruby>家<rt>いえ</rt></ruby>に<ruby>子犬<rt>こいぬ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ました。",
+      "A puppy has come to the house next door."
+    ],
+    [
+      "<ruby>小鳥<rt>ことり</rt></ruby>のこえが<ruby>聞<rt>き</rt></ruby>こえます。",
+      "I can hear little birds singing."
+    ],
+    [
+      "<ruby>黒<rt>くろ</rt></ruby>の<ruby>服<rt>ふく</rt></ruby>がすきです。",
+      "I like black clothes."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "たなかさんの<ruby>家<rt>いえ</rt></ruby>、<ruby>電気<rt>でんき</rt></ruby>がきえていますね。",
+      "けん",
+      "るすのようですね。"
+    ],
+    [
+      "リー",
+      "かおが<ruby>赤<rt>あか</rt></ruby>いですよ。",
+      "マイ",
+      "ちょっとねつがあるようです。"
+    ],
+    [
+      "ゆき",
+      "あの<ruby>犬<rt>いぬ</rt></ruby>、<ruby>大<rt>おお</rt></ruby>きいですね。",
+      "リン",
+      "まるで<ruby>小<rt>ちい</rt></ruby>さいうまのようですね。"
+    ],
+    [
+      "たなか",
+      "いいにおいがしますね。",
+      "アナ",
+      "となりでパンをやいているようです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "黒",
+      "onyomi": [
+        "コク"
+      ],
+      "kunyomi": [
+        "くろ",
+        "くろ.ずむ",
+        "くろ.い"
+      ],
+      "meaning_en": "black",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "黒い",
+          "reading": "くろい",
+          "en": "black"
+        },
+        {
+          "word": "黒板",
+          "reading": "こくばん",
+          "en": "blackboard"
+        }
+      ],
+      "mnemonic": "A window blackened by the fire (灬) below: black."
+    },
+    {
+      "char": "鳥",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "とり"
+      ],
+      "meaning_en": "bird",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "鳥",
+          "reading": "とり",
+          "en": "bird"
+        },
+        {
+          "word": "小鳥",
+          "reading": "ことり",
+          "en": "small bird"
+        }
+      ],
+      "mnemonic": "A bird with its eye, wing and tail feathers (灬)."
+    },
+    {
+      "char": "犬",
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "いぬ",
+        "いぬ-"
+      ],
+      "meaning_en": "dog",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "犬",
+          "reading": "いぬ",
+          "en": "dog"
+        },
+        {
+          "word": "子犬",
+          "reading": "こいぬ",
+          "en": "puppy"
+        }
+      ],
+      "mnemonic": "A big (大) animal with a dot for its ear: a dog."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete あのレストランは<ruby>人気<rt>にんき</rt></ruby>がある＿＿です。 (apparently)",
+      "options": [
+        "らしく",
+        "らしいな",
+        "そうな",
+        "らしい"
+      ],
+      "correct": "らしい",
+      "explanation": "Apparently: らしい."
+    },
+    {
+      "prompt": "Complete: だれもいない＿＿です。 (seems)",
+      "options": [
+        "よう",
+        "そう",
+        "らしく",
+        "みたいな"
+      ],
+      "correct": "よう",
+      "explanation": "It seems: ようです."
+    },
+    {
+      "prompt": "Complete: たなかさんはるす＿＿ようです。",
+      "options": [
+        "な",
+        "の",
+        "だ",
+        "が"
+      ],
+      "correct": "の",
+      "explanation": "Noun + のようです."
+    },
+    {
+      "prompt": "Complete: このへんはしずか＿＿ようです。",
+      "options": [
+        "の",
+        "だ",
+        "な",
+        "に"
+      ],
+      "correct": "な",
+      "explanation": "な-adjective + なようです."
+    },
+    {
+      "prompt": "Complete: <ruby>鳥<rt>とり</rt></ruby>の＿＿<ruby>空<rt>そら</rt></ruby>をとびたいです。",
+      "options": [
+        "ような",
+        "ようだ",
+        "らしく",
+        "ように"
+      ],
+      "correct": "ように",
+      "explanation": "Before a verb: のように."
+    },
+    {
+      "prompt": "How is 子犬⁠ read?",
+      "options": [
+        "こいぬ",
+        "こけん",
+        "しいぬ",
+        "ここいぬ"
+      ],
+      "correct": "こいぬ",
+      "explanation": "子犬⁠ is read こいぬ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>黒<rt>くろ</rt></ruby>いねこと<ruby>白<rt>しろ</rt></ruby>い<ruby>犬<rt>いぬ</rt></ruby>をかっています。",
+      "options": [
+        "I bought a black cat and a white dog.",
+        "I have a black cat and a white dog.",
+        "A black cat is chasing a white dog.",
+        "I want a black cat and a white dog."
+      ],
+      "correct": "I have a black cat and a white dog.",
+      "explanation": "かう: to keep (a pet)."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Your throat hurts and you feel hot. What do you say?",
+      "options": [
+        "かぜをひくそうです。",
+        "かぜをひいたようです。",
+        "かぜをひいたらしいです。",
+        "かぜをひきそうでした。"
+      ],
+      "correct": "かぜをひいたようです。",
+      "explanation": "Your own judgement: ようです."
+    },
+    {
+      "prompt": "Which is based on what you heard, not what you saw?",
+      "options": [
+        "<ruby>電気<rt>でんき</rt></ruby>がきえています。るすのようです。",
+        "かおが<ruby>赤<rt>あか</rt></ruby>いです。ねつがあるようです。",
+        "<ruby>来週<rt>らいしゅう</rt></ruby>、テストがあるらしいです。",
+        "いいにおいがします。パンをやいているようです。"
+      ],
+      "correct": "<ruby>来週<rt>らいしゅう</rt></ruby>、テストがあるらしいです。",
+      "explanation": "らしい: from hearsay."
+    },
+    {
+      "prompt": "Complete: くもの＿＿<ruby>白<rt>しろ</rt></ruby>い<ruby>犬<rt>いぬ</rt></ruby>",
+      "options": [
+        "ように",
+        "ようで",
+        "そうな",
+        "ような"
+      ],
+      "correct": "ような",
+      "explanation": "Before a noun: のような."
+    },
+    {
+      "prompt": "Read: まるで<ruby>小<rt>ちい</rt></ruby>さいうまのようですね。 What is the dog like?",
+      "options": [
+        "As big as a small horse",
+        "As small as a puppy",
+        "Fast like a horse",
+        "Black like a horse"
+      ],
+      "correct": "As big as a small horse",
+      "explanation": "まるで〜のよう: just like."
+    },
+    {
+      "prompt": "Review: complete ニュース＿＿、たいふうが<ruby>来<rt>く</rt></ruby>るそうです。",
+      "options": [
+        "について",
+        "によると",
+        "によって",
+        "にとって"
+      ],
+      "correct": "によると",
+      "explanation": "Source: によると."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-7-apparently",
+    "japanese-n4-unit-7-i-heard",
+    "japanese-n4-unit-1-what-happened"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

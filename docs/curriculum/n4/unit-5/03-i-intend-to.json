@@ -1,0 +1,439 @@
+{
+  "id": "japanese-n4-unit-5-i-intend-to",
+  "slug": "n4-unit-5-i-intend-to",
+  "unit": "Japanese N4 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "I Intend To…",
+  "title_jp": "〜つもりです",
+  "objectives": [
+    "I can say what I intend and do not intend to do.",
+    "Say what you intend with つもり",
+    "Say what is scheduled with よてい",
+    "Talk about work"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>仕事<rt>しごと</rt></ruby>",
+      "",
+      "work, job"
+    ],
+    [
+      "<ruby>働<rt>はたら</rt></ruby>く",
+      "",
+      "to work"
+    ],
+    [
+      "<ruby>大事<rt>だいじ</rt></ruby>",
+      "",
+      "important"
+    ],
+    [
+      "つもり",
+      "",
+      "intention, plan"
+    ],
+    [
+      "よてい",
+      "",
+      "plan, schedule"
+    ],
+    [
+      "けっこん",
+      "",
+      "marriage (+ する: to get married)"
+    ],
+    [
+      "しゅっちょう",
+      "",
+      "business trip"
+    ],
+    [
+      "ざんぎょう",
+      "",
+      "overtime"
+    ],
+    [
+      "かいぎ",
+      "",
+      "meeting"
+    ],
+    [
+      "<ruby>事<rt>こと</rt></ruby>",
+      "",
+      "thing, matter"
+    ],
+    [
+      "<ruby>休<rt>やす</rt></ruby>みをとる",
+      "",
+      "to take time off"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "仕事",
+      "word_reading": "しごと"
+    },
+    {
+      "word_japanese": "働く",
+      "word_reading": "はたらく"
+    },
+    {
+      "word_japanese": "大事",
+      "word_reading": "だいじ"
+    },
+    {
+      "word_japanese": "事",
+      "word_reading": "こと"
+    }
+  ],
+  "concept": {
+    "title": "Intentions and schedules",
+    "text": "つもり says what you intend to do. It follows the dictionary form or the ない-form:\n<ruby>来年<rt>らいねん</rt></ruby>、けっこんするつもりです。 I intend to get married next year.\n<ruby>今日<rt>きょう</rt></ruby>はざんぎょうしないつもりです。 I don't intend to work late today.\n\nよてい says what is planned or scheduled, often by others too:\n<ruby>来週<rt>らいしゅう</rt></ruby>、しゅっちょうのよていです。 A business trip is planned for next week.\n\nつもり is about your will; よてい is about the plan or timetable.",
+    "examples": [
+      "V-る / V-ない + つもりです",
+      "V-る / N の + よていです",
+      "つもり (my will) / よてい (the schedule)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Intention: つもり",
+      "pattern": "V-る / V-ない + つもりです",
+      "explanation": "つもり is a firm intention. To a senior, asking about their つもり can sound rude; ask about their よてい instead.",
+      "examples": [
+        {
+          "japanese": "<ruby>来年<rt>らいねん</rt></ruby>、けっこんするつもりです。",
+          "romaji": "",
+          "meaning": "I intend to get married next year."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>はざんぎょうしないつもりです。",
+          "romaji": "",
+          "meaning": "I don't intend to work overtime today."
+        },
+        {
+          "japanese": "<ruby>夏<rt>なつ</rt></ruby>に<ruby>一週間<rt>いっしゅうかん</rt></ruby><ruby>休<rt>やす</rt></ruby>みをとるつもりです。",
+          "romaji": "",
+          "meaning": "I plan to take a week off in the summer."
+        },
+        {
+          "japanese": "<ruby>大学<rt>だいがく</rt></ruby>を<ruby>出<rt>で</rt></ruby>たら、<ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くつもりです。",
+          "romaji": "",
+          "meaning": "After university I intend to work in Japan."
+        },
+        {
+          "japanese": "もうたばこはすわないつもりです。",
+          "romaji": "",
+          "meaning": "I don't intend to smoke any more."
+        }
+      ],
+      "notes": [
+        "Stronger \"no\": 〜つもりはありません (I have no intention of…).",
+        "Volitional + と<ruby>思<rt>おも</rt></ruby>っています is softer than つもり."
+      ]
+    },
+    {
+      "title": "Schedule: よてい",
+      "pattern": "V-る / N の + よていです",
+      "explanation": "よてい is what is on the schedule, decided by you or by others.",
+      "examples": [
+        {
+          "japanese": "<ruby>来週<rt>らいしゅう</rt></ruby>はしゅっちょうのよていです。",
+          "romaji": "",
+          "meaning": "I'm scheduled for a business trip next week."
+        },
+        {
+          "japanese": "かいぎは<ruby>三時<rt>さんじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わるよていです。",
+          "romaji": "",
+          "meaning": "The meeting is due to end at three."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>何<rt>なに</rt></ruby>かよていがありますか。",
+          "romaji": "",
+          "meaning": "Do you have any plans tomorrow?"
+        },
+        {
+          "japanese": "<ruby>新<rt>あたら</rt></ruby>しい<ruby>店<rt>みせ</rt></ruby>は<ruby>春<rt>はる</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>くよていです。",
+          "romaji": "",
+          "meaning": "The new shop is due to open in spring."
+        }
+      ],
+      "notes": [
+        "よていがある = to have plans: <ruby>今日<rt>きょう</rt></ruby>はよていがあります."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>父<rt>ちち</rt></ruby>は<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いています。",
+      "My father works at a company."
+    ],
+    [
+      "<ruby>仕事<rt>しごと</rt></ruby>はたいへんですが、<ruby>楽<rt>たの</rt></ruby>しいです。",
+      "Work is hard, but fun."
+    ],
+    [
+      "<ruby>体<rt>からだ</rt></ruby>がいちばん<ruby>大事<rt>だいじ</rt></ruby>です。",
+      "Your health is what matters most."
+    ],
+    [
+      "<ruby>大事<rt>だいじ</rt></ruby>な<ruby>事<rt>こと</rt></ruby>は<ruby>先<rt>さき</rt></ruby>に<ruby>言<rt>い</rt></ruby>ってください。",
+      "Please tell me important things first."
+    ]
+  ],
+  "dialogue": [
+    [
+      "たなか",
+      "<ruby>来年<rt>らいねん</rt></ruby>はどうするつもりですか。",
+      "リー",
+      "<ruby>大学<rt>だいがく</rt></ruby>を<ruby>出<rt>で</rt></ruby>たら、<ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くつもりです。"
+    ],
+    [
+      "けん",
+      "<ruby>今日<rt>きょう</rt></ruby>もざんぎょうですか。",
+      "マイ",
+      "いいえ、<ruby>今日<rt>きょう</rt></ruby>はしないつもりです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>来週<rt>らいしゅう</rt></ruby>のよていはどうですか。",
+      "アナ",
+      "<ruby>来週<rt>らいしゅう</rt></ruby>はしゅっちょうのよていです。"
+    ],
+    [
+      "リン",
+      "けっこんするつもりですか。",
+      "けん",
+      "はい、<ruby>来年<rt>らいねん</rt></ruby>の<ruby>春<rt>はる</rt></ruby>にするつもりです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "仕",
+      "onyomi": [
+        "シ",
+        "ジ"
+      ],
+      "kunyomi": [
+        "つか.える"
+      ],
+      "meaning_en": "serve, do",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "仕事",
+          "reading": "しごと",
+          "en": "work"
+        },
+        {
+          "word": "仕方",
+          "reading": "しかた",
+          "en": "way of doing"
+        }
+      ],
+      "mnemonic": "A person (亻) serving a lord (士): work."
+    },
+    {
+      "char": "事",
+      "onyomi": [
+        "ジ",
+        "ズ"
+      ],
+      "kunyomi": [
+        "こと",
+        "つか.う",
+        "つか.える"
+      ],
+      "meaning_en": "matter, thing",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "仕事",
+          "reading": "しごと",
+          "en": "work"
+        },
+        {
+          "word": "大事",
+          "reading": "だいじ",
+          "en": "important"
+        }
+      ],
+      "mnemonic": "A hand holding a brush to record matters: things, affairs."
+    },
+    {
+      "char": "働",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "はたら.く"
+      ],
+      "meaning_en": "work",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "働く",
+          "reading": "はたらく",
+          "en": "to work"
+        },
+        {
+          "word": "労働",
+          "reading": "ろうどう",
+          "en": "labour"
+        }
+      ],
+      "mnemonic": "A person (亻) moving (動) all day: working."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>海外<rt>かいがい</rt></ruby>でりゅうがくしよう＿＿<ruby>思<rt>おも</rt></ruby>っています。",
+      "options": [
+        "を",
+        "が",
+        "に",
+        "と"
+      ],
+      "correct": "と",
+      "explanation": "Volitional + と<ruby>思<rt>おも</rt></ruby>っています."
+    },
+    {
+      "prompt": "Complete: <ruby>来年<rt>らいねん</rt></ruby>、けっこんする＿＿です。 (intend)",
+      "options": [
+        "つもり",
+        "よう",
+        "そう",
+        "らしい"
+      ],
+      "correct": "つもり",
+      "explanation": "V-る つもり."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>はざんぎょうし＿＿つもりです。 (don't intend)",
+      "options": [
+        "ません",
+        "ない",
+        "なくて",
+        "なかった"
+      ],
+      "correct": "ない",
+      "explanation": "V-ない つもり."
+    },
+    {
+      "prompt": "Complete: <ruby>来週<rt>らいしゅう</rt></ruby>はしゅっちょう＿＿よていです。",
+      "options": [
+        "な",
+        "が",
+        "の",
+        "を"
+      ],
+      "correct": "の",
+      "explanation": "N の よてい."
+    },
+    {
+      "prompt": "Which word means \"to work\"?",
+      "options": [
+        "<ruby>仕事<rt>しごと</rt></ruby>",
+        "<ruby>大事<rt>だいじ</rt></ruby>",
+        "<ruby>休<rt>やす</rt></ruby>む",
+        "<ruby>働<rt>はたら</rt></ruby>く"
+      ],
+      "correct": "<ruby>働<rt>はたら</rt></ruby>く",
+      "explanation": "<ruby>働<rt>はたら</rt></ruby>く: to work."
+    },
+    {
+      "prompt": "How is 仕事⁠ read?",
+      "options": [
+        "しごと",
+        "しこと",
+        "しじ",
+        "つかごと"
+      ],
+      "correct": "しごと",
+      "explanation": "仕事⁠ is read しごと."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>明日<rt>あした</rt></ruby>は<ruby>何<rt>なに</rt></ruby>かよていがありますか。",
+      "options": [
+        "What do you intend to do tomorrow?",
+        "Do you have any plans tomorrow?",
+        "Is there a meeting tomorrow?",
+        "Did you have plans yesterday?"
+      ],
+      "correct": "Do you have any plans tomorrow?",
+      "explanation": "よていがある: to have plans."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to ask your manager about next week. Which is more polite?",
+      "options": [
+        "<ruby>来週<rt>らいしゅう</rt></ruby>はどうするつもりですか。",
+        "<ruby>来週<rt>らいしゅう</rt></ruby>のごよていはいかがですか。",
+        "<ruby>来週<rt>らいしゅう</rt></ruby>は<ruby>何<rt>なに</rt></ruby>をするつもり？",
+        "<ruby>来週<rt>らいしゅう</rt></ruby>はどうしようと<ruby>思<rt>おも</rt></ruby>う？"
+      ],
+      "correct": "<ruby>来週<rt>らいしゅう</rt></ruby>のごよていはいかがですか。",
+      "explanation": "Ask a senior about よてい, not つもり."
+    },
+    {
+      "prompt": "Choose: \"I have no intention of quitting.\"",
+      "options": [
+        "やめないよていです。",
+        "やめようと<ruby>思<rt>おも</rt></ruby>います。",
+        "やめるつもりはありません。",
+        "やめるつもりでした。"
+      ],
+      "correct": "やめるつもりはありません。",
+      "explanation": "つもりはありません: strong no."
+    },
+    {
+      "prompt": "Which describes a timetable, not someone's will?",
+      "options": [
+        "<ruby>三時<rt>さんじ</rt></ruby>に<ruby>出<rt>で</rt></ruby>るつもりです。",
+        "<ruby>三時<rt>さんじ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ようと<ruby>思<rt>おも</rt></ruby>います。",
+        "<ruby>三時<rt>さんじ</rt></ruby>に<ruby>出<rt>で</rt></ruby>よう。",
+        "かいぎは<ruby>三時<rt>さんじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わるよていです。"
+      ],
+      "correct": "かいぎは<ruby>三時<rt>さんじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わるよていです。",
+      "explanation": "よてい: the schedule."
+    },
+    {
+      "prompt": "Read: <ruby>体<rt>からだ</rt></ruby>がいちばん<ruby>大事<rt>だいじ</rt></ruby>です。 What does the speaker mean?",
+      "options": [
+        "Health is the most important thing.",
+        "The body is the biggest thing.",
+        "Work comes first.",
+        "Exercise is fun."
+      ],
+      "correct": "Health is the most important thing.",
+      "explanation": "<ruby>大事<rt>だいじ</rt></ruby>: important."
+    },
+    {
+      "prompt": "Review: what is the volitional form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>き</rt></ruby>よう",
+        "<ruby>来<rt>こ</rt></ruby>よう",
+        "<ruby>来<rt>く</rt></ruby>よう",
+        "<ruby>来<rt>こ</rt></ruby>ろう"
+      ],
+      "correct": "<ruby>来<rt>こ</rt></ruby>よう",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-5-thinking-of",
+    "japanese-n4-unit-4-if-it-rains",
+    "japanese-n4-unit-3-now-i-can"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,465 @@
+{
+  "id": "japanese-n4-unit-5-lets-go",
+  "slug": "n4-unit-5-lets-go",
+  "unit": "Japanese N4 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Let's Go!",
+  "title_jp": "いこう",
+  "objectives": [
+    "I can suggest plans in casual speech.",
+    "Make the volitional form of every verb group",
+    "Offer and suggest with 〜(よ)うか",
+    "Talk about films, clothes and going out"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>映画<rt>えいが</rt></ruby>",
+      "",
+      "film, movie"
+    ],
+    [
+      "<ruby>洋服<rt>ようふく</rt></ruby>",
+      "",
+      "(Western) clothes"
+    ],
+    [
+      "<ruby>服<rt>ふく</rt></ruby>",
+      "",
+      "clothes"
+    ],
+    [
+      "<ruby>洋食<rt>ようしょく</rt></ruby>",
+      "",
+      "Western food"
+    ],
+    [
+      "かいもの",
+      "",
+      "shopping"
+    ],
+    [
+      "デパート",
+      "",
+      "department store"
+    ],
+    [
+      "そろそろ",
+      "",
+      "soon, it's about time"
+    ],
+    [
+      "いっしょに",
+      "",
+      "together"
+    ],
+    [
+      "つかれる",
+      "",
+      "to get tired"
+    ],
+    [
+      "ひと<ruby>休<rt>やす</rt></ruby>み",
+      "",
+      "a short break"
+    ],
+    [
+      "きめる",
+      "",
+      "to decide"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "映画",
+      "word_reading": "えいが"
+    },
+    {
+      "word_japanese": "洋服",
+      "word_reading": "ようふく"
+    },
+    {
+      "word_japanese": "服",
+      "word_reading": "ふく"
+    },
+    {
+      "word_japanese": "洋食",
+      "word_reading": "ようしょく"
+    }
+  ],
+  "concept": {
+    "title": "Let's…: the volitional form",
+    "text": "The volitional form is the casual version of 〜ましょう.\n\nGroup 1: change the last sound to the お-row and add う.\n<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>こう, <ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>もう, <ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>とう\nGroup 2: る → よう. <ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べよう, <ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>よう\nIrregular: する → しよう, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう\n\n<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>こう。 Let's go and see a film.\n\nWith か it offers or asks: <ruby>手<rt>て</rt></ruby>つだおうか。 Shall I help?",
+    "examples": [
+      "V(お-row) + う / V-る → V-よう",
+      "する → しよう / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう",
+      "V-(よ)うか (shall I / shall we)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Volitional form: let's",
+      "pattern": "<ruby>行<rt>い</rt></ruby>こう / <ruby>食<rt>た</rt></ruby>べよう / しよう / <ruby>来<rt>こ</rt></ruby>よう",
+      "explanation": "Friends and family use the volitional form instead of 〜ましょう. It means \"let's\".",
+      "examples": [
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>こう。",
+          "romaji": "",
+          "meaning": "Let's go and see a film today."
+        },
+        {
+          "japanese": "おなかがすいたね。<ruby>何<rt>なに</rt></ruby>か<ruby>食<rt>た</rt></ruby>べよう。",
+          "romaji": "",
+          "meaning": "I'm hungry. Let's eat something."
+        },
+        {
+          "japanese": "つかれたから、ひと<ruby>休<rt>やす</rt></ruby>みしよう。",
+          "romaji": "",
+          "meaning": "I'm tired. Let's take a short break."
+        },
+        {
+          "japanese": "そろそろ<ruby>出<rt>で</rt></ruby>よう。",
+          "romaji": "",
+          "meaning": "Let's head off soon."
+        },
+        {
+          "japanese": "また<ruby>来<rt>こ</rt></ruby>ようね。",
+          "romaji": "",
+          "meaning": "Let's come again."
+        }
+      ],
+      "notes": [
+        "To a teacher or a stranger, keep 〜ましょう.",
+        "The volitional of ある is not used; say あるといいね instead."
+      ]
+    },
+    {
+      "title": "Shall I? Shall we?: 〜(よ)うか",
+      "pattern": "V-(よ)うか",
+      "explanation": "Adding か turns the suggestion into a question: an offer, or a suggestion you want the other person to agree to.",
+      "examples": [
+        {
+          "japanese": "にもつ、<ruby>持<rt>も</rt></ruby>とうか。",
+          "romaji": "",
+          "meaning": "Shall I carry your bag?"
+        },
+        {
+          "japanese": "どこで<ruby>食<rt>た</rt></ruby>べようか。",
+          "romaji": "",
+          "meaning": "Where shall we eat?"
+        },
+        {
+          "japanese": "デパートで<ruby>洋服<rt>ようふく</rt></ruby>を<ruby>見<rt>み</rt></ruby>ようか。",
+          "romaji": "",
+          "meaning": "Shall we look at clothes at the department store?"
+        },
+        {
+          "japanese": "<ruby>何時<rt>なんじ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>おうか。",
+          "romaji": "",
+          "meaning": "What time shall we meet?"
+        }
+      ],
+      "notes": [
+        "The polite version is 〜ましょうか: <ruby>持<rt>も</rt></ruby>ちましょうか."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>新<rt>あたら</rt></ruby>しい<ruby>服<rt>ふく</rt></ruby>を<ruby>買<rt>か</rt></ruby>いたいです。",
+      "I want to buy some new clothes."
+    ],
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>映画<rt>えいが</rt></ruby>がすきです。",
+      "I like Japanese films."
+    ],
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>の<ruby>昼<rt>ひる</rt></ruby>ごはんは<ruby>洋食<rt>ようしょく</rt></ruby>にしました。",
+      "I went for Western food for lunch today."
+    ],
+    [
+      "<ruby>土<rt>ど</rt></ruby>よう<ruby>日<rt>び</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちとかいものに<ruby>行<rt>い</rt></ruby>きます。",
+      "I'm going shopping with a friend on Saturday."
+    ]
+  ],
+  "dialogue": [
+    [
+      "けん",
+      "<ruby>今日<rt>きょう</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>こうよ。",
+      "アナ",
+      "いいね。<ruby>何時<rt>なんじ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>おうか。"
+    ],
+    [
+      "マイ",
+      "つかれたね。ひと<ruby>休<rt>やす</rt></ruby>みしよう。",
+      "リン",
+      "うん、あそこでコーヒーを<ruby>飲<rt>の</rt></ruby>もう。"
+    ],
+    [
+      "ゆき",
+      "デパートで<ruby>洋服<rt>ようふく</rt></ruby>を<ruby>見<rt>み</rt></ruby>ようか。",
+      "リー",
+      "いいよ。いっしょに<ruby>行<rt>い</rt></ruby>こう。"
+    ],
+    [
+      "アナ",
+      "そろそろ<ruby>出<rt>で</rt></ruby>ようか。",
+      "けん",
+      "うん、<ruby>行<rt>い</rt></ruby>こう。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "映",
+      "onyomi": [
+        "エイ"
+      ],
+      "kunyomi": [
+        "うつ.る",
+        "うつ.す",
+        "は.える",
+        "-ば.え"
+      ],
+      "meaning_en": "reflect, project",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "映画",
+          "reading": "えいが",
+          "en": "film"
+        },
+        {
+          "word": "映る",
+          "reading": "うつる",
+          "en": "to be reflected"
+        }
+      ],
+      "mnemonic": "The sun (日) shining in the middle (央) of a screen: a projected picture."
+    },
+    {
+      "char": "画",
+      "onyomi": [
+        "ガ",
+        "カク",
+        "エ",
+        "カイ"
+      ],
+      "kunyomi": [
+        "えが.く",
+        "かく.する",
+        "かぎ.る",
+        "はかりごと",
+        "はか.る"
+      ],
+      "meaning_en": "picture",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "映画",
+          "reading": "えいが",
+          "en": "film"
+        },
+        {
+          "word": "画家",
+          "reading": "がか",
+          "en": "painter"
+        }
+      ],
+      "mnemonic": "A field (田) drawn inside a frame: a picture."
+    },
+    {
+      "char": "洋",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "ocean, Western",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "洋服",
+          "reading": "ようふく",
+          "en": "Western clothes"
+        },
+        {
+          "word": "洋食",
+          "reading": "ようしょく",
+          "en": "Western food"
+        }
+      ],
+      "mnemonic": "Water (氵) with many sheep (羊) of waves: the ocean, and what came across it."
+    },
+    {
+      "char": "服",
+      "onyomi": [
+        "フク"
+      ],
+      "kunyomi": [],
+      "meaning_en": "clothes",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "服",
+          "reading": "ふく",
+          "en": "clothes"
+        },
+        {
+          "word": "洋服",
+          "reading": "ようふく",
+          "en": "Western clothes"
+        }
+      ],
+      "mnemonic": "Something worn on the body (月) and fastened by hand: clothes."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 4): complete <ruby>雨<rt>あめ</rt></ruby>がふっ＿＿、<ruby>行<rt>い</rt></ruby>きます。 (even if)",
+      "options": [
+        "たら",
+        "ても",
+        "と",
+        "ば"
+      ],
+      "correct": "ても",
+      "explanation": "Even if: ても."
+    },
+    {
+      "prompt": "What is the volitional form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>きよう",
+        "<ruby>行<rt>い</rt></ruby>けよう",
+        "<ruby>行<rt>い</rt></ruby>こう",
+        "<ruby>行<rt>い</rt></ruby>くよう"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>こう",
+      "explanation": "く → こう."
+    },
+    {
+      "prompt": "What is the volitional form of <ruby>食<rt>た</rt></ruby>べる?",
+      "options": [
+        "<ruby>食<rt>た</rt></ruby>べこう",
+        "<ruby>食<rt>た</rt></ruby>べろう",
+        "<ruby>食<rt>た</rt></ruby>べおう",
+        "<ruby>食<rt>た</rt></ruby>べよう"
+      ],
+      "correct": "<ruby>食<rt>た</rt></ruby>べよう",
+      "explanation": "Group 2: る → よう."
+    },
+    {
+      "prompt": "What is the volitional form of する?",
+      "options": [
+        "しよう",
+        "すろう",
+        "そう",
+        "せよう"
+      ],
+      "correct": "しよう",
+      "explanation": "する → しよう."
+    },
+    {
+      "prompt": "What is the volitional form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>き</rt></ruby>よう",
+        "<ruby>来<rt>こ</rt></ruby>よう",
+        "<ruby>来<rt>く</rt></ruby>ろう",
+        "<ruby>来<rt>こ</rt></ruby>ろう"
+      ],
+      "correct": "<ruby>来<rt>こ</rt></ruby>よう",
+      "explanation": "<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう."
+    },
+    {
+      "prompt": "How is 映画⁠ read?",
+      "options": [
+        "えいかく",
+        "えが",
+        "えいが",
+        "えいかい"
+      ],
+      "correct": "えいが",
+      "explanation": "映画⁠ is read えいが."
+    },
+    {
+      "prompt": "Choose the meaning of にもつ、<ruby>持<rt>も</rt></ruby>とうか。",
+      "options": [
+        "Can you carry my bag?",
+        "I carried the bag.",
+        "Did you bring a bag?",
+        "Shall I carry your bag?"
+      ],
+      "correct": "Shall I carry your bag?",
+      "explanation": "V-(よ)うか: an offer."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You suggest going to a film to a close friend. What do you say?",
+      "options": [
+        "<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きましょうか、<ruby>先生<rt>せんせい</rt></ruby>。",
+        "<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたい。",
+        "<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>った。",
+        "<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>こう。"
+      ],
+      "correct": "<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>こう。",
+      "explanation": "Casual \"let's\": the volitional form."
+    },
+    {
+      "prompt": "What is the volitional form of <ruby>待<rt>ま</rt></ruby>つ?",
+      "options": [
+        "<ruby>待<rt>ま</rt></ruby>とう",
+        "<ruby>待<rt>ま</rt></ruby>ちよう",
+        "<ruby>待<rt>ま</rt></ruby>てよう",
+        "<ruby>待<rt>ま</rt></ruby>つよう"
+      ],
+      "correct": "<ruby>待<rt>ま</rt></ruby>とう",
+      "explanation": "つ → とう."
+    },
+    {
+      "prompt": "To a teacher, which offer is right?",
+      "options": [
+        "にもつを<ruby>持<rt>も</rt></ruby>とうか。",
+        "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+        "にもつを<ruby>持<rt>も</rt></ruby>とう。",
+        "にもつを<ruby>持<rt>も</rt></ruby>ってよ。"
+      ],
+      "correct": "にもつを<ruby>持<rt>も</rt></ruby>ちましょうか。",
+      "explanation": "Polite: 〜ましょうか."
+    },
+    {
+      "prompt": "Read: どこで<ruby>食<rt>た</rt></ruby>べようか。 What is the speaker doing?",
+      "options": [
+        "Saying they already ate",
+        "Refusing to eat",
+        "Asking where to eat together",
+        "Asking what the food is"
+      ],
+      "correct": "Asking where to eat together",
+      "explanation": "V-(よ)うか: shall we."
+    },
+    {
+      "prompt": "Review (Unit 4): complete <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>く＿＿、<ruby>秋<rt>あき</rt></ruby>がいいですよ。",
+      "options": [
+        "と",
+        "ても",
+        "ので",
+        "なら"
+      ],
+      "correct": "なら",
+      "explanation": "Advice for a plan: なら."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-4-even-if",
+    "japanese-n4-unit-4-if-its-kyoto",
+    "japanese-n5-unit-7-invitations"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}
