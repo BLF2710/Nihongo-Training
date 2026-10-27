@@ -20,6 +20,7 @@ These features exist in the repository; this is not a claim that every edge case
 - [x] Course-linked Kanji reference, search/filters, per-user progress, shared flashcards, KanjiVG stroke animation, and meaning/reading/vocabulary practice (10 verified characters).
 - [x] Dashboard and English game section.
 - [x] Messages between learners (by exact username, with block and report), Help & support requests with an admin support inbox, and a study assistant chat (migration `011_communication.sql`).
+- [x] Friends, part two (migration `024_social.sql`): block and report from a profile and a blocked list in Settings; opt-in friend suggestions (friends of friends, same course level); an activity feed with cheers; nudges; friend challenges (most XP or lessons in 3 or 7 days); friend streaks; opt-in "studying now". Settings → *Friends and activity* holds the three opt-in choices.
 - [x] Learning records (migration `020_learning_records.sql`):
   - **Daily review** (`/srs`): spaced repetition (SM-2 style: Again / Hard / Good / Easy) for the words and kanji of completed lessons, at most 20 new cards a day, with a "due today" tile on the dashboard. The scheduler is pure (`nihon-api/src/learning/srsScheduler.ts`).
   - **Mistake notebook** (`/mistakes`): wrong answers from lesson challenges, unit reviews, assessments and mock exams; cleared after two right answers in a row. An assessment's right answers stay hidden (and can't be practised) until the learner passes it.

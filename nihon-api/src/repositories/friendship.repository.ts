@@ -99,7 +99,7 @@ export async function countIncomingPending(userId: number): Promise<number> {
 export async function listConnections(userId: number) {
   const result = await pool.query(
     `SELECT f.id, f.status, f.created_at, f.responded_at, (f.requester_id = $1) AS sent,
-            u.username, COALESCE(p.display_name, u.username) AS display_name, COALESCE(p.profile_visibility, 'private') AS profile_visibility,
+            u.id AS user_id, u.username, COALESCE(p.display_name, u.username) AS display_name, COALESCE(p.profile_visibility, 'private') AS profile_visibility,
             g.xp, ${EFFECTIVE_STREAK_SQL} AS current_streak, ${ACTIVE_TODAY_SQL} AS active_today
        FROM friendships f
        JOIN users u ON u.id = CASE WHEN f.requester_id = $1 THEN f.addressee_id ELSE f.requester_id END
@@ -108,7 +108,7 @@ export async function listConnections(userId: number) {
       WHERE (f.requester_id = $1 OR f.addressee_id = $1) AND f.status IN ('pending', 'accepted') AND u.status = 'active'
       ORDER BY COALESCE(f.responded_at, f.created_at) DESC`, [userId]);
   return result.rows as {
-    id: number; status: "pending" | "accepted"; created_at: Date; responded_at: Date | null; sent: boolean; username: string; display_name: string;
+    id: number; status: "pending" | "accepted"; created_at: Date; responded_at: Date | null; sent: boolean; user_id: number; username: string; display_name: string;
     profile_visibility: LearnerRow["profile_visibility"]; xp: number | null; current_streak: number; active_today: boolean;
   }[];
 }

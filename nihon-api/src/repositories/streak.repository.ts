@@ -25,6 +25,10 @@ export async function recordActivity(db: Queryable, userId: number): Promise<{ c
     `UPDATE user_gamification g SET current_streak = ${next}, longest_streak = GREATEST(g.longest_streak, ${next}),
             last_activity_at = NOW(), updated_at = NOW()
       WHERE g.user_id = $1 RETURNING current_streak, longest_streak`, [userId]);
+  await db.query(
+    `INSERT INTO activity_days (user_id, day)
+     VALUES ($1, (NOW() AT TIME ZONE COALESCE((SELECT time_zone FROM user_profiles WHERE user_id = $1), 'UTC'))::date)
+     ON CONFLICT DO NOTHING`, [userId]);
   const row = result.rows[0];
   return row && { currentStreak: Number(row.current_streak), longestStreak: Number(row.longest_streak) };
 }

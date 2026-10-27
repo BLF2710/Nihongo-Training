@@ -1,13 +1,13 @@
 import { withTransaction } from "../db/transaction";
 import {
   blockState, countRecentMessages, countUnreadConversations, createConversation, findDirectConversationId, findMemberConversation,
-  findMessage, findPersonByUsername, insertMessage, listMemberConversations, listMembers, listMessages, markRead, setBlocked,
+  findMessage, findPersonByUsername, insertMessage, listMemberConversations, listMembers, listMessages, markRead,
 } from "../repositories/conversation.repository";
-import { deletePair } from "../repositories/friendship.repository";
 import { HttpError } from "../utils/http-error";
 import { USERNAME_PATTERN } from "../utils/validation";
 import { cleanBody, enforceRate, idParam, preview, toMessage } from "./conversation-format";
 import { countFriendRequests } from "./friend.service";
+import { setLearnerBlock } from "./learner-block.service";
 import { countUnread as countUnreadNotifications } from "./notification.service";
 import { publish } from "./realtime.service";
 
@@ -83,11 +83,7 @@ export async function sendDirectMessage(userId: number, conversationId: unknown,
 export async function setDirectBlock(userId: number, conversationId: unknown, blocked: unknown) {
   if (typeof blocked !== "boolean") throw new HttpError(400, "Say whether to block or unblock.");
   const { other } = await memberConversation(userId, conversationId);
-  await setBlocked(userId, other.id, blocked);
-  // Blocking also ends any friendship or friend request between the two learners.
-  if (blocked && await withTransaction(client => deletePair(client, userId, other.id))) {
-    for (const id of [userId, other.id]) publish(id, { type: "friends", reason: "updated" });
-  }
+  await setLearnerBlock(userId, other.id, blocked);
   return { blockedByMe: blocked };
 }
 

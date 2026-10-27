@@ -2,7 +2,11 @@ import api from "./axios";
 
 export type FriendshipState = "self" | "friends" | "outgoing" | "incoming" | "none";
 export type Person = { username: string; displayName: string };
-export type Friend = Person & { since: string; progress: { level: number; currentStreak: number; activeToday: boolean } | null };
+export type Friend = Person & {
+  since: string;
+  /** Days in a row you both studied, and whether they're studying right now (only if they chose to show it). */
+  progress: { level: number; currentStreak: number; activeToday: boolean; friendStreak: number; studyingNow: boolean } | null;
+};
 export type FriendRequest = Person & { id: number; sentAt: string };
 export type FriendLists = { friends: Friend[]; incoming: FriendRequest[]; outgoing: FriendRequest[] };
 export type ProfileVisibility = "private" | "friends" | "public";
@@ -14,6 +18,8 @@ export type PublicProfile = Person & {
     xp: number; level: number; rank: string; currentStreak: number; longestStreak: number; activeToday: boolean;
     lessonsCompleted: number; unitsPassed: number; latestUnit: { level: string; number: number; title: string } | null;
     achievements: { id: string; title: string; description: string; earnedAt: string }[]; friends: number;
+    /** Days in a row you and this friend both studied; null unless you are friends. */
+    friendStreak: number | null;
   };
 };
 /** What each visibility setting means, as shown in settings and on your own profile. */

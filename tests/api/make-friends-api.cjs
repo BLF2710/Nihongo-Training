@@ -152,7 +152,7 @@ const tail = String.raw`    const user = name => name + '_x1'; const ana = 'lear
       // Friend list with privacy: cat (friends-only) shows progress to friends, a private friend does not.
       benList = await friends('ben');
       assert.deepEqual(benList.friends.map(f => f.username).sort(), [user('cat'), user('learner')].sort());
-      assert.deepEqual(benList.friends.find(f => f.username === user('learner')).progress, { level: 3, currentStreak: 3, activeToday: true });
+      assert.deepEqual(benList.friends.find(f => f.username === user('learner')).progress, { level: 3, currentStreak: 3, activeToday: true, friendStreak: 0, studyingNow: false });
       assert.equal((await profile('cat', 'ben')).data.visible, true, 'friends-only profile visible to a friend');
       assert.equal((await settings('cat', { visibility: 'private' })).status, 200);
       assert.equal((await friends('ben')).friends.find(f => f.username === user('cat')).progress, null, "a private friend's progress stays hidden");

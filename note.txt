@@ -82,12 +82,12 @@ How it works today: friend requests live in the friendships table (pending / acc
 pair). Live updates use server-sent events at GET /api/events; the server only says "something changed" and
 the page reloads through the normal API. Admins can switch Friends off under Manage content.
 Ideas, roughly from small to large:
-[ ] Block and report from a profile (blocking is only in Messages today) and a "blocked learners" list in settings
-[ ] Friend suggestions: friends of friends, learners at the same level or unit (opt-in, never a public directory)
-[ ] Activity feed: "Mika passed Unit 3", "Ren reached a 7-day streak" (needs an events table and per-item privacy)
-[ ] Friend challenges: same kana or kanji round, compare scores; friend streaks (both study on the same day)
-[ ] Nudges and cheers: one tap "keep your streak going" (rate-limited), reactions to achievements
-[ ] Online / studying-now presence (from the live stream; must be optional)
+[x] Block and report from a profile and a "blocked learners" list in settings (migration 024)
+[x] Friend suggestions: friends of friends and learners on the same course level; both sides opt in, never a public directory
+[x] Activity feed: lessons, passed units and achievements of friends who share (14 days); streak milestones not yet shown
+[x] Friend challenges (most XP or most lessons in 3 or 7 days) and friend streaks (activity_days); same-round kana/kanji duels not done
+[x] Nudges (once a day per friend, not to friends who already studied) and cheers on feed items (once per item)
+[x] "Studying now" presence: opt-in, from study-time reports in the last 3 minutes
 [ ] Finer privacy: choose separately who sees level, streak, achievements, course progress
 [ ] Profile pictures stored on our own server (outside image addresses are not shown, to avoid tracking)
 [ ] Browser push or email digests for notifications (the notification centre and its history exist)

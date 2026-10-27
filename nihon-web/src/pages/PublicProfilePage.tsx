@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PersonAvatar from "../components/PersonAvatar";
+import ProfileSafetyActions from "../components/ProfileSafetyActions";
 import { startDirectConversation } from "../api/communication";
 import { apiErrorMessage } from "../api/errors";
 import { answerFriendRequest, cancelFriendRequest, fetchPublicProfile, removeFriend, sendFriendRequest } from "../api/friends";
@@ -27,6 +28,7 @@ function ProfileView({ username }: { username: string }) {
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState(false);
   const [confirmRemove, setConfirmRemove] = useState(false);
+  const [isBlocked, setIsBlocked] = useState(false);
 
   const load = useCallback((signal?: AbortSignal) => fetchPublicProfile(username, signal)
     .then(profile => { setData(profile); setError(null); })
@@ -46,6 +48,11 @@ function ProfileView({ username }: { username: string }) {
     finally { setBusy(false); }
   };
 
+  if (isBlocked) return <Page><section role="status" className="rounded-3xl border border-gray-200 bg-white p-8 text-center">
+    <h1 className="text-2xl font-black">You blocked @{username}</h1>
+    <p className="mt-2 text-gray-600">They can't find, message or add you any more. You can unblock them in Settings.</p>
+    <div className="mt-5 flex justify-center gap-3"><Link to="/profile?tab=settings" className={friendButton}>Blocked learners</Link><Link to="/friends" className={friendPrimary}>Go to Friends</Link></div>
+  </section></Page>;
   if (error) return <Page><section className="rounded-3xl border border-gray-200 bg-white p-8 text-center">
     <h1 className="text-2xl font-black">{error.missing ? "Learner not found" : "Profile unavailable"}</h1>
     <p className="mt-2 text-gray-600">{error.missing ? "No learner has that username." : error.text}</p>
@@ -84,10 +91,12 @@ function ProfileView({ username }: { username: string }) {
           <h1 className="break-words text-3xl font-black">{data.displayName}</h1>
           <p className="text-gray-600">@{data.username} · Joined {joined}</p>
           {profile?.activeToday && <p className="mt-1 text-sm font-semibold text-emerald-700">Studied today</p>}
+          {!!profile?.friendStreak && <p className="mt-1 text-sm font-semibold text-amber-800"><span aria-hidden="true">🤝 </span>You've both studied {profile.friendStreak} {profile.friendStreak === 1 ? "day" : "days"} in a row</p>}
         </div>
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-2">{actions}</div>
       {notice && <p role="status" className="mt-3 text-sm text-gray-700">{notice}</p>}
+      {!self && <ProfileSafetyActions username={data.username} onBlocked={() => setIsBlocked(true)} />}
     </section>
 
     {!profile ? <section className="mt-6 rounded-2xl border border-gray-200 bg-white p-6 text-center">

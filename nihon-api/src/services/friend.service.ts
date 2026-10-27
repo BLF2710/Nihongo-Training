@@ -7,7 +7,10 @@ import {
   findLearnerByUsername, findPair, findPairNow, findPublicProfile, leaderboardRows, listConnections, listPassedAssessments, lockPair, savePendingRequest, setFriendshipStatus,
 } from "../repositories/friendship.repository";
 import type { FriendshipRow, LearnerRow } from "../repositories/friendship.repository";
+import { cancelOpenChallenges } from "../repositories/friend-challenge.repository";
+import { findLocalToday, findStudyingNow, listActivityDays } from "../repositories/friend-activity.repository";
 import { deleteFriendRequestNotifications, insertNotification, readFriendRequestNotifications } from "../repositories/notification.repository";
+import { friendStreak } from "../social/friendStreak";
 import { HttpError } from "../utils/http-error";
 import { USERNAME_PATTERN } from "../utils/validation";
 import { idParam } from "./conversation-format";
@@ -20,23 +23,27 @@ const MAX_PENDING_SENT = 50;
 const MAX_FRIENDS = 500;
 // After a request is declined, the same learner can ask again after this long.
 const DECLINE_COOL_DOWN_MS = 24 * 60 * 60 * 1000;
+// Long enough to cover any friend streak shown; activity_days goes back this far.
+const STREAK_LOOKBACK_DAYS = 400;
+// Study time is reported about once a minute while a learner is on a learning page.
+const STUDYING_NOW_SECONDS = 3 * 60;
 
 export type FriendshipState = "self" | "friends" | "outgoing" | "incoming" | "none";
-type Notice = [number, RealtimeEvent];
+export type Notice = [number, RealtimeEvent];
 
-const person = (learner: { username: string; display_name: string }) => ({ username: learner.username, displayName: learner.display_name });
-const updated = (userId: number): Notice => [userId, { type: "friends", reason: "updated" }];
-const bell = (userId: number): Notice => [userId, { type: "notifications" }];
+export const person = (learner: { username: string; display_name: string }) => ({ username: learner.username, displayName: learner.display_name });
+export const updated = (userId: number): Notice => [userId, { type: "friends", reason: "updated" }];
+export const bell = (userId: number): Notice => [userId, { type: "notifications" }];
 
 /** Friends are for learner accounts; the support team is reached through Help & support. */
-async function requireLearner(userId: number): Promise<LearnerRow> {
+export async function requireLearner(userId: number): Promise<LearnerRow> {
   const me = await findLearnerById(userId);
   if (!me || me.status !== "active" || me.role !== "learner") throw new HttpError(403, "Friends are available to learner accounts.");
   return me;
 }
 
 /** Another active learner by exact username. Learners who blocked each other are not found, so nothing is revealed. */
-async function findOther(userId: number, username: unknown): Promise<LearnerRow> {
+export async function findOther(userId: number, username: unknown): Promise<LearnerRow> {
   if (typeof username !== "string" || !USERNAME_PATTERN.test(username.trim())) throw new HttpError(400, "Enter a username (3–30 letters, numbers or underscores).");
   const other = await findLearnerByUsername(username.trim());
   if (!other || other.status !== "active" || other.role !== "learner") throw new HttpError(404, "No learner has that username.");
@@ -54,7 +61,7 @@ function stateOf(row: FriendshipRow | undefined, userId: number): { state: Frien
 }
 
 // Changes run in a transaction that locks the pair, and live notifications go out only after it commits.
-async function change<T>(work: (notices: Notice[], client: Parameters<Parameters<typeof withTransaction>[0]>[0]) => Promise<T>): Promise<T> {
+export async function change<T>(work: (notices: Notice[], client: Parameters<Parameters<typeof withTransaction>[0]>[0]) => Promise<T>): Promise<T> {
   const notices: Notice[] = [];
   const result = await withTransaction(client => work(notices, client));
   for (const [userId, event] of notices) publish(userId, event);
@@ -136,20 +143,39 @@ export async function removeFriend(userId: number, username: unknown) {
     const row = await findPair(client, userId, other.id);
     if (row?.status !== "accepted") throw new HttpError(404, `You aren't friends with @${other.username}.`);
     await deleteFriendship(client, row.id);
+    await cancelOpenChallenges(client, userId, other.id);
     notices.push(updated(other.id), updated(userId));
     return { state: "none" as const };
   });
 }
 
-/** Friends, requests received and requests sent. Friends with a private profile show no level or streak. */
+/** Friend streaks (days in a row both studied) and which friends are studying now (only those who chose to show it). */
+async function getFriendExtras(userId: number, friendIds: number[]) {
+  if (friendIds.length === 0) return { streaks: new Map<number, number>(), studyingNow: new Set<number>() };
+  const [days, today, studyingNow] = await Promise.all([
+    listActivityDays([userId, ...friendIds], STREAK_LOOKBACK_DAYS), findLocalToday(userId), findStudyingNow(friendIds, STUDYING_NOW_SECONDS),
+  ]);
+  const mine = days.get(userId) ?? [];
+  return { streaks: new Map(friendIds.map(id => [id, friendStreak(mine, days.get(id) ?? [], today)])), studyingNow };
+}
+
+/**
+ * Friends, requests received and requests sent. Friends with a private profile show no level, streaks or
+ * "studying now".
+ */
 export async function listFriends(userId: number) {
   await requireLearner(userId);
   const rows = await listConnections(userId);
+  const sharing = rows.filter(row => row.status === "accepted" && row.profile_visibility !== "private").map(row => row.user_id);
+  const extras = await getFriendExtras(userId, sharing);
   const who = (row: (typeof rows)[number]) => ({ username: row.username, displayName: row.display_name });
   return {
     friends: rows.filter(row => row.status === "accepted").map(row => ({
       ...who(row), since: row.responded_at ?? row.created_at,
-      progress: row.profile_visibility === "private" ? null : { level: getLevelFromXP(Number(row.xp ?? 0)), currentStreak: Number(row.current_streak), activeToday: Boolean(row.active_today) },
+      progress: row.profile_visibility === "private" ? null : {
+        level: getLevelFromXP(Number(row.xp ?? 0)), currentStreak: Number(row.current_streak), activeToday: Boolean(row.active_today),
+        friendStreak: extras.streaks.get(row.user_id) ?? 0, studyingNow: extras.studyingNow.has(row.user_id),
+      },
     })).sort((a, b) => a.displayName.localeCompare(b.displayName)),
     incoming: rows.filter(row => row.status === "pending" && !row.sent).map(row => ({ id: row.id, ...who(row), sentAt: row.created_at })),
     outgoing: rows.filter(row => row.status === "pending" && row.sent).map(row => ({ id: row.id, ...who(row), sentAt: row.created_at })),
@@ -193,8 +219,9 @@ export async function getPublicProfile(viewerId: number, username: unknown) {
     visible,
   };
   if (!visible) return base;
-  const [details, achievements, passed, friends] = await Promise.all([
+  const [details, achievements, passed, friends, extras] = await Promise.all([
     findPublicProfile(owner.id), listEarnedAchievements(owner.id), listPassedAssessments(owner.id), countFriends(owner.id),
+    state === "friends" ? getFriendExtras(viewerId, [owner.id]) : null,
   ]);
   const xp = Number(details?.xp ?? 0);
   const passedUnits = UNITS.filter(unit => !unit.isPlaceholder && unit.assessmentId && passed.includes(unit.assessmentId));
@@ -209,6 +236,7 @@ export async function getPublicProfile(viewerId: number, username: unknown) {
       latestUnit: latest ? { level: /^japanese-(n[1-5])-/.exec(latest.id)?.[1].toUpperCase() ?? "", number: latest.number, title: latest.title } : null,
       achievements: achievements.map(item => ({ id: item.id, title: item.title, description: item.description, earnedAt: item.earned_at })),
       friends,
+      friendStreak: extras?.streaks.get(owner.id) ?? null,
     },
   };
 }

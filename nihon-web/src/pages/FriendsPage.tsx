@@ -2,13 +2,17 @@ import { useCallback, useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import FriendActivityFeed from "../components/FriendActivityFeed";
+import FriendChallenges, { ChallengeForm } from "../components/FriendChallenges";
 import FriendsLeaderboard from "../components/FriendsLeaderboard";
+import FriendSuggestions from "../components/FriendSuggestions";
 import InviteCard from "../components/InviteCard";
 import PersonAvatar from "../components/PersonAvatar";
 import { startDirectConversation } from "../api/communication";
 import { apiErrorMessage } from "../api/errors";
 import { answerFriendRequest, cancelFriendRequest, fetchFriends, removeFriend, sendFriendRequest } from "../api/friends";
-import type { FriendLists, Person } from "../api/friends";
+import type { Friend, FriendLists, Person } from "../api/friends";
+import { nudgeFriend } from "../api/social";
 import { friendButton, friendPrimary } from "../lib/friendStyles";
 import { refreshInbox } from "../lib/inbox";
 import { useRealtime, useRealtimeStatus } from "../lib/realtime";
@@ -30,6 +34,7 @@ export default function FriendsPage() {
   const [notice, setNotice] = useState<{ text: string; tone: "ok" | "error" } | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [confirmRemove, setConfirmRemove] = useState<string | null>(null);
+  const [challengeFor, setChallengeFor] = useState<string | null>(null);
 
   const load = useCallback((signal?: AbortSignal) => fetchFriends(signal)
     .then(data => { setLists(data); setError(""); })
@@ -61,6 +66,9 @@ export default function FriendsPage() {
     });
   };
   const message = (person: Person) => void run(`message:${person.username}`, async () => navigate(`/messages/${(await startDirectConversation(person.username)).id}`));
+  // Friends who studied today aren't nudged; for private profiles that isn't known, so the button stays.
+  const canNudge = (friend: Friend) => !friend.progress?.activeToday;
+  const endChallengeForm = (done: string) => { setChallengeFor(null); if (done) setNotice({ text: done, tone: "ok" }); };
   const profileLink = (person: Person) => <Link to={`/u/${encodeURIComponent(person.username)}`} className="min-w-0 hover:underline"><span className="block truncate font-bold text-gray-900">{person.displayName}</span><span className="block truncate text-sm text-gray-500">@{person.username}</span></Link>;
 
   return <div className="min-h-screen bg-gray-50"><Navbar /><main className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
@@ -95,7 +103,9 @@ export default function FriendsPage() {
         </li>)}</ul>
       </section>}
 
+      <FriendChallenges />
       <FriendsLeaderboard />
+      <FriendActivityFeed />
 
       <section aria-labelledby="friends-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
         <h2 id="friends-heading" className="text-lg font-bold">Your friends ({lists.friends.length})</h2>
@@ -103,13 +113,16 @@ export default function FriendsPage() {
         <ul className="mt-3 divide-y divide-gray-100">{lists.friends.map(friend => <li key={friend.username} className="flex flex-wrap items-center gap-3 py-3">
           <PersonAvatar name={friend.displayName} username={friend.username} />
           <div className="min-w-0 flex-1">{profileLink(friend)}<p className="text-sm text-gray-600">{friend.progress
-            ? <>Level {friend.progress.level} · {friend.progress.currentStreak > 0 ? `🔥 ${friend.progress.currentStreak}-day streak` : "No current streak"}{friend.progress.activeToday && <> · <span className="font-semibold text-emerald-700">studied today</span></>}</>
+            ? <>Level {friend.progress.level} · {friend.progress.currentStreak > 0 ? `🔥 ${friend.progress.currentStreak}-day streak` : "No current streak"}{friend.progress.activeToday && <> · <span className="font-semibold text-emerald-700">studied today</span></>}{friend.progress.friendStreak > 0 && <> · <span aria-hidden="true">🤝</span> {friend.progress.friendStreak} {friend.progress.friendStreak === 1 ? "day" : "days"} together</>}{friend.progress.studyingNow && <> · <span className="inline-flex items-center gap-1 font-semibold text-emerald-700"><span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500" />studying now</span></>}</>
             : "Progress is private"}</p></div>
           {confirmRemove === friend.username
             ? <div className="flex w-full flex-wrap items-center justify-end gap-2 sm:w-auto"><span className="text-sm">Remove @{friend.username}?</span><button className={friendButton + " text-red-700"} disabled={!!busy} onClick={() => void run(`remove:${friend.username}`, async () => { await removeFriend(friend.username); setConfirmRemove(null); }, `@${friend.username} is no longer your friend.`)}>Remove</button><button className={friendButton} onClick={() => setConfirmRemove(null)}>Keep</button></div>
-            : <div className="flex w-full justify-end gap-2 sm:w-auto"><button className={friendButton} disabled={!!busy} onClick={() => message(friend)} aria-label={`Message ${friend.username}`}>Message</button><button className={friendButton} disabled={!!busy} onClick={() => setConfirmRemove(friend.username)} aria-label={`Remove ${friend.username}`}>Remove</button></div>}
+            : <div className="flex w-full flex-wrap justify-end gap-2 sm:w-auto">{canNudge(friend) && <button className={friendButton} disabled={!!busy} onClick={() => void run(`nudge:${friend.username}`, () => nudgeFriend(friend.username), `You nudged @${friend.username}.`)} aria-label={`Nudge ${friend.username} to study`}>👉 Nudge</button>}<button className={friendButton} disabled={!!busy} onClick={() => setChallengeFor(challengeFor === friend.username ? null : friend.username)} aria-expanded={challengeFor === friend.username} aria-label={`Challenge ${friend.username}`}>⚔️ Challenge</button><button className={friendButton} disabled={!!busy} onClick={() => message(friend)} aria-label={`Message ${friend.username}`}>Message</button><button className={friendButton} disabled={!!busy} onClick={() => setConfirmRemove(friend.username)} aria-label={`Remove ${friend.username}`}>Remove</button></div>}
+          {challengeFor === friend.username && <ChallengeForm friend={friend} onDone={endChallengeForm} />}
         </li>)}</ul>}
       </section>
+
+      <FriendSuggestions onRequested={text => { setNotice({ text, tone: "ok" }); void load(); }} />
 
       {lists.outgoing.length > 0 && <section aria-labelledby="outgoing-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
         <h2 id="outgoing-heading" className="text-lg font-bold">Sent requests</h2>
