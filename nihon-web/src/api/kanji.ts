@@ -17,3 +17,14 @@ export async function startKanjiPractice(size: number, kanjiId?: string) {
 export async function answerKanji(questionId: string, answerIndex: number) {
   return (await api.post<KanjiAnswer>("/kanji/answer", { questionId, answerIndex })).data;
 }
+
+/** The learner's own flashcard list: kanji ids in the order they were added. */
+export async function fetchKanjiFlashcards(signal?: AbortSignal) {
+  return (await api.get<{ kanjiIds: string[] }>("/kanji/flashcards", { signal })).data.kanjiIds;
+}
+export async function addKanjiFlashcard(kanjiId: string) {
+  return (await api.put<{ kanjiIds: string[] }>(`/kanji/flashcards/${encodeURIComponent(kanjiId)}`)).data.kanjiIds;
+}
+export async function removeKanjiFlashcard(kanjiId: string) {
+  return (await api.delete<{ kanjiIds: string[] }>(`/kanji/flashcards/${encodeURIComponent(kanjiId)}`)).data.kanjiIds;
+}

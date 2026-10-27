@@ -9,8 +9,9 @@ import { fetchKanjiProgress } from "../api/kanji";
 import type { KanjiProgress } from "../api/kanji";
 import KanaStrokeOrder from "../components/KanaStrokeOrder";
 import strokeData from "../data/kanjiStrokes.json";
-import KanjiFlashcards from "../components/KanjiFlashcards";
-import { COURSE_LEVELS, isCourseLevel, levelOfId, unitIdOf, useCourseLevel } from "../lib/courseLevel";
+import KanjiFlashcardButton from "../components/KanjiFlashcardButton";
+import { COURSE_LEVELS, isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
+import { isInKanjiScope, KANJI_PLACEMENT as placement } from "../lib/kanjiPlacement";
 
 const labels = { untested: "Untested", learning: "Learning", mastered: "Mastered" };
 const masteryStyle = {
@@ -19,12 +20,6 @@ const masteryStyle = {
   untested: { card: "border-gray-200 bg-gray-50/50 hover:bg-gray-100/70 text-gray-800", active: "bg-gray-500 text-white", idle: "bg-gray-100 text-gray-600 hover:bg-gray-200", icon: "⚪" },
 };
 const lessons = JAPANESE_STUDY_UNITS.flatMap(unit => unit.lessons.map(lesson => ({ ...lesson, unitNumber: unit.number })));
-// A kanji belongs to the level and unit of the first lesson that introduces it.
-const placement = new Map(KANJI.map(item => {
-  const lessonId = introducingLessons(item.id)[0];
-  const unit = JAPANESE_STUDY_UNITS.find(candidate => candidate.id === (lessonId && unitIdOf(lessonId)));
-  return [item.id, { level: lessonId ? levelOfId(lessonId) : null, unit }];
-}));
 const select = "mt-2 block w-full rounded-xl border border-gray-200 bg-white p-3 font-normal focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 const normalize = (text: string) => text.normalize("NFKC").toLowerCase().replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[.\-\s]/g, "");
 
@@ -35,7 +30,6 @@ export default function KanjiPage() {
   const [reload, setReload] = useState(0);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"all" | KanjiProgress["status"]>("all");
-  const [study, setStudy] = useState(false);
   // The level and unit filters live in the address, so they survive opening a character and coming back.
   const [params, setParams] = useSearchParams();
   const courseLevel = useCourseLevel();
@@ -43,7 +37,7 @@ export default function KanjiPage() {
   const level = requestedLevel === "all" || isCourseLevel(requestedLevel) ? requestedLevel : courseLevel;
   const levelUnits = JAPANESE_STUDY_UNITS.filter(unit => levelOfId(unit.id) === level && KANJI.some(item => placement.get(item.id)?.unit?.id === unit.id));
   const unitId = levelUnits.find(unit => unit.id === params.get("unit"))?.id ?? "all";
-  const inScope = (id: string) => (level === "all" || placement.get(id)?.level === level) && (unitId === "all" || placement.get(id)?.unit?.id === unitId);
+  const inScope = (id: string) => isInKanjiScope(id, level, unitId);
   const scoped = KANJI.filter(item => inScope(item.id));
   useEffect(() => {
     const controller = new AbortController();
@@ -85,8 +79,7 @@ export default function KanjiPage() {
             <p className="mt-1 text-sm">Last practiced: {state.lastPracticedAt ? new Date(state.lastPracticedAt).toLocaleString() : "Not yet practiced"}</p>
           </div>}
           <Link className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white focus-visible:outline-2" to={`/learn/kanji/practice?kanji=${kanji.id}`}>Practice {kanji.character}</Link>
-          <button className="ml-3 mt-5 rounded-xl border px-5 py-3 font-bold focus-visible:outline-2" aria-expanded={study} onClick={() => setStudy(value => !value)}>Study flashcards</button>
-          {study && <div className="mt-6"><KanjiFlashcards key={kanji.id} kanjiIds={[kanji.id]} /></div>}
+          <KanjiFlashcardButton kanji={kanji} />
         </section>
         <section className="mt-8"><h2 className="text-2xl font-bold">Course vocabulary</h2>
           <p className="mt-2 text-sm text-gray-600">These are the existing lesson vocabulary entries with their Kanji spellings. Only characters in the current Kanji collection have detail links.</p>
@@ -103,8 +96,7 @@ export default function KanjiPage() {
         <h1 className="mt-6 text-3xl font-black">Kanji</h1>
         <p className="mt-2 text-gray-600">Recognize characters through familiar vocabulary from your lessons. Filter by course level and unit to study one set at a time.</p>
         <p className="mt-2 text-sm text-gray-500">Mastered: at least 3 correct answers and 80% displayed accuracy (rounded to whole percent, matching Kana). Only practice answers change progress.</p>
-        <button className="mt-4 rounded-xl border bg-white px-4 py-2 font-bold focus-visible:outline-2" aria-expanded={study} onClick={() => setStudy(value => !value)}>Study flashcards</button>
-        {study && <div className="mt-6"><KanjiFlashcards key={visible.map(item => item.id).join(':')} kanjiIds={visible.map(item => item.id)} /></div>}
+        <Link to={`/learn/kanji/flashcards?${new URLSearchParams({ level, ...(unitId === "all" ? {} : { unit: unitId }) })}`} className="mt-4 inline-block rounded-xl border bg-white px-4 py-2 font-bold focus-visible:outline-2">Study flashcards</Link>
         <section aria-labelledby="kanji-mastery-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="flex flex-col items-start justify-between gap-4 border-b border-gray-100 pb-6 sm:flex-row sm:items-center">
             <div>

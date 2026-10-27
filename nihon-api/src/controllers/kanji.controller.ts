@@ -1,3 +1,4 @@
+import * as kanjiFlashcardService from "../services/kanji-flashcard.service";
 import * as kanjiPracticeService from "../services/kanji-practice.service";
 import { action } from "../utils/action";
 import { HttpError } from "../utils/http-error";
@@ -26,3 +27,12 @@ export const submitAnswer = action(async (req, res) => {
   }
   return res.json(await kanjiPracticeService.answerKanjiQuestion(getUserId(req), questionId, answerIndex));
 }, { label: "Kanji answer", message: "Could not save the answer. You can safely retry." });
+
+export const getFlashcards = action(async (req, res) => res.json(await kanjiFlashcardService.getFlashcards(getUserId(req))),
+  { label: "Kanji flashcards", message: "Could not load your flashcards." });
+
+export const addFlashcard = action(async (req, res) => res.json(await kanjiFlashcardService.addFlashcard(getUserId(req), req.params.kanjiId)),
+  { label: "Add kanji flashcard", message: "Could not add the flashcard." });
+
+export const removeFlashcard = action(async (req, res) => res.json(await kanjiFlashcardService.removeFlashcard(getUserId(req), req.params.kanjiId)),
+  { label: "Remove kanji flashcard", message: "Could not remove the flashcard." });

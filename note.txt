@@ -8,6 +8,7 @@ Done
 [x] Dark mode: Light / Dark / System, saved per browser (header button, admin header)
 [x] Learning language chosen from a menu in the top bar; the sidebar shows only the chosen language
 [x] N4 finished: Units 3–9 written and imported (54 lessons, 147 N4 kanji, 250 in total), N4 mock exam, N4 review bank (migration 021)
+[x] Kanji flashcards: "Add to flashcards" on a kanji's page (list saved per learner, migration 022); "Study flashcards" opens its own screen (my list or the chosen level/unit)
 [x] Streak system: daily streaks now update, follow the learner's time zone, and were rebuilt from past activity
 [x] Listening, speaking, reading and mock exams count toward the streak (a finished round, passage or submitted exam is saved on the server)
 [x] Analytics on the admin overview: active learners (today / 7 / 30 days), 14-day daily actives, unit completion funnel with pass rates, biggest drop-off points, practice volume

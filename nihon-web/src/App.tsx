@@ -32,6 +32,7 @@ import { LanguageProvider } from "./context/LanguageProvider";
 const QuizzesPage = lazy(() => import("./pages/QuizzesPage"));
 const KanjiPage = lazy(() => import("./pages/KanjiPage"));
 const KanjiPracticePage = lazy(() => import("./pages/KanjiPracticePage"));
+const KanjiFlashcardsPage = lazy(() => import("./pages/KanjiFlashcardsPage"));
 const StudyReferencePage = lazy(() => import("./pages/StudyReferencePage"));
 const JapaneseN5LessonPage = lazy(() => import("./pages/JapaneseN5LessonPage"));
 const LessonsPage = lazy(() => import("./pages/LessonsPage"));
@@ -79,6 +80,7 @@ function App() {
           <Route path="/admin/*" element={<ProtectedRoute><Suspense fallback={<p role="status" className="mx-auto max-w-lg p-8">Loading admin…</p>}><AdminPage /></Suspense></ProtectedRoute>} />
           <Route path="/learn/kanji" element={signedInLazy("Loading Kanji…", <KanjiPage />)} />
           <Route path="/learn/kanji/practice" element={signedInLazy("Loading practice…", <KanjiPracticePage />)} />
+          <Route path="/learn/kanji/flashcards" element={signedInLazy("Loading flashcards…", <KanjiFlashcardsPage />)} />
           <Route path="/learn/kanji/:kanjiId" element={signedInLazy("Loading Kanji…", <KanjiPage />)} />
           <Route path="/quizzes" element={signedInLazy("Loading quizzes…", <QuizzesPage />)} />
           <Route path="/quizzes/:unitId" element={signedInLazy("Loading assessment…", <UnitAssessmentPage />)} />
