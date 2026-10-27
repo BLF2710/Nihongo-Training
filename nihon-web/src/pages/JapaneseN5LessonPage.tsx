@@ -7,7 +7,8 @@ import { LessonKanji } from "../components/KanjiReferences";
 import { checkLessonAccess, completeLesson, completionCelebration } from "../api/lessons";
 import { recordLessonChallenge } from "../api/mistakes";
 import { getUserName } from "../lib/authStorage";
-import { N5_LESSONS, type Question } from "../data/japaneseN5Lessons";
+import { N5_LESSONS, type N5Lesson, type Question } from "../data/japaneseN5Lessons";
+import { useLessonBody } from "../lib/lessonBody";
 
 const STEPS = ["Welcome", "Vocabulary", "Concept", "Examples", "Conversation", "Practice", "Challenge"];
 export default function JapaneseN5LessonPage() {
@@ -16,18 +17,26 @@ export default function JapaneseN5LessonPage() {
 }
 
 function LessonSession() {
-  const session = useActivity();
-  const { lessonSlug } = useParams(); const lesson = N5_LESSONS.find((item) => item.slug === lessonSlug);
-  useActivityTitle(lesson?.title ?? "Japanese lesson");
-  const unitNumber = lesson?.unitNumber ?? 1;
-  const unitId = lesson?.unitId ?? `japanese-n5-unit-${unitNumber}`;
-  const lessonNumber = lesson?.lessonNumber ?? (lesson ? N5_LESSONS.indexOf(lesson) + 2 : 0);
-  const storageKey = `lesson-${lessonSlug}-${getUserName() || "guest"}`;
-  const [step, setStep] = useActivityState("step", 0); const [practice, setPractice] = useActivityState<Record<number, string>>("practice", {}); const [challenge, setChallenge] = useActivityState<Record<number, string>>("challenge", {}); const [score, setScore] = useActivityState<number | null>("score", null); const [notice, setNotice] = useState(""); const [error, setError] = useState(""); const [access, setAccess] = useState<"checking" | "allowed" | "locked">("checking");
-  useEffect(() => { if (!lesson) return; checkLessonAccess(lesson.id).then(() => setAccess("allowed")).catch(() => setAccess("locked")); }, [lesson]);
-  const challengeScore = useMemo(() => lesson ? Math.round((lesson.challenge.filter((item, index) => challenge[index] === item.correct).length / lesson.challenge.length) * 100) : 0, [challenge, lesson]);
-  if (!lesson) return <div className="min-h-screen bg-gray-50"><Navbar /><main className="p-8"><p>Lesson not found.</p></main></div>;
+  const { lessonSlug } = useParams(); const summary = N5_LESSONS.find((item) => item.slug === lessonSlug);
+  useActivityTitle(summary?.title ?? "Japanese lesson");
+  const lessonBody = useLessonBody(summary);
+  const [access, setAccess] = useState<"checking" | "allowed" | "locked">("checking");
+  useEffect(() => { if (!summary) return; checkLessonAccess(summary.id).then(() => setAccess("allowed")).catch(() => setAccess("locked")); }, [summary]);
+  const lesson = useMemo(() => summary && lessonBody.status === "ready" ? { ...summary, ...lessonBody.body } : null, [summary, lessonBody]);
+  if (!summary) return <div className="min-h-screen bg-gray-50"><Navbar /><main className="p-8"><p>Lesson not found.</p></main></div>;
   if (access !== "allowed") return <div className="min-h-screen bg-gray-50"><Navbar /><main className="max-w-4xl mx-auto p-8"><div className="mt-6 rounded-3xl border bg-white p-8"><h1 className="text-2xl font-black">{access === "checking" ? "Checking lesson access…" : "🔒 Lesson locked"}</h1><p className="mt-2 text-gray-600">{access === "checking" ? "" : "Complete the required previous lesson and meet its progression requirements first."}</p></div></main></div>;
+  if (!lesson) return <div className="min-h-screen bg-gray-50"><Navbar /><main className="max-w-4xl mx-auto p-8"><div className="mt-6 rounded-3xl border bg-white p-8" role={lessonBody.status === "failed" ? "alert" : "status"}><h1 className="text-2xl font-black">{lessonBody.status === "failed" ? "This lesson could not be loaded" : "Loading lesson…"}</h1>{lessonBody.status === "failed" && <p className="mt-2 text-gray-600">Check your connection and reload the page.</p>}</div></main></div>;
+  return <LessonSteps lesson={lesson} />;
+}
+
+function LessonSteps({ lesson }: { lesson: N5Lesson }) {
+  const session = useActivity();
+  const unitNumber = lesson.unitNumber ?? 1;
+  const unitId = lesson.unitId ?? `japanese-n5-unit-${unitNumber}`;
+  const lessonNumber = lesson.lessonNumber ?? N5_LESSONS.findIndex((item) => item.id === lesson.id) + 2;
+  const storageKey = `lesson-${lesson.slug}-${getUserName() || "guest"}`;
+  const [step, setStep] = useActivityState("step", 0); const [practice, setPractice] = useActivityState<Record<number, string>>("practice", {}); const [challenge, setChallenge] = useActivityState<Record<number, string>>("challenge", {}); const [score, setScore] = useActivityState<number | null>("score", null); const [notice, setNotice] = useState(""); const [error, setError] = useState("");
+  const challengeScore = useMemo(() => Math.round((lesson.challenge.filter((item, index) => challenge[index] === item.correct).length / lesson.challenge.length) * 100), [challenge, lesson]);
   const answer = (question: Question, index: number, values: Record<number, string>, setValues: (values: Record<number, string>) => void, feedback: boolean) => <div className="mt-4 space-y-2">{question.options.map((option) => { const selected = values[index] === option; const correct = selected && option === question.correct; return <button key={option} onClick={() => setValues({ ...values, [index]: option })} className={`w-full rounded-xl border px-4 py-3 text-left text-sm font-semibold ${correct ? "border-emerald-500 bg-emerald-50" : selected ? "border-indigo-500 bg-indigo-50" : "border-gray-200 bg-white hover:border-indigo-300"}`}><RubyText text={option} />{correct && " ✓"}</button>; })}{feedback && values[index] && <p className="rounded-xl bg-gray-50 p-3 text-sm text-gray-700">{values[index] === question.correct ? "✓ Correct!" : <RubyText text={`Not quite. ${question.explanation}`} />}</p>}</div>;
   const finish = async () => { try { const result = await completeLesson(lesson.id, challengeScore); recordLessonChallenge(lesson.id, lesson.challenge, challenge); setScore(challengeScore); session.complete(); localStorage.setItem(storageKey, JSON.stringify({ score: challengeScore, completedAt: new Date().toISOString() })); const message = completionCelebration(result); if (message) setNotice(message); } catch { setError("Could not save lesson progress. This lesson may still be locked."); } };
   const practiceComplete = Object.keys(practice).length === lesson.practice.length;

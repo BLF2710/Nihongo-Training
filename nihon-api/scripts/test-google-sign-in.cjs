@@ -9,6 +9,8 @@ const jwt = require("jsonwebtoken");
 
 const { GoogleLibraryVerifier } = require("../src/services/google/google-token-verifier");
 const { issueNonce, consumeNonce } = require("../src/services/google/sign-in-nonce");
+const { sharedState, useSharedState } = require("../src/shared-state");
+const { MemoryNonceStore } = require("../src/shared-state/nonce-store");
 const { availableUsername } = require("../src/services/google/google-sign-in.service");
 
 const CLIENT_ID = "123456789-test.apps.googleusercontent.com";
@@ -68,15 +70,19 @@ test("the verifier refuses to exist without a client id", () => {
 });
 
 // ---- One-time nonce
-test("a nonce works once, only if this server issued it, and only for ten minutes", () => {
-  const nonce = issueNonce();
-  assert.equal(consumeNonce(nonce), true);
-  assert.equal(consumeNonce(nonce), false, "not twice");
-  assert.equal(consumeNonce("made-up"), false);
-  assert.equal(consumeNonce(null), false);
-  const old = issueNonce(Date.now() - 11 * 60 * 1000);
-  assert.equal(consumeNonce(old), false, "expired");
-  assert.notEqual(issueNonce(), issueNonce());
+test("a nonce works once, only if this server issued it, and only for ten minutes", async () => {
+  // A clock the test controls, behind the same in-memory store the API uses for a single process.
+  let now = Date.now();
+  useSharedState({ ...sharedState(), nonces: new MemoryNonceStore(() => now) });
+  const nonce = await issueNonce();
+  assert.equal(await consumeNonce(nonce), true);
+  assert.equal(await consumeNonce(nonce), false, "not twice");
+  assert.equal(await consumeNonce("made-up"), false);
+  assert.equal(await consumeNonce(null), false);
+  const old = await issueNonce();
+  now += 11 * 60 * 1000;
+  assert.equal(await consumeNonce(old), false, "expired");
+  assert.notEqual(await issueNonce(), await issueNonce());
 });
 
 // ---- Usernames for new accounts

@@ -43,12 +43,12 @@ Ideas to implement or improve (review of 2026-10-14; lessons and other languages
 Before anyone else uses the site
 [ ] nihon-api/.env was committed to git (commit 4f5b059, repo on GitHub): it is untracked now; change the DB password and set a new JWT_SECRET (signs everyone out once)
 [ ] For deployment: CORS_ORIGINS, APP_URL, TRUST_PROXY (API) and VITE_API_URL (web); security headers on the web host (see README)
-[ ] Rate limits live in one API process; use a shared store (Redis) if the API ever runs as several processes
+[x] Several API processes: SHARED_STATE=postgres keeps rate limits and Google nonces in PostgreSQL and sends live updates through LISTEN/NOTIFY (migration 023)
 [x] Google sign-in: OAuth client created, GOOGLE_CLIENT_ID set, working locally
 [ ] Google sign-in for the public: add a privacy policy page, add the real site address to Authorized JavaScript origins, and publish the app (In production) in Google Cloud Console
 [ ] Move seedGameScoresTable() (runs at server start) into a migration
-[ ] Real test command and CI: lint, typecheck, build, API tests (the verify scripts and browser tests exist)
-[ ] Split the large frontend bundles by level: with N4 the main bundle is ~1.6 MB (lesson data ~1.1 MB), loaded by everyone
+[x] Tests in the repo (tests/, npm test at the root) and CI on GitHub (.github/workflows/ci.yml); baseline migration 000 so a new database can be built
+[x] Lesson data split by use: practice, challenge, concept and objectives load per unit when a lesson opens (nihon-web/build-tools/courseLessonSplit.ts); main bundle 1.59 MB -> 1.15 MB (374 -> 296 KB gzipped)
 [ ] Have a Japanese teacher review N4 Units 3–9 (sentences, distractors, kanji example words)
 
 Learning features

@@ -55,7 +55,7 @@ export function createGoogleSignInService(verifier: GoogleTokenVerifier | null) 
     let identity: GoogleIdentity;
     try { identity = await check.verify(credential); }
     catch { throw NOT_VERIFIED; }
-    if (!consumeNonce(identity.nonce)) throw new HttpError(401, "This Google sign-in has expired. Please try again.");
+    if (!(await consumeNonce(identity.nonce))) throw new HttpError(401, "This Google sign-in has expired. Please try again.");
     if (!identity.emailVerified) throw new HttpError(403, "Your Google account's email address isn't verified by Google. Verify it with Google, or sign in with a password.");
     return identity;
   }
@@ -66,9 +66,9 @@ export function createGoogleSignInService(verifier: GoogleTokenVerifier | null) 
     return { token: issueSessionToken({ id: account.userId, tokenVersion: account.tokenVersion }), user: { id: account.userId, username: account.username, email: account.email, role: account.role }, created };
   }
 
-  function nonce() {
+  async function nonce() {
     requireVerifier();
-    return { nonce: issueNonce() };
+    return { nonce: await issueNonce() };
   }
 
   /** Signs in (or up) with a Google ID token. */

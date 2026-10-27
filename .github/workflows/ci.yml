@@ -1,0 +1,113 @@
+# Checks every push to main and every pull request. The same checks run locally with `npm test` at the
+# repository root (see tests/run.sh).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: "Web: lint, typecheck, build, unit tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: nihon-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: nihon-web/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test
+
+  api:
+    name: "API: typecheck, unit, database and API tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: nihon
+          POSTGRES_PASSWORD: nihon-ci
+          POSTGRES_DB: nihon_ci
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U nihon -d nihon_ci"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      # A throwaway database and secret that exist only for this job.
+      DB_HOST: localhost
+      DB_PORT: "5432"
+      DB_USER: nihon
+      DB_PASSWORD: nihon-ci
+      DB_NAME: nihon_ci
+      JWT_SECRET: ci-only-not-a-real-secret
+      # This database is thrown away after the job, so the two-process test may create accounts.
+      DISPOSABLE_DATABASE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: nihon-api/package-lock.json
+      - run: npm ci
+        working-directory: nihon-api
+      - run: npm run typecheck
+        working-directory: nihon-api
+      - run: npm test
+        working-directory: nihon-api
+      # A new database built from the migrations alone (000_base_schema.sql onwards).
+      - run: npm run migrate
+        working-directory: nihon-api
+      - run: sh tests/run.sh db
+      - run: sh tests/run.sh api
+
+  e2e:
+    name: "Browser tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            nihon-web/package-lock.json
+      - run: npm ci
+      - run: npm ci
+        working-directory: nihon-web
+      - run: npx playwright install --with-deps chromium
+      # The browser tests answer every API request themselves, so only the web dev server is needed.
+      - name: Start the web dev server
+        working-directory: nihon-web
+        run: |
+          nohup npm run dev -- --port 5173 --strictPort > ../vite.log 2>&1 &
+          for attempt in $(seq 60); do curl -sf http://localhost:5173 > /dev/null && exit 0; sleep 1; done
+          cat ../vite.log; exit 1
+      - run: sh tests/run.sh e2e http://localhost:5173
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-screenshots
+          path: |
+            tests/e2e/shots
+            vite.log
+          retention-days: 7

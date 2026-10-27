@@ -1,5 +1,5 @@
 import { N5_LESSONS } from "./japaneseN5Lessons";
-import type { N5Lesson } from "./japaneseN5Lessons";
+import type { LessonSummary } from "./japaneseN5Lessons";
 
 export type VocabularyItem = {
   id: string;
@@ -174,7 +174,7 @@ const vocabularyNotes: Record<string, string> = {
   "きゅう": "The lesson uses kyuu. Nine can also be read ku in other contexts.",
 };
 
-function findLesson(slug: string): N5Lesson {
+function findLesson(slug: string): LessonSummary {
   const lesson = N5_LESSONS.find(item => item.slug === slug);
   if (!lesson) throw new Error(`Missing source lesson for study reference: ${slug}`);
   return lesson;

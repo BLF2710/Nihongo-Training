@@ -6,6 +6,8 @@ const DEFAULT_APP_URL = "http://localhost:5173";
 const DEVELOPMENT_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:4173", "http://127.0.0.1:4173"];
 
 export type MailProvider = "smtp" | "log" | "memory";
+/** Where state shared by API processes lives: this process only, or PostgreSQL (several processes). */
+export type SharedStateStore = "memory" | "postgres";
 
 export type ServerConfig = {
   isProduction: boolean;
@@ -19,6 +21,8 @@ export type ServerConfig = {
   mail: { provider: MailProvider; from: string; smtpUrl: string | null };
   /** OAuth client id for "Sign in with Google" (public, shown to browsers); null switches it off. */
   googleClientId: string | null;
+  /** Rate limits, Google sign-in nonces and live-update delivery: "postgres" when several API processes run. */
+  sharedState: SharedStateStore;
 };
 
 function parsePort(value: string | undefined): number {
@@ -53,6 +57,14 @@ function parseGoogleClientId(value: string | undefined): string | null {
   return clientId;
 }
 
+// Production defaults to PostgreSQL so that running several API processes is safe; development keeps it in memory.
+function parseSharedState(value: string | undefined, isProduction: boolean): SharedStateStore {
+  const requested = value?.trim();
+  if (!requested) return isProduction ? "postgres" : "memory";
+  if (requested !== "memory" && requested !== "postgres") throw new Error(`SHARED_STATE must be memory or postgres (got "${requested}").`);
+  return requested;
+}
+
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
   const isProduction = env.NODE_ENV === "production";
   const appUrl = (env.APP_URL?.trim() || DEFAULT_APP_URL).replace(/\/+$/, "");
@@ -67,6 +79,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     trustProxyHops,
     mail: parseMail(env, isProduction),
     googleClientId: parseGoogleClientId(env.GOOGLE_CLIENT_ID),
+    sharedState: parseSharedState(env.SHARED_STATE, isProduction),
   };
 }
 

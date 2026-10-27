@@ -68,15 +68,18 @@ Copy `nihon-api/.env.example` to `nihon-api/.env` (and, for a deployed web app, 
 | `SMTP_URL`, `MAIL_FROM` | Email for password reset and confirmation, e.g. `smtps://user:password@smtp.example.com:465`. Without `SMTP_URL`, emails are printed to the API console (development only); production refuses to start without it. |
 | `VITE_API_URL` (web) | The API's address for a deployed build, e.g. `https://api.example.com/api`. |
 | `GOOGLE_CLIENT_ID` | Turns on "Continue with Google" (sign-in, registration and Settings). The web app reads it from the public site settings, so it's set only here. |
+| `SHARED_STATE` | `postgres` (default in production) or `memory` (default in development): where rate limits, Google sign-in nonces and live-update delivery live. Use `postgres` whenever more than one API process runs. |
 
 What's in place:
 
 - **Sessions are revocable.** Every token carries the account's token version. Changing or resetting the password, or *Sign out on all devices* (Profile → Settings → Account security), raises it, so every older token stops working and live connections close. A browser holding a revoked token is signed out with an explanation.
 - **Password reset and email confirmation** use single-use links (1 hour and 48 hours) stored only as SHA-256 hashes. The reset form answers the same way whether or not an address has an account. A reset also confirms the address. Unconfirmed accounts can use the site; a dashboard banner offers to resend the link.
-- **Rate limits:** sign-in 10 tries per account and 50 per address every 15 minutes; registration 10 per hour per address; reset requests and link use limited per address, and at most 3 emails an hour per account. Limits are kept in the API process (several processes would need a shared store such as Redis).
+- **Rate limits:** sign-in 10 tries per account and 50 per address every 15 minutes; registration 10 per hour per address; reset requests and link use limited per address, and at most 3 emails an hour per account. Limits are counted in the shared state (`SHARED_STATE`), so they hold across several API processes.
 - **CORS** only allows the configured web app address(es). **Security headers** on API responses: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, a deny-all `Content-Security-Policy`, `Permissions-Policy`, and HSTS in production.
 - **Sign in with Google** checks Google's ID token with Google's library (signature, this app as audience, issuer, expiry, at most 1 hour) and requires a one-time nonce from the API inside it, so a captured token can't be replayed. Accounts are matched by Google's permanent account id, never by email. An existing account with the same email is linked automatically only when Google confirmed the address and the account's own email is confirmed, and never for administrators; otherwise the learner signs in with the password and connects Google in Settings. Google can only be disconnected while the account also has a password; Google-only accounts add one through *Forgot password*.
 - **Setting up Google sign-in:** in Google Cloud Console, configure the OAuth consent screen (app name, support email; a privacy policy URL before going public), then *Credentials → Create credentials → OAuth client ID → Web application*. Under *Authorized JavaScript origins* add the web app's addresses (for local development both `http://localhost` and `http://localhost:5173`). No redirect URI is needed (the button uses a popup). Put the client id in `GOOGLE_CLIENT_ID` and restart the API.
+- **Several API processes** (a load balancer, or a host that scales the API): set `SHARED_STATE=postgres` (the production default). Rate limits and Google sign-in nonces are then kept in PostgreSQL (migration `023_shared_state.sql`), and live updates go through PostgreSQL `LISTEN`/`NOTIFY`, so an event reaches a learner's tab whichever process holds it; *Sign out on all devices* closes streams on every process. No extra service is needed.
+- **Behind a proxy**, live updates (`GET /api/events`, server-sent events) must not be buffered and need a long read timeout. The API sends `X-Accel-Buffering: no`, which nginx honours; for nginx also set `proxy_read_timeout 1h;` (and `proxy_http_version 1.1;`) on that location. Other proxies: turn response buffering off for `/api/events`. Set `TRUST_PROXY` to the number of proxies.
 - **The web app's own headers** come from whatever hosts the built files. Set at least `Content-Security-Policy` (the theme script in `index.html` is inline, so allow it by hash), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` allowing `microphone=(self)`, and HSTS. For Google sign-in the policy must allow `https://accounts.google.com/gsi/client` (script), `https://accounts.google.com/gsi/` (frame and connect) and `https://accounts.google.com/gsi/style` (style), and a `Cross-Origin-Opener-Policy` header, if any, must be `same-origin-allow-popups`.
 
 ## Prioritized to-do list
@@ -144,24 +147,21 @@ What's in place:
 
 ## Project checks
 
-Run from `nihon-web`:
+From the repository root:
 
 ```sh
-npm run lint
-npm run build
+npm test            # everything below
+npm run test:unit   # unit tests of both projects (no database, no browser)
+npm run test:db     # the API's database checks, on temporary tables (rolled back)
+npm run test:api    # API tests, on temporary copies of every table (rolled back)
+npm run test:e2e    # browser tests against the web dev server (fake API answers)
 ```
 
-The frontend build includes TypeScript checking.
+- The database checks and API tests use the database in `nihon-api/.env` (migrated) and leave it unchanged. One test starts two real API processes and creates accounts; it runs only with `DISPOSABLE_DATABASE=1`, which you should set only for a throwaway database (CI does).
+- Browser tests need the web dev server running (`npm run dev` in `nihon-web`) and Playwright's browser installed once: `npx playwright install chromium` (or point `BROWSER_EXECUTABLE` at an installed Chrome).
+- In each project: `npm run lint` and `npm run build` (web; the build includes type checking), `npm run typecheck` and `npm test` (API).
+- Tests live in `tests/` (`tests/run.sh` runs them). API tests are generated from `tests/api/make-*.cjs` into `tests/api/generated/` on each run.
 
-Run from `nihon-api`:
-
-```sh
-npm run typecheck
-npm run test:grading
-npm run test:auth
-npm run test:learning
-```
-
-Additional verification scripts live in each project's `scripts` directory. Some need a configured database or browser; check their setup requirements before running them. Backend `npm test` is currently a placeholder.
+**CI** (`.github/workflows/ci.yml`) runs on every push to `main` and every pull request: lint, build and unit tests for the web app; type checking, unit tests, a new PostgreSQL built from the migrations, the database checks and the API tests for the API; and the browser tests. A new database can be built from the migrations alone (`000_base_schema.sql` creates the tables that predate them).
 
 See [unit progression documentation](nihon-api/UNIT-PROGRESSION.md) for the unit rules.

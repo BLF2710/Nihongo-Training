@@ -42,6 +42,8 @@ async function main() {
     await client.query('INSERT INTO user_gamification (user_id,xp) VALUES (1, 0), (2, 0)');
     await client.query('CREATE TEMP TABLE lesson_progress (user_id INTEGER, lesson_id VARCHAR(120), challenge_score INTEGER DEFAULT 0, updated_at TIMESTAMPTZ DEFAULT NOW(), PRIMARY KEY (user_id,lesson_id))');
     await client.query('CREATE TEMP TABLE xp_events (id SERIAL, user_id INTEGER, amount INTEGER, source TEXT, reference_id TEXT, UNIQUE(user_id,source,reference_id))');
+    // Submitted assessments note wrong answers in the mistake notebook; a temporary copy keeps them off real data.
+    await client.query('CREATE TEMP TABLE mistakes (LIKE public.mistakes INCLUDING ALL)');
     const migration = fs.readFileSync(path.resolve(__dirname, '../migrations/003_unit_assessments.sql'), 'utf8');
     await client.query(migration.replace('CREATE TABLE IF NOT EXISTS', 'CREATE TEMP TABLE'));
     // This script covers the three built-in units; units added by scripts/import-course.mjs are validated by the importer.

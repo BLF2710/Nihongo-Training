@@ -1,12 +1,18 @@
 {
   "scripts": {
-    "course:import": "node scripts/import-course.mjs"
+    "course:import": "node scripts/import-course.mjs",
+    "test": "sh tests/run.sh all",
+    "test:unit": "sh tests/run.sh unit",
+    "test:db": "sh tests/run.sh db",
+    "test:api": "sh tests/run.sh api",
+    "test:e2e": "sh tests/run.sh e2e"
   },
   "dependencies": {
     "pg": "^8.21.0",
     "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
-    "@types/pg": "^8.20.0"
+    "@types/pg": "^8.20.0",
+    "playwright": "1.62.1"
   }
 }

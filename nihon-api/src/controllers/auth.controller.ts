@@ -30,7 +30,7 @@ export const logOutEverywhere = action(async (req, res) => res.json(await accoun
 
 export const googleNonce = action(async (_req, res) => {
   res.set("Cache-Control", "no-store");
-  return res.json(googleSignIn().nonce());
+  return res.json(await googleSignIn().nonce());
 }, { label: "googleNonce", message: "Google sign-in is unavailable right now." });
 
 export const googleSignInHandler = action(async (req, res) => res.json(await googleSignIn().signIn(req.body?.credential)),
