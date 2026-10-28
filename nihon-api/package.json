@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "migrate": "ts-node src/scripts/migrate.ts",
+    "mail:test": "ts-node src/scripts/send-test-email.ts",
     "typecheck": "tsc --noEmit",
     "test:grading": "node --test scripts/test-speaking-grading.cjs",
     "test:auth": "node --test scripts/test-google-sign-in.cjs",
     "test:learning": "node --test scripts/test-learning.cjs",
-    "test": "node --test scripts/test-speaking-grading.cjs scripts/test-google-sign-in.cjs scripts/test-learning.cjs scripts/test-shared-state.cjs scripts/test-social.cjs scripts/test-lesson-content.cjs",
+    "test": "node --test scripts/test-speaking-grading.cjs scripts/test-google-sign-in.cjs scripts/test-learning.cjs scripts/test-shared-state.cjs scripts/test-social.cjs scripts/test-lesson-content.cjs scripts/test-mail-config.cjs",
     "admin:grant": "ts-node src/scripts/grant-admin.ts"
   },
   "keywords": [],

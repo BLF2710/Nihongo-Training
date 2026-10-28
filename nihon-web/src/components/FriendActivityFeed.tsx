@@ -6,6 +6,7 @@ import type { FeedItem } from "../api/social";
 import { friendButton } from "../lib/friendStyles";
 import { timeAgo } from "../lib/notifications";
 import { useRealtime } from "../lib/realtime";
+import PersonAvatar from "./PersonAvatar";
 
 function whatHappened(item: FeedItem): string {
   if (item.kind === "lessons") return `completed ${item.lessons} ${item.lessons === 1 ? "lesson" : "lessons"}`;
@@ -37,8 +38,8 @@ export default function FriendActivityFeed() {
     {items && (items.length === 0
       ? <p className="mt-2 text-sm text-gray-600">Nothing from your friends in the last {days} days. Friends with a private profile, or who turned sharing off, don't appear here.</p>
       : <ul className="mt-2 divide-y divide-gray-100">{items.map(item => <li key={`${item.person.username}:${item.key}`} className="flex flex-wrap items-center gap-3 py-3">
-        <span aria-hidden="true" className="text-xl">{ICONS[item.kind]}</span>
-        <p className="min-w-0 flex-1 text-sm"><Link to={`/u/${encodeURIComponent(item.person.username)}`} className="font-bold text-gray-900 hover:underline">{item.person.displayName}</Link> {whatHappened(item)}
+        <PersonAvatar name={item.person.displayName} username={item.person.username} avatar={item.person.avatar} />
+        <p className="min-w-0 flex-1 text-sm"><Link to={`/u/${encodeURIComponent(item.person.username)}`} className="font-bold text-gray-900 hover:underline">{item.person.displayName}</Link> {whatHappened(item)} <span aria-hidden="true">{ICONS[item.kind]}</span>
           <span className="block text-xs text-gray-500">{timeAgo(item.at)}</span></p>
         {item.cheered ? <span className="text-sm font-semibold text-emerald-700">🎉 Cheered</span>
           : <button className={friendButton} disabled={busy !== null} onClick={() => void cheer(item)} aria-label={`Cheer ${item.person.username}: ${whatHappened(item)}`}>🎉 Cheer</button>}

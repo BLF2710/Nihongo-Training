@@ -34,6 +34,20 @@ export class MemoryMailer implements Mailer {
   }
 }
 
+/** Where mail goes, for logs: the SMTP server's host only (the address holds the password). */
+export function describeMailSetup(mail: ServerConfig["mail"]): string {
+  if (mail.provider !== "smtp" || !mail.smtpUrl) return "printed to this console (SMTP_URL is not set)";
+  try { return `sent through ${new URL(mail.smtpUrl).hostname} as ${mail.from}`; }
+  catch { return "sent through SMTP (the SMTP_URL could not be read)"; }
+}
+
+/** Signs in to the SMTP server without sending anything; resolves to a problem description, or null when it works. */
+export async function checkMailConnection(mail: ServerConfig["mail"]): Promise<string | null> {
+  if (mail.provider !== "smtp" || !mail.smtpUrl) return null;
+  try { await nodemailer.createTransport(mail.smtpUrl).verify(); return null; }
+  catch (error) { return error instanceof Error ? error.message : "unknown error"; }
+}
+
 export function mailerFromConfig(mail: ServerConfig["mail"]): Mailer {
   if (mail.provider === "smtp" && mail.smtpUrl) return new SmtpMailer(mail.smtpUrl, mail.from);
   if (mail.provider === "memory") return new MemoryMailer();

@@ -4,7 +4,7 @@ const original = fs.readFileSync(path.join(__dirname, 'review-api.cjs'), 'utf8')
 let head = original.slice(0, original.indexOf('    // ---- learner review'));
 head = head.replace("// Unit review + question bank API", "// Profile pictures")
   .replace("app.use('/api/review', src('routes/review.routes.ts').default);",
-    "app.use('/api/review', src('routes/review.routes.ts').default); app.use('/api/avatars', src('routes/avatar.routes.ts').default); app.use('/api/profile', src('routes/profile.routes.ts').default); app.use('/api', src('routes/friend.routes.ts').default);")
+    "app.use('/api/review', src('routes/review.routes.ts').default); app.use('/api/avatars', src('routes/avatar.routes.ts').default); app.use('/api/profile', src('routes/profile.routes.ts').default); app.use('/api', src('routes/communication.routes.ts').default); app.use('/api', src('routes/friend.routes.ts').default);")
   .replace("process, Buffer, setTimeout, require:", "process, Buffer, setTimeout, setInterval, clearInterval, require:")
   .replace("for (const name of ['admin', 'learner']) {", "for (const name of ['admin', 'learner', 'ben']) {");
 for (const needle of ['routes/avatar.routes.ts', "'learner', 'ben'"]) if (!head.includes(needle)) throw new Error('harness changed: ' + needle);
@@ -44,6 +44,13 @@ const tail = String.raw`    const sharp = require(path.join(API, 'node_modules/s
     assert.equal((await call('GET', '/friends', { as: 'ben' })).data.outgoing[0].avatar, first.data.avatar);
     assert.equal((await call('GET', '/friends', { as: 'learner' })).data.incoming[0].avatar, null, 'no picture: null');
     assert.equal((await call('GET', '/friends/leaderboard', { as: 'learner' })).data.entries.find(e => e.self).avatar, first.data.avatar, 'on the leaderboard');
+    // Friends now: challenges and messages show the picture too.
+    await call('POST', '/friends/requests', { as: 'learner', body: { username: user('ben') } });
+    assert.equal((await call('POST', '/friends/challenges', { as: 'learner', body: { username: user('ben'), metric: 'xp', days: 3 } })).status, 201);
+    assert.equal((await call('GET', '/friends/challenges', { as: 'ben' })).data.challenges[0].friend.avatar, first.data.avatar, 'on a challenge');
+    const chat = await call('POST', '/messages/conversations', { as: 'ben', body: { username: user('learner') } });
+    assert.equal((await call('GET', '/messages/conversations/' + chat.data.id, { as: 'ben' })).data.with.avatar, first.data.avatar, 'in a conversation');
+    assert.equal((await call('GET', '/messages/conversations', { as: 'ben' })).data.conversations[0].with.avatar, first.data.avatar, 'in the conversation list');
 
     // ---- replacing keeps one picture; the old address stops working
     const png = await sharp({ create: { width: 300, height: 600, channels: 4, background: '#00f8' } }).png().toBuffer();
@@ -64,7 +71,7 @@ const tail = String.raw`    const sharp = require(path.join(API, 'node_modules/s
     assert.equal((await client.query('SELECT COUNT(*)::int AS n FROM user_avatars')).rows[0].n, 0);
     assert.equal((await call('GET', '/profile/me', { as: 'learner' })).data.avatar, null);
 
-    console.log('PASS: sign-in and image types required, unreadable and oversized uploads refused; a ' + Math.round(photo.length / 1024) + ' KB photo stored as a ' + first.data.bytes + '-byte 128×128 WebP without EXIF/GPS, served without sign-in with long caching; shown on the public profile, friends list and leaderboard; one picture per learner, old address 404 after replacing; bad addresses 404; suspended accounts hidden; remove deletes it');
+    console.log('PASS: sign-in and image types required, unreadable and oversized uploads refused; a ' + Math.round(photo.length / 1024) + ' KB photo stored as a ' + first.data.bytes + '-byte 128×128 WebP without EXIF/GPS, served without sign-in with long caching; shown on the public profile, friends list, leaderboard, challenges and messages; one picture per learner, old address 404 after replacing; bad addresses 404; suspended accounts hidden; remove deletes it');
   } finally { await queue.catch(() => {}); await client.query('ROLLBACK').catch(() => {}); client.release(); await new Promise(r => server ? (server.closeAllConnections?.(), server.close(r)) : r()); await pool.end(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1500)); process.exitCode = 1; });
 `;

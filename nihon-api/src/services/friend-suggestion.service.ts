@@ -15,7 +15,7 @@ export async function getFriendSuggestions(userId: number) {
   return {
     enabled: true,
     suggestions: rows.map(row => ({
-      username: row.username, displayName: row.display_name, mutualFriends: Number(row.mutual_friends),
+      username: row.username, displayName: row.display_name, avatar: row.avatar, mutualFriends: Number(row.mutual_friends),
       sameLevel: row.same_level ? row.course_level : null,
     })),
   };

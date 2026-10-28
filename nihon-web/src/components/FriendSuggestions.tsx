@@ -39,7 +39,7 @@ export default function FriendSuggestions({ onRequested }: { onRequested: (messa
     {data?.enabled && (data.suggestions.length === 0
       ? <p className="mt-2 text-sm text-gray-600">No suggestions right now. They come from friends of your friends and learners on your course level who also turned suggestions on.</p>
       : <ul className="mt-2 divide-y divide-gray-100">{data.suggestions.map(suggestion => <li key={suggestion.username} className="flex flex-wrap items-center gap-3 py-3">
-        <PersonAvatar name={suggestion.displayName} username={suggestion.username} />
+        <PersonAvatar name={suggestion.displayName} username={suggestion.username} avatar={suggestion.avatar} />
         <Link to={`/u/${encodeURIComponent(suggestion.username)}`} className="min-w-0 flex-1 hover:underline"><span className="block truncate font-bold text-gray-900">{suggestion.displayName}</span><span className="block truncate text-sm text-gray-500">@{suggestion.username} · {why(suggestion)}</span></Link>
         <button className={friendPrimary} disabled={busy !== null} onClick={() => void add(suggestion)} aria-label={`Add ${suggestion.username} as a friend`}>{busy === suggestion.username ? "Sending…" : "Add friend"}</button>
       </li>)}</ul>)}

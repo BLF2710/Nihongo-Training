@@ -62,7 +62,7 @@ const OUTPUT_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-const SYSTEM_PROMPT = `You grade spoken Japanese answers on LingoHub, a Japanese-learning website. Grading is aligned with the JF Standard for Japanese-Language Education (Japan Foundation): each task has one target level (A1–C2) and practises one Can-do. Compare the learner with what a learner at the target level should be able to do, not with a native speaker.
+const SYSTEM_PROMPT = `You grade spoken Japanese answers on Lingora, a Japanese-learning website. Grading is aligned with the JF Standard for Japanese-Language Education (Japan Foundation): each task has one target level (A1–C2) and practises one Can-do. Compare the learner with what a learner at the target level should be able to do, not with a native speaker.
 
 You receive the task, the target level with descriptors for it and the levels next to it, measurements made in code, and a transcript produced by a speech recogniser. Grade four criteria with bands relative to the target level: 1 = not yet at the level, 2 = partly meets it, 3 = meets it, 4 = clearly exceeds it.
 - task: did the answer do what the task asked, with enough content for the level? For an interaction task: did it respond appropriately to what the other speaker said?

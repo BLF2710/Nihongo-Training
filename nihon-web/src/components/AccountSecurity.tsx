@@ -46,7 +46,7 @@ function GoogleConnection({ methods, onChanged }: { methods: SignInMethods; onCh
         ? <button type="button" className={`${button} justify-self-start`} disabled={busy} onClick={() => void disconnect()}>{busy ? "Disconnecting…" : "Disconnect Google"}</button>
         : <p className="text-sm text-gray-600">Google is your only way to sign in, so it can't be disconnected. Add a password first.</p>}
     </> : <>
-      <p className="text-sm text-gray-600">Connect your Google account to sign in with it. It can use a different address from your LingoHub email.</p>
+      <p className="text-sm text-gray-600">Connect your Google account to sign in with it. It can use a different address from your Lingora email.</p>
       {clientId && <div className="justify-self-start"><GoogleSignInButton clientId={clientId} context="use" text="continue_with" onCredential={connect} /></div>}
     </>}
     <NoticeLine notice={notice} />

@@ -94,7 +94,9 @@ function toChallenge(row: ChallengeListRow, userId: number) {
   const myScore = Number(mine ?? 0), theirScore = Number(theirs ?? 0);
   return {
     id: row.id, metric: row.metric, days: row.days, status: row.status, sentByMe: isChallenger,
-    friend: isChallenger ? person({ username: row.opponent_username, display_name: row.opponent_name }) : person({ username: row.challenger_username, display_name: row.challenger_name }),
+    friend: isChallenger
+      ? { ...person({ username: row.opponent_username, display_name: row.opponent_name }), avatar: row.opponent_avatar }
+      : { ...person({ username: row.challenger_username, display_name: row.challenger_name }), avatar: row.challenger_avatar },
     myScore, theirScore, createdAt: row.created_at, startsAt: row.starts_at, endsAt: row.ends_at,
     outcome: finished ? challengeOutcome(myScore, theirScore) : null,
   };

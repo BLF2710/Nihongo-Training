@@ -6,6 +6,7 @@ import type { ChallengeDays, ChallengeMetric, FriendChallenge } from "../api/soc
 import type { Person } from "../api/friends";
 import { friendButton, friendPrimary } from "../lib/friendStyles";
 import { useRealtime } from "../lib/realtime";
+import PersonAvatar from "./PersonAvatar";
 
 const DURATIONS: ChallengeDays[] = [3, 7];
 const METRICS: ChallengeMetric[] = ["xp", "lessons"];
@@ -43,6 +44,7 @@ function ChallengeRow({ challenge, busy, act }: { challenge: FriendChallenge; bu
   const goal = `${CHALLENGE_METRIC_TEXT[metric]} in ${challenge.days} days`;
   const score = `You ${unitOf(metric, challenge.myScore)} · @${friend.username} ${unitOf(metric, challenge.theirScore)}`;
   return <li className="flex flex-wrap items-center gap-3 py-3">
+    <PersonAvatar name={friend.displayName} username={friend.username} avatar={friend.avatar} />
     <div className="min-w-0 flex-1">
       <p className="font-bold">{goal} with {friend.displayName} <span className="font-normal text-gray-500">@{friend.username}</span></p>
       <p className="text-sm text-gray-600">

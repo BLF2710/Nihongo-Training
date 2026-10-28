@@ -1,5 +1,6 @@
 import { pool } from "../config/db";
 import type { Queryable } from "../db/transaction";
+import { AVATAR_PATH_SQL } from "./avatar.repository";
 import { BLOCKED_EITHER_WAY_SQL } from "./learner-block.repository";
 
 export type ChallengeMetric = "xp" | "lessons";
@@ -9,7 +10,7 @@ export type ChallengeRow = {
   created_at: Date; starts_at: Date | null; ends_at: Date | null; challenger_score: number | null; opponent_score: number | null;
 };
 export type ChallengeListRow = ChallengeRow & {
-  challenger_username: string; challenger_name: string; opponent_username: string; opponent_name: string;
+  challenger_username: string; challenger_name: string; challenger_avatar: string | null; opponent_username: string; opponent_name: string; opponent_avatar: string | null;
   live_challenger_score: number; live_opponent_score: number;
 };
 
@@ -74,8 +75,8 @@ export async function finishChallenge(db: Queryable, id: number, challengerScore
 /** Open challenges and those finished in the last `days` days, with both names and the scores so far. */
 export async function listChallenges(userId: number, days: number): Promise<ChallengeListRow[]> {
   const result = await pool.query(
-    `SELECT ${COLUMNS}, a.username AS challenger_username, COALESCE(ap.display_name, a.username) AS challenger_name,
-            b.username AS opponent_username, COALESCE(bp.display_name, b.username) AS opponent_name,
+    `SELECT ${COLUMNS}, a.username AS challenger_username, COALESCE(ap.display_name, a.username) AS challenger_name, ${AVATAR_PATH_SQL("a.id")} AS challenger_avatar,
+            b.username AS opponent_username, COALESCE(bp.display_name, b.username) AS opponent_name, ${AVATAR_PATH_SQL("b.id")} AS opponent_avatar,
             ${SCORE_SQL("c.challenger_id")} AS live_challenger_score, ${SCORE_SQL("c.opponent_id")} AS live_opponent_score
        FROM friend_challenges c
        JOIN users a ON a.id = c.challenger_id LEFT JOIN user_profiles ap ON ap.user_id = a.id

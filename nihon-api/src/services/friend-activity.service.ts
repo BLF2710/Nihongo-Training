@@ -19,7 +19,7 @@ const unitOfAssessment = (assessmentId: string) => {
 };
 
 function toFeedItem(row: FeedRow) {
-  const base = { key: `${row.kind}:${row.ref}`, person: person(row), at: row.at, cheered: row.cheered };
+  const base = { key: `${row.kind}:${row.ref}`, person: { ...person(row), avatar: row.avatar }, at: row.at, cheered: row.cheered };
   if (row.kind === "lessons") return { ...base, kind: "lessons" as const, lessons: row.count };
   if (row.kind === "unit") return { ...base, kind: "unit" as const, unit: unitOfAssessment(row.ref) };
   return { ...base, kind: "achievement" as const, achievement: { title: row.achievement_title ?? "an achievement" } };

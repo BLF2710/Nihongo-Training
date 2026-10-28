@@ -34,7 +34,7 @@ Without these, parts of the site run in a limited mode. Restart the API after ed
 [ ] Gmail for sending emails (password reset, email confirmation): turn on 2-Step Verification, create an app password at
     myaccount.google.com/apppasswords, then add to nihon-api/.env (write @ in the address as %40, app password without spaces):
     SMTP_URL=smtps://your.address%40gmail.com:yourapppassword@smtp.gmail.com:465
-    MAIL_FROM=LingoHub <your.address@gmail.com>
+    MAIL_FROM=Lingora <your.address@gmail.com>
     (until then emails are printed in the API's console window; Gmail has a daily limit, so use Brevo/Resend/Mailgun/SES for launch: same SMTP_URL line)
 
 Ideas to implement or improve (review of 2026-10-14; lessons and other languages left out)

@@ -91,7 +91,7 @@ const iso = minutesAgo => new Date(Date.now() - minutesAgo * 60_000).toISOString
     // The QR code decodes back to the link (BarcodeDetector when the browser has it).
     const decoded = await qr.evaluate(async img => { if (!('BarcodeDetector' in window)) return null; const codes = await new window.BarcodeDetector({ formats: ['qr_code'] }).detect(img); return codes[0]?.rawValue ?? ''; });
     if (decoded !== null) assert.equal(decoded, new URL(base).origin + '/add/kai');
-    assert.equal(await page.getByRole('link', { name: 'Download QR code' }).getAttribute('download'), 'lingohub-invite-kai.png');
+    assert.equal(await page.getByRole('link', { name: 'Download QR code' }).getAttribute('download'), 'lingora-invite-kai.png');
     await page.screenshot({ path: shots + '/invite-qr.png' });
     await page.getByRole('button', { name: 'Hide QR code' }).click(); assert.equal(await qr.count(), 0);
 

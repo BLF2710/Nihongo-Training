@@ -1,6 +1,6 @@
 @startuml NihonWeb_UseCaseDiagram
 
-title LingoHub (NihonWeb) — Use Case Diagram
+title Lingora (NihonWeb) — Use Case Diagram
 skinparam actorStyle awesome
 skinparam packageStyle rectangle
 skinparam usecaseFontSize 12

@@ -1,5 +1,6 @@
 import { pool } from "../config/db";
 import type { Queryable } from "../db/transaction";
+import { AVATAR_PATH_SQL } from "./avatar.repository";
 
 export type ConversationKind = "direct" | "support" | "assistant";
 export type SenderRole = "learner" | "admin" | "assistant";
@@ -8,7 +9,7 @@ export type ConversationRow = {
   created_at: Date; last_message_at: Date; staff_read_message_id: number | null;
 };
 export type MessageRow = { id: number; conversation_id: number; sender_id: number | null; sender_role: SenderRole; body: string; created_at: Date; sender_name: string | null };
-export type PersonRow = { id: number; username: string; display_name: string; role: string; status: string };
+export type PersonRow = { id: number; username: string; display_name: string; role: string; status: string; /** Only where the query includes it (conversation members). */ avatar?: string | null };
 
 const MESSAGE_COLUMNS = `m.id, m.conversation_id, m.sender_id, m.sender_role, m.body, m.created_at,
   COALESCE(p.display_name, u.username) AS sender_name`;
@@ -68,7 +69,7 @@ export async function listMemberConversations(userId: number, kind: Conversation
             last.body AS last_body, last.sender_role AS last_sender_role, last.sender_id AS last_sender_id,
             (SELECT COUNT(*)::int FROM messages m WHERE m.conversation_id = c.id AND (m.sender_id IS DISTINCT FROM $1)
                AND m.id > cm.last_read_message_id) AS unread,
-            other.id AS other_id, other.username AS other_username, COALESCE(op.display_name, other.username) AS other_name
+            other.id AS other_id, other.username AS other_username, COALESCE(op.display_name, other.username) AS other_name, ${AVATAR_PATH_SQL("other.id")} AS other_avatar
        FROM conversations c
        JOIN conversation_members cm ON cm.conversation_id = c.id AND cm.user_id = $1
        LEFT JOIN LATERAL (SELECT body, sender_role, sender_id FROM messages WHERE conversation_id = c.id ORDER BY id DESC LIMIT 1) last ON TRUE
@@ -83,7 +84,7 @@ export async function listMemberConversations(userId: number, kind: Conversation
 
 export async function listMembers(conversationId: number): Promise<PersonRow[]> {
   const result = await pool.query(
-    `SELECT u.id, u.username, COALESCE(p.display_name, u.username) AS display_name, u.role, u.status
+    `SELECT u.id, u.username, COALESCE(p.display_name, u.username) AS display_name, ${AVATAR_PATH_SQL("u.id")} AS avatar, u.role, u.status
        FROM conversation_members cm JOIN users u ON u.id = cm.user_id LEFT JOIN user_profiles p ON p.user_id = u.id
       WHERE cm.conversation_id = $1 ORDER BY u.id`, [conversationId]);
   return result.rows;

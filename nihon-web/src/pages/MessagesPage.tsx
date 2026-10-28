@@ -9,6 +9,7 @@ import {
 } from "../api/communication";
 import type { DirectConversation, DirectConversationSummary } from "../api/communication";
 import { refreshInbox } from "../lib/inbox";
+import PersonAvatar from "../components/PersonAvatar";
 import { useRealtime } from "../lib/realtime";
 
 const POLL_MS = 10_000;
@@ -69,7 +70,7 @@ export default function MessagesPage() {
           <ul className="min-h-0 flex-1 overflow-y-auto">{list?.map(item => <li key={item.id}>
             <Link to={`/messages/${item.id}`} aria-current={item.id === openId ? "page" : undefined}
               className={`flex gap-3 border-b border-gray-100 px-4 py-3 hover:bg-gray-50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-emerald-600 ${item.id === openId ? "bg-emerald-50" : ""}`}>
-              <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 font-black text-emerald-800">{item.with.name.charAt(0).toUpperCase()}</span>
+              <PersonAvatar name={item.with.name} username={item.with.username} avatar={item.with.avatar} />
               <span className="min-w-0 flex-1">
                 <span className="flex items-baseline justify-between gap-2"><span className="truncate font-bold">{item.with.name}</span><span className="shrink-0 text-xs text-gray-400">{shortTime(item.lastMessageAt)}</span></span>
                 <span className="block truncate text-sm text-gray-500">{item.lastMessage ? `${item.lastMessage.mine ? "You: " : ""}${item.lastMessage.body}` : `@${item.with.username}`}</span>
@@ -134,7 +135,7 @@ function Conversation({ id, onChange }: { id: number; onChange: () => void }) {
         <input value={reason} onChange={event => setReason(event.target.value)} maxLength={500} className="mt-1 w-full rounded-lg border border-amber-200 bg-white px-3 py-2 font-normal" /></label>
       <div className="mt-2 flex gap-2"><button className="rounded-lg bg-amber-600 px-3 py-1.5 text-sm font-bold text-white">Send report</button><button type="button" className={button} onClick={() => setReporting(null)}>Cancel</button></div>
     </form>}
-    <MessageThread label={`Conversation with ${conversation.with.name}`} messages={conversation.messages} onSend={send} canReply={conversation.canReply}
+    <MessageThread label={`Conversation with ${conversation.with.name}`} otherAvatar={conversation.with.avatar} messages={conversation.messages} onSend={send} canReply={conversation.canReply}
       disabledNote={conversation.blockedByMe ? "You have blocked this learner. Unblock them to reply." : "This learner can't receive messages right now."}
       messageActions={message => !message.mine && <button className="text-xs font-semibold text-gray-400 hover:text-amber-700 focus-visible:outline-2 focus-visible:outline-emerald-600" onClick={() => setReporting(message.id)}>Report</button>} />
   </>;

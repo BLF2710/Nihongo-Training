@@ -29,7 +29,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
 
     // ---- sign in
     await page.goto(base + '/login'); await heading('Welcome back').waitFor();
-    await page.getByRole('complementary', { name: 'About LingoHub' }).waitFor();
+    await page.getByRole('complementary', { name: 'About Lingora' }).waitFor();
     assert.ok(await page.getByLabel('Email or username').evaluate(el => el === document.activeElement), 'first field is focused');
     await page.screenshot({ path: shots + '/login.png' });
     await page.getByRole('button', { name: 'Sign in' }).click(); assert.equal(posts.length, 0, 'empty form is not submitted');
@@ -76,7 +76,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     await page.setViewportSize({ width: 390, height: 844 });
     for (const [path, title] of [['/login', 'Welcome back'], ['/register', 'Create your account']]) {
       await page.goto(base + path); await heading(title).waitFor(); await noOverflow(path);
-      assert.ok(!(await page.getByRole('complementary', { name: 'About LingoHub' }).isVisible()));
+      assert.ok(!(await page.getByRole('complementary', { name: 'About Lingora' }).isVisible()));
       await page.screenshot({ path: `${shots}${path}-mobile.png`, fullPage: true });
     }
     await page.setViewportSize({ width: 768, height: 1024 }); await page.goto(base + '/register'); await noOverflow('tablet register');

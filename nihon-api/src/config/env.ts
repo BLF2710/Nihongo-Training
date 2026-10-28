@@ -47,7 +47,10 @@ function parseMail(env: NodeJS.ProcessEnv, isProduction: boolean): ServerConfig[
   if (requested && provider !== requested) throw new Error(`MAIL_PROVIDER must be smtp, log or memory (got "${requested}").`);
   if (provider === "smtp" && !smtpUrl) throw new Error("MAIL_PROVIDER=smtp needs SMTP_URL, e.g. smtps://user:password@smtp.example.com:465.");
   if (provider !== "smtp" && isProduction) throw new Error("Production needs real email: set SMTP_URL (password reset and verification links are sent by email).");
-  return { provider, smtpUrl, from: env.MAIL_FROM?.trim() || "LingoHub <no-reply@localhost>" };
+  const from = env.MAIL_FROM?.trim();
+  // Mail providers refuse a sender the account may not use, so a made-up default would only fail later.
+  if (provider === "smtp" && !from) throw new Error("SMTP_URL needs MAIL_FROM too, e.g. MAIL_FROM=Lingora <you@gmail.com> (an address your mail account may send from).");
+  return { provider, smtpUrl, from: from || "Lingora <no-reply@localhost>" };
 }
 
 function parseGoogleClientId(value: string | undefined): string | null {

@@ -29,7 +29,7 @@ export const preview = (body: string | null) => body ? (body.length > 120 ? `${b
 // How each kind of sender is named. Learners see the team as one voice; administrators see who replied.
 export function toMessage(row: MessageRow, viewerId: number, view: "learner" | "staff" = "learner") {
   const sender = row.sender_role === "assistant" ? "Study assistant"
-    : row.sender_role === "admin" ? (view === "staff" ? `${row.sender_name ?? "Administrator"} (support)` : "LingoHub support")
+    : row.sender_role === "admin" ? (view === "staff" ? `${row.sender_name ?? "Administrator"} (support)` : "Lingora support")
     : row.sender_name ?? "Former learner";
   return { id: row.id, body: row.body, senderRole: row.sender_role, sender, mine: row.sender_id === viewerId, sentAt: row.created_at };
 }

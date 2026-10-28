@@ -53,8 +53,8 @@ export function createAccountSecurityService({ mailer, appUrl }: AccountSecurity
     const lifetimeSeconds = purpose === "password_reset" ? RESET_LIFETIME_SECONDS : VERIFICATION_LIFETIME_SECONDS;
     await withTransaction(client => replaceAccountToken(client, { userId, purpose, tokenHash: hash, email, lifetimeSeconds }));
     const mail = purpose === "password_reset"
-      ? { subject: "Reset your LingoHub password", text: `Hello @${username},\n\nSomeone asked to reset the password of your LingoHub account. To choose a new password, open this link within 1 hour:\n\n${appUrl}/reset-password?token=${secret}\n\nIf this wasn't you, ignore this email. Your password stays the same.` }
-      : { subject: "Confirm your email for LingoHub", text: `Hello @${username},\n\nPlease confirm that this is your email address by opening this link within 48 hours:\n\n${appUrl}/verify-email?token=${secret}\n\nIf you didn't create a LingoHub account, ignore this email.` };
+      ? { subject: "Reset your Lingora password", text: `Hello @${username},\n\nSomeone asked to reset the password of your Lingora account. To choose a new password, open this link within 1 hour:\n\n${appUrl}/reset-password?token=${secret}\n\nIf this wasn't you, ignore this email. Your password stays the same.` }
+      : { subject: "Confirm your email for Lingora", text: `Hello @${username},\n\nPlease confirm that this is your email address by opening this link within 48 hours:\n\n${appUrl}/verify-email?token=${secret}\n\nIf you didn't create a Lingora account, ignore this email.` };
     await mailer.send({ to: email, ...mail });
   }
 

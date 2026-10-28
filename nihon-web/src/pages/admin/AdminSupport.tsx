@@ -9,7 +9,7 @@ import ReportPanel from './ReportPanel';
 type Filter = 'open' | 'closed' | 'all';
 const FILTERS: [Filter, string][] = [['open', 'Open'], ['closed', 'Closed'], ['all', 'All']];
 
-/** The shared support inbox: learner requests and reported messages, answered as "LingoHub support". */
+/** The shared support inbox: learner requests and reported messages, answered as "Lingora support". */
 export default function AdminSupport() {
   const [params, setParams] = useSearchParams();
   const openId = /^\d+$/.test(params.get('id') ?? '') ? Number(params.get('id')) : null;
@@ -88,6 +88,6 @@ function StaffRequest({ id, onChange, onBack }: { id: number; onChange: () => vo
     </header>
     {error && <p role="alert" className="border-b border-gray-200 bg-red-50 px-5 py-2 text-sm text-red-700">{error}</p>}
     {request.reports && <div className="border-b border-gray-200 p-4"><ReportPanel summary={request.reports} onResolved={() => { void load(); onChange(); }} /></div>}
-    <MessageThread label={`Support request ${request.subject}`} messages={request.messages} onSend={send} placeholder="Reply as LingoHub support…" />
+    <MessageThread label={`Support request ${request.subject}`} messages={request.messages} onSend={send} placeholder="Reply as Lingora support…" />
   </>;
 }

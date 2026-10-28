@@ -11,7 +11,7 @@ function fixture() {
   const msg = (body, mine, senderRole = 'learner', sender = 'Ken') => ({ id: nextId++, body, senderRole, sender: mine ? 'You' : sender, mine, sentAt: at() });
   const db = {
     direct: [{ id: 1, with: { username: 'ken_k', name: 'Ken' }, blockedByMe: false, unread: 2, messages: [msg('はじめまして！', false), msg('Shall we practise together?', false)] }],
-    support: [{ id: 7, subject: 'Lesson will not open', status: 'open', unread: 1, messages: [msg('Lesson 3 does not open.', true), msg('Thanks, we are looking into it.', false, 'admin', 'LingoHub support')] }],
+    support: [{ id: 7, subject: 'Lesson will not open', status: 'open', unread: 1, messages: [msg('Lesson 3 does not open.', true), msg('Thanks, we are looking into it.', false, 'admin', 'Lingora support')] }],
     assistant: { conversationId: null, messages: [] },
     staffReplies: [], reports: [], asks: [], statusChanges: [], fail: false,
   };
@@ -43,7 +43,7 @@ function fixture() {
     if (p === '/admin/access') return { id: 9, username: 'boss', role: 'admin' };
     if (p === '/admin/support' && method === 'GET') { const list = db.support.filter(c => (query.status ?? 'open') === 'all' || c.status === (query.status ?? 'open')); return { unreadOpen: 1, conversations: list.map(c => ({ id: c.id, subject: c.subject, status: c.status, unread: c.id === 7, lastMessageAt: at(), learner: { id: 1, username: 'mika', name: 'Mika' }, lastMessage: { body: c.messages.at(-1).body, fromSupport: !c.messages.at(-1).mine } })) }; }
     if (support && p.startsWith('/admin/support/') && method === 'GET') return { id: support.id, subject: support.subject, status: support.status, createdAt: at(), learner: { id: 1, username: 'mika', name: 'Mika', status: 'active' }, messages: support.messages.map(m => ({ ...m, mine: false, sender: m.mine ? 'Mika' : 'Boss (support)' })) };
-    if (support && p.startsWith('/admin/support/') && method === 'POST') { db.staffReplies.push(body.body); const m = { ...msg(body.body, true, 'admin'), sender: 'You (support)' }; support.messages.push({ ...m, mine: false, sender: 'LingoHub support' }); return [201, m]; }
+    if (support && p.startsWith('/admin/support/') && method === 'POST') { db.staffReplies.push(body.body); const m = { ...msg(body.body, true, 'admin'), sender: 'You (support)' }; support.messages.push({ ...m, mine: false, sender: 'Lingora support' }); return [201, m]; }
     if (support && p.startsWith('/admin/support/') && method === 'PATCH') { db.statusChanges.push(body.status); support.status = body.status; return { id: support.id, status: body.status }; }
     return undefined;
   } };
@@ -133,7 +133,7 @@ function fixture() {
     await page.getByLabel('Subject').fill('Change my email'); await page.getByLabel('Message', { exact: true }).fill('Please change it to a new one.');
     await page.getByRole('button', { name: 'Send request' }).click(); await page.waitForURL(base + '/support/9'); await heading('Change my email').waitFor();
     await page.getByRole('link', { name: '← All requests' }).click(); await page.getByRole('link', { name: /Lesson will not open/ }).click();
-    await page.getByText('Thanks, we are looking into it.').waitFor(); await page.locator('ol li').filter({ hasText: 'LingoHub support' }).first().waitFor();
+    await page.getByText('Thanks, we are looking into it.').waitFor(); await page.locator('ol li').filter({ hasText: 'Lingora support' }).first().waitFor();
     await page.screenshot({ path: shots + '/support.png' });
 
     // ---- Mobile: messages list, then thread
@@ -157,6 +157,6 @@ function fixture() {
     await adminPage.getByRole('button', { name: 'Closed', exact: true }).click(); await adminPage.getByRole('button', { name: /Lesson will not open/ }).waitFor();
     await adminPage.screenshot({ path: shots + '/admin-support.png' });
     assert.deepEqual(adminErrors, []);
-    console.log('PASS: dashboard (greeting, next step, level ring, stats, path with states, plan of 4, unread badges, ask → assistant once with level); assistant (provider label, new chat, suggestion, failure keeps the draft, retry); messages (unread, open, Shift+Enter newline, Enter sends, report with reason, block/unblock, unknown username error, start by @username); support (unread, new request, thread with LingoHub support); mobile list/thread and no overflow; admin inbox (unread, open, reply, close, filter); no page errors.');
+    console.log('PASS: dashboard (greeting, next step, level ring, stats, path with states, plan of 4, unread badges, ask → assistant once with level); assistant (provider label, new chat, suggestion, failure keeps the draft, retry); messages (unread, open, Shift+Enter newline, Enter sends, report with reason, block/unblock, unknown username error, start by @username); support (unread, new request, thread with Lingora support); mobile list/thread and no overflow; admin inbox (unread, open, reply, close, filter); no page errors.');
   } finally { await browser.close(); }
 })().catch(e => { console.error(String(e.stack || e).slice(0, 1500)); process.exitCode = 1; });

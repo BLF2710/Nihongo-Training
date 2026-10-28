@@ -67,7 +67,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
             {token && <button onClick={() => setSidebarOpen((open) => !open)} className="relative w-10 h-10 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition cursor-pointer" aria-label="Toggle navigation sidebar" aria-expanded={sidebarOpen}>☰</button>}
             <button onClick={() => go("/")} className="flex items-center gap-2 sm:gap-2.5 text-lg sm:text-2xl font-black text-gray-900 tracking-tight cursor-pointer">
               <span className="w-9 h-9 bg-linear-to-br from-indigo-600 to-emerald-500 rounded-xl flex items-center justify-center text-white text-lg shadow-sm">🌐</span>
-              <span className="max-[420px]:sr-only">Lingo<span className="text-emerald-600">Hub</span></span>
+              <span className="max-[420px]:sr-only">Ling<span className="text-emerald-600">ora</span></span>
             </button>
             {token && !isAdmin() && <LanguageMenu onChange={() => go("/")} />}
           </div>

@@ -73,7 +73,7 @@ export default function NotificationBell({ inbox }: { inbox: InboxSummary | null
       {pending.length > 0 && <section aria-label="Friend requests" className="mt-3 rounded-xl bg-gray-50 p-3">
         <h3 className="text-sm font-bold text-gray-700">{plural(friendRequests, "friend request", "friend requests")} waiting</h3>
         <ul className="mt-2 space-y-2">{pending.slice(0, SHOWN_REQUESTS).map(request => <li key={request.id} className="flex items-center gap-3">
-          <PersonAvatar name={request.displayName} username={request.username} />
+          <PersonAvatar name={request.displayName} username={request.username} avatar={request.avatar} />
           <Link to={`/u/${encodeURIComponent(request.username)}`} onClick={close} className="min-w-0 flex-1 hover:underline"><span className="block truncate text-sm font-bold text-gray-900">{request.displayName}</span><span className="block truncate text-xs text-gray-600">@{request.username}</span></Link>
           <button type="button" disabled={busy !== null} onClick={() => void answer(request, true)} aria-label={`Accept friend request from ${request.username}`} className="rounded-lg bg-emerald-600 px-2.5 py-1.5 text-xs font-bold text-white hover:bg-emerald-700 disabled:opacity-50">Accept</button>
           <button type="button" disabled={busy !== null} onClick={() => void answer(request, false)} aria-label={`Decline friend request from ${request.username}`} className="rounded-lg border border-gray-200 bg-white px-2.5 py-1.5 text-xs font-bold text-gray-700 hover:bg-gray-50 disabled:opacity-50">Decline</button>

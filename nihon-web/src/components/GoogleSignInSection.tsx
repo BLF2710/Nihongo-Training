@@ -32,6 +32,6 @@ export default function GoogleSignInSection({ next, context }: { next: string | 
     <div className="mt-4" aria-busy={busy}><GoogleSignInButton clientId={clientId} context={context} text="continue_with" onCredential={signIn} /></div>
     {busy && <p role="status" className="mt-2 text-center text-sm text-gray-600">Signing you in…</p>}
     {error && <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-700">{error}</p>}
-    <p className="mt-3 text-center text-xs text-gray-500">Google shares your name and email address with LingoHub. We never see your Google password.</p>
+    <p className="mt-3 text-center text-xs text-gray-500">Google shares your name and email address with Lingora. We never see your Google password.</p>
   </div>;
 }

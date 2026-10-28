@@ -1,7 +1,8 @@
 import { pool } from "../config/db";
+import { AVATAR_PATH_SQL } from "./avatar.repository";
 import { BLOCKED_EITHER_WAY_SQL } from "./learner-block.repository";
 
-export type SuggestionRow = { username: string; display_name: string; mutual_friends: number; same_level: boolean; course_level: string | null };
+export type SuggestionRow = { username: string; display_name: string; avatar: string | null; mutual_friends: number; same_level: boolean; course_level: string | null };
 
 // The course level a learner is working on: the level of the lesson they completed most recently.
 const COURSE_LEVEL_SQL = (userId: string) => `(SELECT UPPER(SUBSTRING(l.lesson_id FROM '^japanese-(n[1-5])-')) FROM lesson_progress l
@@ -26,7 +27,7 @@ export async function listSuggestionRows(userId: number, limit: number): Promise
           AND NOT EXISTS (SELECT 1 FROM friendships f WHERE LEAST(f.requester_id, f.addressee_id) = LEAST($1::int, u.id) AND GREATEST(f.requester_id, f.addressee_id) = GREATEST($1::int, u.id))
           AND NOT ${BLOCKED_EITHER_WAY_SQL("$1", "u.id")}
      )
-     SELECT c.username, c.display_name, c.mutual_friends, (c.course_level IS NOT NULL AND c.course_level = m.level) AS same_level, c.course_level
+     SELECT c.username, c.display_name, ${AVATAR_PATH_SQL("c.id")} AS avatar, c.mutual_friends, (c.course_level IS NOT NULL AND c.course_level = m.level) AS same_level, c.course_level
        FROM candidates c CROSS JOIN my_level m
       WHERE c.mutual_friends > 0 OR (c.course_level IS NOT NULL AND c.course_level = m.level)
       ORDER BY c.mutual_friends DESC, (c.course_level = m.level) DESC, c.last_activity_at DESC NULLS LAST

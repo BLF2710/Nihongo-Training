@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchTodayProgress } from "../api/activity";
 import type { DailyGoalProgress } from "../api/activity";
 
-const DAILY_GOAL_EVENT = "lingohub:daily-goal";
+const DAILY_GOAL_EVENT = "lingora:daily-goal";
 
 /** Tells open views that today's study time changed (after a report was saved). */
 export function announceDailyGoal(progress: DailyGoalProgress) {

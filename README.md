@@ -70,7 +70,7 @@ Copy `nihon-api/.env.example` to `nihon-api/.env` (and, for a deployed web app, 
 | `APP_URL` | The web app's address, used in links sent by email (default `http://localhost:5173`). |
 | `TRUST_PROXY` | Number of proxies in front of the API, so rate limits see the real client address (default 0). |
 | `JWT_SECRET` | Signs sign-in tokens; a long random value. Changing it signs everyone out. |
-| `SMTP_URL`, `MAIL_FROM` | Email for password reset and confirmation, e.g. `smtps://user:password@smtp.example.com:465`. Without `SMTP_URL`, emails are printed to the API console (development only); production refuses to start without it. |
+| `SMTP_URL`, `MAIL_FROM` | Email for password reset and confirmation, e.g. `smtps://you%40gmail.com:app-password@smtp.gmail.com:465` (write `@` in the user name as `%40`) and `Lingora <you@gmail.com>`. Without `SMTP_URL`, emails are printed to the API console (development only); production refuses to start without it, and `SMTP_URL` needs `MAIL_FROM`. The API logs at start whether the mail server accepts the sign-in; `npm run mail:test -- you@example.com` (in `nihon-api`) sends a test email. |
 | `VITE_API_URL` (web) | The API's address for a deployed build, e.g. `https://api.example.com/api`. |
 | `GOOGLE_CLIENT_ID` | Turns on "Continue with Google" (sign-in, registration and Settings). The web app reads it from the public site settings, so it's set only here. |
 | `SHARED_STATE` | `postgres` (default in production) or `memory` (default in development): where rate limits, Google sign-in nonces and live-update delivery live. Use `postgres` whenever more than one API process runs. |

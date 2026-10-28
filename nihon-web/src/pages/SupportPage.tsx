@@ -14,7 +14,7 @@ const statusChip = (status: "open" | "closed") => status === "open"
   ? <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Open</span>
   : <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-bold text-gray-600">Closed</span>;
 
-/** Help & support: a learner's requests to the LingoHub team. */
+/** Help & support: a learner's requests to the Lingora team. */
 export default function SupportPage() {
   const { requestId } = useParams();
   const openId = requestId && /^\d+$/.test(requestId) ? Number(requestId) : null;
@@ -42,7 +42,7 @@ export default function SupportPage() {
 
   return <div className="flex min-h-screen flex-col bg-gray-50 text-gray-900"><Navbar />
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6">
-      <header className="mb-4"><h1 className="text-3xl font-black">Help & support</h1><p className="mt-1 text-gray-600">Ask the LingoHub team about your account, a lesson, or anything that isn't working. Replies appear here.</p></header>
+      <header className="mb-4"><h1 className="text-3xl font-black">Help & support</h1><p className="mt-1 text-gray-600">Ask the Lingora team about your account, a lesson, or anything that isn't working. Replies appear here.</p></header>
       <div className="grid gap-5 md:grid-cols-[20rem_1fr]">
         <aside className={`space-y-5 ${openId ? "hidden md:block" : ""}`}>
           <section aria-labelledby="your-requests" className="overflow-hidden rounded-3xl border border-gray-200 bg-white">

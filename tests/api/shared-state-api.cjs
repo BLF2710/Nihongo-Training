@@ -48,7 +48,7 @@ const until = async (check, label, ms = 5000) => { const end = Date.now() + ms; 
     assert.equal(await noncesA.use(tag + '-n3'), false, 'expired');
 
     // ---- Realtime bus: a message sent by either process reaches both; garbage on the channel is ignored
-    const channel = 'lingohub_' + tag.replace(/-/g, '_');
+    const channel = 'lingora_' + tag.replace(/-/g, '_');
     const busA = new PostgresRealtimeBus(poolA, options, channel), busB = new PostgresRealtimeBus(poolB, options, channel);
     buses.push(busA, busB);
     const seenA = [], seenB = [];

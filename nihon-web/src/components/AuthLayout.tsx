@@ -11,11 +11,11 @@ const highlights = [
 /** The shared frame of the sign-in and registration pages: brand panel beside the form on wide screens, form only on small ones. */
 export default function AuthLayout({ title, subtitle, children, footer }: { title: string; subtitle: string; children: ReactNode; footer: ReactNode }) {
   return <div className="min-h-screen bg-gray-50 text-gray-900 lg:grid lg:grid-cols-[1.05fr_1fr]">
-    <aside aria-label="About LingoHub" className="relative hidden overflow-hidden bg-emerald-900 p-12 text-white lg:flex lg:flex-col lg:justify-between">
+    <aside aria-label="About Lingora" className="relative hidden overflow-hidden bg-emerald-900 p-12 text-white lg:flex lg:flex-col lg:justify-between">
       <span aria-hidden="true" lang="ja" className="pointer-events-none absolute -right-10 -top-16 select-none text-[22rem] font-black leading-none text-white/5">語</span>
       <Link to="/" className="relative flex items-center gap-2.5 text-2xl font-black tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
         <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-indigo-600 to-emerald-500 text-lg shadow-sm">🌐</span>
-        <span>Lingo<span className="text-emerald-300">Hub</span></span>
+        <span>Ling<span className="text-emerald-300">ora</span></span>
       </Link>
       <div className="relative">
         <p className="text-xs font-bold uppercase tracking-widest text-emerald-200">🇯🇵 Japanese · N5 and N4</p>
@@ -33,7 +33,7 @@ export default function AuthLayout({ title, subtitle, children, footer }: { titl
         <Link to="/" className="text-sm font-semibold text-gray-600 hover:underline focus-visible:outline-2 focus-visible:outline-emerald-600">← Back to home</Link>
         <Link to="/" className="flex items-center gap-2 text-xl font-black tracking-tight lg:hidden">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-indigo-600 to-emerald-500 text-base text-white">🌐</span>
-          <span>Lingo<span className="text-emerald-600">Hub</span></span>
+          <span>Ling<span className="text-emerald-600">ora</span></span>
         </Link>
       </div>
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center py-8">

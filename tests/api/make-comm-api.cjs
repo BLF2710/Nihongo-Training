@@ -83,7 +83,7 @@ const tail = String.raw`    const L = 'learner'; // username learner_x1 is "Ana"
     assert.deepEqual((await get('/inbox', L)).data.support, 1);
     const mine = (await get('/support/' + ticket.data.id, L)).data;
     assert.deepEqual(mine.messages.map(m => m.mine), [true, false]);
-    assert.equal(mine.messages[1].sender, 'LingoHub support'); assert.equal((await get('/inbox', L)).data.support, 0);
+    assert.equal(mine.messages[1].sender, 'Lingora support'); assert.equal((await get('/inbox', L)).data.support, 0);
     assert.equal((await get('/support/' + ticket.data.id, 'ben')).status, 404, 'other learners cannot read a request');
     assert.equal((await call('PATCH', '/admin/support/' + ticket.data.id, { as: 'admin', body: { status: 'done' } })).status, 400);
     assert.equal((await call('PATCH', '/admin/support/' + ticket.data.id, { as: 'admin', body: { status: 'closed' } })).data.status, 'closed');
@@ -130,7 +130,7 @@ const tail = String.raw`    const L = 'learner'; // username learner_x1 is "Ana"
     mock.reply = () => ({ status: 401, json: { type: 'error', error: { type: 'authentication_error', message: 'bad key' } } });
     assert.equal((await post('/assistant/messages', { body: 'hello' }, 'cat')).status, 503);
     assert.equal(Number((await client.query("SELECT COUNT(*) FROM messages")).rows[0].count), before, 'failed answers store nothing');
-    console.log('PASS: auth on every route; direct conversations by exact username only (one per pair, no admins, not yourself); send/unread/read; strangers refused; block both ways and unblock; suspended recipients; rate limit after ' + limited + ' messages; reports copied to support; support requests with staff inbox, unread, replies as "LingoHub support", close and reopen-on-reply, learners refused from the inbox; admin switches for messages and assistant (support stays open); course helper answers from lessons and keeps chats private; Claude provider sends claude-opus-5-5 with default fallbacks, low effort, level-aware system prompt and history, handles refusal kindly, and turns 429/529/500/401 into 503 with nothing stored. Rolled back; ' + mock.requests.length + ' requests went to the local mock, none to the real API.');
+    console.log('PASS: auth on every route; direct conversations by exact username only (one per pair, no admins, not yourself); send/unread/read; strangers refused; block both ways and unblock; suspended recipients; rate limit after ' + limited + ' messages; reports copied to support; support requests with staff inbox, unread, replies as "Lingora support", close and reopen-on-reply, learners refused from the inbox; admin switches for messages and assistant (support stays open); course helper answers from lessons and keeps chats private; Claude provider sends claude-opus-5-5 with default fallbacks, low effort, level-aware system prompt and history, handles refusal kindly, and turns 429/529/500/401 into 503 with nothing stored. Rolled back; ' + mock.requests.length + ' requests went to the local mock, none to the real API.');
   } finally { await queue.catch(() => {}); await client.query('ROLLBACK').catch(() => {}); client.release(); await new Promise(r => server ? server.close(r) : r()); await pool.end(); mockServer.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1500)); process.exitCode = 1; });
 `;

@@ -5,8 +5,9 @@ import type { ReportSummary } from "./moderation";
 export type ChatMessage = { id: number; body: string; senderRole: "learner" | "admin" | "assistant"; sender: string; mine: boolean; sentAt: string };
 export type InboxSummary = { direct: number; support: number; total: number; friendRequests?: number; notifications?: number };
 
-export type DirectConversationSummary = { id: number; with: { username: string; name: string }; unread: number; lastMessageAt: string; lastMessage: { body: string; mine: boolean } | null };
-export type DirectConversation = { id: number; with: { username: string; name: string }; blockedByMe: boolean; canReply: boolean; messages: ChatMessage[] };
+export type DirectPerson = { username: string; name: string; avatar?: string | null };
+export type DirectConversationSummary = { id: number; with: DirectPerson; unread: number; lastMessageAt: string; lastMessage: { body: string; mine: boolean } | null };
+export type DirectConversation = { id: number; with: DirectPerson; blockedByMe: boolean; canReply: boolean; messages: ChatMessage[] };
 
 export type SupportSummary = { id: number; subject: string; status: "open" | "closed"; unread: number; lastMessageAt: string; lastMessage: { body: string; fromSupport: boolean } | null };
 export type SupportConversation = { id: number; subject: string; status: "open" | "closed"; messages: ChatMessage[] };

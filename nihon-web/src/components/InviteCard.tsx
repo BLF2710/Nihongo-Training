@@ -12,7 +12,7 @@ export default function InviteCard({ username }: { username: string }) {
   const say = (text: string) => { setNotice(text); window.setTimeout(() => setNotice(current => current === text ? "" : current), 2500); };
 
   const copy = () => void navigator.clipboard?.writeText(link).then(() => say("Invite link copied.")).catch(() => say("Copy the link above by hand."));
-  const share = () => void navigator.share?.({ title: "Add me on LingoHub", text: `Add me as a friend on LingoHub (@${username})`, url: link }).catch(() => { /* closed by the learner */ });
+  const share = () => void navigator.share?.({ title: "Add me on Lingora", text: `Add me as a friend on Lingora (@${username})`, url: link }).catch(() => { /* closed by the learner */ });
   const toggleQr = async () => {
     if (showQr) { setShowQr(false); return; }
     setShowQr(true);
@@ -38,7 +38,7 @@ export default function InviteCard({ username }: { username: string }) {
     <p role="status" className="mt-2 min-h-5 text-sm text-emerald-700">{notice}</p>
     {showQr && <div className="mt-2 flex flex-col items-center gap-2 sm:flex-row sm:items-end">
       {qr ? <img src={qr} width={240} height={240} alt={`QR code that opens the invite link for @${username}`} className="rounded-xl border border-gray-200 bg-white" /> : <p role="status" className="text-sm text-gray-600">Making the QR code…</p>}
-      {qr && <a href={qr} download={`lingohub-invite-${username}.png`} className="text-sm font-bold text-emerald-700 hover:underline">Download QR code</a>}
+      {qr && <a href={qr} download={`lingora-invite-${username}.png`} className="text-sm font-bold text-emerald-700 hover:underline">Download QR code</a>}
     </div>}
   </section>;
 }

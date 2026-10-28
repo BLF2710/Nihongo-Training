@@ -28,7 +28,7 @@ async function memberConversation(userId: number, conversationId: unknown) {
 export async function listDirectConversations(userId: number) {
   const rows = await listMemberConversations(userId, "direct");
   return rows.map(row => ({
-    id: row.id, with: { username: row.other_username, name: row.other_name }, unread: row.unread, lastMessageAt: row.last_message_at,
+    id: row.id, with: { username: row.other_username, name: row.other_name, avatar: row.other_avatar }, unread: row.unread, lastMessageAt: row.last_message_at,
     lastMessage: row.last_body ? { body: preview(row.last_body), mine: row.last_sender_id === userId } : null,
   }));
 }
@@ -63,7 +63,7 @@ export async function getDirectConversation(userId: number, conversationId: unkn
   const [messages, blocks] = await Promise.all([listMessages(conversation.id), blockState(userId, other.id)]);
   await markRead(conversation.id, userId);
   return {
-    id: conversation.id, with: { username: other.username, name: other.display_name },
+    id: conversation.id, with: { username: other.username, name: other.display_name, avatar: other.avatar },
     blockedByMe: blocks.blockedByMe, canReply: !blocks.blockedByMe && !blocks.blockedMe && other.status === "active",
     messages: messages.map(row => toMessage(row, userId)),
   };

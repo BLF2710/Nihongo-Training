@@ -1,9 +1,10 @@
 import { pool } from "../config/db";
+import { AVATAR_PATH_SQL } from "./avatar.repository";
 import { BLOCKED_EITHER_WAY_SQL } from "./learner-block.repository";
 
 export type FeedItemKind = "lessons" | "unit" | "achievement";
 export type FeedRow = {
-  username: string; display_name: string; kind: FeedItemKind; ref: string; count: number; at: Date;
+  username: string; display_name: string; avatar: string | null; kind: FeedItemKind; ref: string; count: number; at: Date;
   achievement_title: string | null; cheered: boolean;
 };
 
@@ -34,7 +35,7 @@ export async function listFeedRows(userId: number, days: number, limit: number):
        SELECT ua.user_id, 'achievement', ua.achievement_id, 1, ua.earned_at FROM user_achievements ua JOIN sharing s ON s.id = ua.user_id
         WHERE ua.earned_at > NOW() - make_interval(days => $2)
      )
-     SELECT u.username, COALESCE(p.display_name, u.username) AS display_name, i.kind, i.ref, i.count, i.at, ach.title AS achievement_title,
+     SELECT u.username, COALESCE(p.display_name, u.username) AS display_name, ${AVATAR_PATH_SQL("u.id")} AS avatar, i.kind, i.ref, i.count, i.at, ach.title AS achievement_title,
             EXISTS (SELECT 1 FROM notifications n WHERE n.actor_id = $1 AND n.user_id = i.user_id AND n.kind = 'cheer'
                      AND n.data->>'item' = i.kind || ':' || i.ref) AS cheered
        FROM items i JOIN users u ON u.id = i.user_id LEFT JOIN user_profiles p ON p.user_id = u.id

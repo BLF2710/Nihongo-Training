@@ -103,7 +103,7 @@ export function createGoogleSignInService(verifier: GoogleTokenVerifier | null) 
   async function link(userId: number, credential: unknown) {
     const identity = await identityFrom(credential);
     const owner = await findAccountByIdentity("google", identity.subject);
-    if (owner && owner.userId !== userId) throw new HttpError(409, "That Google account is already connected to another LingoHub account.");
+    if (owner && owner.userId !== userId) throw new HttpError(409, "That Google account is already connected to another Lingora account.");
     if (owner) return { email: identity.email };
     if (await findIdentityOfUser(userId, "google")) throw new HttpError(409, "A Google account is already connected. Disconnect it first.");
     await withTransaction(client => linkIdentity(client, { userId, provider: "google", subject: identity.subject, email: identity.email }));
