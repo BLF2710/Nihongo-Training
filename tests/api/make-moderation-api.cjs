@@ -16,6 +16,18 @@ const tail = String.raw`    const user = name => name + '_x1'; const A = 'admin'
     const log = async (query = '') => (await call('GET', '/admin/audit-log' + query, { as: A })).data.entries;
     const editUser = async (name, change) => { const a = await account(name); return call('PATCH', '/admin/users/' + a.id, { as: A, body: { username: a.username, email: a.email, role: a.role, status: a.status, ...change } }); };
 
+    // ---- system status: administrators only; reports what is configured, never a secret
+    assert.equal((await call('GET', '/admin/status', { as: 'cat' })).status, 403);
+    const status = await call('GET', '/admin/status', { as: A });
+    assert.equal(status.status, 200);
+    assert.deepEqual(Object.keys(status.data).sort(), ['api', 'checkedAt', 'database', 'integrations', 'realtime']);
+    assert.ok(status.data.database.migrationFiles >= 26 && typeof status.data.database.sizeBytes === 'number' && typeof status.data.database.latencyMs === 'number');
+    assert.deepEqual(Object.keys(status.data.integrations).sort(), ['anthropic', 'azureSpeech', 'email', 'google']);
+    assert.ok(['memory', 'postgres'].includes(status.data.realtime.sharedState));
+    const raw = JSON.stringify(status.data);
+    for (const secret of [process.env.DB_PASSWORD, process.env.JWT_SECRET, process.env.ANTHROPIC_API_KEY, process.env.AZURE_SPEECH_KEY].filter(value => value && value.length > 3)) assert.ok(!raw.includes(secret), 'no secret in the status');
+    assert.ok(!/:[^/@\s]+@/.test(status.data.integrations.email.detail), 'no SMTP password in the email detail');
+
     // ---- audit log: account changes, lesson access, settings, content, support
     assert.equal((await editUser('ben', { status: 'suspended' })).status, 200);
     assert.equal((await editUser('ben', { status: 'active', role: 'admin' })).status, 200);
@@ -41,6 +53,21 @@ const tail = String.raw`    const user = name => name + '_x1'; const A = 'admin'
     assert.equal((await log('?actor=' + user('ben'))).length, 0);
     assert.equal((await call('GET', '/admin/audit-log?action=drop.tables', { as: A })).status, 400);
     assert.equal((await call('GET', '/admin/audit-log', { as: 'cat' })).status, 403, 'administrators only');
+
+    // ---- an administrator sends a password-reset link (never sees the password); optionally signs the account out
+    const eve = await uid('eve');
+    const versionBefore = (await client.query('SELECT token_version FROM users WHERE id = $1', [eve])).rows[0].token_version;
+    assert.equal((await call('POST', '/admin/users/' + eve + '/password-reset', { as: 'cat', body: {} })).status, 403, 'administrators only');
+    const reset = await call('POST', '/admin/users/' + eve + '/password-reset', { as: A, body: { signOut: true } });
+    assert.equal(reset.status, 200, JSON.stringify(reset.data)); assert.deepEqual(reset.data, { sentTo: 'eve@example.com', signedOut: true });
+    assert.equal((await client.query("SELECT COUNT(*)::int AS n FROM account_tokens WHERE user_id = $1 AND purpose = 'password_reset' AND used_at IS NULL", [eve])).rows[0].n, 1, 'a reset link exists');
+    assert.ok((await client.query('SELECT token_version FROM users WHERE id = $1', [eve])).rows[0].token_version > versionBefore, 'signed out everywhere');
+    assert.deepEqual((await log('?action=user.password_reset_sent'))[0].details, { signedOut: true });
+    assert.equal((await call('POST', '/admin/users/999999/password-reset', { as: A, body: {} })).status, 404);
+    await client.query("UPDATE users SET status = 'suspended' WHERE id = $1", [eve]);
+    assert.equal((await call('POST', '/admin/users/' + eve + '/password-reset', { as: A, body: {} })).status, 409, 'not for a suspended account');
+    await client.query("UPDATE users SET status = 'active' WHERE id = $1", [eve]);
+    tokens.eve = (await call('POST', '/auth/login', { body: { login: user('eve'), password: 'password123' } })).data.token;
 
     // ---- repeated reports about one learner are handled together
     const report = (as, about, reason) => call('POST', '/people/' + user(about) + '/report', { as, body: { reason } });

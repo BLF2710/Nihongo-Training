@@ -13,6 +13,7 @@ export function describeAuditEntry(entry: AuditEntry): string {
     case 'user.details_changed': return `Edited ${who}: ${Object.keys(details).join(' and ')}`;
     case 'user.lessons_unlocked': return `Unlocked every lesson for ${who}`;
     case 'user.lessons_relocked': return `Restored normal lesson progression for ${who}`;
+    case 'user.password_reset_sent': return `Sent a password-reset link to ${who}${details.signedOut ? ' and signed them out everywhere' : ''}`;
     case 'settings.updated': return `Updated system settings (registration ${details.registrationEnabled ? 'open' : 'closed'}${details.announcement ? ', announcement set' : ''})`;
     case 'content.enabled': return `Turned on ${entry.targetRef}`;
     case 'content.disabled': return `Turned off ${entry.targetRef}`;

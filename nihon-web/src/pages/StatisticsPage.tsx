@@ -1,7 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
+import SectionTabs from "../components/SectionTabs";
 import Navbar from "../components/Navbar";
-import LearningOverview from "../components/LearningOverview";
+import { OverviewStats, PracticeStats, TestStats } from "../components/LearningOverview";
+import { useLearningOverview } from "../lib/learningOverview";
+import type { LearningOverviewState } from "../lib/learningOverview";
 import { apiErrorMessage, isUnauthorized } from "../api/errors";
 import { fetchStatistics as loadStatistics } from "../api/statistics";
 import type { StatisticsResponse } from "../api/statistics";
@@ -9,7 +12,42 @@ import type { CharacterStat } from "../lib/kanaReview";
 
 const EMPTY_CHARACTERS: CharacterStat[] = [];
 
+const SECTIONS = [
+  { key: "overview", label: "Overview" },
+  { key: "tests", label: "Tests" },
+  { key: "practice", label: "Practice" },
+  { key: "kana", label: "Kana" },
+] as const;
+type Section = (typeof SECTIONS)[number]["key"];
+const isSection = (value: string | undefined): value is Section => SECTIONS.some(item => item.key === value);
+
+/** The Japanese statistics sections, each at its own address so links and Back work. */
+function StatisticsTabs() {
+  return <SectionTabs label="Statistics sections" tabs={SECTIONS.map(item => ({ to: `/statistics/japanese/${item.key}`, label: item.label }))} />;
+}
+
+/** Overview, Tests or Practice, from the learning overview loaded once for all of them. */
+function OverviewArea({ section, state }: { section: Exclude<Section, "kana">; state: LearningOverviewState }) {
+  if (state.error) return <p role="alert" className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{state.error} <button className="ml-2 font-bold underline" onClick={state.retry}>Retry</button></p>;
+  if (!state.overview) return <p role="status" className="mb-8 text-gray-500">Loading your learning statistics…</p>;
+  if (section === "tests") return <TestStats overview={state.overview} />;
+  if (section === "practice") return <PracticeStats overview={state.overview} />;
+  return <OverviewStats overview={state.overview} />;
+}
+
 export default function StatisticsPage() {
+  const { section } = useParams();
+  const location = useLocation();
+  // Old links (/statistics/japanese?type=katakana) open the Kana section.
+  const legacyKana = new URLSearchParams(location.search).has("type");
+  if (!location.pathname.startsWith("/statistics/english") && !isSection(section)) {
+    return <Navigate to={`/statistics/japanese/${legacyKana ? "kana" : "overview"}${location.search}`} replace />;
+  }
+  return <StatisticsView jpSection={isSection(section) ? section : "overview"} />;
+}
+
+function StatisticsView({ jpSection }: { jpSection: Section }) {
+  const learning = useLearningOverview();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -152,7 +190,9 @@ export default function StatisticsPage() {
               {/* ============================================= */}
               {langTab === "japanese" && (
                 <>
-                  <LearningOverview />
+                  <StatisticsTabs />
+                  {jpSection !== "kana" && <OverviewArea section={jpSection} state={learning} />}
+                  {jpSection === "kana" && <>
                   <h2 className="mb-4 text-2xl font-black text-gray-900">Kana quizzes</h2>
                   {/* Overall Summary Cards */}
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
@@ -359,6 +399,7 @@ export default function StatisticsPage() {
                       </div>
                     )}
                   </div>
+                  </>}
                 </>
               )}
 

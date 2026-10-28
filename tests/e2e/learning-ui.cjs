@@ -155,16 +155,29 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
 
     // ---- Statistics overview
     ({ context, page, state, errors } = await run());
-    await page.goto(base + '/statistics/japanese'); await page.getByRole('heading', { name: 'Your learning' }).waitFor();
+    // Split into tabs, each at its own address; the old address opens Overview.
+    const tabs = page.getByRole('navigation', { name: 'Statistics sections' });
+    await page.goto(base + '/statistics/japanese'); await page.waitForURL('**/statistics/japanese/overview');
+    await page.getByRole('heading', { name: 'Your learning' }).waitFor();
     await page.getByText('137 min').waitFor(); await page.getByText('Daily goal met on 4 days').waitFor();
     await page.getByRole('heading', { name: 'Minutes studied per day' }).waitFor();
     await page.getByRole('img', { name: /^Minutes studied per day: / }).waitFor();
-    await page.getByText('8 reviews in 14 days, 75% remembered.').waitFor();
-    await page.getByText('N5 Unit 1 · Greetings & Introductions').waitFor(); await page.getByText('90% ✓').waitFor();
-    await page.getByText('Listening · 3 sessions').waitFor(); await page.getByText('80% right').waitFor();
-    await page.getByRole('heading', { name: 'Kana quizzes' }).waitFor();
     await page.locator('summary', { hasText: 'Show as a table' }).first().click(); await page.getByRole('cell', { name: '20', exact: true }).first().waitFor();
+    assert.equal(await page.getByRole('heading', { name: 'Kana quizzes' }).count(), 0, 'kana is on its own tab');
     await page.screenshot({ path: shots + '/statistics-learning.png', fullPage: true });
+    await tabs.getByRole('link', { name: 'Tests' }).click(); await page.waitForURL('**/statistics/japanese/tests');
+    await page.getByText('N5 Unit 1 · Greetings & Introductions').waitFor(); await page.getByText('90%', { exact: true }).first().waitFor();
+    await page.getByText(/^✓?Passed$/).first().waitFor();
+    assert.equal(await tabs.getByRole('link', { name: 'Tests' }).getAttribute('aria-current'), 'page');
+    await page.screenshot({ path: shots + '/statistics-tests.png', fullPage: true });
+    await tabs.getByRole('link', { name: 'Practice' }).click();
+    await page.getByText('8 reviews in 14 days, 75% remembered.').waitFor();
+    await page.getByText('Listening · 3 sessions').waitFor(); await page.getByText('80% right').waitFor();
+    await page.screenshot({ path: shots + '/statistics-practice.png', fullPage: true });
+    await tabs.getByRole('link', { name: 'Kana' }).click(); await page.getByRole('heading', { name: 'Kana quizzes' }).waitFor();
+    await page.goBack(); await page.getByText('Listening · 3 sessions').waitFor();
+    await page.goto(base + '/statistics/japanese?type=katakana'); await page.waitForURL('**/statistics/japanese/kana?type=katakana');
+    await page.getByRole('heading', { name: 'Kana quizzes' }).waitFor();
     assert.deepEqual(errors, []); await context.close();
 
     // ---- Phone width: no sideways scrolling

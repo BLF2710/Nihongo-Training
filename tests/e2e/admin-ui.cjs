@@ -32,8 +32,10 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
       if (path === '/admin/access') return json({ id: 1, username: 'kai', role });
       if (path.startsWith('/admin/') && role !== 'admin') return json({ message: 'Administrator access is required.' }, 403);
       if (path === '/admin/analytics') return json({ generatedAt: '2026-10-21T09:00:00.000Z', learners: { total: 1, newLast30Days: 1, activeToday: 0, activeLast7Days: 1, activeLast30Days: 1 }, dailyActive: Array.from({ length: 14 }, (_, i) => ({ day: `2026-10-${String(8 + i).padStart(2, '0')}`, learners: i === 5 ? 1 : 0 })), funnel: [], dropOffs: [], practice: [] });
+      if (path === '/admin/status') return json({ checkedAt: '2026-10-08T09:00:00.000Z', api: { environment: 'development', nodeVersion: 'v22.14.0', uptimeSeconds: 3720 }, database: { latencyMs: 4, sizeBytes: 12582912, appliedMigrations: 7, migrationFiles: 8, latestMigration: { name: '007_admin_controls.sql', applied_at: '2026-10-08T08:00:00Z' } }, realtime: { sharedState: 'memory', connections: 2, learners: 1 }, integrations: { email: { configured: false, detail: 'printed to this console (SMTP_URL is not set)' }, google: { configured: true }, azureSpeech: { configured: false }, anthropic: { configured: false } } });
       if (path === '/admin/overview') return json({ users: { total: 2, active: 2, admins: 1 }, database: 'connected', databaseLatencyMs: 4, uptimeSeconds: 3720, checkedAt: '2026-10-08T09:00:00.000Z', latestMigration: { name: '007_admin_controls.sql', applied_at: '2026-10-08T08:00:00Z' } });
       if (path === '/admin/users') { const q = (url.searchParams.get('search') || '').toLowerCase(); const found = users.filter(u => u.username.includes(q) || u.email.includes(q)); return json({ users: found, page: 1, total: found.length, pageSize: 20 }); }
+      if (/^\/admin\/users\/\d+\/password-reset$/.test(path)) { const target = users.find(u => u.id === Number(path.split('/')[3])); return json({ sentTo: target.email, signedOut: Boolean(body.signOut) }); }
       if (/^\/admin\/users\/\d+$/.test(path)) { Object.assign(users.find(u => u.id === Number(path.split('/').pop())), body); return json(body); }
       if (path === '/admin/settings') { if (request.method() === 'PUT') site = { ...site, ...body }; return json({ registration_enabled: site.registration_enabled, announcement: site.announcement, updated_at: '2026-10-08T09:00:00.000Z' }); }
       if (path === '/admin/content') return json({ items: content });
@@ -65,7 +67,9 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     // Learner pages send an administrator back to the admin area.
     for (const path of ['/', '/vocabulary', '/profile', '/lessons', '/practice?type=hiragana', '/statistics']) { await page.goto(base + path); await heading('Overview').waitFor(); assert.equal(new URL(page.url()).pathname, '/admin', path); } await page.getByText('Total users').waitFor();
     const nav = page.getByRole('navigation', { name: 'Admin navigation' });
-    assert.deepEqual(await nav.getByRole('link').allTextContents(), ['Overview', 'Users & roles', 'Manage content', 'Question bank', 'Support inbox', 'Reports', 'Lesson editor', 'Audit log', 'System status', 'System settings']);
+    // Grouped sidebar (People / Content / System); the question bank and lesson editor are tabs of Content.
+    assert.deepEqual(await nav.getByRole('link').evaluateAll(links => links.map(link => link.querySelector('.flex-1').textContent)), ['Overview', 'Users & roles', 'Reports', 'Support inbox', 'Content', 'Audit log', 'System status', 'System settings']);
+    await heading('Needs attention').waitFor();
     assert.equal(await page.getByRole('navigation', { name: 'Page navigation' }).count(), 0, 'learner navbar must not render inside admin');
     await page.screenshot({ path: shots + '/admin-overview.png' });
 
@@ -76,6 +80,15 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     await page.getByLabel('Account status').selectOption('suspended'); await page.getByRole('button', { name: 'Save changes' }).click();
     await page.getByText('User updated.').waitFor();
     assert.deepEqual(writes.at(-1), { method: 'PATCH', path: '/admin/users/2', body: { username: 'mika', email: 'mika@example.com', role: 'learner', status: 'suspended' } });
+    // Password reset: a link is emailed (the admin never sees the password), optionally signing the account out.
+    await page.getByRole('button', { name: 'Edit mika' }).click(); await page.getByLabel('Account status').selectOption('active'); await page.getByRole('button', { name: 'Save changes' }).click(); await page.getByText('User updated.').waitFor();
+    await page.getByRole('button', { name: 'Reset password for mika' }).click();
+    const resetPanel = page.getByRole('region', { name: 'Reset password for mika' });
+    await resetPanel.getByText('mika@example.com').waitFor();
+    await resetPanel.getByLabel(/Also sign them out on every device/).check();
+    await resetPanel.getByRole('button', { name: 'Sign out and send link' }).click();
+    await page.getByText('Reset link sent to mika@example.com. They were signed out on every device.').waitFor();
+    assert.deepEqual(writes.at(-1), { method: 'POST', path: '/admin/users/2/password-reset', body: { signOut: true } });
     await page.screenshot({ path: shots + '/admin-users.png' });
 
     // Roles are edited on the same page; your own role and status are locked. The old roles address leads here.
@@ -89,14 +102,24 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     // System status and settings.
     await nav.getByRole('link', { name: 'System status' }).click(); await heading('System status').first().waitFor();
     await page.getByText('007_admin_controls.sql').waitFor(); await page.getByText('1h 2m').waitFor();
+    // One migration file is not applied and email isn't sending: both are flagged; optional services are just 'Not set up'.
+    await page.getByText('2 things need attention').waitFor();
+    await page.getByRole('article', { name: 'Migrations' }).getByText('1 not applied').waitFor();
+    await page.getByRole('article', { name: 'Email' }).getByText('Not sending').waitFor();
+    await page.getByRole('article', { name: 'Google sign-in' }).getByText('Configured').waitFor();
+    await page.screenshot({ path: shots + '/admin-status.png', fullPage: true });
     await nav.getByRole('link', { name: 'System settings' }).click(); await heading('System settings').waitFor();
     await page.getByRole('textbox', { name: /^Announcement/ }).fill('Maintenance tonight at 22:00'); await page.getByLabel(/Allow new registrations/).uncheck();
     await page.getByRole('button', { name: 'Save settings' }).click(); await page.getByText('Settings saved.').waitFor();
-    assert.deepEqual(writes.at(-1).body, { registration_enabled: false, announcement: 'Maintenance tonight at 22:00', updated_at: '2026-10-08T09:00:00.000Z' });
-    assert.equal(await page.getByText('📣').count(), 0, 'announcement is for learner pages, not the admin area');
+    assert.deepEqual(writes.at(-1).body, { registration_enabled: false, announcement: 'Maintenance tonight at 22:00', announcement_audience: 'everyone' });
+    assert.equal(await page.locator('[role=status]', { hasText: '📣' }).count(), 0, 'the site banner is for learner pages, not the admin area (the settings preview is not a live banner)');
+    await page.screenshot({ path: shots + '/admin-settings.png', fullPage: true });
 
     // Manage content: filter and disable.
-    await nav.getByRole('link', { name: 'Manage content' }).click(); await heading('Manage content').waitFor();
+    await nav.getByRole('link', { name: 'Content' }).click(); await heading('Content').waitFor(); await page.waitForURL('**/admin/content/availability');
+    const contentTabs = page.getByRole('navigation', { name: 'Content sections' });
+    for (const name of ['Availability', 'Question bank', 'Lesson editor']) await contentTabs.getByRole('link', { name }).waitFor();
+    assert.equal(await contentTabs.getByRole('link', { name: 'Availability' }).getAttribute('aria-current'), 'page');
     assert.equal(await page.locator('article').count(), 5);
     await page.getByLabel('Category').selectOption('Games'); assert.equal(await page.locator('article').count(), 1);
     await page.getByLabel('Category').selectOption('All');

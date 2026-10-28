@@ -23,7 +23,7 @@ const base = process.argv[2], shots = process.argv[3];
     await page.goto(base + '/admin/users'); await page.getByRole('heading', { name: 'Users & roles', exact: true }).waitFor();
     const row = name => page.locator('tbody tr').filter({ hasText: name });
     await row('mika').getByText('Normal', { exact: true }).waitFor();
-    assert.deepEqual(await page.locator('thead th').allInnerTexts(), ['User', 'Role', 'Status', 'Lessons', 'Last login', 'Action']);
+    assert.deepEqual(await page.locator('thead th').allInnerTexts(), ['USER', 'ROLE', 'STATUS', 'LESSONS', 'LAST LOGIN', 'ACTIONS']);
     fail = true; await page.getByRole('button', { name: 'Unlock all lessons for mika' }).click(); await page.getByRole('alert').filter({ hasText: 'Could not change lesson access.' }).waitFor(); await row('mika').getByText('Normal', { exact: true }).waitFor();
     await page.getByRole('button', { name: 'Unlock all lessons for mika' }).click();
     await page.getByRole('status').filter({ hasText: 'All lessons unlocked for mika. Their progress and XP are unchanged.' }).waitFor();

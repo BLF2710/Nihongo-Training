@@ -93,13 +93,16 @@ const LESSON = 'japanese-n5-unit-1-introductions';
     await adminPage.getByRole('button', { name: 'Filter' }).click();
     for (let i = 0; i < 50 && !auditQueries.some(q => q.includes('action=reports')); i++) await adminPage.waitForTimeout(20);
     assert.ok(auditQueries.some(q => q.includes('action=reports')), 'the filter is sent');
+    await adminPage.screenshot({ path: path.join(shots, 'admin-audit-log.png'), fullPage: true });
 
     // Reports on a report request, then the queue
     await adminPage.goto(base + '/admin/support?id=7');
     await adminPage.getByRole('region', { name: 'Reports about dan' }).getByText('Reported repeatedly').waitFor();
+    await adminPage.screenshot({ path: path.join(shots, 'admin-support.png') });
     await adminPage.goto(base + '/admin/reports');
     const panel = adminPage.getByRole('region', { name: 'Reports about dan' });
     assert.match(await panel.innerText(), /4 open reports from 3 learners/);
+    await adminPage.screenshot({ path: path.join(shots, 'admin-reports.png'), fullPage: true });
     await adminPage.getByRole('button', { name: 'Warn dan' }).click();
     await panel.getByRole('textbox').fill('Please keep your bio friendly.');
     await panel.getByRole('button', { name: 'Send warning and close reports' }).click();
@@ -108,6 +111,14 @@ const LESSON = 'japanese-n5-unit-1-introductions';
 
     // Lesson editor: list, edit, rejected save with every problem, save, preview, publish, restore
     await adminPage.goto(base + '/admin/lessons');
+    // Level filter: N4 shows only N4 units, kept in the address; All brings everything back.
+    const levels = adminPage.getByRole('group', { name: 'Level' });
+    await levels.getByRole('button', { name: /^N4/ }).click(); await adminPage.waitForURL('**/admin/content/lessons?level=N4');
+    await adminPage.getByRole('heading', { name: 'N4 Unit 1' }).waitFor();
+    assert.equal(await adminPage.getByRole('heading', { name: /^N5 Unit/ }).count(), 0, 'no N5 units under N4');
+    assert.equal(await levels.getByRole('button', { name: /^N4/ }).getAttribute('aria-pressed'), 'true');
+    await levels.getByRole('button', { name: /^N5/ }).click(); await adminPage.getByRole('heading', { name: 'N5 Unit 1' }).waitFor();
+    assert.equal(await adminPage.getByRole('heading', { name: /^N4 Unit/ }).count(), 0, 'no N4 units under N5');
     const row = adminPage.getByRole('link', { name: /Introducing Yourself/ });
     await row.waitFor(); assert.match(await row.innerText(), /Edited/, 'the list marks edited lessons');
     const [download] = await Promise.all([adminPage.waitForEvent('download'), adminPage.getByRole('button', { name: 'Export published edits (1)' }).click()]);

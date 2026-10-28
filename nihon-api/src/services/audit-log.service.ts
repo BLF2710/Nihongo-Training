@@ -7,6 +7,7 @@ import { USERNAME_PATTERN } from "../utils/validation";
 
 export const AUDIT_ACTIONS = [
   "user.role_changed", "user.suspended", "user.reactivated", "user.details_changed", "user.lessons_unlocked", "user.lessons_relocked",
+  "user.password_reset_sent",
   "settings.updated", "content.enabled", "content.disabled",
   "question.created", "question.updated", "question.deleted",
   "support.replied", "support.closed", "support.reopened",

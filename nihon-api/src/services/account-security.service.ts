@@ -10,6 +10,7 @@ import {
   findAccountEmail, findPasswordHash, findUserByEmail, markEmailVerified, revokeSessions, updatePasswordAndRevokeSessions,
 } from "../repositories/user.repository";
 import { HttpError } from "../utils/http-error";
+import { recordAdminActionNow } from "./audit-log.service";
 import { mailerFromConfig } from "./mail/mailer";
 import type { Mailer } from "./mail/mailer";
 import { closeStreams } from "./realtime.service";
@@ -129,7 +130,28 @@ export function createAccountSecurityService({ mailer, appUrl }: AccountSecurity
     return { message: "You've been signed out on every device." };
   }
 
-  return { requestPasswordReset, resetPassword, sendVerificationEmail, verifyEmail, changePassword, logOutEverywhere, mailer };
+  /**
+   * An administrator sends a learner a password-reset link (the administrator never sees or chooses the password).
+   * Optionally signs the account out everywhere first, e.g. when it may have been taken over. Recorded in the audit log.
+   */
+  async function sendResetLinkForUser(adminId: number, rawUserId: unknown, signOut: unknown) {
+    const userId = Number(rawUserId);
+    if (!Number.isSafeInteger(userId) || userId < 1) throw new HttpError(404, "User not found.");
+    if (signOut !== undefined && typeof signOut !== "boolean") throw new HttpError(400, "Say whether to sign the account out everywhere.");
+    const account = await findAccountEmail(userId);
+    if (!account) throw new HttpError(404, "User not found.");
+    if (account.status !== "active") throw new HttpError(409, "Reactivate the account first: a suspended or closed account can't use a reset link.");
+    if (signOut) await logOutEverywhere(userId);
+    try { await createAndSendLink(userId, account.email, account.username, "password_reset"); }
+    catch (error) {
+      console.error("Password reset email could not be sent", error);
+      throw new HttpError(502, "The reset email could not be sent. Check the email settings (npm run mail:test).");
+    }
+    await recordAdminActionNow({ actorId: adminId, action: "user.password_reset_sent", targetUserId: userId, details: { signedOut: Boolean(signOut) } });
+    return { sentTo: account.email, signedOut: Boolean(signOut) };
+  }
+
+  return { requestPasswordReset, resetPassword, sendVerificationEmail, verifyEmail, changePassword, logOutEverywhere, sendResetLinkForUser, mailer };
 }
 
 export type AccountSecurityService = ReturnType<typeof createAccountSecurityService>;

@@ -17,3 +17,5 @@ export function useAdminData<T>(path:string) {
   },[path,version]);
   return {data,error,loading,reload:()=>{setLoading(true);setVersion(value=>value+1);}};
 }
+export const primaryButton='inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600';
+export const dangerButton='inline-flex items-center justify-center gap-2 rounded-xl bg-red-700 px-4 py-2 text-sm font-bold text-white hover:bg-red-800 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700';

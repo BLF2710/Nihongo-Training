@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { discardLessonDraft, fetchLessonEdit, publishLessonDraft, revertLesson, saveLessonDraft } from '../../api/lessonEdits';
 import type { EditableLesson, LessonEdit } from '../../api/lessonEdits';
 import { N5_LESSONS } from '../../data/japaneseN5Lessons';
@@ -29,6 +29,9 @@ function problemsOf(failure: unknown): string[] {
 
 /** Edits one lesson: a draft only administrators see, published to learners when ready, or restored to the original. */
 export default function AdminLessonEditor({ lessonId }: { lessonId: string }) {
+  // Back to the list with the same level filter.
+  const level = useSearchParams()[0].get('level');
+  const backToList = level ? `/admin/content/lessons?level=${encodeURIComponent(level)}` : '/admin/content/lessons';
   const summary = N5_LESSONS.find(lesson => lesson.id === lessonId);
   const [original, setOriginal] = useState<EditableLesson | null>(null);
   const [edit, setEdit] = useState<LessonEdit | null>(null);
@@ -59,7 +62,7 @@ export default function AdminLessonEditor({ lessonId }: { lessonId: string }) {
     return () => window.removeEventListener('beforeunload', warn);
   }, [isDirty]);
 
-  if (!summary) return <section className={card}><p role="alert">Lesson not found.</p><Link to="/admin/lessons" className={button + ' mt-3'}>All lessons</Link></section>;
+  if (!summary) return <section className={card}><p role="alert">Lesson not found.</p><Link to={backToList} className={button + ' mt-3'}>All lessons</Link></section>;
   if (error && !form) return <section className={card}><p role="alert" className="text-red-700">{error}</p></section>;
   if (!form || !edit || !original) return <section className={card}><p role="status">Loading lesson…</p></section>;
 
@@ -85,7 +88,7 @@ export default function AdminLessonEditor({ lessonId }: { lessonId: string }) {
 
   return <div className="grid gap-5">
     <section className={card}>
-      <Link to="/admin/lessons" className="text-sm font-semibold text-emerald-700 hover:underline">← All lessons</Link>
+      <Link to={backToList} className="text-sm font-semibold text-emerald-700 hover:underline">← All lessons</Link>
       <h2 className="mt-1 text-xl font-black">{summary.level ?? 'N5'} Unit {summary.unitNumber ?? 1} · {original.title}</h2>
       <p className="text-sm text-gray-600" role="status">
         {edit.published ? `Published by @${edit.publishedBy ?? 'unknown'} on ${when(edit.publishedAt)}` : 'Learners see the original from the course files'}

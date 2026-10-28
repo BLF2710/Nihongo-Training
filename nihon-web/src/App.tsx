@@ -121,6 +121,7 @@ function App() {
           <Route path="/games/english" element={signedIn(<EnglishArcadePage />)} />
           <Route path="/statistics" element={signedIn(<StatisticsPage />)} />
           <Route path="/statistics/japanese" element={signedIn(<StatisticsPage />)} />
+          <Route path="/statistics/japanese/:section" element={signedIn(<StatisticsPage />)} />
           <Route path="/statistics/english" element={signedIn(<StatisticsPage />)} />
           <Route path="/lessons" element={signedInLazy("Loading lessons…", <LessonsPage />)} />
           <Route path="/lessons/japanese/n5-unit-1-hello" element={signedIn(<JapaneseHelloLessonPage />)} />

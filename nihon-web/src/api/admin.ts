@@ -44,3 +44,8 @@ export async function deleteQuestion(id: number) {
 export async function setContentEnabled(key: string, enabled: boolean) {
   await api.put(`/admin/content/${encodeURIComponent(key)}`, { enabled });
 }
+
+/** Emails the account a password-reset link (the administrator never sees the password); optionally signs it out everywhere. */
+export async function sendPasswordReset(userId: number, signOut: boolean) {
+  return (await api.post<{ sentTo: string; signedOut: boolean }>(`/admin/users/${userId}/password-reset`, { signOut })).data;
+}

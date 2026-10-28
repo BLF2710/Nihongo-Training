@@ -130,7 +130,9 @@ const present = ({ key, explanation, ...question }) => question;
     } else {
       // ---- admin: question bank dashboard and the add/edit view
       await page.goto(base + '/admin'); await heading('Overview').waitFor();
-      await page.getByRole('navigation', { name: 'Admin navigation' }).getByRole('link', { name: 'Question bank' }).click(); await heading('Question bank').waitFor();
+      await page.getByRole('navigation', { name: 'Admin navigation' }).getByRole('link', { name: 'Content' }).click();
+      await page.getByRole('navigation', { name: 'Content sections' }).getByRole('link', { name: 'Question bank' }).click(); await heading('Question bank').waitFor();
+      assert.equal(new URL(page.url()).pathname, '/admin/content/questions');
       const unit1Card = page.getByRole('region', { name: 'Unit 1 questions' }); await unit1Card.getByText('Multiple choice: 1').waitFor(); await unit1Card.getByText('1 hidden').waitFor();
       assert.equal(await page.locator('tbody tr').count(), 3);
       await page.getByLabel('Type').selectOption('word_match'); assert.equal(await page.locator('tbody tr').count(), 1); await page.getByLabel('Type').selectOption('all');

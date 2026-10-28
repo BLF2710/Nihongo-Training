@@ -1,7 +1,7 @@
 import { Router } from "express";
 import type { ErrorRequestHandler } from "express";
 import {
-  createQuestion, deleteQuestion, getAccess, getAnalytics, getOverview, getSettings, listContent, listQuestions, listUsers,
+  createQuestion, deleteQuestion, getAccess, getSystemStatus, sendPasswordReset, getAnalytics, getOverview, getSettings, listContent, listQuestions, listUsers,
   updateContent, updateLessonAccess, updateQuestion, updateSettings, updateUser,
 } from "../controllers/admin.controller";
 import { adminGetSupport, adminListSupport, adminReplySupport, adminSetSupportStatus } from "../controllers/communication.controller";
@@ -17,10 +17,12 @@ router.use(authenticate);
 router.get("/access", getAccess);
 router.use(requireAdmin);
 router.get("/overview", getOverview);
+router.get("/status", getSystemStatus);
 router.get("/analytics", getAnalytics);
 router.get("/users", listUsers);
 router.patch("/users/:id", updateUser);
 router.put("/users/:id/lesson-access", updateLessonAccess);
+router.post("/users/:id/password-reset", sendPasswordReset);
 router.get("/settings", getSettings);
 router.put("/settings", updateSettings);
 router.get("/content", listContent);

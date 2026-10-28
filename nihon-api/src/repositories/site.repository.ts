@@ -56,3 +56,9 @@ export async function findLatestMigration() {
   const result = await pool.query("SELECT name, applied_at FROM schema_migrations ORDER BY name DESC LIMIT 1");
   return result.rows[0] ?? null;
 }
+
+/** How many migrations have been applied, and the database's size on disk. */
+export async function findDatabaseFacts(): Promise<{ appliedMigrations: number; sizeBytes: number }> {
+  const result = await pool.query("SELECT (SELECT COUNT(*) FROM schema_migrations)::int AS applied, pg_database_size(current_database())::bigint AS size");
+  return { appliedMigrations: result.rows[0].applied, sizeBytes: Number(result.rows[0].size) };
+}

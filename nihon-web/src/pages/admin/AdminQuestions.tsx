@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteQuestion, saveQuestion } from "../../api/admin";
 import type { BankQuestion, QuestionBank } from "../../api/admin";
-import { adminError, button, card, input, useAdminData } from "./adminData";
+import { adminError, button, card, input, primaryButton, useAdminData } from "./adminData";
 import { QUESTION_KINDS, QUESTION_TYPES, summarize } from "./questionBank";
 
 /** The question bank at a glance: totals per unit and type, and every question with its controls. */
@@ -34,9 +34,10 @@ export default function AdminQuestions() {
   };
 
   return <>
+    <h2 className="mb-1 text-xl font-black">Question bank</h2>
     <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-      <p className="max-w-2xl text-gray-600">Unit reviews draw from these questions together with each unit's assessment. Hidden questions stay in the bank but are not shown to learners.</p>
-      <Link to="/admin/questions/new" className={`${button} border-emerald-500 text-emerald-800`}>+ Add question</Link>
+      <p className="max-w-2xl text-gray-600">Unit reviews draw only from these questions (never from the unit assessments). Hidden questions stay in the bank but are not shown to learners.</p>
+      <Link to="/admin/content/questions/new" className={primaryButton}>+ Add question</Link>
     </div>
     {result.data && <div className="mb-6 grid gap-4 sm:grid-cols-3">{units.map(unit => {
       const inUnit = questions.filter(question => question.unitId === unit.id);
@@ -65,7 +66,7 @@ export default function AdminQuestions() {
         <td className="max-w-md px-5 py-4" lang="ja">{summarize(question)}</td>
         <td className="px-5 py-4"><span className={`rounded-full px-3 py-1 text-xs font-bold ${question.enabled ? "bg-emerald-50 text-emerald-800" : "bg-gray-100 text-gray-600"}`}>{question.enabled ? "In reviews" : "Hidden"}</span></td>
         <td className="px-5 py-4"><div className="flex flex-wrap gap-2">
-          <Link className={button} to={`/admin/questions/new?id=${question.id}`} aria-label={`Edit question ${question.id}`}>Edit</Link>
+          <Link className={button} to={`/admin/content/questions/new?id=${question.id}`} aria-label={`Edit question ${question.id}`}>Edit</Link>
           <button className={button} disabled={!!busy || result.loading} aria-label={`${question.enabled ? "Hide" : "Show"} question ${question.id}`} onClick={() => void toggle(question)}>{busy === question.id ? "Saving…" : question.enabled ? "Hide" : "Show"}</button>
           <button className={`${button} text-red-700`} disabled={!!busy || result.loading} aria-label={`Delete question ${question.id}`} onClick={() => remove(question)}>Delete</button>
         </div></td>

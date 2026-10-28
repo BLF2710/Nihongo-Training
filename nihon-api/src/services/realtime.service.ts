@@ -78,3 +78,10 @@ export function publish(userId: number, event: RealtimeEvent) {
 
 /** Open streams for a learner on this process (tests and diagnostics). */
 export const streamCount = (userId: number) => streams.get(userId)?.size ?? 0;
+
+/** Live-update connections held by this process, and the learners they belong to (for the status page). */
+export function countOpenStreams(): { connections: number; learners: number } {
+  let connections = 0;
+  for (const set of streams.values()) connections += set.size;
+  return { connections, learners: streams.size };
+}

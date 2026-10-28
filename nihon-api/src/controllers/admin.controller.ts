@@ -1,3 +1,5 @@
+import { getSystemStatus as systemStatus } from "../services/system-status.service";
+import { accountSecurity } from "../services/account-security.service";
 import * as adminService from "../services/admin.service";
 import { getLearningAnalytics } from "../services/analytics.service";
 import * as questionBankService from "../services/question-bank.service";
@@ -22,6 +24,13 @@ export const listUsers = action(async (req, res) => {
 export const updateUser = action(async (req, res) => {
   return res.json(await adminService.updateUser(getUserId(req), Number(req.params.id), req.body ?? {}));
 }, { label: "Admin user update", message: "Could not update the user." });
+
+export const getSystemStatus = action(async (_req, res) => res.json(await systemStatus()),
+  { label: "Admin system status", message: "System status is unavailable. Check the database connection.", status: 503 });
+
+export const sendPasswordReset = action(async (req, res) => {
+  return res.json(await accountSecurity().sendResetLinkForUser(getUserId(req), req.params.id, req.body?.signOut));
+}, { label: "Admin password reset", message: "Could not send the reset link." });
 
 export const updateLessonAccess = action(async (req, res) => {
   return res.json(await adminService.setLessonAccess(getUserId(req), req.params.id, req.body?.unlocked));

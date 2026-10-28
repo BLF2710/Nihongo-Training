@@ -17,7 +17,7 @@ export default function AdminQuestionForm() {
   if (result.error) return <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-800">{result.error} <button className={button} onClick={result.reload}>Retry</button></p>;
   if (!result.data) return <p role="status">Loading the question bank…</p>;
   const existing = editId ? result.data.questions.find(question => question.id === editId) : undefined;
-  if (editId && !existing) return <><p role="alert" className="mb-4 rounded-xl bg-red-50 p-4 text-red-800">That question no longer exists.</p><Link to="/admin/questions" className={button}>Back to question bank</Link></>;
+  if (editId && !existing) return <><p role="alert" className="mb-4 rounded-xl bg-red-50 p-4 text-red-800">That question no longer exists.</p><Link to="/admin/content/questions" className={button}>Back to question bank</Link></>;
   return <QuestionEditor key={editId ?? "new"} units={result.data.units} existing={existing} />;
 }
 
@@ -35,11 +35,11 @@ function QuestionEditor({ units, existing }: { units: QuestionBank["units"]; exi
     event.preventDefault();
     if (busy) return;
     setBusy(true); setError("");
-    try { await saveQuestion({ unitId, type, content, enabled }, existing?.id); navigate("/admin/questions"); }
+    try { await saveQuestion({ unitId, type, content, enabled }, existing?.id); navigate("/admin/content/questions"); }
     catch (failure) { setError(adminError(failure)); setBusy(false); }
   }
 
-  return <form onSubmit={save} className={`${card} max-w-3xl`}><fieldset disabled={busy} className="space-y-6">
+  return <form onSubmit={save} className={`${card} max-w-3xl`}><h2 className="mb-5 text-xl font-black">Add or edit question</h2><fieldset disabled={busy} className="space-y-6">
     <legend className="mb-2 text-xl font-bold">{existing ? `Edit question ${existing.id}` : "New question"}</legend>
     <div role="group" aria-label="Question type" className="grid gap-3 sm:grid-cols-3">{QUESTION_TYPES.map(kind =>
       <button key={kind} type="button" aria-pressed={type === kind} onClick={() => chooseType(kind)} className={`rounded-2xl border p-4 text-left focus-visible:outline-2 focus-visible:outline-emerald-600 ${type === kind ? "border-emerald-500 bg-emerald-50" : "border-gray-200 bg-white hover:border-emerald-300"}`}>
@@ -55,7 +55,7 @@ function QuestionEditor({ units, existing }: { units: QuestionBank["units"]; exi
     {"answer" in content && <WordScrambleFields content={content} onChange={setContent} />}
     <label className="flex items-start gap-3"><input type="checkbox" className="mt-1 h-5 w-5 accent-emerald-600" checked={enabled} onChange={event => setEnabled(event.target.checked)} /><span><strong>Use in reviews</strong><span className="mt-1 block text-sm text-gray-500">Untick to keep the question in the bank without showing it to learners.</span></span></label>
     {error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-800">{error}</p>}
-    <div className="flex gap-3"><button className={`${button} border-emerald-500 text-emerald-800`}>{busy ? "Saving…" : existing ? "Save changes" : "Add question"}</button><Link to="/admin/questions" className={button}>Cancel</Link></div>
+    <div className="flex gap-3"><button className={`${button} border-emerald-500 text-emerald-800`}>{busy ? "Saving…" : existing ? "Save changes" : "Add question"}</button><Link to="/admin/content/questions" className={button}>Cancel</Link></div>
   </fieldset></form>;
 }
 
