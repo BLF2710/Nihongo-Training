@@ -75,15 +75,16 @@ function AdminShell({ account, open, setOpen, onLogout }: { account: Account; op
   const badge = (path: string) => path === '/admin/reports' ? counts.reports : path === '/admin/support' ? counts.support : 0;
   return <div className="min-h-screen bg-gray-50 text-gray-900">
     <header className="sticky top-0 z-30 flex h-18 items-center justify-between gap-3 border-b border-gray-200 bg-white/95 px-4 backdrop-blur sm:px-6">
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 items-center gap-2 sm:gap-3">
         <button className={button + ' lg:hidden'} aria-label="Toggle admin navigation" aria-expanded={open} onClick={() => setOpen(!open)}>☰</button>
-        <Link to="/admin" className="flex items-center gap-2 text-xl font-black">
+        <Link to="/admin" className="flex min-w-0 items-center gap-2 text-xl font-black">
           <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-indigo-600 to-emerald-500 text-base text-white">🌐</span>
           <span>Ling<span className="text-emerald-600">ora</span></span>
           <span className="rounded-full bg-gray-900 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">Admin</span>
         </Link>
       </div>
-      <div className="flex items-center gap-2"><ThemeButton /><button className={button} onClick={onLogout}>Log out</button></div>
+      {/* On phones Log out is an icon, so the bar fits narrow screens; its name stays "Log out" for screen readers. */}
+      <div className="flex shrink-0 items-center gap-2"><ThemeButton /><button className={button} onClick={onLogout}><span aria-hidden="true" className="sm:hidden">⎋</span><span className="sr-only sm:not-sr-only">Log out</span></button></div>
     </header>
     {open && <button className="fixed inset-0 top-18 z-30 bg-black/30 lg:hidden" aria-label="Close admin navigation" onClick={() => setOpen(false)} />}
     <aside aria-label="Admin sidebar" className={`fixed bottom-0 left-0 top-18 z-40 flex w-64 flex-col border-r border-gray-200 bg-white transition-transform lg:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full'}`}>
