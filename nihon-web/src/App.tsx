@@ -48,6 +48,7 @@ const AssistantPage = lazy(() => import("./pages/AssistantPage"));
 const FriendsPage = lazy(() => import("./pages/FriendsPage"));
 const PublicProfilePage = lazy(() => import("./pages/PublicProfilePage"));
 const SettingsPage = lazy(() => import("./pages/SettingsPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
 const SpeakingTestPage = lazy(() => import("./pages/SpeakingTestPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
@@ -110,6 +111,7 @@ function App() {
           <Route path="/speaking" element={signedInLazy("Loading speaking…", <SkillPracticePage key="speaking" skill="speaking" />)} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/privacy" element={<Suspense fallback={<p role="status" className="p-8">Loading…</p>}><PrivacyPage /></Suspense>} />
           <Route path="/forgot-password" element={<Suspense fallback={<p role="status" className="p-8">Loading…</p>}><ForgotPasswordPage /></Suspense>} />
           <Route path="/reset-password" element={<Suspense fallback={<p role="status" className="p-8">Loading…</p>}><ResetPasswordPage /></Suspense>} />
           <Route path="/verify-email" element={<Suspense fallback={<p role="status" className="p-8">Loading…</p>}><VerifyEmailPage /></Suspense>} />

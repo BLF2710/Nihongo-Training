@@ -41,6 +41,7 @@ export default function AuthLayout({ title, subtitle, children, footer }: { titl
         <p className="mt-2 text-gray-600">{subtitle}</p>
         <div className="mt-7 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">{children}</div>
         <p className="mt-6 text-center text-sm text-gray-600">{footer}</p>
+        <p className="mt-3 text-center text-xs text-gray-500"><Link to="/privacy" className="hover:underline">Privacy policy</Link></p>
       </div>
     </main>
   </div>;

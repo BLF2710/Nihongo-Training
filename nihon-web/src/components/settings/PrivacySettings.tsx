@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { VISIBILITY_TEXT } from "../../api/friends";
 import type { ProfileVisibility } from "../../api/friends";
 import type { Profile, ProfileUpdate } from "../../api/profile";
@@ -42,5 +43,6 @@ export default function PrivacySettings({ profile, onSave }: Props) {
     </SettingsCard>
     <SaveMessage status={status} />
     <FriendPrivacySettings />
+    <p className="text-sm text-gray-600">What we collect and who can see it: <Link to="/privacy" className="font-semibold text-emerald-700 hover:underline">privacy policy</Link>.</p>
   </div>;
 }

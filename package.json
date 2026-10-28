@@ -5,7 +5,11 @@
     "test:unit": "sh tests/run.sh unit",
     "test:db": "sh tests/run.sh db",
     "test:api": "sh tests/run.sh api",
-    "test:e2e": "sh tests/run.sh e2e"
+    "test:e2e": "sh tests/run.sh e2e",
+    "mail:test": "npm --prefix nihon-api run mail:test --",
+    "db:backup": "npm --prefix nihon-api run db:backup",
+    "db:verify-backup": "npm --prefix nihon-api run db:verify-backup --",
+    "db:restore": "npm --prefix nihon-api run db:restore --"
   },
   "dependencies": {
     "pg": "^8.21.0",
