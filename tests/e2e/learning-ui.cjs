@@ -32,7 +32,11 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
           { itemType: 'vocabulary', itemId: HELLO + ':no-longer-in-the-course', isNew: true, repetitions: 0, lapses: 0, intervals: NEW_INTERVALS },
           { itemType: 'kanji', itemId: 'kanji-65e5', isNew: true, repetitions: 0, lapses: 0, intervals: NEW_INTERVALS },
         ] });
-        if (p === '/srs/reviews') { const body = request.postDataJSON(); state.reviews.push(body); return json({ itemType: body.itemType, itemId: body.itemId, dueAt: new Date().toISOString(), intervalDays: body.grade === 'again' ? 0 : 1, intervals: { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY } }); }
+        if (p === '/srs/reviews') { const body = request.postDataJSON(); state.reviews.push(body);
+          // +2 XP per card; the third card also brings a level and an achievement (the "+XP" pop-up adds them up).
+          const isThird = state.reviews.length === 3;
+          const reward = { xpEarned: 2, xp: 248 + state.reviews.length * 2, level: isThird ? 3 : 2, leveledUp: isThird, rank: 'Bronze', rankedUp: false, unlocked: isThird ? [{ id: 'reviews_100', title: 'Review Rookie', icon: '🃏' }] : [] };
+          return json({ reward, itemType: body.itemType, itemId: body.itemId, dueAt: new Date().toISOString(), intervalDays: body.grade === 'again' ? 0 : 1, intervals: { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY } }); }
         if (p === '/activity/today') return json({ secondsToday: 240, minutesToday: 4, goalMinutes: 10, isGoalMet: false });
         if (p === '/activity/study-time') { state.studyTime.push(request.postDataJSON().seconds); return json({ secondsToday: 300, minutesToday: 5, goalMinutes: 10, isGoalMet: false }); }
         if (p === '/mistakes' && method === 'GET') {
@@ -96,6 +100,13 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
     await reviewCard.getByText('1 card left · 2 reviewed').waitFor(); await reviewCard.getByText('日', { exact: true }).waitFor();
     await page.keyboard.press('Enter'); await reviewCard.getByRole('button', { name: /^Good.*in 1 d/ }).click();
     await page.getByRole('heading', { name: 'All done for today 🎉' }).waitFor(); await page.getByText('You reviewed 3 cards, and 1 will come back soon.').waitFor();
+    // The "+XP" pop-up: three quick rewards add up into one, with the level and the achievement; it can be dismissed.
+    const toast = page.getByRole('status').filter({ hasText: 'XP' });
+    await toast.getByText('+6 XP').waitFor(); await toast.getByText('Level 3!').waitFor();
+    await toast.getByText('Review Rookie').waitFor();
+    assert.equal(await toast.getByRole('link', { name: 'See achievements →' }).getAttribute('href'), '/achievements');
+    await page.screenshot({ path: shots + '/xp-toast.png' });
+    await toast.getByRole('button', { name: 'Dismiss' }).click(); await toast.getByText('+6 XP').waitFor({ state: 'detached' });
     assert.deepEqual(state.reviews, [
       { itemType: 'vocabulary', itemId: HELLO + ':こんにちは', grade: 'good' }, { itemType: 'kanji', itemId: 'kanji-65e5', grade: 'again' }, { itemType: 'kanji', itemId: 'kanji-65e5', grade: 'good' }]);
     assert.deepEqual(errors, []); await context.close();

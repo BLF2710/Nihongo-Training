@@ -1,6 +1,7 @@
 import { ENGLISH_VOCABULARY } from "../data/english-vocabulary";
 import { insertGameScore } from "../repositories/game-score.repository";
 import { rewardActivity } from "./gamification.service";
+import type { Reward } from "./gamification.service";
 
 
 export type GameResult = {
@@ -63,8 +64,8 @@ export function buildWordScrambleGame(count: number) {
 }
 
 /** Saves a signed-in player's result once per session and rewards it; guests are never recorded. */
-export async function recordGameResult(userId: number | undefined, result: GameResult): Promise<boolean> {
-  if (!userId) return false;
+export async function recordGameResult(userId: number | undefined, result: GameResult): Promise<{ recorded: boolean; reward: Reward | null }> {
+  if (!userId) return { recorded: false, reward: null };
   const scoreId = await insertGameScore(userId, {
     gameType: result.gameType || "unknown",
     score: result.score || 0,
@@ -73,7 +74,6 @@ export async function recordGameResult(userId: number | undefined, result: GameR
     timeTakenSeconds: result.timeTakenSeconds || 0,
     sessionId: typeof result.sessionId === "string" && result.sessionId.length > 0 ? result.sessionId : null
   });
-  if (scoreId === null) return false;
-  await rewardActivity(Number(userId), "game", `game-score:${scoreId}`);
-  return true;
+  if (scoreId === null) return { recorded: false, reward: null };
+  return { recorded: true, reward: await rewardActivity(Number(userId), "game", `game-score:${scoreId}`) };
 }

@@ -68,6 +68,8 @@ export async function submitKanaAnswer({ script, kanaId, answer, userId, submiss
     return response;
   });
   // Achievements and level-ups are checked once the answer is saved.
-  if (userId && milestones.length) await celebrateSavedWork(Number(userId), milestones);
-  return response;
+  // The reward goes to this response only; a replayed receipt doesn't celebrate twice.
+  const reward = userId && milestones.length ? await celebrateSavedWork(Number(userId), milestones) : null;
+  if (!reward || typeof response !== "object" || response === null) return response;
+  return { ...response, reward };
 }

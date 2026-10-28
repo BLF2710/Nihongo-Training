@@ -13,6 +13,8 @@ async function main() {
   const client = await pool.connect();
   let server;
   const cache = new Map();
+  // A relative import names `<file>.ts`, a folder's `index.ts`, or a `.json` file.
+  const sourceFile = p => p.endsWith('.json') ? p : fs.existsSync(p + '.ts') ? p + '.ts' : path.join(p, 'index.ts');
   function load(filename) {
     if (filename.endsWith('.json')) return JSON.parse(fs.readFileSync(filename, 'utf8'));
     if (cache.has(filename)) return cache.get(filename);
@@ -26,7 +28,7 @@ async function main() {
           release() {},
         }),
       } };
-      return name.startsWith('.') ? load(path.resolve(path.dirname(filename), name.endsWith('.json') ? name : name + '.ts')) : require(name);
+      return name.startsWith('.') ? load(sourceFile(path.resolve(path.dirname(filename), name))) : require(name);
     } });
     return exports;
   }

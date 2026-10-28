@@ -30,6 +30,8 @@ const tail = String.raw`    const L = 'learner';
     assert.equal(done.status, 200, JSON.stringify(done.data).slice(0, 300));
     assert.deepEqual(done.data.achievements.sort(), ['first_steps', 'perfect_score']);
     assert.deepEqual([done.data.reward.xpEarned, done.data.reward.xp, done.data.reward.level, done.data.reward.leveledUp], [75, 150, 2, true], '50 + 25 lesson XP, then 25 + 50 from the achievements');
+    assert.deepEqual(done.data.reward.unlocked.map(item => [item.title, Boolean(item.icon)]), [['First Steps', true], ['Perfect Score', true]], 'titles and icons for the pop-up');
+    assert.deepEqual([done.data.reward.rank, done.data.reward.rankedUp], ['Beginner', false], '150 XP is still below Bronze (250)');
     const levelUps = (await client.query("SELECT data FROM notifications WHERE user_id = $1 AND kind = 'level_up'", [learnerId])).rows.map(row => row.data);
     assert.deepEqual(levelUps, [{ level: 2 }]);
     data = await summary();

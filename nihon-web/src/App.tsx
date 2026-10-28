@@ -25,6 +25,7 @@ import ProfilePage from "./pages/ProfilePage";
 import HiraganaLearningPage from "./pages/HiraganaLearningPage";
 import ActivitySessionBoundary from "./components/ActivitySessionBoundary";
 import SiteGate from "./components/SiteGate";
+import XpToast from "./components/XpToast";
 import StudyTimeTracker from "./components/StudyTimeTracker";
 
 import { LanguageProvider } from "./context/LanguageProvider";
@@ -79,6 +80,7 @@ function App() {
     <LanguageProvider>
       <BrowserRouter>
         <StudyTimeTracker />
+        <XpToast />
         <SiteGate><ActivitySessionBoundary><Routes>
           <Route path="/admin/*" element={<ProtectedRoute><Suspense fallback={<p role="status" className="mx-auto max-w-lg p-8">Loading admin…</p>}><AdminPage /></Suspense></ProtectedRoute>} />
           <Route path="/learn/kanji" element={signedInLazy("Loading Kanji…", <KanjiPage />)} />

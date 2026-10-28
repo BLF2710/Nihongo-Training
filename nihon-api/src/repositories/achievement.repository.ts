@@ -21,6 +21,12 @@ export async function listAchievementCatalog(userId: number): Promise<Achievemen
   }));
 }
 
+/** Titles and icons of the given achievements, in display order. */
+export async function listAchievementsByIds(ids: string[]): Promise<{ id: string; title: string; icon: string }[]> {
+  const result = await pool.query("SELECT id, title, icon FROM achievements WHERE id = ANY($1) ORDER BY sort_order, id", [ids]);
+  return result.rows.map(row => ({ id: String(row.id), title: String(row.title), icon: String(row.icon) }));
+}
+
 export async function listEarnedAchievementIds(userId: number): Promise<Set<string>> {
   const result = await pool.query("SELECT achievement_id FROM user_achievements WHERE user_id = $1", [userId]);
   return new Set(result.rows.map(row => String(row.achievement_id)));

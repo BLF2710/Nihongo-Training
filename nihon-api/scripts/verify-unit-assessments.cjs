@@ -12,6 +12,8 @@ async function main() {
   const pool = new Pool({ host: process.env.DB_HOST, port: Number(process.env.DB_PORT), user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_NAME, connectionTimeoutMillis: 5000 });
   const client = await pool.connect();
   const cache = new Map();
+  // A relative import names `<file>.ts`, a folder's `index.ts`, or a `.json` file.
+  const sourceFile = p => p.endsWith('.json') ? p : fs.existsSync(p + '.ts') ? p + '.ts' : path.join(p, 'index.ts');
   let server;
   function load(filename) {
     if (filename.endsWith('.json')) return JSON.parse(fs.readFileSync(filename, 'utf8'));
@@ -28,7 +30,7 @@ async function main() {
         }),
       } };
       if (name.endsWith('/services/achievement.service')) return { evaluateAchievements: async () => [] };
-      return name.startsWith('.') ? load(path.resolve(path.dirname(filename), name.endsWith('.json') ? name : `${name}.ts`)) : require(name);
+      return name.startsWith('.') ? load(sourceFile(path.resolve(path.dirname(filename), name))) : require(name);
     } });
     return exports;
   }
@@ -43,7 +45,9 @@ async function main() {
     await client.query('CREATE TEMP TABLE user_gamification (user_id INTEGER, xp INTEGER, updated_at TIMESTAMPTZ DEFAULT NOW(), current_streak INTEGER NOT NULL DEFAULT 0, longest_streak INTEGER NOT NULL DEFAULT 0, last_activity_at TIMESTAMPTZ)');
     await client.query('INSERT INTO user_gamification (user_id,xp) VALUES (1, 0), (2, 0)');
     await client.query('CREATE TEMP TABLE lesson_progress (user_id INTEGER, lesson_id VARCHAR(120), challenge_score INTEGER DEFAULT 0, updated_at TIMESTAMPTZ DEFAULT NOW(), PRIMARY KEY (user_id,lesson_id))');
-    await client.query('CREATE TEMP TABLE xp_events (id SERIAL, user_id INTEGER, amount INTEGER, source TEXT, reference_id TEXT, UNIQUE(user_id,source,reference_id))');
+    await client.query('CREATE TEMP TABLE xp_events (id SERIAL, user_id INTEGER, amount INTEGER, source TEXT, reference_id TEXT, created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), UNIQUE(user_id,source,reference_id))');
+    // Rewards also write earned achievements and notifications (XP daily caps read xp_events.created_at).
+    for (const table of ['user_achievements', 'notifications']) await client.query(`CREATE TEMP TABLE ${table} (LIKE public.${table} INCLUDING ALL)`);
     // Submitted assessments note wrong answers in the mistake notebook; a temporary copy keeps them off real data.
     await client.query('CREATE TEMP TABLE mistakes (LIKE public.mistakes INCLUDING ALL)');
     const migration = fs.readFileSync(path.resolve(__dirname, '../migrations/003_unit_assessments.sql'), 'utf8');
@@ -119,7 +123,12 @@ async function main() {
     assert.equal((await request('/units')).data.units[0].completed, true);
     assert.equal((await request('/units', undefined, { ...headers, Authorization: `Bearer ${jwt.sign({ userId: 2 }, process.env.JWT_SECRET)}` })).data.units[0].completed, false);
     assert.equal((await client.query('SELECT count(*) FROM user_assessment_progress')).rows[0].count, '1');
-    assert.equal((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp, 100);
+    // Passing pays once however often it is retaken; any other XP (achievements) is in the XP log.
+    assert.equal((await client.query("SELECT count(*) FROM xp_events WHERE user_id=1 AND source='assessment'")).rows[0].count, '1');
+    const logged = Number((await client.query('SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_events WHERE user_id=1')).rows[0].xp);
+    assert.equal((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp, 100 + logged);
+    // Rewards above may already have reached Level 3, so go back below it (250 XP) for this check.
+    await client.query('UPDATE user_gamification SET xp=100 WHERE user_id=1');
     assert.equal((await request('/units')).data.units[1].allowed, false, 'Completion alone cannot bypass Level 3');
     await client.query('UPDATE user_gamification SET xp=700 WHERE user_id=1');
     assert.equal((await request('/units')).data.units[2].allowed, false, 'Enough XP cannot bypass Unit 2');
@@ -181,12 +190,17 @@ async function main() {
         const before = Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp);
         let completion = await request(`/lessons/${id}/complete`, { challengeScore: 100 });
         assert.equal(completion.status, 200);
+        assert.equal(completion.data.reward.xpEarned, 75);
+        const unlocked = completion.data.reward.achievements;
+        const achievementXp = Number((await client.query("SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_events WHERE user_id=1 AND source='achievement' AND reference_id = ANY($1)", [unlocked])).rows[0].xp);
         assert.equal(completion.data.completion.awarded, true);
         assert.equal(completion.data.challenge.awarded, true);
         completion = await request(`/lessons/${id}/complete`, { challengeScore: 100 });
         assert.equal(completion.data.completion.awarded, false);
         assert.equal(completion.data.challenge.awarded, false);
-        assert.equal(Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp), before + 75);
+        // 75 lesson XP once, plus the achievements that lesson unlocked; the repeat pays nothing.
+        assert.equal(completion.data.reward.xpEarned, 0);
+        assert.equal(Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp), before + 75 + achievementXp);
         const fresh = (await request('/units')).data.units.find(item => item.id === current.id);
         assert.equal(fresh.completedLessons, index + 1);
         assert.equal(fresh.assessmentUnlocked, index === 5);
@@ -198,16 +212,23 @@ async function main() {
       const submit = count => request(examUrl, { assessmentId: exam.id, answers: examAnswers(count) });
       const xpBefore = Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp);
       assert.equal((await submit(11)).data.unitCompleted, false);
-      assert.equal((await submit(12)).data.unitCompleted, true);
+      const pass = (await submit(12)).data;
+      assert.equal(pass.unitCompleted, true);
+      // Passing pays 100 XP once, plus any achievements it unlocked; the failed retake below adds nothing.
+      assert.equal(pass.reward.xpEarned, 100);
+      const passAchievementXp = Number((await client.query("SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_events WHERE user_id=1 AND source='achievement' AND reference_id = ANY($1)", [pass.reward.achievements])).rows[0].xp);
       const failedRetake = (await submit(0)).data;
       assert.equal(failedRetake.passed, false);
       assert.equal(failedRetake.unitCompleted, true);
       assert.equal(failedRetake.bestScore, 80);
-      assert.equal(Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp), xpBefore);
+      assert.equal(Number((await client.query('SELECT xp FROM user_gamification WHERE user_id=1')).rows[0].xp), xpBefore + 100 + passAchievementXp);
       assert.equal((await request('/units')).data.units.find(item => item.id === current.id).completed, true);
     }
     assert.equal((await client.query('SELECT count(*) FROM lesson_progress WHERE user_id=1')).rows[0].count, '18');
-    assert.equal((await client.query('SELECT count(*) FROM xp_events')).rows[0].count, '24');
+    // Lesson XP exactly once per lesson (completion + perfect challenge), one pass reward per unit; the rest are achievements.
+    const events = Object.fromEntries((await client.query('SELECT source, count(*)::int AS count FROM xp_events GROUP BY source')).rows.map(row => [row.source, row.count]));
+    assert.deepEqual([events.lesson_completion + events.lesson_challenge, events.assessment], [24, 3]);
+    assert.deepEqual(Object.keys(events).sort(), ['achievement', 'assessment', 'lesson_challenge', 'lesson_completion']);
     console.log('PASS: Unit 1 regression; three implemented units; 12 new lessons/120 questions; reference parity; real lesson XP exactly once; sequential gates; all three 15-question assessments; 80% boundary; retained passes; user isolation.');
 
     if (process.argv.includes('--browser')) {

@@ -1,5 +1,6 @@
 import api, { API_URL } from "./axios";
 import { getToken, hasSession } from "../lib/authStorage";
+import { announceReward, readReward } from "../lib/xpRewards";
 
 export type PracticeKind = "listening" | "speaking" | "reading" | "mock-exam";
 export type DailyGoalProgress = { secondsToday: number; minutesToday: number; goalMinutes: number; isGoalMet: boolean };
@@ -30,7 +31,12 @@ export async function reportStudyTime(seconds: number): Promise<DailyGoalProgres
       method: "POST", keepalive: true, body: JSON.stringify({ seconds }),
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
     });
-    return response.ok ? await response.json() as DailyGoalProgress : null;
+    if (!response.ok) return null;
+    const body: unknown = await response.json();
+    // Sent with fetch (for keepalive), so the shared client's "+XP" pop-up is triggered here.
+    const reward = readReward(body);
+    if (reward) announceReward(reward);
+    return body as DailyGoalProgress;
   } catch {
     return null;
   }

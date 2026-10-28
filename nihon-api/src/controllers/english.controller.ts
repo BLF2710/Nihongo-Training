@@ -18,6 +18,6 @@ export const getWordScrambleGame = action(async (req, res) => {
 
 export const submitGameScore = action(async (req, res) => {
   const { gameType, score, accuracy, timeTakenSeconds } = req.body;
-  const recordedForUser = await englishGameService.recordGameResult(getOptionalUserId(req), req.body);
-  return res.json({ success: true, recordedForUser, gameType, score, accuracy, timeTakenSeconds });
+  const { recorded: recordedForUser, reward } = await englishGameService.recordGameResult(getOptionalUserId(req), req.body);
+  return res.json({ success: true, recordedForUser, gameType, score, accuracy, timeTakenSeconds, reward });
 }, { label: "Error in submitGameScore:", message: "Server error" });

@@ -24,8 +24,10 @@ export async function reportStudyTime(userId: number, seconds: unknown) {
   });
   const today = await describeToday(userId, secondsToday ?? await studyTimeRepository.getSecondsToday(userId));
   // Only a report that added time can be the one that met the goal; the reward pays once per day.
-  if (secondsToday !== null && today.isGoalMet) await rewardActivity(userId, "daily_goal", `goal:${await getLearnerToday(userId)}`);
-  return today;
+  if (secondsToday === null || !today.isGoalMet) return today;
+  const reward = await rewardActivity(userId, "daily_goal", `goal:${await getLearnerToday(userId)}`);
+  // Only the report that met the goal carries a reward; later ones that day earn nothing new.
+  return reward?.xpEarned ? { ...today, reward } : today;
 }
 
 export async function getDailyGoalProgress(userId: number) {
