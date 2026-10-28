@@ -1,4 +1,4 @@
-import { evaluateAchievements } from "../services/achievement.service";
+import { celebrate } from "../services/gamification.service";
 import * as lessonCompletionService from "../services/lesson-completion.service";
 import { findLesson } from "../services/lesson.service";
 import { canAccessCourseLesson, getUserUnits } from "../services/unit.service";
@@ -27,6 +27,6 @@ export const completeLesson = action(async (req, res) => {
   const userId = getUserId(req);
   const lesson = requireLesson(req.params.lessonId);
   const { completion, challenge } = await lessonCompletionService.completeLesson(userId, lesson, req.body);
-  const achievements = await evaluateAchievements(userId);
-  return res.json({ completion, challenge, achievements });
+  const reward = await celebrate(userId, [completion, challenge]);
+  return res.json({ completion, challenge, achievements: reward.achievements, reward });
 }, { label: "completeLesson", message: "Server error" });

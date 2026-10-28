@@ -9,6 +9,7 @@ import { avatarUrl } from "../lib/avatar";
 import { saveUserAvatar } from "../lib/userAvatar";
 
 const profileButton = "inline-flex items-center rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-bold text-gray-700 hover:border-emerald-500 focus-visible:outline-2 focus-visible:outline-emerald-600";
+const LATEST_ACHIEVEMENTS = 4;
 const VISIBILITY_SUMMARY: Record<Profile["profile_visibility"], string> = {
   private: "Progress visible to: only you", friends: "Progress visible to: your friends", public: "Progress visible to: all learners",
 };
@@ -36,5 +37,27 @@ function ProfileView() {
         <Link to="/friends" className={profileButton}>Friends →</Link>
         <Link to="/settings/privacy" className="text-gray-600 hover:underline">{VISIBILITY_SUMMARY[profile.profile_visibility]}</Link>
       </div>
-    </section><section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[[`Level ${profile.level}`, `${profile.xp} XP`], ["Rank", profile.rank], ["Streak", `${profile.current_streak} ${profile.current_streak === 1 ? "day" : "days"}${profile.longest_streak ? ` · best ${profile.longest_streak}` : ""}`], ["Lessons", `${profile.lessons_completed} completed`]].map(([label, value]) => <div key={label} className="rounded-2xl border bg-white p-5"><p className="text-xs font-bold uppercase text-gray-400">{label}</p><p className="mt-2 text-xl font-black">{value}</p></div>)}</section><section className="mt-6 rounded-2xl border bg-white p-6"><h2 className="font-black">XP progress</h2><p className="mt-2 text-sm text-gray-600">{profile.xpProgress.nextLevelXp ? `${profile.xp} / ${profile.xpProgress.nextLevelXp} XP to the next level` : "Maximum configured level reached"}</p><div className="mt-3 h-3 overflow-hidden rounded-full bg-gray-100"><div className="h-full bg-linear-to-r from-emerald-500 to-indigo-500" style={{ width: `${profile.xpProgress.progressPercent}%` }} /></div></section><section className="mt-6 rounded-2xl border bg-white p-6"><h2 className="font-black">Achievements ({profile.achievements_count})</h2><div className="mt-3 grid gap-3 sm:grid-cols-2">{profile.achievements.length ? profile.achievements.map((item) => <div key={item.id} className="rounded-xl bg-amber-50 p-3"><p className="font-bold">🏆 {item.title}</p><p className="text-sm text-gray-600">{item.description}</p></div>) : <p className="text-sm text-gray-500">Complete lessons and challenges to earn achievements.</p>}</div></section></></main></div>;
+    </section><section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[[`Level ${profile.level}`, `${profile.xp} XP`], ["Rank", profile.rank], ["Streak", `${profile.current_streak} ${profile.current_streak === 1 ? "day" : "days"}${profile.longest_streak ? ` · best ${profile.longest_streak}` : ""}`], ["Lessons", `${profile.lessons_completed} completed`]].map(([label, value]) => <div key={label} className="rounded-2xl border bg-white p-5"><p className="text-xs font-bold uppercase text-gray-400">{label}</p><p className="mt-2 text-xl font-black">{value}</p></div>)}</section><ProgressCards profile={profile} /></></main></div>;
+}
+
+/** Level progress and the latest achievements, each leading to the Achievements page. */
+function ProgressCards({ profile }: { profile: Profile }) {
+  const { xpProgress } = profile;
+  const latest = profile.achievements.slice(0, LATEST_ACHIEVEMENTS);
+  return <div className="mt-6 grid gap-4 lg:grid-cols-2">
+    <section aria-labelledby="profile-level-heading" className="rounded-2xl border bg-white p-6">
+      <div className="flex items-center gap-4">
+        <span className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-full bg-linear-to-br from-indigo-600 to-emerald-600 text-white"><span className="text-[9px] font-bold uppercase tracking-wider">Level</span><span className="text-xl font-black leading-none">{profile.level}</span></span>
+        <div className="min-w-0"><h2 id="profile-level-heading" className="font-black">{profile.rank} learner</h2><p className="text-sm text-gray-600">{(xpProgress.nextLevelXp - profile.xp).toLocaleString()} XP to level {profile.level + 1}</p></div>
+      </div>
+      <div role="progressbar" aria-label={`Progress to level ${profile.level + 1}`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={xpProgress.progressPercent} className="mt-4 h-3 overflow-hidden rounded-full bg-gray-100"><div className="h-full rounded-full bg-linear-to-r from-emerald-500 to-indigo-500" style={{ width: `${xpProgress.progressPercent}%` }} /></div>
+      <p className="mt-1.5 flex justify-between text-xs text-gray-500"><span>{profile.xp.toLocaleString()} XP</span><span>{xpProgress.nextLevelXp.toLocaleString()} XP</span></p>
+      <Link to="/achievements/xp" className="mt-4 inline-block text-sm font-bold text-emerald-700 hover:underline">Ways to earn XP →</Link>
+    </section>
+    <section aria-labelledby="profile-achievements-heading" className="rounded-2xl border bg-white p-6">
+      <div className="flex items-baseline justify-between gap-2"><h2 id="profile-achievements-heading" className="font-black">Achievements ({profile.achievements_count})</h2><Link to="/achievements" className="text-sm font-bold text-emerald-700 hover:underline">See all →</Link></div>
+      {latest.length ? <ul className="mt-3 grid gap-2 sm:grid-cols-2">{latest.map(item => <li key={item.id} className="flex items-center gap-3 rounded-xl bg-amber-50 p-3"><span aria-hidden="true" className="text-2xl">{item.icon ?? "🏆"}</span><span className="min-w-0"><span className="block truncate font-bold">{item.title}</span><span className="block text-xs text-gray-600">{item.description}</span></span></li>)}</ul>
+        : <p className="mt-3 text-sm text-gray-500">Complete lessons and challenges to earn achievements.</p>}
+    </section>
+  </div>;
 }

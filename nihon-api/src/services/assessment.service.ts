@@ -7,6 +7,7 @@ import { recordAnswerOutcomes } from "../repositories/mistake.repository";
 import type { AnswerOutcome } from "../repositories/mistake.repository";
 import { mistakeKeys } from "./mistake.service";
 import { HttpError } from "../utils/http-error";
+import { rewardActivity } from "./gamification.service";
 import { getUserUnits } from "./unit.service";
 
 /** The unit and its assessment, once the user is allowed to take it. */
@@ -60,9 +61,11 @@ export async function submitAssessment(userId: number, unitId: unknown, submissi
   const saved = await saveAssessmentAttempt(userId, assessment.id, accuracy, passed);
   await recordAnswerOutcomes(pool, userId, toAnswerOutcomes(assessment, unit.number, answers));
   await recordLearningActivity(userId);
+  // Passing pays once per assessment; a later pass of the same one pays nothing.
+  const reward = passed ? await rewardActivity(userId, "assessment", assessment.id) : null;
   return {
     correct, wrong: total - correct, total, accuracy, passed, passPercent: assessment.passPercent,
     assessmentPassed: saved.passed, unitCompleted: unit.allLessonsCompleted && saved.passed,
-    bestScore: saved.bestScore,
+    bestScore: saved.bestScore, reward,
   };
 }

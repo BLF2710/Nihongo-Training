@@ -73,6 +73,8 @@ const tail = String.raw`    const user = name => name + '_x1'; const ana = 'lear
     await client.query("INSERT INTO user_assessment_progress (user_id, assessment_id, best_score, last_score, passed_at) VALUES ($1, $2, 90, 90, NOW() - INTERVAL '2 hours')", [cat, assessment.assessmentId]);
     await client.query("INSERT INTO achievements (id, title, description) VALUES ('test-badge', 'Test badge', 'For tests') ON CONFLICT DO NOTHING");
     await client.query("INSERT INTO user_achievements (user_id, achievement_id, earned_at) VALUES ($1, 'test-badge', NOW() - INTERVAL '3 hours')", [cat]);
+    // Becoming friends earned Study Buddy just now; only the test badge is wanted in this feed.
+    await client.query("DELETE FROM user_achievements WHERE user_id = $1 AND achievement_id <> 'test-badge'", [cat]);
     await client.query("INSERT INTO lesson_progress (user_id, lesson_id, completed_at) VALUES ($1, 'japanese-n5-unit-1-a', NOW())", [await uid('dan')]);
     const feed = (await call('GET', '/friends/activity', { as: ana })).data.items;
     assert.deepEqual(feed.map(item => [item.person.username, item.kind]), [[user('cat'), 'lessons'], [user('cat'), 'unit'], [user('cat'), 'achievement']], 'only friends, newest first');

@@ -1,7 +1,9 @@
 import { withTransaction } from "../db/transaction";
 import { creditableSeconds } from "../learning/studyTimeCredit";
 import * as studyTimeRepository from "../repositories/study-time.repository";
+import { getLearnerToday } from "../repositories/gamification.repository";
 import { HttpError } from "../utils/http-error";
+import { rewardActivity } from "./gamification.service";
 
 const SECONDS_PER_MINUTE = 60;
 
@@ -20,7 +22,10 @@ export async function reportStudyTime(userId: number, seconds: unknown) {
     await studyTimeRepository.touchLastCredited(client, userId);
     return null;
   });
-  return describeToday(userId, secondsToday ?? await studyTimeRepository.getSecondsToday(userId));
+  const today = await describeToday(userId, secondsToday ?? await studyTimeRepository.getSecondsToday(userId));
+  // Only a report that added time can be the one that met the goal; the reward pays once per day.
+  if (secondsToday !== null && today.isGoalMet) await rewardActivity(userId, "daily_goal", `goal:${await getLearnerToday(userId)}`);
+  return today;
 }
 
 export async function getDailyGoalProgress(userId: number) {

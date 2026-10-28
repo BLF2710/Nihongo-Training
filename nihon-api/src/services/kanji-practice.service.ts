@@ -6,6 +6,7 @@ import {
 } from "../repositories/kanji.repository";
 import { HttpError } from "../utils/http-error";
 import { characterProgress } from "./character-progress";
+import { rewardActivity } from "./gamification.service";
 import { catalog, hasCourseWords, makeKanjiQuestion, shuffled, PracticeKind } from "./kanji.service";
 
 export const PRACTICE_SIZES = [3, 5, 10];
@@ -40,22 +41,25 @@ export async function startKanjiPractice(userId: number, size: number, kanjiId: 
 
 /** Grades a practice question once; repeating the same answer is safe, changing it is rejected. */
 export async function answerKanjiQuestion(userId: number, questionId: string, answerIndex: number) {
-  return withTransaction(async client => {
+  const { isFirstAnswer, ...answered } = await withTransaction(async client => {
     const question = await lockPracticeQuestion(questionId, userId, client);
     if (!question) throw new HttpError(404, "Question not found.");
     if (question.answer_index !== null && question.answer_index !== answerIndex) {
       throw new HttpError(409, "This question already has a saved answer.");
     }
     const correct = answerIndex === question.correct_index;
-    if (question.answer_index === null) {
+    const isFirstAnswer = question.answer_index === null;
+    if (isFirstAnswer) {
       await recordKanjiAnswer(client, userId, question.kanji_id, correct);
       await savePracticeAnswer(client, questionId, answerIndex);
       await recordLearningActivity(userId, client);
     }
     const saved = await findKanjiProgress(userId, question.kanji_id, client);
     return {
-      correct, correctAnswer: question.options[question.correct_index],
+      isFirstAnswer, correct, correctAnswer: question.options[question.correct_index],
       progress: { kanjiId: question.kanji_id, ...characterProgress(saved.correct_count, saved.wrong_count), lastPracticedAt: saved.last_practiced_at },
     };
   });
+  const reward = isFirstAnswer && answered.correct ? await rewardActivity(userId, "kanji", `question:${questionId}`) : null;
+  return { ...answered, reward };
 }

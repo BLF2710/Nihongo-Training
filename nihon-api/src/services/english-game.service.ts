@@ -1,8 +1,7 @@
 import { ENGLISH_VOCABULARY } from "../data/english-vocabulary";
 import { insertGameScore } from "../repositories/game-score.repository";
-import { awardXP } from "./xp.service";
+import { rewardActivity } from "./gamification.service";
 
-const GAME_COMPLETION_XP = 10;
 
 export type GameResult = {
   gameType?: string;
@@ -75,6 +74,6 @@ export async function recordGameResult(userId: number | undefined, result: GameR
     sessionId: typeof result.sessionId === "string" && result.sessionId.length > 0 ? result.sessionId : null
   });
   if (scoreId === null) return false;
-  await awardXP(Number(userId), GAME_COMPLETION_XP, "game", `game-score:${scoreId}`);
+  await rewardActivity(Number(userId), "game", `game-score:${scoreId}`);
   return true;
 }

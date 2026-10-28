@@ -98,7 +98,9 @@ const tail = String.raw`    const user = name => name + '_x1'; const ana = 'lear
       assert.equal((await call('DELETE', '/friends/requests/' + fromDan.data.requestId, { as: 'dan' })).status, 200, 'the sender cancels');
       await settle(); assert.equal((await friends('ben')).incoming.length, 0);
       // ---- Notification history from the requests so far.
-      const notes = async (as, query = '') => (await call('GET', '/notifications' + query, { as })).data;
+      // Making friends checks achievements (and maybe a level); those notices are left out until the achievement checks below.
+      let hideAchievementNotices = true;
+      const notes = async (as, query = '') => { if (hideAchievementNotices) await client.query("DELETE FROM notifications WHERE kind IN ('achievement', 'level_up')"); return (await call('GET', '/notifications' + query, { as })).data; };
       let benNotes = await notes('ben');
       assert.deepEqual(benNotes.notifications.map(n => [n.kind, n.actor.username, n.read]), [['friend_request', user('cat'), true], ['friend_request', user('learner'), true]], 'answered requests are read; a cancelled request leaves no trace');
       assert.equal(benNotes.unread, 0);
@@ -113,6 +115,7 @@ const tail = String.raw`    const user = name => name + '_x1'; const ana = 'lear
       await client.query('INSERT INTO lesson_progress (user_id, lesson_id) VALUES ($1, $2) ON CONFLICT DO NOTHING', [await uid('learner'), units[0].lessonIds[0]]);
       const earned = await src('services/achievement.service.ts').evaluateAchievements(await uid('learner'));
       assert.ok(earned.includes('first_steps'), 'earned ' + JSON.stringify(earned));
+      hideAchievementNotices = false;
       anaNotes = await notes(ana);
       assert.equal(anaNotes.notifications.filter(n => n.kind === 'achievement').length, earned.length, 'one notification per achievement'); assert.ok(anaNotes.notifications.some(n => n.kind === 'support_reply'));
       const reply = anaNotes.notifications.find(n => n.kind === 'support_reply');
@@ -139,7 +142,8 @@ const tail = String.raw`    const user = name => name + '_x1'; const ana = 'lear
       const anaEntry = board.entries.find(e => e.username === user('learner')), benEntry = board.entries.find(e => e.self);
       assert.equal(benEntry.username, user('ben'));
       assert.ok(anaEntry.weeklyXp >= 40 && anaEntry.weeklyXp < 500, 'older XP is not counted: ' + anaEntry.weeklyXp);
-      assert.equal(anaEntry.weeklyLessons, 1); assert.equal(anaEntry.currentStreak, 3); assert.equal(benEntry.weeklyXp, 15);
+      assert.equal(anaEntry.weeklyLessons, 1); assert.equal(anaEntry.currentStreak, 3); const benAchievementXp = Number((await client.query("SELECT COALESCE(SUM(amount), 0) AS xp FROM xp_events WHERE user_id = $1 AND source = 'achievement'", [await uid('ben')])).rows[0].xp);
+      assert.ok(benAchievementXp > 0, 'making friends earned an achievement'); assert.equal(benEntry.weeklyXp, 15 + benAchievementXp);
       assert.ok(!('email' in anaEntry) && !('id' in anaEntry));
       await settings('ben', { visibility: 'private' });
       assert.ok((await call('GET', '/friends/leaderboard', { as: 'ben' })).data.entries.some(e => e.self), 'you always see yourself');

@@ -105,24 +105,19 @@ Has: View community posts, Moderate posts, Delete posts, Review reported content
 
 - [✅] Rename the diagram to **Friends & communicate (Learner)** and change its actor from Admin to **Learner**
 - [✅] Remove all six admin use cases (the moderation ones now live in "Manage users", section 8)
-- [ ] Friends:
+- [✅] Friends:
   - [✅] Add **View friends leaderboard**
-  - [ ] Add **Keep a friend streak** (days in a row both studied)
   - [✅] **Add friend** (by username), **Accept / decline request**, **Cancel request**, **Remove friend**
-  - [ ] **Invite a friend** (link or QR code)
   - [✅] **View a learner's profile**
-  - [ ] **See friend suggestions** (opt-in)
   - [✅] **View friend activity** with «extend» **Cheer a friend**
   - [✅] **Nudge a friend**
   - [✅] **Challenge a friend**, **Accept / decline challenge**
   - [✅] **Block a learner**, **Report a learner**
-- [ ] Communicate:
-  - [ ] **Send direct message** with «extend» **Report a message** and **Block in messages**
-  - [ ] **View notifications**
-  - [ ] **Ask for help** (Help & support request; reply to the support team)
-  - [ ] **Chat with the study assistant**
-- [ ] Add **Allow or refuse friend requests**
-- [ ] Add **Manage blocked learners** (view list, unblock)
+- [✅] Communicate:
+  - [✅] **Send direct message** with «extend» **Report a message** and **Block in messages**
+  - [✅] **View notifications**
+  - [✅] **Ask for help** (Help & support request; reply to the support team)
+  - [✅] **Chat with the study assistant**
 ## 13. Secondary actors (none yet)
 
 Draw these on the right of the use cases that use them.

@@ -8,6 +8,8 @@ import * as mockResultRepository from "../repositories/mock-exam-result.reposito
 import { insertPracticeSession } from "../repositories/practice-session.repository";
 import { recordActivity } from "../repositories/streak.repository";
 import { HttpError } from "../utils/http-error";
+import { rewardActivities } from "./gamification.service";
+import type { ActivityReward } from "./gamification.service";
 import { mistakeKeys } from "./mistake.service";
 import { getUserUnits } from "./unit.service";
 
@@ -50,13 +52,17 @@ export async function submitMockExam(userId: number, level: unknown, input: { an
   if (await mockResultRepository.countRecentMockResults(userId, 3600) >= RESULTS_PER_HOUR) throw new HttpError(429, "Too many mock exams in an hour. Please slow down.");
   const result = gradeMockExam(exam, answers);
   const timedOut = input.timedOut === true;
-  return withTransaction(async client => {
+  const graded = await withTransaction(async client => {
     const saved = await mockResultRepository.insertMockResult(client, userId, exam.level, { ...result, timedOut });
     await insertPracticeSession(client, { userId, kind: "mock-exam", scope: exam.level, answered, correct: result.correct });
     await recordAnswerOutcomes(client, userId, toAnswerOutcomes(exam, answers));
     const streak = await recordActivity(client, userId);
     return { result: saved, currentStreak: streak?.currentStreak ?? 0 };
   });
+  // Every finished exam pays a little; passing a level pays a bonus once.
+  const rewards: ActivityReward[] = [{ source: "mock_exam", referenceId: `result:${graded.result.id}` }];
+  if (result.passed) rewards.push({ source: "mock_exam_pass", referenceId: exam.level });
+  return { ...graded, reward: await rewardActivities(userId, rewards) };
 }
 
 export async function getMockHistory(userId: number, level: unknown) {

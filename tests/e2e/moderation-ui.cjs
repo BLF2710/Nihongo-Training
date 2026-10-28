@@ -115,6 +115,8 @@ const LESSON = 'japanese-n5-unit-1-introductions';
     const levels = adminPage.getByRole('group', { name: 'Level' });
     await levels.getByRole('button', { name: /^N4/ }).click(); await adminPage.waitForURL('**/admin/content/lessons?level=N4');
     await adminPage.getByRole('heading', { name: 'N4 Unit 1' }).waitFor();
+    // N4 Unit 1 is also in the unfiltered list, so wait for the N5 units to leave before counting.
+    await adminPage.getByRole('heading', { name: 'N5 Unit 1', exact: true }).waitFor({ state: 'detached' });
     assert.equal(await adminPage.getByRole('heading', { name: /^N5 Unit/ }).count(), 0, 'no N5 units under N4');
     assert.equal(await levels.getByRole('button', { name: /^N4/ }).getAttribute('aria-pressed'), 'true');
     await levels.getByRole('button', { name: /^N5/ }).click(); await adminPage.getByRole('heading', { name: 'N5 Unit 1' }).waitFor();

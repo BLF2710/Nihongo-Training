@@ -50,6 +50,7 @@ const PublicProfilePage = lazy(() => import("./pages/PublicProfilePage"));
 const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
+const AchievementsPage = lazy(() => import("./pages/AchievementsPage"));
 const SpeakingTestPage = lazy(() => import("./pages/SpeakingTestPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
@@ -96,6 +97,8 @@ function App() {
           <Route path="/u/:username" element={signedInLazy("Loading profile…", <PublicProfilePage />)} />
           <Route path="/add/:username" element={signedIn(<InviteRedirect />)} />
           <Route path="/notifications" element={signedInLazy("Loading notifications…", <NotificationsPage />)} />
+          <Route path="/achievements" element={signedInLazy("Loading achievements…", <AchievementsPage />)} />
+          <Route path="/achievements/:section" element={signedInLazy("Loading achievements…", <AchievementsPage />)} />
           <Route path="/levels" element={signedInLazy("Loading levels…", <LevelPickerPage />)} />
           <Route path="/grammar/summary" element={signedInLazy("Loading grammar summary…", <GrammarSummaryPage />)} />
           <Route path="/mock-exam" element={signedInLazy("Loading mock exam…", <MockExamPage />)} />

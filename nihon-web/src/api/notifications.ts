@@ -1,6 +1,6 @@
 import api from "./axios";
 
-export type NotificationKind = "friend_request" | "friend_accepted" | "support_reply" | "achievement" | "nudge" | "cheer" | "challenge";
+export type NotificationKind = "friend_request" | "friend_accepted" | "support_reply" | "achievement" | "nudge" | "cheer" | "challenge" | "level_up";
 export type AppNotification = {
   id: number; kind: NotificationKind; createdAt: string; read: boolean;
   actor: { username: string; displayName: string } | null;
@@ -11,6 +11,8 @@ export type AppNotification = {
     /** Challenges. */
     event?: "invited" | "accepted" | "declined" | "finished"; metric?: "xp" | "lessons"; days?: number;
     outcome?: "won" | "lost" | "tied"; myScore?: number; theirScore?: number;
+    /** level_up: the level reached. */
+    level?: number;
   };
 };
 export type NotificationPage = { notifications: AppNotification[]; hasMore: boolean; unread: number };

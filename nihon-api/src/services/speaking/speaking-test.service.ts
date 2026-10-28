@@ -16,6 +16,8 @@ import type { SpeakingAttemptRow } from "../../repositories/speaking-attempt.rep
 import { recordActivity } from "../../repositories/streak.repository";
 import { HttpError } from "../../utils/http-error";
 import { idParam } from "../conversation-format";
+import { rewardActivity } from "../gamification.service";
+import type { Reward } from "../gamification.service";
 import { hasReachedCourseLevel } from "../unit.service";
 import type { ContentGrade, Correction, SpeakingContentGrader } from "./content-grader";
 import type { PronunciationAssessor, WordScore } from "./pronunciation-assessor";
@@ -32,7 +34,10 @@ export type SpeakingTestDependencies = {
   assessor: PronunciationAssessor | null;
   grader: SpeakingContentGrader | null;
   hasReachedLevel?: (userId: number, level: CourseLevel) => Promise<boolean>;
+  rewardAttempt?: (userId: number, attemptId: number) => Promise<Reward | null>;
 };
+
+const rewardSpeakingAttempt = (userId: number, attemptId: number) => rewardActivity(userId, "speaking_test", `attempt:${attemptId}`);
 
 type CriterionResult = { id: SpeakingCriterionId; name: string; japanese: string; source: string; weight: number; band: Band | null; bandLabel: string | null; comment: string; rawScore: number | null };
 type PositionedCorrection = Correction & { start: number; end: number };
@@ -41,7 +46,7 @@ export type SpeakingResult = {
   score: number; band: Band; bandLabel: string; met: boolean; delivery: DeliverySource;
   criteria: CriterionResult[]; notAssessed: SpeakingCriterionId[]; transcript: string; words: WordScore[];
   corrections: PositionedCorrection[]; summary: string; strengths: string[]; nextSteps: string[]; estimatedLevel: JfLevel | null;
-  measurements: SpeakingMeasurements;
+  measurements: SpeakingMeasurements; reward?: Reward | null;
 };
 export type SubmitOutcome = SpeakingResult | { status: "no_answer"; message: string };
 
@@ -198,7 +203,8 @@ export function createSpeakingTestService(dependencies: SpeakingTestDependencies
       await recordActivity(client, userId);
       return attempt;
     });
-    return { ...result, status: "graded", id: saved.id, createdAt: saved.createdAt };
+    const reward = await (dependencies.rewardAttempt ?? rewardSpeakingAttempt)(userId, saved.id);
+    return { ...result, status: "graded", id: saved.id, createdAt: saved.createdAt, reward };
   }
 
   /** Disputes a grade: sends the result to Help & support as a new request (GRADING.md section 10). */

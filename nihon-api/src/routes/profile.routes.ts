@@ -5,6 +5,7 @@ import type { RateLimitRule } from "../middleware/rate-limit.middleware";
 import { ACCEPTED_IMAGE_TYPES, MAX_UPLOAD_BYTES } from "../services/avatar.service";
 import { getUserId } from "../utils/request-user";
 import { authenticate } from "../middleware/auth.middleware";
+import { getMyGamification } from "../controllers/gamification.controller";
 import { getSocialSettings, updateSocialSettings } from "../controllers/social.controller";
 import { changePassword, deactivateAccount, getMyProfile, removeMyAvatar, updateMyProfile, updateTimeZone, uploadMyAvatar } from "../controllers/profile.controller";
 
@@ -19,6 +20,7 @@ router.put("/me/password", changePassword);
 router.put("/me/time-zone", updateTimeZone);
 router.put("/me/avatar", rateLimit(AVATAR_UPLOADS), express.raw({ type: ACCEPTED_IMAGE_TYPES, limit: MAX_UPLOAD_BYTES }), uploadMyAvatar);
 router.delete("/me/avatar", removeMyAvatar);
+router.get("/me/gamification", getMyGamification);
 router.get("/me/social", getSocialSettings);
 router.put("/me/social", updateSocialSettings);
 router.post("/me/deactivate", deactivateAccount);

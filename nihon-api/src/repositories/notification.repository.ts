@@ -1,7 +1,7 @@
 import { pool } from "../config/db";
 import type { Queryable } from "../db/transaction";
 
-export type NotificationKind = "friend_request" | "friend_accepted" | "support_reply" | "achievement" | "nudge" | "cheer" | "challenge";
+export type NotificationKind = "friend_request" | "friend_accepted" | "support_reply" | "achievement" | "nudge" | "cheer" | "challenge" | "level_up";
 // History older than this is removed when new notifications arrive.
 const KEEP_DAYS = 180;
 

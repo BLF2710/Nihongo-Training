@@ -1,35 +1,39 @@
-import { getAchievementReward, getAchievementTitle, grantAchievement } from "../repositories/achievement.repository";
-import { getCurrentStreak } from "../repositories/gamification.repository";
-import { getLessonSummary } from "../repositories/lesson-progress.repository";
+import { measureAchievements } from "../gamification/achievementRules";
+import { findAchievement, getAchievementFacts, grantAchievement, listEarnedAchievementIds } from "../repositories/achievement.repository";
 import { notifyAchievement } from "./notification.service";
+import { getLevelFromXP } from "./progression.service";
 import { awardXP } from "./xp.service";
 
-const FIRST_N5_LESSON_ID = "japanese-n5-unit-1-hello";
+export async function getLearnerFacts(userId: number) {
+  const { xp, ...facts } = await getAchievementFacts(userId);
+  return { ...facts, level: getLevelFromXP(xp) };
+}
 
-type AchievementFacts = { lessons: number; bestScore: number; completedFirstN5Lesson: boolean; currentStreak: number };
-
-// Checked in this order; add an achievement by adding a rule.
-const ACHIEVEMENT_RULES: { id: string; earned: (facts: AchievementFacts) => boolean }[] = [
-  { id: "first_steps", earned: facts => facts.lessons > 0 },
-  { id: "week_warrior", earned: facts => facts.currentStreak >= 7 },
-  // Vocabulary has no persisted vocabulary-item model yet; it remains unavailable until that existing curriculum data exists.
-  { id: "vocabulary_starter", earned: () => false },
-  { id: "japanese_beginner", earned: facts => facts.completedFirstN5Lesson },
-  { id: "perfect_score", earned: facts => facts.bestScore === 100 },
-];
-
-export async function evaluateAchievements(userId: number) {
-  const summary = await getLessonSummary(userId, FIRST_N5_LESSON_ID);
-  const currentStreak = await getCurrentStreak(userId);
-  const facts: AchievementFacts = { lessons: summary.lessons, bestScore: summary.bestScore, completedFirstN5Lesson: summary.completedLesson, currentStreak };
+async function grantNewAchievements(userId: number): Promise<string[]> {
+  const [facts, earned] = await Promise.all([getLearnerFacts(userId), listEarnedAchievementIds(userId)]);
   const newlyEarned: string[] = [];
-  for (const rule of ACHIEVEMENT_RULES) {
-    if (!rule.earned(facts)) continue;
-    if (!(await grantAchievement(userId, rule.id))) continue;
-    await awardXP(userId, await getAchievementReward(rule.id), "achievement", rule.id);
-    newlyEarned.push(rule.id);
+  for (const { id } of measureAchievements(facts).filter(item => item.isComplete && !earned.has(item.id))) {
+    if (!(await grantAchievement(userId, id))) continue;
+    const achievement = await findAchievement(id);
+    if (!achievement) throw new Error(`Achievement ${id} has a rule but no row; add it in a migration.`);
+    await awardXP(userId, achievement.xpReward, "achievement", id);
+    newlyEarned.push(id);
     // A missed notification must never undo the achievement itself.
-    await notifyAchievement(userId, { id: rule.id, title: await getAchievementTitle(rule.id) }).catch(error => console.error("Achievement notification failed", error));
+    await notifyAchievement(userId, { id, title: achievement.title }).catch(error => console.error("Achievement notification failed", error));
   }
   return newlyEarned;
+}
+
+// Achievement XP can complete a level achievement, so checks repeat until nothing new is earned.
+const MAX_PASSES = 3;
+
+/** Grants every achievement the learner now qualifies for; returns the ids earned just now. */
+export async function evaluateAchievements(userId: number): Promise<string[]> {
+  const earned: string[] = [];
+  for (let pass = 0; pass < MAX_PASSES; pass++) {
+    const fresh = await grantNewAchievements(userId);
+    if (!fresh.length) break;
+    earned.push(...fresh);
+  }
+  return earned;
 }

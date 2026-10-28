@@ -27,3 +27,27 @@ export async function addXp(db: Queryable, userId: number, amount: number): Prom
   const result = await db.query("UPDATE user_gamification SET xp=xp+$1, updated_at=NOW() WHERE user_id=$2 RETURNING xp", [amount, userId]);
   return Number(result.rows[0].xp);
 }
+
+// A learner's day is the calendar date in their own time zone, as for streaks.
+const LEARNER_ZONE = "COALESCE((SELECT time_zone FROM user_profiles WHERE user_id = $1), 'UTC')";
+const IS_LEARNER_TODAY = `(created_at AT TIME ZONE ${LEARNER_ZONE})::date = (NOW() AT TIME ZONE ${LEARNER_ZONE})::date`;
+
+export async function sumXpToday(db: Queryable, userId: number, source: string): Promise<number> {
+  const result = await db.query(`SELECT COALESCE(SUM(amount), 0)::int AS total FROM xp_events WHERE user_id = $1 AND source = $2 AND ${IS_LEARNER_TODAY}`, [userId, source]);
+  return Number(result.rows[0].total);
+}
+
+export async function listXpTodayBySource(userId: number): Promise<{ source: string; earned: number }[]> {
+  const result = await pool.query(`SELECT source, SUM(amount)::int AS earned FROM xp_events WHERE user_id = $1 AND ${IS_LEARNER_TODAY} GROUP BY source`, [userId]);
+  return result.rows.map(row => ({ source: String(row.source), earned: Number(row.earned) }));
+}
+
+export async function getLearnerToday(userId: number): Promise<string> {
+  const result = await pool.query(`SELECT to_char((NOW() AT TIME ZONE ${LEARNER_ZONE})::date, 'YYYY-MM-DD') AS today`, [userId]);
+  return String(result.rows[0].today);
+}
+
+export async function listRecentXpEvents(userId: number, limit: number): Promise<{ source: string; amount: number; createdAt: Date }[]> {
+  const result = await pool.query("SELECT source, amount, created_at FROM xp_events WHERE user_id = $1 ORDER BY created_at DESC, id DESC LIMIT $2", [userId, limit]);
+  return result.rows.map(row => ({ source: String(row.source), amount: Number(row.amount), createdAt: row.created_at }));
+}

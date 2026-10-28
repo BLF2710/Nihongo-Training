@@ -26,6 +26,10 @@ const empty = { ...analytics, learners: { total: 0, newLast30Days: 0, activeToda
         if (path === '/site') return json({ registration_enabled: true, announcement: '', disabled: [] });
         if (path === '/admin/access') return json({ id: 1, username: 'kai', role: 'admin' });
         if (path === '/admin/overview') return json({ users: { total: 13, active: 13, admins: 1 }, database: 'connected', databaseLatencyMs: 4, uptimeSeconds: 3720, checkedAt: '2026-10-21T09:00:00.000Z', latestMigration: { name: '013_practice_sessions.sql', applied_at: '2026-10-21T08:00:00.000Z' } });
+        if (path === '/admin/status') return json({ checkedAt: '2026-10-21T09:00:00.000Z', api: { environment: 'development', nodeVersion: 'v22.14.0', uptimeSeconds: 3720 },
+          database: { latencyMs: 4, sizeBytes: 12_000_000, appliedMigrations: 27, migrationFiles: 27, latestMigration: { name: '027_gamification.sql', applied_at: '2026-10-21T08:00:00.000Z' } },
+          realtime: { sharedState: 'memory', connections: 1, learners: 1 },
+          integrations: { email: { configured: true, detail: 'SMTP' }, google: { configured: false }, azureSpeech: { configured: false }, anthropic: { configured: false } } });
         if (path === '/admin/analytics') return failing ? json({ message: 'Database unavailable.' }, 503) : json(payload);
         return json({});
       });
@@ -57,7 +61,7 @@ const empty = { ...analytics, learners: { total: 0, newLast30Days: 0, activeToda
       assert.deepEqual((await practice.locator('tbody tr').allInnerTexts()).map(t => t.replace(/\s+/g, ' ').trim()), ['Kana answers 120 88%', 'Reading passages 4 75%', 'Mock exams 2 64%']);
       await page.screenshot({ path: `${shots}/analytics-${colorScheme}.png`, fullPage: true });
       // The status-only page does not show analytics
-      await page.goto(base + '/admin/system/status'); await page.getByText('Live API and database status').waitFor();
+      await page.goto(base + '/admin/system/status'); await page.getByText('All systems running').waitFor();
       assert.equal(await page.getByRole('heading', { name: 'Learning analytics' }).count(), 0);
       // Empty state, then an error with a working retry
       payload = empty; await page.goto(base + '/admin'); await section.getByText('No learner activity in this period.').waitFor();

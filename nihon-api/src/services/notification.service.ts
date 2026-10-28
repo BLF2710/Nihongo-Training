@@ -40,4 +40,10 @@ export async function notifyAchievement(userId: number, achievement: { id: strin
   publish(userId, { type: "notifications" });
 }
 
+/** Tells the learner they reached a new level (outside any transaction). */
+export async function notifyLevelUp(userId: number, level: number) {
+  await insertNotificationNow({ userId, kind: "level_up", data: { level } });
+  publish(userId, { type: "notifications" });
+}
+
 export const countUnread = countUnreadNotifications;

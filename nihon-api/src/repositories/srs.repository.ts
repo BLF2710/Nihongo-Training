@@ -53,14 +53,16 @@ export async function findCardForUpdate(db: Queryable, userId: number, itemType:
   return result.rows[0] && toCard(result.rows[0]);
 }
 
-export async function saveReview(db: Queryable, review: { userId: number; card: SrsCard; grade: SrsGrade; next: ScheduledCard }) {
+/** Saves the graded review; returns the review's id. */
+export async function saveReview(db: Queryable, review: { userId: number; card: SrsCard; grade: SrsGrade; next: ScheduledCard }): Promise<number> {
   const { userId, card, grade, next } = review;
   await db.query(
     `UPDATE srs_cards SET ease = $4, interval_days = $5, repetitions = $6, lapses = $7, due_at = $8, last_reviewed_at = NOW()
       WHERE user_id = $1 AND item_type = $2 AND item_id = $3`,
     [userId, card.itemType, card.itemId, next.ease, next.intervalDays, next.repetitions, next.lapses, next.dueAt]);
-  await db.query("INSERT INTO srs_reviews (user_id, item_type, item_id, grade, was_new) VALUES ($1, $2, $3, $4, $5)",
+  const result = await db.query("INSERT INTO srs_reviews (user_id, item_type, item_id, grade, was_new) VALUES ($1, $2, $3, $4, $5) RETURNING id",
     [userId, card.itemType, card.itemId, grade, card.isNew]);
+  return Number(result.rows[0].id);
 }
 
 export type SrsCounts = { total: number; newCards: number; dueNow: number; dueToday: number; learned: number; mature: number; reviewedToday: number };

@@ -5,6 +5,7 @@ import * as srsRepository from "../repositories/srs.repository";
 import type { SrsCard, SrsItemType } from "../repositories/srs.repository";
 import { recordActivity } from "../repositories/streak.repository";
 import { HttpError } from "../utils/http-error";
+import { rewardActivity } from "./gamification.service";
 import { catalog } from "./kanji.service";
 
 /** New cards introduced per day, so reviews never pile up faster than a learner can keep up. */
@@ -68,21 +69,22 @@ export async function getQueue(userId: number, now = new Date()) {
 // A card that is being learned (never remembered yet, or just forgotten) can be repeated in the same session.
 const isReviewable = (card: SrsCard, now: Date) => card.repetitions === 0 || card.dueAt.getTime() <= now.getTime();
 
-/** Grades one card, schedules its next review and counts today toward the streak. */
+/** Grades one card, schedules its next review, counts today toward the streak and pays review XP. */
 export async function reviewCard(userId: number, input: { itemType?: unknown; itemId?: unknown; grade?: unknown }) {
   const reference = toItemReference(input);
   const { grade } = input;
   if (!isSrsGrade(grade)) throw new HttpError(400, "Grade the card as again, hard, good or easy.");
-  return withTransaction(async client => {
+  const { reviewId, ...reviewed } = await withTransaction(async client => {
     const card = await srsRepository.findCardForUpdate(client, userId, reference.itemType, reference.itemId);
     if (!card) throw new HttpError(404, "This card isn't in your review deck.");
     const now = new Date();
     if (!isReviewable(card, now)) throw new HttpError(409, "This card isn't due yet.");
     const next = scheduleReview(card, grade, now);
-    await srsRepository.saveReview(client, { userId, card, grade, next });
+    const reviewId = await srsRepository.saveReview(client, { userId, card, grade, next });
     const streak = await recordActivity(client, userId);
     // The waits for the card's next review, for a card the learner sees again in the same session.
     const intervals = previewIntervals(next, now);
-    return { itemType: card.itemType, itemId: card.itemId, dueAt: next.dueAt, intervalDays: next.intervalDays, intervals, currentStreak: streak?.currentStreak ?? 0 };
+    return { reviewId, itemType: card.itemType, itemId: card.itemId, dueAt: next.dueAt, intervalDays: next.intervalDays, intervals, currentStreak: streak?.currentStreak ?? 0 };
   });
+  return { ...reviewed, reward: await rewardActivity(userId, "review", `review:${reviewId}`) };
 }

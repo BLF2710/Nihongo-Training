@@ -6,6 +6,7 @@ import { isLessonCompleted } from "../repositories/lesson-progress.repository";
 import * as mistakeRepository from "../repositories/mistake.repository";
 import type { AnswerOutcome, Mistake, MistakePayload } from "../repositories/mistake.repository";
 import { HttpError } from "../utils/http-error";
+import { rewardActivity } from "./gamification.service";
 
 const MAX_LESSON_ANSWERS = 30;
 const MAX_TEXT_LENGTH = 300;
@@ -65,7 +66,9 @@ export async function practiseMistake(userId: number, mistakeId: unknown, correc
   }
   const updated = await mistakeRepository.recordPracticeAnswer(userId, id, correct);
   if (!updated) throw new HttpError(404, "Mistake not found.");
-  return { id, correctStreak: updated.correctStreak, wrongCount: updated.wrongCount, isResolved: updated.resolvedAt !== null };
+  // A mistake can come back after a wrong answer, so each clearing is rewarded on its own.
+  const reward = updated.resolvedAt ? await rewardActivity(userId, "mistake", `mistake:${id}:${updated.resolvedAt.getTime()}`) : null;
+  return { id, correctStreak: updated.correctStreak, wrongCount: updated.wrongCount, isResolved: updated.resolvedAt !== null, reward };
 }
 
 export async function removeMistake(userId: number, mistakeId: unknown) {

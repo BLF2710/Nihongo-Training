@@ -24,7 +24,8 @@ export function describeNotification(item: AppNotification): { icon: string; tex
     case "friend_request": return { icon: "👋", text: `${who} sent you a friend request.`, href: "/friends" };
     case "friend_accepted": return { icon: "🤝", text: `${who} accepted your friend request.`, href: item.actor ? `/u/${encodeURIComponent(item.actor.username)}` : "/friends" };
     case "support_reply": return { icon: "🛟", text: `Support replied to “${item.data.subject || "your request"}”.`, href: item.data.conversationId ? `/support/${item.data.conversationId}` : "/support" };
-    case "achievement": return { icon: "🏆", text: `You earned an achievement: ${item.data.title || "a new achievement"}.`, href: "/profile" };
+    case "achievement": return { icon: "🏆", text: `You earned an achievement: ${item.data.title || "a new achievement"}.`, href: "/achievements" };
+    case "level_up": return { icon: "⭐", text: `You reached level ${item.data.level ?? "up"}!`, href: "/achievements" };
     case "nudge": return { icon: "👉", text: `${who} nudged you: time for some Japanese today!`, href: "/" };
     case "cheer": return { icon: "🎉", text: `${who} cheered you on${item.data.reason ? ` for ${item.data.reason}` : ""}.`, href: "/friends" };
     case "challenge": return { icon: "⚔️", text: describeChallenge(who, item.data), href: "/friends#challenges" };

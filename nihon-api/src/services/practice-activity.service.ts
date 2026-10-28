@@ -3,6 +3,7 @@ import { countRecentPracticeSessions, insertPracticeSession } from "../repositor
 import type { PracticeKind } from "../repositories/practice-session.repository";
 import { recordActivity } from "../repositories/streak.repository";
 import { HttpError } from "../utils/http-error";
+import { rewardActivity } from "./gamification.service";
 
 // Listening, speaking, reading and mock exams are graded in the browser, so the browser reports a finished
 // session. Only finished work counts: a listening or speaking round needs most of its questions answered.
@@ -25,9 +26,11 @@ export async function recordPracticeSession(userId: number, input: { kind?: unkn
   if (!(answered >= MIN_ANSWERED[kind] && answered <= MAX_ANSWERED)) throw new HttpError(400, `A ${kind} session needs at least ${MIN_ANSWERED[kind]} answers.`);
   if (!(correct >= 0 && correct <= answered)) throw new HttpError(400, "Correct answers must be between 0 and the number answered.");
   if (await countRecentPracticeSessions(userId, 3600) >= SESSIONS_PER_HOUR) throw new HttpError(429, "Too many practice sessions in an hour. Please slow down.");
-  const streak = await withTransaction(async client => {
-    await insertPracticeSession(client, { userId, kind, scope: scope as string, answered, correct });
-    return recordActivity(client, userId);
+  const { sessionId, streak } = await withTransaction(async client => {
+    const sessionId = await insertPracticeSession(client, { userId, kind, scope: scope as string, answered, correct });
+    return { sessionId, streak: await recordActivity(client, userId) };
   });
-  return { recorded: true, currentStreak: streak?.currentStreak ?? 0 };
+  // A mock exam reported here was already rewarded when the server graded it.
+  const reward = kind === "mock-exam" ? null : await rewardActivity(userId, "practice", `session:${sessionId}`);
+  return { recorded: true, currentStreak: streak?.currentStreak ?? 0, reward };
 }

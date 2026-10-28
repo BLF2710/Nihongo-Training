@@ -99,7 +99,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
         </div>
         {handle && <p className="mt-3 rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-600">Friends add you with your username <b className="text-gray-900">@{handle}</b>; your display name can be anything.</p>}
         <div className="mt-4 grid grid-cols-2 gap-2"><button onClick={() => go("/profile")} className="rounded-lg bg-emerald-600 py-2 text-sm font-bold text-white">Profile</button><button onClick={() => go("/settings/profile")} className="rounded-lg border border-gray-200 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50">Settings</button></div>
-        <button onClick={() => go("/friends")} className="mt-2 w-full rounded-lg border border-gray-200 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50">Friends{inbox?.friendRequests ? ` · ${inbox.friendRequests} new` : ""}</button>
+        <div className="mt-2 grid grid-cols-2 gap-2"><button onClick={() => go("/achievements")} className="rounded-lg border border-gray-200 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50">🏆 Achievements</button><button onClick={() => go("/friends")} className="rounded-lg border border-gray-200 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50">Friends{inbox?.friendRequests ? ` · ${inbox.friendRequests} new` : ""}</button></div>
       </div>}
 
       {token && !isAdmin() && <LiveNotifications />}
@@ -108,6 +108,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
         <div className="h-full overflow-y-auto p-4 flex flex-col">
           <div className="mb-5"><p className="px-3 text-[11px] font-bold tracking-wider uppercase text-gray-400">Navigation</p>
             <button onClick={() => go("/")} className={`mt-2 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/")}`}><span>⌂</span> Dashboard</button>
+            <button onClick={() => go("/achievements")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/achievements"))}`}><span aria-hidden="true">🏆</span> Achievements</button>
             {currentLanguage && <p className="mt-3 px-3 text-sm font-bold text-gray-800"><span aria-hidden="true">{currentLanguage.flag} </span>{currentLanguage.name}</p>}
           </div>
           {language === "japanese" ? <>

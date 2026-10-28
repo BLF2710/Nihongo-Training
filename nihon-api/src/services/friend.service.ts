@@ -17,6 +17,7 @@ import { idParam } from "./conversation-format";
 import { getLevelFromXP, getRankFromXP } from "./progression.service";
 import { publish } from "./realtime.service";
 import type { RealtimeEvent } from "./realtime.service";
+import { celebrateSavedWork } from "./gamification.service";
 
 const REQUESTS_PER_HOUR = 20;
 const MAX_PENDING_SENT = 50;
@@ -72,11 +73,16 @@ export async function change<T>(work: (notices: Notice[], client: Parameters<Par
  * Sends a friend request by exact username. If that learner already asked you, this accepts their request instead.
  * Sending the same request twice changes nothing.
  */
+/** A new friendship can earn the friend achievements, for both learners. */
+async function celebrateFriendship(...learnerIds: number[]) {
+  for (const id of learnerIds) await celebrateSavedWork(id, []);
+}
+
 export async function sendFriendRequest(userId: number, username: unknown) {
   const me = await requireLearner(userId);
   const other = await findOther(userId, username);
   if (other.id === userId) throw new HttpError(400, "You can't add yourself as a friend.");
-  return change(async (notices, client) => {
+  const result = await change(async (notices, client) => {
     await lockPair(client, userId, other.id);
     const row = await findPair(client, userId, other.id);
     const current = stateOf(row, userId);
@@ -100,6 +106,8 @@ export async function sendFriendRequest(userId: number, username: unknown) {
     notices.push([other.id, { type: "friends", reason: "request", person: person(me) }], updated(userId), bell(other.id));
     return { state: "outgoing" as const, requestId, person: person(other) };
   });
+  if (result.state === "friends") await celebrateFriendship(userId, other.id);
+  return result;
 }
 
 /** Accepts or declines a request you received. The sender is not told about a decline; it simply leaves their list. */
@@ -107,7 +115,7 @@ export async function respondToFriendRequest(userId: number, requestId: unknown,
   if (typeof accept !== "boolean") throw new HttpError(400, "Say whether to accept or decline.");
   const me = await requireLearner(userId);
   const id = idParam(requestId, "Friend request");
-  return change(async (notices, client) => {
+  const result = await change(async (notices, client) => {
     const row = await findFriendship(client, id);
     if (!row || row.status !== "pending" || row.addressee_id !== userId) throw new HttpError(404, "Friend request not found.");
     const sender = await findLearnerById(row.requester_id);
@@ -117,8 +125,11 @@ export async function respondToFriendRequest(userId: number, requestId: unknown,
     await readFriendRequestNotifications(client, userId, sender.id);
     if (accept) { await insertNotification(client, { userId: sender.id, kind: "friend_accepted", actorId: userId }); notices.push(bell(sender.id)); }
     notices.push(bell(userId), accept ? [sender.id, { type: "friends", reason: "accepted", person: person(me) }] : updated(sender.id), updated(userId));
-    return { state: accept ? "friends" as const : "none" as const, person: person(sender) };
+    return { state: accept ? "friends" as const : "none" as const, senderId: sender.id, person: person(sender) };
   });
+  const { senderId, ...response } = result;
+  if (response.state === "friends") await celebrateFriendship(userId, senderId);
+  return response;
 }
 
 /** Withdraws a request you sent that has not been answered. */
