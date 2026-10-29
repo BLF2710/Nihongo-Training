@@ -1,0 +1,56 @@
+' 5. Take unit assessment
+' Use case: Take unit assessment (Practice) · Actor: Learner
+'
+' Design patterns:
+'   - Repository: assessment progress, mistakes
+'   - Unit of work: the pass reward (XP event + total + streak) inside awardXP()
+'   - Decorator: action() around the controller
+'   Design choice worth a note: answers are graded on the server; the questions sent to the browser never
+'   contain the answer keys.
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 05 Take unit assessment
+title 5. Take unit assessment
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app" as Web
+control "Unit controller" as Ctrl
+control "Assessment service" as Svc
+control "Gamification\nservice" as Gam
+entity "Repository" as Repo
+database "Database" as DB
+
+Learner -> Web : open Unit N assessment
+Web -> Ctrl : GET /api/units/:unitId/assessment
+Ctrl -> Svc : getAssessment()
+Svc -> Repo : unit unlocked? all lessons done?
+alt not yet
+  Svc --> Web : 403 + reasons
+end
+Svc --> Web : 15 questions **without the answers**
+Learner -> Web : answer every question
+Web -> Ctrl : POST /api/units/:unitId/assessment (answers)
+Ctrl -> Svc : submitAssessment()
+Svc -> Svc : grade on the server (pass at 80%)
+Svc -> Repo : save attempt (best score kept; a pass is never lost)
+Repo -> DB : UPSERT user_assessment_progress
+Svc -> Repo : record answers in the mistake notebook
+Svc -> Repo : record streak day
+opt passed
+  Svc -> Gam : reward "assessment" (100 XP, once per unit)
+  group «Unit of work» awardXP()
+    Gam -> Repo : XP event + XP total
+  end
+  Gam -> Repo : check achievements (e.g. Japanese Beginner)
+end
+Ctrl --> Web : score, passed, unit completed, reward
+alt passed
+  Web --> Learner : "Unit complete", next unit unlocks, "+XP"
+else failed
+  Web --> Learner : score + what to review
+end
+@enduml

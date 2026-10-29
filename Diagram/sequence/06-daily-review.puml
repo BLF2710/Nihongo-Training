@@ -1,0 +1,106 @@
+' 6. Daily review (spaced repetition)
+' Use case: Daily review (Practice) · Actor: Learner
+'
+' Design patterns:
+'   - Repository: srs.repository.ts (cards, reviews), XP and achievement repositories
+'   - Unit of work: grading a card (lock card → schedule → save card + review → streak day) is one transaction
+'     (services/srs.service.ts reviewCard → withTransaction)
+'   - Observer: the level-up notification is published to every open tab (realtime.service.ts publish)
+'   - Chain of responsibility: authenticate middleware before every request (note)
+'   - Decorator: action() wraps every controller (note)
+'   Worth a note, not a pattern: the SM-2 scheduler (learning/srsScheduler.ts) is a pure domain function, with no
+'   database or clock inside it.
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 06 Daily review
+title 6. Daily review (spaced repetition)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app" as Web
+control "SRS controller" as Ctrl
+control "SRS service" as Svc
+control "SRS scheduler\n(SM-2)" as Sched
+control "Gamification\nservice" as Gam
+entity "Repository" as Repo
+database "Database" as DB
+control "Notification\n(realtime)" as Notif
+
+note over Web, Ctrl : «Chain of responsibility»: headers → CORS → authenticate → controller\n«Decorator»: action() wraps every controller (error handling)
+note over Repo : «Repository»\nall SQL lives here
+
+Learner -> Web : Open Daily review
+Web -> Ctrl : GET /api/units
+Ctrl --> Web : units (finished lessons)
+
+opt finished lessons changed since last time
+  Web -> Ctrl : POST /api/srs/cards (words + kanji)
+  Ctrl -> Svc : enrollItems()
+  Svc -> Repo : insertCards()
+  Repo -> DB : INSERT … ON CONFLICT DO NOTHING
+  Ctrl --> Web : { added }
+end
+
+Web -> Ctrl : GET /api/srs/queue
+Ctrl -> Svc : getQueue()
+Svc -> Repo : listDueCards() + listNewCards(5 a day)
+Repo -> DB : SELECT (hidden cards left out)
+Ctrl --> Web : cards
+Web --> Learner : first card
+
+loop each card in the session
+  Learner -> Web : Show answer, grade (Again / Hard / Good / Easy)
+
+  alt grade the card
+    Web -> Ctrl : POST /api/srs/reviews (card, grade)
+    Ctrl -> Svc : reviewCard()
+
+    group «Unit of work» withTransaction(): all or nothing
+      Svc -> Repo : findCardForUpdate()
+      Repo -> DB : SELECT … FOR UPDATE
+      Svc -> Sched : scheduleReview(card, grade, now)
+      Sched --> Svc : next interval, ease, due date
+      Svc -> Repo : saveReview()
+      Repo -> DB : UPDATE card, INSERT review
+      Svc -> Repo : recordActivity() (streak day)
+    end
+
+    Svc -> Gam : rewardActivity("review")
+    Gam -> Repo : awardXP (2 XP, daily limit 60)
+    Gam -> Repo : check achievements
+    opt level up
+      Gam -> Notif : notifyLevelUp()
+      Notif -> DB : save notification
+      Notif --> Web : publish → bell updates (all open tabs)
+      note right of Notif : «Observer»\npublish() → every open tab\nis subscribed
+    end
+    Gam --> Svc : reward
+    Ctrl --> Web : next due date + reward
+    Web --> Learner : "+XP" pop-up, next card
+    opt graded Again
+      Web -> Web : card added again at the end of the session
+    end
+
+  else hide the card instead
+    Learner -> Web : Hide it
+    Web -> Ctrl : PATCH /api/srs/cards/:type/:id { suspended: true }
+    Ctrl -> Svc : setCardSuspended()
+    Svc -> Repo : setSuspended()
+    Repo -> DB : UPDATE suspended_at
+    Web --> Learner : next card
+  end
+end
+
+Web --> Learner : "All done for today"
+
+opt cards due within 24 h
+  Learner -> Web : Review ahead
+  Web -> Ctrl : GET /api/srs/queue?ahead=1
+  Ctrl -> Svc : getQueue({ ahead: true })
+  Ctrl --> Web : cards due soon
+  note over Learner, Web : Same loop as above, reviews sent with **ahead: true**
+end
+@enduml

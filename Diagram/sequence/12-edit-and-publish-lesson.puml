@@ -1,0 +1,64 @@
+' 12. Edit and publish a lesson (admin)
+' Use case: Manage lessons → Edit draft, Preview, Publish, Restore original (Manage content) · Actor: Admin
+'
+' Design patterns:
+'   - Unit of work: publishing (published version + draft removed + audit log entry) is one transaction
+'     (services/lesson-edit.service.ts)
+'   - Chain of responsibility: authenticate → requireAdmin on every admin route
+'   - Repository
+'   Design choice worth a note: the learner's web app keeps the last published copy, so lessons still show the
+'   edits when the server can't be reached.
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 12 Edit and publish a lesson
+title 12. Edit and publish a lesson (admin)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Admin
+boundary "Admin web app" as AdminWeb
+control "Moderation\ncontroller" as Ctrl
+control "Lesson-edit\nservice" as Svc
+entity "Repository" as Repo
+database "Database" as DB
+boundary "Learner's web app" as LearnerWeb
+actor Learner
+
+note over AdminWeb, Ctrl : «Chain of responsibility»: authenticate → requireAdmin → controller
+
+Admin -> AdminWeb : Content → Lesson editor → a lesson
+AdminWeb -> Ctrl : GET /api/admin/lessons/:lessonId/edit
+Ctrl -> Svc : course version + draft + published edit
+Svc -> Repo : SELECT lesson_edits
+Ctrl --> AdminWeb : lesson to edit
+
+Admin -> AdminWeb : edit text, vocabulary, conversation, questions
+AdminWeb -> Ctrl : PUT /api/admin/lessons/:lessonId/draft
+Ctrl -> Svc : saveDraft() → validate
+alt problems found
+  Svc --> AdminWeb : 400 + every problem listed
+end
+Svc -> Repo : save draft
+Admin -> AdminWeb : Preview, then Publish
+AdminWeb -> Ctrl : POST /api/admin/lessons/:lessonId/publish
+group «Unit of work» withTransaction()
+  Svc -> Repo : draft becomes the published version
+  Svc -> Repo : audit log entry
+  Repo -> DB : UPDATE / INSERT …
+end
+Ctrl --> AdminWeb : published
+
+Learner -> LearnerWeb : open the site
+LearnerWeb -> Ctrl : GET /api/site/lesson-edits
+Ctrl --> LearnerWeb : published edits
+LearnerWeb -> LearnerWeb : apply edits to every lesson page, keep a copy for offline
+LearnerWeb --> Learner : lesson shows the new text
+
+opt Restore original
+  Admin -> AdminWeb : Restore original
+  AdminWeb -> Ctrl : DELETE /api/admin/lessons/:lessonId/published
+  Svc -> Repo : remove published edit + audit log entry
+end
+@enduml

@@ -1,5 +1,5 @@
-// Daily review follow-ups: review ahead once today's cards are done, suspending a card while reviewing, the deck
-// page (statuses, search, filters, suspend and restore) and adding a kanji from its page. Against fixture APIs.
+// Daily review follow-ups: review ahead once today's cards are done, hiding a card while reviewing, the deck
+// page (statuses, search, filters, hide and show again) and adding a kanji from its page. Against fixture APIs.
 //   node srs-deck-ui.cjs <baseUrl> <shotsDir>
 const assert = require('node:assert/strict');
 const path = require('node:path');
@@ -45,7 +45,7 @@ const intervals = { again: 600000, hard: 2 * DAY, good: 4 * DAY, easy: 6 * DAY }
     const page = await context.newPage();
     const errors = []; page.on('pageerror', error => errors.push(error.message));
 
-    // ---- nothing due: review ahead the 2 cards due within a day; suspend one while reviewing
+    // ---- nothing due: review ahead the 2 cards due within a day; hide one while reviewing
     await page.goto(base + '/srs');
     await page.getByRole('heading', { name: 'Nothing to review right now' }).waitFor();
     await page.getByText('2 cards are due in the next day.').waitFor();
@@ -54,30 +54,30 @@ const intervals = { again: 600000, hard: 2 * DAY, good: 4 * DAY, easy: 6 * DAY }
     await reviewCard.getByText('2 cards left · 0 reviewed').waitFor();
     await page.keyboard.press('Space'); await page.keyboard.press('3');
     await reviewCard.getByText('1 card left · 1 reviewed').waitFor();
-    await reviewCard.getByRole('button', { name: 'Suspend it' }).click();
+    await reviewCard.getByRole('button', { name: 'Hide it' }).click();
     await page.getByRole('heading', { name: 'All done for today 🎉' }).waitFor();
     assert.equal(state.reviews.length, 1); assert.equal(state.reviews[0].ahead, true, 'graded as a review ahead');
     assert.deepEqual(state.patches, [{ itemType: 'kanji', itemId: state.reviews[0].itemId === 'kanji-65e5' ? 'kanji-4e00' : 'kanji-65e5', suspended: true }]);
 
-    // ---- the deck: statuses and due dates, search, filters, suspend and restore
+    // ---- the deck: statuses and due dates, search, filters, hide and show again
     await page.getByRole('link', { name: 'Your deck →' }).click(); await page.waitForURL('**/srs/deck');
     await page.getByRole('heading', { name: 'Your deck' }).waitFor();
     await page.getByText('4 cards').waitFor();
-    for (const [label] of [['All · 4'], ['New · 1'], ['Learning · 2'], ['Mature · 1'], ['Suspended · 0']]) await page.getByRole('button', { name: label }).waitFor();
+    for (const [label] of [['All · 4'], ['New · 1'], ['Learning · 2'], ['Mature · 1'], ['Hidden · 0']]) await page.getByRole('button', { name: label }).waitFor();
     await page.getByText('Comes up as a new card').waitFor();
     await page.getByText('No longer in the course').waitFor();
     assert.ok(await page.getByText(/Due in (5|6) h/).count() >= 1, 'due soon shown in hours');
     await page.screenshot({ path: path.join(shots, 'srs-deck.png'), fullPage: true });
     await page.getByLabel('Find a card').fill('sun');
     await page.getByText('1 card', { exact: true }).waitFor();
-    await page.getByRole('button', { name: 'Suspend 日' }).click();
-    await page.getByRole('button', { name: 'Restore 日' }).waitFor();
+    await page.getByRole('button', { name: 'Hide 日' }).click();
+    await page.getByRole('button', { name: 'Show again 日' }).waitFor();
     assert.deepEqual(state.patches.at(-1), { itemType: 'kanji', itemId: 'kanji-65e5', suspended: true });
     await page.getByLabel('Find a card').fill('');
-    await page.getByRole('button', { name: 'Suspended · 1' }).click();
+    await page.getByRole('button', { name: 'Hidden · 1' }).click();
     await page.getByText('1 card', { exact: true }).waitFor();
-    await page.getByRole('button', { name: 'Restore 日' }).click();
-    await page.getByRole('button', { name: 'Suspended · 0' }).waitFor();
+    await page.getByRole('button', { name: 'Show again 日' }).click();
+    await page.getByRole('button', { name: 'Hidden · 0' }).waitFor();
     assert.deepEqual(state.patches.at(-1), { itemType: 'kanji', itemId: 'kanji-65e5', suspended: false });
 
     // ---- a kanji's page adds it to the daily review
@@ -92,6 +92,6 @@ const intervals = { again: 600000, hard: 2 * DAY, good: 4 * DAY, easy: 6 * DAY }
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'deck fits a phone');
     await page.screenshot({ path: path.join(shots, 'srs-deck-phone.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    console.log('PASS: nothing due offers review ahead (2 due within a day); reviewing ahead sends ahead:true; a card suspended mid-session; deck page: 4 cards with statuses (new, learning, mature), due texts, a retired card, search, filter counts, suspend and restore by name; a kanji added from its page; deck fits a phone.');
+    console.log('PASS: nothing due offers review ahead (2 due within a day); reviewing ahead sends ahead:true; a card hidden mid-session; deck page: 4 cards with statuses (new, learning, mature), due texts, a retired card, search, filter counts, hide and show again by name; a kanji added from its page; deck fits a phone.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1500)); process.exitCode = 1; });

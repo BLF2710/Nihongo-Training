@@ -130,7 +130,7 @@ function Review({ session, current, onGraded }: { session: Session; current: Que
     return () => window.removeEventListener("keydown", onKey);
   }, [grade, isRevealed]);
 
-  // Suspending leaves the card out of reviews from now on; it can be restored from the deck page.
+  // Hiding leaves the card out of reviews from now on; the deck page can show it again.
   const suspend = async () => {
     if (saving) return;
     setSaving(true); setError("");
@@ -138,7 +138,7 @@ function Review({ session, current, onGraded }: { session: Session; current: Que
       await setCardSuspended(queued, true);
       onGraded({ ...session, cards: session.cards.filter((item, index) => index <= session.position || item.queued.itemId !== queued.itemId || item.queued.itemType !== queued.itemType), position: session.position + 1 });
     } catch (failure) {
-      setError(apiErrorMessage(failure, "The card could not be suspended. Please try again."));
+      setError(apiErrorMessage(failure, "The card could not be hidden. Please try again."));
       setSaving(false);
     }
   };
@@ -172,6 +172,6 @@ function Review({ session, current, onGraded }: { session: Session; current: Que
         </button>)}</div>
     </div>}
     {error && <p role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800">{error}</p>}
-    <p className="mt-6 text-center text-sm text-gray-500">Don't want this card any more? <button type="button" disabled={saving} onClick={() => void suspend()} className={`font-semibold text-gray-700 underline hover:text-gray-900 disabled:opacity-50 ${focus}`}>Suspend it</button></p>
+    <p className="mt-6 text-center text-sm text-gray-500">Don't want to review this card? <button type="button" disabled={saving} onClick={() => void suspend()} className={`font-semibold text-gray-700 underline hover:text-gray-900 disabled:opacity-50 ${focus}`}>Hide it</button></p>
   </section>;
 }

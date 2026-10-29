@@ -1,0 +1,67 @@
+' 4. Take a lesson
+' Use case: Take a lesson (Learn Japanese) · Actor: Learner
+'
+' Design patterns:
+'   - Repository: lesson progress, XP events, achievements
+'   - Unit of work: each XP award (XP event + total + streak day) is one transaction (services/xp.service.ts)
+'   - Observer: achievement and level-up notifications are published to the learner's open tabs
+'     (services/realtime.service.ts publish → RealtimeBus → web lib/realtime.ts)
+'   - Decorator: action() around the controller
+'   (XP amounts and achievement rules are rule tables in src/gamification/, not a design pattern)
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 04 Take a lesson
+title 4. Take a lesson
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app" as Web
+control "Lesson controller" as Ctrl
+control "Lesson-completion\nservice" as Svc
+control "XP service" as XP
+control "Gamification\nservice" as Gam
+entity "Repository" as Repo
+database "Database" as DB
+control "Notification\n(realtime)" as Notif
+
+Learner -> Web : open a lesson
+Web -> Web : load the lesson content (its unit's file + any published admin edit)
+Web -> Ctrl : GET /api/lessons/:lessonId/access
+Ctrl -> Repo : previous lesson done? unit unlocked? level reached?
+alt locked
+  Ctrl --> Web : 403 + reasons
+  Web --> Learner : "Lesson locked"
+end
+Ctrl --> Web : allowed
+Learner -> Web : vocabulary → concept → conversation → practice → challenge (in the browser)
+Web -> Ctrl : POST /api/lessons/:lessonId/complete (challenge score)
+Ctrl -> Svc : completeLesson()
+Svc -> Repo : save lesson score
+Repo -> DB : UPSERT lesson_progress
+group «Unit of work» awardXP(): once per lesson
+  Svc -> XP : lesson XP (50)
+  XP -> Repo : lock XP, insert XP event, add XP, record streak day
+  Repo -> DB : INSERT / UPDATE
+end
+opt challenge score 100%
+  Svc -> XP : perfect challenge XP (25), once per lesson
+end
+Ctrl -> Gam : celebrate(awards)
+Gam -> Repo : learner facts → achievements now earned
+loop each new achievement
+  Gam -> XP : achievement XP
+  Gam -> Notif : notifyAchievement()
+end
+opt new level
+  Gam -> Notif : notifyLevelUp()
+end
+Notif -> DB : save notifications
+Notif --> Web : «Observer» publish → bell updates in every open tab
+Ctrl --> Web : completion, achievements, reward
+Web --> Learner : "+XP" pop-up, level up / achievement
+Web -> Ctrl : POST /api/mistakes/lessons/:lessonId (challenge answers)
+note right of Web : wrong answers go to\nthe mistake notebook
+@enduml

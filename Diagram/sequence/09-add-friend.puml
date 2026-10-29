@@ -1,0 +1,66 @@
+' 9. Add friend (request → accept)
+' Use case: Add friend (Friends & communicate) · Actors: Learner A, Learner B
+'
+' Design patterns:
+'   - Observer (publish/subscribe): after each change, publish() sends events through the RealtimeBus (PostgreSQL
+'     LISTEN/NOTIFY when several API processes run) to the other learner's open event stream
+'     (services/realtime.service.ts, web lib/realtime.ts useRealtime)
+'   - Unit of work: each change (request, notification) is one transaction; events are published only after commit
+'     (friend.service.ts change())
+'   - Repository
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 09 Add friend
+title 9. Add friend (request → accept)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor "Learner A" as A
+boundary "Web app A" as WebA
+control "Friend controller" as Ctrl
+control "Friend service" as Svc
+entity "Repository" as Repo
+database "Database" as DB
+control "Live updates\n(RealtimeBus)" as Bus
+boundary "Web app B" as WebB
+actor "Learner B" as B
+
+note over Bus, WebB : «Observer»: B's open tabs subscribe to B's event stream
+
+A -> WebA : enter B's username → Add friend
+WebA -> Ctrl : POST /api/friends/requests
+Ctrl -> Svc : sendFriendRequest(username)
+Svc -> Repo : B exists, not blocked, accepts requests? limits OK?
+alt not allowed
+  Svc --> WebA : 403 / 409 / 429 with the reason
+end
+group «Unit of work» withTransaction()
+  Svc -> Repo : save pending request
+  Svc -> Repo : notification for B
+  Repo -> DB : INSERT …
+end
+Svc -> Bus : publish(B, "friend request")
+Bus --> WebB : event
+WebB --> B : bell count + request shown at once
+Ctrl --> WebA : "Request sent"
+
+B -> WebB : Accept
+WebB -> Ctrl : PUT /api/friends/requests/:id (accept: true)
+Ctrl -> Svc : respondToFriendRequest()
+alt accept
+  group «Unit of work» withTransaction()
+    Svc -> Repo : status accepted, notification for A
+    Repo -> DB : UPDATE / INSERT
+  end
+  Svc -> Bus : publish(A, "accepted")
+  Bus --> WebA : event
+  WebA --> A : "You and B are now friends"
+  Svc -> Svc : check friend achievements for A and B (Study Buddy)
+else decline
+  Svc -> Repo : status declined
+  Svc -> Bus : publish(A, "updated")
+  Bus --> WebA : request leaves A's list (A isn't told why)
+end
+@enduml

@@ -1,0 +1,55 @@
+' 8. Chat with the study assistant
+' Use case: Chat with the study assistant (Communicate) · Actor: Learner · Secondary: AI service (Anthropic Claude)
+'
+' Design patterns:
+'   - Strategy: «interface» AssistantProvider with claudeProvider and courseHelperProvider; activeProvider() picks
+'     one (Claude when configured, otherwise the built-in course helper); the service calls them the same way
+'     (services/assistant-providers.ts)
+'   - Adapter: claudeProvider wraps the Anthropic SDK behind our AssistantProvider interface
+'   - Unit of work: question and answer saved in one transaction
+'   - Chain of responsibility: rateLimit (hourly limit) before the controller
+'   - Repository
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 08 Chat with the study assistant
+title 8. Chat with the study assistant
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app" as Web
+control "Communication\ncontroller" as Ctrl
+control "Assistant service" as Svc
+control "«interface»\nAssistantProvider" as Provider
+entity "Repository" as Repo
+database "Database" as DB
+boundary "AI service\n(Claude)" as AI
+
+Learner -> Web : type a question
+Web -> Ctrl : POST /api/assistant/messages
+note over Ctrl : «Chain of responsibility»\nauthenticate → hourly rate limit
+alt over the limit
+  Ctrl --> Web : 429
+end
+Ctrl -> Svc : ask(question)
+Svc -> Repo : conversation's recent messages
+Repo -> DB : SELECT
+Svc -> Provider : activeProvider().answer(history, learner name + level)
+note right of Provider : «Strategy»\nclaudeProvider or\ncourseHelperProvider
+alt Claude configured
+  Provider -> AI : Messages API
+  note right of AI : «Adapter»: claudeProvider\nwraps the Anthropic SDK
+  AI --> Provider : answer
+else not configured
+  Provider -> Provider : built-in course helper answer
+end
+Provider --> Svc : answer text
+group «Unit of work» withTransaction()
+  Svc -> Repo : conversation (new if none) + question + answer
+  Repo -> DB : INSERT …
+end
+Ctrl --> Web : answer
+Web --> Learner : show the answer
+@enduml

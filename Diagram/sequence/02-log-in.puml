@@ -1,0 +1,80 @@
+' 2. Log in (password or Google)
+' Use case: Log in, «extend» Sign in with Google · Actor: Guest · Secondary: Google
+'
+' Design patterns:
+'   - Chain of responsibility: middleware chain, rateLimit per account and per network (drawn once here)
+'   - Abstract factory / Strategy: sharedState() builds the RateLimitStore and NonceStore, in memory (one API process)
+'     or in PostgreSQL (several processes), chosen by SHARED_STATE (shared-state/index.ts)
+'   - Adapter + Dependency injection: «interface» GoogleTokenVerifier → GoogleLibraryVerifier wraps Google's library,
+'     injected into createGoogleSignInService (services/google/)
+'   - Decorator: action() around the controllers
+'   - Repository
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 02 Log in
+title 2. Log in (password or Google)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Guest
+boundary "Web app" as Web
+control "Middleware chain" as MW
+entity "«interface»\nRateLimitStore /\nNonceStore" as Shared
+control "Auth controller" as Ctrl
+control "Auth service" as Svc
+control "«interface»\nGoogleTokenVerifier" as Verifier
+entity "Repository" as Repo
+database "Database" as DB
+boundary "Google" as Google
+
+alt password
+  Guest -> Web : username or email + password
+  Web -> MW : POST /api/auth/login
+  note over MW : «Chain of responsibility»\nheaders → CORS → rateLimit → controller
+  MW -> Shared : count attempt (account, network)
+  note right of Shared : «Abstract factory»\nMemory or PostgreSQL\nversion (SHARED_STATE)
+  alt over the limit
+    MW --> Web : 429
+  end
+  MW -> Ctrl : login()
+  Ctrl -> Svc : login(identifier, password)
+  Svc -> Repo : find user
+  Repo -> DB : SELECT
+  alt not found or wrong password (bcrypt)
+    Svc --> Web : 401
+  else account suspended
+    Svc --> Web : 403
+  end
+  Svc -> Repo : record last login
+  Svc --> Ctrl : session token (with token version)
+  Ctrl --> Web : { token, role }
+  Web --> Guest : admin → /admin, learner → dashboard
+
+else Google
+  Web -> MW : GET /api/auth/google/nonce
+  MW -> Ctrl : googleNonce()
+  Ctrl -> Shared : store one-time nonce
+  Ctrl --> Web : nonce
+  Guest -> Google : choose an account
+  Google --> Web : ID token (contains the nonce)
+  Web -> MW : POST /api/auth/google (ID token)
+  MW -> Ctrl : googleSignIn()
+  Ctrl -> Svc : signIn(idToken)
+  Svc -> Verifier : verify(idToken)
+  note right of Verifier : «Adapter» GoogleLibraryVerifier\nwraps Google's library;\ntests inject a fake («DI»)
+  Verifier -> Google : signing keys
+  Verifier --> Svc : email, Google id, nonce
+  Svc -> Shared : use nonce once
+  alt Google account already linked
+    Svc -> Repo : find user by Google id
+  else new email
+    Svc -> Repo : registration open? create account (no password)
+    Repo -> DB : INSERT
+  end
+  Svc --> Ctrl : session token
+  Ctrl --> Web : { token, role }
+  Web --> Guest : signed in
+end
+@enduml

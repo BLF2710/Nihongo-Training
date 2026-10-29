@@ -94,7 +94,7 @@ export async function reviewCard(userId: number, input: { itemType?: unknown; it
     const card = await srsRepository.findCardForUpdate(client, userId, reference.itemType, reference.itemId);
     if (!card) throw new HttpError(404, "This card isn't in your review deck.");
     const now = new Date();
-    if (card.isSuspended) throw new HttpError(409, "This card is suspended. Restore it from your deck to review it.");
+    if (card.isSuspended) throw new HttpError(409, "This card is hidden. Show it again from your deck to review it.");
     if (!isReviewable(card, now, input.ahead === true)) throw new HttpError(409, "This card isn't due yet.");
     const next = scheduleReview(card, grade, now);
     const reviewId = await srsRepository.saveReview(client, { userId, card, grade, next });
@@ -121,10 +121,10 @@ export async function getDeck(userId: number) {
   };
 }
 
-/** Suspends a card (left out of reviews, kept in the deck) or restores it. */
+/** Hides a card (stored as suspended: left out of reviews, kept in the deck) or shows it again. */
 export async function setCardSuspended(userId: number, itemType: unknown, itemId: unknown, suspended: unknown) {
   const reference = toItemReference({ itemType, itemId });
-  if (typeof suspended !== "boolean") throw new HttpError(400, "Say whether the card is suspended.");
+  if (typeof suspended !== "boolean") throw new HttpError(400, "Say whether the card is hidden.");
   if (!(await srsRepository.setSuspended(userId, reference.itemType, reference.itemId, suspended))) throw new HttpError(404, "This card isn't in your review deck.");
   return { ...reference, suspended };
 }

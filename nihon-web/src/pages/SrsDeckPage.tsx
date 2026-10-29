@@ -16,7 +16,7 @@ const STATUSES: { id: DeckStatus; label: string; tone: string; help: string }[] 
   { id: "new", label: "New", tone: "bg-indigo-50 text-indigo-900", help: "Not studied yet" },
   { id: "learning", label: "Learning", tone: "bg-amber-50 text-amber-900", help: "Comes back within three weeks" },
   { id: "mature", label: "Mature", tone: "bg-emerald-50 text-emerald-900", help: "Remembered for three weeks or more" },
-  { id: "suspended", label: "Suspended", tone: "bg-gray-100 text-gray-700", help: "Left out of reviews" },
+  { id: "suspended", label: "Hidden", tone: "bg-gray-100 text-gray-700", help: "Left out of reviews until shown again" },
 ];
 const STATUS_BY_ID = Object.fromEntries(STATUSES.map(status => [status.id, status])) as Record<DeckStatus, (typeof STATUSES)[number]>;
 
@@ -31,13 +31,13 @@ const toRow = (state: DeckCardState): Row => {
 const matches = (row: Row, words: string) => !words || [toPlain(row.front), row.answer, row.reading ?? "", row.source].some(text => text.toLowerCase().includes(words));
 
 function dueText(state: DeckCardState, now: number) {
-  if (state.status === "suspended") return "Not reviewed while suspended";
+  if (state.status === "suspended") return "Not reviewed while hidden";
   if (!state.dueAt) return "Comes up as a new card";
   const wait = new Date(state.dueAt).getTime() - now;
   return wait <= 0 ? "Due now" : `Due in ${formatInterval(wait)}`;
 }
 
-/** Every card in the learner's daily review: find one, see when it comes back, suspend or restore it. */
+/** Every card in the learner's daily review: find one, see when it comes back, hide it or show it again. */
 export default function SrsDeckPage() {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [error, setError] = useState("");
@@ -62,7 +62,7 @@ export default function SrsDeckPage() {
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <div className="mt-4 flex flex-wrap items-baseline justify-between gap-2"><h1 className="text-3xl font-black">Your deck</h1>
       <Link to="/srs" className={`text-sm font-semibold text-emerald-700 hover:underline ${focus}`}>← Daily review</Link></div>
-    <p className="mt-1 text-gray-600">Every word and kanji in your daily review. Suspend a card you never want to see again; it stays here and can be restored.</p>
+    <p className="mt-1 text-gray-600">Every word and kanji in your daily review. Hide a card you don't want to review; it stays here with its progress, and you can show it again any time.</p>
     {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{error} <button className="ml-2 font-bold underline" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>}
     {!rows && !error && <p role="status" className="mt-6 text-gray-500">Loading your deck…</p>}
     {rows && !rows.length && <section className={`${card} mt-6 text-gray-600`}>Your deck is empty. Finish a <Link to="/lessons" className="font-semibold text-emerald-700 underline">lesson</Link> to add its words and kanji, or add a kanji from its page.</section>}
@@ -95,7 +95,7 @@ function DeckRow({ row, now, onChanged }: { row: Row; now: number; onChanged: (s
     setSaving(true); setError("");
     try {
       await setCardSuspended(state, !isSuspended);
-      // A restored card goes back to new or learning; the next load shows exactly which.
+      // A card shown again goes back to new or learning; the next load shows exactly which.
       onChanged({ ...state, status: isSuspended ? (state.repetitions === 0 && !state.dueAt ? "new" : "learning") : "suspended" });
     } catch (failure) { setError(apiErrorMessage(failure, "The card could not be changed.")); }
     finally { setSaving(false); }
@@ -109,7 +109,7 @@ function DeckRow({ row, now, onChanged }: { row: Row; now: number; onChanged: (s
       {error && <span role="alert" className="block text-xs text-red-700">{error}</span>}
     </span>
     <span title={status.help} className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold ${status.tone}`}>{status.label}</span>
-    <button type="button" disabled={saving} onClick={() => void toggle()} aria-label={`${isSuspended ? "Restore" : "Suspend"} ${name}`}
-      className={`shrink-0 rounded-xl border border-gray-200 px-3 py-1.5 text-sm font-semibold hover:bg-gray-100 disabled:opacity-50 ${focus}`}>{isSuspended ? "Restore" : "Suspend"}</button>
+    <button type="button" disabled={saving} onClick={() => void toggle()} aria-label={`${isSuspended ? "Show again" : "Hide"} ${name}`}
+      className={`shrink-0 rounded-xl border border-gray-200 px-3 py-1.5 text-sm font-semibold hover:bg-gray-100 disabled:opacity-50 ${focus}`}>{isSuspended ? "Show again" : "Hide"}</button>
   </li>;
 }

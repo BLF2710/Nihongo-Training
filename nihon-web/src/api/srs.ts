@@ -7,7 +7,7 @@ export type SrsItem = { itemType: SrsItemType; itemId: string };
 export type SrsQueueCard = SrsItem & { isNew: boolean; repetitions: number; lapses: number; intervals: Record<SrsGrade, number> };
 export type SrsSummary = {
   total: number; newCards: number; dueNow: number; dueToday: number; learned: number; mature: number; reviewedToday: number;
-  /** Studied cards due within the next day that can be reviewed ahead, and cards left out of reviews. */
+  /** Studied cards due within the next day that can be reviewed ahead, and hidden cards (left out of reviews). */
   dueSoon: number; suspended: number;
   /** New cards still allowed today, and reviews plus new cards ready now. */
   newToday: number; dueTotal: number;
@@ -32,7 +32,7 @@ export async function fetchSrsDeck(signal?: AbortSignal) {
   return (await api.get<{ cards: DeckCardState[] }>("/srs/cards", { signal })).data.cards;
 }
 
-/** Leaves a card out of reviews (it stays in the deck) or brings it back. */
+/** Hides a card from reviews (it stays in the deck with its progress) or shows it again. */
 export async function setCardSuspended(item: SrsItem, suspended: boolean) {
   await api.patch(`/srs/cards/${item.itemType}/${encodeURIComponent(item.itemId)}`, { suspended });
 }

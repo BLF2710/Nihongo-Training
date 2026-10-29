@@ -1,0 +1,68 @@
+' 1. Register account (+ confirm email)
+' Use case: Register account (Authenticate account) · Actor: Guest
+'
+' Design patterns:
+'   - Chain of responsibility: Express middleware (security headers → CORS → rateLimit) before the controller
+'   - Decorator: action() wraps the controller with shared error handling (utils/action.ts)
+'   - Unit of work: account + profile created in one transaction (db/transaction.ts withTransaction)
+'   - Strategy + Factory + Dependency injection: «interface» Mailer (SmtpMailer / ConsoleMailer / MemoryMailer),
+'     built by mailerFromConfig() and injected into the account security service (services/mail/mailer.ts)
+'   - Repository: all SQL in repositories/*.repository.ts
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 01 Register account
+title 1. Register account (+ confirm email)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Guest
+boundary "Web app" as Web
+control "Middleware chain" as MW
+control "Auth controller" as Ctrl
+control "Auth service" as Svc
+control "Account security\nservice" as Sec
+control "«interface»\nMailer" as Mailer
+entity "Repository" as Repo
+database "Database" as DB
+boundary "Email service" as Email
+
+Guest -> Web : Fill in username, email, password
+Web -> MW : POST /api/auth/register
+note over MW : «Chain of responsibility»\nheaders → CORS → rateLimit\n(10 registrations an hour per network)
+alt too many attempts
+  MW --> Web : 429
+end
+MW -> Ctrl : register()
+note over Ctrl : «Decorator» action():\nerrors → status + message
+Ctrl -> Svc : register(input)
+Svc -> Repo : registration open? find email / username
+Repo -> DB : SELECT
+alt email or username already used
+  Svc --> Web : 400 "… already exists"
+end
+Svc -> Svc : hash password (bcrypt)
+group «Unit of work» withTransaction()
+  Svc -> Repo : create user + profile + gamification row
+  Repo -> DB : INSERT …
+end
+Svc -> Sec : sendConfirmation(user)
+Sec -> Repo : create link token (hash stored)
+Repo -> DB : INSERT account_tokens
+Sec -> Mailer : send(confirmation link)
+note right of Mailer : «Strategy» chosen by\nmailerFromConfig():\nSMTP in production,\nconsole in development
+Mailer -> Email : SMTP
+Svc --> Ctrl : session token
+Ctrl --> Web : 201 { token, user }
+Web --> Guest : signed in → dashboard
+
+== Later: the email link ==
+Guest -> Web : open confirmation link
+Web -> Ctrl : POST /api/auth/email/verify (token)
+Ctrl -> Sec : verifyEmail(token)
+Sec -> Repo : token valid, unused, newest? → mark used, address confirmed
+Repo -> DB : UPDATE
+Ctrl --> Web : confirmed
+Web --> Guest : "Email confirmed"
+@enduml

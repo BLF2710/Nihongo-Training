@@ -1,6 +1,6 @@
 # Use case diagram checklist (DATN.vpp)
 
-Compared on 2026-10-28 with what the Lingora app actually does. Tick items off as you update the diagrams in Visual Paradigm.
+Compared on 2026-10-28 with what the Lingora app actually does, updated 2026-10-29 (achievements page, mistake notebook for kana and kanji, Particle Drop, daily review deck). Tick items off as you update the diagrams in Visual Paradigm.
 
 - **Add**: the app has it, the diagram doesn't.
 - **Remove / rename**: the diagram has it, the app doesn't (or calls it something else).
@@ -41,13 +41,20 @@ Has: Browse lessons, Take a lesson, Learn Hiragana, Learn Katakana, Learn Kanji,
 - [✅] Add **Practice listening**
 - [✅] Add **Practice speaking**
 - [✅] Add **Study kanji flashcards** (with «include» or «extend» **Add kanji to flashcards**)
+- [ ] Add **Add kanji to daily review** («extend» of **Learn Kanji**: the button on a kanji's page)
 
 ## 5. Practice (Learner) — biggest gap
 
 Has: Play Hiragana / Katakana speed quiz, Review Hiragana / Katakana, Practice Kanji, Take unit assessment, Track mastery, Store practice progress.
 
 - [✅] Add **Daily review** (spaced repetition: rate cards Again / Hard / Good / Easy)
+  - [ ] «extend» **Review ahead** (cards due within the next day, offered when nothing is due)
+  - [ ] «extend» **Hide a card** (left out of reviews, keeps its progress; also possible from the deck)
+  - [ ] Add **Manage review deck** (`/srs/deck`: browse cards, search, hide / show again)
 - [✅] Add **Review mistakes** (mistake notebook)
+  - [ ] Widen it: kana quizzes and kanji practice now add mistakes too
+  - [ ] «extend» **Practise weak characters** (kana and kanji under 85% accuracy, even mastered ones)
+- [ ] Add **Play Particle Drop** (fill in the missing particle against the clock; wrong answers go to the mistake notebook). Put it next to the Hiragana / Katakana speed quiz
 - [ ] Add **Take level review**
 - [ ] Add **Take mock exam** (N5 / N4, results saved)
 - [✅] Add **Take speaking test** (N3 and above; graded)
@@ -58,6 +65,7 @@ Has: Earn EXP, Level up, Maintain learning streak, Unlock achievements.
 
 - [✅] Add **Meet daily goal** (active study time)
 - [✅] Fix spelling: "Unlock Achievments" → **Unlock achievements**
+- [ ] Add **View achievements** (Achievements page: level, rank ladder, every achievement with its progress, ways to earn XP and today's limits). **Level up** can «include» a level-up notification, or leave that to **View notifications**
 
 ## 7. View statistics (Learner)
 
@@ -123,7 +131,7 @@ Has: View community posts, Moderate posts, Delete posts, Review reported content
 Draw these on the right of the use cases that use them.
 
 - [ ] **Google** — Sign in with Google (extends Log in and Register account), Link / unlink Google account
-- [ ] **Email service** — Forgot password, Confirm email address
+- [–] ~~**Email service**~~ — left out by choice (Forgot password and Confirm email address stay without a secondary actor)
 - [ ] **Azure Speech** — Take speaking test (pronunciation and fluency)
 - [ ] **Anthropic (Claude)** — Chat with the study assistant, Take speaking test (content grading)
 

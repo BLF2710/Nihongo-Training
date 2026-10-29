@@ -1,0 +1,64 @@
+' 11. Report a learner → admin resolves
+' Use cases: Report a learner (Friends & communicate) + Review reports (Manage users) · Actors: Learner, Admin
+'
+' Design patterns:
+'   - Unit of work: resolving (outcome, warning, suspension, replies to every reporter, closing their requests,
+'     audit log entry) is one transaction (services/moderation.service.ts)
+'   - Observer: every reporter (and a warned learner) gets the reply in their open tabs via publish()
+'   - Chain of responsibility: authenticate → requireAdmin on the admin routes
+'   - Repository
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 11 Report and resolve
+title 11. Report a learner → admin resolves
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app" as Web
+control "Friend controller" as FCtrl
+control "Moderation\nservice" as Svc
+entity "Repository" as Repo
+database "Database" as DB
+control "Live updates\n(RealtimeBus)" as Bus
+boundary "Admin web app" as AdminWeb
+actor Admin
+
+Learner -> Web : Report B (from B's profile), reason
+Web -> FCtrl : POST /api/people/:username/report
+FCtrl -> Svc : reportLearner()
+Svc -> Repo : reason given? under 10 reports a day?
+alt an open report by this learner about B exists
+  Svc -> Repo : add to that support request
+else
+  Svc -> Repo : new support request + report
+end
+Repo -> DB : INSERT …
+FCtrl --> Web : "Report sent"
+
+Admin -> AdminWeb : open Reports
+AdminWeb -> Svc : GET /api/admin/reports
+note over AdminWeb, Svc : «Chain of responsibility»: authenticate → requireAdmin
+Svc -> Repo : open reports grouped per learner
+Svc --> AdminWeb : groups (flagged when 3+ learners report)
+Admin -> AdminWeb : choose an outcome
+AdminWeb -> Svc : POST /api/admin/reports/:userId/resolve
+group «Unit of work» withTransaction()
+  alt dismiss
+    Svc -> Repo : mark reports dismissed
+  else warn
+    Svc -> Repo : warning to B as a support message
+  else suspend
+    Svc -> Repo : B's account suspended (token version + 1)
+  end
+  Svc -> Repo : reply to every reporter, close their requests
+  Svc -> Repo : audit log entry
+  Repo -> DB : UPDATE / INSERT …
+end
+Svc -> Bus : publish(reporters, "inbox")
+note right of Bus : «Observer»
+Bus --> Web : reply appears in Help & support
+Svc --> AdminWeb : resolved
+@enduml

@@ -1,0 +1,66 @@
+' 7. Take speaking test
+' Use case: Take speaking test (Practice) · Actor: Learner · Secondary: Azure Speech, AI service (Anthropic Claude)
+'
+' Design patterns:
+'   - Adapter: «interface» PronunciationAssessor → AzurePronunciationAssessor, «interface» SpeakingContentGrader →
+'     ClaudeContentGrader wrap the outside services (services/speaking/)
+'   - Dependency injection: createSpeakingTestService({ assessor, grader }) receives them (null when not configured;
+'     tests inject fakes)
+'   - Unit of work: the attempt and the streak day are saved in one transaction
+'   - Repository
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 07 Take speaking test
+title 7. Take speaking test
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app" as Web
+control "Speaking controller" as Ctrl
+control "Speaking test\nservice" as Svc
+control "«interface»\nPronunciationAssessor" as Assessor
+control "«interface»\nSpeakingContentGrader" as Grader
+entity "Repository" as Repo
+database "Database" as DB
+boundary "Azure Speech" as Azure
+boundary "AI service\n(Claude)" as AI
+
+note over Svc, Grader : «Dependency injection»: createSpeakingTestService({ assessor, grader })
+
+Learner -> Web : pick a task (N3+), record the answer
+Web -> Ctrl : POST /api/speaking-tests/tasks/:taskId/attempts (recording)
+Ctrl -> Svc : submitAnswer()
+Svc -> Repo : level reached? daily limit left?
+alt not reached / limit used
+  Svc --> Web : 403 / 429
+end
+opt Azure Speech configured
+  Svc -> Assessor : assess(recording, reference)
+  note right of Assessor : «Adapter»\nAzurePronunciationAssessor
+  Assessor -> Azure : pronunciation assessment
+  Azure --> Assessor : transcript, word scores, fluency
+  Assessor --> Svc : our own result type
+end
+opt AI grading configured
+  Svc -> Grader : grade(task, transcript)
+  note right of Grader : «Adapter»\nClaudeContentGrader
+  Grader -> AI : grading prompt
+  AI --> Grader : content score, corrections, feedback
+  Grader --> Svc : our own result type
+end
+alt nothing heard / off task
+  Svc --> Web : "no answer" (nothing saved)
+end
+Svc -> Svc : combine criteria → score and band (JF Standard)
+group «Unit of work» withTransaction()
+  Svc -> Repo : save attempt (transcript + scores, **never the recording**)
+  Svc -> Repo : record streak day
+  Repo -> DB : INSERT speaking_attempts …
+end
+Svc -> Svc : reward "speaking_test" (XP)
+Ctrl --> Web : result
+Web --> Learner : score, band, feedback, "+XP"
+@enduml
