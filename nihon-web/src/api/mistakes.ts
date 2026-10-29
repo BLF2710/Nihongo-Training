@@ -1,6 +1,6 @@
 import api from "./axios";
 
-export type MistakeSource = "lesson" | "review" | "assessment" | "mock_exam";
+export type MistakeSource = "lesson" | "review" | "assessment" | "mock_exam" | "kana" | "kanji";
 /**
  * A question the learner got wrong. An assessment's mistakes are locked (no right answer, no practice) until the
  * learner passes that assessment, so the notebook can't be used to learn the test's answers.
@@ -16,6 +16,16 @@ export type LessonAnswer = { prompt: string; options: string[]; answer: string; 
 
 export async function fetchMistakes(status: "open" | "resolved", signal?: AbortSignal) {
   return (await api.get<Notebook>("/mistakes", { params: { status }, signal })).data;
+}
+
+type CharacterProgress = { correctCount: number; wrongCount: number; total: number; accuracy: number; status: "untested" | "learning" | "mastered" };
+export type WeakKana = CharacterProgress & { script: "hiragana" | "katakana"; id: number; kana: string; romaji: string };
+export type WeakKanji = CharacterProgress & { kanjiId: string; character: string; meaning: string };
+/** Characters missed at least once and still answered below `weakBelowPercent`, weakest first. */
+export type WeakCharacters = { kana: WeakKana[]; kanji: WeakKanji[]; weakBelowPercent: number };
+
+export async function fetchWeakCharacters(signal?: AbortSignal) {
+  return (await api.get<WeakCharacters>("/mistakes/weak-characters", { signal })).data;
 }
 
 export async function practiseMistake(id: number, correct: boolean) {

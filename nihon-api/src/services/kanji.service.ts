@@ -35,6 +35,23 @@ const QUESTION_BUILDERS: Record<PracticeKind, (kanji: Kanji, form: VocabularyFor
   },
 };
 
+const KANJI_QUESTION_LABELS: Record<PracticeKind, string> = {
+  meaning: "Kanji · Which meaning belongs to this Kanji?",
+  reading: "Kanji · How is this course word read?",
+  vocabulary: "Kanji · Which course word contains this Kanji?",
+};
+
+/**
+ * What a saved practice question showed, rebuilt from its Kanji, kind and right answer (the question row keeps only
+ * the choices): the instruction and the character or word on screen.
+ */
+export function describeKanjiQuestion(kanjiId: string, kind: PracticeKind, correctAnswer: string) {
+  const kanji = catalog.kanji.find(item => item.id === kanjiId);
+  if (!kanji) throw new Error("Unknown Kanji");
+  const word = kind === "reading" ? catalog.vocabularyForms.find(form => form.kanjiIds.includes(kanjiId) && form.reading === correctAnswer) : undefined;
+  return { label: KANJI_QUESTION_LABELS[kind], display: word?.written ?? kanji.character };
+}
+
 /** Reading and vocabulary questions need a course word written with the Kanji; newly introduced Kanji may not have one yet. */
 export const hasCourseWords = (kanjiId: string) => catalog.vocabularyForms.some(form => form.kanjiIds.includes(kanjiId));
 

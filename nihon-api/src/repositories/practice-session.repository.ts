@@ -1,7 +1,7 @@
 import { pool } from "../config/db";
 import type { Queryable } from "../db/transaction";
 
-export type PracticeKind = "listening" | "speaking" | "reading" | "mock-exam";
+export type PracticeKind = "listening" | "speaking" | "reading" | "mock-exam" | "particles";
 
 /** Saves a finished session; returns its id. */
 export async function insertPracticeSession(db: Queryable, session: { userId: number; kind: PracticeKind; scope: string; answered: number; correct: number }): Promise<number> {

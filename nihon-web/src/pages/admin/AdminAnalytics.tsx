@@ -5,7 +5,7 @@ type Funnel={unitId:string;level:string;number:number;title:string;started:numbe
 type DropOff={unitId:string;level:string;unitNumber:number;from:{id:string;title:string;completed:number};to:{id:string;title:string;completed:number};lost:number};
 export type Analytics={generatedAt:string;learners:{total:number;newLast30Days:number;activeToday:number;activeLast7Days:number;activeLast30Days:number};dailyActive:{day:string;learners:number}[];funnel:Funnel[];dropOffs:DropOff[];practice:{kind:string;sessions:number;accuracy:number}[]};
 
-const PRACTICE_LABELS:Record<string,string>={kana:'Kana answers',kanji:'Kanji answers',listening:'Listening rounds',speaking:'Speaking rounds',reading:'Reading passages','mock-exam':'Mock exams'};
+const PRACTICE_LABELS:Record<string,string>={kana:'Kana answers',kanji:'Kanji answers',listening:'Listening rounds',speaking:'Speaking rounds',reading:'Reading passages','mock-exam':'Mock exams',particles:'Particle Drop rounds'};
 const dayLabel=(day:string,style:'short'|'long')=>new Date(day+'T00:00:00Z').toLocaleDateString(undefined,style==='short'?{day:'numeric',month:'short',timeZone:'UTC'}:{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'});
 const percent=(part:number,whole:number)=>whole?Math.round(part*100/whole):0;
 const th='px-4 py-3 font-semibold', td='px-4 py-3 tabular-nums';

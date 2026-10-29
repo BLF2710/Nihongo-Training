@@ -146,6 +146,7 @@ CLAUDE.md
 # Local test scripts (fixture/browser checks kept out of the repository)
 local-tests/
 ROADMAP.md
+SPACED_REPETITION.md
 
 # Database backups (npm run db:backup) hold learners' data: never commit them.
 backups/

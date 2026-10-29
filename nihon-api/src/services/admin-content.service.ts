@@ -15,6 +15,7 @@ export const CONTENT: ManagedContent[] = [
   {key:'speaking',title:'Speaking practice',category:'Skills',paths:['/speaking'],source:'Existing lesson vocabulary, sentences & dialogues'},
   {key:'reading',title:'Reading practice',category:'Skills',paths:['/reading'],source:'Reading passages from imported lessons'},
   {key:'kanji-practice',title:'Kanji practice',category:'Games',paths:['/learn/kanji/practice'],source:'Existing Kanji quiz engine'},
+  {key:'particle-drop',title:'Particle Drop',category:'Games',paths:['/games/particles'],source:'Grammar example sentences from lessons'},
   {key:'english-games',title:'English word match & scramble',category:'Games',paths:['/arcade','/games/english'],source:'Existing English arcade'},
   {key:'messages',title:'Direct messages between learners',category:'Community',paths:['/messages'],source:'Learner conversations'},
   {key:'friends',title:'Friends & public profiles',category:'Community',paths:['/friends','/u'],source:'Learner friend lists and profiles'},

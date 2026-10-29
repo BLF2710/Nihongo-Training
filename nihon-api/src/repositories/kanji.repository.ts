@@ -3,7 +3,7 @@ import type { Queryable } from "../db/transaction";
 
 export type KanjiProgressRow = { kanji_id: string; correct_count: number; wrong_count: number; last_practiced_at: Date | null };
 export type PracticeQuestionRow = {
-  kanji_id: string; options: string[]; correct_index: number; answer_index: number | null;
+  kanji_id: string; kind: "meaning" | "reading" | "vocabulary"; options: string[]; correct_index: number; answer_index: number | null;
 };
 
 export async function listKanjiProgress(userId: number): Promise<KanjiProgressRow[]> {

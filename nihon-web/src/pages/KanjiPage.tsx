@@ -10,6 +10,7 @@ import type { KanjiProgress } from "../api/kanji";
 import KanaStrokeOrder from "../components/KanaStrokeOrder";
 import strokeData from "../data/kanjiStrokes.json";
 import KanjiFlashcardButton from "../components/KanjiFlashcardButton";
+import KanjiReviewButton from "../components/KanjiReviewButton";
 import { COURSE_LEVELS, isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { isInKanjiScope, KANJI_PLACEMENT as placement } from "../lib/kanjiPlacement";
 
@@ -80,6 +81,7 @@ export default function KanjiPage() {
           </div>}
           <Link className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white focus-visible:outline-2" to={`/learn/kanji/practice?kanji=${kanji.id}`}>Practice {kanji.character}</Link>
           <KanjiFlashcardButton kanji={kanji} />
+          <KanjiReviewButton key={kanji.id} kanji={kanji} />
         </section>
         <section className="mt-8"><h2 className="text-2xl font-bold">Course vocabulary</h2>
           <p className="mt-2 text-sm text-gray-600">These are the existing lesson vocabulary entries with their Kanji spellings. Only characters in the current Kanji collection have detail links.</p>

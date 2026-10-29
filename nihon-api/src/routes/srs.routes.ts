@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { enrollSrsItems, getSrsQueue, getSrsSummary, reviewSrsCard } from "../controllers/srs.controller";
+import { enrollSrsItems, getSrsDeck, getSrsQueue, getSrsSummary, reviewSrsCard, setSrsCardSuspended } from "../controllers/srs.controller";
 import { authenticate } from "../middleware/auth.middleware";
 
 const router = Router();
@@ -7,6 +7,9 @@ router.use(authenticate);
 router.get("/summary", getSrsSummary);
 router.get("/queue", getSrsQueue);
 // Words from completed lessons and Kanji join the learner's deck; cards already there are untouched.
+router.get("/cards", getSrsDeck);
 router.post("/cards", enrollSrsItems);
+// Suspend or restore one card: { suspended: boolean }.
+router.patch("/cards/:itemType/:itemId", setSrsCardSuspended);
 router.post("/reviews", reviewSrsCard);
 export default router;

@@ -2,11 +2,11 @@ import api, { API_URL } from "./axios";
 import { getToken, hasSession } from "../lib/authStorage";
 import { announceReward, readReward } from "../lib/xpRewards";
 
-export type PracticeKind = "listening" | "speaking" | "reading" | "mock-exam";
+export type PracticeKind = "listening" | "speaking" | "reading" | "mock-exam" | "particles";
 export type DailyGoalProgress = { secondsToday: number; minutesToday: number; goalMinutes: number; isGoalMet: boolean };
 
 /**
- * Reports a finished listening, speaking, reading or mock-exam session. These are graded in the browser;
+ * Reports a finished listening, speaking, reading, mock-exam or Particle Drop session. These are graded in the browser;
  * the server records the session and counts today toward the learner's streak. Failure is not shown:
  * the practice itself already happened, and only the streak would miss it.
  */

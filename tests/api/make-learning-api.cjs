@@ -48,16 +48,16 @@ const tail = String.raw`    const L = 'learner';
     assert.equal((await client.query('SELECT current_streak FROM user_gamification WHERE user_id = $1', [learnerId])).rows[0].current_streak, 1, 'reviews count toward the streak');
     summary = (await call('GET', '/srs/summary', { as: L })).data;
     assert.deepEqual([summary.newCards, summary.dueNow, summary.reviewedToday, summary.learned], [0, 0, 3, 2]);
-    // The daily limit of new cards: 20, and 2 were introduced today.
+    // The daily limit of new cards: 5, and 2 were introduced today.
     const catalog = JSON.parse(fs.readFileSync(ROOT + '/shared/kanji.json', 'utf8')).kanji;
     assert.equal((await enrol(catalog.slice(1, 31).map(k => ({ itemType: 'kanji', itemId: k.id })))).data.added, 30);
     queue = (await call('GET', '/srs/queue', { as: L })).data;
-    assert.equal(queue.cards.filter(c => c.isNew).length, 18); assert.equal(queue.newLimit, 20);
+    assert.equal(queue.cards.filter(c => c.isNew).length, 3); assert.equal(queue.newLimit, 5);
     // A due review comes before new cards.
     await client.query("UPDATE srs_cards SET due_at = NOW() - INTERVAL '1 hour' WHERE user_id = $1 AND item_type = 'vocabulary'", [learnerId]);
     queue = (await call('GET', '/srs/queue', { as: L })).data;
     assert.deepEqual([queue.cards[0].itemId, queue.cards[0].isNew], [HELLO + ':こんにちは', false]);
-    assert.equal((await call('GET', '/srs/summary', { as: L })).data.dueTotal, 19);
+    assert.equal((await call('GET', '/srs/summary', { as: L })).data.dueTotal, 4, 'one due review and 3 new cards');
     assert.equal((await grade('vocabulary', HELLO + ':こんにちは', 'good')).data.intervalDays, 3, 'second success: 3 days');
 
     // ================= Mistakes from the unit review
@@ -74,7 +74,7 @@ const tail = String.raw`    const L = 'learner';
     assert.deepEqual([mistake.source, mistake.label, mistake.prompt, mistake.answer, mistake.given, mistake.isLocked, mistake.wrongCount],
       ['review', 'Unit 1 review', stored.prompt, stored.options[stored.correctIndex], mcq.options[wrongIndex], false, 1]);
     assert.deepEqual(mistake.options, stored.options);
-    assert.deepEqual(notebook.counts, { open: 1, resolved: 0, bySource: { lesson: 0, review: 1, assessment: 0, mock_exam: 0 } });
+    assert.deepEqual(notebook.counts, { open: 1, resolved: 0, bySource: { lesson: 0, review: 1, assessment: 0, mock_exam: 0, kana: 0, kanji: 0 } });
     await check(stored.correctIndex); await check(stored.correctIndex);
     notebook = (await call('GET', '/mistakes', { as: L })).data;
     assert.equal(notebook.mistakes.length, 0, 'two right answers in a row clear it');
@@ -188,7 +188,7 @@ const tail = String.raw`    const L = 'learner';
     const empty = (await call('GET', '/statistics/overview', { as: 'ben' })).data;
     assert.deepEqual([empty.lessons.completed, empty.srs.total, empty.mistakes.open, empty.mockExams.length, empty.studyTime.totalSeconds], [0, 0, 0, 0, 0]);
     assert.equal((await call('GET', '/statistics/overview')).status, 401);
-    console.log('PASS: spaced repetition (only completed-lesson words and catalog Kanji enrolled, invalid lists refused, 1/3-day intervals, not-due 409, relearning allowed, 20 new cards a day, due before new, streak counted); mistake notebook from reviews (cleared after 2 right in a row, reopened when wrong), practice and delete per learner, lesson challenges validated and de-duplicated, assessment answers hidden and unpractisable until passed; mock exams graded on the server with section minimums, saved with history, counted as practice, wrong answers noted; study time capped by elapsed time with the daily goal; statistics overview for active and new learners. Rolled back.');
+    console.log('PASS: spaced repetition (only completed-lesson words and catalog Kanji enrolled, invalid lists refused, 1/3-day intervals, not-due 409, relearning allowed, 5 new cards a day, due before new, streak counted); mistake notebook from reviews (cleared after 2 right in a row, reopened when wrong), practice and delete per learner, lesson challenges validated and de-duplicated, assessment answers hidden and unpractisable until passed; mock exams graded on the server with section minimums, saved with history, counted as practice, wrong answers noted; study time capped by elapsed time with the daily goal; statistics overview for active and new learners. Rolled back.');
   } finally { await queue.catch(() => {}); await client.query('ROLLBACK').catch(() => {}); client.release(); await new Promise(r => server ? server.close(r) : r()); await pool.end(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1500)); process.exitCode = 1; });
 `;

@@ -121,3 +121,24 @@ test("answer sheets naming unknown questions or options are refused", () => {
   assert.equal(parseMockAnswers(EXAM, { v1: 1.5 }), null);
   assert.equal(parseMockAnswers(EXAM, [0, 1]), null);
 });
+
+// ---- Weak characters (kana and kanji in the mistake notebook)
+const { isWeakCharacter, WEAK_ACCURACY } = require("../src/services/character-progress");
+
+test("a character never missed is not weak, however few answers it has", () => {
+  assert.equal(isWeakCharacter(1, 0), false);
+});
+
+test("a missed character below the threshold is weak", () => {
+  assert.equal(isWeakCharacter(1, 1), true);
+});
+
+test("a mastered character under the threshold is still weak", () => {
+  // 41 of 50 = 82%: mastered (80%+, 3+ right) but below 85%.
+  assert.deepEqual([require("../src/services/character-progress").characterProgress(41, 9).status, isWeakCharacter(41, 9)], ["mastered", true]);
+});
+
+test("a character at the threshold is no longer weak", () => {
+  assert.equal(WEAK_ACCURACY, 85);
+  assert.equal(isWeakCharacter(17, 3), false);
+});

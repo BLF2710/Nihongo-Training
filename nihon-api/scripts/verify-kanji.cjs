@@ -38,6 +38,8 @@ async function main() {
     await client.query("CREATE TEMP TABLE users (id INTEGER PRIMARY KEY, status TEXT DEFAULT 'active', role TEXT DEFAULT 'learner', token_version INTEGER NOT NULL DEFAULT 0)");
     // Streak days are recorded with every learning action; a temp copy keeps them off the real users table.
     await client.query('CREATE TEMP TABLE activity_days (LIKE public.activity_days INCLUDING ALL)');
+    // Kana and kanji answers also go to the mistake notebook.
+    await client.query('CREATE TEMP TABLE mistakes (LIKE public.mistakes INCLUDING ALL)');
     await client.query('INSERT INTO users (id) VALUES (1),(2)');
     await client.query(fs.readFileSync(path.resolve(__dirname, '../migrations/004_kanji_progress.sql'), 'utf8').replaceAll('CREATE TABLE IF NOT EXISTS', 'CREATE TEMP TABLE'));
     const { catalog, makeKanjiQuestion } = src('services/kanji.service.ts');

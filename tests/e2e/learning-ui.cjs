@@ -14,7 +14,7 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
     const run = async ({ viewport = { width: 1366, height: 900 }, clock = false } = {}) => {
       const context = await browser.newContext({ viewport });
       await context.addInitScript(t => { localStorage.setItem('token', t); localStorage.setItem('user_handle', 'mika'); localStorage.setItem('app_language', 'japanese'); }, `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base64url')}.x`);
-      const state = { enrolments: [], reviews: [], studyTime: [], practised: [], deleted: [], mistakes: [
+      const state = { enrolments: [], reviews: [], studyTime: [], practised: [], deleted: [], kanaAnswers: [], mistakes: [
         { id: 1, source: 'review', label: 'Unit 1 review', prompt: 'Which greeting fits the evening?', options: ['おはよう', 'こんばんは', 'こんにちは'], given: 'おはよう', answer: 'こんばんは', explanation: 'こんばんは is for the evening.', wrongCount: 2, correctStreak: 0, lastWrongAt: '2026-10-25T10:00:00Z', resolvedAt: null, isLocked: false },
         { id: 2, source: 'assessment', label: 'Unit 1 assessment', prompt: 'Choose a polite thank-you.', options: ['ありがとう', 'ありがとうございます'], given: 'ありがとう', wrongCount: 1, correctStreak: 0, lastWrongAt: '2026-10-25T09:00:00Z', resolvedAt: null, isLocked: true },
         { id: 3, source: 'lesson', label: 'How to Say Hello', prompt: 'Say hello in the afternoon.', options: ['こんにちは', 'さようなら'], given: 'さようなら', answer: 'こんにちは', wrongCount: 1, correctStreak: 1, lastWrongAt: '2026-10-24T09:00:00Z', resolvedAt: null, isLocked: false },
@@ -27,7 +27,7 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
         if (p === '/profile/me') return json({ username: 'mika', display_name: 'Mika', level: 1, rank: 'Beginner', xp: 0, xpProgress: { progressPercent: 0, nextLevelXp: 100 }, current_streak: 2, longest_streak: 2, active_today: true, achievements_count: 0, daily_goal: 10 });
         if (p === '/srs/cards') { state.enrolments.push(request.postDataJSON().items); return json({ added: request.postDataJSON().items.length, ignored: 0 }); }
         if (p === '/srs/summary') return json({ total: 30, newCards: 20, dueNow: 1, dueToday: 1, learned: 10, mature: 2, reviewedToday: 0, newToday: 2, dueTotal: 3 });
-        if (p === '/srs/queue') return json({ newLimit: 20, cards: [
+        if (p === '/srs/queue') return json({ newLimit: 5, cards: [
           { itemType: 'vocabulary', itemId: HELLO + ':こんにちは', isNew: false, repetitions: 2, lapses: 1, intervals: { again: 10 * MIN, hard: 4 * DAY, good: 8 * DAY, easy: 10 * DAY } },
           { itemType: 'vocabulary', itemId: HELLO + ':no-longer-in-the-course', isNew: true, repetitions: 0, lapses: 0, intervals: NEW_INTERVALS },
           { itemType: 'kanji', itemId: 'kanji-65e5', isNew: true, repetitions: 0, lapses: 0, intervals: NEW_INTERVALS },
@@ -39,9 +39,16 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
           return json({ reward, itemType: body.itemType, itemId: body.itemId, dueAt: new Date().toISOString(), intervalDays: body.grade === 'again' ? 0 : 1, intervals: { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY } }); }
         if (p === '/activity/today') return json({ secondsToday: 240, minutesToday: 4, goalMinutes: 10, isGoalMet: false });
         if (p === '/activity/study-time') { state.studyTime.push(request.postDataJSON().seconds); return json({ secondsToday: 300, minutesToday: 5, goalMinutes: 10, isGoalMet: false }); }
+        // Weak characters: あ (50%), カ (82%, mastered) and the kanji 日 (40%); kana answers are graded as the API would.
+        if (p === '/mistakes/weak-characters') return json({ weakBelowPercent: 85, kana: [
+          { script: 'hiragana', id: 1, kana: 'あ', romaji: 'a', correctCount: 2, wrongCount: 2, total: 4, accuracy: 50, status: 'learning' },
+          { script: 'katakana', id: 6, kana: 'カ', romaji: 'ka', correctCount: 41, wrongCount: 9, total: 50, accuracy: 82, status: 'mastered' }],
+          kanji: [{ kanjiId: 'kanji-65e5', character: '日', meaning: 'day', correctCount: 2, wrongCount: 3, total: 5, accuracy: 40, status: 'learning' }] });
+        if (p === '/quiz/answer') { const body = request.postDataJSON(); state.kanaAnswers.push(body); const right = body.kanaId === 1 ? 'a' : 'ka';
+          return json({ correct: body.answer === right, correctAnswer: right, type: body.type }); }
         if (p === '/mistakes' && method === 'GET') {
           const open = state.mistakes.filter(m => !m.resolvedAt), resolved = state.mistakes.filter(m => m.resolvedAt);
-          const bySource = { lesson: 0, review: 0, assessment: 0, mock_exam: 0 }; for (const m of open) bySource[m.source]++;
+          const bySource = { lesson: 0, review: 0, assessment: 0, mock_exam: 0, kana: 0, kanji: 0 }; for (const m of open) bySource[m.source]++;
           return json({ mistakes: url.searchParams.get('status') === 'resolved' ? resolved : open, counts: { open: open.length, resolved: resolved.length, bySource }, correctInARowToResolve: 2 });
         }
         const practice = p.match(/^\/mistakes\/(\d+)\/practice$/);
@@ -145,6 +152,27 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
     await card.waitFor({ state: 'detached' }); assert.deepEqual(state.deleted, [1]);
     // Nothing practisable is left once the last unlocked one is removed.
     await page.getByRole('button', { name: 'Practise 0 questions →' }).waitFor({ state: 'detached' });
+
+    // ---- Weak characters: kana and kanji under 85%, mastered ones marked; kana drilled here, kanji link to practice
+    await page.getByRole('tab', { name: 'Weak characters (3)' }).click();
+    const weakKana = page.getByRole('region', { name: 'Kana (2)' });
+    assert.deepEqual((await weakKana.locator('li').allInnerTexts()).map(t => t.replace(/\s+/g, ' ').trim()), ['あ Hiragana a, 50% · 2/4', 'カ Katakana ka, 82% · 41/50 mastered']);
+    const kanjiLink = page.getByRole('link', { name: 'Practise 日 (day), 40% right' });
+    assert.equal(await kanjiLink.getAttribute('href'), '/learn/kanji/practice?kanji=kanji-65e5');
+    await page.screenshot({ path: shots + '/weak-characters.png', fullPage: true });
+    await weakKana.getByRole('button', { name: 'Practise these kana →' }).click();
+    const drill = page.locator('section[aria-label="Kana practice"]');
+    for (let i = 0; i < 2; i++) {
+      const shownKana = await drill.locator('p[lang="ja"]').innerText();
+      // あ answered right, カ answered wrong; Enter submits.
+      await page.getByLabel('Reading in romaji').fill(shownKana === 'あ' ? 'a' : 'ta'); await page.keyboard.press('Enter');
+      await drill.getByRole('status').getByText(shownKana === 'あ' ? 'Right ✓' : 'Not quite: カ is “ka”').waitFor();
+      await drill.getByRole('button', { name: i ? 'Finish' : 'Next kana →' }).click();
+    }
+    await page.getByRole('heading', { name: 'Practice finished' }).waitFor(); await page.getByText('1 of 2 right.', { exact: false }).waitFor();
+    assert.deepEqual(state.kanaAnswers.map(a => [a.type, a.kanaId]).sort(), [['hiragana', 1], ['katakana', 6]]);
+    assert.equal(new Set(state.kanaAnswers.map(a => a.submissionId)).size, 2, 'one submission id per kana');
+    await page.getByRole('button', { name: 'Back to weak characters' }).click(); await weakKana.waitFor();
     assert.deepEqual(errors, []); await context.close();
 
     // ---- Study timer: counts on learning pages while active, not on the dashboard, not while idle

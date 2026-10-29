@@ -124,6 +124,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
               <div>{sectionButton("🎮 Games", "games")}{sectionsOpen.games && <div className="ml-3 mt-1 space-y-1 border-l border-gray-100 pl-2">
                 {link("/practice?type=hiragana", "あ", "Hiragana Speed Quiz", location.pathname === "/practice")}
                 {link("/practice?type=katakana", "ア", "Katakana Speed Quiz", location.pathname === "/practice")}
+                {link("/games/particles", "は", "Particle Drop", location.pathname === "/games/particles")}
               </div>}</div>
               {link("/quizzes", "📝", "Quizzes", location.pathname.startsWith("/quizzes"))}
               {link("/listening", "🎧", "Listening", location.pathname.startsWith("/listening"))}

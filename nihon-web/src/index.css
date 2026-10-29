@@ -31,3 +31,13 @@
 @media (prefers-reduced-motion: reduce) {
   .xp-pop { animation: none; }
 }
+
+/* Particle Drop: the answered particle drops into the sentence's gap; no movement for people who ask for less motion. */
+@keyframes particle-drop {
+  from { opacity: 0; transform: translateY(-18px); }
+  to { opacity: 1; transform: none; }
+}
+.particle-drop { animation: particle-drop 200ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .particle-drop { animation: none; }
+}

@@ -52,7 +52,7 @@ export async function getAchievementFacts(userId: number): Promise<Omit<Achievem
           AND correct_count >= $2::numeric * (correct_count + wrong_count))::int AS kanji_mastered,
        (SELECT longest_streak FROM user_gamification WHERE user_id = $1)::int AS longest_streak,
        (SELECT COUNT(*) FROM xp_events WHERE user_id = $1 AND source = 'daily_goal')::int AS goal_days,
-       (SELECT COUNT(*) FROM practice_sessions WHERE user_id = $1 AND kind <> 'mock-exam')::int AS practice_sessions,
+       (SELECT COUNT(*) FROM practice_sessions WHERE user_id = $1 AND kind IN ('listening', 'speaking', 'reading'))::int AS practice_sessions,
        (SELECT COUNT(*) FROM mock_exam_results WHERE user_id = $1 AND passed)::int AS mock_exams_passed,
        (SELECT COUNT(*) FROM speaking_attempts WHERE user_id = $1 AND met)::int AS speaking_tests_met,
        (SELECT COUNT(*) FROM friendships WHERE status = 'accepted' AND $1 IN (requester_id, addressee_id))::int AS friends,

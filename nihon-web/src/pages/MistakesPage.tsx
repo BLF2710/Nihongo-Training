@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import QuizChoices from "../components/QuizChoices";
 import RubyText from "../components/RubyText";
+import WeakCharacters from "../components/WeakCharacters";
 import { apiErrorMessage } from "../api/errors";
-import { deleteMistake, fetchMistakes, practiseMistake } from "../api/mistakes";
-import type { Mistake, MistakeSource, Notebook } from "../api/mistakes";
+import { deleteMistake, fetchMistakes, fetchWeakCharacters, practiseMistake } from "../api/mistakes";
+import type { Mistake, MistakeSource, Notebook, WeakCharacters as WeakList } from "../api/mistakes";
 import { shuffle } from "../lib/random";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600";
 const primary = `rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 ${focus}`;
 const button = `rounded-xl border border-gray-200 bg-white px-4 py-2 font-semibold hover:bg-gray-100 disabled:opacity-50 ${focus}`;
 const card = "rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6";
-const SOURCE_LABELS: Record<MistakeSource, string> = { lesson: "Lessons", review: "Reviews", assessment: "Assessments", mock_exam: "Mock exams" };
+const SOURCE_LABELS: Record<MistakeSource, string> = { lesson: "Lessons", review: "Reviews", assessment: "Assessments", mock_exam: "Mock exams", kana: "Kana", kanji: "Kanji" };
 const SOURCES = Object.keys(SOURCE_LABELS) as MistakeSource[];
-type Status = "open" | "resolved";
+type Status = "open" | "resolved" | "weak";
+const TABS: Status[] = ["open", "resolved", "weak"];
 type Practisable = Extract<Mistake, { isLocked: false }>;
 const isPractisable = (mistake: Mistake): mistake is Practisable => !mistake.isLocked;
 
@@ -25,7 +27,15 @@ export default function MistakesPage() {
   const [error, setError] = useState("");
   const [reload, setReload] = useState(0);
   const [practice, setPractice] = useState<Practisable[] | null>(null);
+  const [weak, setWeak] = useState<WeakList | null>(null);
   useEffect(() => {
+    const controller = new AbortController();
+    fetchWeakCharacters(controller.signal).then(data => setWeak(data))
+      .catch(failure => { if (!controller.signal.aborted) setError(apiErrorMessage(failure, "Your weak characters could not be loaded.")); });
+    return () => controller.abort();
+  }, [reload]);
+  useEffect(() => {
+    if (status === "weak") return;
     const controller = new AbortController();
     fetchMistakes(status, controller.signal).then(data => { setNotebook(data); setError(""); })
       .catch(failure => { if (!controller.signal.aborted) setError(apiErrorMessage(failure, "Your mistakes could not be loaded.")); });
@@ -39,12 +49,12 @@ export default function MistakesPage() {
 
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <h1 className="mt-4 text-3xl font-black">Mistake notebook</h1>
-    <p className="mt-1 text-gray-600">Questions you got wrong in lessons, reviews, assessments and mock exams. Answer one right {notebook?.correctInARowToResolve ?? 2} times in a row to clear it.</p>
+    <p className="mt-1 text-gray-600">Questions you got wrong in lessons, reviews, assessments, mock exams, kana quizzes and kanji practice. Answer one right {notebook?.correctInARowToResolve ?? 2} times in a row to clear it.</p>
     {practice ? <Practice mistakes={practice} needed={notebook?.correctInARowToResolve ?? 2} onDone={endPractice} /> : <>
-      <div role="tablist" aria-label="Mistakes" className="mt-6 flex gap-2">{(["open", "resolved"] as const).map(value =>
+      <div role="tablist" aria-label="Mistakes" className="mt-6 flex flex-wrap gap-2">{TABS.map(value =>
         <button key={value} role="tab" aria-selected={status === value} onClick={() => setStatus(value)}
           className={`rounded-xl border px-4 py-2 text-sm font-bold ${focus} ${status === value ? "border-emerald-600 bg-emerald-600 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-emerald-300"}`}>
-          {value === "open" ? `To practise${notebook ? ` (${notebook.counts.open})` : ""}` : `Cleared${notebook ? ` (${notebook.counts.resolved})` : ""}`}
+          {value === "open" ? `To practise${notebook ? ` (${notebook.counts.open})` : ""}` : value === "resolved" ? `Cleared${notebook ? ` (${notebook.counts.resolved})` : ""}` : `Weak characters${weak ? ` (${weak.kana.length + weak.kanji.length})` : ""}`}
         </button>)}</div>
       {status === "open" && notebook && notebook.counts.open > 0 && <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Filter by where the mistake was made">
         {(["all", ...SOURCES] as const).map(value => {
@@ -55,12 +65,14 @@ export default function MistakesPage() {
           </button>;
         })}</div>}
       {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{error} <button className="ml-2 font-bold underline" onClick={() => setReload(value => value + 1)}>Retry</button></p>}
+      {status === "weak" ? (weak ? <WeakCharacters list={weak} onPractised={() => setReload(value => value + 1)} /> : !error && <p role="status" className="mt-6 text-gray-500">Loading your weak characters…</p>) : <>
       {!notebook && !error && <p role="status" className="mt-6 text-gray-500">Loading your mistakes…</p>}
       {notebook && status === "open" && practisable.length > 0 && <button className={`${primary} mt-5`} onClick={() => setPractice(shuffle(practisable))}>Practise {practisable.length} {practisable.length === 1 ? "question" : "questions"} →</button>}
       {notebook && !shown.length && <section className={`${card} mt-6 text-gray-600`}>{status === "open"
-        ? <>Nothing to practise. Wrong answers from <Link to="/lessons" className="font-semibold text-emerald-700 underline">lessons</Link>, <Link to="/review" className="font-semibold text-emerald-700 underline">unit reviews</Link>, assessments and mock exams appear here.</>
+        ? <>Nothing to practise. Wrong answers from <Link to="/lessons" className="font-semibold text-emerald-700 underline">lessons</Link>, <Link to="/review" className="font-semibold text-emerald-700 underline">unit reviews</Link>, assessments, mock exams, kana quizzes and kanji practice appear here.</>
         : "Mistakes you clear appear here."}</section>}
       <ul className="mt-6 space-y-3">{shown.map(mistake => <li key={mistake.id}><MistakeCard mistake={mistake} needed={notebook?.correctInARowToResolve ?? 2} onRemoved={remove} /></li>)}</ul>
+      </>}
     </>}
   </main></div>;
 }

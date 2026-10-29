@@ -27,6 +27,14 @@ export async function findKanaById(script: KanaScript, kanaId: unknown, db: Quer
   return result.rows[0];
 }
 
+/** Up to `count` different readings of the script other than `romaji`, in random order. */
+export async function listOtherRomaji(db: Queryable, script: KanaScript, romaji: string, count: number): Promise<string[]> {
+  const result = await db.query(
+    `SELECT romaji FROM (SELECT DISTINCT romaji FROM ${TABLES[script].characters} WHERE romaji <> $1) AS readings ORDER BY RANDOM() LIMIT $2`,
+    [romaji, count]);
+  return result.rows.map(row => String(row.romaji));
+}
+
 // ---- Per-user progress
 
 /** Adds one answer to the user's tally for a character. */

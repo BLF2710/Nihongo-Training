@@ -52,6 +52,8 @@ const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
 const AchievementsPage = lazy(() => import("./pages/AchievementsPage"));
+const ParticleDropPage = lazy(() => import("./pages/ParticleDropPage"));
+const SrsDeckPage = lazy(() => import("./pages/SrsDeckPage"));
 const SpeakingTestPage = lazy(() => import("./pages/SpeakingTestPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
@@ -109,6 +111,7 @@ function App() {
           <Route path="/review/katakana" element={signedIn(<ReviewPage key="katakana-review" script="katakana" />)} />
           <Route path="/review" element={signedInLazy("Loading review…", <UnitReviewPage />)} />
           <Route path="/srs" element={signedInLazy("Loading your daily review…", <SrsReviewPage />)} />
+          <Route path="/srs/deck" element={signedInLazy("Loading your deck…", <SrsDeckPage />)} />
           <Route path="/mistakes" element={signedInLazy("Loading your mistakes…", <MistakesPage />)} />
           <Route path="/reading" element={signedInLazy("Loading reading…", <ReadingPage />)} />
           <Route path="/listening" element={signedInLazy("Loading listening…", <SkillPracticePage key="listening" skill="listening" />)} />
@@ -123,6 +126,7 @@ function App() {
           <Route path="/practice" element={signedIn(<PracticePage />)} />
           <Route path="/guest/practice" element={<GuestPracticePage />} />
           <Route path="/arcade" element={signedIn(<EnglishArcadePage />)} />
+          <Route path="/games/particles" element={signedInLazy("Loading Particle Drop…", <ParticleDropPage />)} />
           <Route path="/games/english" element={signedIn(<EnglishArcadePage />)} />
           <Route path="/statistics" element={signedIn(<StatisticsPage />)} />
           <Route path="/statistics/japanese" element={signedIn(<StatisticsPage />)} />

@@ -1,6 +1,10 @@
 import type { PoolClient } from "pg";
 import { withTransaction } from "../db/transaction";
-import { countCorrectAnswers, findKanaById, findRandomKana, listKana, recordKanaAnswer } from "../repositories/kana.repository";
+import { countCorrectAnswers, findKanaById, findRandomKana, listKana, listOtherRomaji, recordKanaAnswer } from "../repositories/kana.repository";
+import type { KanaRow } from "../repositories/kana.repository";
+import { recordAnswerOutcomes } from "../repositories/mistake.repository";
+import type { Queryable } from "../db/transaction";
+import { mistakeKeys } from "./mistake.service";
 import { findReceipt, insertReceipt, lockKanaSubmissions } from "../repositories/quiz-receipt.repository";
 import { recordLearningActivity } from "./streak.service";
 import { HttpError } from "../utils/http-error";
@@ -12,6 +16,17 @@ import { awardXP } from "./xp.service";
 import type { XpAward } from "./xp.service";
 
 const CORRECT_ANSWERS_PER_REWARD = 10;
+const NOTEBOOK_CHOICES = 4;
+const SCRIPT_LABELS: Record<KanaScript, string> = { hiragana: "Hiragana reading", katakana: "Katakana reading" };
+
+/** A wrong answer joins the mistake notebook (with reading choices to practise it); a right one counts toward clearing it. */
+async function noteKanaAnswer(db: Queryable, userId: number, script: KanaScript, kana: KanaRow, given: string, correct: boolean) {
+  const options = correct ? [] : [kana.romaji, ...await listOtherRomaji(db, script, kana.romaji, NOTEBOOK_CHOICES - 1)].sort();
+  await recordAnswerOutcomes(db, userId, [{
+    source: "kana", itemKey: mistakeKeys.kana(script, kana.id), correct,
+    payload: { label: SCRIPT_LABELS[script], prompt: kana.kana, options, answer: kana.romaji, given: given.trim() || "(blank)" },
+  }]);
+}
 
 export type KanaAnswer = { script: KanaScript; kanaId: unknown; answer: unknown; userId?: number; submissionId?: string };
 
@@ -56,6 +71,7 @@ export async function submitKanaAnswer({ script, kanaId, answer, userId, submiss
 
     if (userId) {
       await recordKanaAnswer(client, script, userId, kanaId, correct);
+      await noteKanaAnswer(client, Number(userId), script, kana, String(answer), correct);
       await recordLearningActivity(Number(userId), client);
       const milestone = correct ? await rewardMilestone(client, script, userId) : null;
       if (milestone?.awarded) milestones.push(milestone);

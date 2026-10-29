@@ -13,6 +13,7 @@ async function main() {
   // A relative import names `<file>.ts`, a folder's `index.ts`, or a `.json` file.
   const sourceFile = p => p.endsWith('.json') ? p : fs.existsSync(p + '.ts') ? p + '.ts' : path.join(p, 'index.ts');
   function load(filename) {
+    if (filename.endsWith('.json')) return JSON.parse(fs.readFileSync(filename, 'utf8'));
     if (cache.has(filename)) return cache.get(filename);
     const exports = {}; cache.set(filename, exports);
     const compiled = ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true } }).outputText;
@@ -26,6 +27,8 @@ async function main() {
     await client.query('CREATE TEMP TABLE users (id INTEGER PRIMARY KEY); INSERT INTO users VALUES (1),(2)');
     // Streak days are recorded with every learning action; a temp copy keeps them off the real users table.
     await client.query('CREATE TEMP TABLE activity_days (LIKE public.activity_days INCLUDING ALL)');
+    // Kana and kanji answers also go to the mistake notebook.
+    await client.query('CREATE TEMP TABLE mistakes (LIKE public.mistakes INCLUDING ALL)');
     for (const table of ['hiraganas','katakanas']) await client.query(`CREATE TEMP TABLE ${table} (id INTEGER PRIMARY KEY, kana TEXT, romaji TEXT); INSERT INTO ${table} VALUES (1,'a','a')`);
     for (const [table, column] of [['user_progress','hiragana_id'],['user_katakana_progress','katakana_id']]) await client.query(`CREATE TEMP TABLE ${table} (user_id INTEGER, ${column} INTEGER, correct_count INTEGER, wrong_count INTEGER, PRIMARY KEY(user_id,${column}))`);
     await client.query('CREATE TEMP TABLE user_gamification(user_id INTEGER PRIMARY KEY, xp INTEGER, updated_at TIMESTAMPTZ, current_streak INTEGER NOT NULL DEFAULT 0, longest_streak INTEGER NOT NULL DEFAULT 0, last_activity_at TIMESTAMPTZ); INSERT INTO user_gamification VALUES (1,0,NOW()),(2,0,NOW())');

@@ -6,9 +6,9 @@ const SECONDS_PER_MINUTE = 60;
 const ASSESSMENT_PASS_PERCENT = 80;
 const card = "min-w-0 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm";
 const PRACTICE_KINDS: Record<string, { label: string; icon: string }> = {
-  listening: { label: "Listening", icon: "🎧" }, speaking: { label: "Speaking", icon: "🗣️" }, reading: { label: "Reading", icon: "📖" }, "mock-exam": { label: "Mock exams", icon: "📝" },
+  listening: { label: "Listening", icon: "🎧" }, speaking: { label: "Speaking", icon: "🗣️" }, reading: { label: "Reading", icon: "📖" }, "mock-exam": { label: "Mock exams", icon: "📝" }, particles: { label: "Particle Drop", icon: "は" },
 };
-const MISTAKE_LABELS = { lesson: "Lessons", review: "Reviews", assessment: "Assessments", mock_exam: "Mock exams" } as const;
+const MISTAKE_LABELS = { lesson: "Lessons", review: "Reviews", assessment: "Assessments", mock_exam: "Mock exams", kana: "Kana", kanji: "Kanji" } as const;
 
 const minutes = (seconds: number) => Math.round(seconds / SECONDS_PER_MINUTE);
 const shortDay = (day: string) => new Date(`${day}T00:00:00`).toLocaleDateString([], { weekday: "short", day: "numeric" });

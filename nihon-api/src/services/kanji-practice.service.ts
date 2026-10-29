@@ -7,7 +7,9 @@ import {
 import { HttpError } from "../utils/http-error";
 import { characterProgress } from "./character-progress";
 import { rewardActivity } from "./gamification.service";
-import { catalog, hasCourseWords, makeKanjiQuestion, shuffled, PracticeKind } from "./kanji.service";
+import { catalog, describeKanjiQuestion, hasCourseWords, makeKanjiQuestion, shuffled, PracticeKind } from "./kanji.service";
+import { recordAnswerOutcomes } from "../repositories/mistake.repository";
+import { mistakeKeys } from "./mistake.service";
 
 export const PRACTICE_SIZES = [3, 5, 10];
 const PRACTICE_KINDS: PracticeKind[] = ["meaning", "reading", "vocabulary"];
@@ -52,6 +54,13 @@ export async function answerKanjiQuestion(userId: number, questionId: string, an
     if (isFirstAnswer) {
       await recordKanjiAnswer(client, userId, question.kanji_id, correct);
       await savePracticeAnswer(client, questionId, answerIndex);
+      // Wrong answers join the mistake notebook; right ones count toward clearing the same question there.
+      const answer = question.options[question.correct_index];
+      const { label, display } = describeKanjiQuestion(question.kanji_id, question.kind, answer);
+      await recordAnswerOutcomes(client, userId, [{
+        source: "kanji", itemKey: mistakeKeys.kanji(question.kanji_id, question.kind), correct,
+        payload: { label, prompt: display, options: question.options, answer, given: question.options[answerIndex] },
+      }]);
       await recordLearningActivity(userId, client);
     }
     const saved = await findKanjiProgress(userId, question.kanji_id, client);

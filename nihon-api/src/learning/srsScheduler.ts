@@ -16,6 +16,8 @@ const SECOND_INTERVAL_DAYS = 3;
 const HARD_FACTOR = 1.2;
 const EASY_BONUS = 1.3;
 const MAX_INTERVAL_DAYS = 365;
+/** A card with an interval of this many days or more counts as "mature" (well remembered). */
+export const MATURE_INTERVAL_DAYS = 21;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 const clampEase = (ease: number) => Math.round(Math.min(MAX_EASE, Math.max(MIN_EASE, ease)) * 100) / 100;

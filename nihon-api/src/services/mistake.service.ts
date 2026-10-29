@@ -18,6 +18,8 @@ export const mistakeKeys = {
   assessment: (assessmentId: string, questionId: string) => `assessment:${assessmentId}:${questionId}`,
   mockExam: (level: string, questionId: string) => `mock:${level}:${questionId}`,
   lesson: (lessonId: string, prompt: string) => `lesson:${lessonId}:${createHash("sha256").update(prompt).digest("hex").slice(0, 16)}`,
+  kana: (script: string, kanaId: number) => `kana:${script}:${kanaId}`,
+  kanji: (kanjiId: string, kind: string) => `kanji:${kanjiId}:${kind}`,
 };
 
 const assessmentOf = (mistake: Mistake) => mistake.source === "assessment" ? mistake.itemKey.split(":")[1] : undefined;

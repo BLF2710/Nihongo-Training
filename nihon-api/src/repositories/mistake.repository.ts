@@ -1,7 +1,7 @@
 import { pool } from "../config/db";
 import type { Queryable } from "../db/transaction";
 
-export type MistakeSource = "lesson" | "review" | "assessment" | "mock_exam";
+export type MistakeSource = "lesson" | "review" | "assessment" | "mock_exam" | "kana" | "kanji";
 /** What the notebook shows: the question as the learner saw it, the right answer and what they chose. */
 export type MistakePayload = { label: string; prompt: string; options?: string[]; answer: string; given?: string; explanation?: string };
 /** One graded answer: a wrong one is noted (or noted again); a right one counts toward clearing an open mistake. */
@@ -79,7 +79,7 @@ export async function countMistakes(userId: number): Promise<MistakeCounts> {
   const result = await pool.query(
     `SELECT source, COUNT(*) FILTER (WHERE resolved_at IS NULL)::int AS open, COUNT(*) FILTER (WHERE resolved_at IS NOT NULL)::int AS resolved
        FROM mistakes WHERE user_id = $1 GROUP BY source`, [userId]);
-  const bySource: Record<MistakeSource, number> = { lesson: 0, review: 0, assessment: 0, mock_exam: 0 };
+  const bySource: Record<MistakeSource, number> = { lesson: 0, review: 0, assessment: 0, mock_exam: 0, kana: 0, kanji: 0 };
   let open = 0, resolved = 0;
   const rows: { source: MistakeSource; open: number; resolved: number }[] = result.rows;
   for (const row of rows) {
