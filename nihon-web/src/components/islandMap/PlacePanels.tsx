@@ -90,10 +90,10 @@ export function TimeChooser({ setting, clockTimeOfDay, onChoose }: { setting: Ma
 
 const RECENT_BADGES_SHOWN = 3;
 
-/** The onsen: how many badges the learner has and the latest ones (a stone by the spring for each). */
+/** The onsen: how many badges the learner has and the latest ones (an ema plaque on the rack for each). */
 export function OnsenBadges({ profile }: { profile: Pick<Profile, "achievements_count" | "achievements"> | null }) {
   if (!profile) return null;
-  if (!profile.achievements_count) return <p className="mb-4 text-sm opacity-75">No badges yet. Your first one sets a stone by the spring.</p>;
+  if (!profile.achievements_count) return <p className="mb-4 text-sm opacity-75">No badges yet. Your first one hangs a plaque on the rack.</p>;
   const recent = [...profile.achievements].sort((a, b) => (b.earned_at ?? "").localeCompare(a.earned_at ?? "")).slice(0, RECENT_BADGES_SHOWN);
   return <div className="mb-4 rounded-xl bg-[var(--ink)]/5 px-3 py-2 text-sm">
     <p className="font-bold">{profile.achievements_count === 1 ? "1 badge earned" : `${profile.achievements_count} badges earned`}</p>

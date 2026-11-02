@@ -12,6 +12,8 @@ import { Sea } from "../components/islandMap/Sea";
 import { useIslandMapData } from "../components/islandMap/useIslandMapData";
 import { useMapTimeOfDay } from "../components/islandMap/useMapTimeOfDay";
 import { TIMES_OF_DAY } from "../lib/timeOfDay";
+import { GAME_KINDS, islandGrowth, PRACTICE_KINDS, sessionsOf } from "../lib/islandGrowth";
+import type { GrowthFacts } from "../lib/islandGrowth";
 import "../components/islandMap/IslandMap.css";
 import { COURSE_LEVELS, inLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
@@ -50,7 +52,7 @@ function stageSize(space: Size, layout: MapLayout): Size {
 
 export default function IslandMapPage() {
   const level = useCourseLevel();
-  const { units, profile, srs, friends } = useIslandMapData();
+  const { units, profile, srs, friends, overview, kanaStatistics } = useIslandMapData();
   const mapTime = useMapTimeOfDay();
   const inbox = useInboxSummary();
   const [selectedId, setSelectedId] = useState<IslandId | null>(null);
@@ -71,9 +73,28 @@ export default function IslandMapPage() {
     : null;
   const climb = useMemo(() => units.status === "ready" ? climbProgress(units.value, COURSE_LEVELS.map(item => item.id), levelOfId) : null, [units]);
   const friendList = friends.status === "ready" ? friends.value.friends : null;
-  // What each landmark counts: levels reached on Fuji, badges by the onsen, friends' boats moored at the harbour, and the
+  // What each landmark counts: levels reached on Fuji, units completed on Home, badges by the onsen, friends' boats moored at the harbour, and the
   // bell tower's time of day (a new one swings the bell).
-  const tallyOf = (id: IslandId) => id === "fuji" ? climb?.filter(station => station.isReached).length ?? 0
+  const levelsCompleted = climb ? climb.filter(station => station.isReached).length : null;
+  const learning = overview.status === "ready" ? overview.value : null;
+  const kanaCharacters = kanaStatistics.status === "ready" ? [...kanaStatistics.value.hiragana?.characters ?? [], ...kanaStatistics.value.katakana?.characters ?? []] : null;
+  const growthFacts: GrowthFacts = {
+    completedLessons: progress?.completedLessons ?? null,
+    levelsCompleted,
+    practiceSessions: learning ? sessionsOf(learning.practice, PRACTICE_KINDS) : null,
+    gamesPlayed: learning ? sessionsOf(learning.practice, GAME_KINDS) : null,
+    matureCards: learning?.srs.mature ?? null,
+    kanjiMastered: learning?.kanji.mastered ?? null,
+    kanaMastered: kanaCharacters ? kanaCharacters.filter(character => character.status === "mastered").length : null,
+  };
+  const growthOf = (id: IslandId) => islandGrowth(id, growthFacts);
+  // TEMPORARY, development builds only: growth steps being previewed from the panel, by island.
+  const [growthPreview, setGrowthPreview] = useState<Partial<Record<IslandId, number>>>({});
+  const previewGrowth = (id: IslandId, stage: number | null) => setGrowthPreview(current =>
+    Object.fromEntries([...Object.entries(current).filter(([key]) => key !== id), ...(stage === null ? [] : [[id, stage]])]));
+  const stageOf = (id: IslandId) => growthPreview[id] ?? growthOf(id)?.stage ?? 0;
+  const tallyOf = (id: IslandId) => id === "fuji" ? growthPreview.home ?? levelsCompleted ?? 0
+    : id === "home" ? progress?.completedUnits ?? 0
     : id === "onsen" ? (profile.status === "ready" ? profile.value.achievements_count : 0)
     : id === "harbour" ? friendList?.filter(friend => friend.progress?.activeToday).length ?? 0
     : id === "belltower" ? TIMES_OF_DAY.indexOf(mapTime.timeOfDay) : 0;
@@ -137,7 +158,7 @@ export default function IslandMapPage() {
                   aria-label={`${island.name}${isFogged ? " · in fog" : ""}${badgeOf(island.id) ? `, ${badgeOf(island.id)}` : ""}`}
                   aria-expanded={selectedId === island.id} aria-controls={ISLAND_PANEL_ID}
                   className={`group relative block w-full rounded-3xl ${focus}`}>
-                  <span className="block transition-[filter] duration-300 group-hover:brightness-105"><IslandLand id={island.id} isFogged={isFogged} bridgeDirections={bridgeDirectionsOf(island.id)} isletDirections={island.id === "home" ? homeIslets : undefined} tally={tallyOf(island.id)} /></span>
+                  <span className="block transition-[filter] duration-300 group-hover:brightness-105"><IslandLand id={island.id} isFogged={isFogged} bridgeDirections={bridgeDirectionsOf(island.id)} isletDirections={island.id === "home" ? homeIslets : undefined} tally={tallyOf(island.id)} stage={stageOf(island.id)} /></span>
                   {/* The label is drawn in its own top layer; this keeps it clickable as part of the island. */}
                   <span aria-hidden="true" className="absolute inset-x-[20%] top-[92%] h-8" />
                 </button>
@@ -150,7 +171,8 @@ export default function IslandMapPage() {
         </div>
       </div>
       <SkyCamera focus={focus} target={cameraTarget} stage={stage} space={space}><SceneryAbove /></SkyCamera>
-      {selected && <IslandPanel island={selected} state={islandState(selected.id, progress)} nextStep={nextStep}
+      {selected && <IslandPanel island={selected} state={islandState(selected.id, progress)} nextStep={nextStep} growth={growthOf(selected.id)}
+        growthPreview={import.meta.env.DEV ? { stage: growthPreview[selected.id] ?? null, onPreview: stage => previewGrowth(selected.id, stage) } : undefined}
         notes={notes} onClose={close}>{panelExtras[selected.id]}</IslandPanel>}
     </main>
   </div>;

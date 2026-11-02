@@ -5,6 +5,7 @@ import { test } from "node:test";
 import { backdropCamera, BRIDGED_ISLANDS, cameraTransform, climbProgress, courseProgress, islandState, ISLANDS, LANDSCAPE_LAYOUT, layoutFor, nextCourseStep, PORTRAIT_LAYOUT } from "../src/lib/islandMap.ts";
 
 import { parseMapTimeSetting, timeOfDayAt, timeOfDayFor } from "../src/lib/timeOfDay.ts";
+import { islandGrowth, sessionsOf, PRACTICE_KINDS, GAME_KINDS } from "../src/lib/islandGrowth.ts";
 const progress = (completedLessons, completedUnits = 0) => ({ completedLessons, completedUnits });
 const openIds = p => ISLANDS.filter(island => islandState(island.id, p).status === "open").map(island => island.id);
 
@@ -184,4 +185,30 @@ test("the sky's camera brings the chosen island to the same spot as the islands'
   const island = onScreen(place);
   const moved = { x: sky.x + island.x * sky.zoom, y: sky.y + island.y * sky.zoom };
   assert.deepEqual([moved.x, moved.y].map(Math.round), [onScreen(target).x, onScreen(target).y].map(Math.round));
+});
+
+const facts = (overrides = {}) => ({ completedLessons: 0, levelsCompleted: 0, practiceSessions: 0, gamesPlayed: 0, matureCards: 0, kanjiMastered: 0, kanaMastered: 0, ...overrides });
+
+test("an island grows a step each time its measure reaches the next threshold", () => {
+  const stages = [0, 4, 5, 19, 20, 50, 400].map(completedLessons => islandGrowth("lessons", facts({ completedLessons })).stage);
+  assert.deepEqual(stages, [0, 0, 1, 1, 2, 3, 3]);
+});
+
+test("growth says what the next step needs, and nothing once fully grown", () => {
+  assert.deepEqual(islandGrowth("kanji", facts({ kanjiMastered: 12 })), { stage: 1, maxStage: 3, measure: "kanjiMastered", value: 12, nextAt: 50 });
+  assert.equal(islandGrowth("kanji", facts({ kanjiMastered: 150 })).nextAt, null);
+});
+
+test("Home's shrine grows with each JLPT level completed, up to N1", () => {
+  assert.deepEqual([0, 1, 3, 5].map(levelsCompleted => islandGrowth("home", facts({ levelsCompleted })).stage), [0, 1, 3, 5]);
+});
+
+test("an island whose measure is unknown, or that does not grow, has no growth", () => {
+  assert.equal(islandGrowth("review", facts({ matureCards: null })), null);
+  assert.equal(islandGrowth("harbour", facts()), null);
+});
+
+test("Practice grows from listening, speaking and reading; Games from the particle game", () => {
+  const practice = [{ kind: "listening", sessions: 4 }, { kind: "reading", sessions: 3 }, { kind: "particles", sessions: 9 }, { kind: "mock-exam", sessions: 2 }];
+  assert.deepEqual([sessionsOf(practice, PRACTICE_KINDS), sessionsOf(practice, GAME_KINDS)], [7, 9]);
 });

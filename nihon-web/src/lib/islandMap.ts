@@ -74,7 +74,7 @@ export const ISLANDS: readonly Island[] = [
     { label: "Study assistant", href: "/assistant", description: "Questions about grammar, words and kanji." },
   ] },
   { id: "belltower", isBridged: false, name: "Time", mark: "時", tagline: "Dawn, day, dusk or night on the map.", destinations: [] },
-  { id: "onsen", isBridged: false, name: "Achievements", mark: "賞", tagline: "A stone by the spring for every badge.", destinations: [
+  { id: "onsen", isBridged: false, name: "Achievements", mark: "賞", tagline: "An ema plaque on the rack for every badge.", destinations: [
     { label: "All achievements", href: "/achievements", description: "Badges you have earned and the ones still ahead." },
   ] },
 ];
