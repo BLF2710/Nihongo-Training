@@ -1,0 +1,545 @@
+{
+  "id": "japanese-n3-unit-8-even-though-he",
+  "slug": "n3-unit-8-even-though-he",
+  "unit": "Japanese N3 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "And He Calls Himself…",
+  "title_jp": "〜くせに",
+  "objectives": [
+    "I can criticise someone who behaves against what is expected.",
+    "Criticise with N の / plain form + くせに",
+    "Use the casual 〜くせして",
+    "Talk about personality and describe people"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>性格<rt>せいかく</rt></ruby>",
+      "",
+      "personality"
+    ],
+    [
+      "<ruby>女性<rt>じょせい</rt></ruby>",
+      "",
+      "woman"
+    ],
+    [
+      "<ruby>男性<rt>だんせい</rt></ruby>",
+      "",
+      "man"
+    ],
+    [
+      "<ruby>弱<rt>よわ</rt></ruby>い",
+      "",
+      "weak"
+    ],
+    [
+      "<ruby>太<rt>ふと</rt></ruby>い",
+      "",
+      "thick, fat"
+    ],
+    [
+      "<ruby>太<rt>ふと</rt></ruby>る",
+      "",
+      "to put on weight"
+    ],
+    [
+      "<ruby>細<rt>ほそ</rt></ruby>い",
+      "",
+      "thin, narrow"
+    ],
+    [
+      "<ruby>細<rt>こま</rt></ruby>かい",
+      "",
+      "small, detailed; fussy"
+    ],
+    [
+      "<ruby>返<rt>かえ</rt></ruby>す",
+      "",
+      "to give back, to return"
+    ],
+    [
+      "<ruby>返事<rt>へんじ</rt></ruby>",
+      "",
+      "reply (+ する: to reply)"
+    ],
+    [
+      "〜くせに",
+      "",
+      "even though (critical)"
+    ],
+    [
+      "〜くせして",
+      "",
+      "even though (casual, critical)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "性格",
+      "word_reading": "せいかく"
+    },
+    {
+      "word_japanese": "女性",
+      "word_reading": "じょせい"
+    },
+    {
+      "word_japanese": "男性",
+      "word_reading": "だんせい"
+    },
+    {
+      "word_japanese": "弱い",
+      "word_reading": "よわい"
+    },
+    {
+      "word_japanese": "太い",
+      "word_reading": "ふとい"
+    },
+    {
+      "word_japanese": "太る",
+      "word_reading": "ふとる"
+    },
+    {
+      "word_japanese": "細い",
+      "word_reading": "ほそい"
+    },
+    {
+      "word_japanese": "細かい",
+      "word_reading": "こまかい"
+    },
+    {
+      "word_japanese": "返す",
+      "word_reading": "かえす"
+    },
+    {
+      "word_japanese": "返事",
+      "word_reading": "へんじ"
+    }
+  ],
+  "concept": {
+    "title": "Even though (and I don't like it)",
+    "text": "くせに is like のに, but it criticises: the speaker is annoyed or scornful.\n\n<ruby>知<rt>し</rt></ruby>っているくせに、<ruby>教<rt>おし</rt></ruby>えてくれない。 He knows, but he won't tell me.\n<ruby>先生<rt>せんせい</rt></ruby>のくせに、<ruby>漢字<rt>かんじ</rt></ruby>をよく<ruby>間違<rt>まちが</rt></ruby>える。 She's a teacher, yet she often gets kanji wrong.\n\nThe subject of both halves must be the same person, and that person is usually not the speaker.\n\nくせして is a more casual version. くせに can also end a sentence: <ruby>子<rt>こ</rt></ruby>どものくせに！ (You're just a kid!).\n\nConnections: N の くせに, な-adj な くせに, plain form + くせに.",
+    "examples": [
+      "N の くせに",
+      "な-adj な くせに",
+      "plain form + くせに",
+      "〜くせして (casual)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Even though: 〜くせに",
+      "pattern": "N の / な-adj な / plain form + くせに",
+      "explanation": "Like のに, but critical. Both halves are about the same person.",
+      "examples": [
+        {
+          "japanese": "<ruby>知<rt>し</rt></ruby>っているくせに、<ruby>教<rt>おし</rt></ruby>えてくれない。",
+          "romaji": "",
+          "meaning": "He knows, but he won't tell me."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>のくせに、<ruby>漢字<rt>かんじ</rt></ruby>をよく<ruby>間違<rt>まちが</rt></ruby>える。",
+          "romaji": "",
+          "meaning": "She's a teacher, yet she often gets kanji wrong."
+        },
+        {
+          "japanese": "<ruby>体<rt>からだ</rt></ruby>が<ruby>弱<rt>よわ</rt></ruby>いくせに、<ruby>無理<rt>むり</rt></ruby>をする。",
+          "romaji": "",
+          "meaning": "He's not strong, but he overdoes it."
+        },
+        {
+          "japanese": "<ruby>下手<rt>へた</rt></ruby>なくせに、いつも<ruby>歌<rt>うた</rt></ruby>いたがる。",
+          "romaji": "",
+          "meaning": "He can't sing, yet he always wants to."
+        }
+      ],
+      "notes": [
+        "Not used about yourself.",
+        "Stronger and ruder than のに."
+      ]
+    },
+    {
+      "title": "Even though (casual): 〜くせして",
+      "pattern": "N の / plain form + くせして",
+      "explanation": "A casual version of くせに, often in complaints between friends.",
+      "examples": [
+        {
+          "japanese": "<ruby>自分<rt>じぶん</rt></ruby>では<ruby>何<rt>なに</rt></ruby>もしないくせして、もんくばかり<ruby>言<rt>い</rt></ruby>う。",
+          "romaji": "",
+          "meaning": "He does nothing himself, but he's always complaining."
+        },
+        {
+          "japanese": "お<ruby>金<rt>かね</rt></ruby>がないくせして、<ruby>高<rt>たか</rt></ruby>いものばかり<ruby>買<rt>か</rt></ruby>う。",
+          "romaji": "",
+          "meaning": "She has no money, but she only buys expensive things."
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どものくせして、<ruby>生意気<rt>なまいき</rt></ruby>だ。",
+          "romaji": "",
+          "meaning": "You're just a kid, and you're so cheeky."
+        },
+        {
+          "japanese": "<ruby>細<rt>こま</rt></ruby>かいことを<ruby>気<rt>き</rt></ruby>にするくせして、<ruby>約束<rt>やくそく</rt></ruby>は<ruby>忘<rt>わす</rt></ruby>れる。",
+          "romaji": "",
+          "meaning": "He fusses over small details, but he forgets his promises."
+        }
+      ],
+      "notes": [
+        "Very casual; avoid in polite speech."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>姉<rt>あね</rt></ruby>は<ruby>明<rt>あか</rt></ruby>るい<ruby>性格<rt>せいかく</rt></ruby>です。",
+      "My older sister has a cheerful personality."
+    ],
+    [
+      "<ruby>最近<rt>さいきん</rt></ruby>、<ruby>少<rt>すこ</rt></ruby>し<ruby>太<rt>ふと</rt></ruby>りました。",
+      "I've put on a little weight lately."
+    ],
+    [
+      "<ruby>図書館<rt>としょかん</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<ruby>返<rt>かえ</rt></ruby>しに<ruby>行<rt>い</rt></ruby>きます。",
+      "I'm going to return a book to the library."
+    ],
+    [
+      "メールを<ruby>送<rt>おく</rt></ruby>りましたが、まだ<ruby>返事<rt>へんじ</rt></ruby>がありません。",
+      "I sent an email, but there's no reply yet."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "けんさん、またちこく？",
+      "リー",
+      "そう。<ruby>自分<rt>じぶん</rt></ruby>で<ruby>時間<rt>じかん</rt></ruby>を<ruby>決<rt>き</rt></ruby>めたくせに、いつも<ruby>遅<rt>おく</rt></ruby>れるんだよ。"
+    ],
+    [
+      "マイ",
+      "<ruby>弟<rt>おとうと</rt></ruby>さんはどんな<ruby>性格<rt>せいかく</rt></ruby>ですか。",
+      "ゆき",
+      "やさしいけど、<ruby>細<rt>こま</rt></ruby>かいことを<ruby>気<rt>き</rt></ruby>にする<ruby>性格<rt>せいかく</rt></ruby>です。"
+    ],
+    [
+      "リン",
+      "<ruby>借<rt>か</rt></ruby>りたお<ruby>金<rt>かね</rt></ruby>、<ruby>返<rt>かえ</rt></ruby>してくれた？",
+      "たなか",
+      "まだ。お<ruby>金<rt>かね</rt></ruby>がないくせして、<ruby>毎日<rt>まいにち</rt></ruby><ruby>外食<rt>がいしょく</rt></ruby>しているんだ。"
+    ],
+    [
+      "けん",
+      "このスープ、ちょっと<ruby>味<rt>あじ</rt></ruby>が<ruby>弱<rt>よわ</rt></ruby>いですね。",
+      "アナ",
+      "<ruby>料理<rt>りょうり</rt></ruby>しないくせに、もんくを<ruby>言<rt>い</rt></ruby>わないで！"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "性",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "さが"
+      ],
+      "meaning_en": "nature; sex",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "性格",
+          "reading": "せいかく",
+          "en": "personality"
+        },
+        {
+          "word": "女性",
+          "reading": "じょせい",
+          "en": "woman"
+        }
+      ],
+      "mnemonic": "The heart (忄) you are born (生) with: your nature."
+    },
+    {
+      "char": "格",
+      "onyomi": [
+        "カク",
+        "コウ",
+        "キャク",
+        "ゴウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "status; case",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "性格",
+          "reading": "せいかく",
+          "en": "personality"
+        },
+        {
+          "word": "合格",
+          "reading": "ごうかく",
+          "en": "passing an exam"
+        }
+      ],
+      "mnemonic": "Each (各) tree (木) has its own shape: character."
+    },
+    {
+      "char": "弱",
+      "onyomi": [
+        "ジャク"
+      ],
+      "kunyomi": [
+        "よわ.い",
+        "よわ.る",
+        "よわ.まる",
+        "よわ.める"
+      ],
+      "meaning_en": "weak",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "弱い",
+          "reading": "よわい",
+          "en": "weak"
+        },
+        {
+          "word": "弱点",
+          "reading": "じゃくてん",
+          "en": "weak point"
+        }
+      ],
+      "mnemonic": "Two bent bows with feathers: weak."
+    },
+    {
+      "char": "太",
+      "onyomi": [
+        "タイ",
+        "タ"
+      ],
+      "kunyomi": [
+        "ふと.い",
+        "ふと.る"
+      ],
+      "meaning_en": "fat, thick",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "太い",
+          "reading": "ふとい",
+          "en": "thick"
+        },
+        {
+          "word": "太る",
+          "reading": "ふとる",
+          "en": "to put on weight"
+        }
+      ],
+      "mnemonic": "Big (大) with one more dot: even bigger."
+    },
+    {
+      "char": "細",
+      "onyomi": [
+        "サイ"
+      ],
+      "kunyomi": [
+        "ほそ.い",
+        "ほそ.る",
+        "こま.か",
+        "こま.かい"
+      ],
+      "meaning_en": "thin, fine",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "細い",
+          "reading": "ほそい",
+          "en": "thin"
+        },
+        {
+          "word": "細かい",
+          "reading": "こまかい",
+          "en": "detailed"
+        }
+      ],
+      "mnemonic": "Thread (糸) as fine as the lines of a rice field (田)."
+    },
+    {
+      "char": "返",
+      "onyomi": [
+        "ヘン"
+      ],
+      "kunyomi": [
+        "かえ.す",
+        "-かえ.す",
+        "かえ.る",
+        "-かえ.る"
+      ],
+      "meaning_en": "return",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "返す",
+          "reading": "かえす",
+          "en": "to give back"
+        },
+        {
+          "word": "返事",
+          "reading": "へんじ",
+          "en": "reply"
+        }
+      ],
+      "mnemonic": "Walking (辶) back the other way (反): returning."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 7): complete <ruby>少<rt>すこ</rt></ruby>し<ruby>手伝<rt>てつだ</rt></ruby>って＿＿ないでしょうか。",
+      "options": [
+        "いただき",
+        "いただけ",
+        "もらい",
+        "くださら"
+      ],
+      "correct": "いただけ",
+      "explanation": "Could you possibly: ていただけないでしょうか."
+    },
+    {
+      "prompt": "Complete: <ruby>知<rt>し</rt></ruby>っている＿＿、<ruby>教<rt>おし</rt></ruby>えてくれない。 (critical)",
+      "options": [
+        "ために",
+        "うちに",
+        "くせに",
+        "ほど"
+      ],
+      "correct": "くせに",
+      "explanation": "Critical even though: くせに."
+    },
+    {
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>＿＿くせに、<ruby>漢字<rt>かんじ</rt></ruby>をよく<ruby>間違<rt>まちが</rt></ruby>える。",
+      "options": [
+        "な",
+        "だ",
+        "に",
+        "の"
+      ],
+      "correct": "の",
+      "explanation": "N の くせに."
+    },
+    {
+      "prompt": "Complete: <ruby>下手<rt>へた</rt></ruby>＿＿くせに、いつも<ruby>歌<rt>うた</rt></ruby>いたがる。",
+      "options": [
+        "な",
+        "の",
+        "だ",
+        "に"
+      ],
+      "correct": "な",
+      "explanation": "な-adj な くせに."
+    },
+    {
+      "prompt": "Which word means \"reply\"?",
+      "options": [
+        "<ruby>性格<rt>せいかく</rt></ruby>",
+        "<ruby>返事<rt>へんじ</rt></ruby>",
+        "<ruby>女性<rt>じょせい</rt></ruby>",
+        "<ruby>細<rt>こま</rt></ruby>かい"
+      ],
+      "correct": "<ruby>返事<rt>へんじ</rt></ruby>",
+      "explanation": "<ruby>返事<rt>へんじ</rt></ruby>: reply."
+    },
+    {
+      "prompt": "How is 性格⁠ read?",
+      "options": [
+        "しょうかく",
+        "せいがく",
+        "せいかく",
+        "せかく"
+      ],
+      "correct": "せいかく",
+      "explanation": "性格⁠ is read せいかく."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>最近<rt>さいきん</rt></ruby>、<ruby>少<rt>すこ</rt></ruby>し<ruby>太<rt>ふと</rt></ruby>りました。",
+      "options": [
+        "I've lost a little weight lately.",
+        "I've become a little stronger.",
+        "I've been a little busy lately.",
+        "I've put on a little weight lately."
+      ],
+      "correct": "I've put on a little weight lately.",
+      "explanation": "<ruby>太<rt>ふと</rt></ruby>る: to put on weight."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "わたしは<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "わたしは<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。"
+      ],
+      "correct": "わたしは<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+      "explanation": "くせに is not used about yourself."
+    },
+    {
+      "prompt": "How does くせに differ from のに?",
+      "options": [
+        "くせに criticises the person.",
+        "くせに is more polite.",
+        "くせに is only for the past.",
+        "くせに means \"because\"."
+      ],
+      "correct": "くせに criticises the person.",
+      "explanation": "くせに: critical."
+    },
+    {
+      "prompt": "Which word means \"thin, narrow\"?",
+      "options": [
+        "<ruby>太<rt>ふと</rt></ruby>い",
+        "<ruby>細<rt>ほそ</rt></ruby>い",
+        "<ruby>弱<rt>よわ</rt></ruby>い",
+        "<ruby>細<rt>こま</rt></ruby>かい"
+      ],
+      "correct": "<ruby>細<rt>ほそ</rt></ruby>い",
+      "explanation": "<ruby>細<rt>ほそ</rt></ruby>い: thin."
+    },
+    {
+      "prompt": "Read: <ruby>自分<rt>じぶん</rt></ruby>で<ruby>時間<rt>じかん</rt></ruby>を<ruby>決<rt>き</rt></ruby>めたくせに、いつも<ruby>遅<rt>おく</rt></ruby>れるんだよ。 Why is Lee annoyed?",
+      "options": [
+        "Ken never sets a time.",
+        "Lee was late.",
+        "Ken set the time himself but is always late.",
+        "The meeting time changed."
+      ],
+      "correct": "Ken set the time himself but is always late.",
+      "explanation": "くせに: criticism."
+    },
+    {
+      "prompt": "Review (Unit 7): what is the casual form of <ruby>行<rt>い</rt></ruby>かなければならない?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>くくせに",
+        "<ruby>行<rt>い</rt></ruby>っちゃ",
+        "<ruby>行<rt>い</rt></ruby>っていい",
+        "<ruby>行<rt>い</rt></ruby>かなきゃ"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>かなきゃ",
+      "explanation": "なければ → なきゃ."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-7-could-you-possibly",
+    "japanese-n3-unit-7-gotta-go",
+    "japanese-n4-unit-9-even-though"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,341 @@
+{
+  "id": "japanese-n3-unit-3-review",
+  "slug": "n3-unit-3-review",
+  "unit": "Japanese N3 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 3 Review",
+  "title_jp": "ユニット3のふくしゅう",
+  "objectives": [
+    "I can talk about decisions, rules, habits and duties.",
+    "Choose between ことにする and ことになる",
+    "Use ようにする, ように and べきだ",
+    "Use the causative-passive",
+    "Read a diary about a university sports club"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>決<rt>き</rt></ruby>める",
+      "",
+      "to decide"
+    ],
+    [
+      "<ruby>留学<rt>りゅうがく</rt></ruby>",
+      "",
+      "studying abroad (+ する: to study abroad)"
+    ],
+    [
+      "<ruby>辞<rt>や</rt></ruby>める",
+      "",
+      "to quit, to resign"
+    ],
+    [
+      "<ruby>規則<rt>きそく</rt></ruby>",
+      "",
+      "rule, regulation"
+    ],
+    [
+      "<ruby>禁止<rt>きんし</rt></ruby>",
+      "",
+      "prohibition (+ する: to forbid)"
+    ],
+    [
+      "<ruby>健康<rt>けんこう</rt></ruby>",
+      "",
+      "health; healthy"
+    ],
+    [
+      "<ruby>忘<rt>わす</rt></ruby>れる",
+      "",
+      "to forget; to leave behind"
+    ],
+    [
+      "<ruby>迷惑<rt>めいわく</rt></ruby>",
+      "",
+      "trouble, nuisance"
+    ],
+    [
+      "<ruby>優<rt>やさ</rt></ruby>しい",
+      "",
+      "kind, gentle"
+    ],
+    [
+      "<ruby>先輩<rt>せんぱい</rt></ruby>",
+      "",
+      "senior (at school or work)"
+    ],
+    [
+      "<ruby>練習<rt>れんしゅう</rt></ruby>",
+      "",
+      "practice (+ する: to practise)"
+    ],
+    [
+      "<ruby>掃除<rt>そうじ</rt></ruby>",
+      "",
+      "cleaning (+ する: to clean)"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Decisions, rules and duties",
+    "text": "ことにする: I decide. ことにしている: my rule.\nことになる: it is decided (for me). ことになっている: the rule is.\n\nようにする: I make an effort to. ようにしている: I try to, as a habit.\nように: so that (potential verbs, V-ない).\n\nべきだ: should (opinion). べきではない: shouldn't. べきだった: should have.\n\nCausative-passive: N に V-させられる (made to do). Group 1 short form: <ruby>待<rt>ま</rt></ruby>たされる.",
+    "examples": [
+      "ことにする / ことになる",
+      "ようにする / ように",
+      "べきだ",
+      "V-させられる"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>来年<rt>らいねん</rt></ruby>、<ruby>留学<rt>りゅうがく</rt></ruby>することにしました。",
+      "I've decided to study abroad next year."
+    ],
+    [
+      "この<ruby>部屋<rt>へや</rt></ruby>は<ruby>飲食<rt>いんしょく</rt></ruby><ruby>禁止<rt>きんし</rt></ruby>ということになっています。",
+      "Eating and drinking are not allowed in this room."
+    ],
+    [
+      "<ruby>健康<rt>けんこう</rt></ruby>のために、<ruby>毎日<rt>まいにち</rt></ruby><ruby>歩<rt>ある</rt></ruby>くようにしています。",
+      "I try to walk every day for my health."
+    ],
+    [
+      "<ruby>忘<rt>わす</rt></ruby>れないように、メモしておきます。",
+      "I'll make a note so I don't forget."
+    ],
+    [
+      "<ruby>人<rt>ひと</rt></ruby>に<ruby>迷惑<rt>めいわく</rt></ruby>をかけるべきではありません。",
+      "You shouldn't cause trouble for others."
+    ],
+    [
+      "<ruby>先輩<rt>せんぱい</rt></ruby>に<ruby>掃除<rt>そうじ</rt></ruby>させられました。",
+      "My senior made me clean."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>何<rt>なに</rt></ruby>かいいニュースがあるんですか。",
+      "けん",
+      "<ruby>四月<rt>しがつ</rt></ruby>から<ruby>東京<rt>とうきょう</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くことになりました。"
+    ],
+    [
+      "リー",
+      "<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>何時<rt>なんじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きるんですか。",
+      "マイ",
+      "<ruby>六時<rt>ろくじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きることにしています。"
+    ],
+    [
+      "ゆき",
+      "きのうの<ruby>飲<rt>の</rt></ruby>み<ruby>会<rt>かい</rt></ruby>はどうでしたか。",
+      "リン",
+      "<ruby>先輩<rt>せんぱい</rt></ruby>にたくさん<ruby>飲<rt>の</rt></ruby>まされて、<ruby>大変<rt>たいへん</rt></ruby>でした。"
+    ],
+    [
+      "たなか",
+      "<ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>大<rt>おお</rt></ruby>きな<ruby>声<rt>こえ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>す<ruby>人<rt>ひと</rt></ruby>がいますね。",
+      "アナ",
+      "<ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>の<ruby>迷惑<rt>めいわく</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えるべきですね。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Diary",
+    "text_jp": "<ruby>大学<rt>だいがく</rt></ruby>に<ruby>入<rt>はい</rt></ruby>って、テニス<ruby>部<rt>ぶ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ることにしました。<ruby>部<rt>ぶ</rt></ruby>の<ruby>規則<rt>きそく</rt></ruby>はきびしくて、<ruby>一年生<rt>いちねんせい</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>七時<rt>しちじ</rt></ruby>にコートを<ruby>掃除<rt>そうじ</rt></ruby>することになっています。<ruby>最初<rt>さいしょ</rt></ruby>は、<ruby>先輩<rt>せんぱい</rt></ruby>に<ruby>毎日<rt>まいにち</rt></ruby><ruby>走<rt>はし</rt></ruby>らされて、とても<ruby>大変<rt>たいへん</rt></ruby>でした。<ruby>何度<rt>なんど</rt></ruby>も<ruby>辞<rt>や</rt></ruby>めようと<ruby>思<rt>おも</rt></ruby>いました。でも、<ruby>続<rt>つづ</rt></ruby>けたおかげで、<ruby>体<rt>からだ</rt></ruby>が<ruby>強<rt>つよ</rt></ruby>くなりました。<ruby>今<rt>いま</rt></ruby>は、けがをしないように、<ruby>練習<rt>れんしゅう</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>必<rt>かなら</rt></ruby>ずストレッチをするようにしています。<ruby>来年<rt>らいねん</rt></ruby>は、わたしも<ruby>先輩<rt>せんぱい</rt></ruby>になります。<ruby>後輩<rt>こうはい</rt></ruby>には<ruby>優<rt>やさ</rt></ruby>しくするべきだと<ruby>思<rt>おも</rt></ruby>います。",
+    "en_translation": "When I started university, I decided to join the tennis club. The club rules are strict: first-years have to clean the courts at seven every morning. At first, the seniors made me run every day, and it was very hard. I thought about quitting many times. But thanks to sticking with it, my body got stronger. Now, so that I don't get injured, I make sure to stretch before every practice. Next year, I'll be a senior too. I think seniors should be kind to juniors.",
+    "questions": [
+      {
+        "prompt": "What must first-years do every morning?",
+        "options": [
+          "Run ten kilometres",
+          "Clean the courts at seven",
+          "Make breakfast for the seniors",
+          "Stretch at six"
+        ],
+        "correct": "Clean the courts at seven",
+        "explanation": "<ruby>一年生<rt>いちねんせい</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>七時<rt>しちじ</rt></ruby>にコートを<ruby>掃除<rt>そうじ</rt></ruby>することになっています."
+      },
+      {
+        "prompt": "What good came from not quitting?",
+        "options": [
+          "The writer won a match.",
+          "The writer became captain.",
+          "The writer's body got stronger.",
+          "The writer made many friends."
+        ],
+        "correct": "The writer's body got stronger.",
+        "explanation": "<ruby>続<rt>つづ</rt></ruby>けたおかげで、<ruby>体<rt>からだ</rt></ruby>が<ruby>強<rt>つよ</rt></ruby>くなりました."
+      },
+      {
+        "prompt": "What does the writer think seniors should do?",
+        "options": [
+          "Make juniors run",
+          "Clean the courts themselves",
+          "Quit the club",
+          "Be kind to juniors"
+        ],
+        "correct": "Be kind to juniors",
+        "explanation": "<ruby>後輩<rt>こうはい</rt></ruby>には<ruby>優<rt>やさ</rt></ruby>しくするべきだ."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: <ruby>来年<rt>らいねん</rt></ruby>、<ruby>留学<rt>りゅうがく</rt></ruby>する＿＿にしました。 (I decided)",
+      "options": [
+        "よう",
+        "わけ",
+        "こと",
+        "べき"
+      ],
+      "correct": "こと",
+      "explanation": "ことにする."
+    },
+    {
+      "prompt": "Complete: <ruby>四月<rt>しがつ</rt></ruby>から<ruby>東京<rt>とうきょう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くことに＿＿。 (it was arranged)",
+      "options": [
+        "しました",
+        "いました",
+        "させました",
+        "なりました"
+      ],
+      "correct": "なりました",
+      "explanation": "ことになる."
+    },
+    {
+      "prompt": "Complete: この<ruby>部屋<rt>へや</rt></ruby>では<ruby>食<rt>た</rt></ruby>べてはいけないことに＿＿います。",
+      "options": [
+        "なって",
+        "して",
+        "させて",
+        "おいて"
+      ],
+      "correct": "なって",
+      "explanation": "The rule: ことになっている."
+    },
+    {
+      "prompt": "Complete: <ruby>毎日<rt>まいにち</rt></ruby>やさいを<ruby>食<rt>た</rt></ruby>べる＿＿にしています。 (I try to)",
+      "options": [
+        "べき",
+        "よう",
+        "わけ",
+        "ため"
+      ],
+      "correct": "よう",
+      "explanation": "ようにしている."
+    },
+    {
+      "prompt": "Complete: <ruby>忘<rt>わす</rt></ruby>れない＿＿、メモします。",
+      "options": [
+        "ために",
+        "べきに",
+        "ように",
+        "ことに"
+      ],
+      "correct": "ように",
+      "explanation": "So that not: ように."
+    },
+    {
+      "prompt": "Complete: <ruby>約束<rt>やくそく</rt></ruby>は<ruby>守<rt>まも</rt></ruby>る＿＿です。",
+      "options": [
+        "よう",
+        "ため",
+        "わけ",
+        "べき"
+      ],
+      "correct": "べき",
+      "explanation": "Should: べきだ."
+    },
+    {
+      "prompt": "What is the causative-passive of する?",
+      "options": [
+        "させられる",
+        "される",
+        "させる",
+        "しさせられる"
+      ],
+      "correct": "させられる",
+      "explanation": "する → させられる."
+    },
+    {
+      "prompt": "What is the short causative-passive of <ruby>飲<rt>の</rt></ruby>む?",
+      "options": [
+        "<ruby>飲<rt>の</rt></ruby>まれる",
+        "<ruby>飲<rt>の</rt></ruby>まされる",
+        "<ruby>飲<rt>の</rt></ruby>ませる",
+        "<ruby>飲<rt>の</rt></ruby>みされる"
+      ],
+      "correct": "<ruby>飲<rt>の</rt></ruby>まされる",
+      "explanation": "Group 1 short form."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the diary: why does the writer stretch before practice?",
+      "options": [
+        "So as not to get injured",
+        "Because the seniors make them",
+        "Because it's a club rule",
+        "To run faster"
+      ],
+      "correct": "So as not to get injured",
+      "explanation": "けがをしないように."
+    },
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるように、<ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>しています。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるために、<ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>しています。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すために、<ruby>留学<rt>りゅうがく</rt></ruby>することにしました。",
+        "<ruby>毎日<rt>まいにち</rt></ruby><ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すようにしています。"
+      ],
+      "correct": "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるために、<ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>しています。",
+      "explanation": "Potential verbs take ように."
+    },
+    {
+      "prompt": "Your boss tells you you're moving to the Osaka office. What do you tell your family?",
+      "options": [
+        "おおさかで<ruby>働<rt>はたら</rt></ruby>くことにした。",
+        "おおさかで<ruby>働<rt>はたら</rt></ruby>くべきだった。",
+        "おおさかで<ruby>働<rt>はたら</rt></ruby>くことになった。",
+        "おおさかで<ruby>働<rt>はたら</rt></ruby>かされるようにした。"
+      ],
+      "correct": "おおさかで<ruby>働<rt>はたら</rt></ruby>くことになった。",
+      "explanation": "Decided for you: ことになる."
+    },
+    {
+      "prompt": "What does <ruby>先輩<rt>せんぱい</rt></ruby>にたくさん<ruby>飲<rt>の</rt></ruby>まされました mean?",
+      "options": [
+        "I made my senior drink a lot.",
+        "My senior drank a lot.",
+        "I drank a lot with my senior happily.",
+        "My senior made me drink a lot."
+      ],
+      "correct": "My senior made me drink a lot.",
+      "explanation": "<ruby>飲<rt>の</rt></ruby>まされる: made to drink."
+    },
+    {
+      "prompt": "Review (Unit 2): complete あの<ruby>人<rt>ひと</rt></ruby>がうそをつく＿＿。 (no way)",
+      "options": [
+        "わけがありません",
+        "わけにはいきません",
+        "べきです",
+        "ことにしています"
+      ],
+      "correct": "わけがありません",
+      "explanation": "No way: わけがない."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-3-i-decided",
+    "japanese-n3-unit-3-its-been-decided",
+    "japanese-n3-unit-3-i-make-sure",
+    "japanese-n3-unit-3-you-ought-to",
+    "japanese-n3-unit-3-made-to-do",
+    "japanese-n3-unit-2-i-cant-just"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

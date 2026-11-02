@@ -33,7 +33,7 @@ export default function LevelPickerPage() {
             <span className={`flex h-14 w-14 items-center justify-center rounded-full text-lg font-black ${selected ? "bg-emerald-600 text-white shadow-md" : "bg-emerald-50 text-emerald-800"}`}>{level.id}</span>
             <span className="mt-5 block text-lg font-black">{level.title}</span>
             <span className="mt-2 block text-sm leading-relaxed text-gray-600">{level.blurb}</span>
-            <span className="mt-3 block text-xs font-bold uppercase tracking-wider text-gray-400">{units ? `${units} units` : "Coming soon"}</span>
+            <span className="mt-3 block text-xs font-bold uppercase tracking-wider text-gray-400">{units ? `${units} ${units === 1 ? "unit" : "units"}` : "Coming soon"}</span>
             <span className="mt-auto block pt-5 text-sm font-black text-emerald-700">{selected ? "Current level ✓" : `${level.action} →`}</span>
           </button>
         </li>;

@@ -59,6 +59,7 @@ group «Unit of work» withTransaction()
 end
 Svc -> Bus : publish(reporters, "inbox")
 note right of Bus : «Observer»
-Bus --> Web : reply appears in Help & support
+Bus -> Web : event
+note right of Web : each reporter's tab updates on its own:\nthe reply appears in Help & support
 Svc --> AdminWeb : resolved
 @enduml

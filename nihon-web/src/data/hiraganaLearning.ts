@@ -1,4 +1,6 @@
-export type KanaApiCharacter = { id: number; kana: string; romaji: string };
+import { HIRAGANA_MNEMONICS } from "./kanaMnemonics";
+
+export type KanaApiCharacter ={ id: number; kana: string; romaji: string };
 export type ExampleWord = { japanese: string; romaji: string; meaning: string; note?: string };
 export type KanaLearningCharacter = KanaApiCharacter & {
   category: "basic" | "dakuten" | "handakuten" | "yoon" | "extended";
@@ -7,6 +9,8 @@ export type KanaLearningCharacter = KanaApiCharacter & {
   exampleWord: ExampleWord;
   audioText?: string;
   strokeData?: readonly string[];
+  /** A picture-and-sound memory aid; only the 46 basic kana have one. */
+  mnemonic?: string;
 };
 
 export type KanaRow = { label: string; startId: number; endId: number };
@@ -63,7 +67,7 @@ const examples: Record<string, ExampleWord> = {
 export function enrichHiragana(character: KanaApiCharacter): KanaLearningCharacter {
   const section = HIRAGANA_SECTIONS.find((item) => item.rows.some((row) => character.id >= row.startId && character.id <= row.endId));
   const row = section?.rows.find((item) => character.id >= item.startId && character.id <= item.endId);
-  return { ...character, category: section?.key ?? "basic", row: row?.label ?? "", order: character.id, exampleWord: examples[character.kana] ?? e(character.kana, character.romaji, "Example coming soon"), audioText: character.kana };
+  return { ...character, category: section?.key ?? "basic", row: row?.label ?? "", order: character.id, exampleWord: examples[character.kana] ?? e(character.kana, character.romaji, "Example coming soon"), audioText: character.kana, mnemonic: HIRAGANA_MNEMONICS[character.kana] };
 }
 
 function e(japanese: string, romaji: string, meaning: string, note?: string): ExampleWord { return { japanese, romaji, meaning, note }; }

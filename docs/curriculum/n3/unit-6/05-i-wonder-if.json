@@ -1,0 +1,536 @@
+{
+  "id": "japanese-n3-unit-6-i-wonder-if",
+  "slug": "n3-unit-6-i-wonder-if",
+  "unit": "Japanese N3 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Isn't It That…?",
+  "title_jp": "〜のでは ないだろうか",
+  "objectives": [
+    "I can put forward a careful opinion.",
+    "Suggest an opinion softly with 〜のではないだろうか",
+    "Wonder about something with 〜だろうか",
+    "Talk about doubt, imagination, the future and ability"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>疑<rt>うたが</rt></ruby>う",
+      "",
+      "to doubt, to suspect"
+    ],
+    [
+      "<ruby>疑問<rt>ぎもん</rt></ruby>",
+      "",
+      "question, doubt"
+    ],
+    [
+      "<ruby>想像<rt>そうぞう</rt></ruby>",
+      "",
+      "imagination (+ する: to imagine)"
+    ],
+    [
+      "<ruby>予想<rt>よそう</rt></ruby>",
+      "",
+      "expectation, forecast (+ する: to expect)"
+    ],
+    [
+      "<ruby>理想<rt>りそう</rt></ruby>",
+      "",
+      "ideal"
+    ],
+    [
+      "<ruby>未来<rt>みらい</rt></ruby>",
+      "",
+      "the future"
+    ],
+    [
+      "<ruby>未成年<rt>みせいねん</rt></ruby>",
+      "",
+      "minor, under-age"
+    ],
+    [
+      "<ruby>可能<rt>かのう</rt></ruby>",
+      "",
+      "possible"
+    ],
+    [
+      "<ruby>不可能<rt>ふかのう</rt></ruby>",
+      "",
+      "impossible"
+    ],
+    [
+      "のうりょく",
+      "",
+      "ability"
+    ],
+    [
+      "〜だろうか",
+      "",
+      "I wonder if"
+    ],
+    [
+      "〜のではないだろうか",
+      "",
+      "isn't it the case that, I think perhaps"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "疑う",
+      "word_reading": "うたがう"
+    },
+    {
+      "word_japanese": "疑問",
+      "word_reading": "ぎもん"
+    },
+    {
+      "word_japanese": "想像",
+      "word_reading": "そうぞう"
+    },
+    {
+      "word_japanese": "予想",
+      "word_reading": "よそう"
+    },
+    {
+      "word_japanese": "理想",
+      "word_reading": "りそう"
+    },
+    {
+      "word_japanese": "未来",
+      "word_reading": "みらい"
+    },
+    {
+      "word_japanese": "未成年",
+      "word_reading": "みせいねん"
+    },
+    {
+      "word_japanese": "可能",
+      "word_reading": "かのう"
+    },
+    {
+      "word_japanese": "不可能",
+      "word_reading": "ふかのう"
+    },
+    {
+      "word_japanese": "能力",
+      "word_reading": "のうりょく"
+    }
+  ],
+  "concept": {
+    "title": "Wondering aloud",
+    "text": "〜だろうか asks a question to yourself: I wonder.\n<ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるだろうか。 I wonder if it will be sunny tomorrow.\n\n〜のではないだろうか (〜んじゃないだろうか) puts forward an opinion softly, as a question. It sounds modest and is common in essays:\nこの<ruby>計画<rt>けいかく</rt></ruby>は<ruby>不可能<rt>ふかのう</rt></ruby>なのではないだろうか。 Isn't this plan perhaps impossible?\nもっと<ruby>話<rt>はな</rt></ruby>しあうべきではないだろうか。 Shouldn't we talk it over more?\n\nPolite forms: 〜でしょうか / 〜のではないでしょうか.\nな-adjectives and nouns take な before の: <ruby>不可能<rt>ふかのう</rt></ruby>なのでは.",
+    "examples": [
+      "plain form + だろうか (I wonder)",
+      "plain form + のではないだろうか (soft opinion)",
+      "polite: でしょうか / のではないでしょうか"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I wonder: 〜だろうか",
+      "pattern": "plain form + だろうか (N / な-adj without だ)",
+      "explanation": "A question you ask yourself. Polite: でしょうか.",
+      "examples": [
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるだろうか。",
+          "romaji": "",
+          "meaning": "I wonder if it will be sunny tomorrow."
+        },
+        {
+          "japanese": "この<ruby>答<rt>こた</rt></ruby>えは<ruby>正<rt>ただ</rt></ruby>しいのだろうか。",
+          "romaji": "",
+          "meaning": "I wonder whether this answer is right."
+        },
+        {
+          "japanese": "<ruby>百年後<rt>ひゃくねんご</rt></ruby>の<ruby>未来<rt>みらい</rt></ruby>はどうなっているだろうか。",
+          "romaji": "",
+          "meaning": "I wonder what the future will be like in a hundred years."
+        },
+        {
+          "japanese": "<ruby>本当<rt>ほんとう</rt></ruby>にそれでいいのでしょうか。",
+          "romaji": "",
+          "meaning": "Is that really all right, I wonder?"
+        }
+      ],
+      "notes": [
+        "With a question word: どうして〜のだろうか (why, I wonder)."
+      ]
+    },
+    {
+      "title": "Isn't it perhaps: 〜のではないだろうか",
+      "pattern": "plain form + のではないだろうか (N / な-adj + な)",
+      "explanation": "Gives your opinion modestly, as a question. Common in essays and discussions.",
+      "examples": [
+        {
+          "japanese": "この<ruby>計画<rt>けいかく</rt></ruby>は<ruby>不可能<rt>ふかのう</rt></ruby>なのではないだろうか。",
+          "romaji": "",
+          "meaning": "Isn't this plan perhaps impossible?"
+        },
+        {
+          "japanese": "かれはうそをついているのではないだろうか。",
+          "romaji": "",
+          "meaning": "I suspect he may be lying."
+        },
+        {
+          "japanese": "もっと<ruby>話<rt>はな</rt></ruby>しあうべきなのではないでしょうか。",
+          "romaji": "",
+          "meaning": "Shouldn't we talk it over more?"
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもののうりょくは、<ruby>親<rt>おや</rt></ruby>が<ruby>想像<rt>そうぞう</rt></ruby>するより<ruby>高<rt>たか</rt></ruby>いのではないだろうか。",
+          "romaji": "",
+          "meaning": "Perhaps children's abilities are greater than their parents imagine."
+        }
+      ],
+      "notes": [
+        "Casual: 〜んじゃないかな.",
+        "Polite: 〜のではないでしょうか."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "かれの<ruby>話<rt>はなし</rt></ruby>を<ruby>少<rt>すこ</rt></ruby>し<ruby>疑<rt>うたが</rt></ruby>っています。",
+      "I'm a little suspicious of his story."
+    ],
+    [
+      "<ruby>何<rt>なに</rt></ruby>か<ruby>疑問<rt>ぎもん</rt></ruby>があったら、<ruby>聞<rt>き</rt></ruby>いてください。",
+      "If you have any questions, please ask."
+    ],
+    [
+      "<ruby>予想<rt>よそう</rt></ruby>より<ruby>早<rt>はや</rt></ruby>く<ruby>着<rt>つ</rt></ruby>きました。",
+      "We arrived sooner than expected."
+    ],
+    [
+      "<ruby>未成年<rt>みせいねん</rt></ruby>はおさけを<ruby>飲<rt>の</rt></ruby>んではいけません。",
+      "Minors must not drink alcohol."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "この<ruby>仕事<rt>しごと</rt></ruby>、<ruby>明日<rt>あした</rt></ruby>までにできるでしょうか。",
+      "けん",
+      "<ruby>一人<rt>ひとり</rt></ruby>では<ruby>不可能<rt>ふかのう</rt></ruby>なのではないでしょうか。"
+    ],
+    [
+      "リー",
+      "あの<ruby>話<rt>はなし</rt></ruby>、<ruby>本当<rt>ほんとう</rt></ruby>だろうか。",
+      "マイ",
+      "わたしも<ruby>少<rt>すこ</rt></ruby>し<ruby>疑<rt>うたが</rt></ruby>っています。"
+    ],
+    [
+      "ゆき",
+      "<ruby>十年後<rt>じゅうねんご</rt></ruby>の<ruby>自分<rt>じぶん</rt></ruby>を<ruby>想像<rt>そうぞう</rt></ruby>できますか。",
+      "リン",
+      "うーん、<ruby>全然<rt>ぜんぜん</rt></ruby><ruby>想像<rt>そうぞう</rt></ruby>できません。"
+    ],
+    [
+      "たなか",
+      "しあいのけっか、<ruby>予想<rt>よそう</rt></ruby>はどうですか。",
+      "アナ",
+      "うちのチームが<ruby>勝<rt>か</rt></ruby>つのではないかと<ruby>思<rt>おも</rt></ruby>います。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "疑",
+      "onyomi": [
+        "ギ"
+      ],
+      "kunyomi": [
+        "うたが.う"
+      ],
+      "meaning_en": "doubt",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "疑う",
+          "reading": "うたがう",
+          "en": "to doubt"
+        },
+        {
+          "word": "疑問",
+          "reading": "ぎもん",
+          "en": "question"
+        }
+      ],
+      "mnemonic": "A person stopping at a crossroads, not sure which way to go."
+    },
+    {
+      "char": "想",
+      "onyomi": [
+        "ソウ",
+        "ソ"
+      ],
+      "kunyomi": [
+        "おも.う"
+      ],
+      "meaning_en": "think, imagine",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "想像",
+          "reading": "そうぞう",
+          "en": "imagination"
+        },
+        {
+          "word": "予想",
+          "reading": "よそう",
+          "en": "expectation"
+        }
+      ],
+      "mnemonic": "The heart (心) looking at each other (相): thinking of someone."
+    },
+    {
+      "char": "像",
+      "onyomi": [
+        "ゾウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "image",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "想像",
+          "reading": "そうぞう",
+          "en": "imagination"
+        },
+        {
+          "word": "画像",
+          "reading": "がぞう",
+          "en": "image"
+        }
+      ],
+      "mnemonic": "A person (亻) like an elephant (象): an image of something."
+    },
+    {
+      "char": "未",
+      "onyomi": [
+        "ミ",
+        "ビ"
+      ],
+      "kunyomi": [
+        "いま.だ",
+        "ま.だ",
+        "ひつじ"
+      ],
+      "meaning_en": "not yet",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "未来",
+          "reading": "みらい",
+          "en": "the future"
+        },
+        {
+          "word": "未成年",
+          "reading": "みせいねん",
+          "en": "minor"
+        }
+      ],
+      "mnemonic": "A tree (木) whose top branches haven't grown yet."
+    },
+    {
+      "char": "可",
+      "onyomi": [
+        "カ",
+        "コク"
+      ],
+      "kunyomi": [
+        "-べ.き",
+        "-べ.し"
+      ],
+      "meaning_en": "possible",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "可能",
+          "reading": "かのう",
+          "en": "possible"
+        },
+        {
+          "word": "不可能",
+          "reading": "ふかのう",
+          "en": "impossible"
+        }
+      ],
+      "mnemonic": "A mouth (口) saying \"yes, you can\"."
+    },
+    {
+      "char": "能",
+      "onyomi": [
+        "ノウ"
+      ],
+      "kunyomi": [
+        "よ.く",
+        "あた.う"
+      ],
+      "meaning_en": "ability",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "可能",
+          "reading": "かのう",
+          "en": "possible"
+        },
+        {
+          "word": "能力",
+          "reading": "のうりょく",
+          "en": "ability"
+        }
+      ],
+      "mnemonic": "A bear with strong legs: able to do things."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>冬<rt>ふゆ</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>をひき＿＿です。",
+      "options": [
+        "っぽい",
+        "がち",
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "おそれ"
+      ],
+      "correct": "がち",
+      "explanation": "Tend to: がちだ."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れる＿＿。 (I wonder)",
+      "options": [
+        "に<ruby>違<rt>ちが</rt></ruby>いない",
+        "おそれがある",
+        "だろうか",
+        "がちだ"
+      ],
+      "correct": "だろうか",
+      "explanation": "I wonder: だろうか."
+    },
+    {
+      "prompt": "Complete: この<ruby>計画<rt>けいかく</rt></ruby>は<ruby>不可能<rt>ふかのう</rt></ruby>＿＿のではないだろうか。",
+      "options": [
+        "だ",
+        "の",
+        "に",
+        "な"
+      ],
+      "correct": "な",
+      "explanation": "な-adjective + な のではないだろうか."
+    },
+    {
+      "prompt": "Complete: かれはうそをついているのでは＿＿だろうか。",
+      "options": [
+        "ない",
+        "ある",
+        "なく",
+        "いる"
+      ],
+      "correct": "ない",
+      "explanation": "Soft opinion: のではないだろうか."
+    },
+    {
+      "prompt": "Which word means \"imagination\"?",
+      "options": [
+        "<ruby>予想<rt>よそう</rt></ruby>",
+        "<ruby>想像<rt>そうぞう</rt></ruby>",
+        "<ruby>理想<rt>りそう</rt></ruby>",
+        "<ruby>疑問<rt>ぎもん</rt></ruby>"
+      ],
+      "correct": "<ruby>想像<rt>そうぞう</rt></ruby>",
+      "explanation": "<ruby>想像<rt>そうぞう</rt></ruby>: imagination."
+    },
+    {
+      "prompt": "How is 未来⁠ read?",
+      "options": [
+        "まいらい",
+        "びらい",
+        "みらい",
+        "みき"
+      ],
+      "correct": "みらい",
+      "explanation": "未来⁠ is read みらい."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>予想<rt>よそう</rt></ruby>より<ruby>早<rt>はや</rt></ruby>く<ruby>着<rt>つ</rt></ruby>きました。",
+      "options": [
+        "We arrived later than expected.",
+        "We expected to arrive early.",
+        "We didn't arrive.",
+        "We arrived sooner than expected."
+      ],
+      "correct": "We arrived sooner than expected.",
+      "explanation": "<ruby>予想<rt>よそう</rt></ruby>: expectation."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You think the plan won't work but want to sound modest. What do you say?",
+      "options": [
+        "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいに<ruby>決<rt>き</rt></ruby>まっています。",
+        "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいに<ruby>違<rt>ちが</rt></ruby>いない。",
+        "この<ruby>計画<rt>けいかく</rt></ruby>、むずかしいっぽい。",
+        "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいのではないでしょうか。"
+      ],
+      "correct": "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいのではないでしょうか。",
+      "explanation": "のではないでしょうか: modest opinion."
+    },
+    {
+      "prompt": "What does <ruby>本当<rt>ほんとう</rt></ruby>にそれでいいのでしょうか mean?",
+      "options": [
+        "Is that really all right, I wonder?",
+        "That's definitely all right.",
+        "That isn't all right.",
+        "Please make it all right."
+      ],
+      "correct": "Is that really all right, I wonder?",
+      "explanation": "でしょうか: I wonder."
+    },
+    {
+      "prompt": "Which word means \"ability\"?",
+      "options": [
+        "<ruby>可能<rt>かのう</rt></ruby>",
+        "のうりょく",
+        "<ruby>未来<rt>みらい</rt></ruby>",
+        "<ruby>理想<rt>りそう</rt></ruby>"
+      ],
+      "correct": "のうりょく",
+      "explanation": "のうりょく: ability."
+    },
+    {
+      "prompt": "Read: うちのチームが<ruby>勝<rt>か</rt></ruby>つのではないかと<ruby>思<rt>おも</rt></ruby>います。 What does Ana think?",
+      "options": [
+        "Her team will lose.",
+        "She doesn't care.",
+        "Her team will probably win.",
+        "The match is cancelled."
+      ],
+      "correct": "Her team will probably win.",
+      "explanation": "のではないか: soft opinion."
+    },
+    {
+      "prompt": "Review: complete <ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>く</rt></ruby>る＿＿があります。",
+      "options": [
+        "だろうか",
+        "ほど",
+        "ため",
+        "おそれ"
+      ],
+      "correct": "おそれ",
+      "explanation": "There is a risk: おそれがある."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-6-tends-to",
+    "japanese-n3-unit-6-must-be",
+    "japanese-n4-unit-1-probably"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,535 @@
+{
+  "id": "japanese-n3-unit-2-thanks-to",
+  "slug": "n3-unit-2-thanks-to",
+  "unit": "Japanese N3 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Thanks To You",
+  "title_jp": "〜おかげで・〜せいで",
+  "objectives": [
+    "I can say what helped or what was to blame.",
+    "Thank someone or something for a good result with おかげで",
+    "Blame someone or something for a bad result with せいで",
+    "Talk about help, success, failure and accidents"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>助<rt>たす</rt></ruby>ける",
+      "",
+      "to help, to save"
+    ],
+    [
+      "<ruby>助<rt>たす</rt></ruby>かる",
+      "",
+      "to be saved; to be a help"
+    ],
+    [
+      "<ruby>遅<rt>おく</rt></ruby>れる",
+      "",
+      "to be late"
+    ],
+    [
+      "<ruby>遅<rt>おそ</rt></ruby>い",
+      "",
+      "slow, late"
+    ],
+    [
+      "<ruby>事故<rt>じこ</rt></ruby>",
+      "",
+      "accident"
+    ],
+    [
+      "こしょう",
+      "",
+      "breakdown (+ する: to break down)"
+    ],
+    [
+      "<ruby>失敗<rt>しっぱい</rt></ruby>",
+      "",
+      "failure, mistake (+ する: to fail)"
+    ],
+    [
+      "せいこう",
+      "",
+      "success (+ する: to succeed)"
+    ],
+    [
+      "<ruby>成長<rt>せいちょう</rt></ruby>",
+      "",
+      "growth (+ する: to grow up)"
+    ],
+    [
+      "<ruby>失<rt>うしな</rt></ruby>う",
+      "",
+      "to lose"
+    ],
+    [
+      "〜おかげで",
+      "",
+      "thanks to"
+    ],
+    [
+      "〜せいで",
+      "",
+      "because of (blame)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "助ける",
+      "word_reading": "たすける"
+    },
+    {
+      "word_japanese": "助かる",
+      "word_reading": "たすかる"
+    },
+    {
+      "word_japanese": "遅れる",
+      "word_reading": "おくれる"
+    },
+    {
+      "word_japanese": "遅い",
+      "word_reading": "おそい"
+    },
+    {
+      "word_japanese": "事故",
+      "word_reading": "じこ"
+    },
+    {
+      "word_japanese": "失敗",
+      "word_reading": "しっぱい"
+    },
+    {
+      "word_japanese": "成長",
+      "word_reading": "せいちょう"
+    },
+    {
+      "word_japanese": "失う",
+      "word_reading": "うしなう"
+    }
+  ],
+  "concept": {
+    "title": "Thanks to, and because of",
+    "text": "Both おかげで and せいで give the reason for a result. The difference is how the speaker feels about it:\n\nおかげで: a good result, with gratitude.\n<ruby>先生<rt>せんせい</rt></ruby>のおかげで、ごうかくできました。 Thanks to my teacher, I passed.\n\nせいで: a bad result, with blame.\n<ruby>事故<rt>じこ</rt></ruby>のせいで、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れました。 The train was late because of an accident.\n\nBoth follow a noun with の, or a plain form (な-adjectives keep な): <ruby>駅<rt>えき</rt></ruby>が<ruby>近<rt>ちか</rt></ruby>いおかげで, <ruby>雨<rt>あめ</rt></ruby>のせいで.\n\nおかげさまで is a set phrase: \"I'm fine, thank you\".",
+    "examples": [
+      "N の / plain form + おかげで (good result)",
+      "N の / plain form + せいで (bad result)",
+      "おかげさまで (set phrase)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Thanks to: 〜おかげで",
+      "pattern": "N の / plain form + おかげで",
+      "explanation": "The speaker is grateful for what made a good result possible.",
+      "examples": [
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>のおかげで、<ruby>試験<rt>しけん</rt></ruby>にごうかくできました。",
+          "romaji": "",
+          "meaning": "Thanks to my teacher, I passed the exam."
+        },
+        {
+          "japanese": "<ruby>友<rt>とも</rt></ruby>だちが<ruby>助<rt>たす</rt></ruby>けてくれたおかげで、<ruby>間<rt>ま</rt></ruby>にあいました。",
+          "romaji": "",
+          "meaning": "Thanks to my friend's help, I made it in time."
+        },
+        {
+          "japanese": "くすりを<ruby>飲<rt>の</rt></ruby>んだおかげで、ねつが<ruby>下<rt>さ</rt></ruby>がりました。",
+          "romaji": "",
+          "meaning": "Thanks to the medicine, my fever went down."
+        },
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>が<ruby>近<rt>ちか</rt></ruby>いおかげで、<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>楽<rt>らく</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "The station is close, so my mornings are easy."
+        }
+      ],
+      "notes": [
+        "おげんきですか。—はい、おかげさまで。 (Yes, I'm fine, thank you.)",
+        "Used about a bad result, おかげで is sarcastic: あなたのおかげで、<ruby>遅<rt>おく</rt></ruby>れましたよ (thanks a lot)."
+      ]
+    },
+    {
+      "title": "Because of (blame): 〜せいで",
+      "pattern": "N の / plain form + せいで",
+      "explanation": "The speaker blames something or someone for a bad result.",
+      "examples": [
+        {
+          "japanese": "<ruby>事故<rt>じこ</rt></ruby>のせいで、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れました。",
+          "romaji": "",
+          "meaning": "The train was late because of an accident."
+        },
+        {
+          "japanese": "<ruby>夜<rt>よる</rt></ruby>おそくまでゲームをしたせいで、ねぼうしました。",
+          "romaji": "",
+          "meaning": "I overslept because I played games until late."
+        },
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>のせいで、しあいが<ruby>中止<rt>ちゅうし</rt></ruby>になりました。",
+          "romaji": "",
+          "meaning": "The match was called off because of the rain."
+        },
+        {
+          "japanese": "わたしが<ruby>失敗<rt>しっぱい</rt></ruby>したせいで、チームがまけてしまいました。",
+          "romaji": "",
+          "meaning": "The team lost because of my mistake."
+        }
+      ],
+      "notes": [
+        "せいか: maybe because. <ruby>年<rt>とし</rt></ruby>のせいか、すぐつかれます (perhaps it's my age, but I tire quickly).",
+        "Never use せいで for a good result."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>遅<rt>おそ</rt></ruby>くなって、すみません。",
+      "Sorry I'm late."
+    ],
+    [
+      "<ruby>道<rt>みち</rt></ruby>で<ruby>事故<rt>じこ</rt></ruby>がありました。",
+      "There was an accident on the road."
+    ],
+    [
+      "<ruby>子<rt>こ</rt></ruby>どもの<ruby>成長<rt>せいちょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>いですね。",
+      "Children grow up so fast."
+    ],
+    [
+      "その<ruby>日<rt>ひ</rt></ruby>、かれはじしんを<ruby>失<rt>うしな</rt></ruby>いました。",
+      "That day he lost his confidence."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>試験<rt>しけん</rt></ruby>、どうでしたか。",
+      "けん",
+      "<ruby>先生<rt>せんせい</rt></ruby>のおかげで、ごうかくしました。"
+    ],
+    [
+      "リー",
+      "どうして<ruby>遅<rt>おく</rt></ruby>れたんですか。",
+      "マイ",
+      "<ruby>事故<rt>じこ</rt></ruby>のせいで、バスが<ruby>動<rt>うご</rt></ruby>かなかったんです。"
+    ],
+    [
+      "ゆき",
+      "おげんきですか。",
+      "たなか",
+      "はい、おかげさまで。"
+    ],
+    [
+      "リン",
+      "てつだってくれて、ありがとう。",
+      "アナ",
+      "いいえ、<ruby>少<rt>すこ</rt></ruby>しでも<ruby>助<rt>たす</rt></ruby>けになったら、うれしいです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "助",
+      "onyomi": [
+        "ジョ"
+      ],
+      "kunyomi": [
+        "たす.ける",
+        "たす.かる",
+        "す.ける",
+        "すけ"
+      ],
+      "meaning_en": "help",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "助ける",
+          "reading": "たすける",
+          "en": "to help"
+        },
+        {
+          "word": "助手",
+          "reading": "じょしゅ",
+          "en": "assistant"
+        }
+      ],
+      "mnemonic": "Strength (力) piled up (且) to help someone."
+    },
+    {
+      "char": "遅",
+      "onyomi": [
+        "チ"
+      ],
+      "kunyomi": [
+        "おく.れる",
+        "おく.らす",
+        "おそ.い"
+      ],
+      "meaning_en": "late, slow",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "遅れる",
+          "reading": "おくれる",
+          "en": "to be late"
+        },
+        {
+          "word": "遅刻",
+          "reading": "ちこく",
+          "en": "lateness"
+        }
+      ],
+      "mnemonic": "A rhinoceros (犀) walking (辶) slowly."
+    },
+    {
+      "char": "故",
+      "onyomi": [
+        "コ"
+      ],
+      "kunyomi": [
+        "ゆえ",
+        "ふる.い",
+        "もと"
+      ],
+      "meaning_en": "reason; accident",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "事故",
+          "reading": "じこ",
+          "en": "accident"
+        },
+        {
+          "word": "故障",
+          "reading": "こしょう",
+          "en": "breakdown"
+        }
+      ],
+      "mnemonic": "Something old (古) struck (攵): an accident."
+    },
+    {
+      "char": "失",
+      "onyomi": [
+        "シツ"
+      ],
+      "kunyomi": [
+        "うしな.う",
+        "う.せる"
+      ],
+      "meaning_en": "lose",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "失う",
+          "reading": "うしなう",
+          "en": "to lose"
+        },
+        {
+          "word": "失敗",
+          "reading": "しっぱい",
+          "en": "failure"
+        }
+      ],
+      "mnemonic": "Something slipping out of a hand (手): to lose."
+    },
+    {
+      "char": "敗",
+      "onyomi": [
+        "ハイ"
+      ],
+      "kunyomi": [
+        "やぶ.れる"
+      ],
+      "meaning_en": "defeat",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "失敗",
+          "reading": "しっぱい",
+          "en": "failure"
+        },
+        {
+          "word": "敗れる",
+          "reading": "やぶれる",
+          "en": "to be beaten"
+        }
+      ],
+      "mnemonic": "A shell (貝) of money struck (攵) away: defeat."
+    },
+    {
+      "char": "成",
+      "onyomi": [
+        "セイ",
+        "ジョウ"
+      ],
+      "kunyomi": [
+        "な.る",
+        "な.す",
+        "-な.す"
+      ],
+      "meaning_en": "become, succeed",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "成長",
+          "reading": "せいちょう",
+          "en": "growth"
+        },
+        {
+          "word": "成功",
+          "reading": "せいこう",
+          "en": "success"
+        }
+      ],
+      "mnemonic": "A halberd (戈) finally taking shape: completion."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 1): complete <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て＿＿、ずっと<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っています。",
+      "options": [
+        "から",
+        "<ruby>以来<rt>いらい</rt></ruby>",
+        "ばかり",
+        "とたん"
+      ],
+      "correct": "<ruby>以来<rt>いらい</rt></ruby>",
+      "explanation": "Ever since: て<ruby>以来<rt>いらい</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>の＿＿、ごうかくできました。",
+      "options": [
+        "せいで",
+        "ために",
+        "おかげで",
+        "とたんに"
+      ],
+      "correct": "おかげで",
+      "explanation": "A good result: おかげで."
+    },
+    {
+      "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>の＿＿、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れました。",
+      "options": [
+        "おかげで",
+        "うちに",
+        "<ruby>以来<rt>いらい</rt></ruby>",
+        "せいで"
+      ],
+      "correct": "せいで",
+      "explanation": "A bad result: せいで."
+    },
+    {
+      "prompt": "Complete: <ruby>雨<rt>あめ</rt></ruby>＿＿せいで、しあいが<ruby>中止<rt>ちゅうし</rt></ruby>になりました。",
+      "options": [
+        "の",
+        "な",
+        "で",
+        "に"
+      ],
+      "correct": "の",
+      "explanation": "N の せいで."
+    },
+    {
+      "prompt": "Which word means \"to be late\"?",
+      "options": [
+        "<ruby>遅<rt>おそ</rt></ruby>い",
+        "<ruby>遅<rt>おく</rt></ruby>れる",
+        "<ruby>失<rt>うしな</rt></ruby>う",
+        "<ruby>助<rt>たす</rt></ruby>ける"
+      ],
+      "correct": "<ruby>遅<rt>おく</rt></ruby>れる",
+      "explanation": "<ruby>遅<rt>おく</rt></ruby>れる: to be late."
+    },
+    {
+      "prompt": "How is 失敗⁠ read?",
+      "options": [
+        "しつはい",
+        "しっばい",
+        "しっぱい",
+        "しつばい"
+      ],
+      "correct": "しっぱい",
+      "explanation": "失敗⁠ is read しっぱい."
+    },
+    {
+      "prompt": "Choose the meaning of おげんきですか。—はい、おかげさまで。",
+      "options": [
+        "Yes, thanks to the medicine.",
+        "No, I'm not well.",
+        "Yes, it's your fault.",
+        "Yes, I'm fine, thank you."
+      ],
+      "correct": "Yes, I'm fine, thank you.",
+      "explanation": "おかげさまで: a set phrase."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>のおかげで、ごうかくできました。",
+        "<ruby>雨<rt>あめ</rt></ruby>のせいで、<ruby>遅<rt>おく</rt></ruby>れました。",
+        "くすりのおかげで、げんきになりました。",
+        "<ruby>先生<rt>せんせい</rt></ruby>のせいで、ごうかくできました。"
+      ],
+      "correct": "<ruby>先生<rt>せんせい</rt></ruby>のせいで、ごうかくできました。",
+      "explanation": "A good result takes おかげで."
+    },
+    {
+      "prompt": "You overslept because you played games late. What do you say?",
+      "options": [
+        "ゲームをしたせいで、ねぼうしました。",
+        "ゲームをしたおかげで、ねぼうしました。",
+        "ゲームをしたとたん、ねぼうしました。",
+        "ゲームをしているうちに、ねぼうしません。"
+      ],
+      "correct": "ゲームをしたせいで、ねぼうしました。",
+      "explanation": "Blame: せいで."
+    },
+    {
+      "prompt": "What does <ruby>年<rt>とし</rt></ruby>のせいか、すぐつかれます mean?",
+      "options": [
+        "I'm young, so I never get tired.",
+        "Perhaps it's my age, but I get tired quickly.",
+        "It's this year's fault.",
+        "I got tired this year."
+      ],
+      "correct": "Perhaps it's my age, but I get tired quickly.",
+      "explanation": "せいか: maybe because."
+    },
+    {
+      "prompt": "Read: <ruby>事故<rt>じこ</rt></ruby>のせいで、バスが<ruby>動<rt>うご</rt></ruby>かなかったんです。 Why was Mai late?",
+      "options": [
+        "She overslept.",
+        "The bus was early.",
+        "An accident stopped the bus.",
+        "She was helping someone."
+      ],
+      "correct": "An accident stopped the bus.",
+      "explanation": "<ruby>事故<rt>じこ</rt></ruby>のせいで."
+    },
+    {
+      "prompt": "Review (Unit 1): complete <ruby>暗<rt>くら</rt></ruby>くなら＿＿うちに、<ruby>帰<rt>かえ</rt></ruby>りましょう。",
+      "options": [
+        "る",
+        "た",
+        "て",
+        "ない"
+      ],
+      "correct": "ない",
+      "explanation": "Before: V-ない うちに."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-1-ever-since",
+    "japanese-n4-unit-1-what-happened",
+    "japanese-n4-unit-2-they-gave-me"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

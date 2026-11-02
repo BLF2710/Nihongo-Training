@@ -1,0 +1,536 @@
+{
+  "id": "japanese-n3-unit-5-to-me",
+  "slug": "n3-unit-5-to-me",
+  "unit": "Japanese N3 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "What It Means to Me",
+  "title_jp": "〜に とって",
+  "objectives": [
+    "I can say what something means to me.",
+    "Give a point of view with 〜にとって",
+    "Describe something with にとってのN",
+    "Talk about dreams, the future, happiness and love"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>夢<rt>ゆめ</rt></ruby>",
+      "",
+      "dream"
+    ],
+    [
+      "<ruby>将来<rt>しょうらい</rt></ruby>",
+      "",
+      "the future"
+    ],
+    [
+      "<ruby>幸<rt>しあわ</rt></ruby>せ",
+      "",
+      "happiness; happy"
+    ],
+    [
+      "<ruby>幸福<rt>こうふく</rt></ruby>",
+      "",
+      "happiness (formal)"
+    ],
+    [
+      "<ruby>命<rt>いのち</rt></ruby>",
+      "",
+      "life"
+    ],
+    [
+      "<ruby>運命<rt>うんめい</rt></ruby>",
+      "",
+      "fate"
+    ],
+    [
+      "<ruby>愛<rt>あい</rt></ruby>",
+      "",
+      "love"
+    ],
+    [
+      "<ruby>愛<rt>あい</rt></ruby>する",
+      "",
+      "to love"
+    ],
+    [
+      "<ruby>大切<rt>たいせつ</rt></ruby>",
+      "",
+      "important, precious"
+    ],
+    [
+      "<ruby>意味<rt>いみ</rt></ruby>",
+      "",
+      "meaning"
+    ],
+    [
+      "〜にとって",
+      "",
+      "for, to (from someone's point of view)"
+    ],
+    [
+      "〜にとっての",
+      "",
+      "… for (someone)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "夢",
+      "word_reading": "ゆめ"
+    },
+    {
+      "word_japanese": "将来",
+      "word_reading": "しょうらい"
+    },
+    {
+      "word_japanese": "幸せ",
+      "word_reading": "しあわせ"
+    },
+    {
+      "word_japanese": "幸福",
+      "word_reading": "こうふく"
+    },
+    {
+      "word_japanese": "命",
+      "word_reading": "いのち"
+    },
+    {
+      "word_japanese": "運命",
+      "word_reading": "うんめい"
+    },
+    {
+      "word_japanese": "愛",
+      "word_reading": "あい"
+    },
+    {
+      "word_japanese": "愛する",
+      "word_reading": "あいする"
+    }
+  ],
+  "concept": {
+    "title": "From someone's point of view",
+    "text": "N にとって gives the point of view from which something is judged. The rest of the sentence is an evaluation: important, difficult, a problem, a dream.\n\nわたしにとって、<ruby>家族<rt>かぞく</rt></ruby>はいちばん<ruby>大切<rt>たいせつ</rt></ruby>です。 For me, family matters most.\n<ruby>子<rt>こ</rt></ruby>どもにとって、この<ruby>本<rt>ほん</rt></ruby>はむずかしすぎます。 This book is too hard for children.\n\nBefore a noun, use にとっての:\n<ruby>学生<rt>がくせい</rt></ruby>にとっての<ruby>問題<rt>もんだい</rt></ruby> (a problem for students).\n\nDon't use にとって for actions done for someone. Use ために or に:\n✗ <ruby>母<rt>はは</rt></ruby>にとって<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。\n✓ <ruby>母<rt>はは</rt></ruby>のために<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+    "examples": [
+      "N にとって + evaluation",
+      "N にとっての N",
+      "not for actions: use ために"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "For (someone): 〜にとって",
+      "pattern": "N にとって + evaluation",
+      "explanation": "Judges something from a person's or group's point of view.",
+      "examples": [
+        {
+          "japanese": "わたしにとって、<ruby>家族<rt>かぞく</rt></ruby>はいちばん<ruby>大切<rt>たいせつ</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "For me, family matters most."
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもにとって、この<ruby>本<rt>ほん</rt></ruby>はむずかしすぎます。",
+          "romaji": "",
+          "meaning": "This book is too hard for children."
+        },
+        {
+          "japanese": "<ruby>留学生<rt>りゅうがくせい</rt></ruby>にとって、<ruby>漢字<rt>かんじ</rt></ruby>は<ruby>大変<rt>たいへん</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "Kanji are hard for international students."
+        },
+        {
+          "japanese": "この<ruby>写真<rt>しゃしん</rt></ruby>は、わたしにとって<ruby>命<rt>いのち</rt></ruby>の<ruby>次<rt>つぎ</rt></ruby>に<ruby>大切<rt>たいせつ</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "This photo is the most precious thing to me after my own life."
+        }
+      ],
+      "notes": [
+        "The second half is an evaluation (important, hard, a problem…).",
+        "For actions done for someone, use ために: <ruby>母<rt>はは</rt></ruby>のために<ruby>作<rt>つく</rt></ruby>る."
+      ]
+    },
+    {
+      "title": "… for (someone): 〜にとってのN",
+      "pattern": "N にとって の N",
+      "explanation": "Puts the point of view before a noun.",
+      "examples": [
+        {
+          "japanese": "わたしにとっての<ruby>幸<rt>しあわ</rt></ruby>せは、<ruby>家族<rt>かぞく</rt></ruby>とすごす<ruby>時間<rt>じかん</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "Happiness for me is time with my family."
+        },
+        {
+          "japanese": "<ruby>学生<rt>がくせい</rt></ruby>にとってのいちばんの<ruby>問題<rt>もんだい</rt></ruby>は、お<ruby>金<rt>かね</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "Students' biggest problem is money."
+        },
+        {
+          "japanese": "これはわたしにとっての<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "This is a precious memory for me."
+        },
+        {
+          "japanese": "あなたにとっての<ruby>夢<rt>ゆめ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。",
+          "romaji": "",
+          "meaning": "What is your dream?"
+        }
+      ],
+      "notes": [
+        "Often used in titles and questions: 〜にとっての<ruby>幸<rt>しあわ</rt></ruby>せとは."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>将来<rt>しょうらい</rt></ruby>の<ruby>夢<rt>ゆめ</rt></ruby>は<ruby>医者<rt>いしゃ</rt></ruby>になることです。",
+      "My dream for the future is to become a doctor."
+    ],
+    [
+      "<ruby>幸<rt>しあわ</rt></ruby>せな<ruby>毎日<rt>まいにち</rt></ruby>を<ruby>送<rt>おく</rt></ruby>っています。",
+      "I'm living happy days."
+    ],
+    [
+      "<ruby>命<rt>いのち</rt></ruby>はお<ruby>金<rt>かね</rt></ruby>で<ruby>買<rt>か</rt></ruby>えません。",
+      "You can't buy life with money."
+    ],
+    [
+      "<ruby>両親<rt>りょうしん</rt></ruby>は<ruby>子<rt>こ</rt></ruby>どもを<ruby>愛<rt>あい</rt></ruby>しています。",
+      "Parents love their children."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "けんさんの<ruby>将来<rt>しょうらい</rt></ruby>の<ruby>夢<rt>ゆめ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。",
+      "けん",
+      "<ruby>自分<rt>じぶん</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>を<ruby>持<rt>も</rt></ruby>つことです。"
+    ],
+    [
+      "リー",
+      "どうしてこの<ruby>時計<rt>とけい</rt></ruby>を<ruby>大切<rt>たいせつ</rt></ruby>にしているんですか。",
+      "マイ",
+      "わたしにとって、そふの<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>だからです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>何<rt>なに</rt></ruby>がむずかしいですか。",
+      "リン",
+      "わたしにとっては、けいごがいちばんむずかしいです。"
+    ],
+    [
+      "たなか",
+      "<ruby>幸<rt>しあわ</rt></ruby>せって<ruby>何<rt>なん</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>いますか。",
+      "アナ",
+      "すきな<ruby>人<rt>ひと</rt></ruby>といっしょにいることだと<ruby>思<rt>おも</rt></ruby>います。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "夢",
+      "onyomi": [
+        "ム",
+        "ボウ"
+      ],
+      "kunyomi": [
+        "ゆめ",
+        "ゆめ.みる",
+        "くら.い"
+      ],
+      "meaning_en": "dream",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "夢",
+          "reading": "ゆめ",
+          "en": "dream"
+        },
+        {
+          "word": "悪夢",
+          "reading": "あくむ",
+          "en": "nightmare"
+        }
+      ],
+      "mnemonic": "Grass (艹) and eyes (罒) under the evening (夕) cover: dreaming."
+    },
+    {
+      "char": "将",
+      "onyomi": [
+        "ショウ",
+        "ソウ"
+      ],
+      "kunyomi": [
+        "まさ.に",
+        "はた",
+        "まさ",
+        "ひきい.る",
+        "もって"
+      ],
+      "meaning_en": "future; general",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "将来",
+          "reading": "しょうらい",
+          "en": "the future"
+        },
+        {
+          "word": "将軍",
+          "reading": "しょうぐん",
+          "en": "shogun"
+        }
+      ],
+      "mnemonic": "A hand (寸) leading the way forward: what is about to come."
+    },
+    {
+      "char": "幸",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "さいわ.い",
+        "さち",
+        "しあわ.せ"
+      ],
+      "meaning_en": "happiness",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "幸せ",
+          "reading": "しあわせ",
+          "en": "happiness"
+        },
+        {
+          "word": "幸福",
+          "reading": "こうふく",
+          "en": "happiness"
+        }
+      ],
+      "mnemonic": "Freed from handcuffs: luck and happiness."
+    },
+    {
+      "char": "福",
+      "onyomi": [
+        "フク"
+      ],
+      "kunyomi": [],
+      "meaning_en": "fortune",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "幸福",
+          "reading": "こうふく",
+          "en": "happiness"
+        },
+        {
+          "word": "福",
+          "reading": "ふく",
+          "en": "good fortune"
+        }
+      ],
+      "mnemonic": "An altar (礻) with a full jar: blessings."
+    },
+    {
+      "char": "命",
+      "onyomi": [
+        "メイ",
+        "ミョウ"
+      ],
+      "kunyomi": [
+        "いのち"
+      ],
+      "meaning_en": "life; command",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "命",
+          "reading": "いのち",
+          "en": "life"
+        },
+        {
+          "word": "運命",
+          "reading": "うんめい",
+          "en": "fate"
+        }
+      ],
+      "mnemonic": "An order (令) spoken by a mouth (口): a command, and life itself."
+    },
+    {
+      "char": "愛",
+      "onyomi": [
+        "アイ"
+      ],
+      "kunyomi": [
+        "いと.しい",
+        "かな.しい",
+        "め.でる",
+        "お.しむ",
+        "まな"
+      ],
+      "meaning_en": "love",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "愛",
+          "reading": "あい",
+          "en": "love"
+        },
+        {
+          "word": "愛する",
+          "reading": "あいする",
+          "en": "to love"
+        }
+      ],
+      "mnemonic": "A heart (心) held gently between a hand and walking feet: love."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>日本<rt>にほん</rt></ruby>のぶんかに＿＿<ruby>調<rt>しら</rt></ruby>べています。",
+      "options": [
+        "とって",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "ついて",
+        "<ruby>対<rt>たい</rt></ruby>して"
+      ],
+      "correct": "ついて",
+      "explanation": "About: について."
+    },
+    {
+      "prompt": "Complete: わたしに＿＿、<ruby>家族<rt>かぞく</rt></ruby>はいちばん<ruby>大切<rt>たいせつ</rt></ruby>です。",
+      "options": [
+        "ついて",
+        "<ruby>対<rt>たい</rt></ruby>して",
+        "<ruby>関<rt>かん</rt></ruby>して",
+        "とって"
+      ],
+      "correct": "とって",
+      "explanation": "From my point of view: にとって."
+    },
+    {
+      "prompt": "Complete: <ruby>学生<rt>がくせい</rt></ruby>にとって＿＿<ruby>問題<rt>もんだい</rt></ruby>は、お<ruby>金<rt>かね</rt></ruby>です。",
+      "options": [
+        "の",
+        "な",
+        "を",
+        "が"
+      ],
+      "correct": "の",
+      "explanation": "Before a noun: にとっての."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>母<rt>はは</rt></ruby>のために<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+        "<ruby>母<rt>はは</rt></ruby>にとって<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+        "<ruby>母<rt>はは</rt></ruby>にとって、<ruby>料理<rt>りょうり</rt></ruby>は<ruby>楽<rt>たの</rt></ruby>しいです。",
+        "<ruby>母<rt>はは</rt></ruby>にとって、この<ruby>店<rt>みせ</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>です。"
+      ],
+      "correct": "<ruby>母<rt>はは</rt></ruby>にとって<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+      "explanation": "にとって is not used for actions done for someone."
+    },
+    {
+      "prompt": "Which word means \"the future\"?",
+      "options": [
+        "<ruby>運命<rt>うんめい</rt></ruby>",
+        "<ruby>幸福<rt>こうふく</rt></ruby>",
+        "<ruby>将来<rt>しょうらい</rt></ruby>",
+        "<ruby>夢<rt>ゆめ</rt></ruby>"
+      ],
+      "correct": "<ruby>将来<rt>しょうらい</rt></ruby>",
+      "explanation": "<ruby>将来<rt>しょうらい</rt></ruby>: the future."
+    },
+    {
+      "prompt": "How is 幸⁠せ read?",
+      "options": [
+        "さいわせ",
+        "こうせ",
+        "しやわせ",
+        "しあわせ"
+      ],
+      "correct": "しあわせ",
+      "explanation": "幸⁠せ is read しあわせ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>命<rt>いのち</rt></ruby>はお<ruby>金<rt>かね</rt></ruby>で<ruby>買<rt>か</rt></ruby>えません。",
+      "options": [
+        "You can't buy life with money.",
+        "Life costs a lot of money.",
+        "You can buy anything with money.",
+        "Money is life."
+      ],
+      "correct": "You can't buy life with money.",
+      "explanation": "<ruby>命<rt>いのち</rt></ruby>: life."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "What does <ruby>子<rt>こ</rt></ruby>どもにとって、この<ruby>本<rt>ほん</rt></ruby>はむずかしすぎます mean?",
+      "options": [
+        "This book is too hard for children.",
+        "Children wrote this difficult book.",
+        "I bought this book for my child.",
+        "Children like hard books."
+      ],
+      "correct": "This book is too hard for children.",
+      "explanation": "にとって: from their point of view."
+    },
+    {
+      "prompt": "Which word means \"to love\"?",
+      "options": [
+        "<ruby>幸<rt>しあわ</rt></ruby>せ",
+        "<ruby>愛<rt>あい</rt></ruby>する",
+        "<ruby>大切<rt>たいせつ</rt></ruby>",
+        "<ruby>運命<rt>うんめい</rt></ruby>"
+      ],
+      "correct": "<ruby>愛<rt>あい</rt></ruby>する",
+      "explanation": "<ruby>愛<rt>あい</rt></ruby>する: to love."
+    },
+    {
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>の＿＿<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。 (for my mother)",
+      "options": [
+        "にとって",
+        "について",
+        "ために",
+        "に<ruby>関<rt>かん</rt></ruby>して"
+      ],
+      "correct": "ために",
+      "explanation": "Actions for someone: ために."
+    },
+    {
+      "prompt": "Read: わたしにとっては、けいごがいちばんむずかしいです。 What does Lin find hardest?",
+      "options": [
+        "Kanji",
+        "Listening",
+        "Grammar",
+        "Polite language"
+      ],
+      "correct": "Polite language",
+      "explanation": "けいご: polite language."
+    },
+    {
+      "prompt": "Review (Unit 4): complete <ruby>去年<rt>きょねん</rt></ruby>に＿＿、<ruby>今年<rt>ことし</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。",
+      "options": [
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "とって",
+        "ついて",
+        "<ruby>関<rt>かん</rt></ruby>して"
+      ],
+      "correct": "<ruby>比<rt>くら</rt></ruby>べて",
+      "explanation": "Compared with: に<ruby>比<rt>くら</rt></ruby>べて."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-5-about",
+    "japanese-n3-unit-4-compared-to",
+    "japanese-n4-unit-5-in-order-to"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -2788,5 +2788,1679 @@
         "explanation": "地下鉄⁠ is read ちかてつ."
       }
     ]
+  },
+  {
+    "id": "japanese-n3-unit-1-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "tokoro-about-to",
+        "prompt": "Complete: <ruby>今<rt>いま</rt></ruby>から<ruby>出<rt>で</rt></ruby>かける＿＿です。 (about to)",
+        "options": [
+          "ばかり",
+          "ところ",
+          "とたん",
+          "うち"
+        ],
+        "correctIndex": 1,
+        "explanation": "V-る ところだ: about to."
+      },
+      {
+        "id": "tokoro-doing",
+        "prompt": "A friend calls while you are eating. What do you say?",
+        "options": [
+          "<ruby>今<rt>いま</rt></ruby>、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べたところです。",
+          "<ruby>今<rt>いま</rt></ruby>、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるところです。",
+          "<ruby>今<rt>いま</rt></ruby>、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べたばかりです。",
+          "<ruby>今<rt>いま</rt></ruby>、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べているところです。"
+        ],
+        "correctIndex": 3,
+        "explanation": "V-ている ところだ: in the middle of."
+      },
+      {
+        "id": "tokoro-just-did",
+        "prompt": "Which sentence is NOT natural?",
+        "options": [
+          "<ruby>三年前<rt>さんねんまえ</rt></ruby>に<ruby>結婚<rt>けっこん</rt></ruby>したところです。",
+          "さっき<ruby>家<rt>いえ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>ったところです。",
+          "これから<ruby>授業<rt>じゅぎょう</rt></ruby>に<ruby>行<rt>い</rt></ruby>くところです。",
+          "<ruby>今<rt>いま</rt></ruby>、レポートを<ruby>直<rt>なお</rt></ruby>しているところです。"
+        ],
+        "correctIndex": 0,
+        "explanation": "V-た ところ: only for something that just happened."
+      },
+      {
+        "id": "tokoro-ni",
+        "prompt": "Complete: <ruby>出<rt>で</rt></ruby>かけるところ＿＿、<ruby>友<rt>とも</rt></ruby>だちが<ruby>来<rt>き</rt></ruby>ました。",
+        "options": [
+          "を",
+          "が",
+          "に",
+          "で"
+        ],
+        "correctIndex": 2,
+        "explanation": "ところに: just as."
+      },
+      {
+        "id": "bakari",
+        "prompt": "Complete: <ruby>買<rt>か</rt></ruby>った＿＿のかさを<ruby>落<rt>お</rt></ruby>としました。",
+        "options": [
+          "ところ",
+          "とたん",
+          "うち",
+          "ばかり"
+        ],
+        "correctIndex": 3,
+        "explanation": "V-た ばかりの N: only just."
+      },
+      {
+        "id": "totan",
+        "prompt": "Complete: <ruby>電車<rt>でんしゃ</rt></ruby>を<ruby>降<rt>お</rt></ruby>りた＿＿、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。",
+        "options": [
+          "ばかりで",
+          "とたんに",
+          "うちに",
+          "<ruby>以来<rt>いらい</rt></ruby>"
+        ],
+        "correctIndex": 1,
+        "explanation": "The moment: とたんに."
+      },
+      {
+        "id": "totan-wrong",
+        "prompt": "Which sentence is NOT natural?",
+        "options": [
+          "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとたん、<ruby>電話<rt>でんわ</rt></ruby>をかけました。",
+          "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとたん、<ruby>電話<rt>でんわ</rt></ruby>がなりました。",
+          "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いてすぐ、<ruby>電話<rt>でんわ</rt></ruby>をかけました。",
+          "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたばかりです。"
+        ],
+        "correctIndex": 0,
+        "explanation": "とたん: not for your own planned action."
+      },
+      {
+        "id": "uchini",
+        "prompt": "Complete: <ruby>若<rt>わか</rt></ruby>い＿＿、いろいろな<ruby>国<rt>くに</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きたいです。",
+        "options": [
+          "とたんに",
+          "<ruby>最中<rt>さいちゅう</rt></ruby>に",
+          "うちに",
+          "<ruby>以来<rt>いらい</rt></ruby>"
+        ],
+        "correctIndex": 2,
+        "explanation": "While it lasts: うちに."
+      },
+      {
+        "id": "nai-uchini",
+        "prompt": "Complete: <ruby>暗<rt>くら</rt></ruby>くなら＿＿うちに、<ruby>帰<rt>かえ</rt></ruby>りましょう。",
+        "options": [
+          "る",
+          "ない",
+          "た",
+          "なかった"
+        ],
+        "correctIndex": 1,
+        "explanation": "Before: V-ない うちに."
+      },
+      {
+        "id": "saichuu",
+        "prompt": "Complete: <ruby>会議<rt>かいぎ</rt></ruby>の＿＿に、<ruby>電話<rt>でんわ</rt></ruby>がなりました。",
+        "options": [
+          "うち",
+          "ばかり",
+          "<ruby>以来<rt>いらい</rt></ruby>",
+          "<ruby>最中<rt>さいちゅう</rt></ruby>"
+        ],
+        "correctIndex": 3,
+        "explanation": "In the middle of: <ruby>最中<rt>さいちゅう</rt></ruby>に."
+      },
+      {
+        "id": "aida-ni",
+        "prompt": "Which sentence is natural?",
+        "options": [
+          "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、ずっと<ruby>国<rt>くに</rt></ruby>にいました。",
+          "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>、めんきょをとりました。",
+          "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、めんきょをとりました。",
+          "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、ずっとねていました。"
+        ],
+        "correctIndex": 2,
+        "explanation": "A one-off action: <ruby>間<rt>あいだ</rt></ruby>に."
+      },
+      {
+        "id": "irai",
+        "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て＿＿、ずっと<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っています。",
+        "options": [
+          "<ruby>以来<rt>いらい</rt></ruby>",
+          "から",
+          "とたん",
+          "ばかり"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ever since: て<ruby>以来<rt>いらい</rt></ruby>."
+      },
+      {
+        "id": "karadenaito",
+        "prompt": "Complete: <ruby>医者<rt>いしゃ</rt></ruby>と<ruby>話<rt>はな</rt></ruby>して＿＿、<ruby>退院<rt>たいいん</rt></ruby>できません。",
+        "options": [
+          "<ruby>以来<rt>いらい</rt></ruby>",
+          "うちに",
+          "ところに",
+          "からでないと"
+        ],
+        "correctIndex": 3,
+        "explanation": "Not until: てからでないと."
+      },
+      {
+        "id": "vocab-oriru",
+        "prompt": "Which verb completes <ruby>次<rt>つぎ</rt></ruby>の<ruby>駅<rt>えき</rt></ruby>で＿＿。 (get off)",
+        "options": [
+          "<ruby>乗<rt>の</rt></ruby>ります",
+          "<ruby>降<rt>お</rt></ruby>ります",
+          "<ruby>落<rt>お</rt></ruby>ちます",
+          "<ruby>戻<rt>もど</rt></ruby>ります"
+        ],
+        "correctIndex": 1,
+        "explanation": "<ruby>降<rt>お</rt></ruby>りる: to get off."
+      },
+      {
+        "id": "kanji-yotei",
+        "prompt": "How is 予定⁠ read?",
+        "options": [
+          "よじょう",
+          "ようてい",
+          "よてい",
+          "よさだ"
+        ],
+        "correctIndex": 2,
+        "explanation": "予定⁠ is read よてい."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-2-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "okagede",
+        "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>の＿＿、ごうかくできました。",
+        "options": [
+          "せいで",
+          "おかげで",
+          "わけで",
+          "うちに"
+        ],
+        "correctIndex": 1,
+        "explanation": "A good result: おかげで."
+      },
+      {
+        "id": "seide",
+        "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>の＿＿、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れました。 (blame)",
+        "options": [
+          "おかげで",
+          "わけで",
+          "<ruby>以来<rt>いらい</rt></ruby>",
+          "せいで"
+        ],
+        "correctIndex": 3,
+        "explanation": "A bad result: せいで."
+      },
+      {
+        "id": "okagesamade",
+        "prompt": "Someone asks おげんきですか. How do you answer politely?",
+        "options": [
+          "はい、おかげさまで。",
+          "はい、せいで。",
+          "はい、わけで。",
+          "はい、そのために。"
+        ],
+        "correctIndex": 0,
+        "explanation": "おかげさまで: a set phrase."
+      },
+      {
+        "id": "tame-cause",
+        "prompt": "Which sentence gives a cause?",
+        "options": [
+          "ごうかくするため、<ruby>毎日<rt>まいにち</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>します。",
+          "<ruby>家族<rt>かぞく</rt></ruby>のため、<ruby>働<rt>はたら</rt></ruby>きます。",
+          "<ruby>大雨<rt>おおあめ</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まりました。",
+          "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶため、<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>ました。"
+        ],
+        "correctIndex": 2,
+        "explanation": "A cause is followed by what happened."
+      },
+      {
+        "id": "tame-wrong",
+        "prompt": "Which sentence is NOT natural?",
+        "options": [
+          "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっています。",
+          "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>学校<rt>がっこう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みです。",
+          "<ruby>台風<rt>たいふう</rt></ruby>によるひがいは<ruby>大<rt>おお</rt></ruby>きかったです。",
+          "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>家<rt>いえ</rt></ruby>にいてください。"
+        ],
+        "correctIndex": 3,
+        "explanation": "A cause with ため is not followed by a request."
+      },
+      {
+        "id": "niyotte",
+        "prompt": "Complete: <ruby>国<rt>くに</rt></ruby>＿＿、ぶんかがちがいます。",
+        "options": [
+          "のおかげで",
+          "によって",
+          "のせいで",
+          "のわけで"
+        ],
+        "correctIndex": 1,
+        "explanation": "Depending on: によって."
+      },
+      {
+        "id": "niyottewa",
+        "prompt": "What does <ruby>日<rt>ひ</rt></ruby>によっては、<ruby>休<rt>やす</rt></ruby>みます mean?",
+        "options": [
+          "On some days, we're closed.",
+          "We're closed every day.",
+          "We're closed because of the sun.",
+          "We're open every day."
+        ],
+        "correctIndex": 0,
+        "explanation": "によっては: in some cases."
+      },
+      {
+        "id": "wakeda",
+        "prompt": "Complete: <ruby>毎日<rt>まいにち</rt></ruby>れんしゅうしているから、<ruby>上手<rt>じょうず</rt></ruby>な＿＿です。",
+        "options": [
+          "ため",
+          "せい",
+          "わけ",
+          "うち"
+        ],
+        "correctIndex": 2,
+        "explanation": "No wonder: わけだ."
+      },
+      {
+        "id": "to-iu-wake",
+        "prompt": "Complete: そういう＿＿で、<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。",
+        "options": [
+          "ため",
+          "わけ",
+          "ところ",
+          "うち"
+        ],
+        "correctIndex": 1,
+        "explanation": "そういうわけで: so that's why."
+      },
+      {
+        "id": "wakedewanai",
+        "prompt": "Complete: きらいな＿＿ではありませんが、あまり<ruby>食<rt>た</rt></ruby>べません。",
+        "options": [
+          "はず",
+          "ため",
+          "ところ",
+          "わけ"
+        ],
+        "correctIndex": 3,
+        "explanation": "Not that: わけではない."
+      },
+      {
+        "id": "towa-kagiranai",
+        "prompt": "Complete: <ruby>高<rt>たか</rt></ruby>いものが、<ruby>必<rt>かなら</rt></ruby>ずしもいい＿＿。",
+        "options": [
+          "わけです",
+          "はずです",
+          "とは<ruby>限<rt>かぎ</rt></ruby>りません",
+          "ためです"
+        ],
+        "correctIndex": 2,
+        "explanation": "Not always: とは<ruby>限<rt>かぎ</rt></ruby>らない."
+      },
+      {
+        "id": "wakeniwa",
+        "prompt": "Complete: <ruby>約束<rt>やくそく</rt></ruby>したから、<ruby>行<rt>い</rt></ruby>かない＿＿。",
+        "options": [
+          "わけにはいきません",
+          "わけがありません",
+          "わけです",
+          "とは<ruby>限<rt>かぎ</rt></ruby>りません"
+        ],
+        "correctIndex": 0,
+        "explanation": "Have to: V-ない わけにはいかない."
+      },
+      {
+        "id": "wakeganai",
+        "prompt": "Complete: あんなにやさしい<ruby>人<rt>ひと</rt></ruby>がうそをつく＿＿。",
+        "options": [
+          "わけにはいきません",
+          "わけです",
+          "おかげです",
+          "わけがありません"
+        ],
+        "correctIndex": 3,
+        "explanation": "No way: わけがない."
+      },
+      {
+        "id": "vocab-kotowaru",
+        "prompt": "Which verb means \"to turn down\"?",
+        "options": [
+          "<ruby>頼<rt>たの</rt></ruby>む",
+          "<ruby>断<rt>ことわ</rt></ruby>る",
+          "<ruby>守<rt>まも</rt></ruby>る",
+          "<ruby>助<rt>たす</rt></ruby>ける"
+        ],
+        "correctIndex": 1,
+        "explanation": "<ruby>断<rt>ことわ</rt></ruby>る: to refuse."
+      },
+      {
+        "id": "kanji-genin",
+        "prompt": "How is 原因⁠ read?",
+        "options": [
+          "げいん",
+          "はらいん",
+          "げんいん",
+          "げんにん"
+        ],
+        "correctIndex": 2,
+        "explanation": "原因⁠ is read げんいん."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-3-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "koto-ni-suru",
+        "prompt": "Complete: <ruby>来年<rt>らいねん</rt></ruby>、<ruby>留学<rt>りゅうがく</rt></ruby>する＿＿にしました。",
+        "options": [
+          "よう",
+          "こと",
+          "わけ",
+          "べき"
+        ],
+        "correctIndex": 1,
+        "explanation": "Decide: ことにする."
+      },
+      {
+        "id": "koto-ni-shiteiru",
+        "prompt": "What does <ruby>毎朝<rt>まいあさ</rt></ruby><ruby>歩<rt>ある</rt></ruby>くことにしています mean?",
+        "options": [
+          "I was told to walk every morning.",
+          "I decided once to walk one morning.",
+          "I can't walk in the mornings.",
+          "It's my rule to walk every morning."
+        ],
+        "correctIndex": 3,
+        "explanation": "ことにしている: a personal rule."
+      },
+      {
+        "id": "ni-suru",
+        "prompt": "At a café: \"I'll have tea.\"",
+        "options": [
+          "お<ruby>茶<rt>ちゃ</rt></ruby>にします。",
+          "お<ruby>茶<rt>ちゃ</rt></ruby>になります。",
+          "お<ruby>茶<rt>ちゃ</rt></ruby>をことにします。",
+          "お<ruby>茶<rt>ちゃ</rt></ruby>べきです。"
+        ],
+        "correctIndex": 0,
+        "explanation": "Choose: N にする."
+      },
+      {
+        "id": "koto-ni-naru",
+        "prompt": "Your company is sending you abroad. What do you say?",
+        "options": [
+          "<ruby>海外<rt>かいがい</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くことにしました。",
+          "<ruby>海外<rt>かいがい</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くようにしました。",
+          "<ruby>海外<rt>かいがい</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くことになりました。",
+          "<ruby>海外<rt>かいがい</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くべきでした。"
+        ],
+        "correctIndex": 2,
+        "explanation": "Decided for you: ことになる."
+      },
+      {
+        "id": "koto-ni-natteiru",
+        "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>では、<ruby>車<rt>くるま</rt></ruby>は<ruby>左<rt>ひだり</rt></ruby>を<ruby>走<rt>はし</rt></ruby>ることに＿＿います。",
+        "options": [
+          "して",
+          "させて",
+          "おいて",
+          "なって"
+        ],
+        "correctIndex": 3,
+        "explanation": "The rule: ことになっている."
+      },
+      {
+        "id": "you-ni-suru",
+        "prompt": "Complete: <ruby>遅<rt>おく</rt></ruby>れない＿＿にします。 (I'll make sure)",
+        "options": [
+          "こと",
+          "よう",
+          "べき",
+          "わけ"
+        ],
+        "correctIndex": 1,
+        "explanation": "Make sure: ようにする."
+      },
+      {
+        "id": "you-ni-purpose",
+        "prompt": "Complete: <ruby>後<rt>うし</rt></ruby>ろの<ruby>人<rt>ひと</rt></ruby>にも<ruby>見<rt>み</rt></ruby>える＿＿、<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>いてください。",
+        "options": [
+          "ように",
+          "ために",
+          "ことに",
+          "べきに"
+        ],
+        "correctIndex": 0,
+        "explanation": "So that: ように."
+      },
+      {
+        "id": "you-ni-wrong",
+        "prompt": "Which sentence is NOT natural?",
+        "options": [
+          "およげるように、<ruby>毎週<rt>まいしゅう</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>しています。",
+          "<ruby>大会<rt>たいかい</rt></ruby>に<ruby>出<rt>で</rt></ruby>るために、<ruby>練習<rt>れんしゅう</rt></ruby>しています。",
+          "およげるために、<ruby>毎週<rt>まいしゅう</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>しています。",
+          "<ruby>毎週<rt>まいしゅう</rt></ruby>およぐようにしています。"
+        ],
+        "correctIndex": 2,
+        "explanation": "Potential verbs take ように."
+      },
+      {
+        "id": "beki",
+        "prompt": "Complete: <ruby>約束<rt>やくそく</rt></ruby>は<ruby>守<rt>まも</rt></ruby>る＿＿です。",
+        "options": [
+          "よう",
+          "べき",
+          "こと",
+          "ため"
+        ],
+        "correctIndex": 1,
+        "explanation": "Should: べきだ."
+      },
+      {
+        "id": "beki-datta",
+        "prompt": "You regret not seeing a doctor sooner. What do you say?",
+        "options": [
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くべきです。",
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くことになりました。",
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>かされました。",
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くべきでした。"
+        ],
+        "correctIndex": 3,
+        "explanation": "Should have: べきだった."
+      },
+      {
+        "id": "beki-rule",
+        "prompt": "Which sentence states a rule rather than an opinion?",
+        "options": [
+          "<ruby>写真<rt>しゃしん</rt></ruby>はとるべきではありません。",
+          "もっと<ruby>写真<rt>しゃしん</rt></ruby>をとるべきです。",
+          "ここでは<ruby>写真<rt>しゃしん</rt></ruby>をとってはいけません。",
+          "<ruby>写真<rt>しゃしん</rt></ruby>をとるべきでした。"
+        ],
+        "correctIndex": 2,
+        "explanation": "べきだ is an opinion."
+      },
+      {
+        "id": "causative-passive",
+        "prompt": "What is the causative-passive of <ruby>食<rt>た</rt></ruby>べる?",
+        "options": [
+          "<ruby>食<rt>た</rt></ruby>べさせられる",
+          "<ruby>食<rt>た</rt></ruby>べられる",
+          "<ruby>食<rt>た</rt></ruby>べさせる",
+          "<ruby>食<rt>た</rt></ruby>べされる"
+        ],
+        "correctIndex": 0,
+        "explanation": "Group 2: させられる."
+      },
+      {
+        "id": "causative-passive-short",
+        "prompt": "Complete: <ruby>病院<rt>びょういん</rt></ruby>で<ruby>二時間<rt>にじかん</rt></ruby>も＿＿。 (kept waiting)",
+        "options": [
+          "<ruby>待<rt>ま</rt></ruby>たせました",
+          "<ruby>待<rt>ま</rt></ruby>たれました",
+          "<ruby>待<rt>ま</rt></ruby>ちました",
+          "<ruby>待<rt>ま</rt></ruby>たされました"
+        ],
+        "correctIndex": 3,
+        "explanation": "Short form: <ruby>待<rt>ま</rt></ruby>たされる."
+      },
+      {
+        "id": "vocab-meiwaku",
+        "prompt": "Which word means \"nuisance, trouble\"?",
+        "options": [
+          "<ruby>失礼<rt>しつれい</rt></ruby>",
+          "<ruby>迷惑<rt>めいわく</rt></ruby>",
+          "<ruby>健康<rt>けんこう</rt></ruby>",
+          "<ruby>規則<rt>きそく</rt></ruby>"
+        ],
+        "correctIndex": 1,
+        "explanation": "<ruby>迷惑<rt>めいわく</rt></ruby>: trouble."
+      },
+      {
+        "id": "kanji-senpai",
+        "prompt": "How is 先輩⁠ read?",
+        "options": [
+          "せんばい",
+          "さきはい",
+          "せんぱい",
+          "せんはい"
+        ],
+        "correctIndex": 2,
+        "explanation": "先輩⁠ is read せんぱい."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-4-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "ba-hodo",
+        "prompt": "Complete: <ruby>練習<rt>れんしゅう</rt></ruby>すれば＿＿ほど、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+        "options": [
+          "した",
+          "する",
+          "して",
+          "すれ"
+        ],
+        "correctIndex": 1,
+        "explanation": "V-ば V-る ほど."
+      },
+      {
+        "id": "ba-hodo-adj",
+        "prompt": "Complete: <ruby>値段<rt>ねだん</rt></ruby>が<ruby>安<rt>やす</rt></ruby>ければ<ruby>安<rt>やす</rt></ruby>い＿＿、よく<ruby>売<rt>う</rt></ruby>れます。",
+        "options": [
+          "くらい",
+          "さえ",
+          "ばかり",
+          "ほど"
+        ],
+        "correctIndex": 3,
+        "explanation": "The more: ほど."
+      },
+      {
+        "id": "hodo-degree",
+        "prompt": "What does <ruby>死<rt>し</rt></ruby>ぬほどつかれました mean?",
+        "options": [
+          "I'm dead tired.",
+          "Someone died of tiredness.",
+          "I was tired before I died.",
+          "I'm not tired at all."
+        ],
+        "correctIndex": 0,
+        "explanation": "ほど: an exaggerated degree."
+      },
+      {
+        "id": "hodo-nai",
+        "prompt": "Complete: <ruby>今年<rt>ことし</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>＿＿<ruby>寒<rt>さむ</rt></ruby>くないです。",
+        "options": [
+          "より",
+          "まで",
+          "ほど",
+          "さえ"
+        ],
+        "correctIndex": 2,
+        "explanation": "Not as … as: ほど〜ない."
+      },
+      {
+        "id": "hodo-wrong",
+        "prompt": "Which sentence is NOT correct?",
+        "options": [
+          "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかより<ruby>大<rt>おお</rt></ruby>きいです。",
+          "おおさかは<ruby>東京<rt>とうきょう</rt></ruby>ほど<ruby>大<rt>おお</rt></ruby>きくないです。",
+          "おおさかは<ruby>東京<rt>とうきょう</rt></ruby>より<ruby>小<rt>ちい</rt></ruby>さいです。",
+          "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかほど<ruby>大<rt>おお</rt></ruby>きいです。"
+        ],
+        "correctIndex": 3,
+        "explanation": "ほど needs a negative."
+      },
+      {
+        "id": "kurai",
+        "prompt": "Complete: <ruby>駅<rt>えき</rt></ruby>まで<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿かかります。",
+        "options": [
+          "ごろ",
+          "くらい",
+          "しか",
+          "さえ"
+        ],
+        "correctIndex": 1,
+        "explanation": "About: くらい."
+      },
+      {
+        "id": "to-iu-yori",
+        "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>涼<rt>すず</rt></ruby>しいという＿＿、<ruby>寒<rt>さむ</rt></ruby>いです。",
+        "options": [
+          "より",
+          "ほど",
+          "くらい",
+          "さえ"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rather: というより."
+      },
+      {
+        "id": "mushiro",
+        "prompt": "What does バスより、むしろ<ruby>歩<rt>ある</rt></ruby>いたほうが<ruby>早<rt>はや</rt></ruby>い mean?",
+        "options": [
+          "The bus is faster than walking.",
+          "Walking and the bus take the same time.",
+          "Walking is actually faster than the bus.",
+          "You should take the bus."
+        ],
+        "correctIndex": 2,
+        "explanation": "より むしろ."
+      },
+      {
+        "id": "ni-kurabete",
+        "prompt": "Complete: <ruby>去年<rt>きょねん</rt></ruby>に＿＿、<ruby>今年<rt>ことし</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。",
+        "options": [
+          "<ruby>対<rt>たい</rt></ruby>して",
+          "<ruby>比<rt>くら</rt></ruby>べて",
+          "よって",
+          "とって"
+        ],
+        "correctIndex": 1,
+        "explanation": "Compared with: に<ruby>比<rt>くら</rt></ruby>べて."
+      },
+      {
+        "id": "ni-taishite",
+        "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>に＿＿、ていねいなことばを<ruby>使<rt>つか</rt></ruby>います。",
+        "options": [
+          "<ruby>比<rt>くら</rt></ruby>べて",
+          "よって",
+          "ほど",
+          "<ruby>対<rt>たい</rt></ruby>して"
+        ],
+        "correctIndex": 3,
+        "explanation": "Toward: に<ruby>対<rt>たい</rt></ruby>して."
+      },
+      {
+        "id": "dake-de-naku",
+        "prompt": "Complete: <ruby>英語<rt>えいご</rt></ruby>＿＿、<ruby>日本語<rt>にほんご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。",
+        "options": [
+          "さえ",
+          "ばかりいて",
+          "だけでなく",
+          "ほど"
+        ],
+        "correctIndex": 2,
+        "explanation": "Not only: だけでなく."
+      },
+      {
+        "id": "sae",
+        "prompt": "Complete: いそがしくて、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる<ruby>時間<rt>じかん</rt></ruby>＿＿ありません。",
+        "options": [
+          "さえ",
+          "だけでなく",
+          "ほど",
+          "くらい"
+        ],
+        "correctIndex": 0,
+        "explanation": "Even: さえ."
+      },
+      {
+        "id": "sae-ba",
+        "prompt": "What does お<ruby>金<rt>かね</rt></ruby>さえあれば、<ruby>買<rt>か</rt></ruby>いたいです mean?",
+        "options": [
+          "Even with money, I won't buy it.",
+          "I have money, so I'll buy it.",
+          "I'll buy it with only a little money.",
+          "If only I had the money, I'd buy it."
+        ],
+        "correctIndex": 3,
+        "explanation": "さえ〜ば: if only."
+      },
+      {
+        "id": "te-bakari",
+        "prompt": "Complete: <ruby>弟<rt>おとうと</rt></ruby>はゲームをして＿＿います。 (nothing but)",
+        "options": [
+          "さえ",
+          "ばかり",
+          "だけで",
+          "ほど"
+        ],
+        "correctIndex": 1,
+        "explanation": "Nothing but: てばかりいる."
+      },
+      {
+        "id": "kanji-heikin",
+        "prompt": "How is 平均⁠ read?",
+        "options": [
+          "へいぎん",
+          "ひらきん",
+          "へいきん",
+          "へきん"
+        ],
+        "correctIndex": 2,
+        "explanation": "平均⁠ is read へいきん."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-5-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "ni-tsuite",
+        "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>のぶんかに＿＿<ruby>調<rt>しら</rt></ruby>べています。",
+        "options": [
+          "とって",
+          "ついて",
+          "<ruby>比<rt>くら</rt></ruby>べて",
+          "<ruby>対<rt>たい</rt></ruby>して"
+        ],
+        "correctIndex": 1,
+        "explanation": "About: について."
+      },
+      {
+        "id": "ni-tsuite-no",
+        "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>について＿＿<ruby>情報<rt>じょうほう</rt></ruby>",
+        "options": [
+          "な",
+          "を",
+          "に",
+          "の"
+        ],
+        "correctIndex": 3,
+        "explanation": "Before a noun: についての."
+      },
+      {
+        "id": "ni-kansuru",
+        "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>＿＿<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>集<rt>あつ</rt></ruby>めています。",
+        "options": [
+          "する",
+          "して",
+          "した",
+          "しての"
+        ],
+        "correctIndex": 0,
+        "explanation": "Before a noun: に<ruby>関<rt>かん</rt></ruby>する N."
+      },
+      {
+        "id": "formal-topic",
+        "prompt": "Which sentence sounds the most formal?",
+        "options": [
+          "これについて、<ruby>何<rt>なに</rt></ruby>か<ruby>聞<rt>き</rt></ruby>きたい？",
+          "これって、<ruby>何<rt>なに</rt></ruby>？",
+          "このけんに<ruby>関<rt>かん</rt></ruby>して、<ruby>質問<rt>しつもん</rt></ruby>はありますか。",
+          "これ、<ruby>質問<rt>しつもん</rt></ruby>ある？"
+        ],
+        "correctIndex": 2,
+        "explanation": "に<ruby>関<rt>かん</rt></ruby>して is formal."
+      },
+      {
+        "id": "ni-totte",
+        "prompt": "Complete: <ruby>子<rt>こ</rt></ruby>どもに＿＿、この<ruby>本<rt>ほん</rt></ruby>はむずかしすぎます。",
+        "options": [
+          "ついて",
+          "として",
+          "<ruby>関<rt>かん</rt></ruby>して",
+          "とって"
+        ],
+        "correctIndex": 3,
+        "explanation": "From their point of view: にとって."
+      },
+      {
+        "id": "ni-totte-wrong",
+        "prompt": "Which sentence is NOT correct?",
+        "options": [
+          "<ruby>母<rt>はは</rt></ruby>のために<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+          "<ruby>母<rt>はは</rt></ruby>にとって<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+          "<ruby>母<rt>はは</rt></ruby>にとって、<ruby>料理<rt>りょうり</rt></ruby>は<ruby>楽<rt>たの</rt></ruby>しいです。",
+          "<ruby>母<rt>はは</rt></ruby>にとって、この<ruby>店<rt>みせ</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>です。"
+        ],
+        "correctIndex": 1,
+        "explanation": "にとって is not used for actions."
+      },
+      {
+        "id": "toshite",
+        "prompt": "Complete: <ruby>学校<rt>がっこう</rt></ruby>の<ruby>代表<rt>だいひょう</rt></ruby>＿＿しあいに<ruby>出<rt>で</rt></ruby>ます。",
+        "options": [
+          "として",
+          "にとって",
+          "について",
+          "といえば"
+        ],
+        "correctIndex": 0,
+        "explanation": "In the role of: として."
+      },
+      {
+        "id": "toshite-wa",
+        "prompt": "What does わたしとしては、はんたいです mean?",
+        "options": [
+          "I'm against it as a representative.",
+          "For me, it's the opposite.",
+          "Personally, I'm against it.",
+          "I agree with it."
+        ],
+        "correctIndex": 2,
+        "explanation": "としては: speaking as."
+      },
+      {
+        "id": "to-ieba",
+        "prompt": "Complete: <ruby>京都<rt>きょうと</rt></ruby>と＿＿、おてらですね。",
+        "options": [
+          "して",
+          "いえば",
+          "とって",
+          "ついて"
+        ],
+        "correctIndex": 1,
+        "explanation": "Speaking of: といえば."
+      },
+      {
+        "id": "tte-quote",
+        "prompt": "What does けんさん、<ruby>少<rt>すこ</rt></ruby>し<ruby>遅<rt>おく</rt></ruby>れるって mean?",
+        "options": [
+          "Ken was a little late.",
+          "Ken is never late.",
+          "Is Ken late?",
+          "Ken says he'll be a little late."
+        ],
+        "correctIndex": 3,
+        "explanation": "Casual quote: って."
+      },
+      {
+        "id": "to-iu",
+        "prompt": "Complete: やまだと＿＿<ruby>人<rt>ひと</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました。",
+        "options": [
+          "いえば",
+          "して",
+          "いう",
+          "とって"
+        ],
+        "correctIndex": 2,
+        "explanation": "Called: という N."
+      },
+      {
+        "id": "to-iu-no-wa",
+        "prompt": "Complete: 「つん<ruby>読<rt>どく</rt></ruby>」という＿＿、<ruby>本<rt>ほん</rt></ruby>を<ruby>買<rt>か</rt></ruby>っても<ruby>読<rt>よ</rt></ruby>まないことです。",
+        "options": [
+          "のは",
+          "のに",
+          "より",
+          "ほど"
+        ],
+        "correctIndex": 0,
+        "explanation": "What … means: というのは."
+      },
+      {
+        "id": "kanji-jouhou",
+        "prompt": "How is 情報⁠ read?",
+        "options": [
+          "じょほう",
+          "せいほう",
+          "じょうぼう",
+          "じょうほう"
+        ],
+        "correctIndex": 3,
+        "explanation": "情報⁠ is read じょうほう."
+      },
+      {
+        "id": "kanji-shourai",
+        "prompt": "How is 将来⁠ read?",
+        "options": [
+          "しょらい",
+          "しょうらい",
+          "じょうらい",
+          "しょうき"
+        ],
+        "correctIndex": 1,
+        "explanation": "将来⁠ is read しょうらい."
+      },
+      {
+        "id": "kanji-kisetsu",
+        "prompt": "Which word means \"season\"?",
+        "options": [
+          "<ruby>景色<rt>けしき</rt></ruby>",
+          "<ruby>観光<rt>かんこう</rt></ruby>",
+          "<ruby>季節<rt>きせつ</rt></ruby>",
+          "<ruby>記号<rt>きごう</rt></ruby>"
+        ],
+        "correctIndex": 2,
+        "explanation": "<ruby>季節<rt>きせつ</rt></ruby>: season."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-6-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "ni-chigainai",
+        "prompt": "Complete: <ruby>電気<rt>でんき</rt></ruby>がついているから、<ruby>家<rt>いえ</rt></ruby>にいるに＿＿。",
+        "options": [
+          "<ruby>決<rt>き</rt></ruby>めない",
+          "<ruby>違<rt>ちが</rt></ruby>いない",
+          "<ruby>違<rt>ちが</rt></ruby>う",
+          "っぽい"
+        ],
+        "correctIndex": 1,
+        "explanation": "Must be: に<ruby>違<rt>ちが</rt></ruby>いない."
+      },
+      {
+        "id": "ni-chigainai-noun",
+        "prompt": "Which sentence is NOT correct?",
+        "options": [
+          "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いない。",
+          "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>にいるに<ruby>違<rt>ちが</rt></ruby>いない。",
+          "この<ruby>店<rt>みせ</rt></ruby>はおいしいに<ruby>違<rt>ちが</rt></ruby>いない。",
+          "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>だに<ruby>違<rt>ちが</rt></ruby>いない。"
+        ],
+        "correctIndex": 3,
+        "explanation": "Nouns drop だ."
+      },
+      {
+        "id": "ni-kimatte-iru",
+        "prompt": "What does そんなの、うそに<ruby>決<rt>き</rt></ruby>まっている mean?",
+        "options": [
+          "That's obviously a lie.",
+          "I decided to lie.",
+          "That might be a lie.",
+          "That isn't a lie."
+        ],
+        "correctIndex": 0,
+        "explanation": "に<ruby>決<rt>き</rt></ruby>まっている: obviously."
+      },
+      {
+        "id": "ppoi",
+        "prompt": "Complete: もう<ruby>大人<rt>おとな</rt></ruby>なのに、<ruby>子<rt>こ</rt></ruby>ども＿＿ですね。",
+        "options": [
+          "<ruby>気味<rt>ぎみ</rt></ruby>",
+          "がち",
+          "っぽい",
+          "おそれ"
+        ],
+        "correctIndex": 2,
+        "explanation": "-ish: っぽい."
+      },
+      {
+        "id": "ppoi-tendency",
+        "prompt": "What does <ruby>父<rt>ちち</rt></ruby>は<ruby>怒<rt>おこ</rt></ruby>りっぽい<ruby>人<rt>ひと</rt></ruby>です mean?",
+        "options": [
+          "My father is angry right now.",
+          "My father is never angry.",
+          "My father made someone angry.",
+          "My father gets angry easily."
+        ],
+        "correctIndex": 3,
+        "explanation": "っぽい: tends to."
+      },
+      {
+        "id": "gimi",
+        "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>＿＿なので、<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>ます。",
+        "options": [
+          "っぽい",
+          "<ruby>気味<rt>ぎみ</rt></ruby>",
+          "がち",
+          "ように"
+        ],
+        "correctIndex": 1,
+        "explanation": "A touch of: <ruby>気味<rt>ぎみ</rt></ruby>."
+      },
+      {
+        "id": "marude",
+        "prompt": "Complete: ＿＿<ruby>夢<rt>ゆめ</rt></ruby>のようです。 (just like)",
+        "options": [
+          "まるで",
+          "きっと",
+          "たぶん",
+          "やっと"
+        ],
+        "correctIndex": 0,
+        "explanation": "まるで〜ようだ."
+      },
+      {
+        "id": "mitai",
+        "prompt": "Complete: この<ruby>絵<rt>え</rt></ruby>は、まるで<ruby>写真<rt>しゃしん</rt></ruby>＿＿だ。",
+        "options": [
+          "のみたい",
+          "よう",
+          "みたい",
+          "っぽく"
+        ],
+        "correctIndex": 2,
+        "explanation": "N みたいだ."
+      },
+      {
+        "id": "you-ni-mieru",
+        "prompt": "Complete: かれは<ruby>疲<rt>つか</rt></ruby>れている＿＿<ruby>見<rt>み</rt></ruby>えます。",
+        "options": [
+          "ような",
+          "ように",
+          "みたいな",
+          "っぽく"
+        ],
+        "correctIndex": 1,
+        "explanation": "Looks like: ように<ruby>見<rt>み</rt></ruby>える."
+      },
+      {
+        "id": "gachi",
+        "prompt": "Complete: <ruby>冬<rt>ふゆ</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>をひき＿＿です。",
+        "options": [
+          "っぽい",
+          "<ruby>気味<rt>ぎみ</rt></ruby>",
+          "おそれ",
+          "がち"
+        ],
+        "correctIndex": 3,
+        "explanation": "Tend to: がちだ."
+      },
+      {
+        "id": "osore",
+        "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>大雨<rt>おおあめ</rt></ruby>の＿＿があります。",
+        "options": [
+          "がち",
+          "ほど",
+          "おそれ",
+          "ため"
+        ],
+        "correctIndex": 2,
+        "explanation": "There is a risk: おそれがある."
+      },
+      {
+        "id": "darouka",
+        "prompt": "What does <ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるだろうか mean?",
+        "options": [
+          "I wonder if it will be sunny tomorrow.",
+          "It will definitely be sunny tomorrow.",
+          "It won't be sunny tomorrow.",
+          "Will you be free tomorrow?"
+        ],
+        "correctIndex": 0,
+        "explanation": "だろうか: I wonder."
+      },
+      {
+        "id": "node-wa-nai",
+        "prompt": "Which sentence gives a modest opinion?",
+        "options": [
+          "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいに<ruby>決<rt>き</rt></ruby>まっています。",
+          "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいに<ruby>違<rt>ちが</rt></ruby>いない。",
+          "この<ruby>計画<rt>けいかく</rt></ruby>、むずかしいっぽい。",
+          "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいのではないでしょうか。"
+        ],
+        "correctIndex": 3,
+        "explanation": "のではないでしょうか."
+      },
+      {
+        "id": "kanji-kiken",
+        "prompt": "How is 危険⁠ read?",
+        "options": [
+          "きげん",
+          "きけん",
+          "あぶけん",
+          "きっけん"
+        ],
+        "correctIndex": 1,
+        "explanation": "危険⁠ is read きけん."
+      },
+      {
+        "id": "kanji-souzou",
+        "prompt": "Which word means \"imagination\"?",
+        "options": [
+          "<ruby>予想<rt>よそう</rt></ruby>",
+          "<ruby>理想<rt>りそう</rt></ruby>",
+          "<ruby>想像<rt>そうぞう</rt></ruby>",
+          "<ruby>疑問<rt>ぎもん</rt></ruby>"
+        ],
+        "correctIndex": 2,
+        "explanation": "<ruby>想像<rt>そうぞう</rt></ruby>: imagination."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-7-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "command-g1",
+        "prompt": "What is the command form of <ruby>急<rt>いそ</rt></ruby>ぐ?",
+        "options": [
+          "<ruby>急<rt>いそ</rt></ruby>ぎろ",
+          "<ruby>急<rt>いそ</rt></ruby>げ",
+          "<ruby>急<rt>いそ</rt></ruby>ご",
+          "<ruby>急<rt>いそ</rt></ruby>ぐな"
+        ],
+        "correctIndex": 1,
+        "explanation": "Group 1: ぐ → げ."
+      },
+      {
+        "id": "command-g2",
+        "prompt": "What is the command form of <ruby>逃<rt>に</rt></ruby>げる?",
+        "options": [
+          "<ruby>逃<rt>に</rt></ruby>げれ",
+          "<ruby>逃<rt>に</rt></ruby>げな",
+          "<ruby>逃<rt>に</rt></ruby>げよ",
+          "<ruby>逃<rt>に</rt></ruby>げろ"
+        ],
+        "correctIndex": 3,
+        "explanation": "Group 2: る → ろ."
+      },
+      {
+        "id": "command-kuru",
+        "prompt": "What is the command form of <ruby>来<rt>く</rt></ruby>る?",
+        "options": [
+          "<ruby>来<rt>こ</rt></ruby>い",
+          "<ruby>来<rt>く</rt></ruby>れ",
+          "<ruby>来<rt>き</rt></ruby>ろ",
+          "<ruby>来<rt>こ</rt></ruby>ろ"
+        ],
+        "correctIndex": 0,
+        "explanation": "Irregular: <ruby>来<rt>こ</rt></ruby>い."
+      },
+      {
+        "id": "ru-na",
+        "prompt": "What does あきらめるな！ mean?",
+        "options": [
+          "Give up!",
+          "I gave up.",
+          "Don't give up!",
+          "Did you give up?"
+        ],
+        "correctIndex": 2,
+        "explanation": "V-るな: don't."
+      },
+      {
+        "id": "nasai",
+        "prompt": "Complete: ご<ruby>飯<rt>はん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>い＿＿。",
+        "options": [
+          "なきゃ",
+          "ろ",
+          "るな",
+          "なさい"
+        ],
+        "correctIndex": 3,
+        "explanation": "Instruction: なさい."
+      },
+      {
+        "id": "koto-rule",
+        "prompt": "What does <ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べないこと mean?",
+        "options": [
+          "Eat in the classroom.",
+          "No eating in the classroom.",
+          "I didn't eat in the classroom.",
+          "Have you eaten in the classroom?"
+        ],
+        "correctIndex": 1,
+        "explanation": "V-ないこと: written rule."
+      },
+      {
+        "id": "to-ii",
+        "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れる＿＿いいな。",
+        "options": [
+          "と",
+          "ば",
+          "のに",
+          "よかった"
+        ],
+        "correctIndex": 0,
+        "explanation": "I hope: 〜といいな."
+      },
+      {
+        "id": "ba-ii-noni",
+        "prompt": "Complete: もっと<ruby>時間<rt>じかん</rt></ruby>があれば＿＿のに。",
+        "options": [
+          "よかった",
+          "いいな",
+          "いい",
+          "いる"
+        ],
+        "correctIndex": 2,
+        "explanation": "I wish: ばいいのに."
+      },
+      {
+        "id": "ba-yokatta",
+        "prompt": "You missed the bus because you left late. What do you say?",
+        "options": [
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>るといいな。",
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ればよかった。",
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>なさい。",
+          "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ろ。"
+        ],
+        "correctIndex": 1,
+        "explanation": "Regret: ばよかった."
+      },
+      {
+        "id": "te-itadakitai",
+        "prompt": "Complete: この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>て＿＿たいんですが。",
+        "options": [
+          "いただけ",
+          "くれ",
+          "あげ",
+          "いただき"
+        ],
+        "correctIndex": 3,
+        "explanation": "I'd like you to: ていただきたい."
+      },
+      {
+        "id": "itadakenai",
+        "prompt": "Which request is the most polite?",
+        "options": [
+          "<ruby>教<rt>おし</rt></ruby>えてください。",
+          "<ruby>教<rt>おし</rt></ruby>えて。",
+          "<ruby>教<rt>おし</rt></ruby>えていただけないでしょうか。",
+          "<ruby>教<rt>おし</rt></ruby>えてもらえる？"
+        ],
+        "correctIndex": 2,
+        "explanation": "ていただけないでしょうか."
+      },
+      {
+        "id": "nakya",
+        "prompt": "What is the casual form of <ruby>行<rt>い</rt></ruby>かなければならない?",
+        "options": [
+          "<ruby>行<rt>い</rt></ruby>かなきゃ",
+          "<ruby>行<rt>い</rt></ruby>かなくて",
+          "<ruby>行<rt>い</rt></ruby>っちゃ",
+          "<ruby>行<rt>い</rt></ruby>っていい"
+        ],
+        "correctIndex": 0,
+        "explanation": "なければ → なきゃ."
+      },
+      {
+        "id": "ja-dame",
+        "prompt": "What does ここで<ruby>遊<rt>あそ</rt></ruby>んじゃだめ mean?",
+        "options": [
+          "You can play here.",
+          "Let's play here.",
+          "I played here.",
+          "You can't play here."
+        ],
+        "correctIndex": 3,
+        "explanation": "じゃだめ: mustn't."
+      },
+      {
+        "id": "kanji-shorui",
+        "prompt": "How is 書類⁠ read?",
+        "options": [
+          "しょうるい",
+          "しょるい",
+          "かきるい",
+          "しょたぐい"
+        ],
+        "correctIndex": 1,
+        "explanation": "書類⁠ is read しょるい."
+      },
+      {
+        "id": "kanji-kyouryoku",
+        "prompt": "How is 協力⁠ read?",
+        "options": [
+          "きょうりき",
+          "きょりょく",
+          "きょうりょく",
+          "きょうちから"
+        ],
+        "correctIndex": 2,
+        "explanation": "協力⁠ is read きょうりょく."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-8-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "kuse-ni",
+        "prompt": "Complete: <ruby>知<rt>し</rt></ruby>っている＿＿、<ruby>教<rt>おし</rt></ruby>えてくれない。 (critical)",
+        "options": [
+          "ために",
+          "くせに",
+          "うちに",
+          "かわりに"
+        ],
+        "correctIndex": 1,
+        "explanation": "Critical even though: くせに."
+      },
+      {
+        "id": "kuse-ni-self",
+        "prompt": "Which sentence is NOT natural?",
+        "options": [
+          "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+          "わたしは<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+          "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+          "わたしは<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。"
+        ],
+        "correctIndex": 3,
+        "explanation": "Not about yourself."
+      },
+      {
+        "id": "wari-ni",
+        "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>は<ruby>年<rt>とし</rt></ruby>の＿＿<ruby>若<rt>わか</rt></ruby>く<ruby>見<rt>み</rt></ruby>えます。",
+        "options": [
+          "わりに",
+          "くせに",
+          "かわりに",
+          "<ruby>反面<rt>はんめん</rt></ruby>"
+        ],
+        "correctIndex": 0,
+        "explanation": "For her age: のわりに."
+      },
+      {
+        "id": "ni-shite-wa",
+        "prompt": "Complete: <ruby>十二月<rt>じゅうにがつ</rt></ruby>＿＿、あたたかいですね。",
+        "options": [
+          "のくせに",
+          "のかわりに",
+          "にしては",
+          "の<ruby>反面<rt>はんめん</rt></ruby>"
+        ],
+        "correctIndex": 2,
+        "explanation": "For December: にしては."
+      },
+      {
+        "id": "ni-shite-wa-wrong",
+        "prompt": "Which sentence is NOT correct?",
+        "options": [
+          "<ruby>安<rt>やす</rt></ruby>いわりに、おいしいです。",
+          "<ruby>値段<rt>ねだん</rt></ruby>のわりに、おいしいです。",
+          "<ruby>初<rt>はじ</rt></ruby>めてにしては、おいしいです。",
+          "<ruby>安<rt>やす</rt></ruby>いにしては、おいしいです。"
+        ],
+        "correctIndex": 3,
+        "explanation": "にしては does not follow adjectives."
+      },
+      {
+        "id": "kawari-ni",
+        "prompt": "Complete: バスに<ruby>乗<rt>の</rt></ruby>る＿＿、<ruby>歩<rt>ある</rt></ruby>いて<ruby>行<rt>い</rt></ruby>きました。",
+        "options": [
+          "わりに",
+          "かわりに",
+          "くせに",
+          "にしては"
+        ],
+        "correctIndex": 1,
+        "explanation": "Instead of: かわりに."
+      },
+      {
+        "id": "kawari-exchange",
+        "prompt": "What does <ruby>英語<rt>えいご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えるかわりに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいます mean?",
+        "options": [
+          "I teach English, and in exchange I'm taught Japanese.",
+          "I teach Japanese instead of English.",
+          "I don't teach English any more.",
+          "I learn English and Japanese."
+        ],
+        "correctIndex": 0,
+        "explanation": "かわりに: in exchange."
+      },
+      {
+        "id": "ippou",
+        "prompt": "Complete: <ruby>都会<rt>とかい</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby>な＿＿で、ぶっかが<ruby>高<rt>たか</rt></ruby>いです。",
+        "options": [
+          "かわり",
+          "わり",
+          "<ruby>一方<rt>いっぽう</rt></ruby>",
+          "くせ"
+        ],
+        "correctIndex": 2,
+        "explanation": "While: <ruby>一方<rt>いっぽう</rt></ruby>で."
+      },
+      {
+        "id": "ippou-da",
+        "prompt": "What does <ruby>値段<rt>ねだん</rt></ruby>は<ruby>上<rt>あ</rt></ruby>がる<ruby>一方<rt>いっぽう</rt></ruby>だ mean?",
+        "options": [
+          "Prices went up once.",
+          "Prices keep on rising.",
+          "Prices have stopped rising.",
+          "Prices are rising on one side."
+        ],
+        "correctIndex": 1,
+        "explanation": "<ruby>一方<rt>いっぽう</rt></ruby>だ: keeps on."
+      },
+      {
+        "id": "hanmen",
+        "prompt": "Complete: いなかは<ruby>静<rt>しず</rt></ruby>かな＿＿、<ruby>不便<rt>ふべん</rt></ruby>です。",
+        "options": [
+          "わりに",
+          "くせに",
+          "かわりに",
+          "<ruby>反面<rt>はんめん</rt></ruby>"
+        ],
+        "correctIndex": 3,
+        "explanation": "Two sides: <ruby>反面<rt>はんめん</rt></ruby>."
+      },
+      {
+        "id": "nimo-kakawarazu",
+        "prompt": "Complete: <ruby>雨<rt>あめ</rt></ruby>に＿＿、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。",
+        "options": [
+          "かわって",
+          "しては",
+          "もかかわらず",
+          "とって"
+        ],
+        "correctIndex": 2,
+        "explanation": "Despite: にもかかわらず."
+      },
+      {
+        "id": "temo-temo",
+        "prompt": "What does <ruby>洗<rt>あら</rt></ruby>っても<ruby>洗<rt>あら</rt></ruby>っても、よごれが<ruby>落<rt>お</rt></ruby>ちない mean?",
+        "options": [
+          "No matter how much I wash it, the stain won't come out.",
+          "I washed it, so the stain came out.",
+          "I didn't wash it.",
+          "The stain came out after one wash."
+        ],
+        "correctIndex": 0,
+        "explanation": "V-ても V-ても."
+      },
+      {
+        "id": "kanji-seikaku",
+        "prompt": "How is 性格⁠ read?",
+        "options": [
+          "しょうかく",
+          "せいがく",
+          "せかく",
+          "せいかく"
+        ],
+        "correctIndex": 3,
+        "explanation": "性格⁠ is read せいかく."
+      },
+      {
+        "id": "kanji-nougyou",
+        "prompt": "How is 農業⁠ read?",
+        "options": [
+          "のうごう",
+          "のうぎょう",
+          "のぎょう",
+          "のうしょう"
+        ],
+        "correctIndex": 1,
+        "explanation": "農業⁠ is read のうぎょう."
+      },
+      {
+        "id": "kanji-kekka",
+        "prompt": "Which word means \"result\"?",
+        "options": [
+          "<ruby>努力<rt>どりょく</rt></ruby>",
+          "<ruby>参加<rt>さんか</rt></ruby>",
+          "<ruby>結果<rt>けっか</rt></ruby>",
+          "<ruby>賞<rt>しょう</rt></ruby>"
+        ],
+        "correctIndex": 2,
+        "explanation": "<ruby>結果<rt>けっか</rt></ruby>: result."
+      }
+    ]
+  },
+  {
+    "id": "japanese-n3-unit-9-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "dearu",
+        "prompt": "Which is the written-style version of <ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>だ。?",
+        "options": [
+          "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>です。",
+          "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>である。",
+          "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>でございます。",
+          "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>だよ。"
+        ],
+        "correctIndex": 1,
+        "explanation": "だ → である."
+      },
+      {
+        "id": "style-mix",
+        "prompt": "Which sentence mixes styles incorrectly in an essay?",
+        "options": [
+          "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>である。みんなで<ruby>考<rt>かんが</rt></ruby>えるべきだ。",
+          "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>です。みんなで<ruby>考<rt>かんが</rt></ruby>えましょう。",
+          "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>だ。みんなで<ruby>考<rt>かんが</rt></ruby>えるべきだ。",
+          "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>である。みんなで<ruby>考<rt>かんが</rt></ruby>えましょう。"
+        ],
+        "correctIndex": 3,
+        "explanation": "Don't mix である with ます."
+      },
+      {
+        "id": "zu-ni",
+        "prompt": "Complete: <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ＿＿<ruby>出<rt>で</rt></ruby>かけた。",
+        "options": [
+          "ずに",
+          "ないに",
+          "ずで",
+          "なく"
+        ],
+        "correctIndex": 0,
+        "explanation": "Without doing: V-ずに."
+      },
+      {
+        "id": "sezu",
+        "prompt": "What is the ず form of する?",
+        "options": [
+          "しず",
+          "さず",
+          "せず",
+          "すず"
+        ],
+        "correctIndex": 2,
+        "explanation": "Irregular: する → せず."
+      },
+      {
+        "id": "tabi-ni",
+        "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>＿＿たびに、おみやげを<ruby>買<rt>か</rt></ruby>います。",
+        "options": [
+          "な",
+          "に",
+          "を",
+          "の"
+        ],
+        "correctIndex": 3,
+        "explanation": "N の たびに."
+      },
+      {
+        "id": "goto-ni",
+        "prompt": "Complete: このバスは<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿<ruby>来<rt>き</rt></ruby>ます。",
+        "options": [
+          "たびに",
+          "ごとに",
+          "うちに",
+          "までに"
+        ],
+        "correctIndex": 1,
+        "explanation": "Every: ごとに."
+      },
+      {
+        "id": "oki-ni",
+        "prompt": "What does <ruby>一日<rt>いちにち</rt></ruby>おきに mean?",
+        "options": [
+          "Every other day",
+          "Every day",
+          "All day",
+          "Once a week"
+        ],
+        "correctIndex": 0,
+        "explanation": "おきに: skipping one."
+      },
+      {
+        "id": "juu",
+        "prompt": "Which word uses 中⁠ to mean \"all through\"?",
+        "options": [
+          "<ruby>会議中<rt>かいぎちゅう</rt></ruby>",
+          "<ruby>工事中<rt>こうじちゅう</rt></ruby>",
+          "<ruby>一年中<rt>いちねんじゅう</rt></ruby>",
+          "<ruby>授業中<rt>じゅぎょうちゅう</rt></ruby>"
+        ],
+        "correctIndex": 2,
+        "explanation": "<ruby>中<rt>じゅう</rt></ruby>: all through."
+      },
+      {
+        "id": "wo-tooshite",
+        "prompt": "Complete: <ruby>友達<rt>ともだち</rt></ruby>を＿＿、<ruby>妻<rt>つま</rt></ruby>と<ruby>知<rt>し</rt></ruby>りあいました。",
+        "options": [
+          "とって",
+          "<ruby>通<rt>とお</rt></ruby>して",
+          "<ruby>比<rt>くら</rt></ruby>べて",
+          "<ruby>関<rt>かん</rt></ruby>して"
+        ],
+        "correctIndex": 1,
+        "explanation": "Through: を<ruby>通<rt>とお</rt></ruby>して."
+      },
+      {
+        "id": "sasete-itadaku",
+        "prompt": "At a job interview, how do you begin?",
+        "options": [
+          "じこしょうかいしろ。",
+          "じこしょうかいしなさい。",
+          "じこしょうかいしてあげます。",
+          "じこしょうかいさせていただきます。"
+        ],
+        "correctIndex": 3,
+        "explanation": "させていただく: humble."
+      },
+      {
+        "id": "go-kudasai",
+        "prompt": "Complete: ないようを＿＿<ruby>確認<rt>かくにん</rt></ruby>ください。",
+        "options": [
+          "お",
+          "を",
+          "ご",
+          "に"
+        ],
+        "correctIndex": 2,
+        "explanation": "する-nouns take ご."
+      },
+      {
+        "id": "to-sareru",
+        "prompt": "Complete: この<ruby>寺<rt>てら</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>古<rt>ふる</rt></ruby>いと＿＿ています。",
+        "options": [
+          "され",
+          "させ",
+          "し",
+          "なり"
+        ],
+        "correctIndex": 0,
+        "explanation": "It is said: とされている."
+      },
+      {
+        "id": "koto-kara",
+        "prompt": "What does <ruby>道<rt>みち</rt></ruby>がぬれていることから、<ruby>夜<rt>よる</rt></ruby>に<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったと<ruby>分<rt>わ</rt></ruby>かる mean?",
+        "options": [
+          "It rained, so the road will get wet.",
+          "The road is wet because someone washed it.",
+          "It will rain tonight.",
+          "The wet road shows it rained in the night."
+        ],
+        "correctIndex": 3,
+        "explanation": "ことから: from the fact that."
+      },
+      {
+        "id": "kanji-rekishi",
+        "prompt": "How is 歴史⁠ read?",
+        "options": [
+          "れっし",
+          "れきし",
+          "れきじ",
+          "りきし"
+        ],
+        "correctIndex": 1,
+        "explanation": "歴史⁠ is read れきし."
+      },
+      {
+        "id": "kanji-keizai",
+        "prompt": "How is 経済⁠ read?",
+        "options": [
+          "けいさい",
+          "きょうざい",
+          "けいざい",
+          "けざい"
+        ],
+        "correctIndex": 2,
+        "explanation": "経済⁠ is read けいざい."
+      }
+    ]
   }
 ]

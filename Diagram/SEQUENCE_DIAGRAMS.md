@@ -21,6 +21,9 @@ Visual Paradigm.
 Usual order, left to right: `Actor` → `Web app` → controller → services → `Repository` → `Database` → outside services.
 Merge a controller and its service into one control box if a diagram gets too wide.
 
+**Arrows:** solid `->` is a call or a message; dashed `-->` is the **answer to a request**. Live updates pushed to a
+learner's open tabs (Observer) use a solid arrow plus a note, because nobody asked for them and nobody answers them.
+
 **Tips**
 - Use `alt` for either/or (e.g. password vs Google, passed vs failed) and `opt` for optional steps (the «extend» cases).
 - Errors can be one `alt` branch at the end ("invalid → 400 message shown"), not a separate diagram.
@@ -179,8 +182,9 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
 2. B exists, not blocked, accepts requests? Limits OK? → save pending request + notification for B
 3. Live updates → B's web app shows the request at once (bell count)
 4. B accepts → `PUT /api/friends/requests/:id` → status accepted + notification for A
-5. Live updates → A sees "You and B are now friends" → friend achievements checked for both (Study Buddy)
-6. `alt` B declines → request removed from A's list (A isn't told)
+5. Live updates → A's open tabs show "You and B are now friends" (pushed, A does nothing) → friend achievements checked for both (Study Buddy)
+6. B's web app gets "accepted" → A appears in B's friends list
+7. `alt` B declines → B's web app gets "declined"; live update removes the request from A's list (A isn't told)
 
 ## 10. [ ] Send a message to a learner
 **Use case:** View conversations, «extend» Message a learner (Communicate) · **Actors:** Learner A, Learner B

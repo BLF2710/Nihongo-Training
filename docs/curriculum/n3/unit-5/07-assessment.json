@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n3-unit-5-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "ni-tsuite",
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>のぶんかに＿＿<ruby>調<rt>しら</rt></ruby>べています。",
+      "options": [
+        "とって",
+        "ついて",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "<ruby>対<rt>たい</rt></ruby>して"
+      ],
+      "correctIndex": 1,
+      "explanation": "About: について."
+    },
+    {
+      "id": "ni-tsuite-no",
+      "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>について＿＿<ruby>情報<rt>じょうほう</rt></ruby>",
+      "options": [
+        "な",
+        "を",
+        "に",
+        "の"
+      ],
+      "correctIndex": 3,
+      "explanation": "Before a noun: についての."
+    },
+    {
+      "id": "ni-kansuru",
+      "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>＿＿<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>集<rt>あつ</rt></ruby>めています。",
+      "options": [
+        "する",
+        "して",
+        "した",
+        "しての"
+      ],
+      "correctIndex": 0,
+      "explanation": "Before a noun: に<ruby>関<rt>かん</rt></ruby>する N."
+    },
+    {
+      "id": "formal-topic",
+      "prompt": "Which sentence sounds the most formal?",
+      "options": [
+        "これについて、<ruby>何<rt>なに</rt></ruby>か<ruby>聞<rt>き</rt></ruby>きたい？",
+        "これって、<ruby>何<rt>なに</rt></ruby>？",
+        "このけんに<ruby>関<rt>かん</rt></ruby>して、<ruby>質問<rt>しつもん</rt></ruby>はありますか。",
+        "これ、<ruby>質問<rt>しつもん</rt></ruby>ある？"
+      ],
+      "correctIndex": 2,
+      "explanation": "に<ruby>関<rt>かん</rt></ruby>して is formal."
+    },
+    {
+      "id": "ni-totte",
+      "prompt": "Complete: <ruby>子<rt>こ</rt></ruby>どもに＿＿、この<ruby>本<rt>ほん</rt></ruby>はむずかしすぎます。",
+      "options": [
+        "ついて",
+        "として",
+        "<ruby>関<rt>かん</rt></ruby>して",
+        "とって"
+      ],
+      "correctIndex": 3,
+      "explanation": "From their point of view: にとって."
+    },
+    {
+      "id": "ni-totte-wrong",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>母<rt>はは</rt></ruby>のために<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+        "<ruby>母<rt>はは</rt></ruby>にとって<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。",
+        "<ruby>母<rt>はは</rt></ruby>にとって、<ruby>料理<rt>りょうり</rt></ruby>は<ruby>楽<rt>たの</rt></ruby>しいです。",
+        "<ruby>母<rt>はは</rt></ruby>にとって、この<ruby>店<rt>みせ</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>です。"
+      ],
+      "correctIndex": 1,
+      "explanation": "にとって is not used for actions."
+    },
+    {
+      "id": "toshite",
+      "prompt": "Complete: <ruby>学校<rt>がっこう</rt></ruby>の<ruby>代表<rt>だいひょう</rt></ruby>＿＿しあいに<ruby>出<rt>で</rt></ruby>ます。",
+      "options": [
+        "として",
+        "にとって",
+        "について",
+        "といえば"
+      ],
+      "correctIndex": 0,
+      "explanation": "In the role of: として."
+    },
+    {
+      "id": "toshite-wa",
+      "prompt": "What does わたしとしては、はんたいです mean?",
+      "options": [
+        "I'm against it as a representative.",
+        "For me, it's the opposite.",
+        "Personally, I'm against it.",
+        "I agree with it."
+      ],
+      "correctIndex": 2,
+      "explanation": "としては: speaking as."
+    },
+    {
+      "id": "to-ieba",
+      "prompt": "Complete: <ruby>京都<rt>きょうと</rt></ruby>と＿＿、おてらですね。",
+      "options": [
+        "して",
+        "いえば",
+        "とって",
+        "ついて"
+      ],
+      "correctIndex": 1,
+      "explanation": "Speaking of: といえば."
+    },
+    {
+      "id": "tte-quote",
+      "prompt": "What does けんさん、<ruby>少<rt>すこ</rt></ruby>し<ruby>遅<rt>おく</rt></ruby>れるって mean?",
+      "options": [
+        "Ken was a little late.",
+        "Ken is never late.",
+        "Is Ken late?",
+        "Ken says he'll be a little late."
+      ],
+      "correctIndex": 3,
+      "explanation": "Casual quote: って."
+    },
+    {
+      "id": "to-iu",
+      "prompt": "Complete: やまだと＿＿<ruby>人<rt>ひと</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました。",
+      "options": [
+        "いえば",
+        "して",
+        "いう",
+        "とって"
+      ],
+      "correctIndex": 2,
+      "explanation": "Called: という N."
+    },
+    {
+      "id": "to-iu-no-wa",
+      "prompt": "Complete: 「つん<ruby>読<rt>どく</rt></ruby>」という＿＿、<ruby>本<rt>ほん</rt></ruby>を<ruby>買<rt>か</rt></ruby>っても<ruby>読<rt>よ</rt></ruby>まないことです。",
+      "options": [
+        "のは",
+        "のに",
+        "より",
+        "ほど"
+      ],
+      "correctIndex": 0,
+      "explanation": "What … means: というのは."
+    },
+    {
+      "id": "kanji-jouhou",
+      "prompt": "How is 情報⁠ read?",
+      "options": [
+        "じょほう",
+        "せいほう",
+        "じょうぼう",
+        "じょうほう"
+      ],
+      "correctIndex": 3,
+      "explanation": "情報⁠ is read じょうほう."
+    },
+    {
+      "id": "kanji-shourai",
+      "prompt": "How is 将来⁠ read?",
+      "options": [
+        "しょらい",
+        "しょうらい",
+        "じょうらい",
+        "しょうき"
+      ],
+      "correctIndex": 1,
+      "explanation": "将来⁠ is read しょうらい."
+    },
+    {
+      "id": "kanji-kisetsu",
+      "prompt": "Which word means \"season\"?",
+      "options": [
+        "<ruby>景色<rt>けしき</rt></ruby>",
+        "<ruby>観光<rt>かんこう</rt></ruby>",
+        "<ruby>季節<rt>きせつ</rt></ruby>",
+        "<ruby>記号<rt>きごう</rt></ruby>"
+      ],
+      "correctIndex": 2,
+      "explanation": "<ruby>季節<rt>きせつ</rt></ruby>: season."
+    }
+  ]
+}

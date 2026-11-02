@@ -1,0 +1,532 @@
+{
+  "id": "japanese-n3-unit-9-every-time",
+  "slug": "n3-unit-9-every-time",
+  "unit": "Japanese N3 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Every Time…",
+  "title_jp": "〜たびに・〜ごとに",
+  "objectives": [
+    "I can say how often something happens or repeats.",
+    "Say something happens every time with 〜たびに",
+    "Give a regular interval with 〜ごとに and 〜おきに",
+    "Talk about evenings, terms, broadcasts and programmes"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>毎晩<rt>まいばん</rt></ruby>",
+      "",
+      "every evening"
+    ],
+    [
+      "<ruby>今晩<rt>こんばん</rt></ruby>",
+      "",
+      "this evening"
+    ],
+    [
+      "<ruby>期間<rt>きかん</rt></ruby>",
+      "",
+      "period, term"
+    ],
+    [
+      "<ruby>学期<rt>がっき</rt></ruby>",
+      "",
+      "school term"
+    ],
+    [
+      "<ruby>結局<rt>けっきょく</rt></ruby>",
+      "",
+      "in the end, after all"
+    ],
+    [
+      "<ruby>放送<rt>ほうそう</rt></ruby>",
+      "",
+      "broadcast (+ する: to broadcast)"
+    ],
+    [
+      "<ruby>番組<rt>ばんぐみ</rt></ruby>",
+      "",
+      "TV / radio programme"
+    ],
+    [
+      "<ruby>組<rt>くみ</rt></ruby>",
+      "",
+      "class, group; pair"
+    ],
+    [
+      "<ruby>停電<rt>ていでん</rt></ruby>",
+      "",
+      "power cut"
+    ],
+    [
+      "バス<ruby>停<rt>てい</rt></ruby>",
+      "",
+      "bus stop"
+    ],
+    [
+      "〜たびに",
+      "",
+      "every time"
+    ],
+    [
+      "〜ごとに / 〜おきに",
+      "",
+      "every; at intervals of"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "毎晩",
+      "word_reading": "まいばん"
+    },
+    {
+      "word_japanese": "今晩",
+      "word_reading": "こんばん"
+    },
+    {
+      "word_japanese": "期間",
+      "word_reading": "きかん"
+    },
+    {
+      "word_japanese": "学期",
+      "word_reading": "がっき"
+    },
+    {
+      "word_japanese": "結局",
+      "word_reading": "けっきょく"
+    },
+    {
+      "word_japanese": "放送",
+      "word_reading": "ほうそう"
+    },
+    {
+      "word_japanese": "番組",
+      "word_reading": "ばんぐみ"
+    },
+    {
+      "word_japanese": "組",
+      "word_reading": "くみ"
+    },
+    {
+      "word_japanese": "停電",
+      "word_reading": "ていでん"
+    }
+  ],
+  "concept": {
+    "title": "Every time, every …",
+    "text": "たびに says that whenever one thing happens, another does too:\nこの<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>るたびに、<ruby>国<rt>くに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>す。 Every time I see this photo, I think of home.\n<ruby>旅行<rt>りょこう</rt></ruby>のたびに、おみやげを<ruby>買<rt>か</rt></ruby>う。 I buy souvenirs every time I travel.\n\nごとに gives a regular interval or unit:\nこのバスは<ruby>十分<rt>じゅっぷん</rt></ruby>ごとに<ruby>来<rt>き</rt></ruby>ます。 This bus comes every ten minutes.\n<ruby>季節<rt>きせつ</rt></ruby>ごとに<ruby>景色<rt>けしき</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる。 The scenery changes with each season.\n\nおきに means \"skipping\":\n<ruby>一日<rt>いちにち</rt></ruby>おきに<ruby>運動<rt>うんどう</rt></ruby>する。 I exercise every other day.\nFor times and distances, ごとに and おきに can mean the same: <ruby>五分<rt>ごふん</rt></ruby>おきに (every five minutes).",
+    "examples": [
+      "V-る / N の + たびに",
+      "number / N + ごとに",
+      "number + おきに (skipping)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Every time: 〜たびに",
+      "pattern": "V-る / N の + たびに",
+      "explanation": "Whenever one thing happens, the other always happens too.",
+      "examples": [
+        {
+          "japanese": "この<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>るたびに、<ruby>国<rt>くに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "Every time I see this photo, I think of home."
+        },
+        {
+          "japanese": "<ruby>旅行<rt>りょこう</rt></ruby>のたびに、おみやげを<ruby>買<rt>か</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I buy souvenirs every time I travel."
+        },
+        {
+          "japanese": "あの<ruby>番組<rt>ばんぐみ</rt></ruby>を<ruby>見<rt>み</rt></ruby>るたびに、わらってしまいます。",
+          "romaji": "",
+          "meaning": "I laugh every time I watch that programme."
+        },
+        {
+          "japanese": "<ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>く</rt></ruby>るたびに、この<ruby>村<rt>むら</rt></ruby>は<ruby>停電<rt>ていでん</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "This village has a power cut every time a typhoon comes."
+        }
+      ],
+      "notes": [
+        "The second half is a regular result, not a single event."
+      ]
+    },
+    {
+      "title": "Every; every other: 〜ごとに / 〜おきに",
+      "pattern": "number / N + ごとに / number + おきに",
+      "explanation": "ごとに: at each unit. おきに: with a gap between.",
+      "examples": [
+        {
+          "japanese": "このバスは<ruby>十分<rt>じゅっぷん</rt></ruby>ごとに<ruby>来<rt>き</rt></ruby>ます。",
+          "romaji": "",
+          "meaning": "This bus comes every ten minutes."
+        },
+        {
+          "japanese": "<ruby>季節<rt>きせつ</rt></ruby>ごとに<ruby>景色<rt>けしき</rt></ruby>が<ruby>変<rt>か</rt></ruby>わります。",
+          "romaji": "",
+          "meaning": "The scenery changes with each season."
+        },
+        {
+          "japanese": "<ruby>一日<rt>いちにち</rt></ruby>おきにジムに<ruby>行<rt>い</rt></ruby>きます。",
+          "romaji": "",
+          "meaning": "I go to the gym every other day."
+        },
+        {
+          "japanese": "グループごとに<ruby>発表<rt>はっぴょう</rt></ruby>してください。",
+          "romaji": "",
+          "meaning": "Please present group by group."
+        }
+      ],
+      "notes": [
+        "<ruby>一日<rt>いちにち</rt></ruby>おき: every other day (skip one).",
+        "Days: <ruby>二日<rt>ふつか</rt></ruby>ごと = <ruby>一日<rt>いちにち</rt></ruby>おき."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>毎晩<rt>まいばん</rt></ruby>、<ruby>寝<rt>ね</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。",
+      "I read every night before bed."
+    ],
+    [
+      "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>期間<rt>きかん</rt></ruby>は<ruby>図書館<rt>としょかん</rt></ruby>が<ruby>休<rt>やす</rt></ruby>みです。",
+      "The library is closed during the summer holidays."
+    ],
+    [
+      "いろいろ<ruby>考<rt>かんが</rt></ruby>えましたが、<ruby>結局<rt>けっきょく</rt></ruby><ruby>行<rt>い</rt></ruby>きませんでした。",
+      "I thought about it a lot, but in the end I didn't go."
+    ],
+    [
+      "そのしあいはテレビで<ruby>放送<rt>ほうそう</rt></ruby>されます。",
+      "The match will be broadcast on TV."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "このバスは<ruby>何分<rt>なんぷん</rt></ruby>ごとに<ruby>来<rt>き</rt></ruby>ますか。",
+      "けん",
+      "<ruby>十五分<rt>じゅうごふん</rt></ruby>ごとですよ。バス<ruby>停<rt>てい</rt></ruby>にじこくひょうがあります。"
+    ],
+    [
+      "リー",
+      "どのくらい<ruby>運動<rt>うんどう</rt></ruby>していますか。",
+      "マイ",
+      "<ruby>一日<rt>いちにち</rt></ruby>おきに<ruby>走<rt>はし</rt></ruby>っています。"
+    ],
+    [
+      "ゆき",
+      "<ruby>昨日<rt>きのう</rt></ruby>の<ruby>台風<rt>たいふう</rt></ruby>、だいじょうぶでしたか。",
+      "リン",
+      "<ruby>停電<rt>ていでん</rt></ruby>しました。<ruby>台風<rt>たいふう</rt></ruby>のたびに<ruby>停電<rt>ていでん</rt></ruby>するんです。"
+    ],
+    [
+      "たなか",
+      "<ruby>今晩<rt>こんばん</rt></ruby>、<ruby>何<rt>なに</rt></ruby>か<ruby>面白<rt>おもしろ</rt></ruby>い<ruby>番組<rt>ばんぐみ</rt></ruby>がありますか。",
+      "アナ",
+      "<ruby>九時<rt>くじ</rt></ruby>からドラマが<ruby>放送<rt>ほうそう</rt></ruby>されますよ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "晩",
+      "onyomi": [
+        "バン"
+      ],
+      "kunyomi": [],
+      "meaning_en": "evening",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "毎晩",
+          "reading": "まいばん",
+          "en": "every evening"
+        },
+        {
+          "word": "今晩",
+          "reading": "こんばん",
+          "en": "this evening"
+        }
+      ],
+      "mnemonic": "The sun (日) slipping away (免): evening."
+    },
+    {
+      "char": "期",
+      "onyomi": [
+        "キ",
+        "ゴ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "period",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "期間",
+          "reading": "きかん",
+          "en": "period"
+        },
+        {
+          "word": "学期",
+          "reading": "がっき",
+          "en": "term"
+        }
+      ],
+      "mnemonic": "A set (其) number of moons (月): a period of time."
+    },
+    {
+      "char": "局",
+      "onyomi": [
+        "キョク"
+      ],
+      "kunyomi": [
+        "つぼね"
+      ],
+      "meaning_en": "bureau; situation",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "結局",
+          "reading": "けっきょく",
+          "en": "in the end"
+        },
+        {
+          "word": "郵便局",
+          "reading": "ゆうびんきょく",
+          "en": "post office"
+        }
+      ],
+      "mnemonic": "A body (尸) bent over a board game: a situation, an office."
+    },
+    {
+      "char": "放",
+      "onyomi": [
+        "ホウ"
+      ],
+      "kunyomi": [
+        "はな.す",
+        "-っぱな.し",
+        "はな.つ",
+        "はな.れる",
+        "こ.く",
+        "ほう.る"
+      ],
+      "meaning_en": "release",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "放送",
+          "reading": "ほうそう",
+          "en": "broadcast"
+        },
+        {
+          "word": "放す",
+          "reading": "はなす",
+          "en": "to let go"
+        }
+      ],
+      "mnemonic": "A hand striking (攵) to send things in every direction (方)."
+    },
+    {
+      "char": "組",
+      "onyomi": [
+        "ソ"
+      ],
+      "kunyomi": [
+        "く.む",
+        "くみ",
+        "-ぐみ"
+      ],
+      "meaning_en": "group; assemble",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "番組",
+          "reading": "ばんぐみ",
+          "en": "programme"
+        },
+        {
+          "word": "組",
+          "reading": "くみ",
+          "en": "class, group"
+        }
+      ],
+      "mnemonic": "Threads (糸) piled up (且) and tied: a group."
+    },
+    {
+      "char": "停",
+      "onyomi": [
+        "テイ"
+      ],
+      "kunyomi": [
+        "と.める",
+        "と.まる"
+      ],
+      "meaning_en": "stop",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "停電",
+          "reading": "ていでん",
+          "en": "power cut"
+        },
+        {
+          "word": "バス停",
+          "reading": "ばすてい",
+          "en": "bus stop"
+        }
+      ],
+      "mnemonic": "A person (亻) resting at a pavilion (亭): stopping."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ＿＿<ruby>出<rt>で</rt></ruby>かけた。",
+      "options": [
+        "ないに",
+        "ずで",
+        "ずに",
+        "なく"
+      ],
+      "correct": "ずに",
+      "explanation": "Without doing: V-ずに."
+    },
+    {
+      "prompt": "Complete: この<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>る＿＿、<ruby>国<rt>くに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>します。",
+      "options": [
+        "ごとに",
+        "おきに",
+        "うちに",
+        "たびに"
+      ],
+      "correct": "たびに",
+      "explanation": "Every time: たびに."
+    },
+    {
+      "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>＿＿たびに、おみやげを<ruby>買<rt>か</rt></ruby>います。",
+      "options": [
+        "の",
+        "な",
+        "に",
+        "を"
+      ],
+      "correct": "の",
+      "explanation": "N の たびに."
+    },
+    {
+      "prompt": "Complete: このバスは<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿<ruby>来<rt>き</rt></ruby>ます。",
+      "options": [
+        "たびに",
+        "ごとに",
+        "うちに",
+        "までに"
+      ],
+      "correct": "ごとに",
+      "explanation": "Every ten minutes: ごとに."
+    },
+    {
+      "prompt": "What does <ruby>一日<rt>いちにち</rt></ruby>おきに mean?",
+      "options": [
+        "Every day",
+        "Once a week",
+        "Every other day",
+        "All day"
+      ],
+      "correct": "Every other day",
+      "explanation": "おきに: skipping one."
+    },
+    {
+      "prompt": "How is 番組⁠ read?",
+      "options": [
+        "ばんくみ",
+        "ばんそ",
+        "ばんぐむ",
+        "ばんぐみ"
+      ],
+      "correct": "ばんぐみ",
+      "explanation": "番組⁠ is read ばんぐみ."
+    },
+    {
+      "prompt": "Choose the meaning of いろいろ<ruby>考<rt>かんが</rt></ruby>えましたが、<ruby>結局<rt>けっきょく</rt></ruby><ruby>行<rt>い</rt></ruby>きませんでした。",
+      "options": [
+        "I thought about it a lot, but in the end I didn't go.",
+        "I didn't think and just went.",
+        "I went in the end.",
+        "I'm still thinking about going."
+      ],
+      "correct": "I thought about it a lot, but in the end I didn't go.",
+      "explanation": "<ruby>結局<rt>けっきょく</rt></ruby>: in the end."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You go to the gym on Monday, Wednesday, Friday… What do you say?",
+      "options": [
+        "<ruby>一日<rt>いちにち</rt></ruby>おきにジムに<ruby>行<rt>い</rt></ruby>きます。",
+        "<ruby>一日<rt>いちにち</rt></ruby>ごとにジムに<ruby>行<rt>い</rt></ruby>きます。",
+        "ジムに<ruby>行<rt>い</rt></ruby>くたびに<ruby>一日<rt>いちにち</rt></ruby>です。",
+        "<ruby>毎日<rt>まいにち</rt></ruby>ジムに<ruby>行<rt>い</rt></ruby>きます。"
+      ],
+      "correct": "<ruby>一日<rt>いちにち</rt></ruby>おきにジムに<ruby>行<rt>い</rt></ruby>きます。",
+      "explanation": "おきに: every other."
+    },
+    {
+      "prompt": "What does <ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>く</rt></ruby>るたびに、この<ruby>村<rt>むら</rt></ruby>は<ruby>停電<rt>ていでん</rt></ruby>します mean?",
+      "options": [
+        "The village had one power cut in a typhoon.",
+        "This village has a power cut every time a typhoon comes.",
+        "Typhoons never cause power cuts.",
+        "The village has a power cut every day."
+      ],
+      "correct": "This village has a power cut every time a typhoon comes.",
+      "explanation": "たびに: every time."
+    },
+    {
+      "prompt": "Which word means \"broadcast\"?",
+      "options": [
+        "<ruby>番組<rt>ばんぐみ</rt></ruby>",
+        "<ruby>停電<rt>ていでん</rt></ruby>",
+        "<ruby>放送<rt>ほうそう</rt></ruby>",
+        "<ruby>期間<rt>きかん</rt></ruby>"
+      ],
+      "correct": "<ruby>放送<rt>ほうそう</rt></ruby>",
+      "explanation": "<ruby>放送<rt>ほうそう</rt></ruby>: broadcast."
+    },
+    {
+      "prompt": "Read: <ruby>十五分<rt>じゅうごふん</rt></ruby>ごとですよ。 How often does the bus come?",
+      "options": [
+        "Every five minutes",
+        "Once an hour",
+        "Every other day",
+        "Every fifteen minutes"
+      ],
+      "correct": "Every fifteen minutes",
+      "explanation": "ごとに: every."
+    },
+    {
+      "prompt": "Review (Unit 8): complete いなかは<ruby>静<rt>しず</rt></ruby>かな＿＿、<ruby>不便<rt>ふべん</rt></ruby>です。",
+      "options": [
+        "<ruby>反面<rt>はんめん</rt></ruby>",
+        "たびに",
+        "ごとに",
+        "おきに"
+      ],
+      "correct": "<ruby>反面<rt>はんめん</rt></ruby>",
+      "explanation": "Two sides: <ruby>反面<rt>はんめん</rt></ruby>."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-9-written-style",
+    "japanese-n3-unit-8-on-the-other-hand",
+    "japanese-n3-unit-1-while-you-can"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

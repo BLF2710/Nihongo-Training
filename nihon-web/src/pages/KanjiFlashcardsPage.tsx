@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { KanjiAttribution } from "../components/KanjiReferences";
 import KanjiFlashcards from "../components/KanjiFlashcards";
 import { KANJI } from "../data/kanji";
 import { JAPANESE_STUDY_UNITS } from "../data/japaneseStudyUnits";
@@ -29,13 +30,13 @@ export default function KanjiFlashcardsPage() {
   const tab = (value: Deck, label: string) => <button key={value} type="button" role="tab" aria-selected={deck === value} onClick={() => setChosen(value)}
     className={`rounded-xl border px-4 py-2 text-sm font-bold ${focus} ${deck === value ? "border-emerald-600 bg-emerald-600 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-emerald-300"}`}>{label}</button>;
 
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
-    <h1 className="mt-4 text-3xl font-black">Kanji flashcards</h1>
-    <p className="mt-1 text-gray-600">Flip through readings, meanings, example words and stroke order. Add kanji to your own list from a kanji's page.</p>
-    <div role="tablist" aria-label="Which flashcards" className="mt-5 flex flex-wrap gap-2">
+  // --card-chrome leaves room for the navbar, heading, deck tabs, shuffle row and card navigation around the card.
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar back={{ to: backTo }} /><main className="mx-auto w-full max-w-2xl px-4 py-4 sm:px-6 [--card-chrome:23rem] max-sm:[--card-chrome:29rem]">
+    <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2"><h1 className="text-2xl font-black">Kanji flashcards</h1>
+    <div role="tablist" aria-label="Which flashcards" className="flex flex-wrap gap-2">
       {tab("mine", `My flashcards (${kanjiIds?.length ?? "…"})`)}
       {tab("set", `${setLabel} (${setIds.length})`)}
-    </div>
+    </div></div>
     {error && <p role="alert" className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">{error}</p>}
 
     {deck === "mine" && kanjiIds !== null && kanjiIds.length > 0 && <details className="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
@@ -49,7 +50,7 @@ export default function KanjiFlashcardsPage() {
       })}</ul>
     </details>}
 
-    <div className="mt-6">
+    <div className="mt-4">
       {deck === "mine" && kanjiIds === null && !error && <p role="status" className="text-gray-500">Loading your flashcards…</p>}
       {deck === "mine" && kanjiIds?.length === 0 && <section className="rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">
         Your list is empty. Open a kanji and choose <b>Add to flashcards</b>, or study the {setLabel} set instead.
@@ -59,6 +60,9 @@ export default function KanjiFlashcardsPage() {
       {deck === "set" && !setIds.length && <p className="rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">No kanji have been added for {setLabel} yet.</p>}
       {deckIds.length > 0 && <KanjiFlashcards key={`${deck}:${deckIds.join(":")}`} kanjiIds={deckIds} />}
     </div>
-    <Link to={backTo} className={`mt-8 inline-block font-semibold text-emerald-700 hover:underline ${focus}`}>← Back to the kanji list</Link>
+    <footer className="mt-10 border-t border-gray-200 pt-4 text-xs text-gray-500">
+      <p>Flip a card for its meaning, readings and example words. Studying here does not change mastery or XP; only Kanji practice records answers. Add kanji to your own list from a kanji's page.</p>
+      <KanjiAttribution />
+    </footer>
   </main></div>;
 }

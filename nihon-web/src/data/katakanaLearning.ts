@@ -1,4 +1,5 @@
 import { type ExampleWord, type KanaApiCharacter, type KanaLearningCharacter } from './hiraganaLearning';
+import { KATAKANA_MNEMONICS } from './kanaMnemonics';
 
 type LearningRow = { label: string; kana: string; readings: string };
 type LearningSection = { key: KanaLearningCharacter['category']; title: string; description: string; rows: LearningRow[] };
@@ -80,7 +81,7 @@ export function buildKatakanaCatalog(existing: KanaApiCharacter[]): KanaLearning
       // cannot collide with the positive database IDs. No quiz records are added.
       const localId = -[...kana].reduce((value, char) => value * 256 + char.codePointAt(0)! - 0x3000, 0);
       return { id: byCharacter.get(kana)?.id ?? localId, kana, romaji: readings[index], category: section.key, row: row.label, order: position,
-        exampleWord: examples[kana] ?? e('', '', 'No common beginner example is provided for this less frequent transcription.'), audioText: kana };
+        exampleWord: examples[kana] ?? e('', '', 'No common beginner example is provided for this less frequent transcription.'), audioText: kana, mnemonic: KATAKANA_MNEMONICS[kana] };
     });
   }));
 }

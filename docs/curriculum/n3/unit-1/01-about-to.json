@@ -1,0 +1,557 @@
+{
+  "id": "japanese-n3-unit-1-about-to",
+  "slug": "n3-unit-1-about-to",
+  "unit": "Japanese N3 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Just About To…",
+  "title_jp": "〜ところです",
+  "objectives": [
+    "I can say I am about to do, am doing, or have just done something.",
+    "Pin down a moment with V-る / V-ている / V-た ところだ",
+    "Say something happened just as you were doing something with ところに",
+    "Talk about firsts, lasts and fixing things"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>最初<rt>さいしょ</rt></ruby>",
+      "",
+      "first, beginning"
+    ],
+    [
+      "<ruby>最後<rt>さいご</rt></ruby>",
+      "",
+      "last, end"
+    ],
+    [
+      "<ruby>最近<rt>さいきん</rt></ruby>",
+      "",
+      "recently, lately"
+    ],
+    [
+      "<ruby>初<rt>はじ</rt></ruby>めて",
+      "",
+      "for the first time"
+    ],
+    [
+      "<ruby>次<rt>つぎ</rt></ruby>",
+      "",
+      "next"
+    ],
+    [
+      "<ruby>点<rt>てん</rt></ruby>",
+      "",
+      "point, mark, score"
+    ],
+    [
+      "<ruby>百点<rt>ひゃくてん</rt></ruby>",
+      "",
+      "full marks (100 points)"
+    ],
+    [
+      "<ruby>直<rt>なお</rt></ruby>す",
+      "",
+      "to fix, to correct"
+    ],
+    [
+      "<ruby>直<rt>なお</rt></ruby>る",
+      "",
+      "to be fixed, to get better"
+    ],
+    [
+      "<ruby>戻<rt>もど</rt></ruby>る",
+      "",
+      "to return, to go back"
+    ],
+    [
+      "ちょうど",
+      "",
+      "just, exactly"
+    ],
+    [
+      "〜ところ",
+      "",
+      "(at) the point of …"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "最初",
+      "word_reading": "さいしょ"
+    },
+    {
+      "word_japanese": "最後",
+      "word_reading": "さいご"
+    },
+    {
+      "word_japanese": "最近",
+      "word_reading": "さいきん"
+    },
+    {
+      "word_japanese": "初めて",
+      "word_reading": "はじめて"
+    },
+    {
+      "word_japanese": "次",
+      "word_reading": "つぎ"
+    },
+    {
+      "word_japanese": "点",
+      "word_reading": "てん"
+    },
+    {
+      "word_japanese": "百点",
+      "word_reading": "ひゃくてん"
+    },
+    {
+      "word_japanese": "直す",
+      "word_reading": "なおす"
+    },
+    {
+      "word_japanese": "直る",
+      "word_reading": "なおる"
+    },
+    {
+      "word_japanese": "戻る",
+      "word_reading": "もどる"
+    }
+  ],
+  "concept": {
+    "title": "About to, in the middle of, just done: ところ",
+    "text": "ところ (place) can also mark a point in time. The verb form before it tells you which point:\n\nV-る ところだ: about to\n<ruby>今<rt>いま</rt></ruby>から<ruby>出<rt>で</rt></ruby>かけるところです。 I'm just about to go out.\n\nV-ている ところだ: right in the middle of\n<ruby>今<rt>いま</rt></ruby>、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べているところです。 I'm eating right now.\n\nV-た ところだ: have just done\n<ruby>今<rt>いま</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたところです。 I've just arrived at the station.\n\nところに / ところへ: something came along at that very moment.\n<ruby>出<rt>で</rt></ruby>かけるところに、<ruby>友<rt>とも</rt></ruby>だちが<ruby>来<rt>き</rt></ruby>ました。 Just as I was going out, a friend came round.",
+    "examples": [
+      "V-る ところだ (about to)",
+      "V-ている ところだ (in the middle of)",
+      "V-た ところだ (just did)",
+      "〜ところに (just as)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "About to, doing, just did: 〜ところだ",
+      "pattern": "V-る / V-ている / V-た + ところだ",
+      "explanation": "ところだ pins down one moment. It often comes with <ruby>今<rt>いま</rt></ruby>, ちょうど or これから, to answer \"What are you doing?\"",
+      "examples": [
+        {
+          "japanese": "これからばんご<ruby>飯<rt>はん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>るところです。",
+          "romaji": "",
+          "meaning": "I'm just about to make dinner."
+        },
+        {
+          "japanese": "<ruby>今<rt>いま</rt></ruby>、レポートを<ruby>直<rt>なお</rt></ruby>しているところです。",
+          "romaji": "",
+          "meaning": "I'm correcting my report right now."
+        },
+        {
+          "japanese": "ちょうど<ruby>今<rt>いま</rt></ruby>、<ruby>家<rt>いえ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>ったところです。",
+          "romaji": "",
+          "meaning": "I've just got back home."
+        },
+        {
+          "japanese": "<ruby>次<rt>つぎ</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>はもうすぐ<ruby>出<rt>で</rt></ruby>るところです。",
+          "romaji": "",
+          "meaning": "The next train is about to leave."
+        }
+      ],
+      "notes": [
+        "V-た ところ means only seconds or minutes ago. For something that just feels recent, use V-た ばかり (next lesson).",
+        "ところ is about a moment, not a long period: <ruby>一年前<rt>いちねんまえ</rt></ruby>に<ruby>来<rt>き</rt></ruby>たところです is wrong."
+      ]
+    },
+    {
+      "title": "Just as: 〜ところに / 〜ところへ",
+      "pattern": "V-る / V-ている / V-た + ところに (ところへ)",
+      "explanation": "Something arrives or interrupts at that exact moment, often a person or a phone call.",
+      "examples": [
+        {
+          "japanese": "<ruby>出<rt>で</rt></ruby>かけるところに、<ruby>友<rt>とも</rt></ruby>だちが<ruby>来<rt>き</rt></ruby>ました。",
+          "romaji": "",
+          "meaning": "Just as I was going out, a friend came round."
+        },
+        {
+          "japanese": "シャワーをあびているところに、<ruby>電話<rt>でんわ</rt></ruby>がかかってきました。",
+          "romaji": "",
+          "meaning": "The phone rang while I was in the shower."
+        },
+        {
+          "japanese": "ちょうどいいところに<ruby>来<rt>き</rt></ruby>ましたね。",
+          "romaji": "",
+          "meaning": "You've come at just the right moment."
+        },
+        {
+          "japanese": "<ruby>家<rt>いえ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>ったところへ、<ruby>母<rt>はは</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました。",
+          "romaji": "",
+          "meaning": "Just as I got home, my mother called."
+        }
+      ],
+      "notes": [
+        "ちょうどいいところに… is a set phrase for someone who arrives at the perfect time.",
+        "ところに and ところへ mean the same here; ところへ sounds a little more written."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>最初<rt>さいしょ</rt></ruby>は<ruby>日本語<rt>にほんご</rt></ruby>がぜんぜん<ruby>分<rt>わ</rt></ruby>かりませんでした。",
+      "At first I didn't understand Japanese at all."
+    ],
+    [
+      "<ruby>初<rt>はじ</rt></ruby>めて<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たのは<ruby>三年前<rt>さんねんまえ</rt></ruby>です。",
+      "I first came to Japan three years ago."
+    ],
+    [
+      "<ruby>試験<rt>しけん</rt></ruby>で<ruby>百点<rt>ひゃくてん</rt></ruby>をとりました。",
+      "I got full marks on the test."
+    ],
+    [
+      "パソコンがやっと<ruby>直<rt>なお</rt></ruby>りました。",
+      "My computer is finally fixed."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>今<rt>いま</rt></ruby>、<ruby>何<rt>なに</rt></ruby>をしていますか。",
+      "けん",
+      "ちょうどばんご<ruby>飯<rt>はん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>っているところです。"
+    ],
+    [
+      "リー",
+      "もう<ruby>出<rt>で</rt></ruby>かけましたか。",
+      "マイ",
+      "いいえ、<ruby>今<rt>いま</rt></ruby>から<ruby>出<rt>で</rt></ruby>かけるところです。"
+    ],
+    [
+      "ゆき",
+      "もしもし、<ruby>今<rt>いま</rt></ruby>どこですか。",
+      "リン",
+      "<ruby>今<rt>いま</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたところです。"
+    ],
+    [
+      "たなか",
+      "ちょうどいいところに<ruby>来<rt>き</rt></ruby>ましたね。",
+      "アナ",
+      "<ruby>何<rt>なに</rt></ruby>かおてつだいしましょうか。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "最",
+      "onyomi": [
+        "サイ",
+        "シュ"
+      ],
+      "kunyomi": [
+        "もっと.も",
+        "つま"
+      ],
+      "meaning_en": "most",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "最初",
+          "reading": "さいしょ",
+          "en": "first"
+        },
+        {
+          "word": "最近",
+          "reading": "さいきん",
+          "en": "recently"
+        }
+      ],
+      "mnemonic": "Taking (取) the sun (日) at its very highest: the most."
+    },
+    {
+      "char": "初",
+      "onyomi": [
+        "ショ"
+      ],
+      "kunyomi": [
+        "はじ.め",
+        "はじ.めて",
+        "はつ",
+        "はつ-",
+        "うい-",
+        "-そ.める",
+        "-ぞ.め"
+      ],
+      "meaning_en": "first, beginning",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "最初",
+          "reading": "さいしょ",
+          "en": "first"
+        },
+        {
+          "word": "初めて",
+          "reading": "はじめて",
+          "en": "for the first time"
+        }
+      ],
+      "mnemonic": "Clothing (衤) cut with a knife (刀): the first step in making a kimono."
+    },
+    {
+      "char": "次",
+      "onyomi": [
+        "ジ",
+        "シ"
+      ],
+      "kunyomi": [
+        "つ.ぐ",
+        "つぎ"
+      ],
+      "meaning_en": "next",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "次",
+          "reading": "つぎ",
+          "en": "next"
+        },
+        {
+          "word": "目次",
+          "reading": "もくじ",
+          "en": "table of contents"
+        }
+      ],
+      "mnemonic": "A person yawning (欠) beside two strokes (冫), waiting for the next one."
+    },
+    {
+      "char": "点",
+      "onyomi": [
+        "テン"
+      ],
+      "kunyomi": [
+        "つ.ける",
+        "つ.く",
+        "た.てる",
+        "さ.す",
+        "とぼ.す",
+        "とも.す",
+        "ぼち"
+      ],
+      "meaning_en": "point, dot",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "点",
+          "reading": "てん",
+          "en": "point"
+        },
+        {
+          "word": "百点",
+          "reading": "ひゃくてん",
+          "en": "full marks"
+        }
+      ],
+      "mnemonic": "A fortune-teller's mark (占) over four dots (灬): a point."
+    },
+    {
+      "char": "直",
+      "onyomi": [
+        "チョク",
+        "ジキ",
+        "ジカ"
+      ],
+      "kunyomi": [
+        "ただ.ちに",
+        "なお.す",
+        "-なお.す",
+        "なお.る",
+        "なお.き",
+        "す.ぐ"
+      ],
+      "meaning_en": "straight; fix",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "直す",
+          "reading": "なおす",
+          "en": "to fix"
+        },
+        {
+          "word": "正直",
+          "reading": "しょうじき",
+          "en": "honest"
+        }
+      ],
+      "mnemonic": "Ten (十) eyes (目) checking that a line is straight."
+    },
+    {
+      "char": "戻",
+      "onyomi": [
+        "レイ"
+      ],
+      "kunyomi": [
+        "もど.す",
+        "もど.る"
+      ],
+      "meaning_en": "return",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "戻る",
+          "reading": "もどる",
+          "en": "to return"
+        },
+        {
+          "word": "戻す",
+          "reading": "もどす",
+          "en": "to put back"
+        }
+      ],
+      "mnemonic": "A big dog (大) going back in through the door (戸)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (N4): complete たくさん<ruby>勉強<rt>べんきょう</rt></ruby>した＿＿、<ruby>試験<rt>しけん</rt></ruby>におちました。",
+      "options": [
+        "ので",
+        "のに",
+        "ために",
+        "ながら"
+      ],
+      "correct": "のに",
+      "explanation": "Even though: のに."
+    },
+    {
+      "prompt": "Complete: <ruby>今<rt>いま</rt></ruby>から<ruby>出<rt>で</rt></ruby>かける＿＿です。 (about to)",
+      "options": [
+        "ばかり",
+        "ため",
+        "ところ",
+        "はず"
+      ],
+      "correct": "ところ",
+      "explanation": "V-る ところだ: about to."
+    },
+    {
+      "prompt": "Complete: <ruby>今<rt>いま</rt></ruby>、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べている＿＿です。",
+      "options": [
+        "ばかり",
+        "つもり",
+        "はず",
+        "ところ"
+      ],
+      "correct": "ところ",
+      "explanation": "V-ている ところだ: in the middle of."
+    },
+    {
+      "prompt": "Which sentence means \"I've just arrived at the station\"?",
+      "options": [
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたところです。",
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>くところです。",
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いているところです。",
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>くつもりです。"
+      ],
+      "correct": "<ruby>今<rt>いま</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたところです。",
+      "explanation": "V-た ところだ: just did."
+    },
+    {
+      "prompt": "Complete: <ruby>出<rt>で</rt></ruby>かけるところ＿＿、<ruby>友<rt>とも</rt></ruby>だちが<ruby>来<rt>き</rt></ruby>ました。",
+      "options": [
+        "を",
+        "に",
+        "で",
+        "が"
+      ],
+      "correct": "に",
+      "explanation": "ところに: just as."
+    },
+    {
+      "prompt": "How is 最初⁠ read?",
+      "options": [
+        "さいはつ",
+        "もしょ",
+        "さいしょ",
+        "さいしょう"
+      ],
+      "correct": "さいしょ",
+      "explanation": "最初⁠ is read さいしょ."
+    },
+    {
+      "prompt": "Choose the meaning of パソコンがやっと<ruby>直<rt>なお</rt></ruby>りました。",
+      "options": [
+        "I finally fixed my computer.",
+        "My computer finally broke.",
+        "I finally bought a computer.",
+        "My computer is finally fixed."
+      ],
+      "correct": "My computer is finally fixed.",
+      "explanation": "<ruby>直<rt>なお</rt></ruby>る: to be fixed (nobody is named)."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "A friend calls while you are cooking. What do you say?",
+      "options": [
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>料理<rt>りょうり</rt></ruby>をしたところです。",
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>料理<rt>りょうり</rt></ruby>をするところでした。",
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>料理<rt>りょうり</rt></ruby>をするつもりです。",
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>料理<rt>りょうり</rt></ruby>をしているところです。"
+      ],
+      "correct": "<ruby>今<rt>いま</rt></ruby>、<ruby>料理<rt>りょうり</rt></ruby>をしているところです。",
+      "explanation": "In the middle of: V-ている ところ."
+    },
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>一年前<rt>いちねんまえ</rt></ruby>に<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たところです。",
+        "さっき<ruby>日本<rt>にほん</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたところです。",
+        "これから<ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くところです。",
+        "<ruby>今<rt>いま</rt></ruby>、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しているところです。"
+      ],
+      "correct": "<ruby>一年前<rt>いちねんまえ</rt></ruby>に<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たところです。",
+      "explanation": "V-た ところ is for something that just happened, not a year ago."
+    },
+    {
+      "prompt": "What is the difference between <ruby>直<rt>なお</rt></ruby>す and <ruby>直<rt>なお</rt></ruby>る?",
+      "options": [
+        "<ruby>直<rt>なお</rt></ruby>す: it gets fixed / <ruby>直<rt>なお</rt></ruby>る: someone fixes it",
+        "<ruby>直<rt>なお</rt></ruby>す: someone fixes it / <ruby>直<rt>なお</rt></ruby>る: it gets fixed",
+        "<ruby>直<rt>なお</rt></ruby>す is polite, <ruby>直<rt>なお</rt></ruby>る is casual",
+        "There is no difference."
+      ],
+      "correct": "<ruby>直<rt>なお</rt></ruby>す: someone fixes it / <ruby>直<rt>なお</rt></ruby>る: it gets fixed",
+      "explanation": "Transitive す, intransitive る, like <ruby>戻<rt>もど</rt></ruby>す / <ruby>戻<rt>もど</rt></ruby>る."
+    },
+    {
+      "prompt": "Read: ちょうどいいところに<ruby>来<rt>き</rt></ruby>ましたね。 What does the speaker mean?",
+      "options": [
+        "You came to a nice place.",
+        "You came too early.",
+        "You came at just the right moment.",
+        "You came at a bad time."
+      ],
+      "correct": "You came at just the right moment.",
+      "explanation": "ちょうどいいところに: at just the right moment."
+    },
+    {
+      "prompt": "Review (N4): what is the humble form of <ruby>行<rt>い</rt></ruby>く?",
+      "options": [
+        "いらっしゃる",
+        "めしあがる",
+        "なさる",
+        "まいる"
+      ],
+      "correct": "まいる",
+      "explanation": "<ruby>行<rt>い</rt></ruby>く → まいる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n4-unit-9-even-though",
+    "japanese-n4-unit-9-humble",
+    "japanese-n4-unit-6-try-it"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

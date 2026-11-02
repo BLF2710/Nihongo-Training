@@ -283,5 +283,176 @@
     ],
     "assessmentId": "japanese-n4-unit-9-assessment",
     "published": true
+  },
+  {
+    "id": "japanese-n3-unit-1",
+    "level": "N3",
+    "number": 1,
+    "sequence": 19,
+    "title": "Timing",
+    "titleJp": "タイミング",
+    "description": "Say exactly when something happens: about to, just done, while there is still time, in the middle of, and ever since.",
+    "lessonIds": [
+      "japanese-n3-unit-1-about-to",
+      "japanese-n3-unit-1-the-moment",
+      "japanese-n3-unit-1-while-you-can",
+      "japanese-n3-unit-1-in-the-middle",
+      "japanese-n3-unit-1-ever-since",
+      "japanese-n3-unit-1-review"
+    ],
+    "assessmentId": "japanese-n3-unit-1-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-2",
+    "level": "N3",
+    "number": 2,
+    "sequence": 20,
+    "title": "Reasons & Results",
+    "titleJp": "げんいんと けっか",
+    "description": "Explain why something happened, who or what to thank or blame, and what follows from it.",
+    "lessonIds": [
+      "japanese-n3-unit-2-thanks-to",
+      "japanese-n3-unit-2-because-of",
+      "japanese-n3-unit-2-thats-why",
+      "japanese-n3-unit-2-not-always",
+      "japanese-n3-unit-2-i-cant-just",
+      "japanese-n3-unit-2-review"
+    ],
+    "assessmentId": "japanese-n3-unit-2-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-3",
+    "level": "N3",
+    "number": 3,
+    "sequence": 21,
+    "title": "Decisions & Rules",
+    "titleJp": "きめた ことと きまり",
+    "description": "Say what you decided and what was decided for you, the habits you keep, what people ought to do, and what you were made to do.",
+    "lessonIds": [
+      "japanese-n3-unit-3-i-decided",
+      "japanese-n3-unit-3-its-been-decided",
+      "japanese-n3-unit-3-i-make-sure",
+      "japanese-n3-unit-3-you-ought-to",
+      "japanese-n3-unit-3-made-to-do",
+      "japanese-n3-unit-3-review"
+    ],
+    "assessmentId": "japanese-n3-unit-3-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-4",
+    "level": "N3",
+    "number": 4,
+    "sequence": 22,
+    "title": "Comparisons & Degree",
+    "titleJp": "くらべると どのくらい",
+    "description": "Compare things precisely, say how much something changes with something else, and say \"not only\" and \"even\".",
+    "lessonIds": [
+      "japanese-n3-unit-4-the-more",
+      "japanese-n3-unit-4-not-as",
+      "japanese-n3-unit-4-rather-than",
+      "japanese-n3-unit-4-compared-to",
+      "japanese-n3-unit-4-not-only",
+      "japanese-n3-unit-4-review"
+    ],
+    "assessmentId": "japanese-n3-unit-4-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-5",
+    "level": "N3",
+    "number": 5,
+    "sequence": 23,
+    "title": "Topics & Viewpoints",
+    "titleJp": "わだいと たちば",
+    "description": "Name the topic you are talking about, say what something means to someone, speak in a role, and explain words.",
+    "lessonIds": [
+      "japanese-n3-unit-5-about",
+      "japanese-n3-unit-5-to-me",
+      "japanese-n3-unit-5-as-a",
+      "japanese-n3-unit-5-speaking-of",
+      "japanese-n3-unit-5-called",
+      "japanese-n3-unit-5-review"
+    ],
+    "assessmentId": "japanese-n3-unit-5-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-6",
+    "level": "N3",
+    "number": 6,
+    "sequence": 24,
+    "title": "Guesses & Impressions",
+    "titleJp": "すいりょうと いんしょう",
+    "description": "Say how sure you are, describe a slight tendency or feeling, compare something to what it resembles, and warn of risks.",
+    "lessonIds": [
+      "japanese-n3-unit-6-must-be",
+      "japanese-n3-unit-6-a-bit-like",
+      "japanese-n3-unit-6-as-if",
+      "japanese-n3-unit-6-tends-to",
+      "japanese-n3-unit-6-i-wonder-if",
+      "japanese-n3-unit-6-review"
+    ],
+    "assessmentId": "japanese-n3-unit-6-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-7",
+    "level": "N3",
+    "number": 7,
+    "sequence": 25,
+    "title": "Commands & Wishes",
+    "titleJp": "めいれいと ねがい",
+    "description": "Understand commands and written instructions, wish things were different, make polite requests, and say what you have to do in casual speech.",
+    "lessonIds": [
+      "japanese-n3-unit-7-commands",
+      "japanese-n3-unit-7-instructions",
+      "japanese-n3-unit-7-i-wish",
+      "japanese-n3-unit-7-could-you-possibly",
+      "japanese-n3-unit-7-gotta-go",
+      "japanese-n3-unit-7-review"
+    ],
+    "assessmentId": "japanese-n3-unit-7-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-8",
+    "level": "N3",
+    "number": 8,
+    "sequence": 26,
+    "title": "Contrast & Concession",
+    "titleJp": "たいひと ぎゃくせつ",
+    "description": "Complain about people who should know better, weigh things against expectations, trade one thing for another, and say something happened in spite of everything.",
+    "lessonIds": [
+      "japanese-n3-unit-8-even-though-he",
+      "japanese-n3-unit-8-for-its-price",
+      "japanese-n3-unit-8-instead",
+      "japanese-n3-unit-8-on-the-other-hand",
+      "japanese-n3-unit-8-despite",
+      "japanese-n3-unit-8-review"
+    ],
+    "assessmentId": "japanese-n3-unit-8-assessment",
+    "published": true
+  },
+  {
+    "id": "japanese-n3-unit-9",
+    "level": "N3",
+    "number": 9,
+    "sequence": 27,
+    "title": "Formal Japanese",
+    "titleJp": "かたい 日本語",
+    "description": "Read written and news-style Japanese, talk about regular intervals and whole periods, and make polite requests at work and in shops.",
+    "lessonIds": [
+      "japanese-n3-unit-9-written-style",
+      "japanese-n3-unit-9-every-time",
+      "japanese-n3-unit-9-throughout",
+      "japanese-n3-unit-9-service-japanese",
+      "japanese-n3-unit-9-in-the-news",
+      "japanese-n3-unit-9-review"
+    ],
+    "assessmentId": "japanese-n3-unit-9-assessment",
+    "published": true
   }
 ]

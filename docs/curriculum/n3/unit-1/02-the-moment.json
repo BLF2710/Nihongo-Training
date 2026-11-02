@@ -1,0 +1,541 @@
+{
+  "id": "japanese-n3-unit-1-the-moment",
+  "slug": "n3-unit-1-the-moment",
+  "unit": "Japanese N3 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "The Moment I Arrived",
+  "title_jp": "〜たばかり・〜たとたん",
+  "objectives": [
+    "I can say something happened the moment something else did.",
+    "Say you have only just done something with V-た ばかり",
+    "Say something happened the moment you did something with V-た とたん",
+    "Talk about getting on and off, flying and falling"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>到着<rt>とうちゃく</rt></ruby>",
+      "",
+      "arrival (+ する: to arrive)"
+    ],
+    [
+      "<ruby>乗<rt>の</rt></ruby>る",
+      "",
+      "to ride, to get on"
+    ],
+    [
+      "<ruby>乗<rt>の</rt></ruby>り<ruby>物<rt>もの</rt></ruby>",
+      "",
+      "vehicle, ride"
+    ],
+    [
+      "<ruby>降<rt>お</rt></ruby>りる",
+      "",
+      "to get off"
+    ],
+    [
+      "<ruby>降<rt>ふ</rt></ruby>る",
+      "",
+      "to fall (rain, snow)"
+    ],
+    [
+      "<ruby>落<rt>お</rt></ruby>ちる",
+      "",
+      "to fall, to drop; to fail (an exam)"
+    ],
+    [
+      "<ruby>落<rt>お</rt></ruby>とす",
+      "",
+      "to drop, to lose"
+    ],
+    [
+      "<ruby>飛<rt>と</rt></ruby>ぶ",
+      "",
+      "to fly"
+    ],
+    [
+      "ひこうき",
+      "",
+      "aeroplane"
+    ],
+    [
+      "<ruby>空港<rt>くうこう</rt></ruby>",
+      "",
+      "airport"
+    ],
+    [
+      "〜たばかり",
+      "",
+      "have only just …"
+    ],
+    [
+      "〜たとたん(に)",
+      "",
+      "the moment …"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "到着",
+      "word_reading": "とうちゃく"
+    },
+    {
+      "word_japanese": "乗る",
+      "word_reading": "のる"
+    },
+    {
+      "word_japanese": "乗り物",
+      "word_reading": "のりもの"
+    },
+    {
+      "word_japanese": "降りる",
+      "word_reading": "おりる"
+    },
+    {
+      "word_japanese": "降る",
+      "word_reading": "ふる"
+    },
+    {
+      "word_japanese": "落ちる",
+      "word_reading": "おちる"
+    },
+    {
+      "word_japanese": "落とす",
+      "word_reading": "おとす"
+    },
+    {
+      "word_japanese": "飛ぶ",
+      "word_reading": "とぶ"
+    },
+    {
+      "word_japanese": "空港",
+      "word_reading": "くうこう"
+    }
+  ],
+  "concept": {
+    "title": "Only just, and the very moment",
+    "text": "V-た ばかり says something happened a short time ago. What counts is how it feels to the speaker, so it can be minutes, weeks or even months:\n\n<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たばかりです。 I've only just come to Japan.\n\nV-た とたん(に) says something else happened the very moment after, usually something unexpected:\n\n<ruby>電車<rt>でんしゃ</rt></ruby>を<ruby>降<rt>お</rt></ruby>りたとたんに、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。 The moment I got off the train, it started to rain.\n\nばかり changes like a noun: <ruby>来<rt>き</rt></ruby>たばかりで (and), <ruby>買<rt>か</rt></ruby>ったばかりのくつ (shoes I've just bought), <ruby>来<rt>き</rt></ruby>たばかりなのに (even though I've only just come).",
+    "examples": [
+      "V-た ばかりだ (have only just)",
+      "V-た ばかりの N",
+      "V-た とたん(に) (the moment)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Only just: 〜たばかり",
+      "pattern": "V-た + ばかりだ / ばかりの N",
+      "explanation": "The speaker feels the action happened only a short time ago, even if it was weeks ago.",
+      "examples": [
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たばかりで、まだ<ruby>何<rt>なに</rt></ruby>も<ruby>分<rt>わ</rt></ruby>かりません。",
+          "romaji": "",
+          "meaning": "I've only just come to Japan, so I don't know anything yet."
+        },
+        {
+          "japanese": "さっき<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べたばかりです。",
+          "romaji": "",
+          "meaning": "I had lunch only a moment ago."
+        },
+        {
+          "japanese": "<ruby>買<rt>か</rt></ruby>ったばかりのかさを<ruby>電車<rt>でんしゃ</rt></ruby>にわすれました。",
+          "romaji": "",
+          "meaning": "I left the umbrella I'd just bought on the train."
+        },
+        {
+          "japanese": "<ruby>先月<rt>せんげつ</rt></ruby>、<ruby>仕事<rt>しごと</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めたばかりです。",
+          "romaji": "",
+          "meaning": "I only started work last month."
+        }
+      ],
+      "notes": [
+        "Compare: <ruby>着<rt>つ</rt></ruby>いたところ (I arrived this very minute) / <ruby>着<rt>つ</rt></ruby>いたばかり (I arrived recently; it may be hours or weeks).",
+        "ばかりの + noun: <ruby>買<rt>か</rt></ruby>ったばかりのくつ (shoes I've just bought)."
+      ]
+    },
+    {
+      "title": "The moment: 〜たとたん(に)",
+      "pattern": "V-た + とたん(に)",
+      "explanation": "The second thing happens immediately afterwards, and it is usually something the speaker did not plan or control.",
+      "examples": [
+        {
+          "japanese": "<ruby>電車<rt>でんしゃ</rt></ruby>を<ruby>降<rt>お</rt></ruby>りたとたんに、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。",
+          "romaji": "",
+          "meaning": "The moment I got off the train, it started to rain."
+        },
+        {
+          "japanese": "<ruby>立<rt>た</rt></ruby>ち<ruby>上<rt>あ</rt></ruby>がったとたん、かばんが<ruby>落<rt>お</rt></ruby>ちました。",
+          "romaji": "",
+          "meaning": "As soon as I stood up, my bag fell."
+        },
+        {
+          "japanese": "ひこうきが<ruby>飛<rt>と</rt></ruby>んだとたん、<ruby>子<rt>こ</rt></ruby>どもがなき<ruby>始<rt>はじ</rt></ruby>めました。",
+          "romaji": "",
+          "meaning": "The moment the plane took off, a child started crying."
+        },
+        {
+          "japanese": "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとたんに、ねてしまいました。",
+          "romaji": "",
+          "meaning": "I fell asleep the moment I got home."
+        }
+      ],
+      "notes": [
+        "Not for your own planned actions: <ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとたん、<ruby>電話<rt>でんわ</rt></ruby>をかけました is unnatural; say <ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いてすぐ、<ruby>電話<rt>でんわ</rt></ruby>をかけました.",
+        "The second half is in the past: it reports something that happened."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "ひこうきは<ruby>十時<rt>じゅうじ</rt></ruby>に<ruby>空港<rt>くうこう</rt></ruby>に<ruby>到着<rt>とうちゃく</rt></ruby>します。",
+      "The plane arrives at the airport at ten."
+    ],
+    [
+      "<ruby>次<rt>つぎ</rt></ruby>の<ruby>駅<rt>えき</rt></ruby>で<ruby>降<rt>お</rt></ruby>ります。",
+      "I'm getting off at the next stop."
+    ],
+    [
+      "さいふを<ruby>落<rt>お</rt></ruby>としてしまいました。",
+      "I've dropped my wallet."
+    ],
+    [
+      "<ruby>子<rt>こ</rt></ruby>どもは<ruby>乗<rt>の</rt></ruby>り<ruby>物<rt>もの</rt></ruby>がだいすきです。",
+      "Children love vehicles."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>日本<rt>にほん</rt></ruby>のせいかつはどうですか。",
+      "リン",
+      "<ruby>来<rt>き</rt></ruby>たばかりなので、まだよく<ruby>分<rt>わ</rt></ruby>かりません。"
+    ],
+    [
+      "けん",
+      "どうしてぬれているんですか。",
+      "リー",
+      "<ruby>駅<rt>えき</rt></ruby>を<ruby>出<rt>で</rt></ruby>たとたんに、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきたんです。"
+    ],
+    [
+      "マイ",
+      "もう<ruby>空港<rt>くうこう</rt></ruby>に<ruby>着<rt>つ</rt></ruby>きましたか。",
+      "ゆき",
+      "はい、<ruby>今<rt>いま</rt></ruby><ruby>到着<rt>とうちゃく</rt></ruby>したところです。"
+    ],
+    [
+      "たなか",
+      "そのスマホ、<ruby>新<rt>あたら</rt></ruby>しいですね。",
+      "アナ",
+      "ええ、<ruby>買<rt>か</rt></ruby>ったばかりなのに、もう<ruby>落<rt>お</rt></ruby>としてしまいました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "到",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "いた.る"
+      ],
+      "meaning_en": "arrive",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "到着",
+          "reading": "とうちゃく",
+          "en": "arrival"
+        },
+        {
+          "word": "到着時間",
+          "reading": "とうちゃくじかん",
+          "en": "arrival time"
+        }
+      ],
+      "mnemonic": "Arriving (至) with a sword (刂) still in hand."
+    },
+    {
+      "char": "乗",
+      "onyomi": [
+        "ジョウ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "の.る",
+        "-の.り",
+        "の.せる"
+      ],
+      "meaning_en": "ride",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "乗る",
+          "reading": "のる",
+          "en": "to ride"
+        },
+        {
+          "word": "乗り物",
+          "reading": "のりもの",
+          "en": "vehicle"
+        }
+      ],
+      "mnemonic": "A person standing on top of a tree (木) as if riding it."
+    },
+    {
+      "char": "降",
+      "onyomi": [
+        "コウ",
+        "ゴ"
+      ],
+      "kunyomi": [
+        "お.りる",
+        "お.ろす",
+        "ふ.る",
+        "ふ.り",
+        "くだ.る",
+        "くだ.す"
+      ],
+      "meaning_en": "go down; fall",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "降りる",
+          "reading": "おりる",
+          "en": "to get off"
+        },
+        {
+          "word": "降る",
+          "reading": "ふる",
+          "en": "to fall (rain)"
+        }
+      ],
+      "mnemonic": "Feet stepping down (夅) beside a hill (阝): going down."
+    },
+    {
+      "char": "落",
+      "onyomi": [
+        "ラク"
+      ],
+      "kunyomi": [
+        "お.ちる",
+        "お.ち",
+        "お.とす"
+      ],
+      "meaning_en": "fall, drop",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "落ちる",
+          "reading": "おちる",
+          "en": "to fall"
+        },
+        {
+          "word": "落とす",
+          "reading": "おとす",
+          "en": "to drop"
+        }
+      ],
+      "mnemonic": "Leaves (艹) falling into the water (氵) of each (各) stream."
+    },
+    {
+      "char": "飛",
+      "onyomi": [
+        "ヒ"
+      ],
+      "kunyomi": [
+        "と.ぶ",
+        "と.ばす",
+        "-と.ばす"
+      ],
+      "meaning_en": "fly",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "飛ぶ",
+          "reading": "とぶ",
+          "en": "to fly"
+        },
+        {
+          "word": "飛行機",
+          "reading": "ひこうき",
+          "en": "aeroplane"
+        }
+      ],
+      "mnemonic": "A bird stretching both wings to fly."
+    },
+    {
+      "char": "港",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "みなと"
+      ],
+      "meaning_en": "harbour, port",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "空港",
+          "reading": "くうこう",
+          "en": "airport"
+        },
+        {
+          "word": "港",
+          "reading": "みなと",
+          "en": "harbour"
+        }
+      ],
+      "mnemonic": "Water (氵) where all (共) the boats come together: a port."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>今<rt>いま</rt></ruby>から<ruby>出<rt>で</rt></ruby>かける＿＿です。 (about to)",
+      "options": [
+        "ばかり",
+        "とたん",
+        "ところ",
+        "はず"
+      ],
+      "correct": "ところ",
+      "explanation": "V-る ところだ."
+    },
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>た＿＿で、まだ<ruby>何<rt>なに</rt></ruby>も<ruby>分<rt>わ</rt></ruby>かりません。",
+      "options": [
+        "とたん",
+        "ところに",
+        "はず",
+        "ばかり"
+      ],
+      "correct": "ばかり",
+      "explanation": "V-た ばかり: only just."
+    },
+    {
+      "prompt": "Complete: <ruby>電車<rt>でんしゃ</rt></ruby>を<ruby>降<rt>お</rt></ruby>りた＿＿、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。",
+      "options": [
+        "とたんに",
+        "ばかりで",
+        "ところだ",
+        "うちに"
+      ],
+      "correct": "とたんに",
+      "explanation": "The moment: とたんに."
+    },
+    {
+      "prompt": "Complete: <ruby>買<rt>か</rt></ruby>ったばかり＿＿かさをわすれました。",
+      "options": [
+        "な",
+        "の",
+        "に",
+        "で"
+      ],
+      "correct": "の",
+      "explanation": "ばかりの + noun."
+    },
+    {
+      "prompt": "Which word means \"to get off\"?",
+      "options": [
+        "<ruby>乗<rt>の</rt></ruby>る",
+        "<ruby>落<rt>お</rt></ruby>ちる",
+        "<ruby>降<rt>お</rt></ruby>りる",
+        "<ruby>飛<rt>と</rt></ruby>ぶ"
+      ],
+      "correct": "<ruby>降<rt>お</rt></ruby>りる",
+      "explanation": "<ruby>降<rt>お</rt></ruby>りる: to get off."
+    },
+    {
+      "prompt": "How is 空港⁠ read?",
+      "options": [
+        "そらこう",
+        "くうみなと",
+        "くこう",
+        "くうこう"
+      ],
+      "correct": "くうこう",
+      "explanation": "空港⁠ is read くうこう."
+    },
+    {
+      "prompt": "Choose the meaning of さいふを<ruby>落<rt>お</rt></ruby>としてしまいました。",
+      "options": [
+        "I've dropped my wallet.",
+        "My wallet fell from the sky.",
+        "I've found my wallet.",
+        "I've bought a wallet."
+      ],
+      "correct": "I've dropped my wallet.",
+      "explanation": "<ruby>落<rt>お</rt></ruby>とす: to drop, to lose."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとたん、<ruby>電話<rt>でんわ</rt></ruby>をかけました。",
+        "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとたん、<ruby>電話<rt>でんわ</rt></ruby>がなりました。",
+        "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いてすぐ、<ruby>電話<rt>でんわ</rt></ruby>をかけました。",
+        "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたばかりです。"
+      ],
+      "correct": "<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとたん、<ruby>電話<rt>でんわ</rt></ruby>をかけました。",
+      "explanation": "とたん is for something unexpected, not your own plan."
+    },
+    {
+      "prompt": "You moved to Tokyo two weeks ago and still feel new. What do you say?",
+      "options": [
+        "<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>来<rt>き</rt></ruby>たところです。",
+        "<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>来<rt>き</rt></ruby>たばかりです。",
+        "<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>来<rt>く</rt></ruby>るところです。",
+        "<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>来<rt>き</rt></ruby>たとたんです。"
+      ],
+      "correct": "<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>来<rt>き</rt></ruby>たばかりです。",
+      "explanation": "たばかり: it feels recent, even after weeks."
+    },
+    {
+      "prompt": "Complete: ゆきが＿＿います。 (it is snowing)",
+      "options": [
+        "<ruby>降<rt>お</rt></ruby>りて",
+        "<ruby>落<rt>お</rt></ruby>ちて",
+        "<ruby>降<rt>ふ</rt></ruby>って",
+        "<ruby>飛<rt>と</rt></ruby>んで"
+      ],
+      "correct": "<ruby>降<rt>ふ</rt></ruby>って",
+      "explanation": "<ruby>雨<rt>あめ</rt></ruby> and ゆき <ruby>降<rt>ふ</rt></ruby>る."
+    },
+    {
+      "prompt": "Read: <ruby>買<rt>か</rt></ruby>ったばかりなのに、もう<ruby>落<rt>お</rt></ruby>としてしまいました。 How does Ana feel?",
+      "options": [
+        "Happy: she bought a new phone.",
+        "Upset: she lost her old phone.",
+        "Surprised: someone gave her a phone.",
+        "Upset: she dropped a phone she had only just bought."
+      ],
+      "correct": "Upset: she dropped a phone she had only just bought.",
+      "explanation": "ばかりなのに: even though it was new."
+    },
+    {
+      "prompt": "Review (N4): what is the potential form of <ruby>乗<rt>の</rt></ruby>る?",
+      "options": [
+        "<ruby>乗<rt>の</rt></ruby>れる",
+        "<ruby>乗<rt>の</rt></ruby>られる",
+        "<ruby>乗<rt>の</rt></ruby>らせる",
+        "<ruby>乗<rt>の</rt></ruby>りれる"
+      ],
+      "correct": "<ruby>乗<rt>の</rt></ruby>れる",
+      "explanation": "る → れる (group 1)."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-1-about-to",
+    "japanese-n4-unit-6-oh-no",
+    "japanese-n4-unit-3-i-can-sing"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

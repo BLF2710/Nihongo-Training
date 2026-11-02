@@ -41,7 +41,6 @@ const n4Unit3 = new Set(catalog.lessonIntroductions.filter(item => item.lessonId
     await page.goto(`${base}/learn/kanji/kanji-65e5`);
     await page.getByRole("heading", { name: "日", exact: true }).waitFor();
     assert.equal(await page.getByRole("button", { name: "Study flashcards" }).count(), 0, "no flashcard button on the details");
-    assert.equal(await page.getByRole("article", { name: "Study 日" }).count(), 0, "no flashcard under the details");
     const addButton = page.getByRole("button", { name: "Add to flashcards" });
     await addButton.click();
     await page.getByText("In your flashcards ✓").waitFor();
@@ -54,6 +53,29 @@ const n4Unit3 = new Set(catalog.lessonIntroductions.filter(item => item.lessonId
     await page.goto(`${base}/learn/kanji/kanji-6708`); await page.getByRole("heading", { name: "月", exact: true }).waitFor();
     await addButton.click(); await page.getByText("In your flashcards ✓").waitFor();
     await page.reload(); await page.getByText("In your flashcards ✓").waitFor();
+
+    // ---- The kanji page is a flashcard (kanji front; meanings and readings behind) sharing one spot with drawing, writing and course words, on one laptop screen.
+    await page.setViewportSize({ width: 1366, height: 768 });
+    const fits = async label => assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight), `${label} fits without scrolling`);
+    const hiddenFace = page.locator('[aria-hidden="true"][inert]'); // Playwright's isVisible ignores backface-visibility
+    const meanings = catalog.kanji.find(k => k.id === "kanji-65e5").meanings.join(" · ");
+    await page.goto(`${base}/learn/kanji?level=N5`); await page.locator('a[href="/learn/kanji/kanji-65e5?level=N5"]').click();
+    await page.getByRole("heading", { name: "日", exact: true }).waitFor(); await page.getByText(/of \d+ • N5 · Unit/).waitFor(); await fits("Flashcard front");
+    assert.equal(await hiddenFace.getByText(meanings).count(), 1, "meanings stay hidden until flipped");
+    await page.getByRole("button", { name: /日: flip to see/ }).click(); await page.getByRole("button", { name: "↻ Flip back" }).waitFor(); await page.waitForTimeout(600);
+    assert.equal(await hiddenFace.getByText(meanings).count(), 0, "flipping shows the meanings"); await page.getByText("On'yomi").waitFor(); await fits("Flashcard back");
+    await page.screenshot({ path: `${shots}/kanji-detail-back.png` });
+    await page.getByRole("tab", { name: "✏ How to Draw" }).click(); await page.getByRole("img", { name: /Stroke order for 日/ }).waitFor(); await fits("How to Draw");
+    await page.getByRole("tab", { name: "📚 Words" }).click();
+    assert.match(await page.getByRole("link", { name: /^日本 にほん/ }).getAttribute("href"), /^\/vocabulary\?unit=japanese-n5-unit-\d+&lesson=/, "course words link to their real unit");
+    await fits("Words");
+    assert.equal(await page.getByText(/Vocabulary association/).count(), 0, "the old disclaimer is gone");
+    await page.getByText("Sources & notes").click(); await page.getByText(/KANJIDIC2 \/ JMdict/).waitFor(); // notes are tucked away under Words
+    await page.getByRole("button", { name: "Next →" }).click(); await page.getByRole("button", { name: "Next →" }).click();
+    await page.waitForURL(url => /\/learn\/kanji\/kanji-[0-9a-f]+\?level=N5$/.test(url.pathname + url.search) && !url.pathname.endsWith("65e5"));
+    assert.equal(await page.getByRole("tab", { name: "📚 Words" }).getAttribute("aria-selected"), "true", "the chosen mode carries over");
+    await page.getByRole("button", { name: "← Back" }).click(); await page.waitForURL(url => url.pathname === "/learn/kanji" && url.search === "?level=N5");
+    await page.setViewportSize({ width: 1280, height: 900 });
 
     // ---- The kanji list: "Study flashcards" goes to its own screen, keeping the chosen level and unit
     await page.goto(`${base}/learn/kanji?level=N4&unit=japanese-n4-unit-3`);
@@ -68,12 +90,15 @@ const n4Unit3 = new Set(catalog.lessonIntroductions.filter(item => item.lessonId
     await page.getByLabel("Card 1 of 2", { exact: true }).waitFor();
     await page.getByRole("article", { name: "Study 日" }).waitFor();
     await page.getByRole("button", { name: "Next →" }).click(); await page.getByRole("article", { name: "Study 月" }).waitFor();
-    // The card shows three example words, the rest under "View more vocabulary", and no practice button.
+    // The same card as a kanji's page: only the kanji on the front; meanings, readings and three example words (then a count) on the back; no practice button; no notes inside the card.
     const card = page.getByRole("article", { name: "Study 月" });
     const examples = catalog.vocabularyForms.filter(form => form.kanjiIds.includes("kanji-6708")).length;
     assert.ok(examples > 3, "月 needs more than three example words for this check");
-    assert.equal(await card.locator(":scope > div > div").first().locator("> ul > li").count(), 3);
-    await card.getByText(`View more vocabulary (${examples - 3})`).waitFor();
+    assert.equal(await card.locator('[aria-hidden="true"][inert] ul[aria-label="Example words"] > li').count(), 3, "example words wait on the back");
+    await page.getByRole("button", { name: /月: flip to see/ }).click(); await page.getByRole("button", { name: "↻ Flip back" }).waitFor();
+    await card.getByText(`and ${examples - 3} more words`).waitFor();
+    assert.equal(await card.getByText(/KANJIDIC|Vocabulary association|JLPT level/).count(), 0, "source notes live outside the card");
+    await page.locator("footer").getByText(/KANJIDIC2/).waitFor();
     assert.equal(await card.getByRole("link", { name: "Mixed practice →" }).count(), 0);
     await page.screenshot({ path: `${shots}/kanji-flashcards.png`, fullPage: true });
     // The chosen set
@@ -86,7 +111,7 @@ const n4Unit3 = new Set(catalog.lessonIntroductions.filter(item => item.lessonId
     await page.getByRole("tab", { name: "My flashcards (1)" }).waitFor();
     await page.getByLabel("Card 1 of 1", { exact: true }).waitFor(); await page.getByRole("article", { name: "Study 月" }).waitFor();
     await noOverflow(page, "flashcards");
-    await page.getByRole("link", { name: "← Back to the kanji list" }).click();
+    await page.getByRole("button", { name: "← Back" }).click();
     await page.waitForURL("**/learn/kanji?level=N4&unit=japanese-n4-unit-3");
     assert.deepEqual(errors, []); await context.close();
 
@@ -102,6 +127,6 @@ const n4Unit3 = new Set(catalog.lessonIntroductions.filter(item => item.lessonId
     await page.getByRole("button", { name: "Study N5 kanji" }).click(); await page.getByLabel(/^Card 1 of \d+$/).waitFor();
     assert.deepEqual(errors, []); await context.close();
 
-    console.log("PASS: a kanji's page has Add to flashcards (add, remove, remembered after reload) and no inline flashcard; the list's Study flashcards opens its own screen with the chosen level and unit; cards show 3 example words (rest in a dropdown) and no practice button; my list first when it has cards, the chosen set as a tab; remove from the list; back link keeps the filters; empty list explained and the set studied instead; fits phones; no page errors.");
+    console.log("PASS: a kanji's page has Add to flashcards (add, remove, remembered after reload) and no inline flashcard; the kanji page is a flashcard (meanings hidden until flipped) with draw and words tabs, each fitting a 1366×768 screen, course words linking to their real unit, Next stepping through the chosen level and keeping the mode, Back returning to the list with the level; the list's Study flashcards opens its own screen with the chosen level and unit; cards are the same flip card as a kanji page (3 example words then a count on the back, no practice button, source notes in the page footer); my list first when it has cards, the chosen set as a tab; remove from the list; Back keeps the filters; empty list explained and the set studied instead; fits phones; no page errors.");
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1800)); process.exitCode = 1; });

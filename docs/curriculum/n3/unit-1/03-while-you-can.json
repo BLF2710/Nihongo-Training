@@ -1,0 +1,551 @@
+{
+  "id": "japanese-n3-unit-1-while-you-can",
+  "slug": "n3-unit-1-while-you-can",
+  "unit": "Japanese N3 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "While You Still Can",
+  "title_jp": "〜うちに",
+  "objectives": [
+    "I can say I will do something while I still can.",
+    "Do something before a state changes with 〜うちに",
+    "Do something before an unwanted change with V-ない うちに",
+    "Talk about weather, temperature and youth"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>若<rt>わか</rt></ruby>い",
+      "",
+      "young"
+    ],
+    [
+      "<ruby>暗<rt>くら</rt></ruby>い",
+      "",
+      "dark"
+    ],
+    [
+      "<ruby>冷<rt>つめ</rt></ruby>たい",
+      "",
+      "cold (to the touch)"
+    ],
+    [
+      "<ruby>冷<rt>ひ</rt></ruby>える",
+      "",
+      "to get cold"
+    ],
+    [
+      "れいぞうこ",
+      "",
+      "refrigerator"
+    ],
+    [
+      "<ruby>温<rt>あたた</rt></ruby>かい",
+      "",
+      "warm"
+    ],
+    [
+      "<ruby>気温<rt>きおん</rt></ruby>",
+      "",
+      "(air) temperature"
+    ],
+    [
+      "<ruby>晴<rt>は</rt></ruby>れる",
+      "",
+      "to clear up, to be sunny"
+    ],
+    [
+      "<ruby>晴<rt>は</rt></ruby>れ",
+      "",
+      "sunny weather"
+    ],
+    [
+      "<ruby>雪<rt>ゆき</rt></ruby>",
+      "",
+      "snow"
+    ],
+    [
+      "〜うちに",
+      "",
+      "while (before it changes)"
+    ],
+    [
+      "〜ないうちに",
+      "",
+      "before … (happens)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "若い",
+      "word_reading": "わかい"
+    },
+    {
+      "word_japanese": "暗い",
+      "word_reading": "くらい"
+    },
+    {
+      "word_japanese": "冷たい",
+      "word_reading": "つめたい"
+    },
+    {
+      "word_japanese": "冷える",
+      "word_reading": "ひえる"
+    },
+    {
+      "word_japanese": "温かい",
+      "word_reading": "あたたかい"
+    },
+    {
+      "word_japanese": "気温",
+      "word_reading": "きおん"
+    },
+    {
+      "word_japanese": "晴れる",
+      "word_reading": "はれる"
+    },
+    {
+      "word_japanese": "晴れ",
+      "word_reading": "はれ"
+    },
+    {
+      "word_japanese": "雪",
+      "word_reading": "ゆき"
+    }
+  ],
+  "concept": {
+    "title": "While you still can: うちに",
+    "text": "うちに means \"while\", with a feeling that the state will soon change, so you had better act now:\n\n<ruby>若<rt>わか</rt></ruby>いうちに、いろいろな<ruby>国<rt>くに</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きたいです。 I want to visit many countries while I'm young.\n<ruby>温<rt>あたた</rt></ruby>かいうちに、<ruby>食<rt>た</rt></ruby>べてください。 Please eat it while it's warm.\n\nWith a negative verb, it means \"before something happens\":\n<ruby>暗<rt>くら</rt></ruby>くならないうちに、<ruby>帰<rt>かえ</rt></ruby>りましょう。 Let's go home before it gets dark.\n\nうちに follows: V-る / V-ている / V-ない, い-adjectives, な-adjectives with な, and nouns with の (<ruby>学生<rt>がくせい</rt></ruby>のうちに).",
+    "examples": [
+      "〜うちに (while it lasts)",
+      "V-ない うちに (before it happens)",
+      "N の うちに / な-adj な うちに"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "While: 〜うちに",
+      "pattern": "V-る / V-ている / い-adj / な-adj な / N の + うちに",
+      "explanation": "Do something while a state lasts, because it will change. There is a feeling of \"before it's too late\".",
+      "examples": [
+        {
+          "japanese": "<ruby>若<rt>わか</rt></ruby>いうちに、いろいろな<ruby>国<rt>くに</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きたいです。",
+          "romaji": "",
+          "meaning": "I want to visit many countries while I'm young."
+        },
+        {
+          "japanese": "<ruby>温<rt>あたた</rt></ruby>かいうちに、どうぞ<ruby>食<rt>た</rt></ruby>べてください。",
+          "romaji": "",
+          "meaning": "Please eat it while it's warm."
+        },
+        {
+          "japanese": "<ruby>晴<rt>は</rt></ruby>れているうちに、せんたくをしましょう。",
+          "romaji": "",
+          "meaning": "Let's do the washing while it's sunny."
+        },
+        {
+          "japanese": "<ruby>学生<rt>がくせい</rt></ruby>のうちに、たくさん<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでおきます。",
+          "romaji": "",
+          "meaning": "I'll read lots of books while I'm a student."
+        }
+      ],
+      "notes": [
+        "Compare: <ruby>学生<rt>がくせい</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby> (for the whole time) / <ruby>学生<rt>がくせい</rt></ruby>のうちに (before student days end). うちに stresses the coming change."
+      ]
+    },
+    {
+      "title": "Before: 〜ないうちに",
+      "pattern": "V-ない + うちに",
+      "explanation": "Do something before an unwanted change starts.",
+      "examples": [
+        {
+          "japanese": "<ruby>暗<rt>くら</rt></ruby>くならないうちに、<ruby>帰<rt>かえ</rt></ruby>りましょう。",
+          "romaji": "",
+          "meaning": "Let's go home before it gets dark."
+        },
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>らないうちに、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>行<rt>い</rt></ruby>ってきます。",
+          "romaji": "",
+          "meaning": "I'll go shopping before it rains."
+        },
+        {
+          "japanese": "わすれないうちに、メモしておきます。",
+          "romaji": "",
+          "meaning": "I'll make a note before I forget."
+        },
+        {
+          "japanese": "<ruby>冷<rt>さ</rt></ruby>めないうちに、<ruby>飲<rt>の</rt></ruby>んでください。",
+          "romaji": "",
+          "meaning": "Drink it before it gets cold."
+        }
+      ],
+      "notes": [
+        "<ruby>暗<rt>くら</rt></ruby>くならないうちに and <ruby>暗<rt>くら</rt></ruby>くなる<ruby>前<rt>まえ</rt></ruby>に mean almost the same; うちに adds \"while we still can\".",
+        "Another use: a change you hardly noticed. <ruby>話<rt>はな</rt></ruby>しているうちに、なかよくなりました (as we talked, we became friends)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>気温<rt>きおん</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。",
+      "The temperature is high today."
+    ],
+    [
+      "<ruby>夜<rt>よる</rt></ruby>になると、<ruby>冷<rt>ひ</rt></ruby>えますね。",
+      "It gets cold at night, doesn't it?"
+    ],
+    [
+      "<ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるでしょう。",
+      "It will probably be sunny tomorrow."
+    ],
+    [
+      "<ruby>雪<rt>ゆき</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>って、<ruby>町<rt>まち</rt></ruby>が<ruby>白<rt>しろ</rt></ruby>くなりました。",
+      "It snowed and the town turned white."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "このスープ、おいしそうですね。",
+      "けん",
+      "<ruby>温<rt>あたた</rt></ruby>かいうちに、どうぞ。"
+    ],
+    [
+      "リー",
+      "そろそろ<ruby>帰<rt>かえ</rt></ruby>りましょうか。",
+      "マイ",
+      "そうですね。<ruby>暗<rt>くら</rt></ruby>くならないうちに<ruby>帰<rt>かえ</rt></ruby>りましょう。"
+    ],
+    [
+      "ゆき",
+      "どうして<ruby>毎日<rt>まいにち</rt></ruby>そんなに<ruby>勉強<rt>べんきょう</rt></ruby>するんですか。",
+      "リン",
+      "<ruby>若<rt>わか</rt></ruby>いうちに、いろいろなことを<ruby>学<rt>まな</rt></ruby>びたいんです。"
+    ],
+    [
+      "たなか",
+      "<ruby>明日<rt>あした</rt></ruby>の<ruby>天気<rt>てんき</rt></ruby>はどうですか。",
+      "アナ",
+      "<ruby>午前<rt>ごぜん</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れですが、<ruby>午後<rt>ごご</rt></ruby>から<ruby>雪<rt>ゆき</rt></ruby>だそうです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "若",
+      "onyomi": [
+        "ジャク",
+        "ニャク",
+        "ニャ"
+      ],
+      "kunyomi": [
+        "わか.い",
+        "わか-",
+        "も.しくわ",
+        "も.し",
+        "も.しくは",
+        "ごと.し"
+      ],
+      "meaning_en": "young",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "若い",
+          "reading": "わかい",
+          "en": "young"
+        },
+        {
+          "word": "若者",
+          "reading": "わかもの",
+          "en": "young people"
+        }
+      ],
+      "mnemonic": "A right hand (右) picking fresh grass (艹): young shoots."
+    },
+    {
+      "char": "暗",
+      "onyomi": [
+        "アン"
+      ],
+      "kunyomi": [
+        "くら.い",
+        "くら.む",
+        "くれ.る"
+      ],
+      "meaning_en": "dark",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "暗い",
+          "reading": "くらい",
+          "en": "dark"
+        },
+        {
+          "word": "暗記",
+          "reading": "あんき",
+          "en": "learning by heart"
+        }
+      ],
+      "mnemonic": "The sun (日) gone, only sound (音) left: darkness."
+    },
+    {
+      "char": "冷",
+      "onyomi": [
+        "レイ"
+      ],
+      "kunyomi": [
+        "つめ.たい",
+        "ひ.える",
+        "ひ.や",
+        "ひ.ややか",
+        "ひ.やす",
+        "ひ.やかす",
+        "さ.める",
+        "さ.ます"
+      ],
+      "meaning_en": "cold, cool",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "冷たい",
+          "reading": "つめたい",
+          "en": "cold (to the touch)"
+        },
+        {
+          "word": "冷える",
+          "reading": "ひえる",
+          "en": "to get cold"
+        }
+      ],
+      "mnemonic": "Ice (冫) given out by order (令): cold."
+    },
+    {
+      "char": "温",
+      "onyomi": [
+        "オン"
+      ],
+      "kunyomi": [
+        "あたた.か",
+        "あたた.かい",
+        "あたた.まる",
+        "あたた.める",
+        "ぬく"
+      ],
+      "meaning_en": "warm",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "温かい",
+          "reading": "あたたかい",
+          "en": "warm"
+        },
+        {
+          "word": "気温",
+          "reading": "きおん",
+          "en": "temperature"
+        }
+      ],
+      "mnemonic": "Water (氵) warmed by the sun (日) over a dish (皿)."
+    },
+    {
+      "char": "晴",
+      "onyomi": [
+        "セイ"
+      ],
+      "kunyomi": [
+        "は.れる",
+        "は.れ",
+        "は.れ-",
+        "-ば.れ",
+        "は.らす"
+      ],
+      "meaning_en": "clear weather",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "晴れる",
+          "reading": "はれる",
+          "en": "to clear up"
+        },
+        {
+          "word": "晴れ",
+          "reading": "はれ",
+          "en": "sunny weather"
+        }
+      ],
+      "mnemonic": "The sun (日) in a blue (青) sky."
+    },
+    {
+      "char": "雪",
+      "onyomi": [
+        "セツ"
+      ],
+      "kunyomi": [
+        "ゆき"
+      ],
+      "meaning_en": "snow",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "雪",
+          "reading": "ゆき",
+          "en": "snow"
+        },
+        {
+          "word": "大雪",
+          "reading": "おおゆき",
+          "en": "heavy snow"
+        }
+      ],
+      "mnemonic": "Rain (雨) you can sweep up with a broom (ヨ): snow."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>た＿＿です。 (only just)",
+      "options": [
+        "うち",
+        "とたん",
+        "ところに",
+        "ばかり"
+      ],
+      "correct": "ばかり",
+      "explanation": "V-た ばかり."
+    },
+    {
+      "prompt": "Complete: <ruby>温<rt>あたた</rt></ruby>かい＿＿、<ruby>食<rt>た</rt></ruby>べてください。",
+      "options": [
+        "うちに",
+        "とたんに",
+        "ばかりに",
+        "ところへ"
+      ],
+      "correct": "うちに",
+      "explanation": "While it's warm: うちに."
+    },
+    {
+      "prompt": "Complete: <ruby>暗<rt>くら</rt></ruby>くなら＿＿うちに、<ruby>帰<rt>かえ</rt></ruby>りましょう。",
+      "options": [
+        "る",
+        "ない",
+        "た",
+        "なかった"
+      ],
+      "correct": "ない",
+      "explanation": "Before: V-ない うちに."
+    },
+    {
+      "prompt": "Complete: <ruby>学生<rt>がくせい</rt></ruby>＿＿うちに、<ruby>旅行<rt>りょこう</rt></ruby>したいです。",
+      "options": [
+        "な",
+        "だ",
+        "の",
+        "に"
+      ],
+      "correct": "の",
+      "explanation": "N の うちに."
+    },
+    {
+      "prompt": "Which word means \"cold to the touch\"?",
+      "options": [
+        "さむい",
+        "<ruby>暗<rt>くら</rt></ruby>い",
+        "<ruby>若<rt>わか</rt></ruby>い",
+        "<ruby>冷<rt>つめ</rt></ruby>たい"
+      ],
+      "correct": "<ruby>冷<rt>つめ</rt></ruby>たい",
+      "explanation": "<ruby>冷<rt>つめ</rt></ruby>たい: cold things; さむい: cold weather."
+    },
+    {
+      "prompt": "How is 気温⁠ read?",
+      "options": [
+        "きおん",
+        "きあたた",
+        "けおん",
+        "きうん"
+      ],
+      "correct": "きおん",
+      "explanation": "気温⁠ is read きおん."
+    },
+    {
+      "prompt": "Choose the meaning of わすれないうちに、メモしておきます。",
+      "options": [
+        "I made a note but forgot it.",
+        "I'll make a note before I forget.",
+        "I never make notes.",
+        "I'll make a note tomorrow."
+      ],
+      "correct": "I'll make a note before I forget.",
+      "explanation": "ないうちに: before."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence uses うちに naturally?",
+      "options": [
+        "<ruby>若<rt>わか</rt></ruby>いうちに、<ruby>年<rt>とし</rt></ruby>をとりました。",
+        "<ruby>若<rt>わか</rt></ruby>いうちに、<ruby>外国<rt>がいこく</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでみたいです。",
+        "<ruby>晴<rt>は</rt></ruby>れているうちに、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ります。",
+        "<ruby>暗<rt>くら</rt></ruby>いうちに、<ruby>明<rt>あか</rt></ruby>るくなりました。"
+      ],
+      "correct": "<ruby>若<rt>わか</rt></ruby>いうちに、<ruby>外国<rt>がいこく</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでみたいです。",
+      "explanation": "うちに: act while a state lasts."
+    },
+    {
+      "prompt": "Your tea is getting cold. What does your host say?",
+      "options": [
+        "<ruby>冷<rt>さ</rt></ruby>めたうちに、どうぞ。",
+        "<ruby>冷<rt>さ</rt></ruby>めるとたんに、どうぞ。",
+        "<ruby>冷<rt>さ</rt></ruby>めないうちに、どうぞ。",
+        "<ruby>冷<rt>さ</rt></ruby>めたばかりです、どうぞ。"
+      ],
+      "correct": "<ruby>冷<rt>さ</rt></ruby>めないうちに、どうぞ。",
+      "explanation": "Before it cools: <ruby>冷<rt>さ</rt></ruby>めないうちに."
+    },
+    {
+      "prompt": "What is the difference between <ruby>冷<rt>つめ</rt></ruby>たい and さむい?",
+      "options": [
+        "<ruby>冷<rt>つめ</rt></ruby>たい: the weather / さむい: things you touch",
+        "<ruby>冷<rt>つめ</rt></ruby>たい is written, さむい is spoken",
+        "There is no difference.",
+        "<ruby>冷<rt>つめ</rt></ruby>たい: things you touch / さむい: the air, the weather"
+      ],
+      "correct": "<ruby>冷<rt>つめ</rt></ruby>たい: things you touch / さむい: the air, the weather",
+      "explanation": "<ruby>冷<rt>つめ</rt></ruby>たい<ruby>水<rt>みず</rt></ruby>, さむい<ruby>日<rt>ひ</rt></ruby>."
+    },
+    {
+      "prompt": "Read: <ruby>午前<rt>ごぜん</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れですが、<ruby>午後<rt>ごご</rt></ruby>から<ruby>雪<rt>ゆき</rt></ruby>だそうです。 What is the forecast?",
+      "options": [
+        "Sunny in the morning, snow from the afternoon",
+        "Snow in the morning, sunny in the afternoon",
+        "Sunny all day",
+        "Rain in the afternoon"
+      ],
+      "correct": "Sunny in the morning, snow from the afternoon",
+      "explanation": "<ruby>午後<rt>ごご</rt></ruby>から<ruby>雪<rt>ゆき</rt></ruby>."
+    },
+    {
+      "prompt": "Review (N4): complete <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る＿＿、<ruby>出<rt>で</rt></ruby>かけます。 (before)",
+      "options": [
+        "<ruby>後<rt>あと</rt></ruby>で",
+        "<ruby>前<rt>まえ</rt></ruby>に",
+        "ながら",
+        "のに"
+      ],
+      "correct": "<ruby>前<rt>まえ</rt></ruby>に",
+      "explanation": "V-る <ruby>前<rt>まえ</rt></ruby>に."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-1-the-moment",
+    "japanese-n4-unit-5-before-and-after",
+    "japanese-n4-unit-6-getting-ready"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

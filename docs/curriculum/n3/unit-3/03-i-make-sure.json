@@ -1,0 +1,528 @@
+{
+  "id": "japanese-n3-unit-3-i-make-sure",
+  "slug": "n3-unit-3-i-make-sure",
+  "unit": "Japanese N3 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "I Make Sure To…",
+  "title_jp": "〜ように する",
+  "objectives": [
+    "I can say what I try to do as a habit.",
+    "Say what you make an effort to do with 〜ようにする",
+    "Give a purpose that is a state or ability with 〜ように",
+    "Talk about health, medicine, teeth and sleep"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>健康<rt>けんこう</rt></ruby>",
+      "",
+      "health; healthy"
+    ],
+    [
+      "<ruby>薬<rt>くすり</rt></ruby>",
+      "",
+      "medicine"
+    ],
+    [
+      "やっきょく",
+      "",
+      "pharmacy"
+    ],
+    [
+      "<ruby>歯<rt>は</rt></ruby>",
+      "",
+      "tooth"
+    ],
+    [
+      "<ruby>歯医者<rt>はいしゃ</rt></ruby>",
+      "",
+      "dentist"
+    ],
+    [
+      "<ruby>歯<rt>は</rt></ruby>をみがく",
+      "",
+      "to brush one's teeth"
+    ],
+    [
+      "<ruby>寝<rt>ね</rt></ruby>る",
+      "",
+      "to sleep, to go to bed"
+    ],
+    [
+      "<ruby>昼寝<rt>ひるね</rt></ruby>",
+      "",
+      "nap"
+    ],
+    [
+      "<ruby>忘<rt>わす</rt></ruby>れる",
+      "",
+      "to forget; to leave behind"
+    ],
+    [
+      "<ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>",
+      "",
+      "something left behind"
+    ],
+    [
+      "〜ようにする",
+      "",
+      "to make sure to, to try to"
+    ],
+    [
+      "〜ように",
+      "",
+      "so that"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "健康",
+      "word_reading": "けんこう"
+    },
+    {
+      "word_japanese": "薬",
+      "word_reading": "くすり"
+    },
+    {
+      "word_japanese": "歯",
+      "word_reading": "は"
+    },
+    {
+      "word_japanese": "歯医者",
+      "word_reading": "はいしゃ"
+    },
+    {
+      "word_japanese": "寝る",
+      "word_reading": "ねる"
+    },
+    {
+      "word_japanese": "昼寝",
+      "word_reading": "ひるね"
+    },
+    {
+      "word_japanese": "忘れる",
+      "word_reading": "わすれる"
+    },
+    {
+      "word_japanese": "忘れ物",
+      "word_reading": "わすれもの"
+    }
+  ],
+  "concept": {
+    "title": "Making an effort: ようにする",
+    "text": "V-る / V-ない + ようにする: you make an effort to do, or not to do, something. ようにしている is a habit you keep trying to keep:\n\n<ruby>夜<rt>よる</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>るようにしています。 I try to go to bed early.\n<ruby>明日<rt>あした</rt></ruby>から、<ruby>遅<rt>おく</rt></ruby>れないようにします。 I'll make sure not to be late from tomorrow.\n\nように on its own gives a purpose that is a state or an ability:\n<ruby>後<rt>うし</rt></ruby>ろの<ruby>人<rt>ひと</rt></ruby>にも<ruby>見<rt>み</rt></ruby>えるように、<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>いてください。 Please write it big so the people at the back can see.\n\nIn N4, ために gave a purpose with a will verb (<ruby>話<rt>はな</rt></ruby>すために). ように goes with potential verbs, verbs like <ruby>見<rt>み</rt></ruby>える, and negatives: <ruby>話<rt>はな</rt></ruby>せるように, <ruby>忘<rt>わす</rt></ruby>れないように.",
+    "examples": [
+      "V-る / V-ない ようにする (try to)",
+      "〜ようにしている (habit)",
+      "potential / V-ない + ように (so that)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I make sure to: 〜ようにする",
+      "pattern": "V-る / V-ない + ようにする / ようにしている",
+      "explanation": "You make an effort to do, or not to do, something. ようにしている is an ongoing habit.",
+      "examples": [
+        {
+          "japanese": "<ruby>健康<rt>けんこう</rt></ruby>のために、<ruby>毎日<rt>まいにち</rt></ruby>やさいを<ruby>食<rt>た</rt></ruby>べるようにしています。",
+          "romaji": "",
+          "meaning": "For my health, I make sure to eat vegetables every day."
+        },
+        {
+          "japanese": "<ruby>夜<rt>よる</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>るようにしています。",
+          "romaji": "",
+          "meaning": "I try to go to bed early."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>から、<ruby>遅<rt>おく</rt></ruby>れないようにします。",
+          "romaji": "",
+          "meaning": "From tomorrow, I'll make sure not to be late."
+        },
+        {
+          "japanese": "<ruby>寝<rt>ね</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>は、スマホを<ruby>見<rt>み</rt></ruby>ないようにしています。",
+          "romaji": "",
+          "meaning": "I try not to look at my phone before bed."
+        }
+      ],
+      "notes": [
+        "ようにする is softer than ことにする: it is about effort, not a firm decision.",
+        "ようにしてください: please make sure to."
+      ]
+    },
+    {
+      "title": "So that: 〜ように",
+      "pattern": "potential verb / V-ない / <ruby>見<rt>み</rt></ruby>える etc. + ように",
+      "explanation": "The purpose is a state or an ability, not a deliberate action.",
+      "examples": [
+        {
+          "japanese": "<ruby>後<rt>うし</rt></ruby>ろの<ruby>人<rt>ひと</rt></ruby>にも<ruby>見<rt>み</rt></ruby>えるように、<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>いてください。",
+          "romaji": "",
+          "meaning": "Please write it big so the people at the back can see."
+        },
+        {
+          "japanese": "かぜをひかないように、あたたかくして<ruby>寝<rt>ね</rt></ruby>ます。",
+          "romaji": "",
+          "meaning": "I keep warm in bed so I don't catch a cold."
+        },
+        {
+          "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるように、<ruby>毎日<rt>まいにち</rt></ruby>れんしゅうしています。",
+          "romaji": "",
+          "meaning": "I practise every day so that I can speak Japanese."
+        },
+        {
+          "japanese": "<ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>をしないように、<ruby>気<rt>き</rt></ruby>をつけてください。",
+          "romaji": "",
+          "meaning": "Be careful not to leave anything behind."
+        }
+      ],
+      "notes": [
+        "ために (N4) + a will verb: <ruby>話<rt>はな</rt></ruby>すために. ように + a potential verb or a negative: <ruby>話<rt>はな</rt></ruby>せるように, <ruby>忘<rt>わす</rt></ruby>れないように."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "たばこは<ruby>健康<rt>けんこう</rt></ruby>によくないです。",
+      "Smoking is bad for your health."
+    ],
+    [
+      "この<ruby>薬<rt>くすり</rt></ruby>は<ruby>一日<rt>いちにち</rt></ruby><ruby>三回<rt>さんかい</rt></ruby><ruby>飲<rt>の</rt></ruby>んでください。",
+      "Take this medicine three times a day."
+    ],
+    [
+      "<ruby>歯<rt>は</rt></ruby>がいたいので、<ruby>歯医者<rt>はいしゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+      "My tooth hurts, so I'm going to the dentist."
+    ],
+    [
+      "<ruby>電車<rt>でんしゃ</rt></ruby>にかさを<ruby>忘<rt>わす</rt></ruby>れてしまいました。",
+      "I left my umbrella on the train."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>健康<rt>けんこう</rt></ruby>のために、<ruby>何<rt>なに</rt></ruby>かしていますか。",
+      "けん",
+      "<ruby>毎日<rt>まいにち</rt></ruby><ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>歩<rt>ある</rt></ruby>くようにしています。"
+    ],
+    [
+      "リー",
+      "またちこくですか。",
+      "マイ",
+      "すみません、<ruby>明日<rt>あした</rt></ruby>から<ruby>遅<rt>おく</rt></ruby>れないようにします。"
+    ],
+    [
+      "ゆき",
+      "<ruby>字<rt>じ</rt></ruby>が<ruby>小<rt>ちい</rt></ruby>さくて<ruby>見<rt>み</rt></ruby>えません。",
+      "リン",
+      "じゃあ、みんなに<ruby>見<rt>み</rt></ruby>えるように、<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>きますね。"
+    ],
+    [
+      "たなか",
+      "<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みましたか。",
+      "アナ",
+      "あ、<ruby>忘<rt>わす</rt></ruby>れていました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "健",
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "すこ.やか"
+      ],
+      "meaning_en": "healthy",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "健康",
+          "reading": "けんこう",
+          "en": "health"
+        },
+        {
+          "word": "保健",
+          "reading": "ほけん",
+          "en": "health care"
+        }
+      ],
+      "mnemonic": "A person (亻) standing tall (建): healthy."
+    },
+    {
+      "char": "康",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "peace, health",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "健康",
+          "reading": "けんこう",
+          "en": "health"
+        },
+        {
+          "word": "小康",
+          "reading": "しょうこう",
+          "en": "lull"
+        }
+      ],
+      "mnemonic": "Rice grains stored under a roof (广): calm and well."
+    },
+    {
+      "char": "薬",
+      "onyomi": [
+        "ヤク"
+      ],
+      "kunyomi": [
+        "くすり"
+      ],
+      "meaning_en": "medicine",
+      "stroke_count": 16,
+      "example_words": [
+        {
+          "word": "薬",
+          "reading": "くすり",
+          "en": "medicine"
+        },
+        {
+          "word": "薬局",
+          "reading": "やっきょく",
+          "en": "pharmacy"
+        }
+      ],
+      "mnemonic": "Plants (艹) that make you happy (楽) again: medicine."
+    },
+    {
+      "char": "歯",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "よわい",
+        "は",
+        "よわ.い",
+        "よわい.する"
+      ],
+      "meaning_en": "tooth",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "歯",
+          "reading": "は",
+          "en": "tooth"
+        },
+        {
+          "word": "歯医者",
+          "reading": "はいしゃ",
+          "en": "dentist"
+        }
+      ],
+      "mnemonic": "Teeth lined up in a mouth (凵) under a stop sign (止)."
+    },
+    {
+      "char": "寝",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "ね.る",
+        "ね.かす",
+        "い.ぬ",
+        "みたまや",
+        "や.める"
+      ],
+      "meaning_en": "sleep",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "寝る",
+          "reading": "ねる",
+          "en": "to sleep"
+        },
+        {
+          "word": "昼寝",
+          "reading": "ひるね",
+          "en": "nap"
+        }
+      ],
+      "mnemonic": "A bed under a roof (宀): sleeping."
+    },
+    {
+      "char": "忘",
+      "onyomi": [
+        "ボウ"
+      ],
+      "kunyomi": [
+        "わす.れる"
+      ],
+      "meaning_en": "forget",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "忘れる",
+          "reading": "わすれる",
+          "en": "to forget"
+        },
+        {
+          "word": "忘れ物",
+          "reading": "わすれもの",
+          "en": "lost property"
+        }
+      ],
+      "mnemonic": "A heart (心) that has lost (亡) something."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>来月<rt>らいげつ</rt></ruby>からおおさかで<ruby>働<rt>はたら</rt></ruby>くことに＿＿。",
+      "options": [
+        "しました",
+        "いました",
+        "ありました",
+        "なりました"
+      ],
+      "correct": "なりました",
+      "explanation": "Decided for you: ことになった."
+    },
+    {
+      "prompt": "Complete: <ruby>夜<rt>よる</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>る＿＿にしています。",
+      "options": [
+        "よう",
+        "わけ",
+        "ため",
+        "はず"
+      ],
+      "correct": "よう",
+      "explanation": "Try to: ようにしている."
+    },
+    {
+      "prompt": "Complete: かぜをひかない＿＿、あたたかくして<ruby>寝<rt>ね</rt></ruby>ます。",
+      "options": [
+        "ために",
+        "ように",
+        "わけに",
+        "ことに"
+      ],
+      "correct": "ように",
+      "explanation": "So that not: V-ない ように."
+    },
+    {
+      "prompt": "Complete: <ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せる＿＿、れんしゅうしています。",
+      "options": [
+        "ために",
+        "ことに",
+        "ように",
+        "わけで"
+      ],
+      "correct": "ように",
+      "explanation": "Potential verb + ように."
+    },
+    {
+      "prompt": "Which word means \"dentist\"?",
+      "options": [
+        "やっきょく",
+        "<ruby>健康<rt>けんこう</rt></ruby>",
+        "<ruby>昼寝<rt>ひるね</rt></ruby>",
+        "<ruby>歯医者<rt>はいしゃ</rt></ruby>"
+      ],
+      "correct": "<ruby>歯医者<rt>はいしゃ</rt></ruby>",
+      "explanation": "<ruby>歯医者<rt>はいしゃ</rt></ruby>: dentist."
+    },
+    {
+      "prompt": "How is 健康⁠ read?",
+      "options": [
+        "けんこう",
+        "けんごう",
+        "けいこう",
+        "けんかん"
+      ],
+      "correct": "けんこう",
+      "explanation": "健康⁠ is read けんこう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>をしないように、<ruby>気<rt>き</rt></ruby>をつけてください。",
+      "options": [
+        "Please forget your things.",
+        "Be careful not to leave anything behind.",
+        "Be careful, you've forgotten something.",
+        "Lost property is over there."
+      ],
+      "correct": "Be careful not to leave anything behind.",
+      "explanation": "V-ない ように: so that not."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるように、れんしゅうしています。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるために、れんしゅうしています。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すために、れんしゅうしています。",
+        "<ruby>毎日<rt>まいにち</rt></ruby><ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すようにしています。"
+      ],
+      "correct": "<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるために、れんしゅうしています。",
+      "explanation": "Potential verbs take ように, not ために."
+    },
+    {
+      "prompt": "Your teacher wants you to stop being late. What do you promise?",
+      "options": [
+        "<ruby>遅<rt>おく</rt></ruby>れないことになりました。",
+        "<ruby>遅<rt>おく</rt></ruby>れないわけがありません。",
+        "<ruby>遅<rt>おく</rt></ruby>れないようにします。",
+        "<ruby>遅<rt>おく</rt></ruby>れないためです。"
+      ],
+      "correct": "<ruby>遅<rt>おく</rt></ruby>れないようにします。",
+      "explanation": "Make sure not to: V-ない ようにする."
+    },
+    {
+      "prompt": "What is the difference between ようにしている and ことにしている?",
+      "options": [
+        "ようにしている: my firm rule / ことにしている: I try to",
+        "Both mean it was decided for me.",
+        "There is no difference.",
+        "ようにしている: I try to / ことにしている: it's my firm rule"
+      ],
+      "correct": "ようにしている: I try to / ことにしている: it's my firm rule",
+      "explanation": "よう: effort; こと: a decision."
+    },
+    {
+      "prompt": "Read: みんなに<ruby>見<rt>み</rt></ruby>えるように、<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>きますね。 Why will Lin write big?",
+      "options": [
+        "So everyone can see",
+        "Because she likes big letters",
+        "Because the board is big",
+        "So that she won't forget"
+      ],
+      "correct": "So everyone can see",
+      "explanation": "<ruby>見<rt>み</rt></ruby>えるように: so that they can see."
+    },
+    {
+      "prompt": "Review (Unit 1): complete <ruby>冷<rt>さ</rt></ruby>めない＿＿、<ruby>飲<rt>の</rt></ruby>んでください。",
+      "options": [
+        "ことに",
+        "うちに",
+        "わけに",
+        "べきに"
+      ],
+      "correct": "うちに",
+      "explanation": "Before it cools: ないうちに."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-3-its-been-decided",
+    "japanese-n4-unit-5-in-order-to",
+    "japanese-n4-unit-3-now-i-can"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

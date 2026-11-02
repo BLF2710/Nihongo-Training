@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n3-unit-7-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "command-g1",
+      "prompt": "What is the command form of <ruby>急<rt>いそ</rt></ruby>ぐ?",
+      "options": [
+        "<ruby>急<rt>いそ</rt></ruby>ぎろ",
+        "<ruby>急<rt>いそ</rt></ruby>げ",
+        "<ruby>急<rt>いそ</rt></ruby>ご",
+        "<ruby>急<rt>いそ</rt></ruby>ぐな"
+      ],
+      "correctIndex": 1,
+      "explanation": "Group 1: ぐ → げ."
+    },
+    {
+      "id": "command-g2",
+      "prompt": "What is the command form of <ruby>逃<rt>に</rt></ruby>げる?",
+      "options": [
+        "<ruby>逃<rt>に</rt></ruby>げれ",
+        "<ruby>逃<rt>に</rt></ruby>げな",
+        "<ruby>逃<rt>に</rt></ruby>げよ",
+        "<ruby>逃<rt>に</rt></ruby>げろ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Group 2: る → ろ."
+    },
+    {
+      "id": "command-kuru",
+      "prompt": "What is the command form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>こ</rt></ruby>い",
+        "<ruby>来<rt>く</rt></ruby>れ",
+        "<ruby>来<rt>き</rt></ruby>ろ",
+        "<ruby>来<rt>こ</rt></ruby>ろ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Irregular: <ruby>来<rt>こ</rt></ruby>い."
+    },
+    {
+      "id": "ru-na",
+      "prompt": "What does あきらめるな！ mean?",
+      "options": [
+        "Give up!",
+        "I gave up.",
+        "Don't give up!",
+        "Did you give up?"
+      ],
+      "correctIndex": 2,
+      "explanation": "V-るな: don't."
+    },
+    {
+      "id": "nasai",
+      "prompt": "Complete: ご<ruby>飯<rt>はん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>い＿＿。",
+      "options": [
+        "なきゃ",
+        "ろ",
+        "るな",
+        "なさい"
+      ],
+      "correctIndex": 3,
+      "explanation": "Instruction: なさい."
+    },
+    {
+      "id": "koto-rule",
+      "prompt": "What does <ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べないこと mean?",
+      "options": [
+        "Eat in the classroom.",
+        "No eating in the classroom.",
+        "I didn't eat in the classroom.",
+        "Have you eaten in the classroom?"
+      ],
+      "correctIndex": 1,
+      "explanation": "V-ないこと: written rule."
+    },
+    {
+      "id": "to-ii",
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れる＿＿いいな。",
+      "options": [
+        "と",
+        "ば",
+        "のに",
+        "よかった"
+      ],
+      "correctIndex": 0,
+      "explanation": "I hope: 〜といいな."
+    },
+    {
+      "id": "ba-ii-noni",
+      "prompt": "Complete: もっと<ruby>時間<rt>じかん</rt></ruby>があれば＿＿のに。",
+      "options": [
+        "よかった",
+        "いいな",
+        "いい",
+        "いる"
+      ],
+      "correctIndex": 2,
+      "explanation": "I wish: ばいいのに."
+    },
+    {
+      "id": "ba-yokatta",
+      "prompt": "You missed the bus because you left late. What do you say?",
+      "options": [
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>るといいな。",
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ればよかった。",
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>なさい。",
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ろ。"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regret: ばよかった."
+    },
+    {
+      "id": "te-itadakitai",
+      "prompt": "Complete: この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>て＿＿たいんですが。",
+      "options": [
+        "いただけ",
+        "くれ",
+        "あげ",
+        "いただき"
+      ],
+      "correctIndex": 3,
+      "explanation": "I'd like you to: ていただきたい."
+    },
+    {
+      "id": "itadakenai",
+      "prompt": "Which request is the most polite?",
+      "options": [
+        "<ruby>教<rt>おし</rt></ruby>えてください。",
+        "<ruby>教<rt>おし</rt></ruby>えて。",
+        "<ruby>教<rt>おし</rt></ruby>えていただけないでしょうか。",
+        "<ruby>教<rt>おし</rt></ruby>えてもらえる？"
+      ],
+      "correctIndex": 2,
+      "explanation": "ていただけないでしょうか."
+    },
+    {
+      "id": "nakya",
+      "prompt": "What is the casual form of <ruby>行<rt>い</rt></ruby>かなければならない?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>かなきゃ",
+        "<ruby>行<rt>い</rt></ruby>かなくて",
+        "<ruby>行<rt>い</rt></ruby>っちゃ",
+        "<ruby>行<rt>い</rt></ruby>っていい"
+      ],
+      "correctIndex": 0,
+      "explanation": "なければ → なきゃ."
+    },
+    {
+      "id": "ja-dame",
+      "prompt": "What does ここで<ruby>遊<rt>あそ</rt></ruby>んじゃだめ mean?",
+      "options": [
+        "You can play here.",
+        "Let's play here.",
+        "I played here.",
+        "You can't play here."
+      ],
+      "correctIndex": 3,
+      "explanation": "じゃだめ: mustn't."
+    },
+    {
+      "id": "kanji-shorui",
+      "prompt": "How is 書類⁠ read?",
+      "options": [
+        "しょうるい",
+        "しょるい",
+        "かきるい",
+        "しょたぐい"
+      ],
+      "correctIndex": 1,
+      "explanation": "書類⁠ is read しょるい."
+    },
+    {
+      "id": "kanji-kyouryoku",
+      "prompt": "How is 協力⁠ read?",
+      "options": [
+        "きょうりき",
+        "きょりょく",
+        "きょうりょく",
+        "きょうちから"
+      ],
+      "correctIndex": 2,
+      "explanation": "協力⁠ is read きょうりょく."
+    }
+  ]
+}

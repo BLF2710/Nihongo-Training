@@ -1,0 +1,536 @@
+{
+  "id": "japanese-n3-unit-8-on-the-other-hand",
+  "slug": "n3-unit-8-on-the-other-hand",
+  "unit": "Japanese N3 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "On the Other Hand",
+  "title_jp": "〜いっぽうで・〜はんめん",
+  "objectives": [
+    "I can weigh good points against bad ones.",
+    "Contrast two sides with 〜<ruby>一方<rt>いっぽう</rt></ruby>(で)",
+    "Show two sides of one thing with 〜<ruby>反面<rt>はんめん</rt></ruby>",
+    "Talk about convenience, the countryside, farming and villages"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>反対<rt>はんたい</rt></ruby>",
+      "",
+      "opposition; the opposite"
+    ],
+    [
+      "<ruby>面白<rt>おもしろ</rt></ruby>い",
+      "",
+      "interesting, funny"
+    ],
+    [
+      "<ruby>画面<rt>がめん</rt></ruby>",
+      "",
+      "screen"
+    ],
+    [
+      "<ruby>便利<rt>べんり</rt></ruby>",
+      "",
+      "convenient"
+    ],
+    [
+      "<ruby>利用<rt>りよう</rt></ruby>",
+      "",
+      "use (+ する: to use)"
+    ],
+    [
+      "いなか",
+      "",
+      "the countryside; home town"
+    ],
+    [
+      "<ruby>校舎<rt>こうしゃ</rt></ruby>",
+      "",
+      "school building"
+    ],
+    [
+      "<ruby>農業<rt>のうぎょう</rt></ruby>",
+      "",
+      "farming, agriculture"
+    ],
+    [
+      "<ruby>農家<rt>のうか</rt></ruby>",
+      "",
+      "farmer; farmhouse"
+    ],
+    [
+      "<ruby>村<rt>むら</rt></ruby>",
+      "",
+      "village"
+    ],
+    [
+      "〜<ruby>一方<rt>いっぽう</rt></ruby>(で)",
+      "",
+      "while, on the other hand"
+    ],
+    [
+      "〜<ruby>反面<rt>はんめん</rt></ruby>",
+      "",
+      "but on the other hand"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "反対",
+      "word_reading": "はんたい"
+    },
+    {
+      "word_japanese": "面白い",
+      "word_reading": "おもしろい"
+    },
+    {
+      "word_japanese": "画面",
+      "word_reading": "がめん"
+    },
+    {
+      "word_japanese": "便利",
+      "word_reading": "べんり"
+    },
+    {
+      "word_japanese": "利用",
+      "word_reading": "りよう"
+    },
+    {
+      "word_japanese": "校舎",
+      "word_reading": "こうしゃ"
+    },
+    {
+      "word_japanese": "農業",
+      "word_reading": "のうぎょう"
+    },
+    {
+      "word_japanese": "農家",
+      "word_reading": "のうか"
+    },
+    {
+      "word_japanese": "村",
+      "word_reading": "むら"
+    }
+  ],
+  "concept": {
+    "title": "Two sides",
+    "text": "<ruby>一方<rt>いっぽう</rt></ruby>(で) contrasts two things or two situations:\n<ruby>都会<rt>とかい</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby>な<ruby>一方<rt>いっぽう</rt></ruby>で、ぶっかが<ruby>高<rt>たか</rt></ruby>い。 Cities are convenient, but things cost more.\n<ruby>兄<rt>あに</rt></ruby>は<ruby>外<rt>そと</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>ぶのがすきな<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>で<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む。 My older brother loves playing outside; my younger brother reads at home.\nAt the start of a sentence: <ruby>一方<rt>いっぽう</rt></ruby>、… (meanwhile, on the other hand).\n\n<ruby>反面<rt>はんめん</rt></ruby> shows two opposite sides of the same thing:\nスマホは<ruby>便利<rt>べんり</rt></ruby>な<ruby>反面<rt>はんめん</rt></ruby>、<ruby>使<rt>つか</rt></ruby>いすぎると<ruby>目<rt>め</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>い。 Smartphones are handy, but using them too much is bad for your eyes.\n\nBoth follow the plain form; な-adjectives take な, nouns take である.",
+    "examples": [
+      "plain form + <ruby>一方<rt>いっぽう</rt></ruby>(で)",
+      "<ruby>一方<rt>いっぽう</rt></ruby>、… (sentence start)",
+      "plain form + <ruby>反面<rt>はんめん</rt></ruby>",
+      "な-adj な / N である"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "While, on the other hand: 〜<ruby>一方<rt>いっぽう</rt></ruby>(で)",
+      "pattern": "plain form + <ruby>一方<rt>いっぽう</rt></ruby>(で) (な-adj な / N である)",
+      "explanation": "Contrasts two things or two sides. Common in writing and the news.",
+      "examples": [
+        {
+          "japanese": "<ruby>都会<rt>とかい</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby>な<ruby>一方<rt>いっぽう</rt></ruby>で、ぶっかが<ruby>高<rt>たか</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "Cities are convenient, but things cost more."
+        },
+        {
+          "japanese": "<ruby>兄<rt>あに</rt></ruby>は<ruby>外<rt>そと</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>ぶのがすきな<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>で<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。",
+          "romaji": "",
+          "meaning": "My older brother loves playing outside, while my younger brother reads at home."
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもが<ruby>減<rt>へ</rt></ruby>っている<ruby>一方<rt>いっぽう</rt></ruby>で、おとしよりは<ruby>増<rt>ふ</rt></ruby>えています。",
+          "romaji": "",
+          "meaning": "While the number of children is falling, the elderly population is rising."
+        },
+        {
+          "japanese": "<ruby>仕事<rt>しごと</rt></ruby>は<ruby>大変<rt>たいへん</rt></ruby>だ。<ruby>一方<rt>いっぽう</rt></ruby>、やりがいもある。",
+          "romaji": "",
+          "meaning": "The work is hard. On the other hand, it's rewarding."
+        }
+      ],
+      "notes": [
+        "<ruby>一方<rt>いっぽう</rt></ruby>だ alone means \"keeps on …ing\": <ruby>値段<rt>ねだん</rt></ruby>は<ruby>上<rt>あ</rt></ruby>がる<ruby>一方<rt>いっぽう</rt></ruby>だ."
+      ]
+    },
+    {
+      "title": "But on the other hand: 〜<ruby>反面<rt>はんめん</rt></ruby>",
+      "pattern": "plain form + <ruby>反面<rt>はんめん</rt></ruby> (な-adj な / N である)",
+      "explanation": "Two opposite sides of the same thing: one good, one bad.",
+      "examples": [
+        {
+          "japanese": "スマホは<ruby>便利<rt>べんり</rt></ruby>な<ruby>反面<rt>はんめん</rt></ruby>、<ruby>使<rt>つか</rt></ruby>いすぎると<ruby>目<rt>め</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "Smartphones are handy, but using them too much is bad for your eyes."
+        },
+        {
+          "japanese": "いなかは<ruby>静<rt>しず</rt></ruby>かな<ruby>反面<rt>はんめん</rt></ruby>、<ruby>交通<rt>こうつう</rt></ruby>が<ruby>不便<rt>ふべん</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "The countryside is quiet, but transport is inconvenient."
+        },
+        {
+          "japanese": "ひとりぐらしは<ruby>自由<rt>じゆう</rt></ruby>な<ruby>反面<rt>はんめん</rt></ruby>、さびしいこともあります。",
+          "romaji": "",
+          "meaning": "Living alone is free, but it can be lonely."
+        },
+        {
+          "japanese": "この<ruby>仕事<rt>しごと</rt></ruby>は<ruby>給料<rt>きゅうりょう</rt></ruby>がいい<ruby>反面<rt>はんめん</rt></ruby>、<ruby>休<rt>やす</rt></ruby>みが<ruby>少<rt>すく</rt></ruby>ないです。",
+          "romaji": "",
+          "meaning": "This job pays well, but there are few days off."
+        }
+      ],
+      "notes": [
+        "<ruby>反面<rt>はんめん</rt></ruby> is about one subject; <ruby>一方<rt>いっぽう</rt></ruby> can compare two."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "この<ruby>本<rt>ほん</rt></ruby>はとても<ruby>面白<rt>おもしろ</rt></ruby>いです。",
+      "This book is really interesting."
+    ],
+    [
+      "パソコンの<ruby>画面<rt>がめん</rt></ruby>が<ruby>暗<rt>くら</rt></ruby>くなりました。",
+      "The computer screen has gone dark."
+    ],
+    [
+      "<ruby>図書館<rt>としょかん</rt></ruby>はだれでも<ruby>利用<rt>りよう</rt></ruby>できます。",
+      "Anyone can use the library."
+    ],
+    [
+      "そふはいなかで<ruby>農業<rt>のうぎょう</rt></ruby>をしています。",
+      "My grandfather farms in the countryside."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "いなかのせいかつはどうですか。",
+      "けん",
+      "<ruby>静<rt>しず</rt></ruby>かな<ruby>反面<rt>はんめん</rt></ruby>、<ruby>店<rt>みせ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なくて<ruby>不便<rt>ふべん</rt></ruby>です。"
+    ],
+    [
+      "リー",
+      "この<ruby>村<rt>むら</rt></ruby>には<ruby>若<rt>わか</rt></ruby>い<ruby>人<rt>ひと</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ないですね。",
+      "たなか",
+      "ええ。おとしよりが<ruby>増<rt>ふ</rt></ruby>える<ruby>一方<rt>いっぽう</rt></ruby>で、<ruby>子<rt>こ</rt></ruby>どもは<ruby>減<rt>へ</rt></ruby>っています。"
+    ],
+    [
+      "マイ",
+      "その<ruby>計画<rt>けいかく</rt></ruby>にさんせいですか。",
+      "ゆき",
+      "いいえ、<ruby>反対<rt>はんたい</rt></ruby>です。"
+    ],
+    [
+      "リン",
+      "<ruby>新<rt>あたら</rt></ruby>しい<ruby>校舎<rt>こうしゃ</rt></ruby>、きれいですね。",
+      "アナ",
+      "ええ、でも<ruby>古<rt>ふる</rt></ruby>い<ruby>校舎<rt>こうしゃ</rt></ruby>のほうが<ruby>面白<rt>おもしろ</rt></ruby>かったです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "反",
+      "onyomi": [
+        "ハン",
+        "ホン",
+        "タン",
+        "ホ"
+      ],
+      "kunyomi": [
+        "そ.る",
+        "そ.らす",
+        "かえ.す",
+        "かえ.る",
+        "-かえ.る"
+      ],
+      "meaning_en": "opposite",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "反対",
+          "reading": "はんたい",
+          "en": "opposition"
+        },
+        {
+          "word": "反面",
+          "reading": "はんめん",
+          "en": "the other side"
+        }
+      ],
+      "mnemonic": "A hand (又) pushing back against a cliff (厂): opposite."
+    },
+    {
+      "char": "面",
+      "onyomi": [
+        "メン",
+        "ベン"
+      ],
+      "kunyomi": [
+        "おも",
+        "おもて",
+        "つら"
+      ],
+      "meaning_en": "face; surface",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "面白い",
+          "reading": "おもしろい",
+          "en": "interesting"
+        },
+        {
+          "word": "画面",
+          "reading": "がめん",
+          "en": "screen"
+        }
+      ],
+      "mnemonic": "A face with its outline and nose."
+    },
+    {
+      "char": "利",
+      "onyomi": [
+        "リ"
+      ],
+      "kunyomi": [
+        "き.く"
+      ],
+      "meaning_en": "profit; useful",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "便利",
+          "reading": "べんり",
+          "en": "convenient"
+        },
+        {
+          "word": "利用",
+          "reading": "りよう",
+          "en": "use"
+        }
+      ],
+      "mnemonic": "A knife (刂) harvesting grain (禾): useful profit."
+    },
+    {
+      "char": "舎",
+      "onyomi": [
+        "シャ",
+        "セキ"
+      ],
+      "kunyomi": [
+        "やど.る"
+      ],
+      "meaning_en": "building",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "田舎",
+          "reading": "いなか",
+          "en": "countryside"
+        },
+        {
+          "word": "校舎",
+          "reading": "こうしゃ",
+          "en": "school building"
+        }
+      ],
+      "mnemonic": "A roof over a house with a foundation (舌): a building."
+    },
+    {
+      "char": "農",
+      "onyomi": [
+        "ノウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "farming",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "農業",
+          "reading": "のうぎょう",
+          "en": "farming"
+        },
+        {
+          "word": "農家",
+          "reading": "のうか",
+          "en": "farmer"
+        }
+      ],
+      "mnemonic": "Bent (曲) over the fields in the morning (辰): farming."
+    },
+    {
+      "char": "村",
+      "onyomi": [
+        "ソン"
+      ],
+      "kunyomi": [
+        "むら"
+      ],
+      "meaning_en": "village",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "村",
+          "reading": "むら",
+          "en": "village"
+        },
+        {
+          "word": "農村",
+          "reading": "のうそん",
+          "en": "farming village"
+        }
+      ],
+      "mnemonic": "Trees (木) and a measure (寸) of land: a village."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>部長<rt>ぶちょう</rt></ruby>の＿＿、わたしが<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ます。",
+      "options": [
+        "かわりに",
+        "わりに",
+        "くせに",
+        "<ruby>反面<rt>はんめん</rt></ruby>"
+      ],
+      "correct": "かわりに",
+      "explanation": "Instead of: のかわりに."
+    },
+    {
+      "prompt": "Complete: <ruby>都会<rt>とかい</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby>な＿＿で、ぶっかが<ruby>高<rt>たか</rt></ruby>いです。",
+      "options": [
+        "かわり",
+        "<ruby>一方<rt>いっぽう</rt></ruby>",
+        "わり",
+        "くせ"
+      ],
+      "correct": "<ruby>一方<rt>いっぽう</rt></ruby>",
+      "explanation": "While: <ruby>一方<rt>いっぽう</rt></ruby>で."
+    },
+    {
+      "prompt": "Complete: スマホは<ruby>便利<rt>べんり</rt></ruby>な＿＿、<ruby>目<rt>め</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>いです。",
+      "options": [
+        "わりに",
+        "くせに",
+        "<ruby>反面<rt>はんめん</rt></ruby>",
+        "ために"
+      ],
+      "correct": "<ruby>反面<rt>はんめん</rt></ruby>",
+      "explanation": "On the other hand: <ruby>反面<rt>はんめん</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: いなかは<ruby>静<rt>しず</rt></ruby>か＿＿<ruby>反面<rt>はんめん</rt></ruby>、<ruby>不便<rt>ふべん</rt></ruby>です。",
+      "options": [
+        "だ",
+        "の",
+        "で",
+        "な"
+      ],
+      "correct": "な",
+      "explanation": "な-adj な <ruby>反面<rt>はんめん</rt></ruby>."
+    },
+    {
+      "prompt": "Which word means \"convenient\"?",
+      "options": [
+        "<ruby>便利<rt>べんり</rt></ruby>",
+        "<ruby>利用<rt>りよう</rt></ruby>",
+        "<ruby>面白<rt>おもしろ</rt></ruby>い",
+        "<ruby>反対<rt>はんたい</rt></ruby>"
+      ],
+      "correct": "<ruby>便利<rt>べんり</rt></ruby>",
+      "explanation": "<ruby>便利<rt>べんり</rt></ruby>: convenient."
+    },
+    {
+      "prompt": "How is 農業⁠ read?",
+      "options": [
+        "のうごう",
+        "のうぎょう",
+        "のぎょう",
+        "のうしょう"
+      ],
+      "correct": "のうぎょう",
+      "explanation": "農業⁠ is read のうぎょう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>図書館<rt>としょかん</rt></ruby>はだれでも<ruby>利用<rt>りよう</rt></ruby>できます。",
+      "options": [
+        "Nobody uses the library.",
+        "Only students can use the library.",
+        "Anyone can use the library.",
+        "The library is closed."
+      ],
+      "correct": "Anyone can use the library.",
+      "explanation": "<ruby>利用<rt>りよう</rt></ruby>: use."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence compares two different people?",
+      "options": [
+        "スマホは<ruby>便利<rt>べんり</rt></ruby>な<ruby>反面<rt>はんめん</rt></ruby>、<ruby>目<rt>め</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>いです。",
+        "いなかは<ruby>静<rt>しず</rt></ruby>かな<ruby>反面<rt>はんめん</rt></ruby>、<ruby>不便<rt>ふべん</rt></ruby>です。",
+        "<ruby>兄<rt>あに</rt></ruby>は<ruby>外<rt>そと</rt></ruby>がすきな<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>がすきです。",
+        "この<ruby>仕事<rt>しごと</rt></ruby>は<ruby>給料<rt>きゅうりょう</rt></ruby>がいい<ruby>反面<rt>はんめん</rt></ruby>、いそがしいです。"
+      ],
+      "correct": "<ruby>兄<rt>あに</rt></ruby>は<ruby>外<rt>そと</rt></ruby>がすきな<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>がすきです。",
+      "explanation": "<ruby>一方<rt>いっぽう</rt></ruby>: two subjects."
+    },
+    {
+      "prompt": "What does <ruby>値段<rt>ねだん</rt></ruby>は<ruby>上<rt>あ</rt></ruby>がる<ruby>一方<rt>いっぽう</rt></ruby>だ mean?",
+      "options": [
+        "Prices went up once.",
+        "Prices have stopped rising.",
+        "Prices are rising on one side.",
+        "Prices keep on rising."
+      ],
+      "correct": "Prices keep on rising.",
+      "explanation": "<ruby>一方<rt>いっぽう</rt></ruby>だ: keeps on."
+    },
+    {
+      "prompt": "Which word means \"village\"?",
+      "options": [
+        "<ruby>村<rt>むら</rt></ruby>",
+        "いなか",
+        "<ruby>農家<rt>のうか</rt></ruby>",
+        "<ruby>校舎<rt>こうしゃ</rt></ruby>"
+      ],
+      "correct": "<ruby>村<rt>むら</rt></ruby>",
+      "explanation": "<ruby>村<rt>むら</rt></ruby>: village."
+    },
+    {
+      "prompt": "Read: おとしよりが<ruby>増<rt>ふ</rt></ruby>える<ruby>一方<rt>いっぽう</rt></ruby>で、<ruby>子<rt>こ</rt></ruby>どもは<ruby>減<rt>へ</rt></ruby>っています。 What is happening in the village?",
+      "options": [
+        "More children, fewer old people",
+        "More old people, fewer children",
+        "Everyone is moving in",
+        "Nothing is changing"
+      ],
+      "correct": "More old people, fewer children",
+      "explanation": "<ruby>一方<rt>いっぽう</rt></ruby>で: contrast."
+    },
+    {
+      "prompt": "Review: complete この<ruby>店<rt>みせ</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>の＿＿、おいしいです。",
+      "options": [
+        "<ruby>反面<rt>はんめん</rt></ruby>",
+        "<ruby>一方<rt>いっぽう</rt></ruby>",
+        "わりに",
+        "かわりに"
+      ],
+      "correct": "わりに",
+      "explanation": "For the price: のわりに."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-8-instead",
+    "japanese-n3-unit-8-for-its-price",
+    "japanese-n3-unit-4-rather-than"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

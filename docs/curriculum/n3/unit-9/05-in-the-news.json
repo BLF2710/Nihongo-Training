@@ -1,0 +1,541 @@
+{
+  "id": "japanese-n3-unit-9-in-the-news",
+  "slug": "n3-unit-9-in-the-news",
+  "unit": "Japanese N3 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "In the News",
+  "title_jp": "〜と される・〜ことから",
+  "objectives": [
+    "I can understand how the news reports opinions and causes.",
+    "Report a general view with 〜とされる and 〜と<ruby>考<rt>かんが</rt></ruby>えられる",
+    "Give a reason from a fact with 〜ことから",
+    "Talk about politics, the economy, the government and capitals"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>政治<rt>せいじ</rt></ruby>",
+      "",
+      "politics"
+    ],
+    [
+      "<ruby>政府<rt>せいふ</rt></ruby>",
+      "",
+      "government"
+    ],
+    [
+      "<ruby>治<rt>なお</rt></ruby>る",
+      "",
+      "to get better, to heal"
+    ],
+    [
+      "<ruby>経済<rt>けいざい</rt></ruby>",
+      "",
+      "economy"
+    ],
+    [
+      "<ruby>済<rt>す</rt></ruby>む",
+      "",
+      "to be finished; to get by"
+    ],
+    [
+      "<ruby>首<rt>くび</rt></ruby>",
+      "",
+      "neck"
+    ],
+    [
+      "<ruby>首相<rt>しゅしょう</rt></ruby>",
+      "",
+      "prime minister"
+    ],
+    [
+      "<ruby>首都<rt>しゅと</rt></ruby>",
+      "",
+      "capital city"
+    ],
+    [
+      "<ruby>相手<rt>あいて</rt></ruby>",
+      "",
+      "the other person, partner"
+    ],
+    [
+      "そうだん",
+      "",
+      "consultation (+ する: to consult)"
+    ],
+    [
+      "〜とされる",
+      "",
+      "it is said / considered that"
+    ],
+    [
+      "〜ことから",
+      "",
+      "from the fact that"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "政治",
+      "word_reading": "せいじ"
+    },
+    {
+      "word_japanese": "政府",
+      "word_reading": "せいふ"
+    },
+    {
+      "word_japanese": "治る",
+      "word_reading": "なおる"
+    },
+    {
+      "word_japanese": "経済",
+      "word_reading": "けいざい"
+    },
+    {
+      "word_japanese": "済む",
+      "word_reading": "すむ"
+    },
+    {
+      "word_japanese": "首",
+      "word_reading": "くび"
+    },
+    {
+      "word_japanese": "首相",
+      "word_reading": "しゅしょう"
+    },
+    {
+      "word_japanese": "首都",
+      "word_reading": "しゅと"
+    },
+    {
+      "word_japanese": "相手",
+      "word_reading": "あいて"
+    }
+  ],
+  "concept": {
+    "title": "News Japanese",
+    "text": "News reports avoid giving their own opinion. They say what is generally thought:\n〜とされる / 〜とされている: it is considered, it is said.\nこの<ruby>寺<rt>てら</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>古<rt>ふる</rt></ruby>いとされている。 This temple is said to be the oldest in Japan.\n〜と<ruby>考<rt>かんが</rt></ruby>えられる: it is thought.\n<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>は、スピードの<ruby>出<rt>だ</rt></ruby>しすぎと<ruby>考<rt>かんが</rt></ruby>えられています。 The accident is thought to have been caused by speeding.\n\nことから gives a reason based on a fact, often explaining a name or a conclusion:\nふじさんが<ruby>見<rt>み</rt></ruby>えることから、この<ruby>町<rt>まち</rt></ruby>は「ふじみ」と<ruby>呼<rt>よ</rt></ruby>ばれている。 This town is called Fujimi because you can see Mount Fuji from it.\n\nConnections: plain form + とされる / と<ruby>考<rt>かんが</rt></ruby>えられる / ことから (N / な-adj + である before ことから).",
+    "examples": [
+      "plain form + とされる / とされている",
+      "plain form + と<ruby>考<rt>かんが</rt></ruby>えられる",
+      "plain form + ことから (N である ことから)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "It is said / thought: 〜とされる / 〜と<ruby>考<rt>かんが</rt></ruby>えられる",
+      "pattern": "plain form + とされる / と<ruby>考<rt>かんが</rt></ruby>えられる",
+      "explanation": "Reports a general or expert view without the writer's own opinion.",
+      "examples": [
+        {
+          "japanese": "この<ruby>寺<rt>てら</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>古<rt>ふる</rt></ruby>いとされています。",
+          "romaji": "",
+          "meaning": "This temple is said to be the oldest in Japan."
+        },
+        {
+          "japanese": "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>は、スピードの<ruby>出<rt>だ</rt></ruby>しすぎと<ruby>考<rt>かんが</rt></ruby>えられています。",
+          "romaji": "",
+          "meaning": "The accident is thought to have been caused by speeding."
+        },
+        {
+          "japanese": "<ruby>政府<rt>せいふ</rt></ruby>の<ruby>発表<rt>はっぴょう</rt></ruby>によると、<ruby>経済<rt>けいざい</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>しずつよくなっていると<ruby>考<rt>かんが</rt></ruby>えられる。",
+          "romaji": "",
+          "meaning": "According to the government, the economy is thought to be slowly improving."
+        },
+        {
+          "japanese": "この<ruby>薬<rt>くすり</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>にきくとされている。",
+          "romaji": "",
+          "meaning": "This medicine is considered effective against colds."
+        }
+      ],
+      "notes": [
+        "Common in newspapers, textbooks and documentaries."
+      ]
+    },
+    {
+      "title": "From the fact that: 〜ことから",
+      "pattern": "plain form + ことから (N / な-adj + である)",
+      "explanation": "A conclusion or name based on a fact.",
+      "examples": [
+        {
+          "japanese": "ふじさんが<ruby>見<rt>み</rt></ruby>えることから、この<ruby>町<rt>まち</rt></ruby>は「ふじみ」と<ruby>呼<rt>よ</rt></ruby>ばれている。",
+          "romaji": "",
+          "meaning": "This town is called Fujimi because Mount Fuji can be seen from it."
+        },
+        {
+          "japanese": "<ruby>道<rt>みち</rt></ruby>がぬれていることから、<ruby>夜<rt>よる</rt></ruby>に<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったと<ruby>分<rt>わ</rt></ruby>かる。",
+          "romaji": "",
+          "meaning": "The wet road shows it rained in the night."
+        },
+        {
+          "japanese": "<ruby>東京<rt>とうきょう</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>の<ruby>首都<rt>しゅと</rt></ruby>であることから、<ruby>人<rt>ひと</rt></ruby>が<ruby>集<rt>あつ</rt></ruby>まる。",
+          "romaji": "",
+          "meaning": "Because Tokyo is the capital, people gather there."
+        },
+        {
+          "japanese": "かぎが<ruby>開<rt>あ</rt></ruby>いていたことから、<ruby>警察<rt>けいさつ</rt></ruby>は<ruby>犯人<rt>はんにん</rt></ruby>が<ruby>知<rt>し</rt></ruby>りあいだと<ruby>考<rt>かんが</rt></ruby>えている。",
+          "romaji": "",
+          "meaning": "As the door was unlocked, the police think the culprit was an acquaintance."
+        }
+      ],
+      "notes": [
+        "Common when explaining names and in news reasoning."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>若<rt>わか</rt></ruby>い<ruby>人<rt>ひと</rt></ruby>の<ruby>政治<rt>せいじ</rt></ruby>への<ruby>関心<rt>かんしん</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>いです。",
+      "Young people have little interest in politics."
+    ],
+    [
+      "<ruby>風邪<rt>かぜ</rt></ruby>が<ruby>治<rt>なお</rt></ruby>って、げんきになりました。",
+      "My cold has gone and I'm feeling well."
+    ],
+    [
+      "<ruby>一万円<rt>いちまんえん</rt></ruby>あれば<ruby>済<rt>す</rt></ruby>みます。",
+      "Ten thousand yen will be enough."
+    ],
+    [
+      "こまったときは、<ruby>先生<rt>せんせい</rt></ruby>にそうだんしてください。",
+      "If you're in trouble, talk to your teacher."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>今朝<rt>けさ</rt></ruby>のニュース、<ruby>見<rt>み</rt></ruby>ましたか。",
+      "けん",
+      "ええ、<ruby>首相<rt>しゅしょう</rt></ruby>が<ruby>新<rt>あたら</rt></ruby>しい<ruby>経済<rt>けいざい</rt></ruby>せいさくを<ruby>発表<rt>はっぴょう</rt></ruby>しましたね。"
+    ],
+    [
+      "リー",
+      "この<ruby>町<rt>まち</rt></ruby>はどうして「ふじみ」というんですか。",
+      "マイ",
+      "ふじさんが<ruby>見<rt>み</rt></ruby>えることから、そう<ruby>呼<rt>よ</rt></ruby>ばれているそうです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>首<rt>くび</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>いんです。",
+      "リン",
+      "<ruby>長<rt>なが</rt></ruby>い<ruby>時間<rt>じかん</rt></ruby>パソコンを<ruby>使<rt>つか</rt></ruby>うと、<ruby>首<rt>くび</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>くなると<ruby>考<rt>かんが</rt></ruby>えられていますよ。"
+    ],
+    [
+      "たなか",
+      "その<ruby>問題<rt>もんだい</rt></ruby>、だれかにそうだんしましたか。",
+      "アナ",
+      "はい、<ruby>相手<rt>あいて</rt></ruby>の<ruby>気持<rt>きも</rt></ruby>ちも<ruby>考<rt>かんが</rt></ruby>えたほうがいいと<ruby>言<rt>い</rt></ruby>われました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "政",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "まつりごと",
+        "まん"
+      ],
+      "meaning_en": "government",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "政治",
+          "reading": "せいじ",
+          "en": "politics"
+        },
+        {
+          "word": "政府",
+          "reading": "せいふ",
+          "en": "government"
+        }
+      ],
+      "mnemonic": "Putting things right (正) with a firm hand (攵): governing."
+    },
+    {
+      "char": "治",
+      "onyomi": [
+        "ジ",
+        "チ"
+      ],
+      "kunyomi": [
+        "おさ.める",
+        "おさ.まる",
+        "なお.る",
+        "なお.す"
+      ],
+      "meaning_en": "govern; heal",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "政治",
+          "reading": "せいじ",
+          "en": "politics"
+        },
+        {
+          "word": "治る",
+          "reading": "なおる",
+          "en": "to heal"
+        }
+      ],
+      "mnemonic": "Water (氵) brought under control: governing, healing."
+    },
+    {
+      "char": "済",
+      "onyomi": [
+        "サイ",
+        "セイ"
+      ],
+      "kunyomi": [
+        "す.む",
+        "-ず.み",
+        "-ずみ",
+        "す.まない",
+        "す.ます",
+        "-す.ます",
+        "すく.う",
+        "な.す",
+        "わたし",
+        "わた.る"
+      ],
+      "meaning_en": "finish; settle",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "経済",
+          "reading": "けいざい",
+          "en": "economy"
+        },
+        {
+          "word": "済む",
+          "reading": "すむ",
+          "en": "to be finished"
+        }
+      ],
+      "mnemonic": "Water (氵) crossed evenly (斉): settled."
+    },
+    {
+      "char": "首",
+      "onyomi": [
+        "シュ"
+      ],
+      "kunyomi": [
+        "くび"
+      ],
+      "meaning_en": "neck; head",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "首",
+          "reading": "くび",
+          "en": "neck"
+        },
+        {
+          "word": "首都",
+          "reading": "しゅと",
+          "en": "capital"
+        }
+      ],
+      "mnemonic": "A head with hair on top: the head of something."
+    },
+    {
+      "char": "府",
+      "onyomi": [
+        "フ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "government office",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "政府",
+          "reading": "せいふ",
+          "en": "government"
+        },
+        {
+          "word": "大阪府",
+          "reading": "おおさかふ",
+          "en": "Osaka Prefecture"
+        }
+      ],
+      "mnemonic": "A building (广) where people (亻) attach (付) documents."
+    },
+    {
+      "char": "相",
+      "onyomi": [
+        "ソウ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "あい-"
+      ],
+      "meaning_en": "mutual; minister",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "首相",
+          "reading": "しゅしょう",
+          "en": "prime minister"
+        },
+        {
+          "word": "相手",
+          "reading": "あいて",
+          "en": "partner"
+        }
+      ],
+      "mnemonic": "An eye (目) looking at a tree (木): looking at each other."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete しょうしょうお<ruby>待<rt>ま</rt></ruby>ち＿＿。",
+      "options": [
+        "いただきます",
+        "ください",
+        "なさい",
+        "させます"
+      ],
+      "correct": "ください",
+      "explanation": "Please: お〜ください."
+    },
+    {
+      "prompt": "Complete: この<ruby>寺<rt>てら</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>古<rt>ふる</rt></ruby>いと＿＿ています。",
+      "options": [
+        "させ",
+        "し",
+        "され",
+        "なり"
+      ],
+      "correct": "され",
+      "explanation": "It is said: とされている."
+    },
+    {
+      "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>は、スピードの<ruby>出<rt>だ</rt></ruby>しすぎと<ruby>考<rt>かんが</rt></ruby>え＿＿ています。",
+      "options": [
+        "させ",
+        "て",
+        "ず",
+        "られ"
+      ],
+      "correct": "られ",
+      "explanation": "It is thought: と<ruby>考<rt>かんが</rt></ruby>えられる."
+    },
+    {
+      "prompt": "Complete: ふじさんが<ruby>見<rt>み</rt></ruby>える＿＿、この<ruby>町<rt>まち</rt></ruby>は「ふじみ」と<ruby>呼<rt>よ</rt></ruby>ばれている。",
+      "options": [
+        "ことから",
+        "ことに",
+        "ものの",
+        "たびに"
+      ],
+      "correct": "ことから",
+      "explanation": "From the fact that: ことから."
+    },
+    {
+      "prompt": "Which word means \"government\"?",
+      "options": [
+        "<ruby>政治<rt>せいじ</rt></ruby>",
+        "<ruby>政府<rt>せいふ</rt></ruby>",
+        "<ruby>経済<rt>けいざい</rt></ruby>",
+        "<ruby>首相<rt>しゅしょう</rt></ruby>"
+      ],
+      "correct": "<ruby>政府<rt>せいふ</rt></ruby>",
+      "explanation": "<ruby>政府<rt>せいふ</rt></ruby>: government."
+    },
+    {
+      "prompt": "How is 首相⁠ read?",
+      "options": [
+        "くびそう",
+        "しゅそう",
+        "しゅしょう",
+        "しゅうしょう"
+      ],
+      "correct": "しゅしょう",
+      "explanation": "首相⁠ is read しゅしょう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>一万円<rt>いちまんえん</rt></ruby>あれば<ruby>済<rt>す</rt></ruby>みます。",
+      "options": [
+        "It costs more than ten thousand yen.",
+        "I lost ten thousand yen.",
+        "I paid ten thousand yen.",
+        "Ten thousand yen will be enough."
+      ],
+      "correct": "Ten thousand yen will be enough.",
+      "explanation": "<ruby>済<rt>す</rt></ruby>む: to get by, to be settled."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence sounds like a news report?",
+      "options": [
+        "この<ruby>寺<rt>てら</rt></ruby>、<ruby>千年前<rt>せんねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>ったんだって。",
+        "この<ruby>寺<rt>てら</rt></ruby>は<ruby>千年前<rt>せんねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられたに<ruby>決<rt>き</rt></ruby>まってる。",
+        "この<ruby>寺<rt>てら</rt></ruby>、<ruby>千年前<rt>せんねんまえ</rt></ruby>っぽいね。",
+        "この<ruby>寺<rt>てら</rt></ruby>は<ruby>千年前<rt>せんねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられたとされている。"
+      ],
+      "correct": "この<ruby>寺<rt>てら</rt></ruby>は<ruby>千年前<rt>せんねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられたとされている。",
+      "explanation": "とされている: news style."
+    },
+    {
+      "prompt": "What does <ruby>道<rt>みち</rt></ruby>がぬれていることから、<ruby>夜<rt>よる</rt></ruby>に<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったと<ruby>分<rt>わ</rt></ruby>かる mean?",
+      "options": [
+        "The wet road shows it rained in the night.",
+        "It rained, so the road will get wet.",
+        "The road is wet because someone washed it.",
+        "It will rain tonight."
+      ],
+      "correct": "The wet road shows it rained in the night.",
+      "explanation": "ことから: from the fact that."
+    },
+    {
+      "prompt": "Which word means \"capital city\"?",
+      "options": [
+        "<ruby>首相<rt>しゅしょう</rt></ruby>",
+        "<ruby>首都<rt>しゅと</rt></ruby>",
+        "<ruby>首<rt>くび</rt></ruby>",
+        "<ruby>政府<rt>せいふ</rt></ruby>"
+      ],
+      "correct": "<ruby>首都<rt>しゅと</rt></ruby>",
+      "explanation": "<ruby>首都<rt>しゅと</rt></ruby>: capital."
+    },
+    {
+      "prompt": "Read: ふじさんが<ruby>見<rt>み</rt></ruby>えることから、そう<ruby>呼<rt>よ</rt></ruby>ばれているそうです。 Why is the town called Fujimi?",
+      "options": [
+        "It's on Mount Fuji.",
+        "A man called Fuji lived there.",
+        "You can see Mount Fuji from it.",
+        "It was named by the government."
+      ],
+      "correct": "You can see Mount Fuji from it.",
+      "explanation": "ことから: reason for a name."
+    },
+    {
+      "prompt": "Review: complete <ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませて＿＿ます。",
+      "options": [
+        "くださり",
+        "される",
+        "ことから",
+        "いただき"
+      ],
+      "correct": "いただき",
+      "explanation": "Humbly do: させていただく."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-9-service-japanese",
+    "japanese-n3-unit-9-written-style",
+    "japanese-n3-unit-2-because-of"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

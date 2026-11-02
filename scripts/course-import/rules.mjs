@@ -11,7 +11,10 @@ const RUBY = /<ruby>(.*?)<rt>(.*?)<\/rt><\/ruby>/g;
 /** The text as it is read aloud: every ruby block replaced by its reading. */
 export const toReading = text => text.replace(RUBY, "$2");
 const withoutRuby = text => text.replace(RUBY, "");
-const LEVELS_WITH_FULL_FURIGANA = new Set(["N4"]);
+const LEVELS_WITH_FULL_FURIGANA = new Set(["N4", "N3"]);
+// N3 needs more kanji per lesson to reach a usual N3 total (blueprint-n3.json, kanji_index).
+const KANJI_PER_LESSON = { N5: 5, N4: 5, N3: 6 };
+const DEFAULT_KANJI_PER_LESSON = 5;
 
 // Japanese shown to learners: vocabulary, grammar and sentence examples, dialogue lines and the reading passage.
 function japaneseTexts(lesson) {
@@ -129,7 +132,8 @@ export function validateLesson(lesson, context) {
   checkQuestions(lesson.practice, "practice", [6, 8], errors);
   checkQuestions(lesson.challenge, "challenge", [4, 5], errors);
 
-  if (introducedKanji.length > 5) warnings.push(`introduces ${introducedKanji.length} kanji; the course pace is at most 5 per lesson`);
+  const kanjiPace = KANJI_PER_LESSON[unit.level] ?? DEFAULT_KANJI_PER_LESSON;
+  if (introducedKanji.length > kanjiPace) warnings.push(`introduces ${introducedKanji.length} kanji; the ${unit.level} pace is at most ${kanjiPace} per lesson`);
   for (const kanji of introducedKanji) {
     if (!KANJI_CHAR.test(kanji?.char ?? "")) { errors.push(`introduced_kanji: "${kanji?.char}" is not a single kanji`); continue; }
     if (kanjiTaughtElsewhere.has(kanji.char)) errors.push(`${kanji.char} is already introduced by another lesson`);

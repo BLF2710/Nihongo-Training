@@ -1,0 +1,541 @@
+{
+  "id": "japanese-n3-unit-2-not-always",
+  "slug": "n3-unit-2-not-always",
+  "unit": "Japanese N3 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Not Always",
+  "title_jp": "〜わけでは ない",
+  "objectives": [
+    "I can say something is not always or not entirely true.",
+    "Soften a statement with 〜わけではない",
+    "Say a rule has exceptions with 〜とは<ruby>限<rt>かぎ</rt></ruby>らない",
+    "Talk about what is necessary, all, and everyday"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>必<rt>かなら</rt></ruby>ず",
+      "",
+      "always, without fail"
+    ],
+    [
+      "<ruby>必要<rt>ひつよう</rt></ruby>",
+      "",
+      "necessary"
+    ],
+    [
+      "<ruby>重要<rt>じゅうよう</rt></ruby>",
+      "",
+      "important"
+    ],
+    [
+      "<ruby>要<rt>い</rt></ruby>る",
+      "",
+      "to need"
+    ],
+    [
+      "<ruby>全部<rt>ぜんぶ</rt></ruby>",
+      "",
+      "all, everything"
+    ],
+    [
+      "<ruby>全然<rt>ぜんぜん</rt></ruby>",
+      "",
+      "(not) at all"
+    ],
+    [
+      "<ruby>全員<rt>ぜんいん</rt></ruby>",
+      "",
+      "all members, everyone"
+    ],
+    [
+      "<ruby>部屋<rt>へや</rt></ruby>",
+      "",
+      "room"
+    ],
+    [
+      "<ruby>部長<rt>ぶちょう</rt></ruby>",
+      "",
+      "department head"
+    ],
+    [
+      "<ruby>限<rt>かぎ</rt></ruby>る",
+      "",
+      "to limit"
+    ],
+    [
+      "<ruby>日常<rt>にちじょう</rt></ruby>",
+      "",
+      "everyday life"
+    ],
+    [
+      "〜とは<ruby>限<rt>かぎ</rt></ruby>らない",
+      "",
+      "not necessarily, not always"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "必ず",
+      "word_reading": "かならず"
+    },
+    {
+      "word_japanese": "必要",
+      "word_reading": "ひつよう"
+    },
+    {
+      "word_japanese": "重要",
+      "word_reading": "じゅうよう"
+    },
+    {
+      "word_japanese": "要る",
+      "word_reading": "いる"
+    },
+    {
+      "word_japanese": "全部",
+      "word_reading": "ぜんぶ"
+    },
+    {
+      "word_japanese": "全然",
+      "word_reading": "ぜんぜん"
+    },
+    {
+      "word_japanese": "全員",
+      "word_reading": "ぜんいん"
+    },
+    {
+      "word_japanese": "部屋",
+      "word_reading": "へや"
+    },
+    {
+      "word_japanese": "部長",
+      "word_reading": "ぶちょう"
+    },
+    {
+      "word_japanese": "限る",
+      "word_reading": "かぎる"
+    },
+    {
+      "word_japanese": "日常",
+      "word_reading": "にちじょう"
+    }
+  ],
+  "concept": {
+    "title": "Not entirely, not always",
+    "text": "わけではない denies part of what someone might assume:\n<ruby>肉<rt>にく</rt></ruby>がきらいなわけではありません。 It's not that I dislike meat.\n<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>分<rt>わ</rt></ruby>かったわけではありません。 It's not that I understood everything.\n\nとは<ruby>限<rt>かぎ</rt></ruby>らない says a general belief has exceptions:\n<ruby>高<rt>たか</rt></ruby>いものがいいとは<ruby>限<rt>かぎ</rt></ruby>りません。 Expensive things aren't always good.\n\n<ruby>必<rt>かなら</rt></ruby>ずしも (not necessarily) often comes first, and it always goes with a negative: <ruby>必<rt>かなら</rt></ruby>ずしも〜とは<ruby>限<rt>かぎ</rt></ruby>らない.",
+    "examples": [
+      "plain form + わけではない (not that…)",
+      "plain form + とは<ruby>限<rt>かぎ</rt></ruby>らない (not always)",
+      "<ruby>必<rt>かなら</rt></ruby>ずしも〜ない"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Not necessarily: 〜わけではない",
+      "pattern": "plain form (な-adj な / N の) + わけではない",
+      "explanation": "It softens a statement: it isn't that… It often answers something the listener might assume.",
+      "examples": [
+        {
+          "japanese": "<ruby>肉<rt>にく</rt></ruby>がきらいなわけではありませんが、あまり<ruby>食<rt>た</rt></ruby>べません。",
+          "romaji": "",
+          "meaning": "It's not that I dislike meat, but I don't eat much of it."
+        },
+        {
+          "japanese": "<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>分<rt>わ</rt></ruby>かったわけではありません。",
+          "romaji": "",
+          "meaning": "It's not that I understood everything."
+        },
+        {
+          "japanese": "いつもひまなわけではないです。",
+          "romaji": "",
+          "meaning": "It's not as if I'm always free."
+        },
+        {
+          "japanese": "<ruby>日本人<rt>にほんじん</rt></ruby>がみんなすしがすきなわけではありません。",
+          "romaji": "",
+          "meaning": "Not all Japanese people like sushi."
+        }
+      ],
+      "notes": [
+        "With <ruby>全部<rt>ぜんぶ</rt></ruby>, みんな or いつも, it means \"not all\" or \"not always\".",
+        "わけでもない: nor is it that."
+      ]
+    },
+    {
+      "title": "Not always: 〜とは<ruby>限<rt>かぎ</rt></ruby>らない",
+      "pattern": "plain form + とは<ruby>限<rt>かぎ</rt></ruby>らない",
+      "explanation": "A general belief has exceptions. It often comes with <ruby>必<rt>かなら</rt></ruby>ずしも, いつも or だれでも.",
+      "examples": [
+        {
+          "japanese": "<ruby>高<rt>たか</rt></ruby>いものが、<ruby>必<rt>かなら</rt></ruby>ずしもいいとは<ruby>限<rt>かぎ</rt></ruby>りません。",
+          "romaji": "",
+          "meaning": "Expensive things aren't always good."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>がいつも<ruby>正<rt>ただ</rt></ruby>しいとは<ruby>限<rt>かぎ</rt></ruby>りません。",
+          "romaji": "",
+          "meaning": "Teachers aren't always right."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>めば、<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>になるとは<ruby>限<rt>かぎ</rt></ruby>らない。",
+          "romaji": "",
+          "meaning": "Living in Japan won't necessarily make your Japanese good."
+        },
+        {
+          "japanese": "<ruby>晴<rt>は</rt></ruby>れていても、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>らないとは<ruby>限<rt>かぎ</rt></ruby>りません。",
+          "romaji": "",
+          "meaning": "Even when it's sunny, it may still rain."
+        }
+      ],
+      "notes": [
+        "<ruby>必<rt>かなら</rt></ruby>ずしも always goes with a negative: <ruby>必<rt>かなら</rt></ruby>ずしも〜ない.",
+        "とは<ruby>限<rt>かぎ</rt></ruby>らない is mostly about general rules and expectations."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>明日<rt>あした</rt></ruby>は<ruby>必<rt>かなら</rt></ruby>ず<ruby>来<rt>き</rt></ruby>てください。",
+      "Please be sure to come tomorrow."
+    ],
+    [
+      "パスポートが<ruby>必要<rt>ひつよう</rt></ruby>です。",
+      "You need a passport."
+    ],
+    [
+      "<ruby>全員<rt>ぜんいん</rt></ruby>そろいました。",
+      "Everyone is here."
+    ],
+    [
+      "<ruby>部長<rt>ぶちょう</rt></ruby>は<ruby>今<rt>いま</rt></ruby>、<ruby>会議中<rt>かいぎちゅう</rt></ruby>です。",
+      "The department head is in a meeting now."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "お<ruby>肉<rt>にく</rt></ruby>、きらいなんですか。",
+      "けん",
+      "きらいなわけではないんですが、<ruby>今日<rt>きょう</rt></ruby>はいいです。"
+    ],
+    [
+      "リー",
+      "<ruby>高<rt>たか</rt></ruby>いから、いいですよね。",
+      "マイ",
+      "<ruby>高<rt>たか</rt></ruby>いものがいいとは<ruby>限<rt>かぎ</rt></ruby>りませんよ。"
+    ],
+    [
+      "ゆき",
+      "このしょるい、<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>要<rt>い</rt></ruby>りますか。",
+      "リン",
+      "いいえ、<ruby>必要<rt>ひつよう</rt></ruby>なのはこれだけです。"
+    ],
+    [
+      "たなか",
+      "<ruby>日本語<rt>にほんご</rt></ruby>、<ruby>全然<rt>ぜんぜん</rt></ruby><ruby>分<rt>わ</rt></ruby>かりませんか。",
+      "アナ",
+      "<ruby>全然<rt>ぜんぜん</rt></ruby><ruby>分<rt>わ</rt></ruby>からないわけではありません。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "必",
+      "onyomi": [
+        "ヒツ"
+      ],
+      "kunyomi": [
+        "かなら.ず"
+      ],
+      "meaning_en": "certain",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "必ず",
+          "reading": "かならず",
+          "en": "always"
+        },
+        {
+          "word": "必要",
+          "reading": "ひつよう",
+          "en": "necessary"
+        }
+      ],
+      "mnemonic": "A heart (心) pierced by a stroke: certain."
+    },
+    {
+      "char": "要",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [
+        "い.る",
+        "かなめ"
+      ],
+      "meaning_en": "need; main point",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "必要",
+          "reading": "ひつよう",
+          "en": "necessary"
+        },
+        {
+          "word": "要る",
+          "reading": "いる",
+          "en": "to need"
+        }
+      ],
+      "mnemonic": "A woman (女) under a cover (覀): the waist, the vital part."
+    },
+    {
+      "char": "全",
+      "onyomi": [
+        "ゼン"
+      ],
+      "kunyomi": [
+        "まった.く",
+        "すべ.て"
+      ],
+      "meaning_en": "all, whole",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "全部",
+          "reading": "ぜんぶ",
+          "en": "all"
+        },
+        {
+          "word": "全然",
+          "reading": "ぜんぜん",
+          "en": "not at all"
+        }
+      ],
+      "mnemonic": "A king's (王) treasure kept under a roof (人): whole."
+    },
+    {
+      "char": "部",
+      "onyomi": [
+        "ブ"
+      ],
+      "kunyomi": [
+        "-べ"
+      ],
+      "meaning_en": "part, section",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "部屋",
+          "reading": "へや",
+          "en": "room"
+        },
+        {
+          "word": "部長",
+          "reading": "ぶちょう",
+          "en": "department head"
+        }
+      ],
+      "mnemonic": "A village (阝) split into standing (立) mouths (口): parts."
+    },
+    {
+      "char": "限",
+      "onyomi": [
+        "ゲン"
+      ],
+      "kunyomi": [
+        "かぎ.る",
+        "かぎ.り",
+        "-かぎ.り"
+      ],
+      "meaning_en": "limit",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "限る",
+          "reading": "かぎる",
+          "en": "to limit"
+        },
+        {
+          "word": "限界",
+          "reading": "げんかい",
+          "en": "limit"
+        }
+      ],
+      "mnemonic": "A hill (阝) that stops (艮) you: a limit."
+    },
+    {
+      "char": "常",
+      "onyomi": [
+        "ジョウ"
+      ],
+      "kunyomi": [
+        "つね",
+        "とこ-"
+      ],
+      "meaning_en": "usual",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "日常",
+          "reading": "にちじょう",
+          "en": "everyday life"
+        },
+        {
+          "word": "非常口",
+          "reading": "ひじょうぐち",
+          "en": "emergency exit"
+        }
+      ],
+      "mnemonic": "A cloth (巾) still hanging in the hall (尚): always there."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete れんしゅうしているから、<ruby>上手<rt>じょうず</rt></ruby>な＿＿です。",
+      "options": [
+        "わけ",
+        "ため",
+        "せい",
+        "うち"
+      ],
+      "correct": "わけ",
+      "explanation": "No wonder: わけだ."
+    },
+    {
+      "prompt": "Complete: きらいな＿＿ではありませんが、あまり<ruby>食<rt>た</rt></ruby>べません。",
+      "options": [
+        "はず",
+        "わけ",
+        "ため",
+        "ところ"
+      ],
+      "correct": "わけ",
+      "explanation": "Not that: わけではない."
+    },
+    {
+      "prompt": "Complete: <ruby>高<rt>たか</rt></ruby>いものがいいとは＿＿。",
+      "options": [
+        "わけです",
+        "ためです",
+        "<ruby>限<rt>かぎ</rt></ruby>りません",
+        "はずです"
+      ],
+      "correct": "<ruby>限<rt>かぎ</rt></ruby>りません",
+      "explanation": "Not always: とは<ruby>限<rt>かぎ</rt></ruby>らない."
+    },
+    {
+      "prompt": "Complete: <ruby>必<rt>かなら</rt></ruby>ずしもいい＿＿。",
+      "options": [
+        "と<ruby>思<rt>おも</rt></ruby>います",
+        "わけです",
+        "ところです",
+        "とは<ruby>限<rt>かぎ</rt></ruby>りません"
+      ],
+      "correct": "とは<ruby>限<rt>かぎ</rt></ruby>りません",
+      "explanation": "<ruby>必<rt>かなら</rt></ruby>ずしも + negative."
+    },
+    {
+      "prompt": "Which word means \"necessary\"?",
+      "options": [
+        "<ruby>必要<rt>ひつよう</rt></ruby>",
+        "<ruby>重要<rt>じゅうよう</rt></ruby>",
+        "<ruby>全部<rt>ぜんぶ</rt></ruby>",
+        "<ruby>日常<rt>にちじょう</rt></ruby>"
+      ],
+      "correct": "<ruby>必要<rt>ひつよう</rt></ruby>",
+      "explanation": "<ruby>必要<rt>ひつよう</rt></ruby>: necessary."
+    },
+    {
+      "prompt": "How is 部屋⁠ read?",
+      "options": [
+        "ぶや",
+        "へや",
+        "ぶおく",
+        "へいや"
+      ],
+      "correct": "へや",
+      "explanation": "部屋⁠ is a special reading: へや."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>全部<rt>ぜんぶ</rt></ruby><ruby>分<rt>わ</rt></ruby>かったわけではありません。",
+      "options": [
+        "I understood all of it.",
+        "I didn't understand any of it.",
+        "I didn't understand all of it.",
+        "I don't want to understand it."
+      ],
+      "correct": "I didn't understand all of it.",
+      "explanation": "わけではない: not entirely."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence means \"Not all Japanese people like sushi\"?",
+      "options": [
+        "<ruby>日本人<rt>にほんじん</rt></ruby>はみんなすしがすきではありません。",
+        "<ruby>日本人<rt>にほんじん</rt></ruby>はみんなすしがすきなわけです。",
+        "<ruby>日本人<rt>にほんじん</rt></ruby>がみんなすしがすきなわけではありません。",
+        "<ruby>日本人<rt>にほんじん</rt></ruby>がすしをすきになるとは<ruby>限<rt>かぎ</rt></ruby>ります。"
+      ],
+      "correct": "<ruby>日本人<rt>にほんじん</rt></ruby>がみんなすしがすきなわけではありません。",
+      "explanation": "Not all: みんな〜わけではない."
+    },
+    {
+      "prompt": "Complete: <ruby>必<rt>かなら</rt></ruby>ずしも<ruby>先生<rt>せんせい</rt></ruby>が<ruby>正<rt>ただ</rt></ruby>しい＿＿。",
+      "options": [
+        "わけだ",
+        "はずだ",
+        "おかげだ",
+        "とは<ruby>限<rt>かぎ</rt></ruby>らない"
+      ],
+      "correct": "とは<ruby>限<rt>かぎ</rt></ruby>らない",
+      "explanation": "<ruby>必<rt>かなら</rt></ruby>ずしも needs a negative."
+    },
+    {
+      "prompt": "What does <ruby>全然<rt>ぜんぜん</rt></ruby><ruby>分<rt>わ</rt></ruby>からないわけではありません mean?",
+      "options": [
+        "I understand a little.",
+        "I don't understand at all.",
+        "I understand everything.",
+        "I don't want to understand."
+      ],
+      "correct": "I understand a little.",
+      "explanation": "Not that I don't understand at all."
+    },
+    {
+      "prompt": "Read: <ruby>高<rt>たか</rt></ruby>いものがいいとは<ruby>限<rt>かぎ</rt></ruby>りませんよ。 What does Mai think?",
+      "options": [
+        "Expensive things are always good.",
+        "Expensive things are not always good.",
+        "Cheap things are always bad.",
+        "Lee should buy something expensive."
+      ],
+      "correct": "Expensive things are not always good.",
+      "explanation": "とは<ruby>限<rt>かぎ</rt></ruby>らない: not always."
+    },
+    {
+      "prompt": "Review: complete <ruby>国<rt>くに</rt></ruby>＿＿、ぶんかがちがいます。",
+      "options": [
+        "のおかげで",
+        "のせいで",
+        "によって",
+        "わけで"
+      ],
+      "correct": "によって",
+      "explanation": "Depending on: によって."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-2-thats-why",
+    "japanese-n3-unit-2-because-of",
+    "japanese-n4-unit-1-i-think"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

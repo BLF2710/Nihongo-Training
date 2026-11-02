@@ -1,0 +1,542 @@
+{
+  "id": "japanese-n3-unit-5-about",
+  "slug": "n3-unit-5-about",
+  "unit": "Japanese N3 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "About This Topic",
+  "title_jp": "〜に ついて・〜に かんして",
+  "objectives": [
+    "I can say what a talk or article is about.",
+    "Name a topic with 〜について",
+    "Use the formal 〜に<ruby>関<rt>かん</rt></ruby>して and 〜に<ruby>関<rt>かん</rt></ruby>するN",
+    "Talk about information, reports and research"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>関係<rt>かんけい</rt></ruby>",
+      "",
+      "relationship, connection"
+    ],
+    [
+      "<ruby>関心<rt>かんしん</rt></ruby>",
+      "",
+      "interest"
+    ],
+    [
+      "<ruby>係<rt>かかり</rt></ruby>",
+      "",
+      "person in charge"
+    ],
+    [
+      "<ruby>情報<rt>じょうほう</rt></ruby>",
+      "",
+      "information"
+    ],
+    [
+      "<ruby>事情<rt>じじょう</rt></ruby>",
+      "",
+      "circumstances, reasons"
+    ],
+    [
+      "<ruby>天気予報<rt>てんきよほう</rt></ruby>",
+      "",
+      "weather forecast"
+    ],
+    [
+      "<ruby>調<rt>しら</rt></ruby>べる",
+      "",
+      "to look up, to investigate"
+    ],
+    [
+      "<ruby>調子<rt>ちょうし</rt></ruby>",
+      "",
+      "condition, how things are going"
+    ],
+    [
+      "<ruby>報告<rt>ほうこく</rt></ruby>",
+      "",
+      "report (+ する: to report)"
+    ],
+    [
+      "<ruby>広告<rt>こうこく</rt></ruby>",
+      "",
+      "advertisement"
+    ],
+    [
+      "〜について",
+      "",
+      "about"
+    ],
+    [
+      "〜に<ruby>関<rt>かん</rt></ruby>して",
+      "",
+      "about, concerning (formal)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "関係",
+      "word_reading": "かんけい"
+    },
+    {
+      "word_japanese": "関心",
+      "word_reading": "かんしん"
+    },
+    {
+      "word_japanese": "係",
+      "word_reading": "かかり"
+    },
+    {
+      "word_japanese": "情報",
+      "word_reading": "じょうほう"
+    },
+    {
+      "word_japanese": "事情",
+      "word_reading": "じじょう"
+    },
+    {
+      "word_japanese": "天気予報",
+      "word_reading": "てんきよほう"
+    },
+    {
+      "word_japanese": "調べる",
+      "word_reading": "しらべる"
+    },
+    {
+      "word_japanese": "調子",
+      "word_reading": "ちょうし"
+    },
+    {
+      "word_japanese": "報告",
+      "word_reading": "ほうこく"
+    },
+    {
+      "word_japanese": "広告",
+      "word_reading": "こうこく"
+    }
+  ],
+  "concept": {
+    "title": "Naming a topic",
+    "text": "N について says what something is about:\n<ruby>日本<rt>にほん</rt></ruby>のれきしについて<ruby>調<rt>しら</rt></ruby>べています。 I'm researching Japanese history.\n\nBefore a noun, use についての: かんきょうについての<ruby>本<rt>ほん</rt></ruby> (a book about the environment).\n\nN に<ruby>関<rt>かん</rt></ruby>して means the same but sounds formal. It is common in reports, notices and the news:\nこのけんに<ruby>関<rt>かん</rt></ruby>して、<ruby>何<rt>なに</rt></ruby>か<ruby>質問<rt>しつもん</rt></ruby>はありますか。 Are there any questions concerning this matter?\n\nBefore a noun: N に<ruby>関<rt>かん</rt></ruby>する N.\n<ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>情報<rt>じょうほう</rt></ruby> (information about the accident).",
+    "examples": [
+      "N について / についての N",
+      "N に<ruby>関<rt>かん</rt></ruby>して (formal)",
+      "N に<ruby>関<rt>かん</rt></ruby>する N"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "About: 〜について",
+      "pattern": "N について / N についての N",
+      "explanation": "Names the topic of talking, thinking, writing or asking.",
+      "examples": [
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>のぶんかについて<ruby>調<rt>しら</rt></ruby>べています。",
+          "romaji": "",
+          "meaning": "I'm researching Japanese culture."
+        },
+        {
+          "japanese": "しょうらいについて、<ruby>両親<rt>りょうしん</rt></ruby>と<ruby>話<rt>はな</rt></ruby>しました。",
+          "romaji": "",
+          "meaning": "I talked with my parents about the future."
+        },
+        {
+          "japanese": "その<ruby>問題<rt>もんだい</rt></ruby>について、どう<ruby>思<rt>おも</rt></ruby>いますか。",
+          "romaji": "",
+          "meaning": "What do you think about that problem?"
+        },
+        {
+          "japanese": "<ruby>旅行<rt>りょこう</rt></ruby>についての<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>集<rt>あつ</rt></ruby>めています。",
+          "romaji": "",
+          "meaning": "I'm collecting information about the trip."
+        }
+      ],
+      "notes": [
+        "Before a noun: についての N.",
+        "について is the everyday choice."
+      ]
+    },
+    {
+      "title": "Concerning: 〜に<ruby>関<rt>かん</rt></ruby>して / 〜に<ruby>関<rt>かん</rt></ruby>する",
+      "pattern": "N に <ruby>関<rt>かん</rt></ruby>して / N に <ruby>関<rt>かん</rt></ruby>する N",
+      "explanation": "The formal version of について, used in notices, reports, meetings and the news.",
+      "examples": [
+        {
+          "japanese": "このけんに<ruby>関<rt>かん</rt></ruby>して、<ruby>質問<rt>しつもん</rt></ruby>はありますか。",
+          "romaji": "",
+          "meaning": "Are there any questions concerning this matter?"
+        },
+        {
+          "japanese": "<ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>集<rt>あつ</rt></ruby>めています。",
+          "romaji": "",
+          "meaning": "We're gathering information about the accident."
+        },
+        {
+          "japanese": "ちょうさのけっかに<ruby>関<rt>かん</rt></ruby>して、<ruby>報告<rt>ほうこく</rt></ruby>します。",
+          "romaji": "",
+          "meaning": "I'll report on the results of the survey."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>のけいざいに<ruby>関<rt>かん</rt></ruby>する<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みました。",
+          "romaji": "",
+          "meaning": "I read a book on the Japanese economy."
+        }
+      ],
+      "notes": [
+        "Before a noun: に<ruby>関<rt>かん</rt></ruby>する N (more natural than に<ruby>関<rt>かん</rt></ruby>しての N)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "この<ruby>仕事<rt>しごと</rt></ruby>は、わたしのせんもんとは<ruby>関係<rt>かんけい</rt></ruby>がありません。",
+      "This job has nothing to do with my field."
+    ],
+    [
+      "<ruby>分<rt>わ</rt></ruby>からないことばは<ruby>辞書<rt>じしょ</rt></ruby>で<ruby>調<rt>しら</rt></ruby>べます。",
+      "I look up words I don't know in the dictionary."
+    ],
+    [
+      "<ruby>天気予報<rt>てんきよほう</rt></ruby>によると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>です。",
+      "According to the forecast, it'll rain tomorrow."
+    ],
+    [
+      "<ruby>最近<rt>さいきん</rt></ruby>、<ruby>体<rt>からだ</rt></ruby>の<ruby>調子<rt>ちょうし</rt></ruby>がいいです。",
+      "I've been feeling well lately."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>何<rt>なに</rt></ruby>について<ruby>書<rt>か</rt></ruby>いているんですか。",
+      "けん",
+      "<ruby>日本<rt>にほん</rt></ruby>のまつりについてのレポートです。"
+    ],
+    [
+      "たなか",
+      "<ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>して、<ruby>何<rt>なに</rt></ruby>か<ruby>情報<rt>じょうほう</rt></ruby>はありますか。",
+      "リー",
+      "いいえ、まだ<ruby>報告<rt>ほうこく</rt></ruby>がありません。"
+    ],
+    [
+      "マイ",
+      "パソコンの<ruby>調子<rt>ちょうし</rt></ruby>はどうですか。",
+      "ゆき",
+      "あまりよくないので、<ruby>係<rt>かかり</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いてみます。"
+    ],
+    [
+      "リン",
+      "この<ruby>広告<rt>こうこく</rt></ruby>、<ruby>見<rt>み</rt></ruby>ましたか。",
+      "アナ",
+      "ええ、<ruby>新<rt>あたら</rt></ruby>しい<ruby>店<rt>みせ</rt></ruby>についての<ruby>広告<rt>こうこく</rt></ruby>ですね。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "関",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [
+        "せき",
+        "-ぜき",
+        "かか.わる",
+        "からくり",
+        "かんぬき"
+      ],
+      "meaning_en": "connection; gate",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "関係",
+          "reading": "かんけい",
+          "en": "relationship"
+        },
+        {
+          "word": "関心",
+          "reading": "かんしん",
+          "en": "interest"
+        }
+      ],
+      "mnemonic": "A gate (門) with a bar across it: the point where things connect."
+    },
+    {
+      "char": "係",
+      "onyomi": [
+        "ケイ"
+      ],
+      "kunyomi": [
+        "かか.る",
+        "かかり",
+        "-がかり",
+        "かか.わる"
+      ],
+      "meaning_en": "person in charge",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "係",
+          "reading": "かかり",
+          "en": "person in charge"
+        },
+        {
+          "word": "関係",
+          "reading": "かんけい",
+          "en": "relationship"
+        }
+      ],
+      "mnemonic": "A person (亻) tied to a thread (系): connected to a job."
+    },
+    {
+      "char": "情",
+      "onyomi": [
+        "ジョウ",
+        "セイ"
+      ],
+      "kunyomi": [
+        "なさ.け"
+      ],
+      "meaning_en": "feeling; facts",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "情報",
+          "reading": "じょうほう",
+          "en": "information"
+        },
+        {
+          "word": "事情",
+          "reading": "じじょう",
+          "en": "circumstances"
+        }
+      ],
+      "mnemonic": "The heart (忄) shown clearly (青): true feelings and facts."
+    },
+    {
+      "char": "報",
+      "onyomi": [
+        "ホウ"
+      ],
+      "kunyomi": [
+        "むく.いる"
+      ],
+      "meaning_en": "report",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "情報",
+          "reading": "じょうほう",
+          "en": "information"
+        },
+        {
+          "word": "報告",
+          "reading": "ほうこく",
+          "en": "report"
+        }
+      ],
+      "mnemonic": "Good news (幸) carried by a kneeling messenger: a report."
+    },
+    {
+      "char": "調",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "しら.べる",
+        "しら.べ",
+        "ととの.う",
+        "ととの.える"
+      ],
+      "meaning_en": "investigate; tone",
+      "stroke_count": 15,
+      "example_words": [
+        {
+          "word": "調べる",
+          "reading": "しらべる",
+          "en": "to look up"
+        },
+        {
+          "word": "調子",
+          "reading": "ちょうし",
+          "en": "condition"
+        }
+      ],
+      "mnemonic": "Words (言) that go round (周) the whole question: investigate."
+    },
+    {
+      "char": "告",
+      "onyomi": [
+        "コク"
+      ],
+      "kunyomi": [
+        "つ.げる"
+      ],
+      "meaning_en": "announce",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "報告",
+          "reading": "ほうこく",
+          "en": "report"
+        },
+        {
+          "word": "広告",
+          "reading": "こうこく",
+          "en": "advertisement"
+        }
+      ],
+      "mnemonic": "An ox (牛) brought before the mouth (口) of the shrine: announce."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 4): complete <ruby>練習<rt>れんしゅう</rt></ruby>すればする＿＿、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+      "options": [
+        "くらい",
+        "ほど",
+        "さえ",
+        "より"
+      ],
+      "correct": "ほど",
+      "explanation": "The more: ば〜ほど."
+    },
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>のぶんかに＿＿<ruby>調<rt>しら</rt></ruby>べています。",
+      "options": [
+        "とって",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "ついて",
+        "<ruby>対<rt>たい</rt></ruby>して"
+      ],
+      "correct": "ついて",
+      "explanation": "About: について."
+    },
+    {
+      "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>について＿＿<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>集<rt>あつ</rt></ruby>めています。",
+      "options": [
+        "な",
+        "を",
+        "に",
+        "の"
+      ],
+      "correct": "の",
+      "explanation": "Before a noun: についての."
+    },
+    {
+      "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>＿＿<ruby>情報<rt>じょうほう</rt></ruby>",
+      "options": [
+        "する",
+        "して",
+        "した",
+        "しての"
+      ],
+      "correct": "する",
+      "explanation": "Before a noun: に<ruby>関<rt>かん</rt></ruby>する N."
+    },
+    {
+      "prompt": "Which word means \"information\"?",
+      "options": [
+        "<ruby>報告<rt>ほうこく</rt></ruby>",
+        "<ruby>情報<rt>じょうほう</rt></ruby>",
+        "<ruby>広告<rt>こうこく</rt></ruby>",
+        "<ruby>関心<rt>かんしん</rt></ruby>"
+      ],
+      "correct": "<ruby>情報<rt>じょうほう</rt></ruby>",
+      "explanation": "<ruby>情報<rt>じょうほう</rt></ruby>: information."
+    },
+    {
+      "prompt": "How is 調子⁠ read?",
+      "options": [
+        "しらべこ",
+        "ちょうこ",
+        "ちょうし",
+        "じょうし"
+      ],
+      "correct": "ちょうし",
+      "explanation": "調子⁠ is read ちょうし."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>天気予報<rt>てんきよほう</rt></ruby>によると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>です。",
+      "options": [
+        "The forecast was wrong yesterday.",
+        "It rained, so there was no forecast.",
+        "I'll check the forecast tomorrow.",
+        "According to the forecast, it'll rain tomorrow."
+      ],
+      "correct": "According to the forecast, it'll rain tomorrow.",
+      "explanation": "<ruby>天気予報<rt>てんきよほう</rt></ruby>: weather forecast."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence sounds the most formal?",
+      "options": [
+        "これについて、<ruby>何<rt>なに</rt></ruby>か<ruby>聞<rt>き</rt></ruby>きたい？",
+        "これ、<ruby>質問<rt>しつもん</rt></ruby>ある？",
+        "これのこと、<ruby>何<rt>なに</rt></ruby>かある？",
+        "このけんに<ruby>関<rt>かん</rt></ruby>して、<ruby>質問<rt>しつもん</rt></ruby>はありますか。"
+      ],
+      "correct": "このけんに<ruby>関<rt>かん</rt></ruby>して、<ruby>質問<rt>しつもん</rt></ruby>はありますか。",
+      "explanation": "に<ruby>関<rt>かん</rt></ruby>して is formal."
+    },
+    {
+      "prompt": "What does <ruby>仕事<rt>しごと</rt></ruby>とは<ruby>関係<rt>かんけい</rt></ruby>がありません mean?",
+      "options": [
+        "It has nothing to do with work.",
+        "It's about work.",
+        "I have no work.",
+        "Work has no relationships."
+      ],
+      "correct": "It has nothing to do with work.",
+      "explanation": "<ruby>関係<rt>かんけい</rt></ruby>がない: unrelated."
+    },
+    {
+      "prompt": "Which word means \"advertisement\"?",
+      "options": [
+        "<ruby>報告<rt>ほうこく</rt></ruby>",
+        "<ruby>広告<rt>こうこく</rt></ruby>",
+        "<ruby>事情<rt>じじょう</rt></ruby>",
+        "<ruby>調子<rt>ちょうし</rt></ruby>"
+      ],
+      "correct": "<ruby>広告<rt>こうこく</rt></ruby>",
+      "explanation": "<ruby>広告<rt>こうこく</rt></ruby>: advertisement."
+    },
+    {
+      "prompt": "Read: あまりよくないので、<ruby>係<rt>かかり</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いてみます。 What will Yuki do?",
+      "options": [
+        "Buy a new computer.",
+        "Fix the computer herself.",
+        "Ask the person in charge about the computer.",
+        "Write a report about the computer."
+      ],
+      "correct": "Ask the person in charge about the computer.",
+      "explanation": "<ruby>係<rt>かかり</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>: the person in charge."
+    },
+    {
+      "prompt": "Review (Unit 4): complete <ruby>英語<rt>えいご</rt></ruby>だけで＿＿、<ruby>日本語<rt>にほんご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。",
+      "options": [
+        "ない",
+        "あって",
+        "さえ",
+        "なく"
+      ],
+      "correct": "なく",
+      "explanation": "Not only: だけでなく."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-4-not-only",
+    "japanese-n3-unit-4-the-more",
+    "japanese-n4-unit-7-i-heard"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

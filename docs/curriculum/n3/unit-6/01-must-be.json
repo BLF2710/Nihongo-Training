@@ -1,0 +1,537 @@
+{
+  "id": "japanese-n3-unit-6-must-be",
+  "slug": "n3-unit-6-must-be",
+  "unit": "Japanese N3 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "It Must Be Him",
+  "title_jp": "〜に ちがいない",
+  "objectives": [
+    "I can say something must be true.",
+    "Make a confident guess with 〜に<ruby>違<rt>ちが</rt></ruby>いない",
+    "Say something is bound to happen with 〜に<ruby>決<rt>き</rt></ruby>まっている",
+    "Talk about mistakes, crimes and the police"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>違<rt>ちが</rt></ruby>う",
+      "",
+      "to differ; to be wrong"
+    ],
+    [
+      "<ruby>間違<rt>まちが</rt></ruby>える",
+      "",
+      "to make a mistake"
+    ],
+    [
+      "<ruby>間違<rt>まちが</rt></ruby>い",
+      "",
+      "mistake"
+    ],
+    [
+      "<ruby>犯人<rt>はんにん</rt></ruby>",
+      "",
+      "criminal, culprit"
+    ],
+    [
+      "<ruby>犯罪<rt>はんざい</rt></ruby>",
+      "",
+      "crime"
+    ],
+    [
+      "<ruby>罪<rt>つみ</rt></ruby>",
+      "",
+      "sin, guilt"
+    ],
+    [
+      "<ruby>犯<rt>おか</rt></ruby>す",
+      "",
+      "to commit (a crime)"
+    ],
+    [
+      "<ruby>警察<rt>けいさつ</rt></ruby>",
+      "",
+      "police"
+    ],
+    [
+      "<ruby>盗<rt>ぬす</rt></ruby>む",
+      "",
+      "to steal"
+    ],
+    [
+      "<ruby>強盗<rt>ごうとう</rt></ruby>",
+      "",
+      "robbery; robber"
+    ],
+    [
+      "〜に<ruby>違<rt>ちが</rt></ruby>いない",
+      "",
+      "must be, I'm sure"
+    ],
+    [
+      "〜に<ruby>決<rt>き</rt></ruby>まっている",
+      "",
+      "is bound to, of course"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "違う",
+      "word_reading": "ちがう"
+    },
+    {
+      "word_japanese": "間違える",
+      "word_reading": "まちがえる"
+    },
+    {
+      "word_japanese": "間違い",
+      "word_reading": "まちがい"
+    },
+    {
+      "word_japanese": "犯人",
+      "word_reading": "はんにん"
+    },
+    {
+      "word_japanese": "犯罪",
+      "word_reading": "はんざい"
+    },
+    {
+      "word_japanese": "罪",
+      "word_reading": "つみ"
+    },
+    {
+      "word_japanese": "犯す",
+      "word_reading": "おかす"
+    },
+    {
+      "word_japanese": "警察",
+      "word_reading": "けいさつ"
+    },
+    {
+      "word_japanese": "盗む",
+      "word_reading": "ぬすむ"
+    },
+    {
+      "word_japanese": "強盗",
+      "word_reading": "ごうとう"
+    }
+  ],
+  "concept": {
+    "title": "Confident guesses",
+    "text": "に<ruby>違<rt>ちが</rt></ruby>いない says you're sure, based on what you know, even without proof:\nあの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いない。 That person must be the culprit.\n<ruby>電気<rt>でんき</rt></ruby>がついているから、<ruby>家<rt>いえ</rt></ruby>にいるに<ruby>違<rt>ちが</rt></ruby>いない。 The light's on, so he must be home.\n\nに<ruby>決<rt>き</rt></ruby>まっている is stronger and more personal: of course, it's bound to be. It's common in speech and can sound pushy:\nそんなの、うそに<ruby>決<rt>き</rt></ruby>まっている。 That's obviously a lie.\n\nBoth follow the plain form. な-adjectives and nouns drop だ: <ruby>静<rt>しず</rt></ruby>かに<ruby>違<rt>ちが</rt></ruby>いない, <ruby>犯人<rt>はんにん</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いない.",
+    "examples": [
+      "plain form + に<ruby>違<rt>ちが</rt></ruby>いない (I'm sure)",
+      "plain form + に<ruby>決<rt>き</rt></ruby>まっている (of course)",
+      "N / な-adj: no だ"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Must be: 〜に<ruby>違<rt>ちが</rt></ruby>いない",
+      "pattern": "plain form + に<ruby>違<rt>ちが</rt></ruby>いない (N / な-adj without だ)",
+      "explanation": "A confident guess based on evidence or feeling. Common in writing and careful speech.",
+      "examples": [
+        {
+          "japanese": "<ruby>電気<rt>でんき</rt></ruby>がついているから、<ruby>家<rt>いえ</rt></ruby>にいるに<ruby>違<rt>ちが</rt></ruby>いない。",
+          "romaji": "",
+          "meaning": "The light's on, so he must be home."
+        },
+        {
+          "japanese": "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いありません。",
+          "romaji": "",
+          "meaning": "That person must be the culprit."
+        },
+        {
+          "japanese": "こんなに<ruby>人<rt>ひと</rt></ruby>がならんでいるから、おいしいに<ruby>違<rt>ちが</rt></ruby>いない。",
+          "romaji": "",
+          "meaning": "With a queue like this, it must be good."
+        },
+        {
+          "japanese": "かぎがない。だれかに<ruby>盗<rt>ぬす</rt></ruby>まれたに<ruby>違<rt>ちが</rt></ruby>いない。",
+          "romaji": "",
+          "meaning": "My key's gone. Someone must have stolen it."
+        }
+      ],
+      "notes": [
+        "Polite: に<ruby>違<rt>ちが</rt></ruby>いありません.",
+        "Compare はずだ (N4): はず is based on reasoning; に<ruby>違<rt>ちが</rt></ruby>いない sounds more convinced."
+      ]
+    },
+    {
+      "title": "Bound to: 〜に<ruby>決<rt>き</rt></ruby>まっている",
+      "pattern": "plain form + に<ruby>決<rt>き</rt></ruby>まっている (N / な-adj without だ)",
+      "explanation": "The speaker is completely sure. It sounds emotional and can be pushy.",
+      "examples": [
+        {
+          "japanese": "そんなの、うそに<ruby>決<rt>き</rt></ruby>まっている。",
+          "romaji": "",
+          "meaning": "That's obviously a lie."
+        },
+        {
+          "japanese": "<ruby>練習<rt>れんしゅう</rt></ruby>しなかったら、<ruby>負<rt>ま</rt></ruby>けるに<ruby>決<rt>き</rt></ruby>まっています。",
+          "romaji": "",
+          "meaning": "If you don't practise, you're bound to lose."
+        },
+        {
+          "japanese": "<ruby>一人<rt>ひとり</rt></ruby>で<ruby>行<rt>い</rt></ruby>くより、みんなで<ruby>行<rt>い</rt></ruby>くほうが<ruby>楽<rt>たの</rt></ruby>しいに<ruby>決<rt>き</rt></ruby>まっている。",
+          "romaji": "",
+          "meaning": "Going together is obviously more fun than going alone."
+        },
+        {
+          "japanese": "そんな<ruby>高<rt>たか</rt></ruby>い<ruby>店<rt>みせ</rt></ruby>、<ruby>無理<rt>むり</rt></ruby>に<ruby>決<rt>き</rt></ruby>まってるよ。",
+          "romaji": "",
+          "meaning": "A place that expensive is out of the question, obviously."
+        }
+      ],
+      "notes": [
+        "Casual: <ruby>決<rt>き</rt></ruby>まってる.",
+        "Too strong for polite guesses about other people."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>答<rt>こた</rt></ruby>えが<ruby>違<rt>ちが</rt></ruby>います。",
+      "That answer is wrong."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>を<ruby>間違<rt>まちが</rt></ruby>えて、<ruby>遅<rt>おく</rt></ruby>れてしまいました。",
+      "I went to the wrong station and was late."
+    ],
+    [
+      "<ruby>警察<rt>けいさつ</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>をさがしています。",
+      "The police are looking for the culprit."
+    ],
+    [
+      "<ruby>電車<rt>でんしゃ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でさいふを<ruby>盗<rt>ぬす</rt></ruby>まれました。",
+      "My wallet was stolen on the train."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "けんさん、まだ<ruby>来<rt>き</rt></ruby>ませんね。",
+      "リー",
+      "<ruby>雨<rt>あめ</rt></ruby>だから、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れているに<ruby>違<rt>ちが</rt></ruby>いありません。"
+    ],
+    [
+      "マイ",
+      "このケーキ、<ruby>食<rt>た</rt></ruby>べてもいい？",
+      "ゆき",
+      "だめ。お<ruby>母<rt>かあ</rt></ruby>さんにおこられるに<ruby>決<rt>き</rt></ruby>まってるよ。"
+    ],
+    [
+      "たなか",
+      "さいふがない！",
+      "リン",
+      "すぐ<ruby>警察<rt>けいさつ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きましょう。"
+    ],
+    [
+      "けん",
+      "このメール、だれが<ruby>書<rt>か</rt></ruby>いたんでしょう。",
+      "アナ",
+      "この<ruby>字<rt>じ</rt></ruby>はたなかさんに<ruby>違<rt>ちが</rt></ruby>いないです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "違",
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [
+        "ちが.う",
+        "ちが.い",
+        "ちが.える",
+        "-ちが.える",
+        "たが.う",
+        "たが.える"
+      ],
+      "meaning_en": "differ",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "違う",
+          "reading": "ちがう",
+          "en": "to differ"
+        },
+        {
+          "word": "間違い",
+          "reading": "まちがい",
+          "en": "mistake"
+        }
+      ],
+      "mnemonic": "Walking (辶) in opposite directions (韋): different."
+    },
+    {
+      "char": "犯",
+      "onyomi": [
+        "ハン",
+        "ボン"
+      ],
+      "kunyomi": [
+        "おか.す"
+      ],
+      "meaning_en": "crime",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "犯人",
+          "reading": "はんにん",
+          "en": "criminal"
+        },
+        {
+          "word": "犯罪",
+          "reading": "はんざい",
+          "en": "crime"
+        }
+      ],
+      "mnemonic": "A dog (犭) crouching (㔾) to attack: committing a crime."
+    },
+    {
+      "char": "罪",
+      "onyomi": [
+        "ザイ"
+      ],
+      "kunyomi": [
+        "つみ"
+      ],
+      "meaning_en": "guilt",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "罪",
+          "reading": "つみ",
+          "en": "sin"
+        },
+        {
+          "word": "犯罪",
+          "reading": "はんざい",
+          "en": "crime"
+        }
+      ],
+      "mnemonic": "A net (罒) catching what is wrong (非): guilt."
+    },
+    {
+      "char": "警",
+      "onyomi": [
+        "ケイ"
+      ],
+      "kunyomi": [
+        "いまし.める"
+      ],
+      "meaning_en": "warn",
+      "stroke_count": 19,
+      "example_words": [
+        {
+          "word": "警察",
+          "reading": "けいさつ",
+          "en": "police"
+        },
+        {
+          "word": "警告",
+          "reading": "けいこく",
+          "en": "warning"
+        }
+      ],
+      "mnemonic": "Respectful (敬) words (言) of warning."
+    },
+    {
+      "char": "察",
+      "onyomi": [
+        "サツ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "guess; inspect",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "警察",
+          "reading": "けいさつ",
+          "en": "police"
+        },
+        {
+          "word": "観察",
+          "reading": "かんさつ",
+          "en": "observation"
+        }
+      ],
+      "mnemonic": "Looking at the offerings (祭) under the roof (宀): inspect."
+    },
+    {
+      "char": "盗",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "ぬす.む",
+        "ぬす.み"
+      ],
+      "meaning_en": "steal",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "盗む",
+          "reading": "ぬすむ",
+          "en": "to steal"
+        },
+        {
+          "word": "強盗",
+          "reading": "ごうとう",
+          "en": "robbery"
+        }
+      ],
+      "mnemonic": "Drooling over (次) someone else's dish (皿): steal."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 5): complete <ruby>留学生<rt>りゅうがくせい</rt></ruby>＿＿<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>ました。",
+      "options": [
+        "にとって",
+        "として",
+        "について",
+        "といえば"
+      ],
+      "correct": "として",
+      "explanation": "In the role of: として."
+    },
+    {
+      "prompt": "Complete: <ruby>電気<rt>でんき</rt></ruby>がついているから、<ruby>家<rt>いえ</rt></ruby>にいるに＿＿。",
+      "options": [
+        "<ruby>決<rt>き</rt></ruby>めない",
+        "<ruby>違<rt>ちが</rt></ruby>う",
+        "<ruby>違<rt>ちが</rt></ruby>いない",
+        "<ruby>間違<rt>まちが</rt></ruby>えない"
+      ],
+      "correct": "<ruby>違<rt>ちが</rt></ruby>いない",
+      "explanation": "Must be: に<ruby>違<rt>ちが</rt></ruby>いない."
+    },
+    {
+      "prompt": "Complete: あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>＿＿<ruby>違<rt>ちが</rt></ruby>いない。",
+      "options": [
+        "だに",
+        "なに",
+        "のに",
+        "に"
+      ],
+      "correct": "に",
+      "explanation": "Nouns take に<ruby>違<rt>ちが</rt></ruby>いない directly."
+    },
+    {
+      "prompt": "Complete: <ruby>練習<rt>れんしゅう</rt></ruby>しなかったら、<ruby>負<rt>ま</rt></ruby>けるに＿＿います。",
+      "options": [
+        "<ruby>決<rt>き</rt></ruby>まって",
+        "<ruby>違<rt>ちが</rt></ruby>って",
+        "<ruby>決<rt>き</rt></ruby>めて",
+        "<ruby>間違<rt>まちが</rt></ruby>って"
+      ],
+      "correct": "<ruby>決<rt>き</rt></ruby>まって",
+      "explanation": "Bound to: に<ruby>決<rt>き</rt></ruby>まっている."
+    },
+    {
+      "prompt": "Which word means \"police\"?",
+      "options": [
+        "<ruby>犯人<rt>はんにん</rt></ruby>",
+        "<ruby>警察<rt>けいさつ</rt></ruby>",
+        "<ruby>犯罪<rt>はんざい</rt></ruby>",
+        "<ruby>強盗<rt>ごうとう</rt></ruby>"
+      ],
+      "correct": "<ruby>警察<rt>けいさつ</rt></ruby>",
+      "explanation": "<ruby>警察<rt>けいさつ</rt></ruby>: police."
+    },
+    {
+      "prompt": "How is 間違⁠い read?",
+      "options": [
+        "まちかい",
+        "かんちがい",
+        "まちがい",
+        "あいだちがい"
+      ],
+      "correct": "まちがい",
+      "explanation": "間違⁠い is read まちがい."
+    },
+    {
+      "prompt": "Choose the meaning of そんなの、うそに<ruby>決<rt>き</rt></ruby>まっている。",
+      "options": [
+        "I decided to lie.",
+        "That might be a lie.",
+        "That isn't a lie.",
+        "That's obviously a lie."
+      ],
+      "correct": "That's obviously a lie.",
+      "explanation": "に<ruby>決<rt>き</rt></ruby>まっている: obviously."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いない。",
+        "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>にいるに<ruby>違<rt>ちが</rt></ruby>いない。",
+        "この<ruby>店<rt>みせ</rt></ruby>はおいしいに<ruby>違<rt>ちが</rt></ruby>いない。",
+        "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>だに<ruby>違<rt>ちが</rt></ruby>いない。"
+      ],
+      "correct": "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>だに<ruby>違<rt>ちが</rt></ruby>いない。",
+      "explanation": "Nouns drop だ before に<ruby>違<rt>ちが</rt></ruby>いない."
+    },
+    {
+      "prompt": "What does かぎがない。だれかに<ruby>盗<rt>ぬす</rt></ruby>まれたに<ruby>違<rt>ちが</rt></ruby>いない mean?",
+      "options": [
+        "My key's gone. Someone must have stolen it.",
+        "Someone stole my key, but I found it.",
+        "I might have lost my key.",
+        "I stole someone's key."
+      ],
+      "correct": "My key's gone. Someone must have stolen it.",
+      "explanation": "に<ruby>違<rt>ちが</rt></ruby>いない: must have."
+    },
+    {
+      "prompt": "Which word means \"to make a mistake\"?",
+      "options": [
+        "<ruby>違<rt>ちが</rt></ruby>う",
+        "<ruby>間違<rt>まちが</rt></ruby>える",
+        "<ruby>盗<rt>ぬす</rt></ruby>む",
+        "<ruby>犯<rt>おか</rt></ruby>す"
+      ],
+      "correct": "<ruby>間違<rt>まちが</rt></ruby>える",
+      "explanation": "<ruby>間違<rt>まちが</rt></ruby>える: to make a mistake."
+    },
+    {
+      "prompt": "Read: <ruby>雨<rt>あめ</rt></ruby>だから、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れているに<ruby>違<rt>ちが</rt></ruby>いありません。 What does Lee think?",
+      "options": [
+        "Ken isn't coming.",
+        "The train is on time.",
+        "Ken is late because the train is delayed.",
+        "Ken took the bus."
+      ],
+      "correct": "Ken is late because the train is delayed.",
+      "explanation": "に<ruby>違<rt>ちが</rt></ruby>いない: confident guess."
+    },
+    {
+      "prompt": "Review (Unit 5): complete <ruby>京都<rt>きょうと</rt></ruby>と＿＿、おてらですね。",
+      "options": [
+        "して",
+        "とって",
+        "<ruby>違<rt>ちが</rt></ruby>いない",
+        "いえば"
+      ],
+      "correct": "いえば",
+      "explanation": "Speaking of: といえば."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-5-called",
+    "japanese-n3-unit-5-as-a",
+    "japanese-n4-unit-7-should-be"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

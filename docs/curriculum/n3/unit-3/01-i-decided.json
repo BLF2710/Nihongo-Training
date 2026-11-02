@@ -1,0 +1,558 @@
+{
+  "id": "japanese-n3-unit-3-i-decided",
+  "slug": "n3-unit-3-i-decided",
+  "unit": "Japanese N3 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "I've Decided",
+  "title_jp": "〜ことに する",
+  "objectives": [
+    "I can say what I have decided to do.",
+    "Announce a decision with 〜ことにする",
+    "Talk about a personal rule with 〜ことにしている",
+    "Talk about choosing, continuing, quitting and changing"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>決<rt>き</rt></ruby>める",
+      "",
+      "to decide"
+    ],
+    [
+      "<ruby>決<rt>き</rt></ruby>まる",
+      "",
+      "to be decided"
+    ],
+    [
+      "<ruby>選<rt>えら</rt></ruby>ぶ",
+      "",
+      "to choose"
+    ],
+    [
+      "<ruby>選手<rt>せんしゅ</rt></ruby>",
+      "",
+      "athlete, player"
+    ],
+    [
+      "<ruby>留学<rt>りゅうがく</rt></ruby>",
+      "",
+      "studying abroad (+ する: to study abroad)"
+    ],
+    [
+      "<ruby>留学生<rt>りゅうがくせい</rt></ruby>",
+      "",
+      "international student"
+    ],
+    [
+      "<ruby>続<rt>つづ</rt></ruby>ける",
+      "",
+      "to continue (something)"
+    ],
+    [
+      "<ruby>続<rt>つづ</rt></ruby>く",
+      "",
+      "to continue, to last"
+    ],
+    [
+      "<ruby>辞書<rt>じしょ</rt></ruby>",
+      "",
+      "dictionary"
+    ],
+    [
+      "<ruby>辞<rt>や</rt></ruby>める",
+      "",
+      "to quit, to resign"
+    ],
+    [
+      "<ruby>変<rt>か</rt></ruby>える",
+      "",
+      "to change (something)"
+    ],
+    [
+      "<ruby>変<rt>か</rt></ruby>わる",
+      "",
+      "to change"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "決める",
+      "word_reading": "きめる"
+    },
+    {
+      "word_japanese": "決まる",
+      "word_reading": "きまる"
+    },
+    {
+      "word_japanese": "選ぶ",
+      "word_reading": "えらぶ"
+    },
+    {
+      "word_japanese": "選手",
+      "word_reading": "せんしゅ"
+    },
+    {
+      "word_japanese": "留学",
+      "word_reading": "りゅうがく"
+    },
+    {
+      "word_japanese": "留学生",
+      "word_reading": "りゅうがくせい"
+    },
+    {
+      "word_japanese": "続ける",
+      "word_reading": "つづける"
+    },
+    {
+      "word_japanese": "続く",
+      "word_reading": "つづく"
+    },
+    {
+      "word_japanese": "辞書",
+      "word_reading": "じしょ"
+    },
+    {
+      "word_japanese": "辞める",
+      "word_reading": "やめる"
+    },
+    {
+      "word_japanese": "変える",
+      "word_reading": "かえる"
+    },
+    {
+      "word_japanese": "変わる",
+      "word_reading": "かわる"
+    }
+  ],
+  "concept": {
+    "title": "Your own decisions: ことにする",
+    "text": "V-る / V-ない + ことにする: you decide to do, or not to do, something:\n\n<ruby>来年<rt>らいねん</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>に<ruby>留学<rt>りゅうがく</rt></ruby>することにしました。 I've decided to study in Japan next year.\nあまいものを<ruby>食<rt>た</rt></ruby>べないことにします。 I'll stop eating sweets.\n\nThe past ことにした reports a decision already made. ことにしている is a personal rule you keep:\n<ruby>毎朝<rt>まいあさ</rt></ruby>、<ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>歩<rt>ある</rt></ruby>くことにしています。 I make a point of walking thirty minutes every morning.\n\nNouns take にする: コーヒーにします (I'll have coffee).",
+    "examples": [
+      "V-る / V-ない ことにする (decide)",
+      "〜ことにした (decided)",
+      "〜ことにしている (my rule)",
+      "N にする (choose)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I've decided: 〜ことにする",
+      "pattern": "V-る / V-ない + ことにする",
+      "explanation": "The speaker makes a decision. The past ことにした reports a decision already made.",
+      "examples": [
+        {
+          "japanese": "<ruby>来年<rt>らいねん</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>に<ruby>留学<rt>りゅうがく</rt></ruby>することにしました。",
+          "romaji": "",
+          "meaning": "I've decided to study in Japan next year."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>から、あまいものを<ruby>食<rt>た</rt></ruby>べないことにします。",
+          "romaji": "",
+          "meaning": "From today, I won't eat sweets."
+        },
+        {
+          "japanese": "<ruby>会社<rt>かいしゃ</rt></ruby>を<ruby>辞<rt>や</rt></ruby>めることにしました。",
+          "romaji": "",
+          "meaning": "I've decided to quit my job."
+        },
+        {
+          "japanese": "よく<ruby>考<rt>かんが</rt></ruby>えて、この<ruby>大学<rt>だいがく</rt></ruby>を<ruby>選<rt>えら</rt></ruby>ぶことにしました。",
+          "romaji": "",
+          "meaning": "After thinking hard, I decided on this university."
+        }
+      ],
+      "notes": [
+        "ことにする is your own decision; ことになる (next lesson) is decided for you.",
+        "N にする also chooses: コーヒーにします (I'll have coffee)."
+      ]
+    },
+    {
+      "title": "My rule: 〜ことにしている",
+      "pattern": "V-る / V-ない + ことにしている",
+      "explanation": "A habit you decided on and keep to.",
+      "examples": [
+        {
+          "japanese": "<ruby>毎朝<rt>まいあさ</rt></ruby>、<ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>歩<rt>ある</rt></ruby>くことにしています。",
+          "romaji": "",
+          "meaning": "I make a point of walking thirty minutes every morning."
+        },
+        {
+          "japanese": "<ruby>夜<rt>よる</rt></ruby><ruby>十時<rt>じゅうじ</rt></ruby>をすぎたら、スマホを<ruby>見<rt>み</rt></ruby>ないことにしています。",
+          "romaji": "",
+          "meaning": "I don't look at my phone after ten at night."
+        },
+        {
+          "japanese": "<ruby>分<rt>わ</rt></ruby>からないことばは、すぐ<ruby>辞書<rt>じしょ</rt></ruby>でしらべることにしています。",
+          "romaji": "",
+          "meaning": "I always look up words I don't know in the dictionary straight away."
+        },
+        {
+          "japanese": "しゅうまつは<ruby>家族<rt>かぞく</rt></ruby>とすごすことにしています。",
+          "romaji": "",
+          "meaning": "I keep weekends for my family."
+        }
+      ],
+      "notes": [
+        "〜ようにしている (Lesson 3) means \"I try to\"; 〜ことにしている is a firm personal rule."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>旅行<rt>りょこう</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>にちがやっと<ruby>決<rt>き</rt></ruby>まりました。",
+      "The date for the trip is finally decided."
+    ],
+    [
+      "<ruby>雨<rt>あめ</rt></ruby>が<ruby>三日<rt>みっか</rt></ruby>も<ruby>続<rt>つづ</rt></ruby>いています。",
+      "It has been raining for three days."
+    ],
+    [
+      "かれは<ruby>有名<rt>ゆうめい</rt></ruby>なサッカー<ruby>選手<rt>せんしゅ</rt></ruby>です。",
+      "He's a famous footballer."
+    ],
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て、せいかつが<ruby>大<rt>おお</rt></ruby>きく<ruby>変<rt>か</rt></ruby>わりました。",
+      "Life changed a lot after I came to Japan."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>卒業<rt>そつぎょう</rt></ruby>したら、どうしますか。",
+      "けん",
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>大学院<rt>だいがくいん</rt></ruby>に<ruby>留学<rt>りゅうがく</rt></ruby>することにしました。"
+    ],
+    [
+      "リー",
+      "ケーキ、<ruby>食<rt>た</rt></ruby>べませんか。",
+      "マイ",
+      "ありがとう、でもあまいものは<ruby>食<rt>た</rt></ruby>べないことにしているんです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>仕事<rt>しごと</rt></ruby>、<ruby>続<rt>つづ</rt></ruby>けるんですか。",
+      "リン",
+      "いいえ、<ruby>来月<rt>らいげつ</rt></ruby><ruby>辞<rt>や</rt></ruby>めることにしました。"
+    ],
+    [
+      "たなか",
+      "<ruby>何<rt>なに</rt></ruby>にしますか。",
+      "アナ",
+      "わたしはコーヒーにします。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "決",
+      "onyomi": [
+        "ケツ"
+      ],
+      "kunyomi": [
+        "き.める",
+        "-ぎ.め",
+        "き.まる",
+        "さ.く"
+      ],
+      "meaning_en": "decide",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "決める",
+          "reading": "きめる",
+          "en": "to decide"
+        },
+        {
+          "word": "決定",
+          "reading": "けってい",
+          "en": "decision"
+        }
+      ],
+      "mnemonic": "Water (氵) breaking through a dam (夬): decided."
+    },
+    {
+      "char": "選",
+      "onyomi": [
+        "セン"
+      ],
+      "kunyomi": [
+        "えら.ぶ",
+        "え.る",
+        "よ.る"
+      ],
+      "meaning_en": "choose",
+      "stroke_count": 15,
+      "example_words": [
+        {
+          "word": "選ぶ",
+          "reading": "えらぶ",
+          "en": "to choose"
+        },
+        {
+          "word": "選手",
+          "reading": "せんしゅ",
+          "en": "athlete"
+        }
+      ],
+      "mnemonic": "Going (辶) to pick the best two (巽)."
+    },
+    {
+      "char": "留",
+      "onyomi": [
+        "リュウ",
+        "ル"
+      ],
+      "kunyomi": [
+        "と.める",
+        "と.まる",
+        "とど.める",
+        "とど.まる",
+        "るうぶる"
+      ],
+      "meaning_en": "stay",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "留学",
+          "reading": "りゅうがく",
+          "en": "studying abroad"
+        },
+        {
+          "word": "留守",
+          "reading": "るす",
+          "en": "being out"
+        }
+      ],
+      "mnemonic": "A field (田) where you stay to rest."
+    },
+    {
+      "char": "続",
+      "onyomi": [
+        "ゾク",
+        "ショク",
+        "コウ",
+        "キョウ"
+      ],
+      "kunyomi": [
+        "つづ.く",
+        "つづ.ける",
+        "つぐ.ない"
+      ],
+      "meaning_en": "continue",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "続ける",
+          "reading": "つづける",
+          "en": "to continue"
+        },
+        {
+          "word": "続く",
+          "reading": "つづく",
+          "en": "to last"
+        }
+      ],
+      "mnemonic": "Thread (糸) sold (売) by the metre, going on and on."
+    },
+    {
+      "char": "辞",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "や.める",
+        "いな.む"
+      ],
+      "meaning_en": "word; quit",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "辞書",
+          "reading": "じしょ",
+          "en": "dictionary"
+        },
+        {
+          "word": "辞める",
+          "reading": "やめる",
+          "en": "to quit"
+        }
+      ],
+      "mnemonic": "A tongue (舌) and a sharp tool (辛): words that cut ties."
+    },
+    {
+      "char": "変",
+      "onyomi": [
+        "ヘン"
+      ],
+      "kunyomi": [
+        "か.わる",
+        "か.わり",
+        "か.える"
+      ],
+      "meaning_en": "change",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "変える",
+          "reading": "かえる",
+          "en": "to change"
+        },
+        {
+          "word": "変わる",
+          "reading": "かわる",
+          "en": "to change"
+        }
+      ],
+      "mnemonic": "Tangled threads over a walking person (夂): change."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 2): complete <ruby>約束<rt>やくそく</rt></ruby>したから、<ruby>行<rt>い</rt></ruby>かない＿＿。",
+      "options": [
+        "わけがありません",
+        "わけにはいきません",
+        "わけです",
+        "とは<ruby>限<rt>かぎ</rt></ruby>りません"
+      ],
+      "correct": "わけにはいきません",
+      "explanation": "Have to: V-ない わけにはいかない."
+    },
+    {
+      "prompt": "Complete: <ruby>来年<rt>らいねん</rt></ruby>、<ruby>留学<rt>りゅうがく</rt></ruby>する＿＿にしました。",
+      "options": [
+        "よう",
+        "わけ",
+        "こと",
+        "ため"
+      ],
+      "correct": "こと",
+      "explanation": "Decide: ことにする."
+    },
+    {
+      "prompt": "Complete: <ruby>毎朝<rt>まいあさ</rt></ruby><ruby>歩<rt>ある</rt></ruby>くことに＿＿います。 (my rule)",
+      "options": [
+        "なって",
+        "いて",
+        "あって",
+        "して"
+      ],
+      "correct": "して",
+      "explanation": "My rule: ことにしている."
+    },
+    {
+      "prompt": "Complete: わたしはコーヒー＿＿します。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "Choose: N にする."
+    },
+    {
+      "prompt": "Which word means \"to choose\"?",
+      "options": [
+        "<ruby>決<rt>き</rt></ruby>める",
+        "<ruby>選<rt>えら</rt></ruby>ぶ",
+        "<ruby>続<rt>つづ</rt></ruby>ける",
+        "<ruby>変<rt>か</rt></ruby>える"
+      ],
+      "correct": "<ruby>選<rt>えら</rt></ruby>ぶ",
+      "explanation": "<ruby>選<rt>えら</rt></ruby>ぶ: to choose."
+    },
+    {
+      "prompt": "How is 辞書⁠ read?",
+      "options": [
+        "やしょ",
+        "じしょう",
+        "じしょ",
+        "ことしょ"
+      ],
+      "correct": "じしょ",
+      "explanation": "辞書⁠ is read じしょ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>会社<rt>かいしゃ</rt></ruby>を<ruby>辞<rt>や</rt></ruby>めることにしました。",
+      "options": [
+        "My company decided to fire me.",
+        "I've decided to join a company.",
+        "I quit my job by mistake.",
+        "I've decided to quit my job."
+      ],
+      "correct": "I've decided to quit my job.",
+      "explanation": "ことにした: I decided."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You decide to stop drinking coffee. What do you say?",
+      "options": [
+        "コーヒーを<ruby>飲<rt>の</rt></ruby>まないことになりました。",
+        "コーヒーを<ruby>飲<rt>の</rt></ruby>まないわけにはいきません。",
+        "コーヒーを<ruby>飲<rt>の</rt></ruby>まないとは<ruby>限<rt>かぎ</rt></ruby>りません。",
+        "コーヒーを<ruby>飲<rt>の</rt></ruby>まないことにしました。"
+      ],
+      "correct": "コーヒーを<ruby>飲<rt>の</rt></ruby>まないことにしました。",
+      "explanation": "Your own decision: ことにする."
+    },
+    {
+      "prompt": "What does <ruby>夜<rt>よる</rt></ruby>はスマホを<ruby>見<rt>み</rt></ruby>ないことにしています mean?",
+      "options": [
+        "It's my rule not to look at my phone at night.",
+        "I can't look at my phone at night.",
+        "I decided this once, then forgot.",
+        "My phone doesn't work at night."
+      ],
+      "correct": "It's my rule not to look at my phone at night.",
+      "explanation": "ことにしている: a personal rule."
+    },
+    {
+      "prompt": "Which pair is correct?",
+      "options": [
+        "<ruby>変<rt>か</rt></ruby>える: something changes / <ruby>変<rt>か</rt></ruby>わる: change something",
+        "<ruby>変<rt>か</rt></ruby>える: change something / <ruby>変<rt>か</rt></ruby>わる: something changes",
+        "Both mean \"to exchange\".",
+        "Both are intransitive."
+      ],
+      "correct": "<ruby>変<rt>か</rt></ruby>える: change something / <ruby>変<rt>か</rt></ruby>わる: something changes",
+      "explanation": "Transitive える, intransitive わる."
+    },
+    {
+      "prompt": "Read: <ruby>来月<rt>らいげつ</rt></ruby><ruby>辞<rt>や</rt></ruby>めることにしました。 Who decided?",
+      "options": [
+        "Lin's boss",
+        "Yuki",
+        "Lin herself",
+        "Nobody yet"
+      ],
+      "correct": "Lin herself",
+      "explanation": "ことにした: the speaker decided."
+    },
+    {
+      "prompt": "Review (Unit 2): complete <ruby>雨<rt>あめ</rt></ruby>の＿＿、<ruby>中止<rt>ちゅうし</rt></ruby>になりました。 (blame)",
+      "options": [
+        "おかげで",
+        "ことに",
+        "わけで",
+        "せいで"
+      ],
+      "correct": "せいで",
+      "explanation": "Blame: せいで."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-2-i-cant-just",
+    "japanese-n4-unit-5-i-intend-to",
+    "japanese-n4-unit-5-thinking-of"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

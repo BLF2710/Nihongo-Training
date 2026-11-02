@@ -109,7 +109,32 @@ const [base, shots] = process.argv.slice(2);
     for (let i = 0; i < 5; i++) { await page.getByText(`Character ${i + 1} of 5`).waitFor(); await answerCurrent(true); await advance(); }
     await page.setViewportSize({ width: 390, height: 844 }); await page.locator('#round-results').waitFor(); await results.getByText('0 / 5').waitFor();
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'results overflow on mobile');
+
+    // ---- Learning pages: basic kana show a mnemonic, voiced kana do not; katakana builds its catalog from an empty list.
+    await page.route('http://localhost:5000/api/quiz/characters**', route => route.fulfill({ json: new URL(route.request().url()).searchParams.get('type') === 'katakana' ? { type: 'katakana', characters: [] } : characters }));
+    // A flashcard (kana on the front; reading, mnemonic and example on the back) shares one spot with drawing and writing, so a laptop screen never scrolls.
+    await page.setViewportSize({ width: 1366, height: 768 });
+    const tab = name => page.getByRole('tab', { name });
+    const fits = async label => assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight), label + ' fits without scrolling');
+    const flip = () => page.getByRole('button', { name: /flip to see/ }).click();
+    await page.goto(base + '/learn/hiragana'); await page.getByRole('button', { name: /^る\s*ru$/ }).click(); await page.getByText('Tap to flip').waitFor();
+    assert.equal(await tab('🃏 Flashcard').getAttribute('aria-selected'), 'true'); await fits('Flashcard front');
+    const hiddenFace = page.locator('[aria-hidden="true"][inert]'); // Playwright's isVisible ignores backface-visibility
+    assert.equal(await hiddenFace.getByText(/roundabout/).count(), 1, 'the back stays hidden until flipped');
+    await flip(); await page.getByRole('button', { name: '↻ Flip back' }).waitFor(); await page.waitForTimeout(600);
+    assert.equal(await hiddenFace.getByText(/roundabout/).count(), 0, 'flipping shows the back'); assert.equal(await hiddenFace.getByText('Tap to flip').count(), 1); await fits('Flashcard back');
+    await page.screenshot({ path: shots + '/kana-mnemonic.png' });
+    await tab('✏ How to Draw').click(); await page.getByRole('img', { name: /Stroke order for る/ }).waitFor(); await fits('How to Draw');
+    await page.keyboard.press('ArrowRight'); await page.getByLabel('Writing canvas for る').waitFor();
+    assert.equal(await tab('✍ Write It!').getAttribute('aria-selected'), 'true', 'arrow keys move between tabs'); await fits('Write It!');
+    await page.getByRole('button', { name: 'Next →' }).click(); await page.getByLabel('Writing canvas for れ').waitFor(); // the chosen mode carries over
+    await page.getByRole('button', { name: 'Next →' }).click(); await page.getByLabel('Writing canvas for ろ').waitFor();
+    await page.getByRole('button', { name: '← Back' }).click(); await page.getByRole('button', { name: /^る\s*ru$/ }).waitFor();
+    assert.equal(new URL(page.url()).pathname, '/learn/hiragana', 'Back leaves for the grid instead of the previous kana');
+    await page.goto(base + '/learn/hiragana/' + list.find(c => c.kana === 'が').id); await flip(); await page.getByText('Example word').waitFor();
+    assert.equal(await page.getByText('Remember it').count(), 0, 'voiced kana have no mnemonic');
+    await page.goto(base + '/learn/katakana'); await page.getByRole('button', { name: /^シ\s*shi$/ }).click(); await flip(); await page.getByText(/Compare ツ/).waitFor();
     assert.deepEqual(errors, []);
-    console.log(`PASS: switching Hiragana/Katakana mid-game or with an unfinished lesson never prompts or replaces the session, the game resumes, and only Start Quiz asks (cancel keeps it); setup defaults to "each once" and shows the mode; a round shows each of 5 characters exactly once (${seen.join('')}), survives a reload, and ends on a results screen (4/5, 80%, best streak 2, missed list with the typed answer, focus moved); practising the missed character runs a 1-character round to a perfect result; play again; unlimited mode over 15 answers had all 5 characters in every block of 5 and no immediate repeats (${order.join('')}); mobile results; ${answers.length} answers sent; no page errors.`);
+    console.log(`PASS: switching Hiragana/Katakana mid-game or with an unfinished lesson never prompts or replaces the session, the game resumes, and only Start Quiz asks (cancel keeps it); setup defaults to "each once" and shows the mode; a round shows each of 5 characters exactly once (${seen.join('')}), survives a reload, and ends on a results screen (4/5, 80%, best streak 2, missed list with the typed answer, focus moved); practising the missed character runs a 1-character round to a perfect result; play again; unlimited mode over 15 answers had all 5 characters in every block of 5 and no immediate repeats (${order.join('')}); mobile results; kana pages are a flashcard (kana front; reading, mnemonic and example back) sharing one spot with draw and write tabs (arrow keys switch, the mode carries to the next character), each fits a 1366×768 screen, and Back returns to the grid after stepping through kana; voiced kana have no mnemonic; ${answers.length} answers sent; no page errors.`);
   } finally { await browser.close(); }
 })().catch(e => { console.error(String(e.stack || e).slice(0, 1500)); process.exitCode = 1; });

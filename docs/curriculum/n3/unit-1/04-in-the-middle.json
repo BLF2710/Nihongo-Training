@@ -1,0 +1,533 @@
+{
+  "id": "japanese-n3-unit-1-in-the-middle",
+  "slug": "n3-unit-1-in-the-middle",
+  "unit": "Japanese N3 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "In the Middle of a Meeting",
+  "title_jp": "〜さいちゅうに",
+  "objectives": [
+    "I can say something happened in the middle of something else.",
+    "Say something interrupted an activity with 〜<ruby>最中<rt>さいちゅう</rt></ruby>に",
+    "Tell 〜<ruby>間<rt>あいだ</rt></ruby> (the whole time) from 〜<ruby>間<rt>あいだ</rt></ruby>に (at some point)",
+    "Talk about meetings, classes, bookings and plans"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>会議<rt>かいぎ</rt></ruby>",
+      "",
+      "meeting"
+    ],
+    [
+      "<ruby>授業<rt>じゅぎょう</rt></ruby>",
+      "",
+      "class, lesson"
+    ],
+    [
+      "<ruby>予約<rt>よやく</rt></ruby>",
+      "",
+      "reservation, booking (+ する: to book)"
+    ],
+    [
+      "<ruby>予定<rt>よてい</rt></ruby>",
+      "",
+      "plan, schedule"
+    ],
+    [
+      "やくそく",
+      "",
+      "promise, appointment"
+    ],
+    [
+      "<ruby>約<rt>やく</rt></ruby>",
+      "",
+      "about, approximately"
+    ],
+    [
+      "<ruby>席<rt>せき</rt></ruby>",
+      "",
+      "seat"
+    ],
+    [
+      "<ruby>出席<rt>しゅっせき</rt></ruby>",
+      "",
+      "attendance (+ する: to attend)"
+    ],
+    [
+      "けっせき",
+      "",
+      "absence (+ する: to be absent)"
+    ],
+    [
+      "<ruby>定休日<rt>ていきゅうび</rt></ruby>",
+      "",
+      "regular closing day"
+    ],
+    [
+      "<ruby>最中<rt>さいちゅう</rt></ruby>",
+      "",
+      "the middle (of an activity)"
+    ],
+    [
+      "〜<ruby>間<rt>あいだ</rt></ruby>に",
+      "",
+      "during, while (at some point)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "会議",
+      "word_reading": "かいぎ"
+    },
+    {
+      "word_japanese": "授業",
+      "word_reading": "じゅぎょう"
+    },
+    {
+      "word_japanese": "予約",
+      "word_reading": "よやく"
+    },
+    {
+      "word_japanese": "予定",
+      "word_reading": "よてい"
+    },
+    {
+      "word_japanese": "約",
+      "word_reading": "やく"
+    },
+    {
+      "word_japanese": "席",
+      "word_reading": "せき"
+    },
+    {
+      "word_japanese": "出席",
+      "word_reading": "しゅっせき"
+    },
+    {
+      "word_japanese": "定休日",
+      "word_reading": "ていきゅうび"
+    },
+    {
+      "word_japanese": "最中",
+      "word_reading": "さいちゅう"
+    }
+  ],
+  "concept": {
+    "title": "Right in the middle, and during",
+    "text": "<ruby>最中<rt>さいちゅう</rt></ruby>に says something happened right in the middle of an activity, usually at a bad moment:\n\n<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>最中<rt>さいちゅう</rt></ruby>に、<ruby>電話<rt>でんわ</rt></ruby>がなりました。 The phone rang in the middle of the meeting.\n\n<ruby>間<rt>あいだ</rt></ruby> and <ruby>間<rt>あいだ</rt></ruby>に both mean \"while\" or \"during\", but they are not the same:\n<ruby>間<rt>あいだ</rt></ruby>: the second action fills the whole time.\n<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>、ずっと<ruby>国<rt>くに</rt></ruby>にいました。 I was back home for the whole summer holiday.\n<ruby>間<rt>あいだ</rt></ruby>に: the second action happens at some point in that time.\n<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りました。 During the summer holiday, I went home.",
+    "examples": [
+      "N の / V-ている <ruby>最中<rt>さいちゅう</rt></ruby>に",
+      "〜<ruby>間<rt>あいだ</rt></ruby> (the whole time)",
+      "〜<ruby>間<rt>あいだ</rt></ruby>に (at some point)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "In the middle of: 〜<ruby>最中<rt>さいちゅう</rt></ruby>に",
+      "pattern": "N の / V-ている + <ruby>最中<rt>さいちゅう</rt></ruby>に",
+      "explanation": "Something interrupts an activity right when it is in full swing.",
+      "examples": [
+        {
+          "japanese": "<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>最中<rt>さいちゅう</rt></ruby>に、<ruby>電話<rt>でんわ</rt></ruby>がなりました。",
+          "romaji": "",
+          "meaning": "The phone rang in the middle of the meeting."
+        },
+        {
+          "japanese": "<ruby>授業<rt>じゅぎょう</rt></ruby>の<ruby>最中<rt>さいちゅう</rt></ruby>に、ねてしまいました。",
+          "romaji": "",
+          "meaning": "I fell asleep in the middle of class."
+        },
+        {
+          "japanese": "<ruby>食事<rt>しょくじ</rt></ruby>をしている<ruby>最中<rt>さいちゅう</rt></ruby>に、じしんがありました。",
+          "romaji": "",
+          "meaning": "There was an earthquake in the middle of our meal."
+        },
+        {
+          "japanese": "<ruby>今<rt>いま</rt></ruby>、<ruby>考<rt>かんが</rt></ruby>えている<ruby>最中<rt>さいちゅう</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "I'm still in the middle of thinking about it."
+        }
+      ],
+      "notes": [
+        "<ruby>最中<rt>さいちゅう</rt></ruby>に is stronger than 〜ている<ruby>時<rt>とき</rt></ruby>に: the activity is at its height.",
+        "<ruby>最中<rt>さいちゅう</rt></ruby>だ at the end: <ruby>今<rt>いま</rt></ruby>、<ruby>試験<rt>しけん</rt></ruby>の<ruby>最中<rt>さいちゅう</rt></ruby>です (the exam is in progress)."
+      ]
+    },
+    {
+      "title": "During: 〜<ruby>間<rt>あいだ</rt></ruby> and 〜<ruby>間<rt>あいだ</rt></ruby>に",
+      "pattern": "N の / V-る / V-ている + <ruby>間<rt>あいだ</rt></ruby>(に)",
+      "explanation": "<ruby>間<rt>あいだ</rt></ruby> without に: the second action lasts the whole time. <ruby>間<rt>あいだ</rt></ruby>に: the second action happens once, somewhere within that time.",
+      "examples": [
+        {
+          "japanese": "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>、ずっと<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>っていました。",
+          "romaji": "",
+          "meaning": "I was back home for the whole summer holiday."
+        },
+        {
+          "japanese": "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、<ruby>運転<rt>うんてん</rt></ruby>めんきょをとりました。",
+          "romaji": "",
+          "meaning": "During the summer holiday, I got my driving licence."
+        },
+        {
+          "japanese": "<ruby>母<rt>はは</rt></ruby>が<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>をしている<ruby>間<rt>あいだ</rt></ruby>、わたしは<ruby>車<rt>くるま</rt></ruby>で<ruby>待<rt>ま</rt></ruby>っていました。",
+          "romaji": "",
+          "meaning": "While my mother was shopping, I waited in the car."
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもがねている<ruby>間<rt>あいだ</rt></ruby>に、そうじをします。",
+          "romaji": "",
+          "meaning": "I clean while the children are asleep."
+        }
+      ],
+      "notes": [
+        "<ruby>間<rt>あいだ</rt></ruby> + a continuing action (ずっと, 〜ていた). <ruby>間<rt>あいだ</rt></ruby>に + a one-off action.",
+        "Unlike ながら (N4), <ruby>間<rt>あいだ</rt></ruby> works with two different people."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "レストランを<ruby>七時<rt>しちじ</rt></ruby>に<ruby>予約<rt>よやく</rt></ruby>しました。",
+      "I booked a restaurant for seven."
+    ],
+    [
+      "しゅうまつの<ruby>予定<rt>よてい</rt></ruby>はまだきまっていません。",
+      "My plans for the weekend aren't decided yet."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>から<ruby>学校<rt>がっこう</rt></ruby>まで<ruby>約<rt>やく</rt></ruby><ruby>十分<rt>じゅっぷん</rt></ruby>です。",
+      "It's about ten minutes from the station to school."
+    ],
+    [
+      "あの<ruby>店<rt>みせ</rt></ruby>は<ruby>月曜日<rt>げつようび</rt></ruby>が<ruby>定休日<rt>ていきゅうび</rt></ruby>です。",
+      "That shop is closed on Mondays."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "さっき<ruby>電話<rt>でんわ</rt></ruby>しましたよ。",
+      "けん",
+      "すみません、<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>最中<rt>さいちゅう</rt></ruby>だったんです。"
+    ],
+    [
+      "リー",
+      "この<ruby>席<rt>せき</rt></ruby>、<ruby>空<rt>あ</rt></ruby>いていますか。",
+      "マイ",
+      "はい、どうぞ。"
+    ],
+    [
+      "ゆき",
+      "<ruby>金曜日<rt>きんようび</rt></ruby>の<ruby>夜<rt>よる</rt></ruby>、<ruby>予定<rt>よてい</rt></ruby>がありますか。",
+      "リン",
+      "<ruby>友<rt>とも</rt></ruby>だちとやくそくがあるんです。"
+    ],
+    [
+      "たなか",
+      "わたしが<ruby>話<rt>はな</rt></ruby>している<ruby>間<rt>あいだ</rt></ruby>は、スマホを<ruby>使<rt>つか</rt></ruby>わないでください。",
+      "アナ",
+      "はい、すみません。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "席",
+      "onyomi": [
+        "セキ"
+      ],
+      "kunyomi": [
+        "むしろ"
+      ],
+      "meaning_en": "seat",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "席",
+          "reading": "せき",
+          "en": "seat"
+        },
+        {
+          "word": "出席",
+          "reading": "しゅっせき",
+          "en": "attendance"
+        }
+      ],
+      "mnemonic": "A cloth (巾) spread under a roof (广) for twenty (廿) guests: seats."
+    },
+    {
+      "char": "議",
+      "onyomi": [
+        "ギ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "discussion",
+      "stroke_count": 20,
+      "example_words": [
+        {
+          "word": "会議",
+          "reading": "かいぎ",
+          "en": "meeting"
+        },
+        {
+          "word": "議員",
+          "reading": "ぎいん",
+          "en": "member of parliament"
+        }
+      ],
+      "mnemonic": "Words (言) about what is right (義): discussion."
+    },
+    {
+      "char": "授",
+      "onyomi": [
+        "ジュ"
+      ],
+      "kunyomi": [
+        "さず.ける",
+        "さず.かる"
+      ],
+      "meaning_en": "give, teach",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "授業",
+          "reading": "じゅぎょう",
+          "en": "class"
+        },
+        {
+          "word": "教授",
+          "reading": "きょうじゅ",
+          "en": "professor"
+        }
+      ],
+      "mnemonic": "A hand (扌) passing something on (受): to give, to teach."
+    },
+    {
+      "char": "予",
+      "onyomi": [
+        "ヨ",
+        "シャ"
+      ],
+      "kunyomi": [
+        "あらかじ.め"
+      ],
+      "meaning_en": "in advance",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "予約",
+          "reading": "よやく",
+          "en": "reservation"
+        },
+        {
+          "word": "予定",
+          "reading": "よてい",
+          "en": "plan"
+        }
+      ],
+      "mnemonic": "A loom shuttle that runs ahead of the thread: in advance."
+    },
+    {
+      "char": "約",
+      "onyomi": [
+        "ヤク"
+      ],
+      "kunyomi": [
+        "つづ.まる",
+        "つづ.める",
+        "つづま.やか"
+      ],
+      "meaning_en": "promise; about",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "予約",
+          "reading": "よやく",
+          "en": "reservation"
+        },
+        {
+          "word": "約",
+          "reading": "やく",
+          "en": "about"
+        }
+      ],
+      "mnemonic": "Thread (糸) tied round a ladle (勺): a binding promise."
+    },
+    {
+      "char": "定",
+      "onyomi": [
+        "テイ",
+        "ジョウ"
+      ],
+      "kunyomi": [
+        "さだ.める",
+        "さだ.まる",
+        "さだ.か"
+      ],
+      "meaning_en": "fix, decide",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "予定",
+          "reading": "よてい",
+          "en": "plan"
+        },
+        {
+          "word": "定休日",
+          "reading": "ていきゅうび",
+          "en": "regular closing day"
+        }
+      ],
+      "mnemonic": "Feet (正) placed firmly under a roof (宀): settled."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>暗<rt>くら</rt></ruby>くならない＿＿、<ruby>帰<rt>かえ</rt></ruby>りましょう。",
+      "options": [
+        "うちに",
+        "<ruby>最中<rt>さいちゅう</rt></ruby>に",
+        "ばかりに",
+        "とたんに"
+      ],
+      "correct": "うちに",
+      "explanation": "Before: ないうちに."
+    },
+    {
+      "prompt": "Complete: <ruby>会議<rt>かいぎ</rt></ruby>の＿＿に、<ruby>電話<rt>でんわ</rt></ruby>がなりました。",
+      "options": [
+        "うち",
+        "<ruby>最中<rt>さいちゅう</rt></ruby>",
+        "ばかり",
+        "ところ"
+      ],
+      "correct": "<ruby>最中<rt>さいちゅう</rt></ruby>",
+      "explanation": "In the middle of: <ruby>最中<rt>さいちゅう</rt></ruby>に."
+    },
+    {
+      "prompt": "Complete: <ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>＿＿、めんきょをとりました。 (at some point)",
+      "options": [
+        "を",
+        "は",
+        "に",
+        "で"
+      ],
+      "correct": "に",
+      "explanation": "A one-off action: <ruby>間<rt>あいだ</rt></ruby>に."
+    },
+    {
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>が<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>をしている<ruby>間<rt>あいだ</rt></ruby>、わたしはずっと<ruby>待<rt>ま</rt></ruby>って＿＿。",
+      "options": [
+        "しまいました",
+        "おきました",
+        "みました",
+        "いました"
+      ],
+      "correct": "いました",
+      "explanation": "<ruby>間<rt>あいだ</rt></ruby>: a continuing action."
+    },
+    {
+      "prompt": "Which word means \"reservation\"?",
+      "options": [
+        "<ruby>予約<rt>よやく</rt></ruby>",
+        "<ruby>予定<rt>よてい</rt></ruby>",
+        "やくそく",
+        "<ruby>会議<rt>かいぎ</rt></ruby>"
+      ],
+      "correct": "<ruby>予約<rt>よやく</rt></ruby>",
+      "explanation": "<ruby>予約<rt>よやく</rt></ruby>: a booking."
+    },
+    {
+      "prompt": "How is 授業⁠ read?",
+      "options": [
+        "じゅうぎょう",
+        "じゅぎょう",
+        "じゅごう",
+        "さずぎょう"
+      ],
+      "correct": "じゅぎょう",
+      "explanation": "授業⁠ is read じゅぎょう."
+    },
+    {
+      "prompt": "Choose the meaning of あの<ruby>店<rt>みせ</rt></ruby>は<ruby>月曜日<rt>げつようび</rt></ruby>が<ruby>定休日<rt>ていきゅうび</rt></ruby>です。",
+      "options": [
+        "That shop opens on Mondays.",
+        "That shop has a sale on Mondays.",
+        "That shop is closed on Mondays.",
+        "That shop is busy on Mondays."
+      ],
+      "correct": "That shop is closed on Mondays.",
+      "explanation": "<ruby>定休日<rt>ていきゅうび</rt></ruby>: regular closing day."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is natural?",
+      "options": [
+        "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、ずっと<ruby>国<rt>くに</rt></ruby>にいました。",
+        "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>最中<rt>さいちゅう</rt></ruby>、ずっと<ruby>休<rt>やす</rt></ruby>みます。",
+        "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、<ruby>国<rt>くに</rt></ruby>に<ruby>一度<rt>いちど</rt></ruby><ruby>帰<rt>かえ</rt></ruby>りました。",
+        "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、ずっとねていました。"
+      ],
+      "correct": "<ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に、<ruby>国<rt>くに</rt></ruby>に<ruby>一度<rt>いちど</rt></ruby><ruby>帰<rt>かえ</rt></ruby>りました。",
+      "explanation": "A one-off action → <ruby>間<rt>あいだ</rt></ruby>に; ずっと → <ruby>間<rt>あいだ</rt></ruby>."
+    },
+    {
+      "prompt": "What is the difference between <ruby>予約<rt>よやく</rt></ruby> and やくそく?",
+      "options": [
+        "<ruby>予約<rt>よやく</rt></ruby>: with a person / やくそく: with a shop",
+        "<ruby>予約<rt>よやく</rt></ruby> is past, やくそく is future",
+        "There is no difference.",
+        "<ruby>予約<rt>よやく</rt></ruby>: a booking with a shop / やくそく: a promise or plan with a person"
+      ],
+      "correct": "<ruby>予約<rt>よやく</rt></ruby>: a booking with a shop / やくそく: a promise or plan with a person",
+      "explanation": "レストランを<ruby>予約<rt>よやく</rt></ruby>する / <ruby>友<rt>とも</rt></ruby>だちとやくそくする."
+    },
+    {
+      "prompt": "Read: すみません、<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>最中<rt>さいちゅう</rt></ruby>だったんです。 Why didn't Ken answer?",
+      "options": [
+        "He was in the middle of a meeting.",
+        "He was asleep.",
+        "His phone was broken.",
+        "He was on a train."
+      ],
+      "correct": "He was in the middle of a meeting.",
+      "explanation": "<ruby>最中<rt>さいちゅう</rt></ruby>: right in the middle."
+    },
+    {
+      "prompt": "Who does what? <ruby>子<rt>こ</rt></ruby>どもがねている<ruby>間<rt>あいだ</rt></ruby>に、そうじをします。",
+      "options": [
+        "The child cleans while the parent sleeps.",
+        "The parent cleans while the child sleeps.",
+        "Both clean, then sleep.",
+        "The child sleeps after cleaning."
+      ],
+      "correct": "The parent cleans while the child sleeps.",
+      "explanation": "<ruby>間<rt>あいだ</rt></ruby>に works with two different people."
+    },
+    {
+      "prompt": "Review (N4): complete <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き＿＿、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+      "options": [
+        "<ruby>最中<rt>さいちゅう</rt></ruby>に",
+        "<ruby>間<rt>あいだ</rt></ruby>に",
+        "ながら",
+        "うちに"
+      ],
+      "correct": "ながら",
+      "explanation": "Same person, two actions at once: ながら."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-1-while-you-can",
+    "japanese-n4-unit-9-while-doing",
+    "japanese-n4-unit-5-i-intend-to"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

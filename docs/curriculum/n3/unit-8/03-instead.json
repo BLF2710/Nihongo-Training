@@ -1,0 +1,541 @@
+{
+  "id": "japanese-n3-unit-8-instead",
+  "slug": "n3-unit-8-instead",
+  "unit": "Japanese N3 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Instead of Me",
+  "title_jp": "〜かわりに",
+  "objectives": [
+    "I can say I do one thing instead of another.",
+    "Replace a person or thing with N の / V-る かわりに",
+    "Trade one thing for another with 〜かわりに (in exchange)",
+    "Talk about exchanges, turns, numbers and married couples"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>交換<rt>こうかん</rt></ruby>",
+      "",
+      "exchange (+ する: to exchange)"
+    ],
+    [
+      "<ruby>乗<rt>の</rt></ruby>り<ruby>換<rt>か</rt></ruby>える",
+      "",
+      "to change (trains)"
+    ],
+    [
+      "<ruby>担当<rt>たんとう</rt></ruby>",
+      "",
+      "in charge (+ する: to be in charge of)"
+    ],
+    [
+      "<ruby>番<rt>ばん</rt></ruby>",
+      "",
+      "turn"
+    ],
+    [
+      "<ruby>番号<rt>ばんごう</rt></ruby>",
+      "",
+      "number"
+    ],
+    [
+      "<ruby>交番<rt>こうばん</rt></ruby>",
+      "",
+      "police box"
+    ],
+    [
+      "<ruby>留守番<rt>るすばん</rt></ruby>",
+      "",
+      "looking after the house"
+    ],
+    [
+      "<ruby>夫<rt>おっと</rt></ruby>",
+      "",
+      "(my) husband"
+    ],
+    [
+      "<ruby>妻<rt>つま</rt></ruby>",
+      "",
+      "(my) wife"
+    ],
+    [
+      "<ruby>夫婦<rt>ふうふ</rt></ruby>",
+      "",
+      "married couple"
+    ],
+    [
+      "<ruby>主婦<rt>しゅふ</rt></ruby>",
+      "",
+      "housewife"
+    ],
+    [
+      "〜かわりに",
+      "",
+      "instead of; in exchange for"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "交換",
+      "word_reading": "こうかん"
+    },
+    {
+      "word_japanese": "乗り換える",
+      "word_reading": "のりかえる"
+    },
+    {
+      "word_japanese": "担当",
+      "word_reading": "たんとう"
+    },
+    {
+      "word_japanese": "番",
+      "word_reading": "ばん"
+    },
+    {
+      "word_japanese": "番号",
+      "word_reading": "ばんごう"
+    },
+    {
+      "word_japanese": "交番",
+      "word_reading": "こうばん"
+    },
+    {
+      "word_japanese": "留守番",
+      "word_reading": "るすばん"
+    },
+    {
+      "word_japanese": "夫",
+      "word_reading": "おっと"
+    },
+    {
+      "word_japanese": "妻",
+      "word_reading": "つま"
+    },
+    {
+      "word_japanese": "夫婦",
+      "word_reading": "ふうふ"
+    },
+    {
+      "word_japanese": "主婦",
+      "word_reading": "しゅふ"
+    }
+  ],
+  "concept": {
+    "title": "Instead, in exchange",
+    "text": "かわりに (<ruby>代<rt>か</rt></ruby>わりに) has two uses.\n\n1. Instead of: one person or thing replaces another.\n<ruby>部長<rt>ぶちょう</rt></ruby>のかわりに、わたしが<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ます。 I'll attend the meeting instead of the manager.\nバスに<ruby>乗<rt>の</rt></ruby>るかわりに、<ruby>歩<rt>ある</rt></ruby>いて<ruby>行<rt>い</rt></ruby>きました。 I walked instead of taking the bus.\n\n2. In exchange for: one thing is traded for another, good or bad.\n<ruby>英語<rt>えいご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えるかわりに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいます。 I teach English, and in exchange I'm taught Japanese.\nこの<ruby>部屋<rt>へや</rt></ruby>はせまいかわりに、やちんが<ruby>安<rt>やす</rt></ruby>い。 This room is small, but in exchange the rent is cheap.\n\nAlone, at the start of a sentence: その<ruby>代<rt>か</rt></ruby>わり (instead, in return).",
+    "examples": [
+      "N の かわりに (instead of)",
+      "V-る かわりに (instead of doing)",
+      "plain form + かわりに (in exchange)",
+      "その かわり (in return)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Instead of: 〜かわりに",
+      "pattern": "N の かわりに / V-る かわりに",
+      "explanation": "One person or thing takes another's place.",
+      "examples": [
+        {
+          "japanese": "<ruby>部長<rt>ぶちょう</rt></ruby>のかわりに、わたしが<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ます。",
+          "romaji": "",
+          "meaning": "I'll attend the meeting instead of the manager."
+        },
+        {
+          "japanese": "バスに<ruby>乗<rt>の</rt></ruby>るかわりに、<ruby>歩<rt>ある</rt></ruby>いて<ruby>行<rt>い</rt></ruby>きました。",
+          "romaji": "",
+          "meaning": "I walked instead of taking the bus."
+        },
+        {
+          "japanese": "ペンのかわりに、えんぴつを<ruby>使<rt>つか</rt></ruby>ってもいいですか。",
+          "romaji": "",
+          "meaning": "May I use a pencil instead of a pen?"
+        },
+        {
+          "japanese": "<ruby>夫<rt>おっと</rt></ruby>が<ruby>病気<rt>びょうき</rt></ruby>なので、わたしがかわりに<ruby>行<rt>い</rt></ruby>きます。",
+          "romaji": "",
+          "meaning": "My husband's ill, so I'll go in his place."
+        }
+      ],
+      "notes": [
+        "かわりに can stand alone: わたしがかわりに<ruby>行<rt>い</rt></ruby>きます."
+      ]
+    },
+    {
+      "title": "In exchange for: 〜かわりに",
+      "pattern": "plain form + かわりに / その かわり",
+      "explanation": "One thing is given or accepted in return for another.",
+      "examples": [
+        {
+          "japanese": "<ruby>英語<rt>えいご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えるかわりに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいます。",
+          "romaji": "",
+          "meaning": "I teach English, and in exchange I'm taught Japanese."
+        },
+        {
+          "japanese": "この<ruby>部屋<rt>へや</rt></ruby>はせまいかわりに、やちんが<ruby>安<rt>やす</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "This room is small, but in exchange the rent is cheap."
+        },
+        {
+          "japanese": "<ruby>掃除<rt>そうじ</rt></ruby>を<ruby>手伝<rt>てつだ</rt></ruby>うかわりに、おこづかいをもらいました。",
+          "romaji": "",
+          "meaning": "I helped with the cleaning and got pocket money in return."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んでいいよ。その<ruby>代<rt>か</rt></ruby>わり、<ruby>明日<rt>あした</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>来<rt>き</rt></ruby>てね。",
+          "romaji": "",
+          "meaning": "You can take today off. In return, come in early tomorrow."
+        }
+      ],
+      "notes": [
+        "Often balances a good point against a bad one."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>本<rt>ほん</rt></ruby>を<ruby>交換<rt>こうかん</rt></ruby>しました。",
+      "I swapped books with a friend."
+    ],
+    [
+      "<ruby>新宿<rt>しんじゅく</rt></ruby>で<ruby>電車<rt>でんしゃ</rt></ruby>を<ruby>乗<rt>の</rt></ruby>り<ruby>換<rt>か</rt></ruby>えます。",
+      "I change trains at Shinjuku."
+    ],
+    [
+      "<ruby>次<rt>つぎ</rt></ruby>はわたしの<ruby>番<rt>ばん</rt></ruby>です。",
+      "It's my turn next."
+    ],
+    [
+      "<ruby>道<rt>みち</rt></ruby>が<ruby>分<rt>わ</rt></ruby>からなかったら、<ruby>交番<rt>こうばん</rt></ruby>で<ruby>聞<rt>き</rt></ruby>いてください。",
+      "If you get lost, ask at the police box."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "たなかさんは<ruby>今日<rt>きょう</rt></ruby><ruby>休<rt>やす</rt></ruby>みですか。",
+      "けん",
+      "ええ。たなかさんのかわりに、わたしが<ruby>担当<rt>たんとう</rt></ruby>します。"
+    ],
+    [
+      "リー",
+      "<ruby>日本語<rt>にほんご</rt></ruby>はどうやって<ruby>勉強<rt>べんきょう</rt></ruby>していますか。",
+      "マイ",
+      "<ruby>英語<rt>えいご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えるかわりに、<ruby>友達<rt>ともだち</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらっています。"
+    ],
+    [
+      "ゆき",
+      "しゅうまつ、<ruby>出<rt>で</rt></ruby>かけますか。",
+      "リン",
+      "いいえ、<ruby>両親<rt>りょうしん</rt></ruby>が<ruby>旅行<rt>りょこう</rt></ruby>なので、<ruby>留守番<rt>るすばん</rt></ruby>です。"
+    ],
+    [
+      "たなか",
+      "<ruby>電話<rt>でんわ</rt></ruby><ruby>番号<rt>ばんごう</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えていただけますか。",
+      "アナ",
+      "はい、この<ruby>紙<rt>かみ</rt></ruby>に<ruby>書<rt>か</rt></ruby>きますね。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "換",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [
+        "か.える",
+        "-か.える",
+        "か.わる"
+      ],
+      "meaning_en": "exchange",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "交換",
+          "reading": "こうかん",
+          "en": "exchange"
+        },
+        {
+          "word": "乗り換える",
+          "reading": "のりかえる",
+          "en": "to change trains"
+        }
+      ],
+      "mnemonic": "A hand (扌) swapping one thing for another."
+    },
+    {
+      "char": "担",
+      "onyomi": [
+        "タン"
+      ],
+      "kunyomi": [
+        "かつ.ぐ",
+        "にな.う"
+      ],
+      "meaning_en": "carry; take charge",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "担当",
+          "reading": "たんとう",
+          "en": "in charge"
+        },
+        {
+          "word": "担ぐ",
+          "reading": "かつぐ",
+          "en": "to carry on the shoulder"
+        }
+      ],
+      "mnemonic": "A hand (扌) carrying the load from dawn (旦)."
+    },
+    {
+      "char": "番",
+      "onyomi": [
+        "バン"
+      ],
+      "kunyomi": [
+        "つが.い"
+      ],
+      "meaning_en": "turn; number",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "番",
+          "reading": "ばん",
+          "en": "turn"
+        },
+        {
+          "word": "番号",
+          "reading": "ばんごう",
+          "en": "number"
+        }
+      ],
+      "mnemonic": "Seeds (釆) planted in a rice field (田) one after another: taking turns."
+    },
+    {
+      "char": "夫",
+      "onyomi": [
+        "フ",
+        "フウ",
+        "ブ"
+      ],
+      "kunyomi": [
+        "おっと",
+        "それ"
+      ],
+      "meaning_en": "husband",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "夫",
+          "reading": "おっと",
+          "en": "husband"
+        },
+        {
+          "word": "夫婦",
+          "reading": "ふうふ",
+          "en": "married couple"
+        }
+      ],
+      "mnemonic": "A big (大) man with a hairpin: a grown man, a husband."
+    },
+    {
+      "char": "妻",
+      "onyomi": [
+        "サイ"
+      ],
+      "kunyomi": [
+        "つま"
+      ],
+      "meaning_en": "wife",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "妻",
+          "reading": "つま",
+          "en": "wife"
+        },
+        {
+          "word": "夫妻",
+          "reading": "ふさい",
+          "en": "husband and wife"
+        }
+      ],
+      "mnemonic": "A woman (女) with a hand holding a hairpin: a wife."
+    },
+    {
+      "char": "婦",
+      "onyomi": [
+        "フ"
+      ],
+      "kunyomi": [
+        "よめ"
+      ],
+      "meaning_en": "woman, wife",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "夫婦",
+          "reading": "ふうふ",
+          "en": "married couple"
+        },
+        {
+          "word": "主婦",
+          "reading": "しゅふ",
+          "en": "housewife"
+        }
+      ],
+      "mnemonic": "A woman (女) with a broom: a housewife."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>初<rt>はじ</rt></ruby>めて＿＿、<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+      "options": [
+        "のわりに",
+        "くせに",
+        "かわりに",
+        "にしては"
+      ],
+      "correct": "にしては",
+      "explanation": "For a first try: にしては."
+    },
+    {
+      "prompt": "Complete: <ruby>部長<rt>ぶちょう</rt></ruby>の＿＿、わたしが<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ます。",
+      "options": [
+        "かわりに",
+        "わりに",
+        "くせに",
+        "ために"
+      ],
+      "correct": "かわりに",
+      "explanation": "Instead of: のかわりに."
+    },
+    {
+      "prompt": "Complete: バスに<ruby>乗<rt>の</rt></ruby>る＿＿、<ruby>歩<rt>ある</rt></ruby>いて<ruby>行<rt>い</rt></ruby>きました。",
+      "options": [
+        "わりに",
+        "かわりに",
+        "くせに",
+        "にしては"
+      ],
+      "correct": "かわりに",
+      "explanation": "Instead of doing: V-るかわりに."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>んでいいよ。その＿＿、<ruby>明日<rt>あした</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>来<rt>き</rt></ruby>てね。",
+      "options": [
+        "わり",
+        "くせ",
+        "<ruby>代<rt>か</rt></ruby>わり",
+        "ため"
+      ],
+      "correct": "<ruby>代<rt>か</rt></ruby>わり",
+      "explanation": "In return: その<ruby>代<rt>か</rt></ruby>わり."
+    },
+    {
+      "prompt": "Which word means \"married couple\"?",
+      "options": [
+        "<ruby>主婦<rt>しゅふ</rt></ruby>",
+        "<ruby>夫<rt>おっと</rt></ruby>",
+        "<ruby>妻<rt>つま</rt></ruby>",
+        "<ruby>夫婦<rt>ふうふ</rt></ruby>"
+      ],
+      "correct": "<ruby>夫婦<rt>ふうふ</rt></ruby>",
+      "explanation": "<ruby>夫婦<rt>ふうふ</rt></ruby>: married couple."
+    },
+    {
+      "prompt": "How is 番号⁠ read?",
+      "options": [
+        "ばんごう",
+        "ばんこう",
+        "ばんご",
+        "ばごう"
+      ],
+      "correct": "ばんごう",
+      "explanation": "番号⁠ is read ばんごう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>新宿<rt>しんじゅく</rt></ruby>で<ruby>電車<rt>でんしゃ</rt></ruby>を<ruby>乗<rt>の</rt></ruby>り<ruby>換<rt>か</rt></ruby>えます。",
+      "options": [
+        "I get off the train at Shinjuku.",
+        "I change trains at Shinjuku.",
+        "I miss the train at Shinjuku.",
+        "I buy a train ticket at Shinjuku."
+      ],
+      "correct": "I change trains at Shinjuku.",
+      "explanation": "<ruby>乗<rt>の</rt></ruby>り<ruby>換<rt>か</rt></ruby>える: to change trains."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence means \"in exchange\"?",
+      "options": [
+        "ペンのかわりに、えんぴつを<ruby>使<rt>つか</rt></ruby>います。",
+        "この<ruby>部屋<rt>へや</rt></ruby>はせまいかわりに、やちんが<ruby>安<rt>やす</rt></ruby>いです。",
+        "<ruby>部長<rt>ぶちょう</rt></ruby>のかわりに、<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ます。",
+        "バスに<ruby>乗<rt>の</rt></ruby>るかわりに、<ruby>歩<rt>ある</rt></ruby>きました。"
+      ],
+      "correct": "この<ruby>部屋<rt>へや</rt></ruby>はせまいかわりに、やちんが<ruby>安<rt>やす</rt></ruby>いです。",
+      "explanation": "Small room, cheap rent: a trade-off."
+    },
+    {
+      "prompt": "What does <ruby>夫<rt>おっと</rt></ruby>が<ruby>病気<rt>びょうき</rt></ruby>なので、わたしがかわりに<ruby>行<rt>い</rt></ruby>きます mean?",
+      "options": [
+        "My husband and I will go together.",
+        "My husband will go instead of me.",
+        "My husband's ill, so I'll go in his place.",
+        "I'll go to see my sick husband."
+      ],
+      "correct": "My husband's ill, so I'll go in his place.",
+      "explanation": "かわりに: instead."
+    },
+    {
+      "prompt": "Which word means \"in charge\"?",
+      "options": [
+        "<ruby>交換<rt>こうかん</rt></ruby>",
+        "<ruby>留守番<rt>るすばん</rt></ruby>",
+        "<ruby>交番<rt>こうばん</rt></ruby>",
+        "<ruby>担当<rt>たんとう</rt></ruby>"
+      ],
+      "correct": "<ruby>担当<rt>たんとう</rt></ruby>",
+      "explanation": "<ruby>担当<rt>たんとう</rt></ruby>: in charge."
+    },
+    {
+      "prompt": "Read: <ruby>両親<rt>りょうしん</rt></ruby>が<ruby>旅行<rt>りょこう</rt></ruby>なので、<ruby>留守番<rt>るすばん</rt></ruby>です。 What will Lin do this weekend?",
+      "options": [
+        "Stay home and look after the house",
+        "Go on a trip with her parents",
+        "Visit a police box",
+        "Change trains"
+      ],
+      "correct": "Stay home and look after the house",
+      "explanation": "<ruby>留守番<rt>るすばん</rt></ruby>: looking after the house."
+    },
+    {
+      "prompt": "Review (Unit 7): complete もう<ruby>九時<rt>くじ</rt></ruby>よ。<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>＿＿。",
+      "options": [
+        "かわりに",
+        "なさい",
+        "わりに",
+        "くせに"
+      ],
+      "correct": "なさい",
+      "explanation": "Instruction: なさい."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-8-for-its-price",
+    "japanese-n3-unit-7-instructions",
+    "japanese-n4-unit-2-doing-favours"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

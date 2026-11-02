@@ -1,0 +1,531 @@
+{
+  "id": "japanese-n3-unit-4-not-as",
+  "slug": "n3-unit-4-not-as",
+  "unit": "Japanese N3 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Not As Cold As…",
+  "title_jp": "〜ほど 〜ない",
+  "objectives": [
+    "I can say something is not as … as something else.",
+    "Compare with N ほど〜ない",
+    "Give an approximate amount or a degree with くらい",
+    "Talk about hot, cold and cool weather, and times past"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>寒<rt>さむ</rt></ruby>い",
+      "",
+      "cold (weather)"
+    ],
+    [
+      "<ruby>暑<rt>あつ</rt></ruby>い",
+      "",
+      "hot (weather)"
+    ],
+    [
+      "<ruby>熱<rt>あつ</rt></ruby>い",
+      "",
+      "hot (to the touch)"
+    ],
+    [
+      "<ruby>熱<rt>ねつ</rt></ruby>",
+      "",
+      "fever; heat"
+    ],
+    [
+      "<ruby>涼<rt>すず</rt></ruby>しい",
+      "",
+      "cool"
+    ],
+    [
+      "〜<ruby>頃<rt>ごろ</rt></ruby>",
+      "",
+      "around (a point in time)"
+    ],
+    [
+      "<ruby>子<rt>こ</rt></ruby>どもの<ruby>頃<rt>ころ</rt></ruby>",
+      "",
+      "childhood, when I was a child"
+    ],
+    [
+      "<ruby>昨日<rt>きのう</rt></ruby>",
+      "",
+      "yesterday"
+    ],
+    [
+      "<ruby>昨年<rt>さくねん</rt></ruby>",
+      "",
+      "last year (formal)"
+    ],
+    [
+      "<ruby>昨夜<rt>さくや</rt></ruby>",
+      "",
+      "last night (formal)"
+    ],
+    [
+      "〜ほど〜ない",
+      "",
+      "not as … as"
+    ],
+    [
+      "〜くらい / 〜ぐらい",
+      "",
+      "about; to the extent that"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "寒い",
+      "word_reading": "さむい"
+    },
+    {
+      "word_japanese": "暑い",
+      "word_reading": "あつい"
+    },
+    {
+      "word_japanese": "熱い",
+      "word_reading": "あつい"
+    },
+    {
+      "word_japanese": "熱",
+      "word_reading": "ねつ"
+    },
+    {
+      "word_japanese": "涼しい",
+      "word_reading": "すずしい"
+    },
+    {
+      "word_japanese": "昨日",
+      "word_reading": "きのう"
+    },
+    {
+      "word_japanese": "昨年",
+      "word_reading": "さくねん"
+    },
+    {
+      "word_japanese": "昨夜",
+      "word_reading": "さくや"
+    }
+  ],
+  "concept": {
+    "title": "Not as … as, and about",
+    "text": "A は B ほど + negative: A doesn't reach B's level.\n<ruby>今年<rt>ことし</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>ほど<ruby>暑<rt>あつ</rt></ruby>くないです。 This summer isn't as hot as last year.\n\nA positive comparison still uses より: <ruby>東京<rt>とうきょう</rt></ruby>はおおさかより<ruby>大<rt>おお</rt></ruby>きい.\n\n〜ほど〜はない: nothing is as … as: <ruby>旅行<rt>りょこう</rt></ruby>ほど<ruby>楽<rt>たの</rt></ruby>しいものはない.\n\nくらい / ぐらい gives an approximate amount or a degree:\n<ruby>駅<rt>えき</rt></ruby>まで<ruby>十分<rt>じゅっぷん</rt></ruby>くらいかかります。 It takes about ten minutes to the station.\n<ruby>声<rt>こえ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ないくらい、のどがいたいです。 My throat hurts so much I can hardly speak.\n\nFor a point in time, use <ruby>頃<rt>ごろ</rt></ruby>: <ruby>三時<rt>さんじ</rt></ruby><ruby>頃<rt>ごろ</rt></ruby>.",
+    "examples": [
+      "A は B ほど〜ない",
+      "〜ほど〜はない (nothing is as)",
+      "〜くらい / ぐらい (about, so much)",
+      "〜<ruby>頃<rt>ごろ</rt></ruby> (around a time)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Not as … as: N ほど〜ない",
+      "pattern": "A は B ほど + negative",
+      "explanation": "A doesn't reach B's level. The sentence is always negative.",
+      "examples": [
+        {
+          "japanese": "<ruby>今年<rt>ことし</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>ほど<ruby>暑<rt>あつ</rt></ruby>くないです。",
+          "romaji": "",
+          "meaning": "This summer isn't as hot as last year."
+        },
+        {
+          "japanese": "<ruby>東京<rt>とうきょう</rt></ruby>は<ruby>北海道<rt>ほっかいどう</rt></ruby>ほど<ruby>寒<rt>さむ</rt></ruby>くありません。",
+          "romaji": "",
+          "meaning": "Tokyo isn't as cold as Hokkaido."
+        },
+        {
+          "japanese": "<ruby>日本語<rt>にほんご</rt></ruby>は<ruby>思<rt>おも</rt></ruby>ったほどむずかしくなかったです。",
+          "romaji": "",
+          "meaning": "Japanese wasn't as hard as I thought."
+        },
+        {
+          "japanese": "わたしは<ruby>兄<rt>あに</rt></ruby>ほどせが<ruby>高<rt>たか</rt></ruby>くありません。",
+          "romaji": "",
+          "meaning": "I'm not as tall as my older brother."
+        }
+      ],
+      "notes": [
+        "〜ほど〜はない: nothing is as …: <ruby>旅行<rt>りょこう</rt></ruby>ほど<ruby>楽<rt>たの</rt></ruby>しいものはない.",
+        "Positive comparisons use より (N5)."
+      ]
+    },
+    {
+      "title": "About, so much that: 〜くらい / 〜ぐらい",
+      "pattern": "number + くらい / plain form + くらい",
+      "explanation": "くらい gives an approximate amount or the degree of something. It can also play an amount down: at least, just.",
+      "examples": [
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>まで<ruby>十分<rt>じゅっぷん</rt></ruby>くらいかかります。",
+          "romaji": "",
+          "meaning": "It takes about ten minutes to the station."
+        },
+        {
+          "japanese": "<ruby>声<rt>こえ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ないくらい、のどがいたいです。",
+          "romaji": "",
+          "meaning": "My throat hurts so much I can hardly speak."
+        },
+        {
+          "japanese": "それくらい<ruby>自分<rt>じぶん</rt></ruby>でやってください。",
+          "romaji": "",
+          "meaning": "Do at least that much yourself."
+        },
+        {
+          "japanese": "<ruby>一年<rt>いちねん</rt></ruby>に<ruby>一回<rt>いっかい</rt></ruby>くらいは<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りたいです。",
+          "romaji": "",
+          "meaning": "I want to go home at least once a year."
+        }
+      ],
+      "notes": [
+        "くらい and ぐらい are the same.",
+        "For points in time, use <ruby>頃<rt>ごろ</rt></ruby>: <ruby>三時<rt>さんじ</rt></ruby><ruby>頃<rt>ごろ</rt></ruby>, but <ruby>三時間<rt>さんじかん</rt></ruby>くらい."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>いですね。",
+      "It's cold today, isn't it?"
+    ],
+    [
+      "<ruby>熱<rt>ねつ</rt></ruby>があるので、<ruby>休<rt>やす</rt></ruby>みます。",
+      "I have a fever, so I'll stay home."
+    ],
+    [
+      "<ruby>夜<rt>よる</rt></ruby>になって、<ruby>涼<rt>すず</rt></ruby>しくなりました。",
+      "It got cooler at night."
+    ],
+    [
+      "<ruby>昨日<rt>きのう</rt></ruby>は<ruby>一日中<rt>いちにちじゅう</rt></ruby><ruby>雨<rt>あめ</rt></ruby>でした。",
+      "It rained all day yesterday."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>いですか。",
+      "けん",
+      "わたしの<ruby>国<rt>くに</rt></ruby>ほど<ruby>寒<rt>さむ</rt></ruby>くないですよ。"
+    ],
+    [
+      "リー",
+      "<ruby>何時<rt>なんじ</rt></ruby><ruby>頃<rt>ごろ</rt></ruby><ruby>着<rt>つ</rt></ruby>きますか。",
+      "マイ",
+      "<ruby>三時<rt>さんじ</rt></ruby><ruby>頃<rt>ごろ</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>います。"
+    ],
+    [
+      "ゆき",
+      "このスープ、<ruby>熱<rt>あつ</rt></ruby>いですか。",
+      "リン",
+      "<ruby>飲<rt>の</rt></ruby>めないくらい<ruby>熱<rt>あつ</rt></ruby>いですよ。"
+    ],
+    [
+      "たなか",
+      "<ruby>試験<rt>しけん</rt></ruby>、どうでしたか。",
+      "アナ",
+      "<ruby>思<rt>おも</rt></ruby>ったほどむずかしくなかったです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "寒",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [
+        "さむ.い"
+      ],
+      "meaning_en": "cold",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "寒い",
+          "reading": "さむい",
+          "en": "cold"
+        },
+        {
+          "word": "寒気",
+          "reading": "さむけ",
+          "en": "chill"
+        }
+      ],
+      "mnemonic": "Ice (冫) under a roof (宀) packed with straw: cold."
+    },
+    {
+      "char": "暑",
+      "onyomi": [
+        "ショ"
+      ],
+      "kunyomi": [
+        "あつ.い"
+      ],
+      "meaning_en": "hot (weather)",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "暑い",
+          "reading": "あつい",
+          "en": "hot"
+        },
+        {
+          "word": "残暑",
+          "reading": "ざんしょ",
+          "en": "late summer heat"
+        }
+      ],
+      "mnemonic": "The sun (日) beating down on a person (者): hot."
+    },
+    {
+      "char": "熱",
+      "onyomi": [
+        "ネツ"
+      ],
+      "kunyomi": [
+        "あつ.い"
+      ],
+      "meaning_en": "heat; fever",
+      "stroke_count": 15,
+      "example_words": [
+        {
+          "word": "熱い",
+          "reading": "あつい",
+          "en": "hot"
+        },
+        {
+          "word": "熱",
+          "reading": "ねつ",
+          "en": "fever"
+        }
+      ],
+      "mnemonic": "Fire (灬) under a planted tree: heat."
+    },
+    {
+      "char": "涼",
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [
+        "すず.しい",
+        "すず.む",
+        "すず.やか",
+        "うす.い",
+        "ひや.す",
+        "まことに"
+      ],
+      "meaning_en": "cool",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "涼しい",
+          "reading": "すずしい",
+          "en": "cool"
+        },
+        {
+          "word": "涼む",
+          "reading": "すずむ",
+          "en": "to cool off"
+        }
+      ],
+      "mnemonic": "Water (氵) beside a tall capital (京) building: cool."
+    },
+    {
+      "char": "頃",
+      "onyomi": [
+        "ケイ",
+        "キョウ"
+      ],
+      "kunyomi": [
+        "ころ",
+        "ごろ",
+        "しばら.く"
+      ],
+      "meaning_en": "time, about",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "頃",
+          "reading": "ころ",
+          "en": "time"
+        },
+        {
+          "word": "日頃",
+          "reading": "ひごろ",
+          "en": "usually"
+        }
+      ],
+      "mnemonic": "A head (頁) bent (匕) by the passing of time."
+    },
+    {
+      "char": "昨",
+      "onyomi": [
+        "サク"
+      ],
+      "kunyomi": [],
+      "meaning_en": "yesterday, previous",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "昨日",
+          "reading": "きのう",
+          "en": "yesterday"
+        },
+        {
+          "word": "昨年",
+          "reading": "さくねん",
+          "en": "last year"
+        }
+      ],
+      "mnemonic": "The day (日) that has just been made (乍) into the past."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>練習<rt>れんしゅう</rt></ruby>すればする＿＿、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+      "options": [
+        "くらい",
+        "ばかり",
+        "ほど",
+        "ため"
+      ],
+      "correct": "ほど",
+      "explanation": "V-ば V-る ほど."
+    },
+    {
+      "prompt": "Complete: <ruby>今年<rt>ことし</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>＿＿<ruby>暑<rt>あつ</rt></ruby>くないです。",
+      "options": [
+        "より",
+        "まで",
+        "だけ",
+        "ほど"
+      ],
+      "correct": "ほど",
+      "explanation": "Not as … as: ほど〜ない."
+    },
+    {
+      "prompt": "Complete: <ruby>駅<rt>えき</rt></ruby>まで<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿かかります。",
+      "options": [
+        "くらい",
+        "ごろ",
+        "しか",
+        "まで"
+      ],
+      "correct": "くらい",
+      "explanation": "About: くらい."
+    },
+    {
+      "prompt": "Which phrase is used for a point in time?",
+      "options": [
+        "<ruby>三時間<rt>さんじかん</rt></ruby><ruby>頃<rt>ごろ</rt></ruby>",
+        "<ruby>三時<rt>さんじ</rt></ruby><ruby>頃<rt>ごろ</rt></ruby>",
+        "<ruby>十分<rt>じゅっぷん</rt></ruby><ruby>頃<rt>ごろ</rt></ruby>",
+        "<ruby>二<rt>ふた</rt></ruby>つ<ruby>頃<rt>ごろ</rt></ruby>"
+      ],
+      "correct": "<ruby>三時<rt>さんじ</rt></ruby><ruby>頃<rt>ごろ</rt></ruby>",
+      "explanation": "<ruby>頃<rt>ごろ</rt></ruby>: around a point in time."
+    },
+    {
+      "prompt": "Which word means \"cool\" (weather)?",
+      "options": [
+        "<ruby>寒<rt>さむ</rt></ruby>い",
+        "<ruby>暑<rt>あつ</rt></ruby>い",
+        "<ruby>涼<rt>すず</rt></ruby>しい",
+        "<ruby>熱<rt>あつ</rt></ruby>い"
+      ],
+      "correct": "<ruby>涼<rt>すず</rt></ruby>しい",
+      "explanation": "<ruby>涼<rt>すず</rt></ruby>しい: cool."
+    },
+    {
+      "prompt": "How is 昨日⁠ read?",
+      "options": [
+        "さくび",
+        "きのひ",
+        "さくにち",
+        "きのう"
+      ],
+      "correct": "きのう",
+      "explanation": "昨日⁠ is a special reading: きのう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>思<rt>おも</rt></ruby>ったほどむずかしくなかったです。",
+      "options": [
+        "It wasn't as hard as I thought.",
+        "It was harder than I thought.",
+        "I thought it was easy.",
+        "I didn't think about it."
+      ],
+      "correct": "It wasn't as hard as I thought.",
+      "explanation": "<ruby>思<rt>おも</rt></ruby>ったほど〜ない."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかほど<ruby>大<rt>おお</rt></ruby>きいです。",
+        "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかより<ruby>大<rt>おお</rt></ruby>きいです。",
+        "おおさかは<ruby>東京<rt>とうきょう</rt></ruby>ほど<ruby>大<rt>おお</rt></ruby>きくないです。",
+        "おおさかは<ruby>東京<rt>とうきょう</rt></ruby>より<ruby>小<rt>ちい</rt></ruby>さいです。"
+      ],
+      "correct": "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかほど<ruby>大<rt>おお</rt></ruby>きいです。",
+      "explanation": "ほど needs a negative."
+    },
+    {
+      "prompt": "What does <ruby>旅行<rt>りょこう</rt></ruby>ほど<ruby>楽<rt>たの</rt></ruby>しいものはない mean?",
+      "options": [
+        "Travelling isn't fun.",
+        "Nothing is as fun as travelling.",
+        "Travelling is a little fun.",
+        "There are no fun trips."
+      ],
+      "correct": "Nothing is as fun as travelling.",
+      "explanation": "〜ほど〜はない."
+    },
+    {
+      "prompt": "Which word is \"hot\" for soup?",
+      "options": [
+        "<ruby>暑<rt>あつ</rt></ruby>い",
+        "<ruby>涼<rt>すず</rt></ruby>しい",
+        "<ruby>熱<rt>あつ</rt></ruby>い",
+        "<ruby>寒<rt>さむ</rt></ruby>い"
+      ],
+      "correct": "<ruby>熱<rt>あつ</rt></ruby>い",
+      "explanation": "<ruby>熱<rt>あつ</rt></ruby>い: things you touch; <ruby>暑<rt>あつ</rt></ruby>い: weather."
+    },
+    {
+      "prompt": "Read: <ruby>飲<rt>の</rt></ruby>めないくらい<ruby>熱<rt>あつ</rt></ruby>いですよ。 What does Lin mean?",
+      "options": [
+        "The soup is cold.",
+        "Lin can't drink soup.",
+        "The soup is delicious.",
+        "The soup is too hot to drink."
+      ],
+      "correct": "The soup is too hot to drink.",
+      "explanation": "くらい: so much that."
+    },
+    {
+      "prompt": "Review (Unit 3): complete <ruby>約束<rt>やくそく</rt></ruby>は<ruby>守<rt>まも</rt></ruby>る＿＿です。",
+      "options": [
+        "べき",
+        "ほど",
+        "くらい",
+        "よう"
+      ],
+      "correct": "べき",
+      "explanation": "Should: べきだ."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-4-the-more",
+    "japanese-n4-unit-6-becoming",
+    "japanese-n4-unit-3-looks-tasty"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,536 @@
+{
+  "id": "japanese-n3-unit-2-i-cant-just",
+  "slug": "n3-unit-2-i-cant-just",
+  "unit": "Japanese N3 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "I Can't Just…",
+  "title_jp": "〜わけには いかない",
+  "objectives": [
+    "I can say I cannot do something because of my situation.",
+    "Say your situation won't let you do something with 〜わけにはいかない",
+    "Say something is impossible with 〜わけがない",
+    "Talk about promises, responsibility and requests"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>断<rt>ことわ</rt></ruby>る",
+      "",
+      "to refuse, to turn down"
+    ],
+    [
+      "<ruby>約束<rt>やくそく</rt></ruby>",
+      "",
+      "promise, appointment"
+    ],
+    [
+      "<ruby>花束<rt>はなたば</rt></ruby>",
+      "",
+      "bouquet"
+    ],
+    [
+      "<ruby>責任<rt>せきにん</rt></ruby>",
+      "",
+      "responsibility"
+    ],
+    [
+      "<ruby>任<rt>まか</rt></ruby>せる",
+      "",
+      "to leave (a task) to"
+    ],
+    [
+      "<ruby>守<rt>まも</rt></ruby>る",
+      "",
+      "to protect; to keep (a promise)"
+    ],
+    [
+      "るす",
+      "",
+      "being away from home"
+    ],
+    [
+      "<ruby>頼<rt>たの</rt></ruby>む",
+      "",
+      "to ask, to request"
+    ],
+    [
+      "<ruby>頼<rt>たよ</rt></ruby>る",
+      "",
+      "to rely on"
+    ],
+    [
+      "しんらい",
+      "",
+      "trust (+ する: to trust)"
+    ],
+    [
+      "〜わけにはいかない",
+      "",
+      "can't (in the circumstances)"
+    ],
+    [
+      "〜わけがない",
+      "",
+      "there's no way"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "断る",
+      "word_reading": "ことわる"
+    },
+    {
+      "word_japanese": "約束",
+      "word_reading": "やくそく"
+    },
+    {
+      "word_japanese": "花束",
+      "word_reading": "はなたば"
+    },
+    {
+      "word_japanese": "責任",
+      "word_reading": "せきにん"
+    },
+    {
+      "word_japanese": "任せる",
+      "word_reading": "まかせる"
+    },
+    {
+      "word_japanese": "守る",
+      "word_reading": "まもる"
+    },
+    {
+      "word_japanese": "頼む",
+      "word_reading": "たのむ"
+    },
+    {
+      "word_japanese": "頼る",
+      "word_reading": "たよる"
+    }
+  ],
+  "concept": {
+    "title": "Can't in the circumstances, and no way",
+    "text": "V-る わけにはいかない: you could do it, but your situation or conscience won't let you:\n<ruby>約束<rt>やくそく</rt></ruby>があるから、<ruby>休<rt>やす</rt></ruby>むわけにはいきません。 I have a commitment, so I can't take the day off.\n\nV-ない わけにはいかない: you have no choice but to:\n<ruby>約束<rt>やくそく</rt></ruby>したから、<ruby>行<rt>い</rt></ruby>かないわけにはいきません。 I promised, so I have to go.\n\nわけがない: the speaker is sure something is impossible. It is stronger than はずがない (N4):\nあの<ruby>人<rt>ひと</rt></ruby>がうそをつくわけがありません。 There's no way he'd lie.",
+    "examples": [
+      "V-る わけにはいかない (can't)",
+      "V-ない わけにはいかない (have to)",
+      "plain form + わけがない (no way)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Can't in the circumstances: 〜わけにはいかない",
+      "pattern": "V-る / V-ない + わけにはいかない",
+      "explanation": "It is not about ability: duty, manners or your situation stops you.",
+      "examples": [
+        {
+          "japanese": "<ruby>約束<rt>やくそく</rt></ruby>したから、<ruby>行<rt>い</rt></ruby>かないわけにはいきません。",
+          "romaji": "",
+          "meaning": "I promised, so I have to go."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>試験<rt>しけん</rt></ruby>だから、あそんでいるわけにはいかない。",
+          "romaji": "",
+          "meaning": "The exam's tomorrow, so I can't just play."
+        },
+        {
+          "japanese": "<ruby>部長<rt>ぶちょう</rt></ruby>に<ruby>頼<rt>たの</rt></ruby>まれたので、<ruby>断<rt>ことわ</rt></ruby>るわけにはいきません。",
+          "romaji": "",
+          "meaning": "The department head asked me, so I can't say no."
+        },
+        {
+          "japanese": "<ruby>車<rt>くるま</rt></ruby>で<ruby>来<rt>き</rt></ruby>たので、おさけを<ruby>飲<rt>の</rt></ruby>むわけにはいきません。",
+          "romaji": "",
+          "meaning": "I came by car, so I can't drink."
+        }
+      ],
+      "notes": [
+        "できない is about ability; わけにはいかない is about what you may do in your position.",
+        "V-ない わけにはいかない: you have no choice but to."
+      ]
+    },
+    {
+      "title": "No way: 〜わけがない",
+      "pattern": "plain form (な-adj な / N の) + わけがない",
+      "explanation": "The speaker is sure something is impossible. It is stronger than はずがない.",
+      "examples": [
+        {
+          "japanese": "あんなにやさしい<ruby>人<rt>ひと</rt></ruby>が、うそをつくわけがありません。",
+          "romaji": "",
+          "meaning": "Someone so kind would never lie."
+        },
+        {
+          "japanese": "<ruby>一日<rt>いちにち</rt></ruby>で<ruby>全部<rt>ぜんぶ</rt></ruby>おぼえられるわけがない。",
+          "romaji": "",
+          "meaning": "There's no way you can memorise it all in a day."
+        },
+        {
+          "japanese": "れんしゅうしていないのに、かてるわけがないよ。",
+          "romaji": "",
+          "meaning": "You can't win without practising."
+        },
+        {
+          "japanese": "こんなに<ruby>安<rt>やす</rt></ruby>いわけがありません。",
+          "romaji": "",
+          "meaning": "It can't be this cheap."
+        }
+      ],
+      "notes": [
+        "In casual speech: わけない (no が). そんなわけないよ (no way)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "パーティーにさそわれましたが、<ruby>断<rt>ことわ</rt></ruby>りました。",
+      "I was invited to a party but turned it down."
+    ],
+    [
+      "この<ruby>仕事<rt>しごと</rt></ruby>はあなたに<ruby>任<rt>まか</rt></ruby>せます。",
+      "I'll leave this job to you."
+    ],
+    [
+      "<ruby>約束<rt>やくそく</rt></ruby>は<ruby>守<rt>まも</rt></ruby>ってください。",
+      "Please keep your promise."
+    ],
+    [
+      "<ruby>母<rt>はは</rt></ruby>に<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>を<ruby>頼<rt>たの</rt></ruby>まれました。",
+      "My mother asked me to do the shopping."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>今夜<rt>こんや</rt></ruby>、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きませんか。",
+      "けん",
+      "<ruby>明日<rt>あした</rt></ruby><ruby>試験<rt>しけん</rt></ruby>なので、<ruby>行<rt>い</rt></ruby>くわけにはいかないんです。"
+    ],
+    [
+      "リー",
+      "マイさんがうそをついたそうですよ。",
+      "ゆき",
+      "マイさんがうそをつくわけがありません。"
+    ],
+    [
+      "たなか",
+      "この<ruby>仕事<rt>しごと</rt></ruby>、だれに<ruby>任<rt>まか</rt></ruby>せましょうか。",
+      "リン",
+      "わたしが<ruby>責任<rt>せきにん</rt></ruby>を<ruby>持<rt>も</rt></ruby>ってやります。"
+    ],
+    [
+      "マイ",
+      "いつも<ruby>助<rt>たす</rt></ruby>けてくれて、ありがとう。",
+      "アナ",
+      "こまったときは、いつでも<ruby>頼<rt>たよ</rt></ruby>ってください。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "断",
+      "onyomi": [
+        "ダン"
+      ],
+      "kunyomi": [
+        "た.つ",
+        "ことわ.る",
+        "さだ.める"
+      ],
+      "meaning_en": "cut off; refuse",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "断る",
+          "reading": "ことわる",
+          "en": "to refuse"
+        },
+        {
+          "word": "判断",
+          "reading": "はんだん",
+          "en": "judgement"
+        }
+      ],
+      "mnemonic": "An axe (斤) cutting through threads (米): breaking off."
+    },
+    {
+      "char": "束",
+      "onyomi": [
+        "ソク"
+      ],
+      "kunyomi": [
+        "たば",
+        "たば.ねる",
+        "つか",
+        "つか.ねる"
+      ],
+      "meaning_en": "bundle",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "約束",
+          "reading": "やくそく",
+          "en": "promise"
+        },
+        {
+          "word": "花束",
+          "reading": "はなたば",
+          "en": "bouquet"
+        }
+      ],
+      "mnemonic": "Sticks of wood (木) tied with a band (口): a bundle."
+    },
+    {
+      "char": "任",
+      "onyomi": [
+        "ニン"
+      ],
+      "kunyomi": [
+        "まか.せる",
+        "まか.す"
+      ],
+      "meaning_en": "duty; entrust",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "責任",
+          "reading": "せきにん",
+          "en": "responsibility"
+        },
+        {
+          "word": "任せる",
+          "reading": "まかせる",
+          "en": "to entrust"
+        }
+      ],
+      "mnemonic": "A person (亻) carrying a load (壬): entrusted."
+    },
+    {
+      "char": "責",
+      "onyomi": [
+        "セキ"
+      ],
+      "kunyomi": [
+        "せ.める"
+      ],
+      "meaning_en": "blame; duty",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "責任",
+          "reading": "せきにん",
+          "en": "responsibility"
+        },
+        {
+          "word": "責める",
+          "reading": "せめる",
+          "en": "to blame"
+        }
+      ],
+      "mnemonic": "Money (貝) owed under a thorn: a burden."
+    },
+    {
+      "char": "守",
+      "onyomi": [
+        "シュ",
+        "ス"
+      ],
+      "kunyomi": [
+        "まも.る",
+        "まも.り",
+        "もり",
+        "-もり",
+        "かみ"
+      ],
+      "meaning_en": "protect",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "守る",
+          "reading": "まもる",
+          "en": "to protect"
+        },
+        {
+          "word": "留守",
+          "reading": "るす",
+          "en": "being out"
+        }
+      ],
+      "mnemonic": "A hand (寸) under a roof (宀): guarding the house."
+    },
+    {
+      "char": "頼",
+      "onyomi": [
+        "ライ"
+      ],
+      "kunyomi": [
+        "たの.む",
+        "たの.もしい",
+        "たよ.る"
+      ],
+      "meaning_en": "request; rely",
+      "stroke_count": 16,
+      "example_words": [
+        {
+          "word": "頼む",
+          "reading": "たのむ",
+          "en": "to ask"
+        },
+        {
+          "word": "頼る",
+          "reading": "たよる",
+          "en": "to rely on"
+        }
+      ],
+      "mnemonic": "A bundle (束) carried on a head (頁): something you rely on."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>高<rt>たか</rt></ruby>いものがいいとは＿＿。",
+      "options": [
+        "わけです",
+        "<ruby>限<rt>かぎ</rt></ruby>りません",
+        "はずです",
+        "ためです"
+      ],
+      "correct": "<ruby>限<rt>かぎ</rt></ruby>りません",
+      "explanation": "Not always: とは<ruby>限<rt>かぎ</rt></ruby>らない."
+    },
+    {
+      "prompt": "Complete: <ruby>約束<rt>やくそく</rt></ruby>したから、<ruby>行<rt>い</rt></ruby>かない＿＿。",
+      "options": [
+        "わけがありません",
+        "はずです",
+        "わけにはいきません",
+        "ことができます"
+      ],
+      "correct": "わけにはいきません",
+      "explanation": "Have no choice but to: V-ない わけにはいかない."
+    },
+    {
+      "prompt": "Complete: あの<ruby>人<rt>ひと</rt></ruby>がうそをつく＿＿。 (no way)",
+      "options": [
+        "わけにはいきません",
+        "ところです",
+        "ばかりです",
+        "わけがありません"
+      ],
+      "correct": "わけがありません",
+      "explanation": "No way: わけがない."
+    },
+    {
+      "prompt": "Complete: <ruby>車<rt>くるま</rt></ruby>で<ruby>来<rt>き</rt></ruby>たので、おさけを<ruby>飲<rt>の</rt></ruby>む＿＿。",
+      "options": [
+        "わけにはいきません",
+        "わけがありません",
+        "わけです",
+        "とは<ruby>限<rt>かぎ</rt></ruby>りません"
+      ],
+      "correct": "わけにはいきません",
+      "explanation": "Can't in the circumstances."
+    },
+    {
+      "prompt": "Which word means \"to refuse\"?",
+      "options": [
+        "<ruby>頼<rt>たの</rt></ruby>む",
+        "<ruby>断<rt>ことわ</rt></ruby>る",
+        "<ruby>守<rt>まも</rt></ruby>る",
+        "<ruby>任<rt>まか</rt></ruby>せる"
+      ],
+      "correct": "<ruby>断<rt>ことわ</rt></ruby>る",
+      "explanation": "<ruby>断<rt>ことわ</rt></ruby>る: to refuse."
+    },
+    {
+      "prompt": "How is 責任⁠ read?",
+      "options": [
+        "せきじん",
+        "せいにん",
+        "せきにん",
+        "しゃくにん"
+      ],
+      "correct": "せきにん",
+      "explanation": "責任⁠ is read せきにん."
+    },
+    {
+      "prompt": "Choose the meaning of この<ruby>仕事<rt>しごと</rt></ruby>はあなたに<ruby>任<rt>まか</rt></ruby>せます。",
+      "options": [
+        "You must quit this job.",
+        "I'll do this job for you.",
+        "This job is your fault.",
+        "I'll leave this job to you."
+      ],
+      "correct": "I'll leave this job to you.",
+      "explanation": "<ruby>任<rt>まか</rt></ruby>せる: to entrust."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Your boss invites you to dinner, and you feel you can't say no. What do you think?",
+      "options": [
+        "<ruby>断<rt>ことわ</rt></ruby>るわけがない。",
+        "<ruby>断<rt>ことわ</rt></ruby>ったわけだ。",
+        "<ruby>断<rt>ことわ</rt></ruby>るとは<ruby>限<rt>かぎ</rt></ruby>らない。",
+        "<ruby>断<rt>ことわ</rt></ruby>るわけにはいかない。"
+      ],
+      "correct": "<ruby>断<rt>ことわ</rt></ruby>るわけにはいかない。",
+      "explanation": "Can't in my position: わけにはいかない."
+    },
+    {
+      "prompt": "What is the difference between <ruby>行<rt>い</rt></ruby>けません and <ruby>行<rt>い</rt></ruby>くわけにはいきません?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>けません: I can't / <ruby>行<rt>い</rt></ruby>くわけにはいきません: my situation won't let me",
+        "<ruby>行<rt>い</rt></ruby>けません: my situation won't let me / <ruby>行<rt>い</rt></ruby>くわけにはいきません: I can't",
+        "Both mean I don't want to go.",
+        "There is no difference."
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>けません: I can't / <ruby>行<rt>い</rt></ruby>くわけにはいきません: my situation won't let me",
+      "explanation": "わけにはいかない: duty or circumstances."
+    },
+    {
+      "prompt": "Which sentence is natural?",
+      "options": [
+        "れんしゅうしていないのに、かてるわけにはいかない。",
+        "れんしゅうしていないのに、かてるわけがない。",
+        "れんしゅうしているから、かてるわけがない。",
+        "れんしゅうしていないから、かてるわけだ。"
+      ],
+      "correct": "れんしゅうしていないのに、かてるわけがない。",
+      "explanation": "No way: わけがない."
+    },
+    {
+      "prompt": "Read: <ruby>明日<rt>あした</rt></ruby><ruby>試験<rt>しけん</rt></ruby>なので、<ruby>行<rt>い</rt></ruby>くわけにはいかないんです。 Why won't Ken go?",
+      "options": [
+        "He doesn't like drinking.",
+        "He has no money.",
+        "He has an exam tomorrow.",
+        "He is ill."
+      ],
+      "correct": "He has an exam tomorrow.",
+      "explanation": "<ruby>試験<rt>しけん</rt></ruby>なので."
+    },
+    {
+      "prompt": "Review: complete <ruby>事故<rt>じこ</rt></ruby>の＿＿、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっています。 (formal)",
+      "options": [
+        "おかげで",
+        "わけ",
+        "うち",
+        "ため"
+      ],
+      "correct": "ため",
+      "explanation": "A formal cause: ため."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-2-not-always",
+    "japanese-n3-unit-2-thats-why",
+    "japanese-n4-unit-7-should-be"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

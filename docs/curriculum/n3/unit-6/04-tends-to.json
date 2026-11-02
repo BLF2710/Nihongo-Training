@@ -1,0 +1,541 @@
+{
+  "id": "japanese-n3-unit-6-tends-to",
+  "slug": "n3-unit-6-tends-to",
+  "unit": "Japanese N3 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "It Tends To…",
+  "title_jp": "〜がち・〜おそれが ある",
+  "objectives": [
+    "I can say something tends to happen or might go wrong.",
+    "Say something tends to happen with 〜がちだ",
+    "Warn of a risk with 〜おそれがある",
+    "Talk about danger, fear, mistakes and absence"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>危<rt>あぶ</rt></ruby>ない",
+      "",
+      "dangerous"
+    ],
+    [
+      "<ruby>危険<rt>きけん</rt></ruby>",
+      "",
+      "danger; dangerous"
+    ],
+    [
+      "<ruby>恐<rt>こわ</rt></ruby>い",
+      "",
+      "scary, afraid"
+    ],
+    [
+      "<ruby>恐<rt>おそ</rt></ruby>れ",
+      "",
+      "fear; risk"
+    ],
+    [
+      "<ruby>誤解<rt>ごかい</rt></ruby>",
+      "",
+      "misunderstanding (+ する: to misunderstand)"
+    ],
+    [
+      "<ruby>欠席<rt>けっせき</rt></ruby>",
+      "",
+      "absence (+ する: to be absent)"
+    ],
+    [
+      "<ruby>欠点<rt>けってん</rt></ruby>",
+      "",
+      "fault, weak point"
+    ],
+    [
+      "<ruby>欠<rt>か</rt></ruby>ける",
+      "",
+      "to be missing, to lack"
+    ],
+    [
+      "<ruby>曇<rt>くも</rt></ruby>る",
+      "",
+      "to become cloudy"
+    ],
+    [
+      "<ruby>曇<rt>くも</rt></ruby>り",
+      "",
+      "cloudy weather"
+    ],
+    [
+      "〜がちだ",
+      "",
+      "tend to, be prone to"
+    ],
+    [
+      "〜おそれがある",
+      "",
+      "there is a risk that"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "危ない",
+      "word_reading": "あぶない"
+    },
+    {
+      "word_japanese": "危険",
+      "word_reading": "きけん"
+    },
+    {
+      "word_japanese": "恐い",
+      "word_reading": "こわい"
+    },
+    {
+      "word_japanese": "恐れ",
+      "word_reading": "おそれ"
+    },
+    {
+      "word_japanese": "誤解",
+      "word_reading": "ごかい"
+    },
+    {
+      "word_japanese": "欠席",
+      "word_reading": "けっせき"
+    },
+    {
+      "word_japanese": "欠点",
+      "word_reading": "けってん"
+    },
+    {
+      "word_japanese": "欠ける",
+      "word_reading": "かける"
+    },
+    {
+      "word_japanese": "曇る",
+      "word_reading": "くもる"
+    },
+    {
+      "word_japanese": "曇り",
+      "word_reading": "くもり"
+    }
+  ],
+  "concept": {
+    "title": "Tendencies and risks",
+    "text": "〜がちだ says something tends to happen, usually something bad:\n<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>をひきがちです。 People tend to catch colds in winter.\nかれは<ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みがちです。 He's often absent from school.\nIt follows a verb stem or a noun: <ruby>病気<rt>びょうき</rt></ruby>がち (sickly), <ruby>曇<rt>くも</rt></ruby>りがち (often cloudy).\n\n〜おそれがある warns that something bad may happen. It is formal and common in the news and weather forecasts:\n<ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>く</rt></ruby>るおそれがあります。 There is a risk that a typhoon will come.\nAfter a noun: N のおそれがある: じしんのおそれ.",
+    "examples": [
+      "V-stem / N + がちだ (tend to)",
+      "V-る + おそれがある",
+      "N の + おそれがある"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Tend to: 〜がちだ",
+      "pattern": "V-stem / N + がちだ (がちな N)",
+      "explanation": "Something bad tends to happen often.",
+      "examples": [
+        {
+          "japanese": "<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>をひきがちです。",
+          "romaji": "",
+          "meaning": "People tend to catch colds in winter."
+        },
+        {
+          "japanese": "かれは<ruby>最近<rt>さいきん</rt></ruby>、<ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みがちです。",
+          "romaji": "",
+          "meaning": "He's often absent from school lately."
+        },
+        {
+          "japanese": "いそがしいと、<ruby>食事<rt>しょくじ</rt></ruby>が<ruby>遅<rt>おそ</rt></ruby>くなりがちです。",
+          "romaji": "",
+          "meaning": "When I'm busy, my meals tend to get late."
+        },
+        {
+          "japanese": "<ruby>曇<rt>くも</rt></ruby>りがちな<ruby>天気<rt>てんき</rt></ruby>が<ruby>続<rt>つづ</rt></ruby>いています。",
+          "romaji": "",
+          "meaning": "The weather has been mostly cloudy."
+        }
+      ],
+      "notes": [
+        "Usually negative.",
+        "Compare っぽい: っぽい is a character trait; がち is how often something happens."
+      ]
+    },
+    {
+      "title": "There is a risk: 〜おそれがある",
+      "pattern": "V-る + おそれがある / N の + おそれがある",
+      "explanation": "A formal warning that something bad might happen.",
+      "examples": [
+        {
+          "japanese": "<ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>く</rt></ruby>るおそれがあります。",
+          "romaji": "",
+          "meaning": "There is a risk that a typhoon will come."
+        },
+        {
+          "japanese": "この<ruby>川<rt>かわ</rt></ruby>は<ruby>危険<rt>きけん</rt></ruby>なので、<ruby>泳<rt>およ</rt></ruby>ぐとおぼれるおそれがあります。",
+          "romaji": "",
+          "meaning": "This river is dangerous; you could drown if you swim."
+        },
+        {
+          "japanese": "このままでは、<ruby>試験<rt>しけん</rt></ruby>に<ruby>落<rt>お</rt></ruby>ちるおそれがある。",
+          "romaji": "",
+          "meaning": "At this rate, I might fail the exam."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>大雨<rt>おおあめ</rt></ruby>のおそれがあります。",
+          "romaji": "",
+          "meaning": "There is a risk of heavy rain tomorrow."
+        }
+      ],
+      "notes": [
+        "Common on the news and in notices.",
+        "In kanji: <ruby>恐<rt>おそ</rt></ruby>れがある."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>道<rt>みち</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>ぶのは<ruby>危<rt>あぶ</rt></ruby>ないです。",
+      "It's dangerous to play in the street."
+    ],
+    [
+      "わたしは<ruby>犬<rt>いぬ</rt></ruby>が<ruby>恐<rt>こわ</rt></ruby>いです。",
+      "I'm afraid of dogs."
+    ],
+    [
+      "<ruby>風邪<rt>かぜ</rt></ruby>で<ruby>授業<rt>じゅぎょう</rt></ruby>を<ruby>欠席<rt>けっせき</rt></ruby>しました。",
+      "I missed class because of a cold."
+    ],
+    [
+      "わたしの<ruby>言<rt>い</rt></ruby>い<ruby>方<rt>かた</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>くて、<ruby>誤解<rt>ごかい</rt></ruby>されました。",
+      "I put it badly and was misunderstood."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>最近<rt>さいきん</rt></ruby>、リーさんを<ruby>見<rt>み</rt></ruby>ませんね。",
+      "けん",
+      "ええ、<ruby>体<rt>からだ</rt></ruby>がよわくて、<ruby>休<rt>やす</rt></ruby>みがちなんです。"
+    ],
+    [
+      "マイ",
+      "<ruby>今日<rt>きょう</rt></ruby>の<ruby>天気<rt>てんき</rt></ruby>はどうですか。",
+      "ゆき",
+      "<ruby>曇<rt>くも</rt></ruby>りですが、<ruby>夕方<rt>ゆうがた</rt></ruby>から<ruby>雨<rt>あめ</rt></ruby>のおそれがあるそうです。"
+    ],
+    [
+      "リン",
+      "あの<ruby>山<rt>やま</rt></ruby>にのぼりませんか。",
+      "たなか",
+      "<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>危険<rt>きけん</rt></ruby>ですから、やめたほうがいいですよ。"
+    ],
+    [
+      "リー",
+      "わたしの<ruby>欠点<rt>けってん</rt></ruby>は<ruby>何<rt>なん</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>いますか。",
+      "アナ",
+      "うーん、<ruby>約束<rt>やくそく</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>に<ruby>遅<rt>おく</rt></ruby>れがちなことかな。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "危",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "あぶ.ない",
+        "あや.うい",
+        "あや.ぶむ"
+      ],
+      "meaning_en": "danger",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "危ない",
+          "reading": "あぶない",
+          "en": "dangerous"
+        },
+        {
+          "word": "危険",
+          "reading": "きけん",
+          "en": "danger"
+        }
+      ],
+      "mnemonic": "A person crouching (㔾) on a cliff edge (厂): danger."
+    },
+    {
+      "char": "険",
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "けわ.しい"
+      ],
+      "meaning_en": "steep",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "危険",
+          "reading": "きけん",
+          "en": "danger"
+        },
+        {
+          "word": "保険",
+          "reading": "ほけん",
+          "en": "insurance"
+        }
+      ],
+      "mnemonic": "A hill (阝) where everyone (㑒) must take care: steep."
+    },
+    {
+      "char": "恐",
+      "onyomi": [
+        "キョウ"
+      ],
+      "kunyomi": [
+        "おそ.れる",
+        "おそ.る",
+        "おそ.ろしい",
+        "こわ.い",
+        "こわ.がる"
+      ],
+      "meaning_en": "fear",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "恐い",
+          "reading": "こわい",
+          "en": "scary"
+        },
+        {
+          "word": "恐れ",
+          "reading": "おそれ",
+          "en": "fear"
+        }
+      ],
+      "mnemonic": "A heart (心) that freezes at work (工) done in the dark."
+    },
+    {
+      "char": "誤",
+      "onyomi": [
+        "ゴ"
+      ],
+      "kunyomi": [
+        "あやま.る",
+        "-あやま.る"
+      ],
+      "meaning_en": "mistake",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "誤解",
+          "reading": "ごかい",
+          "en": "misunderstanding"
+        },
+        {
+          "word": "誤り",
+          "reading": "あやまり",
+          "en": "error"
+        }
+      ],
+      "mnemonic": "Words (言) that go astray (呉): a mistake."
+    },
+    {
+      "char": "欠",
+      "onyomi": [
+        "ケツ",
+        "ケン"
+      ],
+      "kunyomi": [
+        "か.ける",
+        "か.く"
+      ],
+      "meaning_en": "lack",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "欠席",
+          "reading": "けっせき",
+          "en": "absence"
+        },
+        {
+          "word": "欠点",
+          "reading": "けってん",
+          "en": "fault"
+        }
+      ],
+      "mnemonic": "A person yawning with an empty mouth: lacking."
+    },
+    {
+      "char": "曇",
+      "onyomi": [
+        "ドン"
+      ],
+      "kunyomi": [
+        "くも.る"
+      ],
+      "meaning_en": "cloudy",
+      "stroke_count": 16,
+      "example_words": [
+        {
+          "word": "曇る",
+          "reading": "くもる",
+          "en": "to become cloudy"
+        },
+        {
+          "word": "曇り",
+          "reading": "くもり",
+          "en": "cloudy weather"
+        }
+      ],
+      "mnemonic": "The sun (日) hidden behind clouds (雲)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete まるで<ruby>夢<rt>ゆめ</rt></ruby>＿＿ようです。",
+      "options": [
+        "の",
+        "な",
+        "に",
+        "が"
+      ],
+      "correct": "の",
+      "explanation": "N の ようだ."
+    },
+    {
+      "prompt": "Complete: <ruby>冬<rt>ふゆ</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>をひき＿＿です。",
+      "options": [
+        "っぽい",
+        "がち",
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "おそれ"
+      ],
+      "correct": "がち",
+      "explanation": "Tend to: がちだ."
+    },
+    {
+      "prompt": "Complete: <ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>く</rt></ruby>る＿＿があります。",
+      "options": [
+        "がち",
+        "ほど",
+        "おそれ",
+        "ため"
+      ],
+      "correct": "おそれ",
+      "explanation": "There is a risk: おそれがある."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>大雨<rt>おおあめ</rt></ruby>＿＿おそれがあります。",
+      "options": [
+        "が",
+        "な",
+        "に",
+        "の"
+      ],
+      "correct": "の",
+      "explanation": "N の おそれがある."
+    },
+    {
+      "prompt": "Which word means \"absence\" (from class)?",
+      "options": [
+        "<ruby>欠席<rt>けっせき</rt></ruby>",
+        "<ruby>欠点<rt>けってん</rt></ruby>",
+        "<ruby>誤解<rt>ごかい</rt></ruby>",
+        "<ruby>危険<rt>きけん</rt></ruby>"
+      ],
+      "correct": "<ruby>欠席<rt>けっせき</rt></ruby>",
+      "explanation": "<ruby>欠席<rt>けっせき</rt></ruby>: absence."
+    },
+    {
+      "prompt": "How is 危⁠ない read?",
+      "options": [
+        "きない",
+        "あぶない",
+        "あやない",
+        "こわない"
+      ],
+      "correct": "あぶない",
+      "explanation": "危⁠ない is read あぶない."
+    },
+    {
+      "prompt": "Choose the meaning of わたしの<ruby>言<rt>い</rt></ruby>い<ruby>方<rt>かた</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>くて、<ruby>誤解<rt>ごかい</rt></ruby>されました。",
+      "options": [
+        "I misunderstood what they said.",
+        "I said it well and was understood.",
+        "I put it badly and was misunderstood.",
+        "Someone said something bad to me."
+      ],
+      "correct": "I put it badly and was misunderstood.",
+      "explanation": "<ruby>誤解<rt>ごかい</rt></ruby>: misunderstanding."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence sounds like a news warning?",
+      "options": [
+        "<ruby>川<rt>かわ</rt></ruby>があふれがちです。",
+        "<ruby>川<rt>かわ</rt></ruby>があふれっぽいです。",
+        "<ruby>大雨<rt>おおあめ</rt></ruby>で<ruby>川<rt>かわ</rt></ruby>があふれるおそれがあります。",
+        "まるで<ruby>川<rt>かわ</rt></ruby>があふれたようです。"
+      ],
+      "correct": "<ruby>大雨<rt>おおあめ</rt></ruby>で<ruby>川<rt>かわ</rt></ruby>があふれるおそれがあります。",
+      "explanation": "おそれがある: formal warning."
+    },
+    {
+      "prompt": "What does かれは<ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みがちです mean?",
+      "options": [
+        "He's never absent.",
+        "He was absent once.",
+        "He wants a holiday from school.",
+        "He's often absent from school."
+      ],
+      "correct": "He's often absent from school.",
+      "explanation": "がちだ: tends to."
+    },
+    {
+      "prompt": "Which word means \"weak point, fault\"?",
+      "options": [
+        "<ruby>欠点<rt>けってん</rt></ruby>",
+        "<ruby>欠席<rt>けっせき</rt></ruby>",
+        "<ruby>誤解<rt>ごかい</rt></ruby>",
+        "<ruby>恐<rt>おそ</rt></ruby>れ"
+      ],
+      "correct": "<ruby>欠点<rt>けってん</rt></ruby>",
+      "explanation": "<ruby>欠点<rt>けってん</rt></ruby>: fault."
+    },
+    {
+      "prompt": "Read: <ruby>約束<rt>やくそく</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>に<ruby>遅<rt>おく</rt></ruby>れがちなことかな。 What is Lee's weak point?",
+      "options": [
+        "He forgets promises.",
+        "He's often late.",
+        "He's never late.",
+        "He talks too much."
+      ],
+      "correct": "He's often late.",
+      "explanation": "<ruby>遅<rt>おく</rt></ruby>れがち: often late."
+    },
+    {
+      "prompt": "Review: complete <ruby>今日<rt>きょう</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>＿＿なので、<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>ます。",
+      "options": [
+        "がち",
+        "おそれ",
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "ように"
+      ],
+      "correct": "<ruby>気味<rt>ぎみ</rt></ruby>",
+      "explanation": "A touch of: <ruby>気味<rt>ぎみ</rt></ruby>."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-6-as-if",
+    "japanese-n3-unit-6-a-bit-like",
+    "japanese-n4-unit-6-becoming"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

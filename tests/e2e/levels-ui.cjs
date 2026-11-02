@@ -63,10 +63,10 @@ const [base, shots] = process.argv.slice(2);
     await page.goto(base + '/review?unit=level:N5'); await badge('N5').waitFor(); assert.equal((await optionTexts())[0].split(' —')[0], 'N5 cumulative review');
 
     // ---- A level with no units yet.
-    await setLevel('N3'); await heading('N3 lessons are coming soon').waitFor();
-    await page.goto(base + '/vocabulary'); await page.getByText('N3 has no units yet.', { exact: false }).waitFor();
-    await page.goto(base + '/quizzes'); await page.getByText('N3 has no unit assessments yet.').waitFor();
-    await page.goto(base + '/reading'); await page.getByText('N3 has no reading passages yet. They arrive with its units.').waitFor();
+    await setLevel('N2'); await heading('N2 lessons are coming soon').waitFor();
+    await page.goto(base + '/vocabulary'); await page.getByText('N2 has no units yet.', { exact: false }).waitFor();
+    await page.goto(base + '/quizzes'); await page.getByText('N2 has no unit assessments yet.').waitFor();
+    await page.goto(base + '/reading'); await page.getByText('N2 has no reading passages yet. They arrive with its units.').waitFor();
     await page.goto(base + '/listening'); await page.getByText(/No unit is open for listening practice yet/).waitFor();
     // Change level returns to the page it was opened from.
     await page.goto(base + '/grammar'); await page.getByRole('link', { name: 'Change level' }).click(); await page.waitForURL(/\/levels\?next=%2Fgrammar/);

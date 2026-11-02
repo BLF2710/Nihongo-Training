@@ -1,0 +1,540 @@
+{
+  "id": "japanese-n3-unit-7-commands",
+  "slug": "n3-unit-7-commands",
+  "unit": "Japanese N3 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "Stop! Run!",
+  "title_jp": "めいれいけい",
+  "objectives": [
+    "I can understand commands on signs and in sport, games and stories.",
+    "Make and recognise the command form",
+    "Forbid something with V-るな",
+    "Talk about pushing, throwing, running away and hurrying"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>命令<rt>めいれい</rt></ruby>",
+      "",
+      "order, command (+ する: to order)"
+    ],
+    [
+      "<ruby>押<rt>お</rt></ruby>す",
+      "",
+      "to push, to press"
+    ],
+    [
+      "<ruby>押<rt>お</rt></ruby>し<ruby>入<rt>い</rt></ruby>れ",
+      "",
+      "closet (for futons)"
+    ],
+    [
+      "<ruby>投<rt>な</rt></ruby>げる",
+      "",
+      "to throw"
+    ],
+    [
+      "<ruby>逃<rt>に</rt></ruby>げる",
+      "",
+      "to run away"
+    ],
+    [
+      "<ruby>急<rt>いそ</rt></ruby>ぐ",
+      "",
+      "to hurry"
+    ],
+    [
+      "<ruby>急<rt>きゅう</rt></ruby>に",
+      "",
+      "suddenly"
+    ],
+    [
+      "<ruby>特急<rt>とっきゅう</rt></ruby>",
+      "",
+      "limited express (train)"
+    ],
+    [
+      "<ruby>打<rt>う</rt></ruby>つ",
+      "",
+      "to hit"
+    ],
+    [
+      "<ruby>止<rt>と</rt></ruby>まれ",
+      "",
+      "stop (sign)"
+    ],
+    [
+      "がんばれ",
+      "",
+      "go for it, hang in there"
+    ],
+    [
+      "V-るな",
+      "",
+      "don't (blunt prohibition)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "命令",
+      "word_reading": "めいれい"
+    },
+    {
+      "word_japanese": "押す",
+      "word_reading": "おす"
+    },
+    {
+      "word_japanese": "押し入れ",
+      "word_reading": "おしいれ"
+    },
+    {
+      "word_japanese": "投げる",
+      "word_reading": "なげる"
+    },
+    {
+      "word_japanese": "逃げる",
+      "word_reading": "にげる"
+    },
+    {
+      "word_japanese": "急ぐ",
+      "word_reading": "いそぐ"
+    },
+    {
+      "word_japanese": "急に",
+      "word_reading": "きゅうに"
+    },
+    {
+      "word_japanese": "特急",
+      "word_reading": "とっきゅう"
+    },
+    {
+      "word_japanese": "打つ",
+      "word_reading": "うつ"
+    }
+  ],
+  "concept": {
+    "title": "The command form",
+    "text": "The command form is blunt. You'll see it on signs, hear it at sports matches and in emergencies, and read it in manga, but you rarely use it to people's faces.\n\nGroup 1: change the last sound to the え row: <ruby>急<rt>いそ</rt></ruby>ぐ → <ruby>急<rt>いそ</rt></ruby>げ, <ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>け, <ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>て\nGroup 2: る → ろ: <ruby>逃<rt>に</rt></ruby>げる → <ruby>逃<rt>に</rt></ruby>げろ, <ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べろ\nIrregular: する → しろ, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>い\n\nV-る + な forbids: don't!\n<ruby>押<rt>お</rt></ruby>すな！ Don't push!\n\nUses: signs (<ruby>止<rt>と</rt></ruby>まれ: stop), cheering (がんばれ!), emergencies (<ruby>逃<rt>に</rt></ruby>げろ!), and reporting orders: <ruby>先生<rt>せんせい</rt></ruby>に「<ruby>早<rt>はや</rt></ruby>く<ruby>来<rt>こ</rt></ruby>い」と<ruby>言<rt>い</rt></ruby>われた.",
+    "examples": [
+      "Group 1: う row → え row",
+      "Group 2: る → ろ",
+      "する → しろ, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>い",
+      "V-る + な (don't)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Command form",
+      "pattern": "Group 1: <ruby>急<rt>いそ</rt></ruby>げ / Group 2: <ruby>逃<rt>に</rt></ruby>げろ / しろ, <ruby>来<rt>こ</rt></ruby>い",
+      "explanation": "A blunt order. Used on signs, in emergencies, when cheering, and in rough speech.",
+      "examples": [
+        {
+          "japanese": "<ruby>火事<rt>かじ</rt></ruby>だ！<ruby>早<rt>はや</rt></ruby>く<ruby>逃<rt>に</rt></ruby>げろ！",
+          "romaji": "",
+          "meaning": "Fire! Get out, quick!"
+        },
+        {
+          "japanese": "がんばれ！あと<ruby>少<rt>すこ</rt></ruby>しだ！",
+          "romaji": "",
+          "meaning": "Come on! Almost there!"
+        },
+        {
+          "japanese": "<ruby>急<rt>いそ</rt></ruby>げ！<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>出<rt>で</rt></ruby>るぞ。",
+          "romaji": "",
+          "meaning": "Hurry! The train's leaving."
+        },
+        {
+          "japanese": "<ruby>先生<rt>せんせい</rt></ruby>に「<ruby>静<rt>しず</rt></ruby>かにしろ」と<ruby>言<rt>い</rt></ruby>われました。",
+          "romaji": "",
+          "meaning": "The teacher told us to be quiet."
+        }
+      ],
+      "notes": [
+        "Signs: <ruby>止<rt>と</rt></ruby>まれ (stop).",
+        "Rude in normal conversation; use てください instead."
+      ]
+    },
+    {
+      "title": "Don't: V-るな",
+      "pattern": "V-る + な",
+      "explanation": "A blunt prohibition, the opposite of the command form.",
+      "examples": [
+        {
+          "japanese": "<ruby>押<rt>お</rt></ruby>すな！",
+          "romaji": "",
+          "meaning": "Don't push!"
+        },
+        {
+          "japanese": "ここでボールを<ruby>投<rt>な</rt></ruby>げるな。",
+          "romaji": "",
+          "meaning": "Don't throw the ball here."
+        },
+        {
+          "japanese": "あきらめるな！",
+          "romaji": "",
+          "meaning": "Don't give up!"
+        },
+        {
+          "japanese": "<ruby>父<rt>ちち</rt></ruby>に「<ruby>夜<rt>よる</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くまで<ruby>遊<rt>あそ</rt></ruby>ぶな」と<ruby>言<rt>い</rt></ruby>われました。",
+          "romaji": "",
+          "meaning": "My father told me not to stay out late."
+        }
+      ],
+      "notes": [
+        "Polite version: 〜ないでください.",
+        "Signs often use this: <ruby>入<rt>はい</rt></ruby>るな (keep out)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "このボタンを<ruby>押<rt>お</rt></ruby>すと、ドアが<ruby>開<rt>あ</rt></ruby>きます。",
+      "Press this button and the door opens."
+    ],
+    [
+      "<ruby>子<rt>こ</rt></ruby>どもがボールを<ruby>投<rt>な</rt></ruby>げて<ruby>遊<rt>あそ</rt></ruby>んでいます。",
+      "The children are playing catch."
+    ],
+    [
+      "<ruby>急<rt>きゅう</rt></ruby>に<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。",
+      "It suddenly started to rain."
+    ],
+    [
+      "<ruby>特急<rt>とっきゅう</rt></ruby>に<ruby>乗<rt>の</rt></ruby>れば、<ruby>一時間<rt>いちじかん</rt></ruby>で<ruby>着<rt>つ</rt></ruby>きます。",
+      "If you take the limited express, you'll get there in an hour."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "あのかんばん、<ruby>何<rt>なん</rt></ruby>と<ruby>書<rt>か</rt></ruby>いてありますか。",
+      "けん",
+      "「<ruby>止<rt>と</rt></ruby>まれ」です。<ruby>車<rt>くるま</rt></ruby>は<ruby>止<rt>と</rt></ruby>まらなければなりません。"
+    ],
+    [
+      "リー",
+      "しあいで<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>っておうえんしますか。",
+      "マイ",
+      "「がんばれ！」と<ruby>言<rt>い</rt></ruby>います。"
+    ],
+    [
+      "ゆき",
+      "どうして<ruby>急<rt>いそ</rt></ruby>いでいるんですか。",
+      "リン",
+      "<ruby>特急<rt>とっきゅう</rt></ruby>に<ruby>乗<rt>の</rt></ruby>り<ruby>遅<rt>おく</rt></ruby>れそうなんです。"
+    ],
+    [
+      "たなか",
+      "<ruby>部長<rt>ぶちょう</rt></ruby>に<ruby>何<rt>なに</rt></ruby>か<ruby>言<rt>い</rt></ruby>われましたか。",
+      "アナ",
+      "「もうちこくするな」と<ruby>言<rt>い</rt></ruby>われました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "令",
+      "onyomi": [
+        "レイ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "order",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "命令",
+          "reading": "めいれい",
+          "en": "command"
+        },
+        {
+          "word": "号令",
+          "reading": "ごうれい",
+          "en": "word of command"
+        }
+      ],
+      "mnemonic": "A person kneeling under a roof to receive an order."
+    },
+    {
+      "char": "押",
+      "onyomi": [
+        "オウ"
+      ],
+      "kunyomi": [
+        "お.す",
+        "お.し-",
+        "お.っ-",
+        "お.さえる",
+        "おさ.える"
+      ],
+      "meaning_en": "push",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "押す",
+          "reading": "おす",
+          "en": "to push"
+        },
+        {
+          "word": "押し入れ",
+          "reading": "おしいれ",
+          "en": "closet"
+        }
+      ],
+      "mnemonic": "A hand (扌) pressing down the first (甲) thing in line."
+    },
+    {
+      "char": "投",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "な.げる",
+        "-な.げ"
+      ],
+      "meaning_en": "throw",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "投げる",
+          "reading": "なげる",
+          "en": "to throw"
+        },
+        {
+          "word": "投手",
+          "reading": "とうしゅ",
+          "en": "pitcher"
+        }
+      ],
+      "mnemonic": "A hand (扌) with a weapon (殳) ready to throw."
+    },
+    {
+      "char": "逃",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "に.げる",
+        "に.がす",
+        "のが.す",
+        "のが.れる"
+      ],
+      "meaning_en": "escape",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "逃げる",
+          "reading": "にげる",
+          "en": "to run away"
+        },
+        {
+          "word": "逃す",
+          "reading": "のがす",
+          "en": "to miss"
+        }
+      ],
+      "mnemonic": "Running (辶) away from an omen (兆)."
+    },
+    {
+      "char": "急",
+      "onyomi": [
+        "キュウ"
+      ],
+      "kunyomi": [
+        "いそ.ぐ",
+        "いそ.ぎ",
+        "せ.く"
+      ],
+      "meaning_en": "hurry",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "急ぐ",
+          "reading": "いそぐ",
+          "en": "to hurry"
+        },
+        {
+          "word": "特急",
+          "reading": "とっきゅう",
+          "en": "limited express"
+        }
+      ],
+      "mnemonic": "A heart (心) that is chasing something: in a hurry."
+    },
+    {
+      "char": "打",
+      "onyomi": [
+        "ダ",
+        "ダース"
+      ],
+      "kunyomi": [
+        "う.つ",
+        "う.ち-",
+        "ぶ.つ"
+      ],
+      "meaning_en": "hit",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "打つ",
+          "reading": "うつ",
+          "en": "to hit"
+        },
+        {
+          "word": "打ち合わせ",
+          "reading": "うちあわせ",
+          "en": "meeting"
+        }
+      ],
+      "mnemonic": "A hand (扌) driving in a nail (丁)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 6): complete <ruby>電気<rt>でんき</rt></ruby>がついているから、<ruby>家<rt>いえ</rt></ruby>にいるに＿＿。",
+      "options": [
+        "<ruby>決<rt>き</rt></ruby>めない",
+        "<ruby>違<rt>ちが</rt></ruby>いない",
+        "<ruby>違<rt>ちが</rt></ruby>う",
+        "っぽい"
+      ],
+      "correct": "<ruby>違<rt>ちが</rt></ruby>いない",
+      "explanation": "Must be: に<ruby>違<rt>ちが</rt></ruby>いない."
+    },
+    {
+      "prompt": "What is the command form of <ruby>急<rt>いそ</rt></ruby>ぐ?",
+      "options": [
+        "<ruby>急<rt>いそ</rt></ruby>ぎろ",
+        "<ruby>急<rt>いそ</rt></ruby>ご",
+        "<ruby>急<rt>いそ</rt></ruby>げ",
+        "<ruby>急<rt>いそ</rt></ruby>ぐな"
+      ],
+      "correct": "<ruby>急<rt>いそ</rt></ruby>げ",
+      "explanation": "Group 1: ぐ → げ."
+    },
+    {
+      "prompt": "What is the command form of <ruby>逃<rt>に</rt></ruby>げる?",
+      "options": [
+        "<ruby>逃<rt>に</rt></ruby>げれ",
+        "<ruby>逃<rt>に</rt></ruby>げな",
+        "<ruby>逃<rt>に</rt></ruby>げよ",
+        "<ruby>逃<rt>に</rt></ruby>げろ"
+      ],
+      "correct": "<ruby>逃<rt>に</rt></ruby>げろ",
+      "explanation": "Group 2: る → ろ."
+    },
+    {
+      "prompt": "What is the command form of <ruby>来<rt>く</rt></ruby>る?",
+      "options": [
+        "<ruby>来<rt>こ</rt></ruby>い",
+        "<ruby>来<rt>く</rt></ruby>れ",
+        "<ruby>来<rt>き</rt></ruby>ろ",
+        "<ruby>来<rt>こ</rt></ruby>ろ"
+      ],
+      "correct": "<ruby>来<rt>こ</rt></ruby>い",
+      "explanation": "Irregular: <ruby>来<rt>こ</rt></ruby>い."
+    },
+    {
+      "prompt": "Complete: ここでボールを<ruby>投<rt>な</rt></ruby>げる＿＿。 (don't)",
+      "options": [
+        "ね",
+        "な",
+        "よ",
+        "か"
+      ],
+      "correct": "な",
+      "explanation": "Don't: V-るな."
+    },
+    {
+      "prompt": "How is 特急⁠ read?",
+      "options": [
+        "とくきゅう",
+        "とっきゅ",
+        "とっきゅう",
+        "とくいそ"
+      ],
+      "correct": "とっきゅう",
+      "explanation": "特急⁠ is read とっきゅう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>急<rt>きゅう</rt></ruby>に<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。",
+      "options": [
+        "Hurry, it's raining.",
+        "It rained for a short time.",
+        "It stopped raining suddenly.",
+        "It suddenly started to rain."
+      ],
+      "correct": "It suddenly started to rain.",
+      "explanation": "<ruby>急<rt>きゅう</rt></ruby>に: suddenly."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Where would you most likely see <ruby>止<rt>と</rt></ruby>まれ?",
+      "options": [
+        "In a polite letter",
+        "On a menu",
+        "In a job interview",
+        "On a road sign"
+      ],
+      "correct": "On a road sign",
+      "explanation": "Command forms appear on signs."
+    },
+    {
+      "prompt": "What does あきらめるな！ mean?",
+      "options": [
+        "Don't give up!",
+        "Give up!",
+        "I gave up.",
+        "Did you give up?"
+      ],
+      "correct": "Don't give up!",
+      "explanation": "V-るな: don't."
+    },
+    {
+      "prompt": "Which word means \"to run away\"?",
+      "options": [
+        "<ruby>投<rt>な</rt></ruby>げる",
+        "<ruby>逃<rt>に</rt></ruby>げる",
+        "<ruby>押<rt>お</rt></ruby>す",
+        "<ruby>打<rt>う</rt></ruby>つ"
+      ],
+      "correct": "<ruby>逃<rt>に</rt></ruby>げる",
+      "explanation": "<ruby>逃<rt>に</rt></ruby>げる: to run away."
+    },
+    {
+      "prompt": "Read: 「もうちこくするな」と<ruby>言<rt>い</rt></ruby>われました。 What did the manager say?",
+      "options": [
+        "Come late tomorrow.",
+        "You can be late.",
+        "Don't be late again.",
+        "Hurry up and leave."
+      ],
+      "correct": "Don't be late again.",
+      "explanation": "V-るな: don't."
+    },
+    {
+      "prompt": "Review (Unit 6): complete <ruby>冬<rt>ふゆ</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>をひき＿＿です。",
+      "options": [
+        "っぽい",
+        "な",
+        "ろ",
+        "がち"
+      ],
+      "correct": "がち",
+      "explanation": "Tend to: がちだ."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-6-tends-to",
+    "japanese-n3-unit-6-must-be",
+    "japanese-n4-unit-5-lets-go"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

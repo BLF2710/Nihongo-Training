@@ -1,0 +1,532 @@
+{
+  "id": "japanese-n3-unit-4-not-only",
+  "slug": "n3-unit-4-not-only",
+  "unit": "Japanese N3 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Not Only…",
+  "title_jp": "〜だけで なく",
+  "objectives": [
+    "I can say \"not only … but also\" and \"even\".",
+    "Add a second point with 〜だけでなく",
+    "Give an extreme example with 〜さえ",
+    "Complain that someone does nothing but one thing with 〜てばかりいる"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>遊<rt>あそ</rt></ruby>ぶ",
+      "",
+      "to play, to have fun"
+    ],
+    [
+      "<ruby>遊園地<rt>ゆうえんち</rt></ruby>",
+      "",
+      "amusement park"
+    ],
+    [
+      "<ruby>泳<rt>およ</rt></ruby>ぐ",
+      "",
+      "to swim"
+    ],
+    [
+      "<ruby>水泳<rt>すいえい</rt></ruby>",
+      "",
+      "swimming"
+    ],
+    [
+      "せんそう",
+      "",
+      "war"
+    ],
+    [
+      "<ruby>負<rt>ま</rt></ruby>ける",
+      "",
+      "to lose"
+    ],
+    [
+      "<ruby>勝<rt>か</rt></ruby>つ",
+      "",
+      "to win"
+    ],
+    [
+      "しあい",
+      "",
+      "match, game"
+    ],
+    [
+      "やきゅう",
+      "",
+      "baseball"
+    ],
+    [
+      "<ruby>地球<rt>ちきゅう</rt></ruby>",
+      "",
+      "the Earth"
+    ],
+    [
+      "〜だけでなく",
+      "",
+      "not only"
+    ],
+    [
+      "〜さえ",
+      "",
+      "even"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "遊ぶ",
+      "word_reading": "あそぶ"
+    },
+    {
+      "word_japanese": "遊園地",
+      "word_reading": "ゆうえんち"
+    },
+    {
+      "word_japanese": "泳ぐ",
+      "word_reading": "およぐ"
+    },
+    {
+      "word_japanese": "水泳",
+      "word_reading": "すいえい"
+    },
+    {
+      "word_japanese": "負ける",
+      "word_reading": "まける"
+    },
+    {
+      "word_japanese": "勝つ",
+      "word_reading": "かつ"
+    },
+    {
+      "word_japanese": "地球",
+      "word_reading": "ちきゅう"
+    }
+  ],
+  "concept": {
+    "title": "Not only, even, nothing but",
+    "text": "だけでなく adds a second point, usually with も:\nかれは<ruby>英語<rt>えいご</rt></ruby>だけでなく、<ruby>中国語<rt>ちゅうごくご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。 He speaks not only English but Chinese too.\nばかりでなく is the same, a little more written.\n\nさえ gives an extreme example: even.\nそんなこと、<ruby>子<rt>こ</rt></ruby>どもでさえ<ruby>知<rt>し</rt></ruby>っています。 Even a child knows that.\n\nさえ〜ば: if only, all you need is.\n<ruby>時間<rt>じかん</rt></ruby>さえあれば、もっと<ruby>旅行<rt>りょこう</rt></ruby>したいです。 If only I had time, I'd travel more.\n\nV-て ばかり いる: someone does nothing but that, usually a complaint:\n<ruby>弟<rt>おとうと</rt></ruby>はゲームをしてばかりいます。",
+    "examples": [
+      "〜だけでなく / ばかりでなく 〜も",
+      "N さえ (even)",
+      "N さえ 〜ば (if only)",
+      "V-て ばかり いる (nothing but)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Not only: 〜だけでなく",
+      "pattern": "N / plain form + だけでなく (ばかりでなく)、〜も",
+      "explanation": "Adds a second, often bigger, point. The second part usually has も.",
+      "examples": [
+        {
+          "japanese": "かれは<ruby>英語<rt>えいご</rt></ruby>だけでなく、<ruby>中国語<rt>ちゅうごくご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。",
+          "romaji": "",
+          "meaning": "He speaks not only English but Chinese too."
+        },
+        {
+          "japanese": "この<ruby>公園<rt>こうえん</rt></ruby>は<ruby>子<rt>こ</rt></ruby>どもだけでなく、<ruby>大人<rt>おとな</rt></ruby>にも<ruby>人気<rt>にんき</rt></ruby>があります。",
+          "romaji": "",
+          "meaning": "This park is popular with adults as well as children."
+        },
+        {
+          "japanese": "<ruby>水泳<rt>すいえい</rt></ruby>は<ruby>体<rt>からだ</rt></ruby>にいいだけでなく、<ruby>楽<rt>たの</rt></ruby>しいです。",
+          "romaji": "",
+          "meaning": "Swimming is not only good for you, it's fun."
+        },
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>ばかりでなく、<ruby>風<rt>かぜ</rt></ruby>も<ruby>強<rt>つよ</rt></ruby>くなってきました。",
+          "romaji": "",
+          "meaning": "Not only is it raining, the wind is getting stronger too."
+        }
+      ],
+      "notes": [
+        "ばかりでなく sounds a little more written than だけでなく."
+      ]
+    },
+    {
+      "title": "Even; nothing but: 〜さえ / 〜てばかりいる",
+      "pattern": "N さえ / N さえ 〜ば / V-て ばかり いる",
+      "explanation": "さえ gives an extreme example. さえ〜ば means all you need is. てばかりいる means someone does nothing but that.",
+      "examples": [
+        {
+          "japanese": "いそがしくて、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる<ruby>時間<rt>じかん</rt></ruby>さえありません。",
+          "romaji": "",
+          "meaning": "I'm so busy I don't even have time to eat."
+        },
+        {
+          "japanese": "そんなこと、<ruby>子<rt>こ</rt></ruby>どもでさえ<ruby>知<rt>し</rt></ruby>っています。",
+          "romaji": "",
+          "meaning": "Even a child knows that."
+        },
+        {
+          "japanese": "<ruby>時間<rt>じかん</rt></ruby>さえあれば、もっと<ruby>旅行<rt>りょこう</rt></ruby>したいです。",
+          "romaji": "",
+          "meaning": "If only I had time, I'd travel more."
+        },
+        {
+          "japanese": "<ruby>弟<rt>おとうと</rt></ruby>はゲームをしてばかりいます。",
+          "romaji": "",
+          "meaning": "My younger brother does nothing but play games."
+        }
+      ],
+      "notes": [
+        "After a subject, さえ often follows で: <ruby>子<rt>こ</rt></ruby>どもでさえ.",
+        "てばかりいる sounds critical: ないてばかりいないで (stop crying all the time)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>子<rt>こ</rt></ruby>どもたちは<ruby>公園<rt>こうえん</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>んでいます。",
+      "The children are playing in the park."
+    ],
+    [
+      "<ruby>夏休<rt>なつやす</rt></ruby>みに<ruby>海<rt>うみ</rt></ruby>で<ruby>泳<rt>およ</rt></ruby>ぎました。",
+      "I swam in the sea in the summer holidays."
+    ],
+    [
+      "<ruby>昨日<rt>きのう</rt></ruby>のしあいで<ruby>負<rt>ま</rt></ruby>けてしまいました。",
+      "We lost yesterday's match."
+    ],
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>ではやきゅうが<ruby>人気<rt>にんき</rt></ruby>です。",
+      "Baseball is popular in Japan."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "リーさんは<ruby>何語<rt>なにご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せますか。",
+      "けん",
+      "<ruby>英語<rt>えいご</rt></ruby>だけでなく、<ruby>日本語<rt>にほんご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せますよ。"
+    ],
+    [
+      "マイ",
+      "しゅうまつは<ruby>何<rt>なに</rt></ruby>をしていましたか。",
+      "ゆき",
+      "<ruby>寝<rt>ね</rt></ruby>てばかりいました。"
+    ],
+    [
+      "リン",
+      "しあい、<ruby>勝<rt>か</rt></ruby>ちましたか。",
+      "たなか",
+      "いいえ、<ruby>一点<rt>いってん</rt></ruby>さえとれませんでした。"
+    ],
+    [
+      "リー",
+      "<ruby>新<rt>あたら</rt></ruby>しいパソコン、<ruby>買<rt>か</rt></ruby>いますか。",
+      "アナ",
+      "お<ruby>金<rt>かね</rt></ruby>さえあれば、すぐ<ruby>買<rt>か</rt></ruby>いたいです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "遊",
+      "onyomi": [
+        "ユウ",
+        "ユ"
+      ],
+      "kunyomi": [
+        "あそ.ぶ",
+        "あそ.ばす"
+      ],
+      "meaning_en": "play",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "遊ぶ",
+          "reading": "あそぶ",
+          "en": "to play"
+        },
+        {
+          "word": "遊園地",
+          "reading": "ゆうえんち",
+          "en": "amusement park"
+        }
+      ],
+      "mnemonic": "A child (子) with a flag walking about (辶): playing."
+    },
+    {
+      "char": "泳",
+      "onyomi": [
+        "エイ"
+      ],
+      "kunyomi": [
+        "およ.ぐ"
+      ],
+      "meaning_en": "swim",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "泳ぐ",
+          "reading": "およぐ",
+          "en": "to swim"
+        },
+        {
+          "word": "水泳",
+          "reading": "すいえい",
+          "en": "swimming"
+        }
+      ],
+      "mnemonic": "Water (氵) that goes on forever (永): swimming."
+    },
+    {
+      "char": "戦",
+      "onyomi": [
+        "セン"
+      ],
+      "kunyomi": [
+        "いくさ",
+        "たたか.う",
+        "おのの.く",
+        "そよ.ぐ",
+        "わなな.く"
+      ],
+      "meaning_en": "war, fight",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "戦争",
+          "reading": "せんそう",
+          "en": "war"
+        },
+        {
+          "word": "戦う",
+          "reading": "たたかう",
+          "en": "to fight"
+        }
+      ],
+      "mnemonic": "A simple weapon (単) and a halberd (戈): war."
+    },
+    {
+      "char": "負",
+      "onyomi": [
+        "フ"
+      ],
+      "kunyomi": [
+        "ま.ける",
+        "ま.かす",
+        "お.う"
+      ],
+      "meaning_en": "lose; carry",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "負ける",
+          "reading": "まける",
+          "en": "to lose"
+        },
+        {
+          "word": "勝負",
+          "reading": "しょうぶ",
+          "en": "contest"
+        }
+      ],
+      "mnemonic": "A person carrying money (貝) on their back."
+    },
+    {
+      "char": "勝",
+      "onyomi": [
+        "ショウ"
+      ],
+      "kunyomi": [
+        "か.つ",
+        "-が.ち",
+        "まさ.る",
+        "すぐ.れる",
+        "かつ"
+      ],
+      "meaning_en": "win",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "勝つ",
+          "reading": "かつ",
+          "en": "to win"
+        },
+        {
+          "word": "勝負",
+          "reading": "しょうぶ",
+          "en": "contest"
+        }
+      ],
+      "mnemonic": "Strength (力) and both arms raised: victory."
+    },
+    {
+      "char": "球",
+      "onyomi": [
+        "キュウ"
+      ],
+      "kunyomi": [
+        "たま"
+      ],
+      "meaning_en": "ball",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "野球",
+          "reading": "やきゅう",
+          "en": "baseball"
+        },
+        {
+          "word": "地球",
+          "reading": "ちきゅう",
+          "en": "the Earth"
+        }
+      ],
+      "mnemonic": "A jewel (王) as round as you could ask for (求): a ball."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>去年<rt>きょねん</rt></ruby>に＿＿、<ruby>今年<rt>ことし</rt></ruby>は<ruby>暑<rt>あつ</rt></ruby>いです。",
+      "options": [
+        "<ruby>対<rt>たい</rt></ruby>して",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "ついて",
+        "とって"
+      ],
+      "correct": "<ruby>比<rt>くら</rt></ruby>べて",
+      "explanation": "Compared with: に<ruby>比<rt>くら</rt></ruby>べて."
+    },
+    {
+      "prompt": "Complete: <ruby>英語<rt>えいご</rt></ruby>だけで＿＿、<ruby>中国語<rt>ちゅうごくご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。",
+      "options": [
+        "ない",
+        "あって",
+        "なく",
+        "いて"
+      ],
+      "correct": "なく",
+      "explanation": "Not only: だけでなく."
+    },
+    {
+      "prompt": "Complete: そんなこと、<ruby>子<rt>こ</rt></ruby>どもで＿＿<ruby>知<rt>し</rt></ruby>っています。 (even)",
+      "options": [
+        "だけ",
+        "ばかり",
+        "ほど",
+        "さえ"
+      ],
+      "correct": "さえ",
+      "explanation": "Even: さえ."
+    },
+    {
+      "prompt": "Complete: <ruby>時間<rt>じかん</rt></ruby>さえ＿＿、<ruby>旅行<rt>りょこう</rt></ruby>したいです。",
+      "options": [
+        "あれば",
+        "ある",
+        "あって",
+        "ない"
+      ],
+      "correct": "あれば",
+      "explanation": "If only: さえ〜ば."
+    },
+    {
+      "prompt": "Complete: <ruby>弟<rt>おとうと</rt></ruby>はゲームをして＿＿います。 (nothing but)",
+      "options": [
+        "さえ",
+        "ばかり",
+        "だけで",
+        "ほど"
+      ],
+      "correct": "ばかり",
+      "explanation": "Nothing but: てばかりいる."
+    },
+    {
+      "prompt": "Which word means \"to win\"?",
+      "options": [
+        "<ruby>負<rt>ま</rt></ruby>ける",
+        "<ruby>遊<rt>あそ</rt></ruby>ぶ",
+        "<ruby>勝<rt>か</rt></ruby>つ",
+        "<ruby>泳<rt>およ</rt></ruby>ぐ"
+      ],
+      "correct": "<ruby>勝<rt>か</rt></ruby>つ",
+      "explanation": "<ruby>勝<rt>か</rt></ruby>つ: to win."
+    },
+    {
+      "prompt": "How is 水泳⁠ read?",
+      "options": [
+        "みずおよぎ",
+        "すいよう",
+        "すえい",
+        "すいえい"
+      ],
+      "correct": "すいえい",
+      "explanation": "水泳⁠ is read すいえい."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence sounds like a complaint?",
+      "options": [
+        "うちの<ruby>子<rt>こ</rt></ruby>はテレビだけでなく、<ruby>本<rt>ほん</rt></ruby>も<ruby>読<rt>よ</rt></ruby>みます。",
+        "うちの<ruby>子<rt>こ</rt></ruby>はテレビを<ruby>見<rt>み</rt></ruby>ています。",
+        "うちの<ruby>子<rt>こ</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby><ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでいます。",
+        "うちの<ruby>子<rt>こ</rt></ruby>はテレビを<ruby>見<rt>み</rt></ruby>てばかりいます。"
+      ],
+      "correct": "うちの<ruby>子<rt>こ</rt></ruby>はテレビを<ruby>見<rt>み</rt></ruby>てばかりいます。",
+      "explanation": "てばかりいる: nothing but, critical."
+    },
+    {
+      "prompt": "What does <ruby>一点<rt>いってん</rt></ruby>さえとれませんでした mean?",
+      "options": [
+        "We couldn't score even one point.",
+        "We scored only one point.",
+        "We won by one point.",
+        "We didn't need a point."
+      ],
+      "correct": "We couldn't score even one point.",
+      "explanation": "さえ: even."
+    },
+    {
+      "prompt": "Complete: この<ruby>店<rt>みせ</rt></ruby>は<ruby>安<rt>やす</rt></ruby>い＿＿、おいしいです。 (not only)",
+      "options": [
+        "さえ",
+        "だけでなく",
+        "ばかりいて",
+        "ほど"
+      ],
+      "correct": "だけでなく",
+      "explanation": "Not only: だけでなく."
+    },
+    {
+      "prompt": "Read: お<ruby>金<rt>かね</rt></ruby>さえあれば、すぐ<ruby>買<rt>か</rt></ruby>いたいです。 Why doesn't Ana buy it?",
+      "options": [
+        "She doesn't want it.",
+        "She has no time.",
+        "She doesn't have the money.",
+        "It's sold out."
+      ],
+      "correct": "She doesn't have the money.",
+      "explanation": "さえ〜ば: if only."
+    },
+    {
+      "prompt": "Review: complete <ruby>練習<rt>れんしゅう</rt></ruby>すればする＿＿、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+      "options": [
+        "さえ",
+        "だけ",
+        "ばかり",
+        "ほど"
+      ],
+      "correct": "ほど",
+      "explanation": "The more: ば〜ほど."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-4-compared-to",
+    "japanese-n3-unit-4-the-more",
+    "japanese-n4-unit-3-and-also"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

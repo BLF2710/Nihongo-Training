@@ -1,6 +1,6 @@
 # NihonWeb
 
-A language-learning website with a Japanese N5–N4 course, Kana learning tools, practice games, and learner progression.
+A language-learning website with a Japanese N5–N3 course, Kana learning tools, practice games, and learner progression.
 
 ## Implemented
 
@@ -14,10 +14,10 @@ These features exist in the repository; this is not a claim that every edge case
 - [x] Units 2 and 3: six lessons each, vocabulary/grammar references, and unit assessments with level AND previous-unit completion requirements.
 - [x] Unit 1 vocabulary and grammar references for Lessons 1–5.
 - [x] Vocabulary list and flashcards with lesson filters and shuffle.
-- [x] Hiragana and Katakana learning pages with pronunciation, stroke-order viewing, and writing practice.
+- [x] Hiragana and Katakana learning pages with pronunciation, stroke-order viewing, writing practice, and an original picture-and-sound mnemonic for each of the 46 basic kana (`src/data/kanaMnemonics.ts`; voiced, contracted and extended kana build on these, so they have none).
 - [x] Hiragana and Katakana Speed Quizzes and character-performance statistics.
 - [x] Kana Review sessions using the existing character-statistics system.
-- [x] Course-linked Kanji reference, search/filters, per-user progress, shared flashcards, KanjiVG stroke animation, and meaning/reading/vocabulary practice (10 verified characters).
+- [x] Course-linked Kanji reference, search/filters, per-user progress, shared flashcards, KanjiVG stroke animation, one shared flip card for kanji pages, the flashcards screen and lesson pop-ups (detail pages add How to Draw / Write It! / Words tabs on one screen, Previous/Next within the chosen level and unit; source notes sit outside the card), and meaning/reading/vocabulary practice (10 verified characters).
 - [x] Dashboard and English game section.
 - [x] Messages between learners (by exact username, with block and report), Help & support requests with an admin support inbox, and a study assistant chat (migration `011_communication.sql`).
 - [x] Privacy policy at `/privacy` (readable signed out; linked from sign-in, sign-up and Settings). The text is data in `nihon-web/src/content/privacyPolicy.ts`: keep it true to what the code collects, and fill in `OPERATOR` (your name and a contact email) before launch.
@@ -40,6 +40,7 @@ These features exist in the repository; this is not a claim that every edge case
 - [x] Unit reviews use only the question bank, never the unit assessment's questions.
 - [x] Lesson data split by use: practice, challenge, concept and objectives of imported units load per unit when a lesson opens (`nihon-web/build-tools/courseLessonSplit.ts`); the rest of `shared/course/lessons.json` stays in the main bundle, so the other pages read it at once.
 - [x] N4 complete: 9 units (54 lessons, 147 new kanji, 250 in the course), unit assessments, an N4 mock exam and a review question bank (migration `021_n4_review_bank.sql`). Sources live in `docs/curriculum/n4/sources/`; listening, speaking and reading practice come from the lessons.
+- [x] N3 complete: 9 units (54 lessons, 270 new kanji, six per content lesson, 520 in the course), unit assessments, an N3 mock exam (40 questions, 60 minutes) and a review question bank (migration `031_n3_review_bank.sql`). Sources live in `docs/curriculum/n3/sources/`. N3 drops romaji and keeps furigana on every kanji. Not yet reviewed by a teacher.
 
 ### Study assistant configuration
 

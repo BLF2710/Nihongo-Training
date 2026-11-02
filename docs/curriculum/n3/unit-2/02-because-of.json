@@ -1,0 +1,532 @@
+{
+  "id": "japanese-n3-unit-2-because-of",
+  "slug": "n3-unit-2-because-of",
+  "unit": "Japanese N3 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Because of the Typhoon",
+  "title_jp": "〜ために・〜に よって",
+  "objectives": [
+    "I can give the cause of an event in a formal way.",
+    "Give a formal cause with 〜ため(に)",
+    "Say what decides or causes something with 〜によって",
+    "Talk about weather damage, traffic and islands"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>原因<rt>げんいん</rt></ruby>",
+      "",
+      "cause"
+    ],
+    [
+      "<ruby>交通<rt>こうつう</rt></ruby>",
+      "",
+      "traffic, transport"
+    ],
+    [
+      "<ruby>交通事故<rt>こうつうじこ</rt></ruby>",
+      "",
+      "traffic accident"
+    ],
+    [
+      "<ruby>害<rt>がい</rt></ruby>",
+      "",
+      "harm"
+    ],
+    [
+      "ひがい",
+      "",
+      "damage"
+    ],
+    [
+      "<ruby>波<rt>なみ</rt></ruby>",
+      "",
+      "wave"
+    ],
+    [
+      "つなみ",
+      "",
+      "tsunami"
+    ],
+    [
+      "<ruby>島<rt>しま</rt></ruby>",
+      "",
+      "island"
+    ],
+    [
+      "<ruby>台風<rt>たいふう</rt></ruby>",
+      "",
+      "typhoon"
+    ],
+    [
+      "<ruby>大雨<rt>おおあめ</rt></ruby>",
+      "",
+      "heavy rain"
+    ],
+    [
+      "〜ため(に)",
+      "",
+      "because of (formal)"
+    ],
+    [
+      "〜によって",
+      "",
+      "due to; depending on"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "原因",
+      "word_reading": "げんいん"
+    },
+    {
+      "word_japanese": "交通",
+      "word_reading": "こうつう"
+    },
+    {
+      "word_japanese": "交通事故",
+      "word_reading": "こうつうじこ"
+    },
+    {
+      "word_japanese": "害",
+      "word_reading": "がい"
+    },
+    {
+      "word_japanese": "波",
+      "word_reading": "なみ"
+    },
+    {
+      "word_japanese": "島",
+      "word_reading": "しま"
+    },
+    {
+      "word_japanese": "台風",
+      "word_reading": "たいふう"
+    },
+    {
+      "word_japanese": "大雨",
+      "word_reading": "おおあめ"
+    }
+  ],
+  "concept": {
+    "title": "Formal causes",
+    "text": "ため(に) after a noun with の or a plain form gives a cause. It sounds formal and is used in announcements and the news:\n\n<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっています。 Trains are stopped because of the typhoon.\n\nIn N4 you met ため(に) for purpose (in order to). Tell them apart by what follows: a cause is followed by a fact that happened, a purpose by something someone does on purpose.\n\nによって links a result to what decides it:\nじしんによって、<ruby>家<rt>いえ</rt></ruby>がこわれました。 Houses were destroyed by the earthquake.\n<ruby>国<rt>くに</rt></ruby>によって、ぶんかがちがいます。 Culture differs from country to country.",
+    "examples": [
+      "N の / plain form + ため(に) (cause)",
+      "N に よって / N に よる N",
+      "N に よっては (in some cases)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Because of: 〜ため(に)",
+      "pattern": "N の / plain form + ため(に)",
+      "explanation": "A formal way to give a cause. The result is a fact, never a request or a suggestion.",
+      "examples": [
+        {
+          "japanese": "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっています。",
+          "romaji": "",
+          "meaning": "Trains are stopped because of the typhoon."
+        },
+        {
+          "japanese": "<ruby>大雨<rt>おおあめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったために、<ruby>川<rt>かわ</rt></ruby>の<ruby>水<rt>みず</rt></ruby>がふえました。",
+          "romaji": "",
+          "meaning": "The river rose because of the heavy rain."
+        },
+        {
+          "japanese": "<ruby>事故<rt>じこ</rt></ruby>のため、<ruby>道<rt>みち</rt></ruby>がこんでいます。",
+          "romaji": "",
+          "meaning": "The road is busy because of an accident."
+        },
+        {
+          "japanese": "ねつがあるため、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。",
+          "romaji": "",
+          "meaning": "I'm taking today off because I have a fever."
+        }
+      ],
+      "notes": [
+        "Purpose (N4) or cause? ごうかくするために<ruby>勉強<rt>べんきょう</rt></ruby>する (in order to) / <ruby>雨<rt>あめ</rt></ruby>のために<ruby>中止<rt>ちゅうし</rt></ruby>になった (because of).",
+        "Announcements: 〜のため、〜ております."
+      ]
+    },
+    {
+      "title": "Due to, depending on: 〜によって",
+      "pattern": "N に よって / N に よる N",
+      "explanation": "によって names what causes a result (formal), or what makes things differ from case to case.",
+      "examples": [
+        {
+          "japanese": "じしんによって、<ruby>多<rt>おお</rt></ruby>くの<ruby>家<rt>いえ</rt></ruby>がこわれました。",
+          "romaji": "",
+          "meaning": "Many houses were destroyed by the earthquake."
+        },
+        {
+          "japanese": "<ruby>国<rt>くに</rt></ruby>によって、ぶんかがちがいます。",
+          "romaji": "",
+          "meaning": "Culture differs from country to country."
+        },
+        {
+          "japanese": "<ruby>人<rt>ひと</rt></ruby>によって、<ruby>考<rt>かんが</rt></ruby>え<ruby>方<rt>かた</rt></ruby>はちがいます。",
+          "romaji": "",
+          "meaning": "People think in different ways."
+        },
+        {
+          "japanese": "<ruby>台風<rt>たいふう</rt></ruby>によるひがいは<ruby>大<rt>おお</rt></ruby>きかったです。",
+          "romaji": "",
+          "meaning": "The damage caused by the typhoon was great."
+        }
+      ],
+      "notes": [
+        "によっては: in some cases. <ruby>日<rt>ひ</rt></ruby>によっては、<ruby>休<rt>やす</rt></ruby>みます (on some days, we're closed).",
+        "From N4: によって also names who made something: このえはピカソによってかかれました."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>はまだ<ruby>分<rt>わ</rt></ruby>かりません。",
+      "The cause of the accident isn't known yet."
+    ],
+    [
+      "この<ruby>町<rt>まち</rt></ruby>は<ruby>交通<rt>こうつう</rt></ruby>がべんりです。",
+      "Transport is convenient in this town."
+    ],
+    [
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>海<rt>うみ</rt></ruby>の<ruby>波<rt>なみ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。",
+      "The waves are high today."
+    ],
+    [
+      "おきなわには、きれいな<ruby>島<rt>しま</rt></ruby>がたくさんあります。",
+      "Okinawa has many beautiful islands."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>電車<rt>でんしゃ</rt></ruby>、まだ<ruby>来<rt>き</rt></ruby>ませんね。",
+      "けん",
+      "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>止<rt>と</rt></ruby>まっているそうです。"
+    ],
+    [
+      "リー",
+      "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。",
+      "マイ",
+      "まだしらべているところです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>はあついですか。",
+      "リン",
+      "ばしょによってちがいますよ。"
+    ],
+    [
+      "たなか",
+      "<ruby>島<rt>しま</rt></ruby>に<ruby>行<rt>い</rt></ruby>くふねは<ruby>出<rt>で</rt></ruby>ますか。",
+      "アナ",
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>波<rt>なみ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いため、<ruby>出<rt>で</rt></ruby>ないそうです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "原",
+      "onyomi": [
+        "ゲン"
+      ],
+      "kunyomi": [
+        "はら"
+      ],
+      "meaning_en": "origin; field",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "原因",
+          "reading": "げんいん",
+          "en": "cause"
+        },
+        {
+          "word": "原っぱ",
+          "reading": "はらっぱ",
+          "en": "open field"
+        }
+      ],
+      "mnemonic": "A spring (泉) under a cliff (厂): the source."
+    },
+    {
+      "char": "因",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [
+        "よ.る",
+        "ちな.む"
+      ],
+      "meaning_en": "cause",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "原因",
+          "reading": "げんいん",
+          "en": "cause"
+        },
+        {
+          "word": "要因",
+          "reading": "よういん",
+          "en": "factor"
+        }
+      ],
+      "mnemonic": "A person (大) shut in a box (囗): the cause of trouble."
+    },
+    {
+      "char": "害",
+      "onyomi": [
+        "ガイ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "harm",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "害",
+          "reading": "がい",
+          "en": "harm"
+        },
+        {
+          "word": "被害",
+          "reading": "ひがい",
+          "en": "damage"
+        }
+      ],
+      "mnemonic": "Words cut short (丰) under a roof (宀): harm done."
+    },
+    {
+      "char": "交",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "まじ.わる",
+        "まじ.える",
+        "ま.じる",
+        "まじ.る",
+        "ま.ざる",
+        "ま.ぜる",
+        "-か.う",
+        "か.わす",
+        "かわ.す",
+        "こもごも"
+      ],
+      "meaning_en": "mix, exchange",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "交通",
+          "reading": "こうつう",
+          "en": "traffic"
+        },
+        {
+          "word": "交換",
+          "reading": "こうかん",
+          "en": "exchange"
+        }
+      ],
+      "mnemonic": "A person with crossed legs: crossing."
+    },
+    {
+      "char": "波",
+      "onyomi": [
+        "ハ"
+      ],
+      "kunyomi": [
+        "なみ"
+      ],
+      "meaning_en": "wave",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "波",
+          "reading": "なみ",
+          "en": "wave"
+        },
+        {
+          "word": "津波",
+          "reading": "つなみ",
+          "en": "tsunami"
+        }
+      ],
+      "mnemonic": "Water (氵) with a skin (皮) on top: waves."
+    },
+    {
+      "char": "島",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "しま"
+      ],
+      "meaning_en": "island",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "島",
+          "reading": "しま",
+          "en": "island"
+        },
+        {
+          "word": "半島",
+          "reading": "はんとう",
+          "en": "peninsula"
+        }
+      ],
+      "mnemonic": "A bird (鳥) resting on a mountain (山) in the sea."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>先生<rt>せんせい</rt></ruby>の＿＿、ごうかくできました。",
+      "options": [
+        "せいで",
+        "ために",
+        "おかげで",
+        "によって"
+      ],
+      "correct": "おかげで",
+      "explanation": "A good result: おかげで."
+    },
+    {
+      "prompt": "Complete: <ruby>台風<rt>たいふう</rt></ruby>の＿＿、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっています。",
+      "options": [
+        "おかげ",
+        "よって",
+        "うち",
+        "ため"
+      ],
+      "correct": "ため",
+      "explanation": "A formal cause: ため."
+    },
+    {
+      "prompt": "Complete: <ruby>国<rt>くに</rt></ruby>＿＿、ぶんかがちがいます。",
+      "options": [
+        "によって",
+        "のために",
+        "のおかげで",
+        "のせいで"
+      ],
+      "correct": "によって",
+      "explanation": "It differs depending on: によって."
+    },
+    {
+      "prompt": "Which sentence gives a cause?",
+      "options": [
+        "ごうかくするために、<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "<ruby>雨<rt>あめ</rt></ruby>のために、<ruby>中止<rt>ちゅうし</rt></ruby>になりました。",
+        "<ruby>家族<rt>かぞく</rt></ruby>のために、<ruby>料理<rt>りょうり</rt></ruby>します。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すために、りゅうがくします。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>のために、<ruby>中止<rt>ちゅうし</rt></ruby>になりました。",
+      "explanation": "A cause is followed by a fact that happened."
+    },
+    {
+      "prompt": "Which word means \"cause\"?",
+      "options": [
+        "<ruby>交通<rt>こうつう</rt></ruby>",
+        "ひがい",
+        "<ruby>原因<rt>げんいん</rt></ruby>",
+        "<ruby>台風<rt>たいふう</rt></ruby>"
+      ],
+      "correct": "<ruby>原因<rt>げんいん</rt></ruby>",
+      "explanation": "<ruby>原因<rt>げんいん</rt></ruby>: cause."
+    },
+    {
+      "prompt": "How is 交通⁠ read?",
+      "options": [
+        "こうとお",
+        "まじつう",
+        "こつう",
+        "こうつう"
+      ],
+      "correct": "こうつう",
+      "explanation": "交通⁠ is read こうつう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>人<rt>ひと</rt></ruby>によって、<ruby>考<rt>かんが</rt></ruby>え<ruby>方<rt>かた</rt></ruby>はちがいます。",
+      "options": [
+        "People think in different ways.",
+        "People are changed by thinking.",
+        "Everyone thinks the same way.",
+        "I think about people a lot."
+      ],
+      "correct": "People think in different ways.",
+      "explanation": "によって: it differs from person to person."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "On a platform you hear <ruby>事故<rt>じこ</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れております。 What does it mean?",
+      "options": [
+        "The train is delayed because of an accident.",
+        "The train will stop for an accident drill.",
+        "The train is early today.",
+        "Please be careful of accidents."
+      ],
+      "correct": "The train is delayed because of an accident.",
+      "explanation": "Cause: 〜のため."
+    },
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>雨<rt>あめ</rt></ruby>のため、しあいは<ruby>中止<rt>ちゅうし</rt></ruby>です。",
+        "<ruby>雨<rt>あめ</rt></ruby>のため、かさを<ruby>持<rt>も</rt></ruby>ってきてください。",
+        "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>店<rt>みせ</rt></ruby>が<ruby>休<rt>やす</rt></ruby>みです。",
+        "<ruby>事故<rt>じこ</rt></ruby>のため、<ruby>道<rt>みち</rt></ruby>がこんでいます。"
+      ],
+      "correct": "<ruby>雨<rt>あめ</rt></ruby>のため、かさを<ruby>持<rt>も</rt></ruby>ってきてください。",
+      "explanation": "A cause with ため is not followed by a request."
+    },
+    {
+      "prompt": "Complete: <ruby>日<rt>ひ</rt></ruby>に＿＿、<ruby>休<rt>やす</rt></ruby>みます。 (on some days)",
+      "options": [
+        "よって",
+        "ため",
+        "よっては",
+        "おかげで"
+      ],
+      "correct": "よっては",
+      "explanation": "によっては: in some cases."
+    },
+    {
+      "prompt": "Read: <ruby>今日<rt>きょう</rt></ruby>は<ruby>波<rt>なみ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いため、<ruby>出<rt>で</rt></ruby>ないそうです。 Why won't the boat leave?",
+      "options": [
+        "There is a typhoon.",
+        "Nobody bought a ticket.",
+        "The island is closed.",
+        "The waves are high."
+      ],
+      "correct": "The waves are high.",
+      "explanation": "<ruby>波<rt>なみ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いため."
+    },
+    {
+      "prompt": "Review (N4): complete このえはピカソ＿＿かかれました。",
+      "options": [
+        "によって",
+        "のために",
+        "のせいで",
+        "のおかげで"
+      ],
+      "correct": "によって",
+      "explanation": "Who made it: によって."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-2-thanks-to",
+    "japanese-n4-unit-5-in-order-to",
+    "japanese-n4-unit-8-was-made"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

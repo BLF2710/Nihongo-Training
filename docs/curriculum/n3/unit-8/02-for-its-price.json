@@ -1,0 +1,539 @@
+{
+  "id": "japanese-n3-unit-8-for-its-price",
+  "slug": "n3-unit-8-for-its-price",
+  "unit": "Japanese N3 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Cheap for Its Size",
+  "title_jp": "〜わりに",
+  "objectives": [
+    "I can say something is more or less than expected.",
+    "Weigh something against expectations with 〜わりに(は)",
+    "Judge something against a standard with 〜にしては",
+    "Talk about age, discounts, pay, goods and costs"
+  ],
+  "vocabulary": [
+    [
+      "〜<ruby>歳<rt>さい</rt></ruby>",
+      "",
+      "… years old"
+    ],
+    [
+      "<ruby>二十歳<rt>はたち</rt></ruby>",
+      "",
+      "twenty years old"
+    ],
+    [
+      "<ruby>割<rt>わ</rt></ruby>る",
+      "",
+      "to break; to divide"
+    ],
+    [
+      "<ruby>割引<rt>わりびき</rt></ruby>",
+      "",
+      "discount"
+    ],
+    [
+      "<ruby>給料<rt>きゅうりょう</rt></ruby>",
+      "",
+      "salary, pay"
+    ],
+    [
+      "<ruby>商品<rt>しょうひん</rt></ruby>",
+      "",
+      "goods, product"
+    ],
+    [
+      "<ruby>低<rt>ひく</rt></ruby>い",
+      "",
+      "low; short"
+    ],
+    [
+      "<ruby>最低<rt>さいてい</rt></ruby>",
+      "",
+      "the lowest; the worst"
+    ],
+    [
+      "<ruby>費用<rt>ひよう</rt></ruby>",
+      "",
+      "cost, expenses"
+    ],
+    [
+      "<ruby>交通費<rt>こうつうひ</rt></ruby>",
+      "",
+      "travel expenses"
+    ],
+    [
+      "〜わりに(は)",
+      "",
+      "for, considering"
+    ],
+    [
+      "〜にしては",
+      "",
+      "for (a …)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "二十歳",
+      "word_reading": "はたち"
+    },
+    {
+      "word_japanese": "割る",
+      "word_reading": "わる"
+    },
+    {
+      "word_japanese": "割引",
+      "word_reading": "わりびき"
+    },
+    {
+      "word_japanese": "給料",
+      "word_reading": "きゅうりょう"
+    },
+    {
+      "word_japanese": "商品",
+      "word_reading": "しょうひん"
+    },
+    {
+      "word_japanese": "低い",
+      "word_reading": "ひくい"
+    },
+    {
+      "word_japanese": "最低",
+      "word_reading": "さいてい"
+    },
+    {
+      "word_japanese": "費用",
+      "word_reading": "ひよう"
+    },
+    {
+      "word_japanese": "交通費",
+      "word_reading": "こうつうひ"
+    }
+  ],
+  "concept": {
+    "title": "For, considering",
+    "text": "わりに(は) says the result doesn't match what you'd expect from something:\nこの<ruby>店<rt>みせ</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>のわりに、おいしいです。 This place is good for the price.\n<ruby>年<rt>とし</rt></ruby>のわりに<ruby>若<rt>わか</rt></ruby>く<ruby>見<rt>み</rt></ruby>えます。 She looks young for her age.\n\nにしては is similar, but compares with a standard for a specific case. It follows a noun or a verb, not an adjective:\n<ruby>初<rt>はじ</rt></ruby>めてにしては、<ruby>上手<rt>じょうず</rt></ruby>ですね。 That's good for a first try.\n<ruby>日本<rt>にほん</rt></ruby>に<ruby>三年<rt>さんねん</rt></ruby><ruby>住<rt>す</rt></ruby>んでいたにしては、<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>だ。 For someone who lived in Japan for three years, his Japanese is poor.\n\nわりに works with words of degree (price, age, size); にしては with a specific fact.",
+    "examples": [
+      "N の / plain form + わりに(は)",
+      "な-adj な わりに",
+      "N / plain verb + にしては"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "For, considering: 〜わりに(は)",
+      "pattern": "N の / い-adj / な-adj な / V + わりに(は)",
+      "explanation": "The result is more or less than you'd expect from something's degree: price, age, size, effort.",
+      "examples": [
+        {
+          "japanese": "この<ruby>店<rt>みせ</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>のわりに、おいしいです。",
+          "romaji": "",
+          "meaning": "This place is good for the price."
+        },
+        {
+          "japanese": "<ruby>母<rt>はは</rt></ruby>は<ruby>年<rt>とし</rt></ruby>のわりに<ruby>若<rt>わか</rt></ruby>く<ruby>見<rt>み</rt></ruby>えます。",
+          "romaji": "",
+          "meaning": "My mother looks young for her age."
+        },
+        {
+          "japanese": "この<ruby>仕事<rt>しごと</rt></ruby>は<ruby>大変<rt>たいへん</rt></ruby>なわりに、<ruby>給料<rt>きゅうりょう</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "This job is hard but the pay is low."
+        },
+        {
+          "japanese": "あまり<ruby>勉強<rt>べんきょう</rt></ruby>しなかったわりには、いい<ruby>点<rt>てん</rt></ruby>でした。",
+          "romaji": "",
+          "meaning": "I got a good mark, considering I didn't study much."
+        }
+      ],
+      "notes": [
+        "Also used alone as an adverb: わりにかんたんだった (it was fairly easy)."
+      ]
+    },
+    {
+      "title": "For (a …): 〜にしては",
+      "pattern": "N / plain verb + にしては",
+      "explanation": "Compared with what you'd expect of that specific case.",
+      "examples": [
+        {
+          "japanese": "<ruby>初<rt>はじ</rt></ruby>めてにしては、<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+          "romaji": "",
+          "meaning": "That's good for a first try."
+        },
+        {
+          "japanese": "<ruby>十二月<rt>じゅうにがつ</rt></ruby>にしては、あたたかいですね。",
+          "romaji": "",
+          "meaning": "It's warm for December."
+        },
+        {
+          "japanese": "<ruby>小学生<rt>しょうがくせい</rt></ruby>にしては、せが<ruby>高<rt>たか</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "He's tall for a primary school pupil."
+        },
+        {
+          "japanese": "<ruby>三年<rt>さんねん</rt></ruby><ruby>住<rt>す</rt></ruby>んでいたにしては、<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>だ。",
+          "romaji": "",
+          "meaning": "For someone who lived here three years, his Japanese is poor."
+        }
+      ],
+      "notes": [
+        "にしては does not follow adjectives: ✗ <ruby>安<rt>やす</rt></ruby>いにしては.",
+        "The speaker isn't the subject: ✗ わたしにしては (except in fixed uses)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>弟<rt>おとうと</rt></ruby>は<ruby>今年<rt>ことし</rt></ruby><ruby>二十歳<rt>はたち</rt></ruby>になります。",
+      "My younger brother turns twenty this year."
+    ],
+    [
+      "<ruby>学生<rt>がくせい</rt></ruby>は<ruby>二割<rt>にわり</rt></ruby>の<ruby>割引<rt>わりびき</rt></ruby>があります。",
+      "Students get a twenty per cent discount."
+    ],
+    [
+      "この<ruby>店<rt>みせ</rt></ruby>の<ruby>商品<rt>しょうひん</rt></ruby>はどれも<ruby>安<rt>やす</rt></ruby>いです。",
+      "Everything in this shop is cheap."
+    ],
+    [
+      "<ruby>交通費<rt>こうつうひ</rt></ruby>は<ruby>会社<rt>かいしゃ</rt></ruby>が<ruby>払<rt>はら</rt></ruby>ってくれます。",
+      "The company pays my travel expenses."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "このレストラン、どうでしたか。",
+      "けん",
+      "<ruby>値段<rt>ねだん</rt></ruby>のわりに、<ruby>量<rt>りょう</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くてよかったですよ。"
+    ],
+    [
+      "リー",
+      "マイさん、テニス<ruby>初<rt>はじ</rt></ruby>めてなんですか。",
+      "マイ",
+      "はい。<ruby>初<rt>はじ</rt></ruby>めてにしては<ruby>上手<rt>じょうず</rt></ruby>だと<ruby>言<rt>い</rt></ruby>われました。"
+    ],
+    [
+      "ゆき",
+      "<ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>はどうですか。",
+      "リン",
+      "いそがしいわりに、<ruby>給料<rt>きゅうりょう</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>くて……"
+    ],
+    [
+      "たなか",
+      "このコート、<ruby>二割引<rt>にわりびき</rt></ruby>ですよ。",
+      "アナ",
+      "<ruby>割引<rt>わりびき</rt></ruby>にしては、まだ<ruby>高<rt>たか</rt></ruby>いですね。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "歳",
+      "onyomi": [
+        "サイ",
+        "セイ"
+      ],
+      "kunyomi": [
+        "とし",
+        "とせ",
+        "よわい"
+      ],
+      "meaning_en": "year of age",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "歳",
+          "reading": "さい",
+          "en": "years old"
+        },
+        {
+          "word": "二十歳",
+          "reading": "はたち",
+          "en": "twenty years old"
+        }
+      ],
+      "mnemonic": "Footsteps (止) and a halberd (戈) marking the passing years."
+    },
+    {
+      "char": "割",
+      "onyomi": [
+        "カツ"
+      ],
+      "kunyomi": [
+        "わ.る",
+        "わり",
+        "わ.り",
+        "わ.れる",
+        "さ.く"
+      ],
+      "meaning_en": "divide",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "割る",
+          "reading": "わる",
+          "en": "to break"
+        },
+        {
+          "word": "割引",
+          "reading": "わりびき",
+          "en": "discount"
+        }
+      ],
+      "mnemonic": "A knife (刂) that cuts the harm (害) into parts."
+    },
+    {
+      "char": "給",
+      "onyomi": [
+        "キュウ"
+      ],
+      "kunyomi": [
+        "たま.う",
+        "たも.う",
+        "-たま.え"
+      ],
+      "meaning_en": "pay; supply",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "給料",
+          "reading": "きゅうりょう",
+          "en": "salary"
+        },
+        {
+          "word": "月給",
+          "reading": "げっきゅう",
+          "en": "monthly pay"
+        }
+      ],
+      "mnemonic": "Thread (糸) joined together (合): supply what is needed."
+    },
+    {
+      "char": "商",
+      "onyomi": [
+        "ショウ"
+      ],
+      "kunyomi": [
+        "あきな.う"
+      ],
+      "meaning_en": "trade",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "商品",
+          "reading": "しょうひん",
+          "en": "goods"
+        },
+        {
+          "word": "商売",
+          "reading": "しょうばい",
+          "en": "business"
+        }
+      ],
+      "mnemonic": "A stall with goods under a roof where people talk (口): trade."
+    },
+    {
+      "char": "低",
+      "onyomi": [
+        "テイ"
+      ],
+      "kunyomi": [
+        "ひく.い",
+        "ひく.める",
+        "ひく.まる"
+      ],
+      "meaning_en": "low",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "低い",
+          "reading": "ひくい",
+          "en": "low"
+        },
+        {
+          "word": "最低",
+          "reading": "さいてい",
+          "en": "the lowest"
+        }
+      ],
+      "mnemonic": "A person (亻) at the bottom (氐): low."
+    },
+    {
+      "char": "費",
+      "onyomi": [
+        "ヒ"
+      ],
+      "kunyomi": [
+        "つい.やす",
+        "つい.える"
+      ],
+      "meaning_en": "expense",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "費用",
+          "reading": "ひよう",
+          "en": "cost"
+        },
+        {
+          "word": "交通費",
+          "reading": "こうつうひ",
+          "en": "travel expenses"
+        }
+      ],
+      "mnemonic": "Money (貝) that does not (弗) stay: expenses."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>先生<rt>せんせい</rt></ruby>＿＿くせに、<ruby>漢字<rt>かんじ</rt></ruby>をよく<ruby>間違<rt>まちが</rt></ruby>える。",
+      "options": [
+        "な",
+        "だ",
+        "の",
+        "に"
+      ],
+      "correct": "の",
+      "explanation": "N の くせに."
+    },
+    {
+      "prompt": "Complete: この<ruby>店<rt>みせ</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>の＿＿、おいしいです。",
+      "options": [
+        "くせに",
+        "にしては",
+        "ために",
+        "わりに"
+      ],
+      "correct": "わりに",
+      "explanation": "For the price: のわりに."
+    },
+    {
+      "prompt": "Complete: <ruby>初<rt>はじ</rt></ruby>めて＿＿、<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+      "options": [
+        "にしては",
+        "のわりに",
+        "くせに",
+        "として"
+      ],
+      "correct": "にしては",
+      "explanation": "For a first try: にしては."
+    },
+    {
+      "prompt": "Complete: この<ruby>仕事<rt>しごと</rt></ruby>は<ruby>大変<rt>たいへん</rt></ruby>な＿＿、<ruby>給料<rt>きゅうりょう</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>いです。",
+      "options": [
+        "にしては",
+        "わりに",
+        "くせに",
+        "ので"
+      ],
+      "correct": "わりに",
+      "explanation": "な-adj な わりに."
+    },
+    {
+      "prompt": "Which word means \"discount\"?",
+      "options": [
+        "<ruby>給料<rt>きゅうりょう</rt></ruby>",
+        "<ruby>費用<rt>ひよう</rt></ruby>",
+        "<ruby>割引<rt>わりびき</rt></ruby>",
+        "<ruby>商品<rt>しょうひん</rt></ruby>"
+      ],
+      "correct": "<ruby>割引<rt>わりびき</rt></ruby>",
+      "explanation": "<ruby>割引<rt>わりびき</rt></ruby>: discount."
+    },
+    {
+      "prompt": "How is 二十歳⁠ read?",
+      "options": [
+        "にじゅっさい",
+        "にじゅうとし",
+        "ふたとせ",
+        "はたち"
+      ],
+      "correct": "はたち",
+      "explanation": "二十歳⁠ is usually read はたち."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>交通費<rt>こうつうひ</rt></ruby>は<ruby>会社<rt>かいしゃ</rt></ruby>が<ruby>払<rt>はら</rt></ruby>ってくれます。",
+      "options": [
+        "The company pays my travel expenses.",
+        "I pay the company's travel expenses.",
+        "The company doesn't pay travel expenses.",
+        "Travel is cheap for the company."
+      ],
+      "correct": "The company pays my travel expenses.",
+      "explanation": "<ruby>交通費<rt>こうつうひ</rt></ruby>: travel expenses."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>安<rt>やす</rt></ruby>いにしては、おいしいです。",
+        "<ruby>安<rt>やす</rt></ruby>いわりに、おいしいです。",
+        "<ruby>値段<rt>ねだん</rt></ruby>のわりに、おいしいです。",
+        "<ruby>初<rt>はじ</rt></ruby>めてにしては、おいしいです。"
+      ],
+      "correct": "<ruby>安<rt>やす</rt></ruby>いにしては、おいしいです。",
+      "explanation": "にしては does not follow adjectives."
+    },
+    {
+      "prompt": "What does <ruby>母<rt>はは</rt></ruby>は<ruby>年<rt>とし</rt></ruby>のわりに<ruby>若<rt>わか</rt></ruby>く<ruby>見<rt>み</rt></ruby>えます mean?",
+      "options": [
+        "My mother is young.",
+        "My mother looks young for her age.",
+        "My mother looks older than she is.",
+        "My mother wants to look young."
+      ],
+      "correct": "My mother looks young for her age.",
+      "explanation": "わりに: for."
+    },
+    {
+      "prompt": "Which word means \"salary\"?",
+      "options": [
+        "<ruby>割引<rt>わりびき</rt></ruby>",
+        "<ruby>商品<rt>しょうひん</rt></ruby>",
+        "<ruby>給料<rt>きゅうりょう</rt></ruby>",
+        "<ruby>交通費<rt>こうつうひ</rt></ruby>"
+      ],
+      "correct": "<ruby>給料<rt>きゅうりょう</rt></ruby>",
+      "explanation": "<ruby>給料<rt>きゅうりょう</rt></ruby>: salary."
+    },
+    {
+      "prompt": "Read: いそがしいわりに、<ruby>給料<rt>きゅうりょう</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>くて…… What does Lin think of her job?",
+      "options": [
+        "It's quiet and pays well.",
+        "It's busy and pays well.",
+        "She has no job.",
+        "It's busy but the pay is low."
+      ],
+      "correct": "It's busy but the pay is low.",
+      "explanation": "わりに: less than expected."
+    },
+    {
+      "prompt": "Review (Unit 7): complete <ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れる＿＿いいな。",
+      "options": [
+        "と",
+        "わりに",
+        "くせに",
+        "のに"
+      ],
+      "correct": "と",
+      "explanation": "I hope: 〜といいな."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-8-even-though-he",
+    "japanese-n3-unit-7-i-wish",
+    "japanese-n3-unit-4-compared-to"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -59,7 +59,7 @@ opt new level
   Gam -> Notif : notifyLevelUp()
 end
 Notif -> DB : save notifications
-Notif --> Web : «Observer» publish → bell updates in every open tab
+Notif -> Web : «Observer» publish → bell updates in every open tab
 Ctrl --> Web : completion, achievements, reward
 Web --> Learner : "+XP" pop-up, level up / achievement
 Web -> Ctrl : POST /api/mistakes/lessons/:lessonId (challenge answers)

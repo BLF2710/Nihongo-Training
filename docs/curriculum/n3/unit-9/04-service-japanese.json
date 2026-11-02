@@ -1,0 +1,533 @@
+{
+  "id": "japanese-n3-unit-9-service-japanese",
+  "slug": "n3-unit-9-service-japanese",
+  "unit": "Japanese N3 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "At Your Service",
+  "title_jp": "〜させて いただく",
+  "objectives": [
+    "I can follow and use polite service Japanese.",
+    "Humbly say what you will do with 〜させていただく",
+    "Make a polite request with お/ご〜ください",
+    "Talk about customers, receptions, requests and confirmations"
+  ],
+  "vocabulary": [
+    [
+      "ないよう",
+      "",
+      "content(s)"
+    ],
+    [
+      "<ruby>美容院<rt>びよういん</rt></ruby>",
+      "",
+      "hair salon"
+    ],
+    [
+      "お<ruby>客様<rt>きゃくさま</rt></ruby>",
+      "",
+      "customer, guest (polite)"
+    ],
+    [
+      "<ruby>客<rt>きゃく</rt></ruby>",
+      "",
+      "customer, guest"
+    ],
+    [
+      "<ruby>様子<rt>ようす</rt></ruby>",
+      "",
+      "state, appearance"
+    ],
+    [
+      "<ruby>受<rt>う</rt></ruby>ける",
+      "",
+      "to receive; to take (an exam)"
+    ],
+    [
+      "<ruby>受付<rt>うけつけ</rt></ruby>",
+      "",
+      "reception"
+    ],
+    [
+      "<ruby>求<rt>もと</rt></ruby>める",
+      "",
+      "to ask for, to seek"
+    ],
+    [
+      "<ruby>確認<rt>かくにん</rt></ruby>",
+      "",
+      "confirmation, check (+ する: to check)"
+    ],
+    [
+      "<ruby>認<rt>みと</rt></ruby>める",
+      "",
+      "to admit, to accept"
+    ],
+    [
+      "〜させていただく",
+      "",
+      "(humbly) do"
+    ],
+    [
+      "お / ご〜ください",
+      "",
+      "please (very polite)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "美容院",
+      "word_reading": "びよういん"
+    },
+    {
+      "word_japanese": "お客様",
+      "word_reading": "おきゃくさま"
+    },
+    {
+      "word_japanese": "客",
+      "word_reading": "きゃく"
+    },
+    {
+      "word_japanese": "様子",
+      "word_reading": "ようす"
+    },
+    {
+      "word_japanese": "受ける",
+      "word_reading": "うける"
+    },
+    {
+      "word_japanese": "受付",
+      "word_reading": "うけつけ"
+    },
+    {
+      "word_japanese": "求める",
+      "word_reading": "もとめる"
+    },
+    {
+      "word_japanese": "確認",
+      "word_reading": "かくにん"
+    },
+    {
+      "word_japanese": "認める",
+      "word_reading": "みとめる"
+    }
+  ],
+  "concept": {
+    "title": "Service Japanese",
+    "text": "In shops, offices and announcements, staff use special polite forms.\n\nV-させて いただく: humbly say what you will do (literally, \"receive permission to do\"):\n<ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませていただきます。 We are closed today.\nしりょうを<ruby>確認<rt>かくにん</rt></ruby>させていただきます。 Let me check the documents.\nGroup 1: <ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>ませて; Group 2: <ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べさせて; する → させて.\n\nお + V-stem + ください (Japanese-origin verbs), ご + する-noun + ください (Chinese-origin nouns):\nお<ruby>待<rt>ま</rt></ruby>ちください。 Please wait.\nご<ruby>確認<rt>かくにん</rt></ruby>ください。 Please check.\nご<ruby>注意<rt>ちゅうい</rt></ruby>ください。 Please be careful.\n\nYou'll hear these in shops and on trains, and use させていただく in job interviews and at work.",
+    "examples": [
+      "V-させて いただく",
+      "お + V-stem + ください",
+      "ご + する-noun + ください"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "(Humbly) do: 〜させていただく",
+      "pattern": "causative V-て + いただく",
+      "explanation": "A very humble way to say what you are going to do.",
+      "examples": [
+        {
+          "japanese": "<ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませていただきます。",
+          "romaji": "",
+          "meaning": "We are closed today."
+        },
+        {
+          "japanese": "しりょうを<ruby>確認<rt>かくにん</rt></ruby>させていただきます。",
+          "romaji": "",
+          "meaning": "Let me check the documents."
+        },
+        {
+          "japanese": "じこしょうかいさせていただきます。",
+          "romaji": "",
+          "meaning": "Allow me to introduce myself."
+        },
+        {
+          "japanese": "<ruby>申<rt>もう</rt></ruby>しわけありませんが、<ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>らせていただけませんか。",
+          "romaji": "",
+          "meaning": "I'm sorry, but may I leave early today?"
+        }
+      ],
+      "notes": [
+        "As a request: させていただけませんか (may I…?).",
+        "Overusing it can sound stiff."
+      ]
+    },
+    {
+      "title": "Please (very polite): お / ご〜ください",
+      "pattern": "お + V-stem + ください / ご + する-noun + ください",
+      "explanation": "A very polite request, common in shops, stations and notices.",
+      "examples": [
+        {
+          "japanese": "しょうしょうお<ruby>待<rt>ま</rt></ruby>ちください。",
+          "romaji": "",
+          "meaning": "Please wait a moment."
+        },
+        {
+          "japanese": "ないようをご<ruby>確認<rt>かくにん</rt></ruby>ください。",
+          "romaji": "",
+          "meaning": "Please check the contents."
+        },
+        {
+          "japanese": "あしもとにご<ruby>注意<rt>ちゅうい</rt></ruby>ください。",
+          "romaji": "",
+          "meaning": "Please mind your step."
+        },
+        {
+          "japanese": "こちらにお<ruby>名前<rt>なまえ</rt></ruby>をお<ruby>書<rt>か</rt></ruby>きください。",
+          "romaji": "",
+          "meaning": "Please write your name here."
+        }
+      ],
+      "notes": [
+        "お for Japanese-origin verbs (<ruby>待<rt>ま</rt></ruby>つ, <ruby>書<rt>か</rt></ruby>く); ご for する-nouns (<ruby>確認<rt>かくにん</rt></ruby>, <ruby>注意<rt>ちゅうい</rt></ruby>).",
+        "Not used with verbs that have special honorifics: ✗ お<ruby>見<rt>み</rt></ruby>ください → ごらんください."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "メールのないようを<ruby>確認<rt>かくにん</rt></ruby>してください。",
+      "Please check the contents of the email."
+    ],
+    [
+      "<ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>試験<rt>しけん</rt></ruby>を<ruby>受<rt>う</rt></ruby>けます。",
+      "I'm taking a Japanese exam next week."
+    ],
+    [
+      "お<ruby>客様<rt>きゃくさま</rt></ruby>、こちらへどうぞ。",
+      "This way, please, sir / madam."
+    ],
+    [
+      "<ruby>彼<rt>かれ</rt></ruby>は<ruby>自分<rt>じぶん</rt></ruby>の<ruby>間違<rt>まちが</rt></ruby>いを<ruby>認<rt>みと</rt></ruby>めました。",
+      "He admitted his mistake."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、たなかさんに<ruby>会<rt>あ</rt></ruby>いに<ruby>来<rt>き</rt></ruby>たんですが。",
+      "たなか",
+      "<ruby>受付<rt>うけつけ</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>いたします。しょうしょうお<ruby>待<rt>ま</rt></ruby>ちください。"
+    ],
+    [
+      "けん",
+      "めんせつ、どうでしたか。",
+      "リー",
+      "<ruby>最初<rt>さいしょ</rt></ruby>に「じこしょうかいさせていただきます」と<ruby>言<rt>い</rt></ruby>いました。"
+    ],
+    [
+      "マイ",
+      "このお<ruby>店<rt>みせ</rt></ruby>、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みですか。",
+      "ゆき",
+      "ええ、「<ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませていただきます」と<ruby>書<rt>か</rt></ruby>いてあります。"
+    ],
+    [
+      "リン",
+      "どこでかみを<ruby>切<rt>き</rt></ruby>っていますか。",
+      "アナ",
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>美容院<rt>びよういん</rt></ruby>です。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "容",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [
+        "い.れる"
+      ],
+      "meaning_en": "contain; appearance",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "内容",
+          "reading": "ないよう",
+          "en": "contents"
+        },
+        {
+          "word": "美容院",
+          "reading": "びよういん",
+          "en": "hair salon"
+        }
+      ],
+      "mnemonic": "A valley (谷) under a roof (宀): it can hold a lot."
+    },
+    {
+      "char": "様",
+      "onyomi": [
+        "ヨウ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "さま",
+        "さん"
+      ],
+      "meaning_en": "Mr / Ms; manner",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "お客様",
+          "reading": "おきゃくさま",
+          "en": "customer"
+        },
+        {
+          "word": "様子",
+          "reading": "ようす",
+          "en": "state"
+        }
+      ],
+      "mnemonic": "A tree (木) as fine as a sheep (羊) in water (水): a polite form."
+    },
+    {
+      "char": "客",
+      "onyomi": [
+        "キャク",
+        "カク"
+      ],
+      "kunyomi": [],
+      "meaning_en": "guest",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "客",
+          "reading": "きゃく",
+          "en": "guest"
+        },
+        {
+          "word": "観光客",
+          "reading": "かんこうきゃく",
+          "en": "tourist"
+        }
+      ],
+      "mnemonic": "Each (各) person who comes under the roof (宀): a guest."
+    },
+    {
+      "char": "受",
+      "onyomi": [
+        "ジュ"
+      ],
+      "kunyomi": [
+        "う.ける",
+        "-う.け",
+        "う.かる"
+      ],
+      "meaning_en": "receive",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "受ける",
+          "reading": "うける",
+          "en": "to receive"
+        },
+        {
+          "word": "受付",
+          "reading": "うけつけ",
+          "en": "reception"
+        }
+      ],
+      "mnemonic": "A hand from above passing something to a hand below."
+    },
+    {
+      "char": "求",
+      "onyomi": [
+        "キュウ",
+        "グ"
+      ],
+      "kunyomi": [
+        "もと.める"
+      ],
+      "meaning_en": "request",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "求める",
+          "reading": "もとめる",
+          "en": "to seek"
+        },
+        {
+          "word": "要求",
+          "reading": "ようきゅう",
+          "en": "demand"
+        }
+      ],
+      "mnemonic": "A fur coat everyone wants: seeking."
+    },
+    {
+      "char": "認",
+      "onyomi": [
+        "ニン"
+      ],
+      "kunyomi": [
+        "みと.める",
+        "したた.める"
+      ],
+      "meaning_en": "recognise",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "確認",
+          "reading": "かくにん",
+          "en": "confirmation"
+        },
+        {
+          "word": "認める",
+          "reading": "みとめる",
+          "en": "to admit"
+        }
+      ],
+      "mnemonic": "Words (言) you endure (忍) to accept: recognise."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete おきなわは<ruby>一年<rt>いちねん</rt></ruby>を＿＿あたたかいです。",
+      "options": [
+        "<ruby>通<rt>とお</rt></ruby>して",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "<ruby>対<rt>たい</rt></ruby>して",
+        "ついて"
+      ],
+      "correct": "<ruby>通<rt>とお</rt></ruby>して",
+      "explanation": "Throughout: を<ruby>通<rt>とお</rt></ruby>して."
+    },
+    {
+      "prompt": "Complete: <ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませて＿＿ます。",
+      "options": [
+        "くださり",
+        "いただき",
+        "あげ",
+        "もらい"
+      ],
+      "correct": "いただき",
+      "explanation": "Humbly do: させていただく."
+    },
+    {
+      "prompt": "Complete: しょうしょうお<ruby>待<rt>ま</rt></ruby>ち＿＿。",
+      "options": [
+        "いただきます",
+        "なさい",
+        "ください",
+        "させます"
+      ],
+      "correct": "ください",
+      "explanation": "Please: お〜ください."
+    },
+    {
+      "prompt": "Complete: ないようを＿＿<ruby>確認<rt>かくにん</rt></ruby>ください。",
+      "options": [
+        "お",
+        "ご<ruby>確認<rt>かくにん</rt></ruby>",
+        "お<ruby>確認<rt>かくにん</rt></ruby>",
+        "ご"
+      ],
+      "correct": "ご",
+      "explanation": "する-nouns take ご."
+    },
+    {
+      "prompt": "Which word means \"reception\"?",
+      "options": [
+        "<ruby>受付<rt>うけつけ</rt></ruby>",
+        "ないよう",
+        "<ruby>様子<rt>ようす</rt></ruby>",
+        "<ruby>確認<rt>かくにん</rt></ruby>"
+      ],
+      "correct": "<ruby>受付<rt>うけつけ</rt></ruby>",
+      "explanation": "<ruby>受付<rt>うけつけ</rt></ruby>: reception."
+    },
+    {
+      "prompt": "How is お客様⁠ read?",
+      "options": [
+        "おきゃくよう",
+        "おきゃくさま",
+        "おかくさま",
+        "おきゃっさま"
+      ],
+      "correct": "おきゃくさま",
+      "explanation": "お客様⁠ is read おきゃくさま."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>彼<rt>かれ</rt></ruby>は<ruby>自分<rt>じぶん</rt></ruby>の<ruby>間違<rt>まちが</rt></ruby>いを<ruby>認<rt>みと</rt></ruby>めました。",
+      "options": [
+        "He found someone's mistake.",
+        "He made a mistake.",
+        "He admitted his mistake.",
+        "He didn't notice his mistake."
+      ],
+      "correct": "He admitted his mistake.",
+      "explanation": "<ruby>認<rt>みと</rt></ruby>める: to admit."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "At a job interview, how do you begin?",
+      "options": [
+        "じこしょうかいしろ。",
+        "じこしょうかいしなさい。",
+        "じこしょうかいさせていただきます。",
+        "じこしょうかいしてあげます。"
+      ],
+      "correct": "じこしょうかいさせていただきます。",
+      "explanation": "させていただく: humble."
+    },
+    {
+      "prompt": "What does あしもとにご<ruby>注意<rt>ちゅうい</rt></ruby>ください mean?",
+      "options": [
+        "Please take off your shoes.",
+        "Please sit down.",
+        "Please don't run.",
+        "Please mind your step."
+      ],
+      "correct": "Please mind your step.",
+      "explanation": "ご〜ください: please."
+    },
+    {
+      "prompt": "Which word means \"to seek, to ask for\"?",
+      "options": [
+        "<ruby>求<rt>もと</rt></ruby>める",
+        "<ruby>認<rt>みと</rt></ruby>める",
+        "<ruby>受<rt>う</rt></ruby>ける",
+        "<ruby>確認<rt>かくにん</rt></ruby>する"
+      ],
+      "correct": "<ruby>求<rt>もと</rt></ruby>める",
+      "explanation": "<ruby>求<rt>もと</rt></ruby>める: to seek."
+    },
+    {
+      "prompt": "Read: 「<ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませていただきます」と<ruby>書<rt>か</rt></ruby>いてあります。 What does the sign mean?",
+      "options": [
+        "The shop is open today.",
+        "The shop is closed today.",
+        "The staff are resting.",
+        "Customers should rest."
+      ],
+      "correct": "The shop is closed today.",
+      "explanation": "させていただく: humble."
+    },
+    {
+      "prompt": "Review: complete この<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>る＿＿、<ruby>国<rt>くに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>します。",
+      "options": [
+        "ください",
+        "いただき",
+        "たびに",
+        "ずに"
+      ],
+      "correct": "たびに",
+      "explanation": "Every time: たびに."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-9-throughout",
+    "japanese-n4-unit-9-humble",
+    "japanese-n4-unit-9-honorific"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

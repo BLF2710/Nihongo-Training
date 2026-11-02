@@ -1,0 +1,533 @@
+{
+  "id": "japanese-n3-unit-7-i-wish",
+  "slug": "n3-unit-7-i-wish",
+  "unit": "Japanese N3 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "I Wish…",
+  "title_jp": "〜と いいな・〜ば いいのに",
+  "objectives": [
+    "I can say what I wish were true.",
+    "Hope with 〜といい and 〜たらいいな",
+    "Wish or regret with 〜ばいいのに and 〜たらよかったのに",
+    "Talk about wishes, hopes and the people around you"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>願<rt>ねが</rt></ruby>う",
+      "",
+      "to wish, to hope"
+    ],
+    [
+      "お<ruby>願<rt>ねが</rt></ruby>い",
+      "",
+      "request, favour"
+    ],
+    [
+      "<ruby>望<rt>のぞ</rt></ruby>む",
+      "",
+      "to wish for, to hope"
+    ],
+    [
+      "きぼう",
+      "",
+      "hope, wish"
+    ],
+    [
+      "<ruby>絶対<rt>ぜったい</rt></ruby>",
+      "",
+      "absolutely, definitely"
+    ],
+    [
+      "<ruby>彼<rt>かれ</rt></ruby>",
+      "",
+      "he; boyfriend"
+    ],
+    [
+      "<ruby>彼女<rt>かのじょ</rt></ruby>",
+      "",
+      "she; girlfriend"
+    ],
+    [
+      "<ruby>君<rt>きみ</rt></ruby>",
+      "",
+      "you (casual)"
+    ],
+    [
+      "<ruby>皆<rt>みな</rt></ruby>さん",
+      "",
+      "everyone (polite)"
+    ],
+    [
+      "〜といいな",
+      "",
+      "I hope"
+    ],
+    [
+      "〜ばいいのに",
+      "",
+      "I wish"
+    ],
+    [
+      "〜たらよかったのに",
+      "",
+      "I wish … had (regret)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "願う",
+      "word_reading": "ねがう"
+    },
+    {
+      "word_japanese": "お願い",
+      "word_reading": "おねがい"
+    },
+    {
+      "word_japanese": "望む",
+      "word_reading": "のぞむ"
+    },
+    {
+      "word_japanese": "絶対",
+      "word_reading": "ぜったい"
+    },
+    {
+      "word_japanese": "彼",
+      "word_reading": "かれ"
+    },
+    {
+      "word_japanese": "彼女",
+      "word_reading": "かのじょ"
+    },
+    {
+      "word_japanese": "君",
+      "word_reading": "きみ"
+    },
+    {
+      "word_japanese": "皆さん",
+      "word_reading": "みなさん"
+    }
+  ],
+  "concept": {
+    "title": "Hopes and wishes",
+    "text": "〜といい / 〜たらいい / 〜ばいい + な or ね expresses hope:\n<ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れるといいな。 I hope it's sunny tomorrow.\n<ruby>試験<rt>しけん</rt></ruby>にごうかくできたらいいですね。 I hope you pass the exam.\n\n〜ばいいのに / 〜たらいいのに wishes things were different now:\nもっと<ruby>時間<rt>じかん</rt></ruby>があればいいのに。 I wish I had more time.\n\n〜ばよかった / 〜たらよかった(のに) regrets the past:\nもっと<ruby>勉強<rt>べんきょう</rt></ruby>すればよかった。 I should have studied more.\n<ruby>彼<rt>かれ</rt></ruby>も<ruby>来<rt>き</rt></ruby>たらよかったのに。 I wish he had come too.\n\nのに adds disappointment.",
+    "examples": [
+      "V-る と いい(な)",
+      "V-たら / V-ば いい(な)",
+      "〜ば / たら いいのに (wish)",
+      "〜ば / たら よかった(のに) (regret)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I hope: 〜といい / 〜たらいい",
+      "pattern": "V-る と いい(な / ね) / V-たら いい(な / ね)",
+      "explanation": "A hope about something you can't control. な to yourself, ね to the listener.",
+      "examples": [
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れるといいな。",
+          "romaji": "",
+          "meaning": "I hope it's sunny tomorrow."
+        },
+        {
+          "japanese": "<ruby>試験<rt>しけん</rt></ruby>にごうかくできたらいいですね。",
+          "romaji": "",
+          "meaning": "I hope you pass the exam."
+        },
+        {
+          "japanese": "<ruby>彼女<rt>かのじょ</rt></ruby>が<ruby>早<rt>はや</rt></ruby>くげんきになるといいですね。",
+          "romaji": "",
+          "meaning": "I hope she gets well soon."
+        },
+        {
+          "japanese": "いつか<ruby>自分<rt>じぶん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>が<ruby>買<rt>か</rt></ruby>えたらいいな。",
+          "romaji": "",
+          "meaning": "I hope I can buy my own house some day."
+        }
+      ],
+      "notes": [
+        "For things you can control, use つもり or ようと<ruby>思<rt>おも</rt></ruby>う."
+      ]
+    },
+    {
+      "title": "I wish: 〜ばいいのに / 〜たらよかったのに",
+      "pattern": "V-ば いいのに / V-ば よかった(のに) / V-たら よかった(のに)",
+      "explanation": "Wishing things were different, now or in the past. のに adds disappointment or regret.",
+      "examples": [
+        {
+          "japanese": "もっと<ruby>時間<rt>じかん</rt></ruby>があればいいのに。",
+          "romaji": "",
+          "meaning": "I wish I had more time."
+        },
+        {
+          "japanese": "もっと<ruby>勉強<rt>べんきょう</rt></ruby>すればよかった。",
+          "romaji": "",
+          "meaning": "I should have studied more."
+        },
+        {
+          "japanese": "<ruby>君<rt>きみ</rt></ruby>も<ruby>来<rt>き</rt></ruby>たらよかったのに。",
+          "romaji": "",
+          "meaning": "I wish you'd come too."
+        },
+        {
+          "japanese": "かさを<ruby>持<rt>も</rt></ruby>ってくればよかったなあ。",
+          "romaji": "",
+          "meaning": "I should have brought an umbrella."
+        }
+      ],
+      "notes": [
+        "About yourself: 〜ばよかった (regret).",
+        "About others: 〜ばよかったのに (it's a pity they didn't)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>皆<rt>みな</rt></ruby>さんの<ruby>幸<rt>しあわ</rt></ruby>せを<ruby>願<rt>ねが</rt></ruby>っています。",
+      "I wish you all happiness."
+    ],
+    [
+      "ちょっとお<ruby>願<rt>ねが</rt></ruby>いがあるんですが。",
+      "I have a small favour to ask."
+    ],
+    [
+      "<ruby>来年<rt>らいねん</rt></ruby>は<ruby>絶対<rt>ぜったい</rt></ruby>に<ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きます。",
+      "I'm definitely going to Japan next year."
+    ],
+    [
+      "<ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>大学<rt>だいがく</rt></ruby>で<ruby>英語<rt>えいご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えています。",
+      "She teaches English at a university."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>明日<rt>あした</rt></ruby>のピクニック、<ruby>晴<rt>は</rt></ruby>れるといいですね。",
+      "けん",
+      "ええ、<ruby>雨<rt>あめ</rt></ruby>だったら<ruby>行<rt>い</rt></ruby>けませんからね。"
+    ],
+    [
+      "リー",
+      "コンサート、どうでしたか。",
+      "マイ",
+      "すごくよかったですよ。リーさんも<ruby>来<rt>き</rt></ruby>たらよかったのに。"
+    ],
+    [
+      "ゆき",
+      "<ruby>試験<rt>しけん</rt></ruby>、どうだった？",
+      "リン",
+      "だめだった。もっと<ruby>勉強<rt>べんきょう</rt></ruby>すればよかった。"
+    ],
+    [
+      "たなか",
+      "<ruby>今年<rt>ことし</rt></ruby>のきぼうは<ruby>何<rt>なん</rt></ruby>ですか。",
+      "アナ",
+      "<ruby>日本語<rt>にほんご</rt></ruby>がもっと<ruby>上手<rt>じょうず</rt></ruby>になるといいなと<ruby>思<rt>おも</rt></ruby>っています。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "願",
+      "onyomi": [
+        "ガン"
+      ],
+      "kunyomi": [
+        "ねが.う",
+        "-ねがい"
+      ],
+      "meaning_en": "wish",
+      "stroke_count": 19,
+      "example_words": [
+        {
+          "word": "願う",
+          "reading": "ねがう",
+          "en": "to wish"
+        },
+        {
+          "word": "お願い",
+          "reading": "おねがい",
+          "en": "request"
+        }
+      ],
+      "mnemonic": "A head (頁) bowed at the spring (原) to make a wish."
+    },
+    {
+      "char": "望",
+      "onyomi": [
+        "ボウ",
+        "モウ"
+      ],
+      "kunyomi": [
+        "のぞ.む",
+        "もち"
+      ],
+      "meaning_en": "hope",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "望む",
+          "reading": "のぞむ",
+          "en": "to hope"
+        },
+        {
+          "word": "希望",
+          "reading": "きぼう",
+          "en": "hope"
+        }
+      ],
+      "mnemonic": "Looking at the moon (月) and wishing on it."
+    },
+    {
+      "char": "絶",
+      "onyomi": [
+        "ゼツ"
+      ],
+      "kunyomi": [
+        "た.える",
+        "た.やす",
+        "た.つ"
+      ],
+      "meaning_en": "cut off; absolutely",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "絶対",
+          "reading": "ぜったい",
+          "en": "absolutely"
+        },
+        {
+          "word": "絶つ",
+          "reading": "たつ",
+          "en": "to cut off"
+        }
+      ],
+      "mnemonic": "Threads (糸) cut through with a blade: an absolute end."
+    },
+    {
+      "char": "彼",
+      "onyomi": [
+        "ヒ"
+      ],
+      "kunyomi": [
+        "かれ",
+        "かの",
+        "か.の"
+      ],
+      "meaning_en": "he, that",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "彼",
+          "reading": "かれ",
+          "en": "he"
+        },
+        {
+          "word": "彼女",
+          "reading": "かのじょ",
+          "en": "she"
+        }
+      ],
+      "mnemonic": "Walking (彳) over to the person over there."
+    },
+    {
+      "char": "君",
+      "onyomi": [
+        "クン"
+      ],
+      "kunyomi": [
+        "きみ",
+        "-ぎみ"
+      ],
+      "meaning_en": "you; lord",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "君",
+          "reading": "きみ",
+          "en": "you"
+        },
+        {
+          "word": "〜君",
+          "reading": "くん",
+          "en": "(name suffix)"
+        }
+      ],
+      "mnemonic": "A ruler's (尹) mouth (口) giving orders: a lord."
+    },
+    {
+      "char": "皆",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "みな",
+        "みんな"
+      ],
+      "meaning_en": "all",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "皆さん",
+          "reading": "みなさん",
+          "en": "everyone"
+        },
+        {
+          "word": "皆",
+          "reading": "みな",
+          "en": "all"
+        }
+      ],
+      "mnemonic": "Everyone side by side (比) under the white (白) sun."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete もう<ruby>九時<rt>くじ</rt></ruby>よ。<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>＿＿。",
+      "options": [
+        "なきゃ",
+        "ろ",
+        "るな",
+        "なさい"
+      ],
+      "correct": "なさい",
+      "explanation": "Instruction: なさい."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れる＿＿いいな。",
+      "options": [
+        "と",
+        "ば",
+        "たら",
+        "のに"
+      ],
+      "correct": "と",
+      "explanation": "I hope: 〜といいな."
+    },
+    {
+      "prompt": "Complete: もっと<ruby>時間<rt>じかん</rt></ruby>があれば＿＿のに。",
+      "options": [
+        "よかった",
+        "いい",
+        "いいな",
+        "いる"
+      ],
+      "correct": "いい",
+      "explanation": "I wish (now): ばいいのに."
+    },
+    {
+      "prompt": "Complete: もっと<ruby>勉強<rt>べんきょう</rt></ruby>すれば＿＿。 (regret)",
+      "options": [
+        "いい",
+        "いいな",
+        "よかった",
+        "いいのに"
+      ],
+      "correct": "よかった",
+      "explanation": "Regret: ばよかった."
+    },
+    {
+      "prompt": "Which word means \"absolutely\"?",
+      "options": [
+        "きぼう",
+        "お<ruby>願<rt>ねが</rt></ruby>い",
+        "<ruby>皆<rt>みな</rt></ruby>さん",
+        "<ruby>絶対<rt>ぜったい</rt></ruby>"
+      ],
+      "correct": "<ruby>絶対<rt>ぜったい</rt></ruby>",
+      "explanation": "<ruby>絶対<rt>ぜったい</rt></ruby>: absolutely."
+    },
+    {
+      "prompt": "How is 彼女⁠ read?",
+      "options": [
+        "かのじょ",
+        "かれじょ",
+        "ひじょ",
+        "かのおんな"
+      ],
+      "correct": "かのじょ",
+      "explanation": "彼女⁠ is read かのじょ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>君<rt>きみ</rt></ruby>も<ruby>来<rt>き</rt></ruby>たらよかったのに。",
+      "options": [
+        "You should come too.",
+        "I wish you'd come too.",
+        "I'm glad you came too.",
+        "You came too."
+      ],
+      "correct": "I wish you'd come too.",
+      "explanation": "たらよかったのに: regret about someone else."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You missed the bus because you left late. What do you say?",
+      "options": [
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>るといいな。",
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ればよかった。",
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>なさい。",
+        "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ろ。"
+      ],
+      "correct": "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ればよかった。",
+      "explanation": "Regret: ばよかった."
+    },
+    {
+      "prompt": "What does <ruby>彼女<rt>かのじょ</rt></ruby>が<ruby>早<rt>はや</rt></ruby>くげんきになるといいですね mean?",
+      "options": [
+        "She got well quickly.",
+        "She should get well.",
+        "I hope she gets well soon.",
+        "I wish she had got well."
+      ],
+      "correct": "I hope she gets well soon.",
+      "explanation": "といいですね: hope."
+    },
+    {
+      "prompt": "Which word means \"everyone\" (polite)?",
+      "options": [
+        "<ruby>彼<rt>かれ</rt></ruby>",
+        "<ruby>君<rt>きみ</rt></ruby>",
+        "<ruby>彼女<rt>かのじょ</rt></ruby>",
+        "<ruby>皆<rt>みな</rt></ruby>さん"
+      ],
+      "correct": "<ruby>皆<rt>みな</rt></ruby>さん",
+      "explanation": "<ruby>皆<rt>みな</rt></ruby>さん: everyone."
+    },
+    {
+      "prompt": "Read: もっと<ruby>勉強<rt>べんきょう</rt></ruby>すればよかった。 How did Lin's exam go?",
+      "options": [
+        "Badly",
+        "Very well",
+        "She didn't take it",
+        "It was cancelled"
+      ],
+      "correct": "Badly",
+      "explanation": "ばよかった: regret."
+    },
+    {
+      "prompt": "Review: complete ここでボールを<ruby>投<rt>な</rt></ruby>げる＿＿。 (don't)",
+      "options": [
+        "ね",
+        "な",
+        "のに",
+        "と"
+      ],
+      "correct": "な",
+      "explanation": "Don't: V-るな."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-7-instructions",
+    "japanese-n3-unit-7-commands",
+    "japanese-n4-unit-4-if-you-study"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

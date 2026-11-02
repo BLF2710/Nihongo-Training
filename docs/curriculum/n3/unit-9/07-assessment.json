@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n3-unit-9-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "dearu",
+      "prompt": "Which is the written-style version of <ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>だ。?",
+      "options": [
+        "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>です。",
+        "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>である。",
+        "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>でございます。",
+        "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>だよ。"
+      ],
+      "correctIndex": 1,
+      "explanation": "だ → である."
+    },
+    {
+      "id": "style-mix",
+      "prompt": "Which sentence mixes styles incorrectly in an essay?",
+      "options": [
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>である。みんなで<ruby>考<rt>かんが</rt></ruby>えるべきだ。",
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>です。みんなで<ruby>考<rt>かんが</rt></ruby>えましょう。",
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>だ。みんなで<ruby>考<rt>かんが</rt></ruby>えるべきだ。",
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>である。みんなで<ruby>考<rt>かんが</rt></ruby>えましょう。"
+      ],
+      "correctIndex": 3,
+      "explanation": "Don't mix である with ます."
+    },
+    {
+      "id": "zu-ni",
+      "prompt": "Complete: <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ＿＿<ruby>出<rt>で</rt></ruby>かけた。",
+      "options": [
+        "ずに",
+        "ないに",
+        "ずで",
+        "なく"
+      ],
+      "correctIndex": 0,
+      "explanation": "Without doing: V-ずに."
+    },
+    {
+      "id": "sezu",
+      "prompt": "What is the ず form of する?",
+      "options": [
+        "しず",
+        "さず",
+        "せず",
+        "すず"
+      ],
+      "correctIndex": 2,
+      "explanation": "Irregular: する → せず."
+    },
+    {
+      "id": "tabi-ni",
+      "prompt": "Complete: <ruby>旅行<rt>りょこう</rt></ruby>＿＿たびに、おみやげを<ruby>買<rt>か</rt></ruby>います。",
+      "options": [
+        "な",
+        "に",
+        "を",
+        "の"
+      ],
+      "correctIndex": 3,
+      "explanation": "N の たびに."
+    },
+    {
+      "id": "goto-ni",
+      "prompt": "Complete: このバスは<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿<ruby>来<rt>き</rt></ruby>ます。",
+      "options": [
+        "たびに",
+        "ごとに",
+        "うちに",
+        "までに"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every: ごとに."
+    },
+    {
+      "id": "oki-ni",
+      "prompt": "What does <ruby>一日<rt>いちにち</rt></ruby>おきに mean?",
+      "options": [
+        "Every other day",
+        "Every day",
+        "All day",
+        "Once a week"
+      ],
+      "correctIndex": 0,
+      "explanation": "おきに: skipping one."
+    },
+    {
+      "id": "juu",
+      "prompt": "Which word uses 中⁠ to mean \"all through\"?",
+      "options": [
+        "<ruby>会議中<rt>かいぎちゅう</rt></ruby>",
+        "<ruby>工事中<rt>こうじちゅう</rt></ruby>",
+        "<ruby>一年中<rt>いちねんじゅう</rt></ruby>",
+        "<ruby>授業中<rt>じゅぎょうちゅう</rt></ruby>"
+      ],
+      "correctIndex": 2,
+      "explanation": "<ruby>中<rt>じゅう</rt></ruby>: all through."
+    },
+    {
+      "id": "wo-tooshite",
+      "prompt": "Complete: <ruby>友達<rt>ともだち</rt></ruby>を＿＿、<ruby>妻<rt>つま</rt></ruby>と<ruby>知<rt>し</rt></ruby>りあいました。",
+      "options": [
+        "とって",
+        "<ruby>通<rt>とお</rt></ruby>して",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "<ruby>関<rt>かん</rt></ruby>して"
+      ],
+      "correctIndex": 1,
+      "explanation": "Through: を<ruby>通<rt>とお</rt></ruby>して."
+    },
+    {
+      "id": "sasete-itadaku",
+      "prompt": "At a job interview, how do you begin?",
+      "options": [
+        "じこしょうかいしろ。",
+        "じこしょうかいしなさい。",
+        "じこしょうかいしてあげます。",
+        "じこしょうかいさせていただきます。"
+      ],
+      "correctIndex": 3,
+      "explanation": "させていただく: humble."
+    },
+    {
+      "id": "go-kudasai",
+      "prompt": "Complete: ないようを＿＿<ruby>確認<rt>かくにん</rt></ruby>ください。",
+      "options": [
+        "お",
+        "を",
+        "ご",
+        "に"
+      ],
+      "correctIndex": 2,
+      "explanation": "する-nouns take ご."
+    },
+    {
+      "id": "to-sareru",
+      "prompt": "Complete: この<ruby>寺<rt>てら</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>古<rt>ふる</rt></ruby>いと＿＿ています。",
+      "options": [
+        "され",
+        "させ",
+        "し",
+        "なり"
+      ],
+      "correctIndex": 0,
+      "explanation": "It is said: とされている."
+    },
+    {
+      "id": "koto-kara",
+      "prompt": "What does <ruby>道<rt>みち</rt></ruby>がぬれていることから、<ruby>夜<rt>よる</rt></ruby>に<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったと<ruby>分<rt>わ</rt></ruby>かる mean?",
+      "options": [
+        "It rained, so the road will get wet.",
+        "The road is wet because someone washed it.",
+        "It will rain tonight.",
+        "The wet road shows it rained in the night."
+      ],
+      "correctIndex": 3,
+      "explanation": "ことから: from the fact that."
+    },
+    {
+      "id": "kanji-rekishi",
+      "prompt": "How is 歴史⁠ read?",
+      "options": [
+        "れっし",
+        "れきし",
+        "れきじ",
+        "りきし"
+      ],
+      "correctIndex": 1,
+      "explanation": "歴史⁠ is read れきし."
+    },
+    {
+      "id": "kanji-keizai",
+      "prompt": "How is 経済⁠ read?",
+      "options": [
+        "けいさい",
+        "きょうざい",
+        "けいざい",
+        "けざい"
+      ],
+      "correctIndex": 2,
+      "explanation": "経済⁠ is read けいざい."
+    }
+  ]
+}

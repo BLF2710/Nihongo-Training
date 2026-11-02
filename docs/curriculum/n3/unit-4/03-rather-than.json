@@ -1,0 +1,540 @@
+{
+  "id": "japanese-n3-unit-4-rather-than",
+  "slug": "n3-unit-4-rather-than",
+  "unit": "Japanese N3 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "Rather Than…",
+  "title_jp": "〜と いうより",
+  "objectives": [
+    "I can say what something is rather than what it seems.",
+    "Correct a description with 〜というより",
+    "Say B fits better than A with 〜よりむしろ",
+    "Talk about everyday life, hobbies and convenience"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>普通<rt>ふつう</rt></ruby>",
+      "",
+      "usual, normal"
+    ],
+    [
+      "<ruby>普段<rt>ふだん</rt></ruby>",
+      "",
+      "usually, everyday"
+    ],
+    [
+      "<ruby>趣味<rt>しゅみ</rt></ruby>",
+      "",
+      "hobby"
+    ],
+    [
+      "<ruby>静<rt>しず</rt></ruby>か",
+      "",
+      "quiet"
+    ],
+    [
+      "<ruby>実<rt>じつ</rt></ruby>は",
+      "",
+      "actually, to tell the truth"
+    ],
+    [
+      "<ruby>実際<rt>じっさい</rt></ruby>",
+      "",
+      "in reality, actually"
+    ],
+    [
+      "<ruby>国際<rt>こくさい</rt></ruby>",
+      "",
+      "international"
+    ],
+    [
+      "<ruby>便<rt>びん</rt></ruby>",
+      "",
+      "flight; post"
+    ],
+    [
+      "<ruby>不便<rt>ふべん</rt></ruby>",
+      "",
+      "inconvenient"
+    ],
+    [
+      "ゆうびんきょく",
+      "",
+      "post office"
+    ],
+    [
+      "むしろ",
+      "",
+      "rather, if anything"
+    ],
+    [
+      "〜というより",
+      "",
+      "rather than, more … than"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "普通",
+      "word_reading": "ふつう"
+    },
+    {
+      "word_japanese": "普段",
+      "word_reading": "ふだん"
+    },
+    {
+      "word_japanese": "趣味",
+      "word_reading": "しゅみ"
+    },
+    {
+      "word_japanese": "静か",
+      "word_reading": "しずか"
+    },
+    {
+      "word_japanese": "実は",
+      "word_reading": "じつは"
+    },
+    {
+      "word_japanese": "実際",
+      "word_reading": "じっさい"
+    },
+    {
+      "word_japanese": "国際",
+      "word_reading": "こくさい"
+    },
+    {
+      "word_japanese": "便",
+      "word_reading": "びん"
+    },
+    {
+      "word_japanese": "不便",
+      "word_reading": "ふべん"
+    }
+  ],
+  "concept": {
+    "title": "Rather than",
+    "text": "というより says the first description isn't quite right, and the second fits better:\n\n<ruby>今日<rt>きょう</rt></ruby>は<ruby>涼<rt>すず</rt></ruby>しいというより、<ruby>寒<rt>さむ</rt></ruby>いです。 Today is not so much cool as cold.\nこれは<ruby>趣味<rt>しゅみ</rt></ruby>というより、<ruby>仕事<rt>しごと</rt></ruby>ですね。 This is more a job than a hobby.\n\nA より(も) むしろ B: of the two, B fits better, often against what you might expect:\n<ruby>夏<rt>なつ</rt></ruby>より、むしろ<ruby>冬<rt>ふゆ</rt></ruby>のほうがすきです。 If anything, I prefer winter to summer.\n\nThe two often come together: 〜というより、むしろ〜.",
+    "examples": [
+      "N / plain form + というより",
+      "A より(も) むしろ B",
+      "〜というより、むしろ〜"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Rather: 〜というより",
+      "pattern": "N / plain form + というより",
+      "explanation": "The first word isn't quite right; the second describes it better.",
+      "examples": [
+        {
+          "japanese": "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>というより、<ruby>友<rt>とも</rt></ruby>だちのような<ruby>人<rt>ひと</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "She's less a teacher than a friend."
+        },
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>涼<rt>すず</rt></ruby>しいというより、<ruby>寒<rt>さむ</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "Today is not so much cool as cold."
+        },
+        {
+          "japanese": "これは<ruby>趣味<rt>しゅみ</rt></ruby>というより、<ruby>仕事<rt>しごと</rt></ruby>ですね。",
+          "romaji": "",
+          "meaning": "This is more a job than a hobby."
+        },
+        {
+          "japanese": "かれは<ruby>静<rt>しず</rt></ruby>かというより、あまり<ruby>話<rt>はな</rt></ruby>さない<ruby>人<rt>ひと</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "He's not so much quiet as someone who barely talks."
+        }
+      ],
+      "notes": [
+        "Often followed by むしろ: 〜というより、むしろ〜.",
+        "Casual: 〜っていうか."
+      ]
+    },
+    {
+      "title": "Rather than: 〜より(も)むしろ",
+      "pattern": "A より(も) むしろ B",
+      "explanation": "Of the two, B fits better, often against what people might expect.",
+      "examples": [
+        {
+          "japanese": "<ruby>夏<rt>なつ</rt></ruby>より、むしろ<ruby>冬<rt>ふゆ</rt></ruby>のほうがすきです。",
+          "romaji": "",
+          "meaning": "If anything, I prefer winter to summer."
+        },
+        {
+          "japanese": "この<ruby>時間<rt>じかん</rt></ruby>は、バスより、むしろ<ruby>歩<rt>ある</rt></ruby>いたほうが<ruby>早<rt>はや</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "At this time, walking is actually faster than the bus."
+        },
+        {
+          "japanese": "<ruby>子<rt>こ</rt></ruby>どもより、むしろ<ruby>大人<rt>おとな</rt></ruby>が<ruby>楽<rt>たの</rt></ruby>しんでいました。",
+          "romaji": "",
+          "meaning": "The adults enjoyed it more than the children."
+        },
+        {
+          "japanese": "<ruby>失敗<rt>しっぱい</rt></ruby>は<ruby>悪<rt>わる</rt></ruby>いことというより、むしろいいけいけんです。",
+          "romaji": "",
+          "meaning": "Failure isn't so much a bad thing as a good experience."
+        }
+      ],
+      "notes": [
+        "むしろ suggests the opposite of what people might expect."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>普段<rt>ふだん</rt></ruby>は<ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>通<rt>かよ</rt></ruby>っています。",
+      "I usually commute by train."
+    ],
+    [
+      "わたしの<ruby>趣味<rt>しゅみ</rt></ruby>は<ruby>写真<rt>しゃしん</rt></ruby>です。",
+      "My hobby is photography."
+    ],
+    [
+      "<ruby>実<rt>じつ</rt></ruby>は、<ruby>明日<rt>あした</rt></ruby><ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>るんです。",
+      "Actually, I'm going home tomorrow."
+    ],
+    [
+      "この<ruby>家<rt>いえ</rt></ruby>は<ruby>駅<rt>えき</rt></ruby>からとおくて、<ruby>不便<rt>ふべん</rt></ruby>です。",
+      "This house is far from the station, so it's inconvenient."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>趣味<rt>しゅみ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。",
+      "けん",
+      "<ruby>料理<rt>りょうり</rt></ruby>ですが、<ruby>趣味<rt>しゅみ</rt></ruby>というより<ruby>毎日<rt>まいにち</rt></ruby>のことですね。"
+    ],
+    [
+      "リー",
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>涼<rt>すず</rt></ruby>しいですね。",
+      "マイ",
+      "<ruby>涼<rt>すず</rt></ruby>しいというより、<ruby>寒<rt>さむ</rt></ruby>いですよ。"
+    ],
+    [
+      "ゆき",
+      "<ruby>実際<rt>じっさい</rt></ruby>に<ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでみて、どうですか。",
+      "リン",
+      "<ruby>思<rt>おも</rt></ruby>ったより<ruby>普通<rt>ふつう</rt></ruby>のせいかつです。"
+    ],
+    [
+      "たなか",
+      "バスで<ruby>行<rt>い</rt></ruby>きますか。",
+      "アナ",
+      "いいえ、この<ruby>時間<rt>じかん</rt></ruby>はバスより、むしろ<ruby>歩<rt>ある</rt></ruby>いたほうが<ruby>早<rt>はや</rt></ruby>いです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "普",
+      "onyomi": [
+        "フ"
+      ],
+      "kunyomi": [
+        "あまね.く",
+        "あまねし"
+      ],
+      "meaning_en": "general",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "普通",
+          "reading": "ふつう",
+          "en": "usual"
+        },
+        {
+          "word": "普段",
+          "reading": "ふだん",
+          "en": "usually"
+        }
+      ],
+      "mnemonic": "The sun (日) shining on everything alike (並): general."
+    },
+    {
+      "char": "趣",
+      "onyomi": [
+        "シュ"
+      ],
+      "kunyomi": [
+        "おもむき",
+        "おもむ.く"
+      ],
+      "meaning_en": "taste, interest",
+      "stroke_count": 15,
+      "example_words": [
+        {
+          "word": "趣味",
+          "reading": "しゅみ",
+          "en": "hobby"
+        },
+        {
+          "word": "趣",
+          "reading": "おもむき",
+          "en": "charm"
+        }
+      ],
+      "mnemonic": "Running (走) to get (取) what you love."
+    },
+    {
+      "char": "静",
+      "onyomi": [
+        "セイ",
+        "ジョウ"
+      ],
+      "kunyomi": [
+        "しず-",
+        "しず.か",
+        "しず.まる",
+        "しず.める"
+      ],
+      "meaning_en": "quiet",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "静か",
+          "reading": "しずか",
+          "en": "quiet"
+        },
+        {
+          "word": "冷静",
+          "reading": "れいせい",
+          "en": "calm"
+        }
+      ],
+      "mnemonic": "Blue (青) and still, without struggle (争): quiet."
+    },
+    {
+      "char": "実",
+      "onyomi": [
+        "ジツ",
+        "シツ"
+      ],
+      "kunyomi": [
+        "み",
+        "みの.る",
+        "まこと",
+        "みの",
+        "みち.る"
+      ],
+      "meaning_en": "truth; fruit",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "実は",
+          "reading": "じつは",
+          "en": "actually"
+        },
+        {
+          "word": "実際",
+          "reading": "じっさい",
+          "en": "in reality"
+        }
+      ],
+      "mnemonic": "Treasure under a roof (宀): the real thing."
+    },
+    {
+      "char": "際",
+      "onyomi": [
+        "サイ"
+      ],
+      "kunyomi": [
+        "きわ",
+        "-ぎわ"
+      ],
+      "meaning_en": "occasion, edge",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "実際",
+          "reading": "じっさい",
+          "en": "in reality"
+        },
+        {
+          "word": "国際",
+          "reading": "こくさい",
+          "en": "international"
+        }
+      ],
+      "mnemonic": "Where a hill (阝) meets the festival (祭) grounds: the edge."
+    },
+    {
+      "char": "便",
+      "onyomi": [
+        "ベン",
+        "ビン"
+      ],
+      "kunyomi": [
+        "たよ.り"
+      ],
+      "meaning_en": "convenience; post",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "不便",
+          "reading": "ふべん",
+          "en": "inconvenient"
+        },
+        {
+          "word": "便",
+          "reading": "びん",
+          "en": "flight"
+        }
+      ],
+      "mnemonic": "A person (亻) who changes (更) things to make them easy."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>今年<rt>ことし</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>＿＿<ruby>暑<rt>あつ</rt></ruby>くないです。",
+      "options": [
+        "より",
+        "まで",
+        "だけ",
+        "ほど"
+      ],
+      "correct": "ほど",
+      "explanation": "Not as … as: ほど〜ない."
+    },
+    {
+      "prompt": "Complete: あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>という＿＿、<ruby>友<rt>とも</rt></ruby>だちのようです。",
+      "options": [
+        "より",
+        "ほど",
+        "くらい",
+        "ため"
+      ],
+      "correct": "より",
+      "explanation": "Rather: というより."
+    },
+    {
+      "prompt": "Complete: <ruby>夏<rt>なつ</rt></ruby>より、＿＿<ruby>冬<rt>ふゆ</rt></ruby>のほうがすきです。",
+      "options": [
+        "もっと",
+        "むしろ",
+        "ほど",
+        "やっと"
+      ],
+      "correct": "むしろ",
+      "explanation": "If anything: むしろ."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>涼<rt>すず</rt></ruby>しいというより、＿＿です。",
+      "options": [
+        "<ruby>涼<rt>すず</rt></ruby>しい",
+        "<ruby>暑<rt>あつ</rt></ruby>い",
+        "<ruby>寒<rt>さむ</rt></ruby>い",
+        "あたたかい"
+      ],
+      "correct": "<ruby>寒<rt>さむ</rt></ruby>い",
+      "explanation": "Not so much cool as cold."
+    },
+    {
+      "prompt": "Which word means \"hobby\"?",
+      "options": [
+        "<ruby>普段<rt>ふだん</rt></ruby>",
+        "<ruby>実際<rt>じっさい</rt></ruby>",
+        "<ruby>国際<rt>こくさい</rt></ruby>",
+        "<ruby>趣味<rt>しゅみ</rt></ruby>"
+      ],
+      "correct": "<ruby>趣味<rt>しゅみ</rt></ruby>",
+      "explanation": "<ruby>趣味<rt>しゅみ</rt></ruby>: hobby."
+    },
+    {
+      "prompt": "How is 普通⁠ read?",
+      "options": [
+        "ふつう",
+        "ふとお",
+        "ふずう",
+        "ぷつう"
+      ],
+      "correct": "ふつう",
+      "explanation": "普通⁠ is read ふつう."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>実<rt>じつ</rt></ruby>は、<ruby>明日<rt>あした</rt></ruby><ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>るんです。",
+      "options": [
+        "I really want to go home tomorrow.",
+        "Actually, I'm going home tomorrow.",
+        "I went home yesterday.",
+        "I'm not going home tomorrow."
+      ],
+      "correct": "Actually, I'm going home tomorrow.",
+      "explanation": "<ruby>実<rt>じつ</rt></ruby>は: actually."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Your weekend \"hobby\" has turned into hard work. What do you say?",
+      "options": [
+        "<ruby>仕事<rt>しごと</rt></ruby>というより、<ruby>趣味<rt>しゅみ</rt></ruby>ですね。",
+        "<ruby>趣味<rt>しゅみ</rt></ruby>というより、<ruby>仕事<rt>しごと</rt></ruby>ですね。",
+        "<ruby>趣味<rt>しゅみ</rt></ruby>ほど<ruby>仕事<rt>しごと</rt></ruby>ですね。",
+        "<ruby>趣味<rt>しゅみ</rt></ruby>くらい<ruby>仕事<rt>しごと</rt></ruby>ですね。"
+      ],
+      "correct": "<ruby>趣味<rt>しゅみ</rt></ruby>というより、<ruby>仕事<rt>しごと</rt></ruby>ですね。",
+      "explanation": "The better description comes second."
+    },
+    {
+      "prompt": "What does バスより、むしろ<ruby>歩<rt>ある</rt></ruby>いたほうが<ruby>早<rt>はや</rt></ruby>い mean?",
+      "options": [
+        "The bus is faster than walking.",
+        "Walking and the bus take the same time.",
+        "Walking is actually faster than the bus.",
+        "You should take the bus."
+      ],
+      "correct": "Walking is actually faster than the bus.",
+      "explanation": "より むしろ: B fits better."
+    },
+    {
+      "prompt": "Which word means \"inconvenient\"?",
+      "options": [
+        "<ruby>普通<rt>ふつう</rt></ruby>",
+        "<ruby>便<rt>びん</rt></ruby>",
+        "<ruby>静<rt>しず</rt></ruby>か",
+        "<ruby>不便<rt>ふべん</rt></ruby>"
+      ],
+      "correct": "<ruby>不便<rt>ふべん</rt></ruby>",
+      "explanation": "<ruby>不便<rt>ふべん</rt></ruby>: inconvenient."
+    },
+    {
+      "prompt": "Read: <ruby>思<rt>おも</rt></ruby>ったより<ruby>普通<rt>ふつう</rt></ruby>のせいかつです。 What does Lin say?",
+      "options": [
+        "Life is more ordinary than she expected.",
+        "Life is very special.",
+        "She doesn't live in Japan.",
+        "Life is harder than she expected."
+      ],
+      "correct": "Life is more ordinary than she expected.",
+      "explanation": "<ruby>普通<rt>ふつう</rt></ruby>: ordinary."
+    },
+    {
+      "prompt": "Review (Unit 3): what is the short causative-passive of <ruby>待<rt>ま</rt></ruby>つ?",
+      "options": [
+        "<ruby>待<rt>ま</rt></ruby>たれる",
+        "<ruby>待<rt>ま</rt></ruby>たされる",
+        "<ruby>待<rt>ま</rt></ruby>たせる",
+        "<ruby>待<rt>ま</rt></ruby>ちされる"
+      ],
+      "correct": "<ruby>待<rt>ま</rt></ruby>たされる",
+      "explanation": "Group 1 short form."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-4-not-as",
+    "japanese-n4-unit-7-like-a",
+    "japanese-n4-unit-7-it-seems"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

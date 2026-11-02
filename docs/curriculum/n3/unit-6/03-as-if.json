@@ -1,0 +1,528 @@
+{
+  "id": "japanese-n3-unit-6-as-if",
+  "slug": "n3-unit-6-as-if",
+  "unit": "Japanese N3 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "As If in a Dream",
+  "title_jp": "まるで 〜ようだ",
+  "objectives": [
+    "I can describe something as if it were something else.",
+    "Make a comparison with まるで〜ようだ / みたいだ",
+    "Describe how something looks with 〜ように<ruby>見<rt>み</rt></ruby>える",
+    "Talk about pictures, beauty, stars and clouds"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>絵<rt>え</rt></ruby>",
+      "",
+      "picture, painting"
+    ],
+    [
+      "<ruby>似<rt>に</rt></ruby>る",
+      "",
+      "to resemble"
+    ],
+    [
+      "にあう",
+      "",
+      "to suit"
+    ],
+    [
+      "<ruby>美<rt>うつく</rt></ruby>しい",
+      "",
+      "beautiful"
+    ],
+    [
+      "<ruby>美人<rt>びじん</rt></ruby>",
+      "",
+      "a beautiful woman"
+    ],
+    [
+      "<ruby>星<rt>ほし</rt></ruby>",
+      "",
+      "star"
+    ],
+    [
+      "<ruby>雲<rt>くも</rt></ruby>",
+      "",
+      "cloud"
+    ],
+    [
+      "<ruby>例<rt>たと</rt></ruby>えば",
+      "",
+      "for example"
+    ],
+    [
+      "<ruby>例<rt>れい</rt></ruby>",
+      "",
+      "example"
+    ],
+    [
+      "まるで",
+      "",
+      "just like, as if"
+    ],
+    [
+      "〜ように<ruby>見<rt>み</rt></ruby>える",
+      "",
+      "to look like, to seem"
+    ],
+    [
+      "〜みたいだ",
+      "",
+      "like (casual)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "絵",
+      "word_reading": "え"
+    },
+    {
+      "word_japanese": "似る",
+      "word_reading": "にる"
+    },
+    {
+      "word_japanese": "美しい",
+      "word_reading": "うつくしい"
+    },
+    {
+      "word_japanese": "美人",
+      "word_reading": "びじん"
+    },
+    {
+      "word_japanese": "星",
+      "word_reading": "ほし"
+    },
+    {
+      "word_japanese": "雲",
+      "word_reading": "くも"
+    },
+    {
+      "word_japanese": "例えば",
+      "word_reading": "たとえば"
+    },
+    {
+      "word_japanese": "例",
+      "word_reading": "れい"
+    }
+  ],
+  "concept": {
+    "title": "Just like",
+    "text": "まるで + 〜ようだ / みたいだ makes a vivid comparison: it's not really so, but it seems that way.\nまるで<ruby>夢<rt>ゆめ</rt></ruby>のようです。 It's just like a dream.\nこの<ruby>絵<rt>え</rt></ruby>は、まるで<ruby>写真<rt>しゃしん</rt></ruby>みたいだ。 This painting looks just like a photo.\n\nようだ follows N + の; みたいだ follows N directly and is casual.\n\n〜ように<ruby>見<rt>み</rt></ruby>える says how something looks from outside:\nかれは<ruby>疲<rt>つか</rt></ruby>れているように<ruby>見<rt>み</rt></ruby>えます。 He looks tired.\nあの<ruby>人<rt>ひと</rt></ruby>ははたちに<ruby>見<rt>み</rt></ruby>えます。 That person looks twenty.\nAfter a noun, use に<ruby>見<rt>み</rt></ruby>える or のように<ruby>見<rt>み</rt></ruby>える.",
+    "examples": [
+      "まるで N のようだ / N みたいだ",
+      "まるで plain form + ようだ",
+      "plain form + ように<ruby>見<rt>み</rt></ruby>える",
+      "N に<ruby>見<rt>み</rt></ruby>える"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Just like: まるで〜ようだ / みたいだ",
+      "pattern": "まるで N のようだ / N みたいだ / plain form + ようだ",
+      "explanation": "A vivid comparison. まるで makes it stronger: it isn't really so, but it feels that way.",
+      "examples": [
+        {
+          "japanese": "まるで<ruby>夢<rt>ゆめ</rt></ruby>のようです。",
+          "romaji": "",
+          "meaning": "It's just like a dream."
+        },
+        {
+          "japanese": "この<ruby>絵<rt>え</rt></ruby>は、まるで<ruby>写真<rt>しゃしん</rt></ruby>みたいだ。",
+          "romaji": "",
+          "meaning": "This painting looks just like a photo."
+        },
+        {
+          "japanese": "かのじょは<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>で、まるで<ruby>日本人<rt>にほんじん</rt></ruby>のようです。",
+          "romaji": "",
+          "meaning": "Her Japanese is so good she's just like a native speaker."
+        },
+        {
+          "japanese": "<ruby>雲<rt>くも</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くて、まるで<ruby>夜<rt>よる</rt></ruby>のように<ruby>暗<rt>くら</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "There are so many clouds it's as dark as night."
+        }
+      ],
+      "notes": [
+        "Before a noun: のような N / みたいな N: <ruby>夢<rt>ゆめ</rt></ruby>のような<ruby>話<rt>はなし</rt></ruby>.",
+        "Before a verb or adjective: のように / みたいに."
+      ]
+    },
+    {
+      "title": "Looks like: 〜ように<ruby>見<rt>み</rt></ruby>える",
+      "pattern": "plain form + ように<ruby>見<rt>み</rt></ruby>える / N に<ruby>見<rt>み</rt></ruby>える",
+      "explanation": "How something looks from the outside, which may not be the truth.",
+      "examples": [
+        {
+          "japanese": "かれは<ruby>疲<rt>つか</rt></ruby>れているように<ruby>見<rt>み</rt></ruby>えます。",
+          "romaji": "",
+          "meaning": "He looks tired."
+        },
+        {
+          "japanese": "あの<ruby>人<rt>ひと</rt></ruby>ははたちに<ruby>見<rt>み</rt></ruby>えますが、<ruby>実<rt>じつ</rt></ruby>はさんじゅっさいです。",
+          "romaji": "",
+          "meaning": "She looks twenty, but she's actually thirty."
+        },
+        {
+          "japanese": "この<ruby>料理<rt>りょうり</rt></ruby>はかんたんそうに<ruby>見<rt>み</rt></ruby>えますが、むずかしいです。",
+          "romaji": "",
+          "meaning": "This dish looks easy, but it's hard."
+        },
+        {
+          "japanese": "とおくから<ruby>見<rt>み</rt></ruby>ると、<ruby>雲<rt>くも</rt></ruby>が<ruby>山<rt>やま</rt></ruby>のように<ruby>見<rt>み</rt></ruby>えます。",
+          "romaji": "",
+          "meaning": "From far away, the clouds look like mountains."
+        }
+      ],
+      "notes": [
+        "そうに<ruby>見<rt>み</rt></ruby>える (looks …) is also common with adjectives."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>子<rt>こ</rt></ruby>どもの<ruby>頃<rt>ころ</rt></ruby>から<ruby>絵<rt>え</rt></ruby>をかくのがすきです。",
+      "I've liked drawing since I was a child."
+    ],
+    [
+      "わたしは<ruby>母<rt>はは</rt></ruby>に<ruby>似<rt>に</rt></ruby>ています。",
+      "I look like my mother."
+    ],
+    [
+      "<ruby>夜空<rt>よぞら</rt></ruby>に<ruby>美<rt>うつく</rt></ruby>しい<ruby>星<rt>ほし</rt></ruby>が<ruby>見<rt>み</rt></ruby>えます。",
+      "You can see beautiful stars in the night sky."
+    ],
+    [
+      "<ruby>例<rt>たと</rt></ruby>えば、すしや<ruby>天<rt>てん</rt></ruby>ぷらがすきです。",
+      "I like, for example, sushi and tempura."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "この<ruby>景色<rt>けしき</rt></ruby>、きれいですね。",
+      "けん",
+      "ええ、まるで<ruby>絵<rt>え</rt></ruby>のようです。"
+    ],
+    [
+      "リー",
+      "マイさんとお<ruby>姉<rt>ねえ</rt></ruby>さん、<ruby>似<rt>に</rt></ruby>ていますね。",
+      "マイ",
+      "よく<ruby>言<rt>い</rt></ruby>われます。まるでふたごみたいだって。"
+    ],
+    [
+      "ゆき",
+      "あの<ruby>人<rt>ひと</rt></ruby>、<ruby>怒<rt>おこ</rt></ruby>っているように<ruby>見<rt>み</rt></ruby>えますね。",
+      "リン",
+      "いいえ、いつもあんな<ruby>顔<rt>かお</rt></ruby>なんですよ。"
+    ],
+    [
+      "たなか",
+      "そのシャツ、よくにあいますね。",
+      "アナ",
+      "ありがとうございます。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "絵",
+      "onyomi": [
+        "カイ",
+        "エ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "picture",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "絵",
+          "reading": "え",
+          "en": "picture"
+        },
+        {
+          "word": "絵本",
+          "reading": "えほん",
+          "en": "picture book"
+        }
+      ],
+      "mnemonic": "Threads (糸) that meet (会) to make a picture."
+    },
+    {
+      "char": "似",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "に.る",
+        "ひ.る"
+      ],
+      "meaning_en": "resemble",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "似る",
+          "reading": "にる",
+          "en": "to resemble"
+        },
+        {
+          "word": "似合う",
+          "reading": "にあう",
+          "en": "to suit"
+        }
+      ],
+      "mnemonic": "A person (亻) who uses (以) another's look: resembling."
+    },
+    {
+      "char": "美",
+      "onyomi": [
+        "ビ",
+        "ミ"
+      ],
+      "kunyomi": [
+        "うつく.しい"
+      ],
+      "meaning_en": "beauty",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "美しい",
+          "reading": "うつくしい",
+          "en": "beautiful"
+        },
+        {
+          "word": "美人",
+          "reading": "びじん",
+          "en": "beautiful woman"
+        }
+      ],
+      "mnemonic": "A big (大) sheep (羊): beautiful."
+    },
+    {
+      "char": "星",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "ほし",
+        "-ぼし"
+      ],
+      "meaning_en": "star",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "星",
+          "reading": "ほし",
+          "en": "star"
+        },
+        {
+          "word": "火星",
+          "reading": "かせい",
+          "en": "Mars"
+        }
+      ],
+      "mnemonic": "The sun (日) giving birth (生) to stars."
+    },
+    {
+      "char": "雲",
+      "onyomi": [
+        "ウン"
+      ],
+      "kunyomi": [
+        "くも",
+        "-ぐも"
+      ],
+      "meaning_en": "cloud",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "雲",
+          "reading": "くも",
+          "en": "cloud"
+        },
+        {
+          "word": "雨雲",
+          "reading": "あまぐも",
+          "en": "rain cloud"
+        }
+      ],
+      "mnemonic": "Rain (雨) that is spoken of (云) in the sky: clouds."
+    },
+    {
+      "char": "例",
+      "onyomi": [
+        "レイ"
+      ],
+      "kunyomi": [
+        "たと.える"
+      ],
+      "meaning_en": "example",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "例えば",
+          "reading": "たとえば",
+          "en": "for example"
+        },
+        {
+          "word": "例",
+          "reading": "れい",
+          "en": "example"
+        }
+      ],
+      "mnemonic": "A person (亻) lined up in a row (列) as an example."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete もう<ruby>大人<rt>おとな</rt></ruby>なのに、<ruby>子<rt>こ</rt></ruby>ども＿＿ですね。",
+      "options": [
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "ように",
+        "ほど",
+        "っぽい"
+      ],
+      "correct": "っぽい",
+      "explanation": "-ish: っぽい."
+    },
+    {
+      "prompt": "Complete: まるで<ruby>夢<rt>ゆめ</rt></ruby>＿＿ようです。",
+      "options": [
+        "の",
+        "な",
+        "に",
+        "が"
+      ],
+      "correct": "の",
+      "explanation": "N の ようだ."
+    },
+    {
+      "prompt": "Complete: この<ruby>絵<rt>え</rt></ruby>は、まるで<ruby>写真<rt>しゃしん</rt></ruby>＿＿だ。",
+      "options": [
+        "のみたい",
+        "みたい",
+        "よう",
+        "っぽい"
+      ],
+      "correct": "みたい",
+      "explanation": "N みたいだ (casual)."
+    },
+    {
+      "prompt": "Complete: かれは<ruby>疲<rt>つか</rt></ruby>れている＿＿<ruby>見<rt>み</rt></ruby>えます。",
+      "options": [
+        "ような",
+        "みたいな",
+        "ように",
+        "っぽく"
+      ],
+      "correct": "ように",
+      "explanation": "Looks like: ように<ruby>見<rt>み</rt></ruby>える."
+    },
+    {
+      "prompt": "Which word means \"to resemble\"?",
+      "options": [
+        "にあう",
+        "<ruby>見<rt>み</rt></ruby>える",
+        "<ruby>例<rt>たと</rt></ruby>える",
+        "<ruby>似<rt>に</rt></ruby>る"
+      ],
+      "correct": "<ruby>似<rt>に</rt></ruby>る",
+      "explanation": "<ruby>似<rt>に</rt></ruby>る: to resemble."
+    },
+    {
+      "prompt": "How is 美⁠しい read?",
+      "options": [
+        "うつくしい",
+        "びしい",
+        "みしい",
+        "うるわしい"
+      ],
+      "correct": "うつくしい",
+      "explanation": "美⁠しい is read うつくしい."
+    },
+    {
+      "prompt": "Choose the meaning of あの<ruby>人<rt>ひと</rt></ruby>ははたちに<ruby>見<rt>み</rt></ruby>えます。",
+      "options": [
+        "That person is twenty.",
+        "That person looks twenty.",
+        "That person saw someone who was twenty.",
+        "That person wants to be twenty."
+      ],
+      "correct": "That person looks twenty.",
+      "explanation": "に<ruby>見<rt>み</rt></ruby>える: looks."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is a vivid comparison?",
+      "options": [
+        "<ruby>夜<rt>よる</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いないです。",
+        "まるで<ruby>夜<rt>よる</rt></ruby>のように<ruby>暗<rt>くら</rt></ruby>いです。",
+        "<ruby>夜<rt>よる</rt></ruby>っぽいです。",
+        "<ruby>夜<rt>よる</rt></ruby>といえば<ruby>暗<rt>くら</rt></ruby>いです。"
+      ],
+      "correct": "まるで<ruby>夜<rt>よる</rt></ruby>のように<ruby>暗<rt>くら</rt></ruby>いです。",
+      "explanation": "まるで〜ようだ."
+    },
+    {
+      "prompt": "What does かのじょは、まるで<ruby>日本人<rt>にほんじん</rt></ruby>のようです mean?",
+      "options": [
+        "She's Japanese.",
+        "She isn't like a Japanese person at all.",
+        "She's just like a Japanese person.",
+        "She wants to be Japanese."
+      ],
+      "correct": "She's just like a Japanese person.",
+      "explanation": "まるで: just like (but not really)."
+    },
+    {
+      "prompt": "Which word means \"to suit\" (clothes)?",
+      "options": [
+        "<ruby>似<rt>に</rt></ruby>る",
+        "<ruby>見<rt>み</rt></ruby>える",
+        "あわせる",
+        "にあう"
+      ],
+      "correct": "にあう",
+      "explanation": "にあう: to suit."
+    },
+    {
+      "prompt": "Read: いいえ、いつもあんな<ruby>顔<rt>かお</rt></ruby>なんですよ。 What does Lin mean?",
+      "options": [
+        "He isn't angry; he always looks like that.",
+        "He's very angry today.",
+        "He's never angry.",
+        "She doesn't know him."
+      ],
+      "correct": "He isn't angry; he always looks like that.",
+      "explanation": "ように<ruby>見<rt>み</rt></ruby>える: looks, but isn't."
+    },
+    {
+      "prompt": "Review: complete あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>＿＿<ruby>違<rt>ちが</rt></ruby>いない。",
+      "options": [
+        "だに",
+        "に",
+        "の",
+        "な"
+      ],
+      "correct": "に",
+      "explanation": "Must be: N に<ruby>違<rt>ちが</rt></ruby>いない."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-6-a-bit-like",
+    "japanese-n3-unit-6-must-be",
+    "japanese-n4-unit-7-like-a"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n3-unit-8-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "kuse-ni",
+      "prompt": "Complete: <ruby>知<rt>し</rt></ruby>っている＿＿、<ruby>教<rt>おし</rt></ruby>えてくれない。 (critical)",
+      "options": [
+        "ために",
+        "くせに",
+        "うちに",
+        "かわりに"
+      ],
+      "correctIndex": 1,
+      "explanation": "Critical even though: くせに."
+    },
+    {
+      "id": "kuse-ni-self",
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "わたしは<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "わたしは<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。"
+      ],
+      "correctIndex": 3,
+      "explanation": "Not about yourself."
+    },
+    {
+      "id": "wari-ni",
+      "prompt": "Complete: <ruby>母<rt>はは</rt></ruby>は<ruby>年<rt>とし</rt></ruby>の＿＿<ruby>若<rt>わか</rt></ruby>く<ruby>見<rt>み</rt></ruby>えます。",
+      "options": [
+        "わりに",
+        "くせに",
+        "かわりに",
+        "<ruby>反面<rt>はんめん</rt></ruby>"
+      ],
+      "correctIndex": 0,
+      "explanation": "For her age: のわりに."
+    },
+    {
+      "id": "ni-shite-wa",
+      "prompt": "Complete: <ruby>十二月<rt>じゅうにがつ</rt></ruby>＿＿、あたたかいですね。",
+      "options": [
+        "のくせに",
+        "のかわりに",
+        "にしては",
+        "の<ruby>反面<rt>はんめん</rt></ruby>"
+      ],
+      "correctIndex": 2,
+      "explanation": "For December: にしては."
+    },
+    {
+      "id": "ni-shite-wa-wrong",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>安<rt>やす</rt></ruby>いわりに、おいしいです。",
+        "<ruby>値段<rt>ねだん</rt></ruby>のわりに、おいしいです。",
+        "<ruby>初<rt>はじ</rt></ruby>めてにしては、おいしいです。",
+        "<ruby>安<rt>やす</rt></ruby>いにしては、おいしいです。"
+      ],
+      "correctIndex": 3,
+      "explanation": "にしては does not follow adjectives."
+    },
+    {
+      "id": "kawari-ni",
+      "prompt": "Complete: バスに<ruby>乗<rt>の</rt></ruby>る＿＿、<ruby>歩<rt>ある</rt></ruby>いて<ruby>行<rt>い</rt></ruby>きました。",
+      "options": [
+        "わりに",
+        "かわりに",
+        "くせに",
+        "にしては"
+      ],
+      "correctIndex": 1,
+      "explanation": "Instead of: かわりに."
+    },
+    {
+      "id": "kawari-exchange",
+      "prompt": "What does <ruby>英語<rt>えいご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えるかわりに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらいます mean?",
+      "options": [
+        "I teach English, and in exchange I'm taught Japanese.",
+        "I teach Japanese instead of English.",
+        "I don't teach English any more.",
+        "I learn English and Japanese."
+      ],
+      "correctIndex": 0,
+      "explanation": "かわりに: in exchange."
+    },
+    {
+      "id": "ippou",
+      "prompt": "Complete: <ruby>都会<rt>とかい</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby>な＿＿で、ぶっかが<ruby>高<rt>たか</rt></ruby>いです。",
+      "options": [
+        "かわり",
+        "わり",
+        "<ruby>一方<rt>いっぽう</rt></ruby>",
+        "くせ"
+      ],
+      "correctIndex": 2,
+      "explanation": "While: <ruby>一方<rt>いっぽう</rt></ruby>で."
+    },
+    {
+      "id": "ippou-da",
+      "prompt": "What does <ruby>値段<rt>ねだん</rt></ruby>は<ruby>上<rt>あ</rt></ruby>がる<ruby>一方<rt>いっぽう</rt></ruby>だ mean?",
+      "options": [
+        "Prices went up once.",
+        "Prices keep on rising.",
+        "Prices have stopped rising.",
+        "Prices are rising on one side."
+      ],
+      "correctIndex": 1,
+      "explanation": "<ruby>一方<rt>いっぽう</rt></ruby>だ: keeps on."
+    },
+    {
+      "id": "hanmen",
+      "prompt": "Complete: いなかは<ruby>静<rt>しず</rt></ruby>かな＿＿、<ruby>不便<rt>ふべん</rt></ruby>です。",
+      "options": [
+        "わりに",
+        "くせに",
+        "かわりに",
+        "<ruby>反面<rt>はんめん</rt></ruby>"
+      ],
+      "correctIndex": 3,
+      "explanation": "Two sides: <ruby>反面<rt>はんめん</rt></ruby>."
+    },
+    {
+      "id": "nimo-kakawarazu",
+      "prompt": "Complete: <ruby>雨<rt>あめ</rt></ruby>に＿＿、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。",
+      "options": [
+        "かわって",
+        "しては",
+        "もかかわらず",
+        "とって"
+      ],
+      "correctIndex": 2,
+      "explanation": "Despite: にもかかわらず."
+    },
+    {
+      "id": "temo-temo",
+      "prompt": "What does <ruby>洗<rt>あら</rt></ruby>っても<ruby>洗<rt>あら</rt></ruby>っても、よごれが<ruby>落<rt>お</rt></ruby>ちない mean?",
+      "options": [
+        "No matter how much I wash it, the stain won't come out.",
+        "I washed it, so the stain came out.",
+        "I didn't wash it.",
+        "The stain came out after one wash."
+      ],
+      "correctIndex": 0,
+      "explanation": "V-ても V-ても."
+    },
+    {
+      "id": "kanji-seikaku",
+      "prompt": "How is 性格⁠ read?",
+      "options": [
+        "しょうかく",
+        "せいがく",
+        "せかく",
+        "せいかく"
+      ],
+      "correctIndex": 3,
+      "explanation": "性格⁠ is read せいかく."
+    },
+    {
+      "id": "kanji-nougyou",
+      "prompt": "How is 農業⁠ read?",
+      "options": [
+        "のうごう",
+        "のうぎょう",
+        "のぎょう",
+        "のうしょう"
+      ],
+      "correctIndex": 1,
+      "explanation": "農業⁠ is read のうぎょう."
+    },
+    {
+      "id": "kanji-kekka",
+      "prompt": "Which word means \"result\"?",
+      "options": [
+        "<ruby>努力<rt>どりょく</rt></ruby>",
+        "<ruby>参加<rt>さんか</rt></ruby>",
+        "<ruby>結果<rt>けっか</rt></ruby>",
+        "<ruby>賞<rt>しょう</rt></ruby>"
+      ],
+      "correctIndex": 2,
+      "explanation": "<ruby>結果<rt>けっか</rt></ruby>: result."
+    }
+  ]
+}

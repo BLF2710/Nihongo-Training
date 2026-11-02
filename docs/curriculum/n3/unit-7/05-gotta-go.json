@@ -1,0 +1,537 @@
+{
+  "id": "japanese-n3-unit-7-gotta-go",
+  "slug": "n3-unit-7-gotta-go",
+  "unit": "Japanese N3 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Gotta Go!",
+  "title_jp": "〜なきゃ・〜ちゃ だめ",
+  "objectives": [
+    "I can talk about what I must and must not do in casual speech.",
+    "Say you must with なくちゃ and なきゃ",
+    "Forbid and allow casually with ちゃだめ and ていい",
+    "Talk about housework: homework, washing, rubbish, windows and dishes"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>宿題<rt>しゅくだい</rt></ruby>",
+      "",
+      "homework"
+    ],
+    [
+      "<ruby>宿<rt>やど</rt></ruby>",
+      "",
+      "inn, lodging"
+    ],
+    [
+      "<ruby>洗<rt>あら</rt></ruby>う",
+      "",
+      "to wash"
+    ],
+    [
+      "お<ruby>手洗<rt>てあら</rt></ruby>い",
+      "",
+      "toilet"
+    ],
+    [
+      "<ruby>捨<rt>す</rt></ruby>てる",
+      "",
+      "to throw away"
+    ],
+    [
+      "<ruby>窓<rt>まど</rt></ruby>",
+      "",
+      "window"
+    ],
+    [
+      "<ruby>閉<rt>し</rt></ruby>める",
+      "",
+      "to close (something)"
+    ],
+    [
+      "<ruby>閉<rt>し</rt></ruby>まる",
+      "",
+      "to close (by itself)"
+    ],
+    [
+      "<ruby>皿<rt>さら</rt></ruby>",
+      "",
+      "plate, dish"
+    ],
+    [
+      "〜なくちゃ / 〜なきゃ",
+      "",
+      "must (casual)"
+    ],
+    [
+      "〜ちゃだめ",
+      "",
+      "mustn't (casual)"
+    ],
+    [
+      "〜ていい",
+      "",
+      "may (casual)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "宿題",
+      "word_reading": "しゅくだい"
+    },
+    {
+      "word_japanese": "宿",
+      "word_reading": "やど"
+    },
+    {
+      "word_japanese": "洗う",
+      "word_reading": "あらう"
+    },
+    {
+      "word_japanese": "お手洗い",
+      "word_reading": "おてあらい"
+    },
+    {
+      "word_japanese": "捨てる",
+      "word_reading": "すてる"
+    },
+    {
+      "word_japanese": "窓",
+      "word_reading": "まど"
+    },
+    {
+      "word_japanese": "閉める",
+      "word_reading": "しめる"
+    },
+    {
+      "word_japanese": "閉まる",
+      "word_reading": "しまる"
+    },
+    {
+      "word_japanese": "皿",
+      "word_reading": "さら"
+    }
+  ],
+  "concept": {
+    "title": "Casual speech",
+    "text": "Spoken Japanese shortens long endings:\n\nMust: なければならない → なきゃ / なくては → なくちゃ\nもう<ruby>行<rt>い</rt></ruby>かなきゃ。 I've got to go.\n<ruby>宿題<rt>しゅくだい</rt></ruby>をしなくちゃ。 I have to do my homework.\n\nMustn't: てはいけない → ちゃだめ / ちゃいけない (では → じゃ)\nここで<ruby>遊<rt>あそ</rt></ruby>んじゃだめ。 You can't play here.\n\nMay: てもいい → ていい\n<ruby>窓<rt>まど</rt></ruby>、<ruby>開<rt>あ</rt></ruby>けていい？ Can I open the window?\n\nOther common ones: ておく → とく (やっとく), てしまう → ちゃう (<ruby>忘<rt>わす</rt></ruby>れちゃった).",
+    "examples": [
+      "なければ → なきゃ / なくては → なくちゃ",
+      "ては → ちゃ, では → じゃ",
+      "てもいい → ていい",
+      "ておく → とく, てしまう → ちゃう"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Must (casual): 〜なくちゃ / 〜なきゃ",
+      "pattern": "V-なくちゃ / V-なきゃ (いけない / ならない are often dropped)",
+      "explanation": "The everyday spoken form of なければならない / なくてはいけない.",
+      "examples": [
+        {
+          "japanese": "もう<ruby>行<rt>い</rt></ruby>かなきゃ。",
+          "romaji": "",
+          "meaning": "I've got to go."
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>までに<ruby>宿題<rt>しゅくだい</rt></ruby>をしなくちゃ。",
+          "romaji": "",
+          "meaning": "I have to do my homework by tomorrow."
+        },
+        {
+          "japanese": "お<ruby>皿<rt>さら</rt></ruby>、<ruby>洗<rt>あら</rt></ruby>わなきゃいけないね。",
+          "romaji": "",
+          "meaning": "We need to wash the dishes."
+        },
+        {
+          "japanese": "ごみを<ruby>捨<rt>す</rt></ruby>てなくちゃ。",
+          "romaji": "",
+          "meaning": "I need to take the rubbish out."
+        }
+      ],
+      "notes": [
+        "Used with friends and family, not in formal situations."
+      ]
+    },
+    {
+      "title": "Mustn't and may (casual): 〜ちゃだめ / 〜ていい",
+      "pattern": "V-ちゃ(じゃ) だめ / V-て いい",
+      "explanation": "Casual versions of てはいけない and てもいい.",
+      "examples": [
+        {
+          "japanese": "ここで<ruby>遊<rt>あそ</rt></ruby>んじゃだめ。",
+          "romaji": "",
+          "meaning": "You can't play here."
+        },
+        {
+          "japanese": "その<ruby>窓<rt>まど</rt></ruby>、<ruby>開<rt>あ</rt></ruby>けちゃだめだよ。",
+          "romaji": "",
+          "meaning": "Don't open that window."
+        },
+        {
+          "japanese": "これ、<ruby>食<rt>た</rt></ruby>べていい？",
+          "romaji": "",
+          "meaning": "Can I eat this?"
+        },
+        {
+          "japanese": "ドア、<ruby>閉<rt>し</rt></ruby>めていい？",
+          "romaji": "",
+          "meaning": "Is it OK if I close the door?"
+        }
+      ],
+      "notes": [
+        "て → ちゃ, で → じゃ: <ruby>飲<rt>の</rt></ruby>んじゃだめ.",
+        "てしまう → ちゃう: <ruby>忘<rt>わす</rt></ruby>れちゃった (I forgot)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "こんばんは<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くの<ruby>宿<rt>やど</rt></ruby>にとまります。",
+      "Tonight we're staying at an inn near the station."
+    ],
+    [
+      "すみません、お<ruby>手洗<rt>てあら</rt></ruby>いはどこですか。",
+      "Excuse me, where's the toilet?"
+    ],
+    [
+      "<ruby>寒<rt>さむ</rt></ruby>いので、<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めてください。",
+      "It's cold, so please close the window."
+    ],
+    [
+      "<ruby>店<rt>みせ</rt></ruby>はもう<ruby>閉<rt>し</rt></ruby>まっていました。",
+      "The shop was already closed."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "あ、もうこんな<ruby>時間<rt>じかん</rt></ruby>！<ruby>帰<rt>かえ</rt></ruby>らなきゃ。",
+      "けん",
+      "じゃ、また<ruby>明日<rt>あした</rt></ruby>ね。"
+    ],
+    [
+      "リー",
+      "このお<ruby>皿<rt>さら</rt></ruby>、<ruby>捨<rt>す</rt></ruby>てていい？",
+      "マイ",
+      "だめ、<ruby>捨<rt>す</rt></ruby>てちゃだめ。おばあちゃんのだから。"
+    ],
+    [
+      "ゆき",
+      "<ruby>窓<rt>まど</rt></ruby>、<ruby>開<rt>あ</rt></ruby>けていい？",
+      "リン",
+      "いいよ。ちょっと<ruby>暑<rt>あつ</rt></ruby>いね。"
+    ],
+    [
+      "たなか",
+      "<ruby>宿題<rt>しゅくだい</rt></ruby>、やった？",
+      "アナ",
+      "まだ。<ruby>今夜<rt>こんや</rt></ruby>やらなくちゃ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "宿",
+      "onyomi": [
+        "シュク"
+      ],
+      "kunyomi": [
+        "やど",
+        "やど.る",
+        "やど.す"
+      ],
+      "meaning_en": "lodging",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "宿題",
+          "reading": "しゅくだい",
+          "en": "homework"
+        },
+        {
+          "word": "宿",
+          "reading": "やど",
+          "en": "inn"
+        }
+      ],
+      "mnemonic": "A person (亻) sleeping a hundred (百) nights under a roof (宀)."
+    },
+    {
+      "char": "洗",
+      "onyomi": [
+        "セン"
+      ],
+      "kunyomi": [
+        "あら.う"
+      ],
+      "meaning_en": "wash",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "洗う",
+          "reading": "あらう",
+          "en": "to wash"
+        },
+        {
+          "word": "お手洗い",
+          "reading": "おてあらい",
+          "en": "toilet"
+        }
+      ],
+      "mnemonic": "Water (氵) poured over feet first (先): washing."
+    },
+    {
+      "char": "捨",
+      "onyomi": [
+        "シャ"
+      ],
+      "kunyomi": [
+        "す.てる"
+      ],
+      "meaning_en": "throw away",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "捨てる",
+          "reading": "すてる",
+          "en": "to throw away"
+        },
+        {
+          "word": "四捨五入",
+          "reading": "ししゃごにゅう",
+          "en": "rounding off"
+        }
+      ],
+      "mnemonic": "A hand (扌) letting go of the house (舎)."
+    },
+    {
+      "char": "窓",
+      "onyomi": [
+        "ソウ",
+        "ス"
+      ],
+      "kunyomi": [
+        "まど",
+        "てんまど",
+        "けむだし"
+      ],
+      "meaning_en": "window",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "窓",
+          "reading": "まど",
+          "en": "window"
+        },
+        {
+          "word": "窓口",
+          "reading": "まどぐち",
+          "en": "counter, window"
+        }
+      ],
+      "mnemonic": "A hole (穴) in the wall to let your heart (心) look out."
+    },
+    {
+      "char": "閉",
+      "onyomi": [
+        "ヘイ"
+      ],
+      "kunyomi": [
+        "と.じる",
+        "と.ざす",
+        "し.める",
+        "し.まる",
+        "た.てる"
+      ],
+      "meaning_en": "close",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "閉める",
+          "reading": "しめる",
+          "en": "to close"
+        },
+        {
+          "word": "閉まる",
+          "reading": "しまる",
+          "en": "to close"
+        }
+      ],
+      "mnemonic": "A bar (才) set inside the gate (門): closed."
+    },
+    {
+      "char": "皿",
+      "onyomi": [
+        "ベイ"
+      ],
+      "kunyomi": [
+        "さら"
+      ],
+      "meaning_en": "plate",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "皿",
+          "reading": "さら",
+          "en": "plate"
+        },
+        {
+          "word": "灰皿",
+          "reading": "はいざら",
+          "en": "ashtray"
+        }
+      ],
+      "mnemonic": "A shallow dish seen from the side."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>少<rt>すこ</rt></ruby>し<ruby>手伝<rt>てつだ</rt></ruby>って＿＿ないでしょうか。",
+      "options": [
+        "いただき",
+        "いただけ",
+        "もらい",
+        "くださら"
+      ],
+      "correct": "いただけ",
+      "explanation": "Could you possibly: ていただけないでしょうか."
+    },
+    {
+      "prompt": "What is the casual form of <ruby>行<rt>い</rt></ruby>かなければならない?",
+      "options": [
+        "<ruby>行<rt>い</rt></ruby>かなくて",
+        "<ruby>行<rt>い</rt></ruby>っちゃ",
+        "<ruby>行<rt>い</rt></ruby>かなきゃ",
+        "<ruby>行<rt>い</rt></ruby>っていい"
+      ],
+      "correct": "<ruby>行<rt>い</rt></ruby>かなきゃ",
+      "explanation": "なければ → なきゃ."
+    },
+    {
+      "prompt": "What is the casual form of <ruby>遊<rt>あそ</rt></ruby>んではいけない?",
+      "options": [
+        "<ruby>遊<rt>あそ</rt></ruby>んちゃだめ",
+        "<ruby>遊<rt>あそ</rt></ruby>ばなきゃ",
+        "<ruby>遊<rt>あそ</rt></ruby>んでいい",
+        "<ruby>遊<rt>あそ</rt></ruby>んじゃだめ"
+      ],
+      "correct": "<ruby>遊<rt>あそ</rt></ruby>んじゃだめ",
+      "explanation": "では → じゃ."
+    },
+    {
+      "prompt": "Complete: これ、<ruby>食<rt>た</rt></ruby>べて＿＿？ (may I)",
+      "options": [
+        "いい",
+        "だめ",
+        "なきゃ",
+        "ちゃ"
+      ],
+      "correct": "いい",
+      "explanation": "May: ていい."
+    },
+    {
+      "prompt": "Which word means \"to throw away\"?",
+      "options": [
+        "<ruby>洗<rt>あら</rt></ruby>う",
+        "<ruby>捨<rt>す</rt></ruby>てる",
+        "<ruby>閉<rt>し</rt></ruby>める",
+        "<ruby>閉<rt>し</rt></ruby>まる"
+      ],
+      "correct": "<ruby>捨<rt>す</rt></ruby>てる",
+      "explanation": "<ruby>捨<rt>す</rt></ruby>てる: to throw away."
+    },
+    {
+      "prompt": "How is お手洗⁠い read?",
+      "options": [
+        "おてせんい",
+        "おしゅあらい",
+        "おてあらい",
+        "おてあろい"
+      ],
+      "correct": "おてあらい",
+      "explanation": "お手洗⁠い is read おてあらい."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>店<rt>みせ</rt></ruby>はもう<ruby>閉<rt>し</rt></ruby>まっていました。",
+      "options": [
+        "I closed the shop.",
+        "The shop is about to close.",
+        "The shop was open.",
+        "The shop was already closed."
+      ],
+      "correct": "The shop was already closed.",
+      "explanation": "<ruby>閉<rt>し</rt></ruby>まる: to close (by itself)."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which is the casual way to say \"I forgot\"?",
+      "options": [
+        "<ruby>忘<rt>わす</rt></ruby>れなきゃ。",
+        "<ruby>忘<rt>わす</rt></ruby>れちゃだめ。",
+        "<ruby>忘<rt>わす</rt></ruby>れていい。",
+        "<ruby>忘<rt>わす</rt></ruby>れちゃった。"
+      ],
+      "correct": "<ruby>忘<rt>わす</rt></ruby>れちゃった。",
+      "explanation": "てしまう → ちゃう."
+    },
+    {
+      "prompt": "What does その<ruby>窓<rt>まど</rt></ruby>、<ruby>開<rt>あ</rt></ruby>けちゃだめだよ mean?",
+      "options": [
+        "Don't open that window.",
+        "Open that window.",
+        "You may open that window.",
+        "I opened that window."
+      ],
+      "correct": "Don't open that window.",
+      "explanation": "ちゃだめ: mustn't."
+    },
+    {
+      "prompt": "Which word means \"to close (something)\"?",
+      "options": [
+        "<ruby>閉<rt>し</rt></ruby>まる",
+        "<ruby>閉<rt>し</rt></ruby>める",
+        "<ruby>捨<rt>す</rt></ruby>てる",
+        "<ruby>洗<rt>あら</rt></ruby>う"
+      ],
+      "correct": "<ruby>閉<rt>し</rt></ruby>める",
+      "explanation": "<ruby>閉<rt>し</rt></ruby>める: transitive."
+    },
+    {
+      "prompt": "Read: だめ、<ruby>捨<rt>す</rt></ruby>てちゃだめ。おばあちゃんのだから。 Why can't Lee throw the plate away?",
+      "options": [
+        "It's new.",
+        "It's dirty.",
+        "It belongs to Grandma.",
+        "It's Mai's favourite."
+      ],
+      "correct": "It belongs to Grandma.",
+      "explanation": "おばあちゃんのだから."
+    },
+    {
+      "prompt": "Review: complete <ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れる＿＿いいな。",
+      "options": [
+        "ちゃ",
+        "なきゃ",
+        "のに",
+        "と"
+      ],
+      "correct": "と",
+      "explanation": "I hope: 〜といいな."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-7-could-you-possibly",
+    "japanese-n3-unit-7-i-wish",
+    "japanese-n4-unit-6-oh-no"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n3-unit-5-review",
+  "slug": "n3-unit-5-review",
+  "unit": "Japanese N3 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 5 Review",
+  "title_jp": "ユニット5のふくしゅう",
+  "objectives": [
+    "I can talk about topics and points of view.",
+    "Name a topic with について and に<ruby>関<rt>かん</rt></ruby>して",
+    "Give a point of view or role with にとって and として",
+    "Pick up a topic or define a word with といえば, って and というのは",
+    "Read a blog post about a festival"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>関係<rt>かんけい</rt></ruby>",
+      "",
+      "relationship, connection"
+    ],
+    [
+      "<ruby>情報<rt>じょうほう</rt></ruby>",
+      "",
+      "information"
+    ],
+    [
+      "<ruby>調<rt>しら</rt></ruby>べる",
+      "",
+      "to look up, to investigate"
+    ],
+    [
+      "<ruby>将来<rt>しょうらい</rt></ruby>",
+      "",
+      "the future"
+    ],
+    [
+      "<ruby>夢<rt>ゆめ</rt></ruby>",
+      "",
+      "dream"
+    ],
+    [
+      "<ruby>幸<rt>しあわ</rt></ruby>せ",
+      "",
+      "happiness; happy"
+    ],
+    [
+      "<ruby>発表<rt>はっぴょう</rt></ruby>",
+      "",
+      "presentation"
+    ],
+    [
+      "<ruby>職場<rt>しょくば</rt></ruby>",
+      "",
+      "workplace"
+    ],
+    [
+      "<ruby>季節<rt>きせつ</rt></ruby>",
+      "",
+      "season"
+    ],
+    [
+      "<ruby>景色<rt>けしき</rt></ruby>",
+      "",
+      "scenery, view"
+    ],
+    [
+      "<ruby>言葉<rt>ことば</rt></ruby>",
+      "",
+      "word; language"
+    ],
+    [
+      "<ruby>日記<rt>にっき</rt></ruby>",
+      "",
+      "diary"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Topics and viewpoints",
+    "text": "について: about. に<ruby>関<rt>かん</rt></ruby>して / に<ruby>関<rt>かん</rt></ruby>する N: concerning (formal).\nにとって: from someone's point of view, followed by an evaluation. にとっての N.\nとして: in the role of. としては: speaking as. としても: also as.\nといえば / というと: speaking of. って: casual topic or quote.\nA という N: called. A というのは B ことだ: A means B.",
+    "examples": [
+      "について / に<ruby>関<rt>かん</rt></ruby>して",
+      "にとって / として",
+      "といえば / って / という / というのは"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>祭<rt>まつ</rt></ruby>りについてのレポートを<ruby>書<rt>か</rt></ruby>いています。",
+      "I'm writing a report about Japanese festivals."
+    ],
+    [
+      "<ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>情報<rt>じょうほう</rt></ruby>はまだありません。",
+      "There's no information about the accident yet."
+    ],
+    [
+      "わたしにとって、<ruby>日本語<rt>にほんご</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>言葉<rt>ことば</rt></ruby>です。",
+      "Japanese is an important language to me."
+    ],
+    [
+      "クラスの<ruby>代表<rt>だいひょう</rt></ruby>として<ruby>発表<rt>はっぴょう</rt></ruby>しました。",
+      "I gave a presentation on behalf of the class."
+    ],
+    [
+      "<ruby>秋<rt>あき</rt></ruby>といえば、こうようですね。",
+      "Speaking of autumn, there are the autumn leaves."
+    ],
+    [
+      "「<ruby>花見<rt>はなみ</rt></ruby>」というのは、さくらを<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>くことです。",
+      "\"Hanami\" means going to look at the cherry blossoms."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>何<rt>なに</rt></ruby>を<ruby>調<rt>しら</rt></ruby>べているんですか。",
+      "けん",
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>季節<rt>きせつ</rt></ruby>の<ruby>行事<rt>ぎょうじ</rt></ruby>についてです。"
+    ],
+    [
+      "リー",
+      "わたしにとって、<ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>暑<rt>あつ</rt></ruby>すぎます。",
+      "マイ",
+      "<ruby>夏<rt>なつ</rt></ruby>といえば、<ruby>来週<rt>らいしゅう</rt></ruby><ruby>町<rt>まち</rt></ruby>の<ruby>祭<rt>まつ</rt></ruby>りがありますよ。"
+    ],
+    [
+      "ゆき",
+      "「ゆかた」って<ruby>何<rt>なん</rt></ruby>ですか。",
+      "たなか",
+      "<ruby>夏<rt>なつ</rt></ruby>に<ruby>着<rt>き</rt></ruby>る、かるい<ruby>着物<rt>きもの</rt></ruby>のことですよ。"
+    ],
+    [
+      "リン",
+      "<ruby>祭<rt>まつ</rt></ruby>りにはだれと<ruby>行<rt>い</rt></ruby>きますか。",
+      "アナ",
+      "<ruby>留学生<rt>りゅうがくせい</rt></ruby>の<ruby>代表<rt>だいひょう</rt></ruby>として、<ruby>町<rt>まち</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>といっしょに<ruby>行<rt>い</rt></ruby>きます。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Blog post",
+    "text_jp": "<ruby>先週<rt>せんしゅう</rt></ruby>の<ruby>土曜日<rt>どようび</rt></ruby>、<ruby>町<rt>まち</rt></ruby>の<ruby>夏祭<rt>なつまつ</rt></ruby>りに<ruby>行<rt>い</rt></ruby>きました。わたしにとって、<ruby>初<rt>はじ</rt></ruby>めての<ruby>日本<rt>にほん</rt></ruby>の<ruby>祭<rt>まつ</rt></ruby>りでした。<ruby>夏祭<rt>なつまつ</rt></ruby>りといえば、ゆかたと<ruby>花火<rt>はなび</rt></ruby>です。わたしも<ruby>友<rt>とも</rt></ruby>だちにゆかたを<ruby>借<rt>か</rt></ruby>りて、<ruby>着<rt>き</rt></ruby>てみました。<ruby>祭<rt>まつ</rt></ruby>りでは、<ruby>留学生<rt>りゅうがくせい</rt></ruby>の<ruby>代表<rt>だいひょう</rt></ruby>として、<ruby>町<rt>まち</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>たちとおどりました。<ruby>夜<rt>よる</rt></ruby>には<ruby>花火<rt>はなび</rt></ruby>が<ruby>空<rt>そら</rt></ruby>に<ruby>光<rt>ひか</rt></ruby>って、<ruby>景色<rt>けしき</rt></ruby>がとてもきれいでした。<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ってから、<ruby>祭<rt>まつ</rt></ruby>りのれきしについて<ruby>調<rt>しら</rt></ruby>べました。「<ruby>祭<rt>まつ</rt></ruby>り」という<ruby>言葉<rt>ことば</rt></ruby>は、もともとかみさまにかんしゃするという<ruby>意味<rt>いみ</rt></ruby>だそうです。<ruby>来年<rt>らいねん</rt></ruby>も、ぜひ<ruby>行<rt>い</rt></ruby>きたいです。",
+    "en_translation": "Last Saturday I went to the town's summer festival. For me, it was my first Japanese festival. Speaking of summer festivals, it's yukata and fireworks. I borrowed a yukata from a friend and tried it on. At the festival I danced with the townspeople as the representative of the international students. At night the fireworks lit up the sky, and the view was beautiful. After I got home, I looked up the history of festivals. Apparently the word \"matsuri\" originally meant giving thanks to the gods. I'd love to go again next year.",
+    "questions": [
+      {
+        "prompt": "What did the writer do at the festival?",
+        "options": [
+          "Sold food",
+          "Danced with the townspeople as the students' representative",
+          "Set off fireworks",
+          "Gave a speech"
+        ],
+        "correct": "Danced with the townspeople as the students' representative",
+        "explanation": "<ruby>留学生<rt>りゅうがくせい</rt></ruby>の<ruby>代表<rt>だいひょう</rt></ruby>として、<ruby>町<rt>まち</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>たちとおどりました."
+      },
+      {
+        "prompt": "Where did the writer's yukata come from?",
+        "options": [
+          "She bought it at the festival.",
+          "Her family sent it.",
+          "She borrowed it from a friend.",
+          "The town gave it to her."
+        ],
+        "correct": "She borrowed it from a friend.",
+        "explanation": "<ruby>友<rt>とも</rt></ruby>だちにゆかたを<ruby>借<rt>か</rt></ruby>りて."
+      },
+      {
+        "prompt": "What did the word <ruby>祭<rt>まつ</rt></ruby>り originally mean?",
+        "options": [
+          "Dancing in summer",
+          "Watching fireworks",
+          "Meeting the townspeople",
+          "Giving thanks to the gods"
+        ],
+        "correct": "Giving thanks to the gods",
+        "explanation": "かみさまにかんしゃするという<ruby>意味<rt>いみ</rt></ruby>."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>のぶんかに＿＿<ruby>調<rt>しら</rt></ruby>べています。",
+      "options": [
+        "とって",
+        "として",
+        "ついて",
+        "いえば"
+      ],
+      "correct": "ついて",
+      "explanation": "About: について."
+    },
+    {
+      "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>＿＿<ruby>情報<rt>じょうほう</rt></ruby>",
+      "options": [
+        "して",
+        "した",
+        "しての",
+        "する"
+      ],
+      "correct": "する",
+      "explanation": "Before a noun: に<ruby>関<rt>かん</rt></ruby>する N."
+    },
+    {
+      "prompt": "Complete: わたしに＿＿、<ruby>家族<rt>かぞく</rt></ruby>はいちばん<ruby>大切<rt>たいせつ</rt></ruby>です。",
+      "options": [
+        "とって",
+        "ついて",
+        "として",
+        "<ruby>関<rt>かん</rt></ruby>して"
+      ],
+      "correct": "とって",
+      "explanation": "From my point of view: にとって."
+    },
+    {
+      "prompt": "Complete: <ruby>留学生<rt>りゅうがくせい</rt></ruby>＿＿<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>ました。",
+      "options": [
+        "にとって",
+        "として",
+        "について",
+        "といえば"
+      ],
+      "correct": "として",
+      "explanation": "In the role of: として."
+    },
+    {
+      "prompt": "Complete: <ruby>夏<rt>なつ</rt></ruby>と＿＿、<ruby>花火<rt>はなび</rt></ruby>ですね。",
+      "options": [
+        "して",
+        "とって",
+        "いえば",
+        "ついて"
+      ],
+      "correct": "いえば",
+      "explanation": "Speaking of: といえば."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みだ＿＿。 (casual: they say)",
+      "options": [
+        "から",
+        "として",
+        "ほど",
+        "って"
+      ],
+      "correct": "って",
+      "explanation": "Casual quote: って."
+    },
+    {
+      "prompt": "Complete: 「さくら」と＿＿<ruby>店<rt>みせ</rt></ruby>",
+      "options": [
+        "いう",
+        "いえば",
+        "して",
+        "とって"
+      ],
+      "correct": "いう",
+      "explanation": "Called: という N."
+    },
+    {
+      "prompt": "Complete: 「<ruby>花見<rt>はなみ</rt></ruby>」という＿＿、さくらを<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>くことです。",
+      "options": [
+        "のに",
+        "のは",
+        "より",
+        "ほど"
+      ],
+      "correct": "のは",
+      "explanation": "What … means: というのは."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the blog: what did the writer do after the festival?",
+      "options": [
+        "Looked up the history of festivals",
+        "Wrote to a friend",
+        "Bought a yukata",
+        "Went to another festival"
+      ],
+      "correct": "Looked up the history of festivals",
+      "explanation": "<ruby>祭<rt>まつ</rt></ruby>りのれきしについて<ruby>調<rt>しら</rt></ruby>べました."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>母<rt>はは</rt></ruby>のためにケーキを<ruby>作<rt>つく</rt></ruby>りました。",
+        "<ruby>母<rt>はは</rt></ruby>にとってケーキを<ruby>作<rt>つく</rt></ruby>りました。",
+        "<ruby>母<rt>はは</rt></ruby>にとって、この<ruby>写真<rt>しゃしん</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>です。",
+        "<ruby>母<rt>はは</rt></ruby>として、<ruby>子<rt>こ</rt></ruby>どもを<ruby>守<rt>まも</rt></ruby>ります。"
+      ],
+      "correct": "<ruby>母<rt>はは</rt></ruby>にとってケーキを<ruby>作<rt>つく</rt></ruby>りました。",
+      "explanation": "にとって is not used for actions done for someone."
+    },
+    {
+      "prompt": "Which is the most formal way to say \"about the accident\"?",
+      "options": [
+        "<ruby>事故<rt>じこ</rt></ruby>って",
+        "<ruby>事故<rt>じこ</rt></ruby>といえば",
+        "<ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>して",
+        "<ruby>事故<rt>じこ</rt></ruby>のこと"
+      ],
+      "correct": "<ruby>事故<rt>じこ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>して",
+      "explanation": "に<ruby>関<rt>かん</rt></ruby>して is formal."
+    },
+    {
+      "prompt": "What does わたしとしては、はんたいです mean?",
+      "options": [
+        "I'm against it as a representative.",
+        "For me, it's the opposite.",
+        "I agree with it.",
+        "Personally, I'm against it."
+      ],
+      "correct": "Personally, I'm against it.",
+      "explanation": "としては: speaking as."
+    },
+    {
+      "prompt": "Review (Unit 4): complete <ruby>今年<rt>ことし</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>＿＿<ruby>寒<rt>さむ</rt></ruby>くないです。",
+      "options": [
+        "ほど",
+        "として",
+        "について",
+        "って"
+      ],
+      "correct": "ほど",
+      "explanation": "Not as … as: ほど〜ない."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-5-about",
+    "japanese-n3-unit-5-to-me",
+    "japanese-n3-unit-5-as-a",
+    "japanese-n3-unit-5-speaking-of",
+    "japanese-n3-unit-5-called",
+    "japanese-n3-unit-4-not-as"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

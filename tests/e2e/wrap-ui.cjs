@@ -55,7 +55,7 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     const cards = page.locator('main ol > li button');
     assert.deepEqual(await cards.evaluateAll(list => list.map(b => b.querySelector('span').textContent)), ['N5', 'N4', 'N3', 'N2', 'N1']);
     assert.deepEqual(await cards.evaluateAll(list => list.map(b => b.getAttribute('aria-pressed'))), ['true', 'false', 'false', 'false', 'false']);
-    await cards.nth(0).getByText('9 units').waitFor(); await cards.nth(1).getByText('9 units').waitFor(); await cards.nth(2).getByText('Coming soon').waitFor(); await cards.nth(0).getByText('Current level ✓').waitFor();
+    await cards.nth(0).getByText('9 units').waitFor(); await cards.nth(1).getByText('9 units').waitFor(); await cards.nth(2).getByText('9 units').waitFor(); await cards.nth(3).getByText('Coming soon').waitFor(); await cards.nth(0).getByText('Current level ✓').waitFor();
     await page.screenshot({ path: shots + '/levels.png', fullPage: true });
     await cards.nth(1).click(); await page.waitForURL(base + '/lessons');
     await heading('N4 lessons are coming soon').waitFor(); await page.getByText('Japanese • N4 Build Basics').waitFor();
@@ -76,7 +76,7 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     const tilesAre = async n => { for (let i = 0; i < 50 && await tiles.count() !== n; i++) await page.waitForTimeout(100); assert.equal(await tiles.count(), n); };
     const n5Count = catalog.kanji.filter(k => !catalog.lessonIntroductions.some(i => i.introducedKanji.includes(k.id) && !i.lessonId.startsWith('japanese-n5-'))).length;
     assert.equal(await level.inputValue(), 'N5'); await tilesAre(n5Count); assert.equal(n5Count, 103);
-    assert.ok((await level.locator('option').allInnerTexts()).includes('N3 (0)'));
+    assert.ok((await level.locator('option').allInnerTexts()).includes('N2 (0)'));
     await unitSelect.selectOption('japanese-n5-unit-5'); await page.waitForURL(/unit=japanese-n5-unit-5/);
     await tilesAre(kanjiIn('japanese-n5-unit-5')); assert.equal(kanjiIn('japanese-n5-unit-5'), 19);
     await page.getByRole('button', { name: `All (19)` }).waitFor();
@@ -88,7 +88,7 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     await page.screenshot({ path: shots + '/kanji-filter.png', fullPage: true });
     // The filter survives opening a character and going back.
     await tiles.first().click(); await page.getByText(/N5 course · Unit 5/).waitFor(); await page.goBack(); await page.waitForURL(/unit=japanese-n5-unit-5/); await tilesAre(19);
-    await level.selectOption('N3'); await page.getByText('No Kanji have been added for N3 yet.').waitFor(); assert.ok(await unitSelect.isDisabled());
+    await level.selectOption('N2'); await page.getByText('No Kanji have been added for N2 yet.').waitFor(); assert.ok(await unitSelect.isDisabled());
     await level.selectOption('all'); await tilesAre(catalog.kanji.length); assert.ok(await unitSelect.isDisabled());
     await level.selectOption('N5'); await unitSelect.locator('option').nth(8).waitFor({ state: 'attached' }); assert.equal((await unitSelect.locator('option').count()), 9); // "All units" + Units 2–9
 
@@ -100,12 +100,12 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     await page.getByLabel(/Search patterns/).fill('ことが できます'); const found = await rows.count(); assert.ok(found >= 1 && found < 6, 'found ' + found);
     await page.getByLabel(/Search patterns/).fill('zzzz'); await page.getByText('No pattern matches this search.').waitFor();
     await page.getByLabel(/Search patterns/).fill(''); await page.screenshot({ path: shots + '/grammar-summary.png' });
-    await page.getByLabel('Level').selectOption('N3'); await page.getByText('This level has no grammar yet.').waitFor();
+    await page.getByLabel('Level').selectOption('N2'); await page.getByText('This level has no grammar yet.').waitFor();
 
     // ---- Mock exam: locked until the last unit is reached
     reachedUpTo = 8; await page.goto(base + '/mock-exam'); await heading('N5 mock exam').waitFor();
     await page.getByText('The mock exam opens when you reach the last unit of N5.').waitFor(); assert.equal(await page.getByRole('button', { name: /Start the exam/ }).count(), 0);
-    await page.goto(base + '/mock-exam?level=N3'); await page.getByText('The N3 mock exam is not available yet.').waitFor();
+    await page.goto(base + '/mock-exam?level=N2'); await page.getByText('The N2 mock exam is not available yet.').waitFor();
     reachedUpTo = 9; await page.goto(base + '/mock-exam'); await page.getByText('40 minutes').waitFor(); await page.getByText('36', { exact: true }).waitFor();
     await page.getByRole('button', { name: 'Start the exam →' }).click();
     const timer = page.getByRole('timer'); assert.match(await timer.innerText(), /^(40:00|39:5\d)$/);

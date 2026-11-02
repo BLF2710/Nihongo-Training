@@ -1,0 +1,537 @@
+{
+  "id": "japanese-n3-unit-7-instructions",
+  "slug": "n3-unit-7-instructions",
+  "unit": "Japanese N3 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "Fill In the Form",
+  "title_jp": "〜なさい・〜こと",
+  "objectives": [
+    "I can follow written instructions on forms.",
+    "Give an instruction with V-なさい",
+    "Read written rules with V-る / V-ない + こと",
+    "Talk about documents, forms, delivery and payment"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>書類<rt>しょるい</rt></ruby>",
+      "",
+      "documents, papers"
+    ],
+    [
+      "<ruby>申<rt>もう</rt></ruby>す",
+      "",
+      "to say (humble)"
+    ],
+    [
+      "<ruby>申<rt>もう</rt></ruby>しこむ",
+      "",
+      "to apply"
+    ],
+    [
+      "<ruby>印<rt>しるし</rt></ruby>",
+      "",
+      "mark, sign"
+    ],
+    [
+      "<ruby>目印<rt>めじるし</rt></ruby>",
+      "",
+      "landmark"
+    ],
+    [
+      "<ruby>配<rt>くば</rt></ruby>る",
+      "",
+      "to hand out"
+    ],
+    [
+      "<ruby>心配<rt>しんぱい</rt></ruby>",
+      "",
+      "worry (+ する: to worry)"
+    ],
+    [
+      "<ruby>届<rt>とど</rt></ruby>く",
+      "",
+      "to arrive, to be delivered"
+    ],
+    [
+      "<ruby>届<rt>とど</rt></ruby>ける",
+      "",
+      "to deliver; to report"
+    ],
+    [
+      "<ruby>払<rt>はら</rt></ruby>う",
+      "",
+      "to pay"
+    ],
+    [
+      "V-なさい",
+      "",
+      "do (instruction)"
+    ],
+    [
+      "V-る / V-ないこと",
+      "",
+      "must / must not (written rules)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "書類",
+      "word_reading": "しょるい"
+    },
+    {
+      "word_japanese": "申す",
+      "word_reading": "もうす"
+    },
+    {
+      "word_japanese": "印",
+      "word_reading": "しるし"
+    },
+    {
+      "word_japanese": "目印",
+      "word_reading": "めじるし"
+    },
+    {
+      "word_japanese": "配る",
+      "word_reading": "くばる"
+    },
+    {
+      "word_japanese": "心配",
+      "word_reading": "しんぱい"
+    },
+    {
+      "word_japanese": "届く",
+      "word_reading": "とどく"
+    },
+    {
+      "word_japanese": "届ける",
+      "word_reading": "とどける"
+    },
+    {
+      "word_japanese": "払う",
+      "word_reading": "はらう"
+    }
+  ],
+  "concept": {
+    "title": "Telling someone what to do",
+    "text": "V-stem + なさい is an instruction from someone in charge: a parent to a child, a teacher to a student, or a test paper:\n<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>なさい。 Go to bed.\n<ruby>正<rt>ただ</rt></ruby>しい<ruby>答<rt>こた</rt></ruby>えを<ruby>選<rt>えら</rt></ruby>びなさい。 Choose the correct answer.\nIt's firm but not rude; you don't use it to people above you.\n\nWritten rules often end with こと:\n<ruby>書類<rt>しょるい</rt></ruby>は<ruby>金曜日<rt>きんようび</rt></ruby>までに<ruby>出<rt>だ</rt></ruby>すこと。 Documents must be submitted by Friday.\n<ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べないこと。 No eating in the classroom.\nYou'll see this on notices, in schools and at work.",
+    "examples": [
+      "V-stem + なさい",
+      "V-る + こと (must)",
+      "V-ない + こと (must not)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Do: V-なさい",
+      "pattern": "V-stem + なさい",
+      "explanation": "An instruction from a parent, teacher or exam paper. Firm, not rude.",
+      "examples": [
+        {
+          "japanese": "もう<ruby>九時<rt>くじ</rt></ruby>よ。<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>なさい。",
+          "romaji": "",
+          "meaning": "It's nine o'clock. Go to bed."
+        },
+        {
+          "japanese": "<ruby>正<rt>ただ</rt></ruby>しい<ruby>答<rt>こた</rt></ruby>えを<ruby>選<rt>えら</rt></ruby>びなさい。",
+          "romaji": "",
+          "meaning": "Choose the correct answer."
+        },
+        {
+          "japanese": "ご<ruby>飯<rt>はん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>手<rt>て</rt></ruby>をあらいなさい。",
+          "romaji": "",
+          "meaning": "Wash your hands before eating."
+        },
+        {
+          "japanese": "ちゃんとしゅくだいをしなさい。",
+          "romaji": "",
+          "meaning": "Do your homework properly."
+        }
+      ],
+      "notes": [
+        "Not used toward people above you.",
+        "Exam instructions: 〜なさい."
+      ]
+    },
+    {
+      "title": "Written rules: V-る / V-ない + こと",
+      "pattern": "V-る こと / V-ない こと",
+      "explanation": "States a rule or requirement on a notice or in a document.",
+      "examples": [
+        {
+          "japanese": "<ruby>書類<rt>しょるい</rt></ruby>は<ruby>金曜日<rt>きんようび</rt></ruby>までに<ruby>出<rt>だ</rt></ruby>すこと。",
+          "romaji": "",
+          "meaning": "Documents must be submitted by Friday."
+        },
+        {
+          "japanese": "<ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べないこと。",
+          "romaji": "",
+          "meaning": "No eating in the classroom."
+        },
+        {
+          "japanese": "お<ruby>金<rt>かね</rt></ruby>はうけつけで<ruby>払<rt>はら</rt></ruby>うこと。",
+          "romaji": "",
+          "meaning": "Pay at reception."
+        },
+        {
+          "japanese": "ごみは<ruby>決<rt>き</rt></ruby>められた<ruby>日<rt>ひ</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すこと。",
+          "romaji": "",
+          "meaning": "Put the rubbish out on the set days."
+        }
+      ],
+      "notes": [
+        "Common on school and office notices."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "この<ruby>書類<rt>しょるい</rt></ruby>に<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてください。",
+      "Please write your name on this form."
+    ],
+    [
+      "わたくし、たなかと<ruby>申<rt>もう</rt></ruby>します。",
+      "My name is Tanaka."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>大<rt>おお</rt></ruby>きい<ruby>木<rt>き</rt></ruby>が<ruby>目印<rt>めじるし</rt></ruby>です。",
+      "The big tree in front of the station is the landmark."
+    ],
+    [
+      "<ruby>昨日<rt>きのう</rt></ruby><ruby>送<rt>おく</rt></ruby>ったにもつが、もう<ruby>届<rt>とど</rt></ruby>きました。",
+      "The parcel I sent yesterday has already arrived."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "お<ruby>母<rt>かあ</rt></ruby>さん、ゲームしてもいい？",
+      "けん",
+      "だめ。<ruby>先<rt>さき</rt></ruby>にしゅくだいをしなさい。"
+    ],
+    [
+      "リー",
+      "このお<ruby>知<rt>し</rt></ruby>らせ、<ruby>何<rt>なん</rt></ruby>と<ruby>書<rt>か</rt></ruby>いてありますか。",
+      "マイ",
+      "「ごみは<ruby>月曜日<rt>げつようび</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すこと」と<ruby>書<rt>か</rt></ruby>いてあります。"
+    ],
+    [
+      "ゆき",
+      "お<ruby>金<rt>かね</rt></ruby>はどこで<ruby>払<rt>はら</rt></ruby>いますか。",
+      "リン",
+      "あそこのうけつけで<ruby>払<rt>はら</rt></ruby>ってください。"
+    ],
+    [
+      "たなか",
+      "<ruby>書類<rt>しょるい</rt></ruby>を<ruby>配<rt>くば</rt></ruby>ってもらえますか。",
+      "アナ",
+      "はい、すぐ<ruby>配<rt>くば</rt></ruby>ります。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "類",
+      "onyomi": [
+        "ルイ"
+      ],
+      "kunyomi": [
+        "たぐ.い"
+      ],
+      "meaning_en": "kind, type",
+      "stroke_count": 18,
+      "example_words": [
+        {
+          "word": "書類",
+          "reading": "しょるい",
+          "en": "documents"
+        },
+        {
+          "word": "人類",
+          "reading": "じんるい",
+          "en": "humankind"
+        }
+      ],
+      "mnemonic": "Rice (米), a dog (犬) and a head (頁): things sorted into kinds."
+    },
+    {
+      "char": "申",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "もう.す",
+        "もう.し-",
+        "さる"
+      ],
+      "meaning_en": "say (humble)",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "申す",
+          "reading": "もうす",
+          "en": "to say"
+        },
+        {
+          "word": "申し込む",
+          "reading": "もうしこむ",
+          "en": "to apply"
+        }
+      ],
+      "mnemonic": "Lightning stretching from the sky: speaking up to the gods."
+    },
+    {
+      "char": "印",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [
+        "しるし",
+        "-じるし",
+        "しる.す"
+      ],
+      "meaning_en": "mark",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "印",
+          "reading": "しるし",
+          "en": "mark"
+        },
+        {
+          "word": "目印",
+          "reading": "めじるし",
+          "en": "landmark"
+        }
+      ],
+      "mnemonic": "A hand pressing a seal on a kneeling person (卩): a mark."
+    },
+    {
+      "char": "配",
+      "onyomi": [
+        "ハイ"
+      ],
+      "kunyomi": [
+        "くば.る"
+      ],
+      "meaning_en": "distribute",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "配る",
+          "reading": "くばる",
+          "en": "to hand out"
+        },
+        {
+          "word": "心配",
+          "reading": "しんぱい",
+          "en": "worry"
+        }
+      ],
+      "mnemonic": "A wine jar (酉) shared among everyone (己)."
+    },
+    {
+      "char": "届",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "とど.ける",
+        "-とど.け",
+        "とど.く"
+      ],
+      "meaning_en": "deliver",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "届く",
+          "reading": "とどく",
+          "en": "to arrive"
+        },
+        {
+          "word": "届ける",
+          "reading": "とどける",
+          "en": "to deliver"
+        }
+      ],
+      "mnemonic": "A body (尸) that has come out (由) to the door: delivered."
+    },
+    {
+      "char": "払",
+      "onyomi": [
+        "フツ",
+        "ヒツ",
+        "ホツ"
+      ],
+      "kunyomi": [
+        "はら.う",
+        "-はら.い",
+        "-ばら.い"
+      ],
+      "meaning_en": "pay",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "払う",
+          "reading": "はらう",
+          "en": "to pay"
+        },
+        {
+          "word": "支払い",
+          "reading": "しはらい",
+          "en": "payment"
+        }
+      ],
+      "mnemonic": "A hand (扌) pushing money away (ム): paying."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: what is the command form of <ruby>急<rt>いそ</rt></ruby>ぐ?",
+      "options": [
+        "<ruby>急<rt>いそ</rt></ruby>ぎろ",
+        "<ruby>急<rt>いそ</rt></ruby>ご",
+        "<ruby>急<rt>いそ</rt></ruby>げ",
+        "<ruby>急<rt>いそ</rt></ruby>ぐな"
+      ],
+      "correct": "<ruby>急<rt>いそ</rt></ruby>げ",
+      "explanation": "Group 1: ぐ → げ."
+    },
+    {
+      "prompt": "Complete: もう<ruby>九時<rt>くじ</rt></ruby>よ。<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>＿＿。",
+      "options": [
+        "なきゃ",
+        "ろ",
+        "るな",
+        "なさい"
+      ],
+      "correct": "なさい",
+      "explanation": "Instruction: V-stem + なさい."
+    },
+    {
+      "prompt": "Complete: <ruby>正<rt>ただ</rt></ruby>しい<ruby>答<rt>こた</rt></ruby>えを<ruby>選<rt>えら</rt></ruby>び＿＿。",
+      "options": [
+        "なさい",
+        "ること",
+        "るな",
+        "ないこと"
+      ],
+      "correct": "なさい",
+      "explanation": "Exam instruction: なさい."
+    },
+    {
+      "prompt": "Complete: <ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べない＿＿。 (rule)",
+      "options": [
+        "もの",
+        "こと",
+        "ため",
+        "ほど"
+      ],
+      "correct": "こと",
+      "explanation": "Written rule: V-ないこと."
+    },
+    {
+      "prompt": "Which word means \"to pay\"?",
+      "options": [
+        "<ruby>配<rt>くば</rt></ruby>る",
+        "<ruby>届<rt>とど</rt></ruby>く",
+        "<ruby>払<rt>はら</rt></ruby>う",
+        "<ruby>申<rt>もう</rt></ruby>す"
+      ],
+      "correct": "<ruby>払<rt>はら</rt></ruby>う",
+      "explanation": "<ruby>払<rt>はら</rt></ruby>う: to pay."
+    },
+    {
+      "prompt": "How is 書類⁠ read?",
+      "options": [
+        "しょうるい",
+        "かきるい",
+        "しょたぐい",
+        "しょるい"
+      ],
+      "correct": "しょるい",
+      "explanation": "書類⁠ is read しょるい."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>昨日<rt>きのう</rt></ruby><ruby>送<rt>おく</rt></ruby>ったにもつが、もう<ruby>届<rt>とど</rt></ruby>きました。",
+      "options": [
+        "The parcel I sent yesterday has already arrived.",
+        "I'll send the parcel tomorrow.",
+        "The parcel hasn't arrived yet.",
+        "I received a parcel yesterday."
+      ],
+      "correct": "The parcel I sent yesterday has already arrived.",
+      "explanation": "<ruby>届<rt>とど</rt></ruby>く: to arrive."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Who would most naturally say <ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>なさい?",
+      "options": [
+        "A parent to a child",
+        "A child to a parent",
+        "A shop clerk to a customer",
+        "An employee to the company president"
+      ],
+      "correct": "A parent to a child",
+      "explanation": "なさい: from someone in charge."
+    },
+    {
+      "prompt": "What does ごみは<ruby>決<rt>き</rt></ruby>められた<ruby>日<rt>ひ</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すこと mean?",
+      "options": [
+        "Don't put the rubbish out.",
+        "Put the rubbish out on the set days.",
+        "The rubbish was collected.",
+        "Decide when to put out the rubbish."
+      ],
+      "correct": "Put the rubbish out on the set days.",
+      "explanation": "V-ること: written rule."
+    },
+    {
+      "prompt": "Which word means \"worry\"?",
+      "options": [
+        "<ruby>目印<rt>めじるし</rt></ruby>",
+        "<ruby>書類<rt>しょるい</rt></ruby>",
+        "<ruby>心配<rt>しんぱい</rt></ruby>",
+        "<ruby>印<rt>しるし</rt></ruby>"
+      ],
+      "correct": "<ruby>心配<rt>しんぱい</rt></ruby>",
+      "explanation": "<ruby>心配<rt>しんぱい</rt></ruby>: worry."
+    },
+    {
+      "prompt": "Read: 「ごみは<ruby>月曜日<rt>げつようび</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すこと」と<ruby>書<rt>か</rt></ruby>いてあります。 When does the rubbish go out?",
+      "options": [
+        "Every day",
+        "On Fridays",
+        "Never",
+        "On Mondays"
+      ],
+      "correct": "On Mondays",
+      "explanation": "<ruby>月曜日<rt>げつようび</rt></ruby>: Monday."
+    },
+    {
+      "prompt": "Review (Unit 6): complete まるで<ruby>夢<rt>ゆめ</rt></ruby>＿＿ようです。",
+      "options": [
+        "の",
+        "な",
+        "こと",
+        "に"
+      ],
+      "correct": "の",
+      "explanation": "N の ようだ."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-7-commands",
+    "japanese-n3-unit-6-as-if",
+    "japanese-n4-unit-2-you-should"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

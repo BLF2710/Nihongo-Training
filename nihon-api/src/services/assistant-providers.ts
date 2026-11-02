@@ -18,7 +18,7 @@ export type AssistantProvider = {
 const CLAUDE_MODEL = process.env.ASSISTANT_MODEL || "claude-opus-5-5";
 
 function systemPrompt({ learnerName, level }: AssistantContext) {
-  return `You are the study assistant on Lingora, a website where people learn Japanese through structured JLPT-style courses (N5 is beginner, N4 follows).
+  return `You are the study assistant on Lingora, a website where people learn Japanese through structured JLPT-style courses (N5 is beginner, then N4 and N3).
 The learner's display name is given below as data; the learner is currently studying level ${level}.
 
 How to help:

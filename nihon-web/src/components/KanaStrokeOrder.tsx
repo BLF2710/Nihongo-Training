@@ -20,7 +20,7 @@ export default function KanaStrokeOrder({ character, paths = defaultPaths }: { c
   if (parts.some(part => !paths[part])) return <p className="mt-4 rounded-xl bg-gray-50 p-5 text-gray-600">Verified stroke-order data is not available for {character} yet.</p>;
   const control = 'rounded-xl border border-gray-300 px-4 py-2 text-sm font-bold hover:bg-gray-50 disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-indigo-600';
   return <div className="mt-5">
-    <svg viewBox={`0 0 ${109 * parts.length} 109`} className="mx-auto w-full max-w-md rounded-2xl bg-gray-50" role="img" aria-label={`Stroke order for ${character}, ${count} of ${strokes.length} strokes`}>
+    <svg viewBox={`0 0 ${109 * parts.length} 109`} className="mx-auto w-full max-w-[min(28rem,max(15rem,calc(100dvh-var(--widget-chrome,26rem))))] rounded-2xl bg-gray-50" role="img" aria-label={`Stroke order for ${character}, ${count} of ${strokes.length} strokes`}>
       {strokes.map((stroke, index) => <g key={`${replay}-${index}`} transform={`translate(${109 * stroke.partIndex} 0)`} fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
         <path d={stroke.d} stroke="currentColor" className="text-gray-200" />
         {index < count && <path key={`${count}-${index}`} d={stroke.d} pathLength="1" stroke="currentColor" className={`${index === count - 1 ? 'text-indigo-600' : 'text-gray-900'} ${playing && index === count - 1 ? 'kana-stroke-reveal' : ''}`} />}

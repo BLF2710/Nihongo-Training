@@ -1,0 +1,530 @@
+{
+  "id": "japanese-n3-unit-3-you-ought-to",
+  "slug": "n3-unit-3-you-ought-to",
+  "unit": "Japanese N3 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "You Ought To…",
+  "title_jp": "〜べきだ",
+  "objectives": [
+    "I can say what people should and should not do.",
+    "Give a strong opinion with 〜べきだ / べきではない",
+    "Express regret or criticism with 〜べきだった",
+    "Talk about manners, trouble and kindness"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>失礼<rt>しつれい</rt></ruby>",
+      "",
+      "rudeness; rude (+ する: excuse me)"
+    ],
+    [
+      "お<ruby>礼<rt>れい</rt></ruby>",
+      "",
+      "thanks, thank-you gift"
+    ],
+    [
+      "<ruby>他<rt>ほか</rt></ruby>",
+      "",
+      "other"
+    ],
+    [
+      "<ruby>他人<rt>たにん</rt></ruby>",
+      "",
+      "other people, a stranger"
+    ],
+    [
+      "<ruby>迷<rt>まよ</rt></ruby>う",
+      "",
+      "to get lost; to be unsure"
+    ],
+    [
+      "<ruby>迷惑<rt>めいわく</rt></ruby>",
+      "",
+      "trouble, nuisance"
+    ],
+    [
+      "<ruby>迷惑<rt>めいわく</rt></ruby>をかける",
+      "",
+      "to cause trouble for someone"
+    ],
+    [
+      "<ruby>優<rt>やさ</rt></ruby>しい",
+      "",
+      "kind, gentle"
+    ],
+    [
+      "<ruby>優先<rt>ゆうせん</rt></ruby>",
+      "",
+      "priority (+ する: to give priority)"
+    ],
+    [
+      "<ruby>老人<rt>ろうじん</rt></ruby>",
+      "",
+      "elderly person"
+    ],
+    [
+      "〜べきだ",
+      "",
+      "should, ought to"
+    ],
+    [
+      "〜べきではない",
+      "",
+      "should not"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "失礼",
+      "word_reading": "しつれい"
+    },
+    {
+      "word_japanese": "お礼",
+      "word_reading": "おれい"
+    },
+    {
+      "word_japanese": "他",
+      "word_reading": "ほか"
+    },
+    {
+      "word_japanese": "他人",
+      "word_reading": "たにん"
+    },
+    {
+      "word_japanese": "迷う",
+      "word_reading": "まよう"
+    },
+    {
+      "word_japanese": "迷惑",
+      "word_reading": "めいわく"
+    },
+    {
+      "word_japanese": "優しい",
+      "word_reading": "やさしい"
+    },
+    {
+      "word_japanese": "優先",
+      "word_reading": "ゆうせん"
+    },
+    {
+      "word_japanese": "老人",
+      "word_reading": "ろうじん"
+    }
+  ],
+  "concept": {
+    "title": "What is right: べきだ",
+    "text": "V-る + べきだ gives the speaker's strong opinion of what is right:\n\n<ruby>約束<rt>やくそく</rt></ruby>は<ruby>守<rt>まも</rt></ruby>るべきです。 Promises should be kept.\n<ruby>人<rt>ひと</rt></ruby>に<ruby>迷惑<rt>めいわく</rt></ruby>をかけるべきではありません。 You shouldn't cause trouble for others.\n\nする becomes するべき or すべき.\n\nべきだった looks back with regret or criticism:\nもっと<ruby>早<rt>はや</rt></ruby>く<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くべきでした。 I should have gone to the hospital sooner.\n\nべきだ is an opinion, not a rule: laws and school rules use なければならない or てはいけない.",
+    "examples": [
+      "V-る べきだ (should)",
+      "V-る べきではない (shouldn't)",
+      "〜べきだった (should have)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Should: 〜べきだ / 〜べきではない",
+      "pattern": "V-る + べきだ / べきではない (する → すべき)",
+      "explanation": "The speaker's opinion of what is right. It is strong, so said directly to someone it can sound preachy.",
+      "examples": [
+        {
+          "japanese": "<ruby>電車<rt>でんしゃ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>では、<ruby>老人<rt>ろうじん</rt></ruby>に<ruby>席<rt>せき</rt></ruby>をゆずるべきです。",
+          "romaji": "",
+          "meaning": "On trains, you should give your seat to elderly people."
+        },
+        {
+          "japanese": "<ruby>人<rt>ひと</rt></ruby>に<ruby>迷惑<rt>めいわく</rt></ruby>をかけるべきではありません。",
+          "romaji": "",
+          "meaning": "You shouldn't cause trouble for others."
+        },
+        {
+          "japanese": "<ruby>学生<rt>がくせい</rt></ruby>はもっと<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>むべきだと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I think students should read more books."
+        },
+        {
+          "japanese": "<ruby>約束<rt>やくそく</rt></ruby>は<ruby>守<rt>まも</rt></ruby>るべきです。",
+          "romaji": "",
+          "meaning": "Promises should be kept."
+        }
+      ],
+      "notes": [
+        "する → するべき or すべき.",
+        "To a senior, soften it: 〜たほうがいいと<ruby>思<rt>おも</rt></ruby>います."
+      ]
+    },
+    {
+      "title": "Should have: 〜べきだった",
+      "pattern": "V-る + べきだった / べきではなかった",
+      "explanation": "Regret about the past, or criticism of what someone did.",
+      "examples": [
+        {
+          "japanese": "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くべきでした。",
+          "romaji": "",
+          "meaning": "I should have gone to the hospital sooner."
+        },
+        {
+          "japanese": "あんなことを<ruby>言<rt>い</rt></ruby>うべきではなかった。",
+          "romaji": "",
+          "meaning": "I shouldn't have said that."
+        },
+        {
+          "japanese": "<ruby>先<rt>さき</rt></ruby>に<ruby>先生<rt>せんせい</rt></ruby>にそうだんするべきだったね。",
+          "romaji": "",
+          "meaning": "You should have talked to your teacher first."
+        },
+        {
+          "japanese": "<ruby>迷<rt>まよ</rt></ruby>ったときは、<ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>に<ruby>聞<rt>き</rt></ruby>くべきでした。",
+          "romaji": "",
+          "meaning": "I should have asked someone else when I was unsure."
+        }
+      ],
+      "notes": [
+        "〜ばよかった (N4) is softer regret; べきだった sounds like a duty you failed."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>遅<rt>おく</rt></ruby>れて、<ruby>失礼<rt>しつれい</rt></ruby>しました。",
+      "I'm sorry for being late."
+    ],
+    [
+      "<ruby>友<rt>とも</rt></ruby>だちにお<ruby>礼<rt>れい</rt></ruby>を<ruby>言<rt>い</rt></ruby>いました。",
+      "I thanked my friend."
+    ],
+    [
+      "<ruby>道<rt>みち</rt></ruby>に<ruby>迷<rt>まよ</rt></ruby>ってしまいました。",
+      "I got lost."
+    ],
+    [
+      "リンさんは<ruby>優<rt>やさ</rt></ruby>しい<ruby>人<rt>ひと</rt></ruby>です。",
+      "Lin is a kind person."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>電車<rt>でんしゃ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>電話<rt>でんわ</rt></ruby>してもいいですか。",
+      "けん",
+      "<ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>の<ruby>迷惑<rt>めいわく</rt></ruby>になるから、するべきではないですよ。"
+    ],
+    [
+      "リー",
+      "きのうは<ruby>道<rt>みち</rt></ruby>に<ruby>迷<rt>まよ</rt></ruby>って、<ruby>大変<rt>たいへん</rt></ruby>でした。",
+      "マイ",
+      "<ruby>地図<rt>ちず</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていくべきでしたね。"
+    ],
+    [
+      "ゆき",
+      "どちらのくつにするか、<ruby>迷<rt>まよ</rt></ruby>っています。",
+      "リン",
+      "<ruby>歩<rt>ある</rt></ruby>きやすいほうを<ruby>選<rt>えら</rt></ruby>ぶべきですよ。"
+    ],
+    [
+      "たなか",
+      "お<ruby>先<rt>さき</rt></ruby>に<ruby>失礼<rt>しつれい</rt></ruby>します。",
+      "アナ",
+      "おつかれさまでした。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "礼",
+      "onyomi": [
+        "レイ",
+        "ライ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "courtesy, thanks",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "失礼",
+          "reading": "しつれい",
+          "en": "rudeness"
+        },
+        {
+          "word": "お礼",
+          "reading": "おれい",
+          "en": "thanks"
+        }
+      ],
+      "mnemonic": "Kneeling before an altar (礻): courtesy."
+    },
+    {
+      "char": "他",
+      "onyomi": [
+        "タ"
+      ],
+      "kunyomi": [
+        "ほか"
+      ],
+      "meaning_en": "other",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "他",
+          "reading": "ほか",
+          "en": "other"
+        },
+        {
+          "word": "他人",
+          "reading": "たにん",
+          "en": "stranger"
+        }
+      ],
+      "mnemonic": "A person (亻) who is also (也) someone else."
+    },
+    {
+      "char": "迷",
+      "onyomi": [
+        "メイ"
+      ],
+      "kunyomi": [
+        "まよ.う"
+      ],
+      "meaning_en": "lost, astray",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "迷う",
+          "reading": "まよう",
+          "en": "to get lost"
+        },
+        {
+          "word": "迷惑",
+          "reading": "めいわく",
+          "en": "trouble"
+        }
+      ],
+      "mnemonic": "Walking (辶) through a rice field (米) of paths: lost."
+    },
+    {
+      "char": "惑",
+      "onyomi": [
+        "ワク"
+      ],
+      "kunyomi": [
+        "まど.う"
+      ],
+      "meaning_en": "confuse",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "迷惑",
+          "reading": "めいわく",
+          "en": "trouble"
+        },
+        {
+          "word": "困惑",
+          "reading": "こんわく",
+          "en": "bewilderment"
+        }
+      ],
+      "mnemonic": "A heart (心) that is perhaps (或) unsure."
+    },
+    {
+      "char": "優",
+      "onyomi": [
+        "ユウ",
+        "ウ"
+      ],
+      "kunyomi": [
+        "やさ.しい",
+        "すぐ.れる",
+        "まさ.る"
+      ],
+      "meaning_en": "gentle; excellent",
+      "stroke_count": 17,
+      "example_words": [
+        {
+          "word": "優しい",
+          "reading": "やさしい",
+          "en": "kind"
+        },
+        {
+          "word": "優勝",
+          "reading": "ゆうしょう",
+          "en": "championship win"
+        }
+      ],
+      "mnemonic": "A person (亻) full of care (憂) for others: gentle."
+    },
+    {
+      "char": "老",
+      "onyomi": [
+        "ロウ"
+      ],
+      "kunyomi": [
+        "お.いる",
+        "ふ.ける"
+      ],
+      "meaning_en": "old",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "老人",
+          "reading": "ろうじん",
+          "en": "elderly person"
+        },
+        {
+          "word": "老ける",
+          "reading": "ふける",
+          "en": "to age"
+        }
+      ],
+      "mnemonic": "An old person with a stick and long hair."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete かぜをひかない＿＿、あたたかくします。",
+      "options": [
+        "ように",
+        "ために",
+        "ことに",
+        "べきに"
+      ],
+      "correct": "ように",
+      "explanation": "So that not: ように."
+    },
+    {
+      "prompt": "Complete: <ruby>約束<rt>やくそく</rt></ruby>は<ruby>守<rt>まも</rt></ruby>る＿＿です。",
+      "options": [
+        "よう",
+        "べき",
+        "ため",
+        "わけ"
+      ],
+      "correct": "べき",
+      "explanation": "Should: べきだ."
+    },
+    {
+      "prompt": "Complete: <ruby>人<rt>ひと</rt></ruby>に<ruby>迷惑<rt>めいわく</rt></ruby>をかける＿＿ではありません。",
+      "options": [
+        "よう",
+        "ばかり",
+        "べき",
+        "ため"
+      ],
+      "correct": "べき",
+      "explanation": "Shouldn't: べきではない."
+    },
+    {
+      "prompt": "Which is a correct べき form of する?",
+      "options": [
+        "するべく",
+        "しべき",
+        "さべき",
+        "すべき"
+      ],
+      "correct": "すべき",
+      "explanation": "する → すべき / するべき."
+    },
+    {
+      "prompt": "Which word means \"to get lost\"?",
+      "options": [
+        "<ruby>迷<rt>まよ</rt></ruby>う",
+        "<ruby>迷惑<rt>めいわく</rt></ruby>",
+        "<ruby>失礼<rt>しつれい</rt></ruby>",
+        "<ruby>優<rt>やさ</rt></ruby>しい"
+      ],
+      "correct": "<ruby>迷<rt>まよ</rt></ruby>う",
+      "explanation": "<ruby>迷<rt>まよ</rt></ruby>う: to get lost."
+    },
+    {
+      "prompt": "How is 老人⁠ read?",
+      "options": [
+        "ろうにん",
+        "ろうじん",
+        "おいじん",
+        "ろじん"
+      ],
+      "correct": "ろうじん",
+      "explanation": "老人⁠ is read ろうじん."
+    },
+    {
+      "prompt": "Choose the meaning of もっと<ruby>早<rt>はや</rt></ruby>く<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くべきでした。",
+      "options": [
+        "I went to the hospital early.",
+        "I must go to the hospital now.",
+        "I should have gone to the hospital sooner.",
+        "The hospital opens early."
+      ],
+      "correct": "I should have gone to the hospital sooner.",
+      "explanation": "べきだった: should have."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence states a rule rather than an opinion?",
+      "options": [
+        "たばこはやめるべきです。",
+        "<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>るべきです。",
+        "ここでたばこをすってはいけません。",
+        "もっと<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>むべきです。"
+      ],
+      "correct": "ここでたばこをすってはいけません。",
+      "explanation": "べきだ is an opinion; てはいけません states a rule."
+    },
+    {
+      "prompt": "You talked back to your boss and now regret it. What do you think?",
+      "options": [
+        "あんなことを<ruby>言<rt>い</rt></ruby>うべきだ。",
+        "あんなことを<ruby>言<rt>い</rt></ruby>うわけがない。",
+        "あんなことを<ruby>言<rt>い</rt></ruby>うようにしている。",
+        "あんなことを<ruby>言<rt>い</rt></ruby>うべきではなかった。"
+      ],
+      "correct": "あんなことを<ruby>言<rt>い</rt></ruby>うべきではなかった。",
+      "explanation": "Regret: べきではなかった."
+    },
+    {
+      "prompt": "What does <ruby>迷惑<rt>めいわく</rt></ruby>をかける mean?",
+      "options": [
+        "to cause someone trouble",
+        "to get lost",
+        "to thank someone",
+        "to make a phone call"
+      ],
+      "correct": "to cause someone trouble",
+      "explanation": "<ruby>迷惑<rt>めいわく</rt></ruby>: trouble."
+    },
+    {
+      "prompt": "Read: <ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>の<ruby>迷惑<rt>めいわく</rt></ruby>になるから、するべきではないですよ。 What is Ken's advice?",
+      "options": [
+        "Make calls quietly.",
+        "Don't make calls on the train; it bothers people.",
+        "Call your friends more often.",
+        "Ask the staff first."
+      ],
+      "correct": "Don't make calls on the train; it bothers people.",
+      "explanation": "べきではない: shouldn't."
+    },
+    {
+      "prompt": "Review: complete <ruby>夜<rt>よる</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>る＿＿にしています。 (I try to)",
+      "options": [
+        "べき",
+        "わけ",
+        "よう",
+        "ため"
+      ],
+      "correct": "よう",
+      "explanation": "Try to: ようにしている."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-3-i-make-sure",
+    "japanese-n4-unit-2-you-should",
+    "japanese-n4-unit-4-if-you-study"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,558 @@
+{
+  "id": "japanese-n3-unit-2-thats-why",
+  "slug": "n3-unit-2-thats-why",
+  "unit": "Japanese N3 Unit 2",
+  "unit_number": 2,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "So That's Why",
+  "title_jp": "〜わけだ",
+  "objectives": [
+    "I can draw a conclusion from what I know.",
+    "Say \"no wonder\" or \"so that means\" with 〜わけだ",
+    "Sum up an explanation with 〜というわけだ",
+    "Talk about reasons, explanations and certainty"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>理由<rt>りゆう</rt></ruby>",
+      "",
+      "reason"
+    ],
+    [
+      "<ruby>自由<rt>じゆう</rt></ruby>",
+      "",
+      "freedom; free"
+    ],
+    [
+      "<ruby>解<rt>と</rt></ruby>く",
+      "",
+      "to solve"
+    ],
+    [
+      "<ruby>理解<rt>りかい</rt></ruby>",
+      "",
+      "understanding (+ する: to understand)"
+    ],
+    [
+      "<ruby>説明<rt>せつめい</rt></ruby>",
+      "",
+      "explanation (+ する: to explain)"
+    ],
+    [
+      "<ruby>小説<rt>しょうせつ</rt></ruby>",
+      "",
+      "novel"
+    ],
+    [
+      "<ruby>本当<rt>ほんとう</rt></ruby>",
+      "",
+      "true, real"
+    ],
+    [
+      "<ruby>当<rt>あ</rt></ruby>たる",
+      "",
+      "to hit; to win (a prize)"
+    ],
+    [
+      "<ruby>当然<rt>とうぜん</rt></ruby>",
+      "",
+      "natural, of course"
+    ],
+    [
+      "<ruby>確<rt>たし</rt></ruby>か",
+      "",
+      "surely; if I remember right"
+    ],
+    [
+      "<ruby>確<rt>たし</rt></ruby>かめる",
+      "",
+      "to check, to confirm"
+    ],
+    [
+      "〜わけだ",
+      "",
+      "so that's why; that means"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "理由",
+      "word_reading": "りゆう"
+    },
+    {
+      "word_japanese": "自由",
+      "word_reading": "じゆう"
+    },
+    {
+      "word_japanese": "解く",
+      "word_reading": "とく"
+    },
+    {
+      "word_japanese": "理解",
+      "word_reading": "りかい"
+    },
+    {
+      "word_japanese": "説明",
+      "word_reading": "せつめい"
+    },
+    {
+      "word_japanese": "小説",
+      "word_reading": "しょうせつ"
+    },
+    {
+      "word_japanese": "本当",
+      "word_reading": "ほんとう"
+    },
+    {
+      "word_japanese": "当たる",
+      "word_reading": "あたる"
+    },
+    {
+      "word_japanese": "当然",
+      "word_reading": "とうぜん"
+    },
+    {
+      "word_japanese": "確か",
+      "word_reading": "たしか"
+    },
+    {
+      "word_japanese": "確かめる",
+      "word_reading": "たしかめる"
+    }
+  ],
+  "concept": {
+    "title": "So that's why: わけだ",
+    "text": "わけ means \"reason\" or \"logic\". Plain form + わけだ draws a conclusion from facts you know:\n\nリンさんは<ruby>中国<rt>ちゅうごく</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>だから、<ruby>漢字<rt>かんじ</rt></ruby>がよく<ruby>分<rt>わ</rt></ruby>かるわけですね。 Lin is from China, so no wonder she knows kanji well.\n\nIt also works out what follows: <ruby>一時間<rt>いちじかん</rt></ruby>に<ruby>十<rt>じゅう</rt></ruby>ページなら、<ruby>八時間<rt>はちじかん</rt></ruby>で<ruby>八十<rt>はちじゅう</rt></ruby>ページ<ruby>読<rt>よ</rt></ruby>めるわけです.\n\nというわけだ and そういうわけで sum up an explanation: so that's the story.\n\nNouns take の or という: <ruby>休<rt>やす</rt></ruby>みというわけだ. な-adjectives keep な: <ruby>上手<rt>じょうず</rt></ruby>なわけだ.",
+    "examples": [
+      "plain form + わけだ (no wonder, that means)",
+      "どうりで〜わけだ",
+      "〜というわけだ / そういうわけで"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "No wonder, that means: 〜わけだ",
+      "pattern": "plain form (な-adj な / N の) + わけだ",
+      "explanation": "You learn a fact and it explains what you saw, or you work out what follows from the facts.",
+      "examples": [
+        {
+          "japanese": "<ruby>毎日<rt>まいにち</rt></ruby>れんしゅうしているから、<ruby>上手<rt>じょうず</rt></ruby>なわけだ。",
+          "romaji": "",
+          "meaning": "He practises every day: no wonder he's good."
+        },
+        {
+          "japanese": "まどが<ruby>開<rt>あ</rt></ruby>いていたから、さむかったわけです。",
+          "romaji": "",
+          "meaning": "The window was open, so that's why it was cold."
+        },
+        {
+          "japanese": "<ruby>一時間<rt>いちじかん</rt></ruby>に<ruby>十<rt>じゅう</rt></ruby>ページだから、<ruby>八時間<rt>はちじかん</rt></ruby>で<ruby>八十<rt>はちじゅう</rt></ruby>ページ<ruby>読<rt>よ</rt></ruby>めるわけです。",
+          "romaji": "",
+          "meaning": "Ten pages an hour means eighty pages in eight hours."
+        },
+        {
+          "japanese": "リンさんは<ruby>中国<rt>ちゅうごく</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>だから、<ruby>漢字<rt>かんじ</rt></ruby>がよく<ruby>分<rt>わ</rt></ruby>かるわけですね。",
+          "romaji": "",
+          "meaning": "Lin is from China, so no wonder she knows kanji well."
+        }
+      ],
+      "notes": [
+        "Often with どうりで (no wonder): どうりでさむいわけだ.",
+        "わけだ draws a conclusion from facts; はずだ (N4) states what you expect."
+      ]
+    },
+    {
+      "title": "That's the story: 〜というわけだ",
+      "pattern": "〜と いう わけだ / そういう わけで",
+      "explanation": "Used to sum up or restate an explanation.",
+      "examples": [
+        {
+          "japanese": "つまり、<ruby>来年<rt>らいねん</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>にいないというわけです。",
+          "romaji": "",
+          "meaning": "In other words, I won't be in Japan next year."
+        },
+        {
+          "japanese": "そういうわけで、<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。",
+          "romaji": "",
+          "meaning": "So that's why I'll be off tomorrow."
+        },
+        {
+          "japanese": "<ruby>理由<rt>りゆう</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>すると、こういうわけです。",
+          "romaji": "",
+          "meaning": "If I explain the reason, it's like this."
+        },
+        {
+          "japanese": "つまり、ぜんぶやり<ruby>直<rt>なお</rt></ruby>しというわけですね。",
+          "romaji": "",
+          "meaning": "So in other words, we have to redo everything."
+        }
+      ],
+      "notes": [
+        "つまり (in other words) often comes before というわけだ.",
+        "In casual speech: 〜ってわけ."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>遅<rt>おく</rt></ruby>れた<ruby>理由<rt>りゆう</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>してください。",
+      "Please explain why you were late."
+    ],
+    [
+      "しゅうまつは<ruby>自由<rt>じゆう</rt></ruby>な<ruby>時間<rt>じかん</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。",
+      "I have lots of free time at weekends."
+    ],
+    [
+      "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>解<rt>と</rt></ruby>くのがむずかしいです。",
+      "This problem is hard to solve."
+    ],
+    [
+      "それは<ruby>本当<rt>ほんとう</rt></ruby>ですか。",
+      "Is that true?"
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "リーさんは<ruby>毎日<rt>まいにち</rt></ruby>れんしゅうしているそうですよ。",
+      "けん",
+      "どうりで<ruby>上手<rt>じょうず</rt></ruby>なわけですね。"
+    ],
+    [
+      "マイ",
+      "たからくじが<ruby>当<rt>あ</rt></ruby>たったんです。",
+      "ゆき",
+      "<ruby>本当<rt>ほんとう</rt></ruby>ですか。それでげんきなわけですね。"
+    ],
+    [
+      "リン",
+      "この<ruby>説明<rt>せつめい</rt></ruby>、<ruby>理解<rt>りかい</rt></ruby>できましたか。",
+      "たなか",
+      "すみません、もう<ruby>一度<rt>いちど</rt></ruby><ruby>確<rt>たし</rt></ruby>かめてもいいですか。"
+    ],
+    [
+      "リー",
+      "そういうわけで、<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。",
+      "マイ",
+      "<ruby>分<rt>わ</rt></ruby>かりました。お<ruby>大事<rt>だいじ</rt></ruby>に。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "由",
+      "onyomi": [
+        "ユ",
+        "ユウ",
+        "ユイ"
+      ],
+      "kunyomi": [
+        "よし",
+        "よ.る"
+      ],
+      "meaning_en": "reason, cause",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "理由",
+          "reading": "りゆう",
+          "en": "reason"
+        },
+        {
+          "word": "自由",
+          "reading": "じゆう",
+          "en": "freedom"
+        }
+      ],
+      "mnemonic": "A shoot coming out of a field (田): where it comes from."
+    },
+    {
+      "char": "解",
+      "onyomi": [
+        "カイ",
+        "ゲ"
+      ],
+      "kunyomi": [
+        "と.く",
+        "と.かす",
+        "と.ける",
+        "ほど.く",
+        "ほぐ.す",
+        "わか.る",
+        "さと.る"
+      ],
+      "meaning_en": "untie, solve",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "解く",
+          "reading": "とく",
+          "en": "to solve"
+        },
+        {
+          "word": "理解",
+          "reading": "りかい",
+          "en": "understanding"
+        }
+      ],
+      "mnemonic": "A knife (刀) cutting a cow's (牛) horn (角) apart."
+    },
+    {
+      "char": "説",
+      "onyomi": [
+        "セツ",
+        "ゼイ"
+      ],
+      "kunyomi": [
+        "と.く"
+      ],
+      "meaning_en": "explain",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "説明",
+          "reading": "せつめい",
+          "en": "explanation"
+        },
+        {
+          "word": "小説",
+          "reading": "しょうせつ",
+          "en": "novel"
+        }
+      ],
+      "mnemonic": "Words (言) that make things clear (兑)."
+    },
+    {
+      "char": "当",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "あ.たる",
+        "あ.たり",
+        "あ.てる",
+        "あ.て",
+        "まさ.に",
+        "まさ.にべし"
+      ],
+      "meaning_en": "hit; right",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "本当",
+          "reading": "ほんとう",
+          "en": "true"
+        },
+        {
+          "word": "当たる",
+          "reading": "あたる",
+          "en": "to hit"
+        }
+      ],
+      "mnemonic": "A small (⺌) hand (ヨ) hitting the mark."
+    },
+    {
+      "char": "然",
+      "onyomi": [
+        "ゼン",
+        "ネン"
+      ],
+      "kunyomi": [
+        "しか",
+        "しか.り",
+        "しか.し",
+        "さ"
+      ],
+      "meaning_en": "so; nature",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "当然",
+          "reading": "とうぜん",
+          "en": "of course"
+        },
+        {
+          "word": "自然",
+          "reading": "しぜん",
+          "en": "nature"
+        }
+      ],
+      "mnemonic": "Dog (犬) meat (月) over a fire (灬): of course it gets cooked."
+    },
+    {
+      "char": "確",
+      "onyomi": [
+        "カク",
+        "コウ"
+      ],
+      "kunyomi": [
+        "たし.か",
+        "たし.かめる"
+      ],
+      "meaning_en": "certain",
+      "stroke_count": 15,
+      "example_words": [
+        {
+          "word": "確か",
+          "reading": "たしか",
+          "en": "surely"
+        },
+        {
+          "word": "確かめる",
+          "reading": "たしかめる",
+          "en": "to check"
+        }
+      ],
+      "mnemonic": "As firm as stone (石): certain."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>台風<rt>たいふう</rt></ruby>の＿＿、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっています。",
+      "options": [
+        "おかげ",
+        "わけ",
+        "うち",
+        "ため"
+      ],
+      "correct": "ため",
+      "explanation": "A formal cause: ため."
+    },
+    {
+      "prompt": "Complete: <ruby>毎日<rt>まいにち</rt></ruby>れんしゅうしているから、<ruby>上手<rt>じょうず</rt></ruby>な＿＿です。",
+      "options": [
+        "わけ",
+        "ため",
+        "せい",
+        "うち"
+      ],
+      "correct": "わけ",
+      "explanation": "No wonder: わけだ."
+    },
+    {
+      "prompt": "Complete: まどが<ruby>開<rt>あ</rt></ruby>いていたから、さむかった＿＿です。",
+      "options": [
+        "ため",
+        "わけ",
+        "ばかり",
+        "うち"
+      ],
+      "correct": "わけ",
+      "explanation": "That's why: わけだ."
+    },
+    {
+      "prompt": "Complete: そういう＿＿で、<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。",
+      "options": [
+        "ため",
+        "ところ",
+        "わけ",
+        "うち"
+      ],
+      "correct": "わけ",
+      "explanation": "そういうわけで: so that's why."
+    },
+    {
+      "prompt": "Which word means \"explanation\"?",
+      "options": [
+        "<ruby>理由<rt>りゆう</rt></ruby>",
+        "<ruby>理解<rt>りかい</rt></ruby>",
+        "<ruby>小説<rt>しょうせつ</rt></ruby>",
+        "<ruby>説明<rt>せつめい</rt></ruby>"
+      ],
+      "correct": "<ruby>説明<rt>せつめい</rt></ruby>",
+      "explanation": "<ruby>説明<rt>せつめい</rt></ruby>: explanation."
+    },
+    {
+      "prompt": "How is 当然⁠ read?",
+      "options": [
+        "とうぜん",
+        "とうねん",
+        "あたぜん",
+        "どうぜん"
+      ],
+      "correct": "とうぜん",
+      "explanation": "当然⁠ is read とうぜん."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>確<rt>たし</rt></ruby>か、<ruby>会議<rt>かいぎ</rt></ruby>は<ruby>三時<rt>さんじ</rt></ruby>からです。",
+      "options": [
+        "The meeting is definitely not at three.",
+        "If I remember right, the meeting is from three.",
+        "Please check the meeting time.",
+        "The meeting ended at three."
+      ],
+      "correct": "If I remember right, the meeting is from three.",
+      "explanation": "<ruby>確<rt>たし</rt></ruby>か: if I remember right."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Your friend lived in Japan for ten years. What do you say about her Japanese?",
+      "options": [
+        "<ruby>十年<rt>じゅうねん</rt></ruby>も<ruby>住<rt>す</rt></ruby>んでいたから、<ruby>上手<rt>じょうず</rt></ruby>なはずがないですね。",
+        "<ruby>十年<rt>じゅうねん</rt></ruby>も<ruby>住<rt>す</rt></ruby>んでいたから、<ruby>上手<rt>じょうず</rt></ruby>なわけですね。",
+        "<ruby>十年<rt>じゅうねん</rt></ruby>も<ruby>住<rt>す</rt></ruby>んでいたのに、<ruby>上手<rt>じょうず</rt></ruby>なわけですね。",
+        "<ruby>十年<rt>じゅうねん</rt></ruby>も<ruby>住<rt>す</rt></ruby>んでいたせいで、<ruby>上手<rt>じょうず</rt></ruby>です。"
+      ],
+      "correct": "<ruby>十年<rt>じゅうねん</rt></ruby>も<ruby>住<rt>す</rt></ruby>んでいたから、<ruby>上手<rt>じょうず</rt></ruby>なわけですね。",
+      "explanation": "No wonder: から〜わけだ."
+    },
+    {
+      "prompt": "What is the difference between わけだ and はずだ?",
+      "options": [
+        "わけだ: what you expect / はずだ: a conclusion",
+        "わけだ is only written",
+        "わけだ: a conclusion from facts you know / はずだ: what you expect",
+        "There is no difference."
+      ],
+      "correct": "わけだ: a conclusion from facts you know / はずだ: what you expect",
+      "explanation": "わけだ explains; はずだ expects."
+    },
+    {
+      "prompt": "Complete: <ruby>一時間<rt>いちじかん</rt></ruby>に<ruby>十<rt>じゅう</rt></ruby>ページだから、<ruby>八時間<rt>はちじかん</rt></ruby>で<ruby>八十<rt>はちじゅう</rt></ruby>ページ<ruby>読<rt>よ</rt></ruby>める＿＿。",
+      "options": [
+        "ためです",
+        "おかげです",
+        "せいです",
+        "わけです"
+      ],
+      "correct": "わけです",
+      "explanation": "That means: わけだ."
+    },
+    {
+      "prompt": "Read: たからくじが<ruby>当<rt>あ</rt></ruby>たったんです。 What happened to Mai?",
+      "options": [
+        "She won the lottery.",
+        "She lost her lottery ticket.",
+        "She hit someone.",
+        "She bought a lottery ticket."
+      ],
+      "correct": "She won the lottery.",
+      "explanation": "<ruby>当<rt>あ</rt></ruby>たる: to win."
+    },
+    {
+      "prompt": "Review: complete <ruby>事故<rt>じこ</rt></ruby>の＿＿、<ruby>遅<rt>おく</rt></ruby>れました。 (blame)",
+      "options": [
+        "おかげで",
+        "せいで",
+        "わけで",
+        "うちに"
+      ],
+      "correct": "せいで",
+      "explanation": "Blame: せいで."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-2-because-of",
+    "japanese-n4-unit-7-should-be",
+    "japanese-n4-unit-1-what-happened"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n3-unit-2-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "okagede",
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>の＿＿、ごうかくできました。",
+      "options": [
+        "せいで",
+        "おかげで",
+        "わけで",
+        "うちに"
+      ],
+      "correctIndex": 1,
+      "explanation": "A good result: おかげで."
+    },
+    {
+      "id": "seide",
+      "prompt": "Complete: <ruby>事故<rt>じこ</rt></ruby>の＿＿、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れました。 (blame)",
+      "options": [
+        "おかげで",
+        "わけで",
+        "<ruby>以来<rt>いらい</rt></ruby>",
+        "せいで"
+      ],
+      "correctIndex": 3,
+      "explanation": "A bad result: せいで."
+    },
+    {
+      "id": "okagesamade",
+      "prompt": "Someone asks おげんきですか. How do you answer politely?",
+      "options": [
+        "はい、おかげさまで。",
+        "はい、せいで。",
+        "はい、わけで。",
+        "はい、そのために。"
+      ],
+      "correctIndex": 0,
+      "explanation": "おかげさまで: a set phrase."
+    },
+    {
+      "id": "tame-cause",
+      "prompt": "Which sentence gives a cause?",
+      "options": [
+        "ごうかくするため、<ruby>毎日<rt>まいにち</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "<ruby>家族<rt>かぞく</rt></ruby>のため、<ruby>働<rt>はたら</rt></ruby>きます。",
+        "<ruby>大雨<rt>おおあめ</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まりました。",
+        "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶため、<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>ました。"
+      ],
+      "correctIndex": 2,
+      "explanation": "A cause is followed by what happened."
+    },
+    {
+      "id": "tame-wrong",
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まっています。",
+        "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>学校<rt>がっこう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みです。",
+        "<ruby>台風<rt>たいふう</rt></ruby>によるひがいは<ruby>大<rt>おお</rt></ruby>きかったです。",
+        "<ruby>台風<rt>たいふう</rt></ruby>のため、<ruby>家<rt>いえ</rt></ruby>にいてください。"
+      ],
+      "correctIndex": 3,
+      "explanation": "A cause with ため is not followed by a request."
+    },
+    {
+      "id": "niyotte",
+      "prompt": "Complete: <ruby>国<rt>くに</rt></ruby>＿＿、ぶんかがちがいます。",
+      "options": [
+        "のおかげで",
+        "によって",
+        "のせいで",
+        "のわけで"
+      ],
+      "correctIndex": 1,
+      "explanation": "Depending on: によって."
+    },
+    {
+      "id": "niyottewa",
+      "prompt": "What does <ruby>日<rt>ひ</rt></ruby>によっては、<ruby>休<rt>やす</rt></ruby>みます mean?",
+      "options": [
+        "On some days, we're closed.",
+        "We're closed every day.",
+        "We're closed because of the sun.",
+        "We're open every day."
+      ],
+      "correctIndex": 0,
+      "explanation": "によっては: in some cases."
+    },
+    {
+      "id": "wakeda",
+      "prompt": "Complete: <ruby>毎日<rt>まいにち</rt></ruby>れんしゅうしているから、<ruby>上手<rt>じょうず</rt></ruby>な＿＿です。",
+      "options": [
+        "ため",
+        "せい",
+        "わけ",
+        "うち"
+      ],
+      "correctIndex": 2,
+      "explanation": "No wonder: わけだ."
+    },
+    {
+      "id": "to-iu-wake",
+      "prompt": "Complete: そういう＿＿で、<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。",
+      "options": [
+        "ため",
+        "わけ",
+        "ところ",
+        "うち"
+      ],
+      "correctIndex": 1,
+      "explanation": "そういうわけで: so that's why."
+    },
+    {
+      "id": "wakedewanai",
+      "prompt": "Complete: きらいな＿＿ではありませんが、あまり<ruby>食<rt>た</rt></ruby>べません。",
+      "options": [
+        "はず",
+        "ため",
+        "ところ",
+        "わけ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Not that: わけではない."
+    },
+    {
+      "id": "towa-kagiranai",
+      "prompt": "Complete: <ruby>高<rt>たか</rt></ruby>いものが、<ruby>必<rt>かなら</rt></ruby>ずしもいい＿＿。",
+      "options": [
+        "わけです",
+        "はずです",
+        "とは<ruby>限<rt>かぎ</rt></ruby>りません",
+        "ためです"
+      ],
+      "correctIndex": 2,
+      "explanation": "Not always: とは<ruby>限<rt>かぎ</rt></ruby>らない."
+    },
+    {
+      "id": "wakeniwa",
+      "prompt": "Complete: <ruby>約束<rt>やくそく</rt></ruby>したから、<ruby>行<rt>い</rt></ruby>かない＿＿。",
+      "options": [
+        "わけにはいきません",
+        "わけがありません",
+        "わけです",
+        "とは<ruby>限<rt>かぎ</rt></ruby>りません"
+      ],
+      "correctIndex": 0,
+      "explanation": "Have to: V-ない わけにはいかない."
+    },
+    {
+      "id": "wakeganai",
+      "prompt": "Complete: あんなにやさしい<ruby>人<rt>ひと</rt></ruby>がうそをつく＿＿。",
+      "options": [
+        "わけにはいきません",
+        "わけです",
+        "おかげです",
+        "わけがありません"
+      ],
+      "correctIndex": 3,
+      "explanation": "No way: わけがない."
+    },
+    {
+      "id": "vocab-kotowaru",
+      "prompt": "Which verb means \"to turn down\"?",
+      "options": [
+        "<ruby>頼<rt>たの</rt></ruby>む",
+        "<ruby>断<rt>ことわ</rt></ruby>る",
+        "<ruby>守<rt>まも</rt></ruby>る",
+        "<ruby>助<rt>たす</rt></ruby>ける"
+      ],
+      "correctIndex": 1,
+      "explanation": "<ruby>断<rt>ことわ</rt></ruby>る: to refuse."
+    },
+    {
+      "id": "kanji-genin",
+      "prompt": "How is 原因⁠ read?",
+      "options": [
+        "げいん",
+        "はらいん",
+        "げんいん",
+        "げんにん"
+      ],
+      "correctIndex": 2,
+      "explanation": "原因⁠ is read げんいん."
+    }
+  ]
+}

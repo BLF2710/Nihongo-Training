@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n3-unit-4-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "ba-hodo",
+      "prompt": "Complete: <ruby>練習<rt>れんしゅう</rt></ruby>すれば＿＿ほど、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+      "options": [
+        "した",
+        "する",
+        "して",
+        "すれ"
+      ],
+      "correctIndex": 1,
+      "explanation": "V-ば V-る ほど."
+    },
+    {
+      "id": "ba-hodo-adj",
+      "prompt": "Complete: <ruby>値段<rt>ねだん</rt></ruby>が<ruby>安<rt>やす</rt></ruby>ければ<ruby>安<rt>やす</rt></ruby>い＿＿、よく<ruby>売<rt>う</rt></ruby>れます。",
+      "options": [
+        "くらい",
+        "さえ",
+        "ばかり",
+        "ほど"
+      ],
+      "correctIndex": 3,
+      "explanation": "The more: ほど."
+    },
+    {
+      "id": "hodo-degree",
+      "prompt": "What does <ruby>死<rt>し</rt></ruby>ぬほどつかれました mean?",
+      "options": [
+        "I'm dead tired.",
+        "Someone died of tiredness.",
+        "I was tired before I died.",
+        "I'm not tired at all."
+      ],
+      "correctIndex": 0,
+      "explanation": "ほど: an exaggerated degree."
+    },
+    {
+      "id": "hodo-nai",
+      "prompt": "Complete: <ruby>今年<rt>ことし</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>＿＿<ruby>寒<rt>さむ</rt></ruby>くないです。",
+      "options": [
+        "より",
+        "まで",
+        "ほど",
+        "さえ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Not as … as: ほど〜ない."
+    },
+    {
+      "id": "hodo-wrong",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかより<ruby>大<rt>おお</rt></ruby>きいです。",
+        "おおさかは<ruby>東京<rt>とうきょう</rt></ruby>ほど<ruby>大<rt>おお</rt></ruby>きくないです。",
+        "おおさかは<ruby>東京<rt>とうきょう</rt></ruby>より<ruby>小<rt>ちい</rt></ruby>さいです。",
+        "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかほど<ruby>大<rt>おお</rt></ruby>きいです。"
+      ],
+      "correctIndex": 3,
+      "explanation": "ほど needs a negative."
+    },
+    {
+      "id": "kurai",
+      "prompt": "Complete: <ruby>駅<rt>えき</rt></ruby>まで<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿かかります。",
+      "options": [
+        "ごろ",
+        "くらい",
+        "しか",
+        "さえ"
+      ],
+      "correctIndex": 1,
+      "explanation": "About: くらい."
+    },
+    {
+      "id": "to-iu-yori",
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>涼<rt>すず</rt></ruby>しいという＿＿、<ruby>寒<rt>さむ</rt></ruby>いです。",
+      "options": [
+        "より",
+        "ほど",
+        "くらい",
+        "さえ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rather: というより."
+    },
+    {
+      "id": "mushiro",
+      "prompt": "What does バスより、むしろ<ruby>歩<rt>ある</rt></ruby>いたほうが<ruby>早<rt>はや</rt></ruby>い mean?",
+      "options": [
+        "The bus is faster than walking.",
+        "Walking and the bus take the same time.",
+        "Walking is actually faster than the bus.",
+        "You should take the bus."
+      ],
+      "correctIndex": 2,
+      "explanation": "より むしろ."
+    },
+    {
+      "id": "ni-kurabete",
+      "prompt": "Complete: <ruby>去年<rt>きょねん</rt></ruby>に＿＿、<ruby>今年<rt>ことし</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。",
+      "options": [
+        "<ruby>対<rt>たい</rt></ruby>して",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "よって",
+        "とって"
+      ],
+      "correctIndex": 1,
+      "explanation": "Compared with: に<ruby>比<rt>くら</rt></ruby>べて."
+    },
+    {
+      "id": "ni-taishite",
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>に＿＿、ていねいなことばを<ruby>使<rt>つか</rt></ruby>います。",
+      "options": [
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "よって",
+        "ほど",
+        "<ruby>対<rt>たい</rt></ruby>して"
+      ],
+      "correctIndex": 3,
+      "explanation": "Toward: に<ruby>対<rt>たい</rt></ruby>して."
+    },
+    {
+      "id": "dake-de-naku",
+      "prompt": "Complete: <ruby>英語<rt>えいご</rt></ruby>＿＿、<ruby>日本語<rt>にほんご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。",
+      "options": [
+        "さえ",
+        "ばかりいて",
+        "だけでなく",
+        "ほど"
+      ],
+      "correctIndex": 2,
+      "explanation": "Not only: だけでなく."
+    },
+    {
+      "id": "sae",
+      "prompt": "Complete: いそがしくて、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる<ruby>時間<rt>じかん</rt></ruby>＿＿ありません。",
+      "options": [
+        "さえ",
+        "だけでなく",
+        "ほど",
+        "くらい"
+      ],
+      "correctIndex": 0,
+      "explanation": "Even: さえ."
+    },
+    {
+      "id": "sae-ba",
+      "prompt": "What does お<ruby>金<rt>かね</rt></ruby>さえあれば、<ruby>買<rt>か</rt></ruby>いたいです mean?",
+      "options": [
+        "Even with money, I won't buy it.",
+        "I have money, so I'll buy it.",
+        "I'll buy it with only a little money.",
+        "If only I had the money, I'd buy it."
+      ],
+      "correctIndex": 3,
+      "explanation": "さえ〜ば: if only."
+    },
+    {
+      "id": "te-bakari",
+      "prompt": "Complete: <ruby>弟<rt>おとうと</rt></ruby>はゲームをして＿＿います。 (nothing but)",
+      "options": [
+        "さえ",
+        "ばかり",
+        "だけで",
+        "ほど"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nothing but: てばかりいる."
+    },
+    {
+      "id": "kanji-heikin",
+      "prompt": "How is 平均⁠ read?",
+      "options": [
+        "へいぎん",
+        "ひらきん",
+        "へいきん",
+        "へきん"
+      ],
+      "correctIndex": 2,
+      "explanation": "平均⁠ is read へいきん."
+    }
+  ]
+}

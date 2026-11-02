@@ -22,13 +22,16 @@ const RUBY = /<ruby>(.*?)<rt>.*?<\/rt><\/ruby>/g;
 const kanjiOf = text => [...text.replace(RUBY, "$1")].filter(character => /\p{Script=Han}/u.test(character));
 
 /**
- * Kanji a lesson may use: every N5 kanji, plus the kanji its level's blueprint schedules up to and including
- * this lesson. Kanji the dictionary gives in kanji-entry example words are not checked.
+ * Kanji a lesson may use: every N5 kanji and every kanji of the levels before its own, plus the kanji its level's
+ * blueprint schedules up to and including this lesson. Kanji the dictionary gives in kanji-entry example words are
+ * not checked.
  */
 function taughtKanji(level, lessonId) {
+  const levelNumber = Number(level.slice(1));
   const taught = new Set(catalog.kanji.filter(kanji => {
     const introduced = catalog.lessonIntroductions.find(item => item.introducedKanji.includes(kanji.id));
-    return !introduced || introduced.lessonId.startsWith("japanese-n5-");
+    const introducedLevel = introduced ? Number(/^japanese-n(\d)-/.exec(introduced.lessonId)?.[1]) : null;
+    return introducedLevel === null || introducedLevel === 5 || introducedLevel > levelNumber;
   }).map(kanji => kanji.character));
   if (level === "N5") return taught;
   const blueprint = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/curriculum/blueprint-${level.toLowerCase()}.json`), "utf8"));

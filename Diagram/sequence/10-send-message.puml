@@ -45,8 +45,8 @@ group «Unit of work» withTransaction()
 end
 Svc -> Bus : publish(B, "inbox")
 note right of Bus : «Observer»
-Bus --> WebB : event
-WebB --> B : message + unread count
+Bus -> WebB : event
+note right of WebB : B's tab updates on its own:\nthe message + unread count
 Ctrl --> WebA : sent
 
 opt B reports the message

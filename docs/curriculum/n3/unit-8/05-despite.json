@@ -1,0 +1,541 @@
+{
+  "id": "japanese-n3-unit-8-despite",
+  "slug": "n3-unit-8-despite",
+  "unit": "Japanese N3 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Despite the Rain",
+  "title_jp": "〜にも かかわらず",
+  "objectives": [
+    "I can say something happened despite a difficulty.",
+    "Say something happened despite something with 〜にもかかわらず",
+    "Say no matter how much you do something with V-ても V-ても",
+    "Talk about effort, results, taking part and prizes"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>努力<rt>どりょく</rt></ruby>",
+      "",
+      "effort (+ する: to make an effort)"
+    ],
+    [
+      "<ruby>結果<rt>けっか</rt></ruby>",
+      "",
+      "result"
+    ],
+    [
+      "<ruby>果物<rt>くだもの</rt></ruby>",
+      "",
+      "fruit"
+    ],
+    [
+      "<ruby>加<rt>くわ</rt></ruby>える",
+      "",
+      "to add"
+    ],
+    [
+      "<ruby>参加<rt>さんか</rt></ruby>",
+      "",
+      "participation (+ する: to take part)"
+    ],
+    [
+      "<ruby>参<rt>まい</rt></ruby>る",
+      "",
+      "to go, to come (humble)"
+    ],
+    [
+      "<ruby>賞<rt>しょう</rt></ruby>",
+      "",
+      "prize, award"
+    ],
+    [
+      "<ruby>残<rt>のこ</rt></ruby>る",
+      "",
+      "to remain, to be left"
+    ],
+    [
+      "ざんねん",
+      "",
+      "a pity, disappointing"
+    ],
+    [
+      "<ruby>残業<rt>ざんぎょう</rt></ruby>",
+      "",
+      "overtime (+ する: to work overtime)"
+    ],
+    [
+      "〜にもかかわらず",
+      "",
+      "despite, even though"
+    ],
+    [
+      "V-ても V-ても",
+      "",
+      "no matter how much"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "努力",
+      "word_reading": "どりょく"
+    },
+    {
+      "word_japanese": "結果",
+      "word_reading": "けっか"
+    },
+    {
+      "word_japanese": "果物",
+      "word_reading": "くだもの"
+    },
+    {
+      "word_japanese": "加える",
+      "word_reading": "くわえる"
+    },
+    {
+      "word_japanese": "参加",
+      "word_reading": "さんか"
+    },
+    {
+      "word_japanese": "参る",
+      "word_reading": "まいる"
+    },
+    {
+      "word_japanese": "賞",
+      "word_reading": "しょう"
+    },
+    {
+      "word_japanese": "残る",
+      "word_reading": "のこる"
+    },
+    {
+      "word_japanese": "残業",
+      "word_reading": "ざんぎょう"
+    }
+  ],
+  "concept": {
+    "title": "Despite",
+    "text": "にもかかわらず says something happened even though you'd expect otherwise. It is formal and common in writing, speeches and the news:\n<ruby>雨<rt>あめ</rt></ruby>にもかかわらず、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。 Despite the rain, many people took part.\n<ruby>努力<rt>どりょく</rt></ruby>したにもかかわらず、<ruby>試験<rt>しけん</rt></ruby>に<ruby>落<rt>お</rt></ruby>ちた。 I failed the exam despite my efforts.\n\nConnections: N にもかかわらず, plain form + にもかかわらず (な-adj and N often take である).\n\nV-ても V-ても repeats the verb: no matter how much you do it, the result doesn't come.\n<ruby>洗<rt>あら</rt></ruby>っても<ruby>洗<rt>あら</rt></ruby>っても、よごれが<ruby>落<rt>お</rt></ruby>ちない。 No matter how much I wash it, the stain won't come out.",
+    "examples": [
+      "N にもかかわらず",
+      "plain form + にもかかわらず",
+      "V-ても V-ても + negative result"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Despite: 〜にもかかわらず",
+      "pattern": "N / plain form + にもかかわらず",
+      "explanation": "A formal \"despite\". The result is surprising given the situation.",
+      "examples": [
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>にもかかわらず、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。",
+          "romaji": "",
+          "meaning": "Despite the rain, many people took part."
+        },
+        {
+          "japanese": "<ruby>努力<rt>どりょく</rt></ruby>したにもかかわらず、<ruby>試験<rt>しけん</rt></ruby>に<ruby>落<rt>お</rt></ruby>ちてしまった。",
+          "romaji": "",
+          "meaning": "I failed the exam despite my efforts."
+        },
+        {
+          "japanese": "<ruby>日曜日<rt>にちようび</rt></ruby>にもかかわらず、<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>来<rt>き</rt></ruby>ている<ruby>人<rt>ひと</rt></ruby>がいます。",
+          "romaji": "",
+          "meaning": "Even though it's Sunday, some people are at the office."
+        },
+        {
+          "japanese": "いそがしいにもかかわらず、<ruby>手伝<rt>てつだ</rt></ruby>ってくれてありがとう。",
+          "romaji": "",
+          "meaning": "Thank you for helping even though you're busy."
+        }
+      ],
+      "notes": [
+        "More formal than のに.",
+        "Unlike のに, it doesn't express personal disappointment."
+      ]
+    },
+    {
+      "title": "No matter how much: V-ても V-ても",
+      "pattern": "V-ても V-ても + result",
+      "explanation": "Repeating the verb stresses that the effort doesn't change the result.",
+      "examples": [
+        {
+          "japanese": "<ruby>洗<rt>あら</rt></ruby>っても<ruby>洗<rt>あら</rt></ruby>っても、よごれが<ruby>落<rt>お</rt></ruby>ちない。",
+          "romaji": "",
+          "meaning": "No matter how much I wash it, the stain won't come out."
+        },
+        {
+          "japanese": "<ruby>食<rt>た</rt></ruby>べても<ruby>食<rt>た</rt></ruby>べても、お<ruby>腹<rt>なか</rt></ruby>がすく。",
+          "romaji": "",
+          "meaning": "However much I eat, I'm still hungry."
+        },
+        {
+          "japanese": "<ruby>働<rt>はたら</rt></ruby>いても<ruby>働<rt>はたら</rt></ruby>いても、せいかつが<ruby>楽<rt>らく</rt></ruby>にならない。",
+          "romaji": "",
+          "meaning": "No matter how hard I work, life doesn't get easier."
+        },
+        {
+          "japanese": "<ruby>待<rt>ま</rt></ruby>っても<ruby>待<rt>ま</rt></ruby>っても、バスが<ruby>来<rt>こ</rt></ruby>なかった。",
+          "romaji": "",
+          "meaning": "I waited and waited, but the bus never came."
+        }
+      ],
+      "notes": [
+        "Compare いくら〜ても (N4): いくら<ruby>洗<rt>あら</rt></ruby>っても."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>毎日<rt>まいにち</rt></ruby>の<ruby>努力<rt>どりょく</rt></ruby>が<ruby>大切<rt>たいせつ</rt></ruby>です。",
+      "Daily effort is important."
+    ],
+    [
+      "テストの<ruby>結果<rt>けっか</rt></ruby>は<ruby>来週<rt>らいしゅう</rt></ruby><ruby>分<rt>わ</rt></ruby>かります。",
+      "We'll know the test results next week."
+    ],
+    [
+      "スープにしおを<ruby>少<rt>すこ</rt></ruby>し<ruby>加<rt>くわ</rt></ruby>えてください。",
+      "Please add a little salt to the soup."
+    ],
+    [
+      "<ruby>昨日<rt>きのう</rt></ruby>は<ruby>夜<rt>よる</rt></ruby><ruby>九時<rt>くじ</rt></ruby>まで<ruby>残業<rt>ざんぎょう</rt></ruby>しました。",
+      "Yesterday I worked overtime until nine."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "マラソン<ruby>大会<rt>たいかい</rt></ruby>、どうでしたか。",
+      "けん",
+      "<ruby>雨<rt>あめ</rt></ruby>にもかかわらず、<ruby>千人<rt>せんにん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby><ruby>参加<rt>さんか</rt></ruby>しましたよ。"
+    ],
+    [
+      "リー",
+      "スピーチ<ruby>大会<rt>たいかい</rt></ruby>で<ruby>賞<rt>しょう</rt></ruby>をもらったそうですね。",
+      "マイ",
+      "はい、<ruby>努力<rt>どりょく</rt></ruby>した<ruby>結果<rt>けっか</rt></ruby>です。"
+    ],
+    [
+      "ゆき",
+      "ダイエット、どう？",
+      "リン",
+      "<ruby>走<rt>はし</rt></ruby>っても<ruby>走<rt>はし</rt></ruby>っても、<ruby>全然<rt>ぜんぜん</rt></ruby>やせないの。"
+    ],
+    [
+      "たなか",
+      "<ruby>明日<rt>あした</rt></ruby>のパーティーに<ruby>来<rt>き</rt></ruby>ますか。",
+      "アナ",
+      "ざんねんですが、<ruby>仕事<rt>しごと</rt></ruby>が<ruby>残<rt>のこ</rt></ruby>っているので<ruby>行<rt>い</rt></ruby>けません。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "努",
+      "onyomi": [
+        "ド"
+      ],
+      "kunyomi": [
+        "つと.める"
+      ],
+      "meaning_en": "effort",
+      "stroke_count": 7,
+      "example_words": [
+        {
+          "word": "努力",
+          "reading": "どりょく",
+          "en": "effort"
+        },
+        {
+          "word": "努める",
+          "reading": "つとめる",
+          "en": "to strive"
+        }
+      ],
+      "mnemonic": "A servant (奴) using all their strength (力)."
+    },
+    {
+      "char": "果",
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [
+        "は.たす",
+        "はた.す",
+        "-は.たす",
+        "は.てる",
+        "-は.てる",
+        "は.て"
+      ],
+      "meaning_en": "fruit; result",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "結果",
+          "reading": "けっか",
+          "en": "result"
+        },
+        {
+          "word": "果物",
+          "reading": "くだもの",
+          "en": "fruit"
+        }
+      ],
+      "mnemonic": "Fruit (田) growing on a tree (木): the result."
+    },
+    {
+      "char": "加",
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [
+        "くわ.える",
+        "くわ.わる"
+      ],
+      "meaning_en": "add",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "加える",
+          "reading": "くわえる",
+          "en": "to add"
+        },
+        {
+          "word": "参加",
+          "reading": "さんか",
+          "en": "participation"
+        }
+      ],
+      "mnemonic": "Strength (力) added to a voice (口)."
+    },
+    {
+      "char": "参",
+      "onyomi": [
+        "サン",
+        "シン"
+      ],
+      "kunyomi": [
+        "まい.る",
+        "まい-",
+        "まじわる",
+        "みつ"
+      ],
+      "meaning_en": "go; take part",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "参加",
+          "reading": "さんか",
+          "en": "participation"
+        },
+        {
+          "word": "参る",
+          "reading": "まいる",
+          "en": "to go (humble)"
+        }
+      ],
+      "mnemonic": "Three stars shining on people gathering: taking part."
+    },
+    {
+      "char": "賞",
+      "onyomi": [
+        "ショウ"
+      ],
+      "kunyomi": [
+        "ほ.める"
+      ],
+      "meaning_en": "prize",
+      "stroke_count": 15,
+      "example_words": [
+        {
+          "word": "賞",
+          "reading": "しょう",
+          "en": "prize"
+        },
+        {
+          "word": "賞品",
+          "reading": "しょうひん",
+          "en": "prize item"
+        }
+      ],
+      "mnemonic": "Money (貝) given under a roof for an honour: a prize."
+    },
+    {
+      "char": "残",
+      "onyomi": [
+        "ザン",
+        "サン"
+      ],
+      "kunyomi": [
+        "のこ.る",
+        "のこ.す",
+        "そこな.う",
+        "のこ.り"
+      ],
+      "meaning_en": "remain",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "残る",
+          "reading": "のこる",
+          "en": "to remain"
+        },
+        {
+          "word": "残業",
+          "reading": "ざんぎょう",
+          "en": "overtime"
+        }
+      ],
+      "mnemonic": "Bones (歹) left after a battle with spears (戋): what remains."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete スマホは<ruby>便利<rt>べんり</rt></ruby>な＿＿、<ruby>目<rt>め</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>いです。",
+      "options": [
+        "わりに",
+        "<ruby>反面<rt>はんめん</rt></ruby>",
+        "くせに",
+        "かわりに"
+      ],
+      "correct": "<ruby>反面<rt>はんめん</rt></ruby>",
+      "explanation": "On the other hand: <ruby>反面<rt>はんめん</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: <ruby>雨<rt>あめ</rt></ruby>に＿＿、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。",
+      "options": [
+        "かわって",
+        "しては",
+        "もかかわらず",
+        "とって"
+      ],
+      "correct": "もかかわらず",
+      "explanation": "Despite: にもかかわらず."
+    },
+    {
+      "prompt": "Complete: <ruby>努力<rt>どりょく</rt></ruby>した＿＿、<ruby>試験<rt>しけん</rt></ruby>に<ruby>落<rt>お</rt></ruby>ちた。",
+      "options": [
+        "かわりに",
+        "<ruby>反面<rt>はんめん</rt></ruby>",
+        "わりに",
+        "にもかかわらず"
+      ],
+      "correct": "にもかかわらず",
+      "explanation": "Despite: plain form + にもかかわらず."
+    },
+    {
+      "prompt": "Complete: <ruby>洗<rt>あら</rt></ruby>っても＿＿、よごれが<ruby>落<rt>お</rt></ruby>ちない。",
+      "options": [
+        "<ruby>洗<rt>あら</rt></ruby>っても",
+        "<ruby>洗<rt>あら</rt></ruby>えば",
+        "<ruby>洗<rt>あら</rt></ruby>って",
+        "<ruby>洗<rt>あら</rt></ruby>うと"
+      ],
+      "correct": "<ruby>洗<rt>あら</rt></ruby>っても",
+      "explanation": "No matter how much: V-ても V-ても."
+    },
+    {
+      "prompt": "Which word means \"result\"?",
+      "options": [
+        "<ruby>努力<rt>どりょく</rt></ruby>",
+        "<ruby>結果<rt>けっか</rt></ruby>",
+        "<ruby>参加<rt>さんか</rt></ruby>",
+        "<ruby>賞<rt>しょう</rt></ruby>"
+      ],
+      "correct": "<ruby>結果<rt>けっか</rt></ruby>",
+      "explanation": "<ruby>結果<rt>けっか</rt></ruby>: result."
+    },
+    {
+      "prompt": "How is 果物⁠ read?",
+      "options": [
+        "かぶつ",
+        "はてもの",
+        "くだもの",
+        "かもの"
+      ],
+      "correct": "くだもの",
+      "explanation": "果物⁠ is a special reading: くだもの."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>昨日<rt>きのう</rt></ruby>は<ruby>夜<rt>よる</rt></ruby><ruby>九時<rt>くじ</rt></ruby>まで<ruby>残業<rt>ざんぎょう</rt></ruby>しました。",
+      "options": [
+        "Yesterday I left work at nine in the morning.",
+        "Yesterday I slept until nine.",
+        "Yesterday I had a day off.",
+        "Yesterday I worked overtime until nine."
+      ],
+      "correct": "Yesterday I worked overtime until nine.",
+      "explanation": "<ruby>残業<rt>ざんぎょう</rt></ruby>: overtime."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence suits a formal news report?",
+      "options": [
+        "<ruby>大雨<rt>おおあめ</rt></ruby>なのに、<ruby>大会<rt>たいかい</rt></ruby>やったの？",
+        "<ruby>大雨<rt>おおあめ</rt></ruby>のくせに、<ruby>大会<rt>たいかい</rt></ruby>をした。",
+        "<ruby>大雨<rt>おおあめ</rt></ruby>だけど、<ruby>大会<rt>たいかい</rt></ruby>やったよ。",
+        "<ruby>大雨<rt>おおあめ</rt></ruby>にもかかわらず、<ruby>大会<rt>たいかい</rt></ruby>は<ruby>行<rt>おこな</rt></ruby>われました。"
+      ],
+      "correct": "<ruby>大雨<rt>おおあめ</rt></ruby>にもかかわらず、<ruby>大会<rt>たいかい</rt></ruby>は<ruby>行<rt>おこな</rt></ruby>われました。",
+      "explanation": "にもかかわらず: formal."
+    },
+    {
+      "prompt": "What does <ruby>待<rt>ま</rt></ruby>っても<ruby>待<rt>ま</rt></ruby>っても、バスが<ruby>来<rt>こ</rt></ruby>なかった mean?",
+      "options": [
+        "I waited and waited, but the bus never came.",
+        "I didn't wait for the bus.",
+        "The bus came after a short wait.",
+        "I waited, so the bus came."
+      ],
+      "correct": "I waited and waited, but the bus never came.",
+      "explanation": "V-ても V-ても."
+    },
+    {
+      "prompt": "Which word means \"to take part\"?",
+      "options": [
+        "<ruby>加<rt>くわ</rt></ruby>える",
+        "<ruby>参加<rt>さんか</rt></ruby>する",
+        "<ruby>残<rt>のこ</rt></ruby>る",
+        "<ruby>努力<rt>どりょく</rt></ruby>する"
+      ],
+      "correct": "<ruby>参加<rt>さんか</rt></ruby>する",
+      "explanation": "<ruby>参加<rt>さんか</rt></ruby>する: to take part."
+    },
+    {
+      "prompt": "Read: ざんねんですが、<ruby>仕事<rt>しごと</rt></ruby>が<ruby>残<rt>のこ</rt></ruby>っているので<ruby>行<rt>い</rt></ruby>けません。 Why can't Ana go?",
+      "options": [
+        "She is ill.",
+        "She wasn't invited.",
+        "She still has work left to do.",
+        "The party was cancelled."
+      ],
+      "correct": "She still has work left to do.",
+      "explanation": "<ruby>仕事<rt>しごと</rt></ruby>が<ruby>残<rt>のこ</rt></ruby>っている."
+    },
+    {
+      "prompt": "Review: complete <ruby>初<rt>はじ</rt></ruby>めて＿＿、<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+      "options": [
+        "にもかかわらず",
+        "かわりに",
+        "<ruby>反面<rt>はんめん</rt></ruby>",
+        "にしては"
+      ],
+      "correct": "にしては",
+      "explanation": "For a first try: にしては."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-8-on-the-other-hand",
+    "japanese-n3-unit-8-for-its-price",
+    "japanese-n4-unit-4-even-if"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

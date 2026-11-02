@@ -30,7 +30,7 @@ export function LessonKanji({ lessonId }: { lessonId: string }) {
   if (!characters.length) return null;
   return <section aria-label="Kanji introduced in this lesson" className="mt-6 rounded-3xl border border-gray-200 bg-white p-6">
     <h2 className="text-xl font-bold text-gray-900">Kanji introduced in this lesson</h2>
-    <p className="mt-2 text-sm text-gray-600">Recognize these characters in familiar words. Open a card for readings and course vocabulary. Browsing does not mark a Kanji as mastered.</p>
+    <p className="mt-2 text-sm text-gray-600">Recognize these characters in familiar words. Open a card for readings and course vocabulary.</p>
     <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">{characters.map(k =>
       <button key={k.id} type="button" aria-haspopup="dialog" onClick={() => setSelected(k)} className="rounded-2xl border border-emerald-200 p-4 text-center hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-emerald-600">
         <span lang="ja" className="block text-4xl">{k.character}</span><span className="mt-2 block font-semibold">{k.meanings[0]}</span><span lang="ja" className="mt-1 block text-sm text-gray-500">{k.onyomi[0]}</span>

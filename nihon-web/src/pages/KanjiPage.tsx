@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { VocabularyCard } from "../components/StudyReferenceCards";
 import { KanjiAttribution } from "../components/KanjiReferences";
-import { KANJI, introducingLessons, vocabularyKanjiForm } from "../data/kanji";
+import { KanjiDetail } from "../components/KanjiDetail";
+import { KANJI } from "../data/kanji";
 import { JAPANESE_STUDY_UNITS } from "../data/japaneseStudyUnits";
 import { fetchKanjiProgress } from "../api/kanji";
 import type { KanjiProgress } from "../api/kanji";
-import KanaStrokeOrder from "../components/KanaStrokeOrder";
-import strokeData from "../data/kanjiStrokes.json";
-import KanjiFlashcardButton from "../components/KanjiFlashcardButton";
-import KanjiReviewButton from "../components/KanjiReviewButton";
 import { COURSE_LEVELS, isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { isInKanjiScope, KANJI_PLACEMENT as placement } from "../lib/kanjiPlacement";
 
@@ -20,12 +16,12 @@ const masteryStyle = {
   learning: { card: "border-amber-300 bg-amber-50/50 hover:bg-amber-100/70 text-amber-950", active: "bg-amber-500 text-white", idle: "bg-amber-50 text-amber-700 hover:bg-amber-100", icon: "🟡" },
   untested: { card: "border-gray-200 bg-gray-50/50 hover:bg-gray-100/70 text-gray-800", active: "bg-gray-500 text-white", idle: "bg-gray-100 text-gray-600 hover:bg-gray-200", icon: "⚪" },
 };
-const lessons = JAPANESE_STUDY_UNITS.flatMap(unit => unit.lessons.map(lesson => ({ ...lesson, unitNumber: unit.number })));
 const select = "mt-2 block w-full rounded-xl border border-gray-200 bg-white p-3 font-normal focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 const normalize = (text: string) => text.normalize("NFKC").toLowerCase().replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[.\-\s]/g, "");
 
 export default function KanjiPage() {
   const { kanjiId } = useParams();
+  const navigate = useNavigate();
   const [progress, setProgress] = useState<KanjiProgress[] | null>(null);
   const [error, setError] = useState("");
   const [reload, setReload] = useState(0);
@@ -49,52 +45,28 @@ export default function KanjiPage() {
   }, [reload, kanjiId]);
   const kanji = KANJI.find(item => item.id === kanjiId);
   const state = progress?.find(item => item.kanjiId === kanjiId);
-  const related = kanji ? lessons.flatMap(lesson => lesson.vocabulary.filter(item => vocabularyKanjiForm(item)?.kanjiIds.includes(kanji.id)).map(item => ({ item, lesson }))) : [];
-  const introduced = kanji ? introducingLessons(kanji.id) : [];
-  const placed = kanji ? placement.get(kanji.id) : undefined;
+  // Detail pages keep the grid's level and unit in the address: Previous/Next step through that set and Back returns to it.
+  const scopeQuery = params.toString() ? `?${params}` : "";
+  const sequence = kanji && scoped.includes(kanji) ? scoped : KANJI;
   const visible = scoped.filter(item => {
     const status = progress?.find(p => p.kanjiId === item.id)?.status;
     return (filter === "all" || status === filter) && normalize([item.character, ...item.meanings, ...item.onyomi, ...item.kunyomi].join(" ")).includes(normalize(search));
   });
+  const progressNotice = <>
+    {error && <div role="alert" className="mb-3 rounded-xl bg-red-50 p-4 text-red-700">{error} <button className="underline" onClick={() => setReload(value => value + 1)}>Retry loading progress</button></div>}
+    {!progress && !error && <p role="status" className="sr-only">Loading progress…</p>}
+  </>;
+  if (kanjiId) return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar back={{ to: `/learn/kanji${scopeQuery}` }} />
+    <main className="mx-auto max-w-5xl px-4 py-4 sm:px-6">
+      {progressNotice}
+      {kanji ? <KanjiDetail kanji={kanji} sequence={sequence} masteryLabel={state && `${masteryStyle[state.status].icon} ${labels[state.status]}${state.total ? ` · ${state.accuracy}% of ${state.total} answers` : ""}`} onStep={id => navigate(`/learn/kanji/${id}${scopeQuery}`, { replace: true })} />
+        : <h1 className="mt-6 text-2xl font-bold">Kanji not found</h1>}
+    </main>
+  </div>;
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar />
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
-
-      {error && <div role="alert" className="mt-5 rounded-xl bg-red-50 p-4 text-red-700">{error} <button className="underline" onClick={() => setReload(value => value + 1)}>Retry loading progress</button></div>}
-      {!progress && !error && <p role="status" className="mt-4">Loading progress…</p>}
-      {kanjiId && !kanji ? <h1 className="mt-6 text-2xl font-bold">Kanji not found</h1> : kanji ? <>
-        <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 sm:p-8">
-          <h1 lang="ja" className="text-center text-8xl">{kanji.character}</h1>
-          <p className="mt-5 text-center text-xl font-bold">{kanji.meanings.join(" · ")}</p>
-          <dl className="mt-6 grid gap-5 sm:grid-cols-2">
-            <div><dt className="font-bold">On'yomi</dt><dd lang="ja" className="mt-1 wrap-anywhere">{kanji.onyomi.join(" · ") || "Not listed"}</dd></div>
-            <div><dt className="font-bold">Kun'yomi</dt><dd lang="ja" className="mt-1 wrap-anywhere">{kanji.kunyomi.join(" · ") || "Not listed"}</dd></div>
-            <div><dt className="font-bold">Stroke count</dt><dd>{kanji.strokeCount} (KANJIDIC2)</dd></div>
-            <div><dt className="font-bold">Course placement</dt><dd>{placed?.level && placed.unit ? `${placed.level} course · Unit ${placed.unit.number}` : "Reference only"} · official JLPT level not verified</dd></div>
-          </dl>
-          <p className="mt-4 text-sm text-gray-500">Dictionary readings include uncommon forms. A dot separates the Kanji reading from its following kana; a hyphen marks a bound form. Learn the full course-word readings below rather than guessing from individual characters.</p>
-          <h2 className="mt-6 text-xl font-bold">How to Draw</h2>
-          <KanaStrokeOrder key={kanji.id} character={kanji.character} paths={strokeData.paths} />
-          {state && <div className={`mt-5 rounded-xl border p-4 ${masteryStyle[state.status].card}`}>
-            <p className="font-bold">{masteryStyle[state.status].icon} {labels[state.status]}</p>
-            <p className="mt-1 text-sm">{state.total} attempts · {state.correctCount} correct · {state.wrongCount} incorrect · {state.accuracy}% accuracy</p>
-            <p className="mt-1 text-sm">Last practiced: {state.lastPracticedAt ? new Date(state.lastPracticedAt).toLocaleString() : "Not yet practiced"}</p>
-          </div>}
-          <Link className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white focus-visible:outline-2" to={`/learn/kanji/practice?kanji=${kanji.id}`}>Practice {kanji.character}</Link>
-          <KanjiFlashcardButton kanji={kanji} />
-          <KanjiReviewButton key={kanji.id} kanji={kanji} />
-        </section>
-        <section className="mt-8"><h2 className="text-2xl font-bold">Course vocabulary</h2>
-          <p className="mt-2 text-sm text-gray-600">These are the existing lesson vocabulary entries with their Kanji spellings. Only characters in the current Kanji collection have detail links.</p>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">{related.map(({ item, lesson }) => <div key={item.id}>
-            <VocabularyCard item={item} lesson={lesson} />
-            <Link className="mt-2 inline-block text-sm font-semibold text-emerald-700 hover:underline focus-visible:outline-2" to={`/vocabulary?unit=japanese-n5-unit-${lesson.unitNumber}&lesson=${lesson.id}`}>Study {item.japanese} in Vocabulary →</Link>
-          </div>)}</div>
-        </section>
-        <section className="mt-8 rounded-2xl border bg-white p-6"><h2 className="text-xl font-bold">Introduced in lessons</h2>
-          {introduced.length ? <ul className="mt-3 space-y-2">{lessons.filter(lesson => introduced.includes(lesson.id)).map(lesson => <li key={lesson.id}><Link className="font-semibold text-emerald-700 hover:underline" to={lesson.href}>Unit {lesson.unitNumber} · Lesson {lesson.number}: {lesson.title} →</Link></li>)}</ul> : <p className="mt-3 text-gray-600">Reference only — not explicitly introduced in a lesson yet.</p>}
-          <p className="mt-3 text-sm text-gray-500">Vocabulary association alone does not count as introduction or completion. Lessons retain their existing access requirements.</p>
-        </section>
-      </> : <>
+      {progressNotice}
+      <>
         <h1 className="mt-6 text-3xl font-black">Kanji</h1>
         <p className="mt-2 text-gray-600">Recognize characters through familiar vocabulary from your lessons. Filter by course level and unit to study one set at a time.</p>
         <p className="mt-2 text-sm text-gray-500">Mastered: at least 3 correct answers and 80% displayed accuracy (rounded to whole percent, matching Kana). Only practice answers change progress.</p>
@@ -133,7 +105,7 @@ export default function KanjiPage() {
           </label>
           <div className="grid grid-cols-3 gap-3 pt-6 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10">{visible.map(item => {
             const saved = progress?.find(p => p.kanjiId === item.id);
-            return <Link key={item.id} to={`/learn/kanji/${item.id}`} title={`View details for ${item.character} (${item.meanings[0]})`} className={`flex min-w-0 flex-col items-center justify-between rounded-xl border p-2.5 text-center shadow-xs transition-all hover:scale-105 hover:shadow-md focus-visible:outline-2 focus-visible:outline-emerald-600 motion-reduce:transform-none ${masteryStyle[saved?.status ?? "untested"].card}`}>
+            return <Link key={item.id} to={`/learn/kanji/${item.id}${scopeQuery}`} title={`View details for ${item.character} (${item.meanings[0]})`} className={`flex min-w-0 flex-col items-center justify-between rounded-xl border p-2.5 text-center shadow-xs transition-all hover:scale-105 hover:shadow-md focus-visible:outline-2 focus-visible:outline-emerald-600 motion-reduce:transform-none ${masteryStyle[saved?.status ?? "untested"].card}`}>
               <span lang="ja" className="mb-0.5 block text-2xl font-bold">{item.character}</span>
               <span className="block text-xs font-medium text-gray-500 wrap-anywhere">{item.meanings[0]}</span>
               <span className="mt-2 w-full rounded-full px-1.5 py-0.5 text-[10px] font-bold">
@@ -143,7 +115,7 @@ export default function KanjiPage() {
           })}</div>
           {!visible.length && <p role="status" className="py-16 text-center font-medium text-gray-400">{scoped.length ? "No Kanji match this search and filter." : `No Kanji have been added for ${level} yet.`}</p>}
         </section>
-      </>}
+      </>
       <KanjiAttribution />
     </main>
   </div>;

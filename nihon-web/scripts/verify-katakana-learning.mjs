@@ -3,10 +3,24 @@ import { readFile } from 'node:fs/promises';
 import ts from 'typescript';
 
 // Run the actual typed catalog without adding a test/runtime dependency.
-const source = await readFile(new URL('../src/data/katakanaLearning.ts', import.meta.url), 'utf8');
-const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 } }).outputText;
-const { buildKatakanaCatalog, KATAKANA_SECTIONS } = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`);
+const asDataUrl = async (file, replacements = {}) => {
+  const source = await readFile(new URL(`../src/data/${file}`, import.meta.url), 'utf8');
+  let compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 } }).outputText;
+  // A data: URL cannot resolve relative imports, so each one is pointed at its own data: URL.
+  for (const [specifier, url] of Object.entries(replacements)) compiled = compiled.replace(`'${specifier}'`, `'${url}'`);
+  return `data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`;
+};
+const mnemonicsUrl = await asDataUrl('kanaMnemonics.ts');
+const { HIRAGANA_MNEMONICS, KATAKANA_MNEMONICS } = await import(mnemonicsUrl);
+const { buildKatakanaCatalog, KATAKANA_SECTIONS } = await import(await asDataUrl('katakanaLearning.ts', { './kanaMnemonics': mnemonicsUrl }));
 const catalog = buildKatakanaCatalog([]);
+// Exactly the 46 basic kana of each script have a mnemonic; voiced, contracted and extended kana have none.
+const basicHiragana = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん'.split('');
+assert.deepEqual(Object.keys(HIRAGANA_MNEMONICS), basicHiragana);
+assert.deepEqual(Object.keys(KATAKANA_MNEMONICS), catalog.filter(c => c.category === 'basic').map(c => c.kana));
+for (const text of [...Object.values(HIRAGANA_MNEMONICS), ...Object.values(KATAKANA_MNEMONICS)]) assert.ok(text.length >= 20 && text.length <= 140, text);
+assert.equal(new Set([...Object.values(HIRAGANA_MNEMONICS), ...Object.values(KATAKANA_MNEMONICS)]).size, 92);
+for (const c of catalog) assert.equal(Boolean(c.mnemonic), c.category === 'basic', c.kana);
 const counts = Object.fromEntries(KATAKANA_SECTIONS.map(section => [section.key, catalog.filter(c => c.category === section.key).length]));
 assert.deepEqual(counts, { basic: 46, dakuten: 20, handakuten: 5, yoon: 33, extended: 38 });
 assert.equal(new Set(catalog.map(c => c.kana)).size, 142);
@@ -49,4 +63,4 @@ for (const [character, strokes] of Object.entries(paths)) {
   assert.deepEqual(matches.map(m => Number(m[1])), strokes.map((_, i) => i + 1));
   assert.deepEqual(matches.map(m => m[2]), strokes);
 }
-console.log('Passed: 142 entries, all 30 requested samples, category coverage, examples, audio inputs, stable routes, ordered navigation, and exact upstream stroke geometry.');
+console.log('Passed: 142 entries, all 30 requested samples, category coverage, examples, audio inputs, stable routes, ordered navigation, basic-kana mnemonics, and exact upstream stroke geometry.');

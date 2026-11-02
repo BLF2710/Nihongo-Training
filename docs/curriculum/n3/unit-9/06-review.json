@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n3-unit-9-review",
+  "slug": "n3-unit-9-review",
+  "unit": "Japanese N3 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 9 Review",
+  "title_jp": "ユニット9のふくしゅう",
+  "objectives": [
+    "I can read formal and written Japanese.",
+    "Read the である style and V-ず(に)",
+    "Talk about frequency and periods with たびに, ごとに, <ruby>中<rt>じゅう</rt></ruby> and を<ruby>通<rt>とお</rt></ruby>して",
+    "Use service Japanese and news expressions",
+    "Read a news-style article about a castle town"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>結論<rt>けつろん</rt></ruby>",
+      "",
+      "conclusion"
+    ],
+    [
+      "<ruby>現在<rt>げんざい</rt></ruby>",
+      "",
+      "the present, now"
+    ],
+    [
+      "<ruby>放送<rt>ほうそう</rt></ruby>",
+      "",
+      "broadcast"
+    ],
+    [
+      "<ruby>番組<rt>ばんぐみ</rt></ruby>",
+      "",
+      "programme"
+    ],
+    [
+      "<ruby>歴史<rt>れきし</rt></ruby>",
+      "",
+      "history"
+    ],
+    [
+      "<ruby>城<rt>しろ</rt></ruby>",
+      "",
+      "castle"
+    ],
+    [
+      "お<ruby>客様<rt>きゃくさま</rt></ruby>",
+      "",
+      "customer (polite)"
+    ],
+    [
+      "<ruby>確認<rt>かくにん</rt></ruby>",
+      "",
+      "confirmation, check"
+    ],
+    [
+      "<ruby>政治<rt>せいじ</rt></ruby>",
+      "",
+      "politics"
+    ],
+    [
+      "<ruby>経済<rt>けいざい</rt></ruby>",
+      "",
+      "economy"
+    ],
+    [
+      "<ruby>首都<rt>しゅと</rt></ruby>",
+      "",
+      "capital city"
+    ],
+    [
+      "そうだん",
+      "",
+      "consultation"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Formal Japanese",
+    "text": "である: written だ. V-ず(に): without doing (する → せず).\nたびに: every time. ごとに: every (unit). おきに: every other.\nN<ruby>中<rt>じゅう</rt></ruby>: all through. を<ruby>通<rt>とお</rt></ruby>して / を<ruby>通<rt>つう</rt></ruby>じて: throughout; through.\nさせていただく: humbly do. お / ご〜ください: please (very polite).\nとされる / と<ruby>考<rt>かんが</rt></ruby>えられる: it is said / thought. ことから: from the fact that.",
+    "examples": [
+      "である / ずに",
+      "たびに / ごとに / <ruby>中<rt>じゅう</rt></ruby> / を<ruby>通<rt>とお</rt></ruby>して",
+      "させていただく / ご〜ください / とされる / ことから"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>は<ruby>島国<rt>しまぐに</rt></ruby>である。",
+      "Japan is an island nation."
+    ],
+    [
+      "<ruby>何<rt>なに</rt></ruby>もせずに<ruby>一日<rt>いちにち</rt></ruby>が<ruby>終<rt>お</rt></ruby>わってしまった。",
+      "The day ended without my doing anything."
+    ],
+    [
+      "この<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>るたびに、<ruby>国<rt>くに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>します。",
+      "Every time I see this photo, I think of home."
+    ],
+    [
+      "おきなわは<ruby>一年<rt>いちねん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>してあたたかいです。",
+      "Okinawa is warm all year round."
+    ],
+    [
+      "ないようをご<ruby>確認<rt>かくにん</rt></ruby>ください。",
+      "Please check the contents."
+    ],
+    [
+      "この<ruby>寺<rt>てら</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>古<rt>ふる</rt></ruby>いとされています。",
+      "This temple is said to be the oldest in Japan."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、このバスはお<ruby>城<rt>しろ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きますか。",
+      "たなか",
+      "はい、<ruby>二十分<rt>にじゅっぷん</rt></ruby>ごとに<ruby>出<rt>で</rt></ruby>ています。しょうしょうお<ruby>待<rt>ま</rt></ruby>ちください。"
+    ],
+    [
+      "けん",
+      "この<ruby>町<rt>まち</rt></ruby>は<ruby>一年中<rt>いちねんじゅう</rt></ruby><ruby>観光客<rt>かんこうきゃく</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いですね。",
+      "リー",
+      "ええ、<ruby>城<rt>しろ</rt></ruby>が<ruby>四百年前<rt>よんひゃくねんまえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられたとされていますから。"
+    ],
+    [
+      "マイ",
+      "<ruby>論文<rt>ろんぶん</rt></ruby>、すすんでいますか。",
+      "ゆき",
+      "まだ<ruby>結論<rt>けつろん</rt></ruby>が<ruby>書<rt>か</rt></ruby>けなくて、<ruby>先生<rt>せんせい</rt></ruby>にそうだんさせていただきました。"
+    ],
+    [
+      "リン",
+      "この<ruby>町<rt>まち</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>、<ruby>面白<rt>おもしろ</rt></ruby>いですね。",
+      "アナ",
+      "<ruby>城<rt>しろ</rt></ruby>が<ruby>白<rt>しろ</rt></ruby>いことから、「<ruby>白城<rt>しらき</rt></ruby>」と<ruby>呼<rt>よ</rt></ruby>ばれているそうです。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "News article",
+    "text_jp": "<ruby>山川市<rt>やまかわし</rt></ruby>は、<ruby>四百年<rt>よんひゃくねん</rt></ruby>の<ruby>歴史<rt>れきし</rt></ruby>を<ruby>持<rt>も</rt></ruby>つ<ruby>城下町<rt>じょうかまち</rt></ruby>である。<ruby>市<rt>し</rt></ruby>の<ruby>中心<rt>ちゅうしん</rt></ruby>にある<ruby>城<rt>しろ</rt></ruby>は、かべが<ruby>白<rt>しろ</rt></ruby>いことから「<ruby>白鳥城<rt>はくちょうじょう</rt></ruby>」と<ruby>呼<rt>よ</rt></ruby>ばれ、<ruby>国<rt>くに</rt></ruby>の<ruby>大切<rt>たいせつ</rt></ruby>なぶんかざいとされている。この<ruby>町<rt>まち</rt></ruby>には<ruby>一年<rt>いちねん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して<ruby>観光客<rt>かんこうきゃく</rt></ruby>がおとずれ、さくらの<ruby>季節<rt>きせつ</rt></ruby>には、<ruby>城<rt>しろ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>公園<rt>こうえん</rt></ruby>が<ruby>人<rt>ひと</rt></ruby>でいっぱいになる。<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>観光客<rt>かんこうきゃく</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えるたびに、ごみや<ruby>交通<rt>こうつう</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>も<ruby>大<rt>おお</rt></ruby>きくなっている。<ruby>市<rt>し</rt></ruby>は<ruby>現在<rt>げんざい</rt></ruby>、<ruby>市民<rt>しみん</rt></ruby>と<ruby>共<rt>とも</rt></ruby>に<ruby>解決<rt>かいけつ</rt></ruby>の<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えている。<ruby>市<rt>し</rt></ruby>の<ruby>担当者<rt>たんとうしゃ</rt></ruby>は「お<ruby>客様<rt>きゃくさま</rt></ruby>にはごみを<ruby>持<rt>も</rt></ruby>ち<ruby>帰<rt>かえ</rt></ruby>るようご<ruby>協力<rt>きょうりょく</rt></ruby>ください」と<ruby>話<rt>はな</rt></ruby>している。",
+    "en_translation": "Yamakawa City is a castle town with four hundred years of history. The castle in the city centre is called \"Swan Castle\" because its walls are white, and it is considered an important national cultural property. Tourists visit the town all year round, and in cherry blossom season the park in front of the castle is packed. On the other hand, every time tourist numbers rise, the problems of rubbish and traffic grow too. The city is currently working with its citizens on solutions. A city official said, \"We ask visitors to please cooperate by taking their rubbish home.\"",
+    "questions": [
+      {
+        "prompt": "Why is the castle called <ruby>白鳥城<rt>はくちょうじょう</rt></ruby>?",
+        "options": [
+          "Because swans live there",
+          "Because its walls are white",
+          "Because a king named it",
+          "Because it is four hundred years old"
+        ],
+        "correct": "Because its walls are white",
+        "explanation": "かべが<ruby>白<rt>しろ</rt></ruby>いことから."
+      },
+      {
+        "prompt": "What problems grow as tourist numbers rise?",
+        "options": [
+          "Crime and noise",
+          "Prices and rent",
+          "Rubbish and traffic",
+          "Fires and floods"
+        ],
+        "correct": "Rubbish and traffic",
+        "explanation": "ごみや<ruby>交通<rt>こうつう</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>."
+      },
+      {
+        "prompt": "What does the city ask visitors to do?",
+        "options": [
+          "Visit only in spring",
+          "Use the bus",
+          "Stay away from the castle",
+          "Take their rubbish home"
+        ],
+        "correct": "Take their rubbish home",
+        "explanation": "ごみを<ruby>持<rt>も</rt></ruby>ち<ruby>帰<rt>かえ</rt></ruby>るようご<ruby>協力<rt>きょうりょく</rt></ruby>ください."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Which is the written-style version of これは<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>問題<rt>もんだい</rt></ruby>だ。?",
+      "options": [
+        "これは<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>問題<rt>もんだい</rt></ruby>です。",
+        "これは<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>問題<rt>もんだい</rt></ruby>だよ。",
+        "これは<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>問題<rt>もんだい</rt></ruby>である。",
+        "これは<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>問題<rt>もんだい</rt></ruby>でございます。"
+      ],
+      "correct": "これは<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>問題<rt>もんだい</rt></ruby>である。",
+      "explanation": "だ → である."
+    },
+    {
+      "prompt": "Complete: <ruby>辞書<rt>じしょ</rt></ruby>を<ruby>使<rt>つか</rt></ruby>わ＿＿<ruby>読<rt>よ</rt></ruby>んだ。",
+      "options": [
+        "ないに",
+        "ずで",
+        "なく",
+        "ずに"
+      ],
+      "correct": "ずに",
+      "explanation": "Without doing: V-ずに."
+    },
+    {
+      "prompt": "Complete: この<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>る＿＿、<ruby>国<rt>くに</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>します。",
+      "options": [
+        "たびに",
+        "ごとに",
+        "おきに",
+        "うちに"
+      ],
+      "correct": "たびに",
+      "explanation": "Every time: たびに."
+    },
+    {
+      "prompt": "Complete: このバスは<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿<ruby>来<rt>き</rt></ruby>ます。",
+      "options": [
+        "たびに",
+        "ごとに",
+        "うちに",
+        "までに"
+      ],
+      "correct": "ごとに",
+      "explanation": "Every ten minutes: ごとに."
+    },
+    {
+      "prompt": "Complete: おきなわは<ruby>一年<rt>いちねん</rt></ruby>を＿＿あたたかいです。",
+      "options": [
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "<ruby>対<rt>たい</rt></ruby>して",
+        "<ruby>通<rt>とお</rt></ruby>して",
+        "ついて"
+      ],
+      "correct": "<ruby>通<rt>とお</rt></ruby>して",
+      "explanation": "Throughout: を<ruby>通<rt>とお</rt></ruby>して."
+    },
+    {
+      "prompt": "Complete: <ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませて＿＿ます。",
+      "options": [
+        "くださり",
+        "あげ",
+        "もらい",
+        "いただき"
+      ],
+      "correct": "いただき",
+      "explanation": "Humbly do: させていただく."
+    },
+    {
+      "prompt": "Complete: ないようを＿＿<ruby>確認<rt>かくにん</rt></ruby>ください。",
+      "options": [
+        "ご",
+        "お",
+        "を",
+        "に"
+      ],
+      "correct": "ご",
+      "explanation": "する-nouns take ご."
+    },
+    {
+      "prompt": "Complete: ふじさんが<ruby>見<rt>み</rt></ruby>える＿＿、「ふじみ」と<ruby>呼<rt>よ</rt></ruby>ばれている。",
+      "options": [
+        "ことに",
+        "ことから",
+        "ものの",
+        "たびに"
+      ],
+      "correct": "ことから",
+      "explanation": "From the fact that: ことから."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the article: when is the park in front of the castle packed?",
+      "options": [
+        "In cherry blossom season",
+        "In winter",
+        "Every weekend",
+        "During the festival"
+      ],
+      "correct": "In cherry blossom season",
+      "explanation": "さくらの<ruby>季節<rt>きせつ</rt></ruby>には、<ruby>城<rt>しろ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>公園<rt>こうえん</rt></ruby>が<ruby>人<rt>ひと</rt></ruby>でいっぱいになる."
+    },
+    {
+      "prompt": "Which sentence mixes styles incorrectly in an essay?",
+      "options": [
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>である。みんなで<ruby>考<rt>かんが</rt></ruby>えるべきだ。",
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>である。みんなで<ruby>考<rt>かんが</rt></ruby>えましょう。",
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>です。みんなで<ruby>考<rt>かんが</rt></ruby>えましょう。",
+        "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>だ。みんなで<ruby>考<rt>かんが</rt></ruby>えるべきだ。"
+      ],
+      "correct": "この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>大切<rt>たいせつ</rt></ruby>である。みんなで<ruby>考<rt>かんが</rt></ruby>えましょう。",
+      "explanation": "Don't mix である with ます."
+    },
+    {
+      "prompt": "What does <ruby>一日<rt>いちにち</rt></ruby>おきに mean?",
+      "options": [
+        "Every day",
+        "All day",
+        "Every other day",
+        "Once a week"
+      ],
+      "correct": "Every other day",
+      "explanation": "おきに: skipping one."
+    },
+    {
+      "prompt": "Which sentence sounds like a news report?",
+      "options": [
+        "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>、スピードの<ruby>出<rt>だ</rt></ruby>しすぎなんだって。",
+        "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>はスピードに<ruby>決<rt>き</rt></ruby>まってる。",
+        "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>、スピードっぽいね。",
+        "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>は、スピードの<ruby>出<rt>だ</rt></ruby>しすぎと<ruby>考<rt>かんが</rt></ruby>えられている。"
+      ],
+      "correct": "<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>は、スピードの<ruby>出<rt>だ</rt></ruby>しすぎと<ruby>考<rt>かんが</rt></ruby>えられている。",
+      "explanation": "と<ruby>考<rt>かんが</rt></ruby>えられている: news style."
+    },
+    {
+      "prompt": "Review (Unit 8): complete <ruby>雨<rt>あめ</rt></ruby>に＿＿、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。",
+      "options": [
+        "もかかわらず",
+        "かわって",
+        "しては",
+        "とって"
+      ],
+      "correct": "もかかわらず",
+      "explanation": "Despite: にもかかわらず."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-9-written-style",
+    "japanese-n3-unit-9-every-time",
+    "japanese-n3-unit-9-throughout",
+    "japanese-n3-unit-9-service-japanese",
+    "japanese-n3-unit-9-in-the-news",
+    "japanese-n3-unit-8-despite"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

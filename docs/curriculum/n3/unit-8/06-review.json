@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n3-unit-8-review",
+  "slug": "n3-unit-8-review",
+  "unit": "Japanese N3 Unit 8",
+  "unit_number": 8,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 8 Review",
+  "title_jp": "ユニット8のふくしゅう",
+  "objectives": [
+    "I can contrast things and talk about expectations.",
+    "Criticise with くせに",
+    "Weigh things with わりに, にしては and かわりに",
+    "Contrast with <ruby>一方<rt>いっぽう</rt></ruby>, <ruby>反面<rt>はんめん</rt></ruby> and にもかかわらず",
+    "Read an essay about life in a village"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>性格<rt>せいかく</rt></ruby>",
+      "",
+      "personality"
+    ],
+    [
+      "<ruby>返事<rt>へんじ</rt></ruby>",
+      "",
+      "reply"
+    ],
+    [
+      "<ruby>給料<rt>きゅうりょう</rt></ruby>",
+      "",
+      "salary"
+    ],
+    [
+      "<ruby>費用<rt>ひよう</rt></ruby>",
+      "",
+      "cost"
+    ],
+    [
+      "<ruby>交換<rt>こうかん</rt></ruby>",
+      "",
+      "exchange"
+    ],
+    [
+      "<ruby>夫婦<rt>ふうふ</rt></ruby>",
+      "",
+      "married couple"
+    ],
+    [
+      "<ruby>便利<rt>べんり</rt></ruby>",
+      "",
+      "convenient"
+    ],
+    [
+      "いなか",
+      "",
+      "the countryside"
+    ],
+    [
+      "<ruby>村<rt>むら</rt></ruby>",
+      "",
+      "village"
+    ],
+    [
+      "<ruby>努力<rt>どりょく</rt></ruby>",
+      "",
+      "effort"
+    ],
+    [
+      "<ruby>結果<rt>けっか</rt></ruby>",
+      "",
+      "result"
+    ],
+    [
+      "<ruby>参加<rt>さんか</rt></ruby>",
+      "",
+      "participation"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Contrast and concession",
+    "text": "くせに: even though (critical, about someone else). くせして: casual.\nわりに(は): more or less than expected for its degree. にしては: for (a specific case).\nかわりに: instead of; in exchange for. その<ruby>代<rt>か</rt></ruby>わり: in return.\n<ruby>一方<rt>いっぽう</rt></ruby>(で): while, on the other hand. <ruby>反面<rt>はんめん</rt></ruby>: two sides of one thing.\nにもかかわらず: despite (formal). V-ても V-ても: no matter how much.",
+    "examples": [
+      "くせに / わりに / にしては",
+      "かわりに / <ruby>一方<rt>いっぽう</rt></ruby> / <ruby>反面<rt>はんめん</rt></ruby>",
+      "にもかかわらず / V-ても V-ても"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>知<rt>し</rt></ruby>っているくせに、<ruby>教<rt>おし</rt></ruby>えてくれない。",
+      "He knows, but he won't tell me."
+    ],
+    [
+      "この<ruby>店<rt>みせ</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>のわりに、<ruby>量<rt>りょう</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。",
+      "This place gives big portions for the price."
+    ],
+    [
+      "<ruby>初<rt>はじ</rt></ruby>めてにしては、<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+      "That's good for a first try."
+    ],
+    [
+      "<ruby>英語<rt>えいご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えるかわりに、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらっています。",
+      "I teach English, and in exchange I'm taught Japanese."
+    ],
+    [
+      "いなかは<ruby>静<rt>しず</rt></ruby>かな<ruby>反面<rt>はんめん</rt></ruby>、<ruby>不便<rt>ふべん</rt></ruby>です。",
+      "The countryside is quiet, but inconvenient."
+    ],
+    [
+      "<ruby>雨<rt>あめ</rt></ruby>にもかかわらず、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。",
+      "Despite the rain, many people took part."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "けんさん、また<ruby>宿題<rt>しゅくだい</rt></ruby><ruby>忘<rt>わす</rt></ruby>れたの？",
+      "リー",
+      "うん。<ruby>昨日<rt>きのう</rt></ruby>は<ruby>時間<rt>じかん</rt></ruby>があったくせに、ゲームばかりしていたんだ。"
+    ],
+    [
+      "マイ",
+      "この<ruby>服<rt>ふく</rt></ruby>、<ruby>安<rt>やす</rt></ruby>いわりに、<ruby>生地<rt>きじ</rt></ruby>がいいですね。",
+      "ゆき",
+      "ええ、<ruby>今<rt>いま</rt></ruby>、<ruby>三割引<rt>さんわりびき</rt></ruby>なんですよ。"
+    ],
+    [
+      "リン",
+      "しゅうまつは<ruby>何<rt>なに</rt></ruby>をしますか。",
+      "たなか",
+      "<ruby>妻<rt>つま</rt></ruby>のかわりに、<ruby>子<rt>こ</rt></ruby>どもを<ruby>公園<rt>こうえん</rt></ruby>につれて<ruby>行<rt>い</rt></ruby>きます。"
+    ],
+    [
+      "けん",
+      "スピーチ<ruby>大会<rt>たいかい</rt></ruby>、どうでしたか。",
+      "アナ",
+      "<ruby>努力<rt>どりょく</rt></ruby>したにもかかわらず、<ruby>賞<rt>しょう</rt></ruby>はもらえませんでした。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Essay",
+    "text_jp": "わたしは<ruby>三年前<rt>さんねんまえ</rt></ruby>、<ruby>東京<rt>とうきょう</rt></ruby>から<ruby>小<rt>ちい</rt></ruby>さな<ruby>村<rt>むら</rt></ruby>に<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>しました。いなかのせいかつは<ruby>静<rt>しず</rt></ruby>かな<ruby>反面<rt>はんめん</rt></ruby>、<ruby>店<rt>みせ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なく、<ruby>車<rt>くるま</rt></ruby>がないと<ruby>不便<rt>ふべん</rt></ruby>です。<ruby>給料<rt>きゅうりょう</rt></ruby>は<ruby>東京<rt>とうきょう</rt></ruby>にいた<ruby>頃<rt>ころ</rt></ruby>より<ruby>低<rt>ひく</rt></ruby>くなりましたが、そのかわりに、やちんや<ruby>食費<rt>しょくひ</rt></ruby>はとても<ruby>安<rt>やす</rt></ruby>くなりました。きんじょの<ruby>農家<rt>のうか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>が、やさいや<ruby>果物<rt>くだもの</rt></ruby>をよく<ruby>持<rt>も</rt></ruby>ってきてくれます。<ruby>村<rt>むら</rt></ruby>の<ruby>人口<rt>じんこう</rt></ruby>は<ruby>減<rt>へ</rt></ruby>る<ruby>一方<rt>いっぽう</rt></ruby>ですが、<ruby>最近<rt>さいきん</rt></ruby>は<ruby>若<rt>わか</rt></ruby>い<ruby>夫婦<rt>ふうふ</rt></ruby>も<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>増<rt>ふ</rt></ruby>えています。<ruby>去年<rt>きょねん</rt></ruby>の<ruby>村<rt>むら</rt></ruby>の<ruby>祭<rt>まつ</rt></ruby>りは、<ruby>大雨<rt>おおあめ</rt></ruby>にもかかわらず、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。<ruby>小<rt>ちい</rt></ruby>さな<ruby>村<rt>むら</rt></ruby>にしては、とてもにぎやかな<ruby>祭<rt>まつ</rt></ruby>りでした。",
+    "en_translation": "Three years ago I moved from Tokyo to a small village. Country life is quiet, but there are few shops and it's inconvenient without a car. My pay is lower than when I was in Tokyo, but in exchange my rent and food costs have become much cheaper. The farmers nearby often bring me vegetables and fruit. The village population keeps falling, but recently a few young couples have been moving in. At last year's village festival, many people took part despite the heavy rain. For such a small village, it was a very lively festival.",
+    "questions": [
+      {
+        "prompt": "What is inconvenient about country life?",
+        "options": [
+          "It's too noisy.",
+          "There are few shops and you need a car.",
+          "The rent is high.",
+          "There are no farmers."
+        ],
+        "correct": "There are few shops and you need a car.",
+        "explanation": "<ruby>店<rt>みせ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なく、<ruby>車<rt>くるま</rt></ruby>がないと<ruby>不便<rt>ふべん</rt></ruby>です."
+      },
+      {
+        "prompt": "What did the writer get in exchange for lower pay?",
+        "options": [
+          "A bigger house",
+          "More holidays",
+          "Cheaper rent and food",
+          "A car"
+        ],
+        "correct": "Cheaper rent and food",
+        "explanation": "そのかわりに、やちんや<ruby>食費<rt>しょくひ</rt></ruby>はとても<ruby>安<rt>やす</rt></ruby>くなりました."
+      },
+      {
+        "prompt": "What was the festival like?",
+        "options": [
+          "Cancelled because of rain",
+          "Quiet, with few people",
+          "Only for young couples",
+          "Lively, despite the heavy rain"
+        ],
+        "correct": "Lively, despite the heavy rain",
+        "explanation": "<ruby>大雨<rt>おおあめ</rt></ruby>にもかかわらず、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: <ruby>先生<rt>せんせい</rt></ruby>＿＿くせに、<ruby>漢字<rt>かんじ</rt></ruby>をよく<ruby>間違<rt>まちが</rt></ruby>える。",
+      "options": [
+        "な",
+        "だ",
+        "の",
+        "に"
+      ],
+      "correct": "の",
+      "explanation": "N の くせに."
+    },
+    {
+      "prompt": "Complete: この<ruby>店<rt>みせ</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>の＿＿、おいしいです。",
+      "options": [
+        "くせに",
+        "にしては",
+        "ために",
+        "わりに"
+      ],
+      "correct": "わりに",
+      "explanation": "For the price: のわりに."
+    },
+    {
+      "prompt": "Complete: <ruby>初<rt>はじ</rt></ruby>めて＿＿、<ruby>上手<rt>じょうず</rt></ruby>ですね。",
+      "options": [
+        "にしては",
+        "のわりに",
+        "くせに",
+        "として"
+      ],
+      "correct": "にしては",
+      "explanation": "For a first try: にしては."
+    },
+    {
+      "prompt": "Complete: <ruby>部長<rt>ぶちょう</rt></ruby>の＿＿、わたしが<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ます。",
+      "options": [
+        "わりに",
+        "かわりに",
+        "くせに",
+        "ために"
+      ],
+      "correct": "かわりに",
+      "explanation": "Instead of: のかわりに."
+    },
+    {
+      "prompt": "Complete: <ruby>都会<rt>とかい</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby>な＿＿で、ぶっかが<ruby>高<rt>たか</rt></ruby>いです。",
+      "options": [
+        "かわり",
+        "わり",
+        "<ruby>一方<rt>いっぽう</rt></ruby>",
+        "くせ"
+      ],
+      "correct": "<ruby>一方<rt>いっぽう</rt></ruby>",
+      "explanation": "While: <ruby>一方<rt>いっぽう</rt></ruby>で."
+    },
+    {
+      "prompt": "Complete: スマホは<ruby>便利<rt>べんり</rt></ruby>な＿＿、<ruby>目<rt>め</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>いです。",
+      "options": [
+        "わりに",
+        "くせに",
+        "かわりに",
+        "<ruby>反面<rt>はんめん</rt></ruby>"
+      ],
+      "correct": "<ruby>反面<rt>はんめん</rt></ruby>",
+      "explanation": "On the other hand: <ruby>反面<rt>はんめん</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: <ruby>雨<rt>あめ</rt></ruby>に＿＿、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>しました。",
+      "options": [
+        "もかかわらず",
+        "かわって",
+        "しては",
+        "とって"
+      ],
+      "correct": "もかかわらず",
+      "explanation": "Despite: にもかかわらず."
+    },
+    {
+      "prompt": "Complete: <ruby>待<rt>ま</rt></ruby>っても＿＿、バスが<ruby>来<rt>こ</rt></ruby>なかった。",
+      "options": [
+        "<ruby>待<rt>ま</rt></ruby>てば",
+        "<ruby>待<rt>ま</rt></ruby>っても",
+        "<ruby>待<rt>ま</rt></ruby>って",
+        "<ruby>待<rt>ま</rt></ruby>つと"
+      ],
+      "correct": "<ruby>待<rt>ま</rt></ruby>っても",
+      "explanation": "No matter how much: V-ても V-ても."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the essay: who is moving to the village recently?",
+      "options": [
+        "Some young couples",
+        "Many farmers",
+        "Elderly people",
+        "Nobody"
+      ],
+      "correct": "Some young couples",
+      "explanation": "<ruby>若<rt>わか</rt></ruby>い<ruby>夫婦<rt>ふうふ</rt></ruby>も<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>増<rt>ふ</rt></ruby>えています."
+    },
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "わたしは<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "わたしは<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>なのに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。"
+      ],
+      "correct": "わたしは<ruby>学生<rt>がくせい</rt></ruby>のくせに、<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+      "explanation": "くせに is not used about yourself."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>安<rt>やす</rt></ruby>いわりに、おいしいです。",
+        "<ruby>値段<rt>ねだん</rt></ruby>のわりに、おいしいです。",
+        "<ruby>安<rt>やす</rt></ruby>いにしては、おいしいです。",
+        "<ruby>初<rt>はじ</rt></ruby>めてにしては、おいしいです。"
+      ],
+      "correct": "<ruby>安<rt>やす</rt></ruby>いにしては、おいしいです。",
+      "explanation": "にしては does not follow adjectives."
+    },
+    {
+      "prompt": "Which sentence means \"in exchange\"?",
+      "options": [
+        "ペンのかわりに、えんぴつを<ruby>使<rt>つか</rt></ruby>います。",
+        "<ruby>母<rt>はは</rt></ruby>のかわりに、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+        "バスのかわりに、<ruby>歩<rt>ある</rt></ruby>きました。",
+        "この<ruby>部屋<rt>へや</rt></ruby>はせまいかわりに、やちんが<ruby>安<rt>やす</rt></ruby>いです。"
+      ],
+      "correct": "この<ruby>部屋<rt>へや</rt></ruby>はせまいかわりに、やちんが<ruby>安<rt>やす</rt></ruby>いです。",
+      "explanation": "A trade-off: in exchange."
+    },
+    {
+      "prompt": "Review (Unit 7): which request is the most polite?",
+      "options": [
+        "<ruby>教<rt>おし</rt></ruby>えていただけないでしょうか。",
+        "<ruby>教<rt>おし</rt></ruby>えてください。",
+        "<ruby>教<rt>おし</rt></ruby>えなさい。",
+        "<ruby>教<rt>おし</rt></ruby>えろ。"
+      ],
+      "correct": "<ruby>教<rt>おし</rt></ruby>えていただけないでしょうか。",
+      "explanation": "ていただけないでしょうか."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-8-even-though-he",
+    "japanese-n3-unit-8-for-its-price",
+    "japanese-n3-unit-8-instead",
+    "japanese-n3-unit-8-on-the-other-hand",
+    "japanese-n3-unit-8-despite",
+    "japanese-n3-unit-7-could-you-possibly"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

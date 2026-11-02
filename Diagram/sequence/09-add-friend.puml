@@ -42,8 +42,8 @@ group «Unit of work» withTransaction()
   Repo -> DB : INSERT …
 end
 Svc -> Bus : publish(B, "friend request")
-Bus --> WebB : event
-WebB --> B : bell count + request shown at once
+Bus -> WebB : event
+note right of WebB : B's tab updates on its own:\nbell count + the request
 Ctrl --> WebA : "Request sent"
 
 B -> WebB : Accept
@@ -55,12 +55,17 @@ alt accept
     Repo -> DB : UPDATE / INSERT
   end
   Svc -> Bus : publish(A, "accepted")
-  Bus --> WebA : event
-  WebA --> A : "You and B are now friends"
+  Bus -> WebA : event
+  note left of WebA : A's tab updates on its own:\n"You and B are now friends"
   Svc -> Svc : check friend achievements for A and B (Study Buddy)
+  Ctrl --> WebB : accepted
+  WebB --> B : A added to the friends list
 else decline
   Svc -> Repo : status declined
   Svc -> Bus : publish(A, "updated")
-  Bus --> WebA : request leaves A's list (A isn't told why)
+  Bus -> WebA : event
+  note left of WebA : the request leaves A's list\n(A isn't told why)
+  Ctrl --> WebB : declined
+  WebB --> B : request removed
 end
 @enduml

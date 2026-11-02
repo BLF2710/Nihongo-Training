@@ -1,62 +1,11 @@
-import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
 import { StudyFlashcards } from "./VocabularyFlashcard";
-import KanaStrokeOrder from "./KanaStrokeOrder";
-import { kanjiExamples, kanjiStudyCards } from "../data/kanjiStudyCards";
+import { KanjiCard } from "./KanjiCard";
+import { kanjiStudyCards } from "../data/kanjiStudyCards";
 import { KANJI } from "../data/kanji";
-import type { Kanji } from "../data/kanji";
-import strokes from "../data/kanjiStrokes.json";
-
-/** Example words shown on the card; the rest are under "View more vocabulary". */
-const EXAMPLES_SHOWN = 3;
-
-export function KanjiStudyCard({ kanji }: { kanji: Kanji }) {
-  const [flipped, setFlipped] = useState(false);
-  const frontButton = useRef<HTMLButtonElement>(null);
-  const backButton = useRef<HTMLButtonElement>(null);
-  function flip(showBack: boolean) {
-    setFlipped(showBack);
-    requestAnimationFrame(() => (showBack ? backButton : frontButton).current?.focus({ preventScroll: true }));
-  }
-  const examples = kanjiExamples(kanji.id);
-  function exampleList(items: typeof examples) {
-    return <ul className="mt-3 space-y-3">{items.map(item => <li key={item.id}>
-      <Link to={item.href} className="block rounded-xl bg-gray-50 p-3 hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-emerald-600">
-        <span lang="ja" className="font-bold text-emerald-800">{item.written}</span>
-        <span lang="ja" className="ml-3 text-gray-600">{item.reading}</span>
-        <span className="mt-1 block text-sm text-gray-700">{item.meaning} →</span>
-      </Link>
-    </li>)}</ul>;
-  }
-  return <article aria-label={`Study ${kanji.character}`} className="[perspective:1200px]">
-    <div className="grid transition-transform duration-500 motion-reduce:transition-none [transform-style:preserve-3d]" style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}>
-    <div inert={flipped} aria-hidden={flipped} className="col-start-1 row-start-1 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm [backface-visibility:hidden] sm:p-8">
-    <h2 lang="ja" className="text-center text-8xl font-bold text-gray-900">{kanji.character}</h2>
-    <dl className="mt-6 grid gap-5 sm:grid-cols-2">
-      <div className="sm:col-span-2"><dt className="font-bold">Meaning</dt><dd className="mt-1 text-gray-700">{kanji.meanings.join(" · ")}</dd></div>
-      <div><dt className="font-bold">On'yomi</dt><dd lang="ja" className="mt-1 wrap-anywhere">{kanji.onyomi.join(" · ") || "Not listed"}</dd></div>
-      <div><dt className="font-bold">Kun'yomi</dt><dd lang="ja" className="mt-1 wrap-anywhere">{kanji.kunyomi.join(" · ") || "Not listed"}</dd></div>
-    </dl>
-    <p className="mt-3 text-xs text-gray-500">Readings vary by word. A dot separates the Kanji reading from following kana; a hyphen marks a bound form.</p>
-    <h3 className="mt-6 font-bold">Example vocabulary</h3>
-    {exampleList(examples.slice(0, EXAMPLES_SHOWN))}
-    {examples.length < 2 && <p className="mt-2 text-sm text-gray-500">{examples.length ? "Only one linked course word is available so far." : "No linked course vocabulary yet."}</p>}
-    {examples.length > EXAMPLES_SHOWN && <details className="mt-3"><summary className="cursor-pointer font-semibold text-emerald-700 focus-visible:outline-2">View more vocabulary ({examples.length - EXAMPLES_SHOWN})</summary>{exampleList(examples.slice(EXAMPLES_SHOWN))}</details>}
-    <button ref={frontButton} type="button" onClick={() => flip(true)} className="mt-6 block rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 font-bold text-emerald-800 focus-visible:outline-2 focus-visible:outline-emerald-600">Stroke order · {kanji.strokeCount} strokes ↻</button>
-    </div>
-    <div inert={!flipped} aria-hidden={!flipped} className="col-start-1 row-start-1 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-8">
-      <button ref={backButton} type="button" onClick={() => flip(false)} className="rounded-xl border px-4 py-2 font-bold text-emerald-800 focus-visible:outline-2 focus-visible:outline-emerald-600">← Back to study card</button>
-      <h3 className="mt-5 text-center text-xl font-bold">Stroke order: <span lang="ja">{kanji.character}</span></h3>
-      {flipped && <KanaStrokeOrder character={kanji.character} paths={strokes.paths} />}
-    </div>
-    </div>
-  </article>;
-}
 
 export default function KanjiFlashcards({ kanjiIds }: { kanjiIds: string[] }) {
   return <section aria-label="Kanji study">
-    <p className="mb-4 text-center text-sm text-gray-500">Study only — cards do not change mastery or XP. Kanji practice records graded answers.</p>
     <StudyFlashcards key={kanjiIds.join(':')} cards={kanjiStudyCards(kanjiIds, "meaning")} label="Kanji flashcards"
-      renderCard={card => { const kanji = KANJI.find(item => item.id === card.id); return kanji ? <KanjiStudyCard kanji={kanji} /> : null; }} />
+      renderCard={card => { const kanji = KANJI.find(item => item.id === card.id); return kanji ? <KanjiCard kanji={kanji} /> : null; }} />
   </section>;
 }

@@ -1,0 +1,186 @@
+{
+  "id": "japanese-n3-unit-6-assessment",
+  "passPercent": 80,
+  "questions": [
+    {
+      "id": "ni-chigainai",
+      "prompt": "Complete: <ruby>電気<rt>でんき</rt></ruby>がついているから、<ruby>家<rt>いえ</rt></ruby>にいるに＿＿。",
+      "options": [
+        "<ruby>決<rt>き</rt></ruby>めない",
+        "<ruby>違<rt>ちが</rt></ruby>いない",
+        "<ruby>違<rt>ちが</rt></ruby>う",
+        "っぽい"
+      ],
+      "correctIndex": 1,
+      "explanation": "Must be: に<ruby>違<rt>ちが</rt></ruby>いない."
+    },
+    {
+      "id": "ni-chigainai-noun",
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いない。",
+        "あの<ruby>人<rt>ひと</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>にいるに<ruby>違<rt>ちが</rt></ruby>いない。",
+        "この<ruby>店<rt>みせ</rt></ruby>はおいしいに<ruby>違<rt>ちが</rt></ruby>いない。",
+        "あの<ruby>人<rt>ひと</rt></ruby>が<ruby>犯人<rt>はんにん</rt></ruby>だに<ruby>違<rt>ちが</rt></ruby>いない。"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nouns drop だ."
+    },
+    {
+      "id": "ni-kimatte-iru",
+      "prompt": "What does そんなの、うそに<ruby>決<rt>き</rt></ruby>まっている mean?",
+      "options": [
+        "That's obviously a lie.",
+        "I decided to lie.",
+        "That might be a lie.",
+        "That isn't a lie."
+      ],
+      "correctIndex": 0,
+      "explanation": "に<ruby>決<rt>き</rt></ruby>まっている: obviously."
+    },
+    {
+      "id": "ppoi",
+      "prompt": "Complete: もう<ruby>大人<rt>おとな</rt></ruby>なのに、<ruby>子<rt>こ</rt></ruby>ども＿＿ですね。",
+      "options": [
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "がち",
+        "っぽい",
+        "おそれ"
+      ],
+      "correctIndex": 2,
+      "explanation": "-ish: っぽい."
+    },
+    {
+      "id": "ppoi-tendency",
+      "prompt": "What does <ruby>父<rt>ちち</rt></ruby>は<ruby>怒<rt>おこ</rt></ruby>りっぽい<ruby>人<rt>ひと</rt></ruby>です mean?",
+      "options": [
+        "My father is angry right now.",
+        "My father is never angry.",
+        "My father made someone angry.",
+        "My father gets angry easily."
+      ],
+      "correctIndex": 3,
+      "explanation": "っぽい: tends to."
+    },
+    {
+      "id": "gimi",
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>＿＿なので、<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>ます。",
+      "options": [
+        "っぽい",
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "がち",
+        "ように"
+      ],
+      "correctIndex": 1,
+      "explanation": "A touch of: <ruby>気味<rt>ぎみ</rt></ruby>."
+    },
+    {
+      "id": "marude",
+      "prompt": "Complete: ＿＿<ruby>夢<rt>ゆめ</rt></ruby>のようです。 (just like)",
+      "options": [
+        "まるで",
+        "きっと",
+        "たぶん",
+        "やっと"
+      ],
+      "correctIndex": 0,
+      "explanation": "まるで〜ようだ."
+    },
+    {
+      "id": "mitai",
+      "prompt": "Complete: この<ruby>絵<rt>え</rt></ruby>は、まるで<ruby>写真<rt>しゃしん</rt></ruby>＿＿だ。",
+      "options": [
+        "のみたい",
+        "よう",
+        "みたい",
+        "っぽく"
+      ],
+      "correctIndex": 2,
+      "explanation": "N みたいだ."
+    },
+    {
+      "id": "you-ni-mieru",
+      "prompt": "Complete: かれは<ruby>疲<rt>つか</rt></ruby>れている＿＿<ruby>見<rt>み</rt></ruby>えます。",
+      "options": [
+        "ような",
+        "ように",
+        "みたいな",
+        "っぽく"
+      ],
+      "correctIndex": 1,
+      "explanation": "Looks like: ように<ruby>見<rt>み</rt></ruby>える."
+    },
+    {
+      "id": "gachi",
+      "prompt": "Complete: <ruby>冬<rt>ふゆ</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>をひき＿＿です。",
+      "options": [
+        "っぽい",
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "おそれ",
+        "がち"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tend to: がちだ."
+    },
+    {
+      "id": "osore",
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>大雨<rt>おおあめ</rt></ruby>の＿＿があります。",
+      "options": [
+        "がち",
+        "ほど",
+        "おそれ",
+        "ため"
+      ],
+      "correctIndex": 2,
+      "explanation": "There is a risk: おそれがある."
+    },
+    {
+      "id": "darouka",
+      "prompt": "What does <ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるだろうか mean?",
+      "options": [
+        "I wonder if it will be sunny tomorrow.",
+        "It will definitely be sunny tomorrow.",
+        "It won't be sunny tomorrow.",
+        "Will you be free tomorrow?"
+      ],
+      "correctIndex": 0,
+      "explanation": "だろうか: I wonder."
+    },
+    {
+      "id": "node-wa-nai",
+      "prompt": "Which sentence gives a modest opinion?",
+      "options": [
+        "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいに<ruby>決<rt>き</rt></ruby>まっています。",
+        "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいに<ruby>違<rt>ちが</rt></ruby>いない。",
+        "この<ruby>計画<rt>けいかく</rt></ruby>、むずかしいっぽい。",
+        "この<ruby>計画<rt>けいかく</rt></ruby>はむずかしいのではないでしょうか。"
+      ],
+      "correctIndex": 3,
+      "explanation": "のではないでしょうか."
+    },
+    {
+      "id": "kanji-kiken",
+      "prompt": "How is 危険⁠ read?",
+      "options": [
+        "きげん",
+        "きけん",
+        "あぶけん",
+        "きっけん"
+      ],
+      "correctIndex": 1,
+      "explanation": "危険⁠ is read きけん."
+    },
+    {
+      "id": "kanji-souzou",
+      "prompt": "Which word means \"imagination\"?",
+      "options": [
+        "<ruby>予想<rt>よそう</rt></ruby>",
+        "<ruby>理想<rt>りそう</rt></ruby>",
+        "<ruby>想像<rt>そうぞう</rt></ruby>",
+        "<ruby>疑問<rt>ぎもん</rt></ruby>"
+      ],
+      "correctIndex": 2,
+      "explanation": "<ruby>想像<rt>そうぞう</rt></ruby>: imagination."
+    }
+  ]
+}

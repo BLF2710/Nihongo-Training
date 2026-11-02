@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n3-unit-7-review",
+  "slug": "n3-unit-7-review",
+  "unit": "Japanese N3 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 7 Review",
+  "title_jp": "ユニット7のふくしゅう",
+  "objectives": [
+    "I can give and understand orders, rules, wishes and requests.",
+    "Use the command form, V-るな and なさい",
+    "Read written rules ending in こと",
+    "Hope, wish and request with といい, ばよかった and ていただけないでしょうか",
+    "Read a share-house notice"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>押<rt>お</rt></ruby>す",
+      "",
+      "to push, to press"
+    ],
+    [
+      "<ruby>急<rt>いそ</rt></ruby>ぐ",
+      "",
+      "to hurry"
+    ],
+    [
+      "<ruby>書類<rt>しょるい</rt></ruby>",
+      "",
+      "documents"
+    ],
+    [
+      "<ruby>払<rt>はら</rt></ruby>う",
+      "",
+      "to pay"
+    ],
+    [
+      "<ruby>届<rt>とど</rt></ruby>く",
+      "",
+      "to arrive, to be delivered"
+    ],
+    [
+      "<ruby>願<rt>ねが</rt></ruby>う",
+      "",
+      "to wish"
+    ],
+    [
+      "<ruby>絶対<rt>ぜったい</rt></ruby>",
+      "",
+      "absolutely"
+    ],
+    [
+      "<ruby>伝<rt>つた</rt></ruby>える",
+      "",
+      "to tell, to pass on"
+    ],
+    [
+      "<ruby>手伝<rt>てつだ</rt></ruby>う",
+      "",
+      "to help"
+    ],
+    [
+      "<ruby>協力<rt>きょうりょく</rt></ruby>",
+      "",
+      "cooperation"
+    ],
+    [
+      "<ruby>捨<rt>す</rt></ruby>てる",
+      "",
+      "to throw away"
+    ],
+    [
+      "<ruby>窓<rt>まど</rt></ruby>",
+      "",
+      "window"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Commands and wishes",
+    "text": "Command form: <ruby>急<rt>いそ</rt></ruby>げ, <ruby>逃<rt>に</rt></ruby>げろ, しろ, <ruby>来<rt>こ</rt></ruby>い. Don't: V-るな.\nInstruction: V-なさい. Written rules: V-る / V-ないこと.\nHope: といい(な), たらいい(な). Wish: ばいいのに. Regret: ばよかった(のに).\nWant someone to: てもらいたい / ていただきたい. Very polite request: ていただけないでしょうか.\nCasual: なきゃ / なくちゃ (must), ちゃだめ (mustn't), ていい (may).",
+    "examples": [
+      "command form / るな / なさい / こと",
+      "といい / ばいいのに / ばよかった",
+      "ていただけないでしょうか / なきゃ / ちゃだめ"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>火事<rt>かじ</rt></ruby>だ！<ruby>早<rt>はや</rt></ruby>く<ruby>逃<rt>に</rt></ruby>げろ！",
+      "Fire! Get out, quick!"
+    ],
+    [
+      "<ruby>正<rt>ただ</rt></ruby>しい<ruby>答<rt>こた</rt></ruby>えを<ruby>選<rt>えら</rt></ruby>びなさい。",
+      "Choose the correct answer."
+    ],
+    [
+      "<ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べないこと。",
+      "No eating in the classroom."
+    ],
+    [
+      "もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ればよかった。",
+      "I should have left earlier."
+    ],
+    [
+      "この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ていただけないでしょうか。",
+      "Could you possibly look at this document?"
+    ],
+    [
+      "もう<ruby>帰<rt>かえ</rt></ruby>らなきゃ。",
+      "I've got to go home."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、このお<ruby>知<rt>し</rt></ruby>らせを<ruby>読<rt>よ</rt></ruby>んでいただけないでしょうか。",
+      "たなか",
+      "いいですよ。「<ruby>夜<rt>よる</rt></ruby><ruby>十時<rt>じゅうじ</rt></ruby><ruby>以降<rt>いこう</rt></ruby>、せんたくきを<ruby>使<rt>つか</rt></ruby>わないこと」と<ruby>書<rt>か</rt></ruby>いてあります。"
+    ],
+    [
+      "けん",
+      "ごみ、<ruby>捨<rt>す</rt></ruby>てなきゃ。",
+      "リー",
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>月曜日<rt>げつようび</rt></ruby>だから、<ruby>捨<rt>す</rt></ruby>てちゃだめだよ。"
+    ],
+    [
+      "マイ",
+      "パーティー、<ruby>楽<rt>たの</rt></ruby>しかったね。",
+      "ゆき",
+      "うん。リンさんも<ruby>来<rt>き</rt></ruby>たらよかったのにね。"
+    ],
+    [
+      "リン",
+      "<ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるといいですね。",
+      "アナ",
+      "ええ、せんたくしたいですから。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Notice",
+    "text_jp": "シェアハウスの<ruby>皆<rt>みな</rt></ruby>さんへ\n<ruby>最近<rt>さいきん</rt></ruby>、だいどころの<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>について、<ruby>問題<rt>もんだい</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えています。<ruby>次<rt>つぎ</rt></ruby>のルールを<ruby>守<rt>まも</rt></ruby>ってください。\n<ruby>一<rt>いち</rt></ruby>、<ruby>使<rt>つか</rt></ruby>ったお<ruby>皿<rt>さら</rt></ruby>はすぐに<ruby>洗<rt>あら</rt></ruby>うこと。\n<ruby>二<rt>に</rt></ruby>、ごみは<ruby>決<rt>き</rt></ruby>められた<ruby>日<rt>ひ</rt></ruby>の<ruby>朝<rt>あさ</rt></ruby>に<ruby>捨<rt>す</rt></ruby>てること。\n<ruby>三<rt>さん</rt></ruby>、<ruby>夜<rt>よる</rt></ruby><ruby>十一時<rt>じゅういちじ</rt></ruby><ruby>以降<rt>いこう</rt></ruby>は、<ruby>大<rt>おお</rt></ruby>きな<ruby>音<rt>おと</rt></ruby>を<ruby>出<rt>だ</rt></ruby>さないこと。\nまた、やちんは<ruby>毎月<rt>まいつき</rt></ruby><ruby>二十五日<rt>にじゅうごにち</rt></ruby>までに<ruby>払<rt>はら</rt></ruby>ってください。<ruby>出<rt>で</rt></ruby>かけるときは、<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めるのを<ruby>忘<rt>わす</rt></ruby>れないでください。<ruby>皆<rt>みな</rt></ruby>さんが<ruby>気持<rt>きも</rt></ruby>ちよくせいかつできるように、ご<ruby>協力<rt>きょうりょく</rt></ruby>いただけないでしょうか。<ruby>何<rt>なに</rt></ruby>かこまったことがあれば、かんりにんのたなかまでお<ruby>知<rt>し</rt></ruby>らせください。",
+    "en_translation": "To everyone in the share house: Recently there have been more problems with how the kitchen is used. Please follow these rules. 1. Wash plates as soon as you've used them. 2. Put rubbish out on the morning of the set day. 3. No loud noise after 11 p.m. Also, please pay the rent by the 25th of each month. Don't forget to close the windows when you go out. Could we ask for your cooperation so that everyone can live comfortably? If you have any problems, please let Tanaka, the manager, know.",
+    "questions": [
+      {
+        "prompt": "What must you do with plates?",
+        "options": [
+          "Put them in the cupboard",
+          "Wash them straight after using them",
+          "Throw them away",
+          "Leave them for the manager"
+        ],
+        "correct": "Wash them straight after using them",
+        "explanation": "<ruby>使<rt>つか</rt></ruby>ったお<ruby>皿<rt>さら</rt></ruby>はすぐに<ruby>洗<rt>あら</rt></ruby>うこと."
+      },
+      {
+        "prompt": "When must the rent be paid?",
+        "options": [
+          "On the 1st of each month",
+          "At the end of each month",
+          "By the 25th of each month",
+          "Every week"
+        ],
+        "correct": "By the 25th of each month",
+        "explanation": "<ruby>毎月<rt>まいつき</rt></ruby><ruby>二十五日<rt>にじゅうごにち</rt></ruby>までに<ruby>払<rt>はら</rt></ruby>って."
+      },
+      {
+        "prompt": "What should you do when you go out?",
+        "options": [
+          "Turn off the lights",
+          "Tell the manager",
+          "Take the rubbish out",
+          "Close the windows"
+        ],
+        "correct": "Close the windows",
+        "explanation": "<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めるのを<ruby>忘<rt>わす</rt></ruby>れないで."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "What is the command form of <ruby>急<rt>いそ</rt></ruby>ぐ?",
+      "options": [
+        "<ruby>急<rt>いそ</rt></ruby>ぎろ",
+        "<ruby>急<rt>いそ</rt></ruby>ご",
+        "<ruby>急<rt>いそ</rt></ruby>げ",
+        "<ruby>急<rt>いそ</rt></ruby>ぐな"
+      ],
+      "correct": "<ruby>急<rt>いそ</rt></ruby>げ",
+      "explanation": "Group 1: ぐ → げ."
+    },
+    {
+      "prompt": "Complete: ここでボールを<ruby>投<rt>な</rt></ruby>げる＿＿。 (don't)",
+      "options": [
+        "ね",
+        "よ",
+        "か",
+        "な"
+      ],
+      "correct": "な",
+      "explanation": "Don't: V-るな."
+    },
+    {
+      "prompt": "Complete: <ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>＿＿。 (parent to child)",
+      "options": [
+        "なさい",
+        "なきゃ",
+        "ろ",
+        "るな"
+      ],
+      "correct": "なさい",
+      "explanation": "Instruction: なさい."
+    },
+    {
+      "prompt": "Complete: <ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べない＿＿。 (rule)",
+      "options": [
+        "もの",
+        "こと",
+        "ため",
+        "ほど"
+      ],
+      "correct": "こと",
+      "explanation": "Written rule: V-ないこと."
+    },
+    {
+      "prompt": "Complete: もっと<ruby>時間<rt>じかん</rt></ruby>があれば＿＿のに。",
+      "options": [
+        "よかった",
+        "いいな",
+        "いい",
+        "いる"
+      ],
+      "correct": "いい",
+      "explanation": "I wish: ばいいのに."
+    },
+    {
+      "prompt": "Complete: <ruby>少<rt>すこ</rt></ruby>し<ruby>手伝<rt>てつだ</rt></ruby>って＿＿ないでしょうか。",
+      "options": [
+        "いただき",
+        "もらい",
+        "くださら",
+        "いただけ"
+      ],
+      "correct": "いただけ",
+      "explanation": "Could you possibly: ていただけないでしょうか."
+    },
+    {
+      "prompt": "What is the casual form of <ruby>帰<rt>かえ</rt></ruby>らなければならない?",
+      "options": [
+        "<ruby>帰<rt>かえ</rt></ruby>らなきゃ",
+        "<ruby>帰<rt>かえ</rt></ruby>っちゃ",
+        "<ruby>帰<rt>かえ</rt></ruby>っていい",
+        "<ruby>帰<rt>かえ</rt></ruby>らなくて"
+      ],
+      "correct": "<ruby>帰<rt>かえ</rt></ruby>らなきゃ",
+      "explanation": "なければ → なきゃ."
+    },
+    {
+      "prompt": "Complete: ここで<ruby>遊<rt>あそ</rt></ruby>ん＿＿だめ。",
+      "options": [
+        "ちゃ",
+        "じゃ",
+        "て",
+        "で"
+      ],
+      "correct": "じゃ",
+      "explanation": "では → じゃ."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the notice: when can't you make loud noise?",
+      "options": [
+        "After 11 p.m.",
+        "Before 7 a.m.",
+        "On rubbish days",
+        "When the manager is in"
+      ],
+      "correct": "After 11 p.m.",
+      "explanation": "<ruby>夜<rt>よる</rt></ruby><ruby>十一時<rt>じゅういちじ</rt></ruby><ruby>以降<rt>いこう</rt></ruby>."
+    },
+    {
+      "prompt": "Which is the most polite request?",
+      "options": [
+        "<ruby>見<rt>み</rt></ruby>てください。",
+        "<ruby>見<rt>み</rt></ruby>ていただけないでしょうか。",
+        "<ruby>見<rt>み</rt></ruby>なさい。",
+        "<ruby>見<rt>み</rt></ruby>ろ。"
+      ],
+      "correct": "<ruby>見<rt>み</rt></ruby>ていただけないでしょうか。",
+      "explanation": "ていただけないでしょうか."
+    },
+    {
+      "prompt": "Who would most naturally say ちゃんと<ruby>宿題<rt>しゅくだい</rt></ruby>をしなさい?",
+      "options": [
+        "A student to a teacher",
+        "A shop clerk to a customer",
+        "A parent or teacher",
+        "A new employee to their boss"
+      ],
+      "correct": "A parent or teacher",
+      "explanation": "なさい: from someone in charge."
+    },
+    {
+      "prompt": "What does <ruby>君<rt>きみ</rt></ruby>も<ruby>来<rt>き</rt></ruby>たらよかったのに mean?",
+      "options": [
+        "You should come too.",
+        "I'm glad you came.",
+        "You came too.",
+        "I wish you'd come too."
+      ],
+      "correct": "I wish you'd come too.",
+      "explanation": "たらよかったのに: regret."
+    },
+    {
+      "prompt": "Review (Unit 6): complete <ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>く</rt></ruby>る＿＿があります。",
+      "options": [
+        "おそれ",
+        "がち",
+        "こと",
+        "なきゃ"
+      ],
+      "correct": "おそれ",
+      "explanation": "There is a risk: おそれがある."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-7-commands",
+    "japanese-n3-unit-7-instructions",
+    "japanese-n3-unit-7-i-wish",
+    "japanese-n3-unit-7-could-you-possibly",
+    "japanese-n3-unit-7-gotta-go",
+    "japanese-n3-unit-6-tends-to"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

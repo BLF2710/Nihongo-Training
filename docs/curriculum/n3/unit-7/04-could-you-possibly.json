@@ -1,0 +1,534 @@
+{
+  "id": "japanese-n3-unit-7-could-you-possibly",
+  "slug": "n3-unit-7-could-you-possibly",
+  "unit": "Japanese N3 Unit 7",
+  "unit_number": 7,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Could You Possibly…?",
+  "title_jp": "〜て いただけないでしょうか",
+  "objectives": [
+    "I can ask a superior for a favour very politely.",
+    "Say what you want someone to do with 〜てもらいたい / 〜ていただきたい",
+    "Make a very polite request with 〜ていただけないでしょうか",
+    "Talk about guiding, passing on messages, delivery and cooperation"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>頂<rt>いただ</rt></ruby>く",
+      "",
+      "to receive (humble)"
+    ],
+    [
+      "<ruby>頂上<rt>ちょうじょう</rt></ruby>",
+      "",
+      "summit"
+    ],
+    [
+      "あんない",
+      "",
+      "guidance, showing around (+ する: to show around)"
+    ],
+    [
+      "<ruby>案<rt>あん</rt></ruby>",
+      "",
+      "idea, plan"
+    ],
+    [
+      "<ruby>伝<rt>つた</rt></ruby>える",
+      "",
+      "to tell, to pass on"
+    ],
+    [
+      "<ruby>手伝<rt>てつだ</rt></ruby>う",
+      "",
+      "to help"
+    ],
+    [
+      "<ruby>友達<rt>ともだち</rt></ruby>",
+      "",
+      "friend"
+    ],
+    [
+      "<ruby>配達<rt>はいたつ</rt></ruby>",
+      "",
+      "delivery (+ する: to deliver)"
+    ],
+    [
+      "<ruby>協力<rt>きょうりょく</rt></ruby>",
+      "",
+      "cooperation (+ する: to cooperate)"
+    ],
+    [
+      "<ruby>力<rt>ちから</rt></ruby>",
+      "",
+      "strength, power"
+    ],
+    [
+      "〜てもらいたい",
+      "",
+      "want someone to do"
+    ],
+    [
+      "〜ていただけないでしょうか",
+      "",
+      "could you possibly"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "頂く",
+      "word_reading": "いただく"
+    },
+    {
+      "word_japanese": "頂上",
+      "word_reading": "ちょうじょう"
+    },
+    {
+      "word_japanese": "案",
+      "word_reading": "あん"
+    },
+    {
+      "word_japanese": "伝える",
+      "word_reading": "つたえる"
+    },
+    {
+      "word_japanese": "手伝う",
+      "word_reading": "てつだう"
+    },
+    {
+      "word_japanese": "友達",
+      "word_reading": "ともだち"
+    },
+    {
+      "word_japanese": "配達",
+      "word_reading": "はいたつ"
+    },
+    {
+      "word_japanese": "協力",
+      "word_reading": "きょうりょく"
+    },
+    {
+      "word_japanese": "力",
+      "word_reading": "ちから"
+    }
+  ],
+  "concept": {
+    "title": "Very polite requests",
+    "text": "V-て もらいたい / いただきたい says what you want someone to do. It is more direct than a question:\nこの<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ていただきたいんですが。 I'd like you to look at this document.\n\nTo ask a favour very politely, use the potential form of いただく as a question:\nV-て いただけますか (could you)\nV-て いただけないでしょうか (could you possibly)\n\n<ruby>少<rt>すこ</rt></ruby>し<ruby>手伝<rt>てつだ</rt></ruby>っていただけないでしょうか。 Could you possibly help me a little?\n\nThe negative question sounds softer, because it leaves the listener room to say no. Use it with teachers, bosses and strangers.",
+    "examples": [
+      "V-て もらいたい / いただきたい",
+      "V-て いただけますか",
+      "V-て いただけないでしょうか"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "I'd like you to: 〜てもらいたい / 〜ていただきたい",
+      "pattern": "V-て もらいたい / V-て いただきたい",
+      "explanation": "Says what you want another person to do. いただきたい is the polite form.",
+      "examples": [
+        {
+          "japanese": "この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ていただきたいんですが。",
+          "romaji": "",
+          "meaning": "I'd like you to look at this document."
+        },
+        {
+          "japanese": "<ruby>両親<rt>りょうしん</rt></ruby>にはげんきでいてもらいたいです。",
+          "romaji": "",
+          "meaning": "I want my parents to stay healthy."
+        },
+        {
+          "japanese": "<ruby>皆<rt>みな</rt></ruby>さんに<ruby>協力<rt>きょうりょく</rt></ruby>していただきたいと<ruby>思<rt>おも</rt></ruby>います。",
+          "romaji": "",
+          "meaning": "I'd like to ask for everyone's cooperation."
+        },
+        {
+          "japanese": "<ruby>彼<rt>かれ</rt></ruby>にはもっとまじめに<ruby>働<rt>はたら</rt></ruby>いてもらいたい。",
+          "romaji": "",
+          "meaning": "I want him to work more seriously."
+        }
+      ],
+      "notes": [
+        "Softened with んですが: 〜ていただきたいんですが."
+      ]
+    },
+    {
+      "title": "Could you possibly: 〜ていただけないでしょうか",
+      "pattern": "V-て いただけますか / V-て いただけないでしょうか",
+      "explanation": "A very polite request. The negative question gives the listener room to say no.",
+      "examples": [
+        {
+          "japanese": "<ruby>少<rt>すこ</rt></ruby>し<ruby>手伝<rt>てつだ</rt></ruby>っていただけないでしょうか。",
+          "romaji": "",
+          "meaning": "Could you possibly help me a little?"
+        },
+        {
+          "japanese": "<ruby>駅<rt>えき</rt></ruby>までの<ruby>道<rt>みち</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えていただけますか。",
+          "romaji": "",
+          "meaning": "Could you tell me the way to the station?"
+        },
+        {
+          "japanese": "たなかさんに<ruby>伝<rt>つた</rt></ruby>えていただけないでしょうか。",
+          "romaji": "",
+          "meaning": "Could you possibly pass that on to Mr Tanaka?"
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>、<ruby>町<rt>まち</rt></ruby>をあんないしていただけませんか。",
+          "romaji": "",
+          "meaning": "Would you show me around town tomorrow?"
+        }
+      ],
+      "notes": [
+        "Order of politeness: てください < てもらえますか < ていただけますか < ていただけないでしょうか."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>先生<rt>せんせい</rt></ruby>から<ruby>本<rt>ほん</rt></ruby>を<ruby>頂<rt>いただ</rt></ruby>きました。",
+      "I received a book from my teacher."
+    ],
+    [
+      "<ruby>山<rt>やま</rt></ruby>の<ruby>頂上<rt>ちょうじょう</rt></ruby>から<ruby>海<rt>うみ</rt></ruby>が<ruby>見<rt>み</rt></ruby>えました。",
+      "We could see the sea from the summit."
+    ],
+    [
+      "<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>しを<ruby>友達<rt>ともだち</rt></ruby>に<ruby>手伝<rt>てつだ</rt></ruby>ってもらいました。",
+      "My friends helped me move."
+    ],
+    [
+      "にもつは<ruby>明日<rt>あした</rt></ruby>の<ruby>午前中<rt>ごぜんちゅう</rt></ruby>に<ruby>配達<rt>はいたつ</rt></ruby>されます。",
+      "The parcel will be delivered tomorrow morning."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "すみません、この<ruby>漢字<rt>かんじ</rt></ruby>の<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えていただけないでしょうか。",
+      "たなか",
+      "ええ、いいですよ。「ちょうじょう」です。"
+    ],
+    [
+      "リー",
+      "<ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>のしりょうを<ruby>見<rt>み</rt></ruby>ていただきたいんですが。",
+      "マイ",
+      "<ruby>分<rt>わ</rt></ruby>かりました。つくえにおいておいてください。"
+    ],
+    [
+      "ゆき",
+      "たなかさんに、<ruby>明日<rt>あした</rt></ruby><ruby>休<rt>やす</rt></ruby>むと<ruby>伝<rt>つた</rt></ruby>えていただけますか。",
+      "リン",
+      "はい、<ruby>伝<rt>つた</rt></ruby>えておきます。"
+    ],
+    [
+      "けん",
+      "<ruby>何<rt>なに</rt></ruby>かいい<ruby>案<rt>あん</rt></ruby>はありますか。",
+      "アナ",
+      "<ruby>皆<rt>みな</rt></ruby>さんの<ruby>力<rt>ちから</rt></ruby>をあわせれば、きっとできると<ruby>思<rt>おも</rt></ruby>います。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "頂",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "いただ.く",
+        "いただき"
+      ],
+      "meaning_en": "summit; receive",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "頂上",
+          "reading": "ちょうじょう",
+          "en": "summit"
+        },
+        {
+          "word": "頂く",
+          "reading": "いただく",
+          "en": "to receive"
+        }
+      ],
+      "mnemonic": "A nail (丁) on top of a head (頁): the very top."
+    },
+    {
+      "char": "案",
+      "onyomi": [
+        "アン"
+      ],
+      "kunyomi": [
+        "つくえ"
+      ],
+      "meaning_en": "plan",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "案内",
+          "reading": "あんない",
+          "en": "guidance"
+        },
+        {
+          "word": "案",
+          "reading": "あん",
+          "en": "idea"
+        }
+      ],
+      "mnemonic": "A desk of wood (木) where a calm (安) plan is drawn up."
+    },
+    {
+      "char": "伝",
+      "onyomi": [
+        "デン",
+        "テン"
+      ],
+      "kunyomi": [
+        "つた.わる",
+        "つた.える",
+        "つた.う",
+        "つだ.う",
+        "-づた.い",
+        "つて"
+      ],
+      "meaning_en": "convey",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "伝える",
+          "reading": "つたえる",
+          "en": "to tell"
+        },
+        {
+          "word": "手伝う",
+          "reading": "てつだう",
+          "en": "to help"
+        }
+      ],
+      "mnemonic": "A person (亻) passing word to the next (云)."
+    },
+    {
+      "char": "達",
+      "onyomi": [
+        "タツ",
+        "ダ"
+      ],
+      "kunyomi": [
+        "-たち"
+      ],
+      "meaning_en": "reach; plural",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "友達",
+          "reading": "ともだち",
+          "en": "friend"
+        },
+        {
+          "word": "配達",
+          "reading": "はいたつ",
+          "en": "delivery"
+        }
+      ],
+      "mnemonic": "Walking (辶) all the way until you arrive."
+    },
+    {
+      "char": "協",
+      "onyomi": [
+        "キョウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "cooperate",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "協力",
+          "reading": "きょうりょく",
+          "en": "cooperation"
+        },
+        {
+          "word": "協会",
+          "reading": "きょうかい",
+          "en": "association"
+        }
+      ],
+      "mnemonic": "Ten (十) people adding their strength (力) together."
+    },
+    {
+      "char": "力",
+      "onyomi": [
+        "リョク",
+        "リキ",
+        "リイ"
+      ],
+      "kunyomi": [
+        "ちから"
+      ],
+      "meaning_en": "power",
+      "stroke_count": 2,
+      "example_words": [
+        {
+          "word": "力",
+          "reading": "ちから",
+          "en": "strength"
+        },
+        {
+          "word": "協力",
+          "reading": "きょうりょく",
+          "en": "cooperation"
+        }
+      ],
+      "mnemonic": "A strong arm flexing its muscle."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れる＿＿いいな。",
+      "options": [
+        "と",
+        "ば",
+        "のに",
+        "よかった"
+      ],
+      "correct": "と",
+      "explanation": "I hope: 〜といいな."
+    },
+    {
+      "prompt": "Complete: この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>て＿＿たいんですが。",
+      "options": [
+        "いただけ",
+        "いただき",
+        "くれ",
+        "あげ"
+      ],
+      "correct": "いただき",
+      "explanation": "I'd like you to: ていただきたい."
+    },
+    {
+      "prompt": "Complete: <ruby>少<rt>すこ</rt></ruby>し<ruby>手伝<rt>てつだ</rt></ruby>って＿＿ないでしょうか。",
+      "options": [
+        "いただき",
+        "もらい",
+        "いただけ",
+        "くださら"
+      ],
+      "correct": "いただけ",
+      "explanation": "Could you possibly: ていただけないでしょうか."
+    },
+    {
+      "prompt": "Which request is the most polite?",
+      "options": [
+        "<ruby>教<rt>おし</rt></ruby>えてください。",
+        "<ruby>教<rt>おし</rt></ruby>えて。",
+        "<ruby>教<rt>おし</rt></ruby>えてもらえる？",
+        "<ruby>教<rt>おし</rt></ruby>えていただけないでしょうか。"
+      ],
+      "correct": "<ruby>教<rt>おし</rt></ruby>えていただけないでしょうか。",
+      "explanation": "ていただけないでしょうか is the most polite."
+    },
+    {
+      "prompt": "Which word means \"to help\"?",
+      "options": [
+        "<ruby>手伝<rt>てつだ</rt></ruby>う",
+        "<ruby>伝<rt>つた</rt></ruby>える",
+        "あんないする",
+        "<ruby>頂<rt>いただ</rt></ruby>く"
+      ],
+      "correct": "<ruby>手伝<rt>てつだ</rt></ruby>う",
+      "explanation": "<ruby>手伝<rt>てつだ</rt></ruby>う: to help."
+    },
+    {
+      "prompt": "How is 協力⁠ read?",
+      "options": [
+        "きょうりき",
+        "きょうりょく",
+        "きょりょく",
+        "きょうちから"
+      ],
+      "correct": "きょうりょく",
+      "explanation": "協力⁠ is read きょうりょく."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>先生<rt>せんせい</rt></ruby>から<ruby>本<rt>ほん</rt></ruby>を<ruby>頂<rt>いただ</rt></ruby>きました。",
+      "options": [
+        "I gave my teacher a book.",
+        "My teacher lent me a book.",
+        "I received a book from my teacher.",
+        "My teacher bought a book."
+      ],
+      "correct": "I received a book from my teacher.",
+      "explanation": "<ruby>頂<rt>いただ</rt></ruby>く: humble \"receive\"."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You need your boss to check a document. What is the most suitable?",
+      "options": [
+        "この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ろ。",
+        "この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>なさい。",
+        "この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ていただけないでしょうか。",
+        "この<ruby>書類<rt>しょるい</rt></ruby>、<ruby>見<rt>み</rt></ruby>て。"
+      ],
+      "correct": "この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ていただけないでしょうか。",
+      "explanation": "Very polite request to a superior."
+    },
+    {
+      "prompt": "What does <ruby>皆<rt>みな</rt></ruby>さんに<ruby>協力<rt>きょうりょく</rt></ruby>していただきたいと<ruby>思<rt>おも</rt></ruby>います mean?",
+      "options": [
+        "Everyone cooperated with me.",
+        "I want to cooperate with everyone.",
+        "Everyone should stop cooperating.",
+        "I'd like to ask for everyone's cooperation."
+      ],
+      "correct": "I'd like to ask for everyone's cooperation.",
+      "explanation": "ていただきたい: I'd like you to."
+    },
+    {
+      "prompt": "Which word means \"delivery\"?",
+      "options": [
+        "<ruby>配達<rt>はいたつ</rt></ruby>",
+        "<ruby>友達<rt>ともだち</rt></ruby>",
+        "あんない",
+        "<ruby>頂上<rt>ちょうじょう</rt></ruby>"
+      ],
+      "correct": "<ruby>配達<rt>はいたつ</rt></ruby>",
+      "explanation": "<ruby>配達<rt>はいたつ</rt></ruby>: delivery."
+    },
+    {
+      "prompt": "Read: はい、<ruby>伝<rt>つた</rt></ruby>えておきます。 What will Lin do?",
+      "options": [
+        "Take the day off",
+        "Pass the message on to Mr Tanaka",
+        "Call Yuki tomorrow",
+        "Ask Mr Tanaka for help"
+      ],
+      "correct": "Pass the message on to Mr Tanaka",
+      "explanation": "<ruby>伝<rt>つた</rt></ruby>える: to pass on."
+    },
+    {
+      "prompt": "Review: complete もっと<ruby>勉強<rt>べんきょう</rt></ruby>すれば＿＿。 (regret)",
+      "options": [
+        "いい",
+        "いただけない",
+        "よかった",
+        "なさい"
+      ],
+      "correct": "よかった",
+      "explanation": "Regret: ばよかった."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-7-i-wish",
+    "japanese-n4-unit-2-would-you-mind",
+    "japanese-n4-unit-8-i-want-you-to"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

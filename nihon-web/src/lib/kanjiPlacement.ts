@@ -16,3 +16,9 @@ export const isInKanjiScope = (kanjiId: string, level: string, unitId: string) =
   const placed = KANJI_PLACEMENT.get(kanjiId);
   return (level === "all" || placed?.level === level) && (unitId === "all" || placed?.unit?.id === unitId);
 };
+
+/** Where the course teaches a kanji, for card captions: "N5 · Unit 2", or "Reference" when no unit teaches it. */
+export const kanjiPlacementLabel = (kanjiId: string) => {
+  const placed = KANJI_PLACEMENT.get(kanjiId);
+  return placed?.level && placed.unit ? `${placed.level} · Unit ${placed.unit.number}` : "Reference";
+};

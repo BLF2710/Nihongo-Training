@@ -1,0 +1,541 @@
+{
+  "id": "japanese-n3-unit-1-ever-since",
+  "slug": "n3-unit-1-ever-since",
+  "unit": "Japanese N3 Unit 1",
+  "unit_number": 1,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "Ever Since…",
+  "title_jp": "〜て いらい",
+  "objectives": [
+    "I can talk about what has been true ever since a change.",
+    "Say a state has lasted ever since an event with 〜て<ruby>以来<rt>いらい</rt></ruby>",
+    "Say something can't happen until something else is done with 〜てからでないと",
+    "Talk about life events: graduating, marrying, moving"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>結婚<rt>けっこん</rt></ruby>",
+      "",
+      "marriage (+ する: to marry)"
+    ],
+    [
+      "けっか",
+      "",
+      "result"
+    ],
+    [
+      "<ruby>卒業<rt>そつぎょう</rt></ruby>",
+      "",
+      "graduation (+ する: to graduate)"
+    ],
+    [
+      "<ruby>入院<rt>にゅういん</rt></ruby>",
+      "",
+      "going into hospital (+ する)"
+    ],
+    [
+      "<ruby>退院<rt>たいいん</rt></ruby>",
+      "",
+      "leaving hospital (+ する)"
+    ],
+    [
+      "<ruby>引<rt>ひ</rt></ruby>く",
+      "",
+      "to pull; to catch (a cold)"
+    ],
+    [
+      "<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す",
+      "",
+      "to move house"
+    ],
+    [
+      "<ruby>越<rt>こ</rt></ruby>える",
+      "",
+      "to cross, to go over"
+    ],
+    [
+      "<ruby>以来<rt>いらい</rt></ruby>",
+      "",
+      "since"
+    ],
+    [
+      "それ<ruby>以来<rt>いらい</rt></ruby>",
+      "",
+      "since then"
+    ],
+    [
+      "ずっと",
+      "",
+      "all along, the whole time"
+    ],
+    [
+      "〜てからでないと",
+      "",
+      "not until …"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "結婚",
+      "word_reading": "けっこん"
+    },
+    {
+      "word_japanese": "卒業",
+      "word_reading": "そつぎょう"
+    },
+    {
+      "word_japanese": "入院",
+      "word_reading": "にゅういん"
+    },
+    {
+      "word_japanese": "退院",
+      "word_reading": "たいいん"
+    },
+    {
+      "word_japanese": "引く",
+      "word_reading": "ひく"
+    },
+    {
+      "word_japanese": "引っ越す",
+      "word_reading": "ひっこす"
+    },
+    {
+      "word_japanese": "越える",
+      "word_reading": "こえる"
+    },
+    {
+      "word_japanese": "以来",
+      "word_reading": "いらい"
+    }
+  ],
+  "concept": {
+    "title": "Ever since, and not until",
+    "text": "V-て <ruby>以来<rt>いらい</rt></ruby> says a state began with a past event and has lasted until now:\n\n<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て<ruby>以来<rt>いらい</rt></ruby>、<ruby>毎日<rt>まいにち</rt></ruby><ruby>日本語<rt>にほんご</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っています。 Ever since I came to Japan, I've used Japanese every day.\n\nNouns take <ruby>以来<rt>いらい</rt></ruby> directly: <ruby>去年<rt>きょねん</rt></ruby><ruby>以来<rt>いらい</rt></ruby> (since last year), それ<ruby>以来<rt>いらい</rt></ruby> (since then).\n\nV-て からでないと says something cannot happen until something else is done first. A negative follows:\n\n<ruby>医者<rt>いしゃ</rt></ruby>と<ruby>話<rt>はな</rt></ruby>してからでないと、<ruby>退院<rt>たいいん</rt></ruby>できません。 You can't leave hospital until you've talked to the doctor.",
+    "examples": [
+      "V-て <ruby>以来<rt>いらい</rt></ruby> / N <ruby>以来<rt>いらい</rt></ruby> (ever since)",
+      "それ<ruby>以来<rt>いらい</rt></ruby> (since then)",
+      "V-て からでないと + negative (not until)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Ever since: 〜て<ruby>以来<rt>いらい</rt></ruby>",
+      "pattern": "V-て <ruby>以来<rt>いらい</rt></ruby> / N <ruby>以来<rt>いらい</rt></ruby>",
+      "explanation": "Since a past event, a state has lasted until now. It is for a change that has lasted a long time, not for something that happened yesterday.",
+      "examples": [
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て<ruby>以来<rt>いらい</rt></ruby>、<ruby>毎日<rt>まいにち</rt></ruby><ruby>日本語<rt>にほんご</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っています。",
+          "romaji": "",
+          "meaning": "Ever since I came to Japan, I've used Japanese every day."
+        },
+        {
+          "japanese": "<ruby>大学<rt>だいがく</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>して<ruby>以来<rt>いらい</rt></ruby>、たなかさんに<ruby>会<rt>あ</rt></ruby>っていません。",
+          "romaji": "",
+          "meaning": "I haven't seen Tanaka since we graduated from university."
+        },
+        {
+          "japanese": "<ruby>結婚<rt>けっこん</rt></ruby>して<ruby>以来<rt>いらい</rt></ruby>、ずっとこの<ruby>町<rt>まち</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます。",
+          "romaji": "",
+          "meaning": "I've lived in this town ever since I got married."
+        },
+        {
+          "japanese": "<ruby>去年<rt>きょねん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby><ruby>以来<rt>いらい</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>があまり<ruby>降<rt>ふ</rt></ruby>っていません。",
+          "romaji": "",
+          "meaning": "It hasn't rained much since last summer."
+        }
+      ],
+      "notes": [
+        "Compare: 〜てから (after, once) / 〜て<ruby>以来<rt>いらい</rt></ruby> (ever since, and still now).",
+        "The second half is usually 〜ている or a negative: <ruby>会<rt>あ</rt></ruby>っていません."
+      ]
+    },
+    {
+      "title": "Not until: 〜てからでないと",
+      "pattern": "V-て からでないと (からでなければ) + negative",
+      "explanation": "Something cannot happen until something else has been done first.",
+      "examples": [
+        {
+          "japanese": "<ruby>医者<rt>いしゃ</rt></ruby>と<ruby>話<rt>はな</rt></ruby>してからでないと、<ruby>退院<rt>たいいん</rt></ruby>できません。",
+          "romaji": "",
+          "meaning": "You can't leave hospital until you've talked to the doctor."
+        },
+        {
+          "japanese": "お<ruby>金<rt>かね</rt></ruby>をはらってからでないと、<ruby>使<rt>つか</rt></ruby>えません。",
+          "romaji": "",
+          "meaning": "You can't use it until you've paid."
+        },
+        {
+          "japanese": "<ruby>家族<rt>かぞく</rt></ruby>とそうだんしてからでないと、きめられません。",
+          "romaji": "",
+          "meaning": "I can't decide until I've talked it over with my family."
+        },
+        {
+          "japanese": "<ruby>卒業<rt>そつぎょう</rt></ruby>してからでないと、この<ruby>仕事<rt>しごと</rt></ruby>はできません。",
+          "romaji": "",
+          "meaning": "You can't do this job until you've graduated."
+        }
+      ],
+      "notes": [
+        "The second half is negative or difficult: できない, <ruby>分<rt>わ</rt></ruby>からない, だめだ.",
+        "からでなければ is a little more formal."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>来月<rt>らいげつ</rt></ruby>、おおさかに<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>します。",
+      "I'm moving to Osaka next month."
+    ],
+    [
+      "かぜを<ruby>引<rt>ひ</rt></ruby>いて、<ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みました。",
+      "I caught a cold and stayed off school."
+    ],
+    [
+      "<ruby>山<rt>やま</rt></ruby>を<ruby>越<rt>こ</rt></ruby>えると、<ruby>海<rt>うみ</rt></ruby>が<ruby>見<rt>み</rt></ruby>えます。",
+      "When you cross the mountain, you can see the sea."
+    ],
+    [
+      "<ruby>試験<rt>しけん</rt></ruby>のけっかは<ruby>来週<rt>らいしゅう</rt></ruby><ruby>分<rt>わ</rt></ruby>かります。",
+      "I'll know the exam results next week."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "たなかさんとよく<ruby>会<rt>あ</rt></ruby>いますか。",
+      "けん",
+      "いいえ、<ruby>卒業<rt>そつぎょう</rt></ruby>して<ruby>以来<rt>いらい</rt></ruby>、<ruby>一度<rt>いちど</rt></ruby>も<ruby>会<rt>あ</rt></ruby>っていないんです。"
+    ],
+    [
+      "リー",
+      "お<ruby>父<rt>とう</rt></ruby>さんはもう<ruby>退院<rt>たいいん</rt></ruby>しましたか。",
+      "マイ",
+      "いいえ、<ruby>医者<rt>いしゃ</rt></ruby>と<ruby>話<rt>はな</rt></ruby>してからでないと、<ruby>退院<rt>たいいん</rt></ruby>できないそうです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>しはいつですか。",
+      "リン",
+      "<ruby>来月<rt>らいげつ</rt></ruby>です。<ruby>結婚<rt>けっこん</rt></ruby>するので。"
+    ],
+    [
+      "たなか",
+      "このカフェ、よく<ruby>来<rt>く</rt></ruby>るんですか。",
+      "アナ",
+      "ええ、<ruby>初<rt>はじ</rt></ruby>めて<ruby>来<rt>き</rt></ruby>て<ruby>以来<rt>いらい</rt></ruby>、<ruby>毎週<rt>まいしゅう</rt></ruby><ruby>来<rt>き</rt></ruby>ています。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "結",
+      "onyomi": [
+        "ケツ",
+        "ケチ"
+      ],
+      "kunyomi": [
+        "むす.ぶ",
+        "ゆ.う",
+        "ゆ.わえる"
+      ],
+      "meaning_en": "tie, join",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "結婚",
+          "reading": "けっこん",
+          "en": "marriage"
+        },
+        {
+          "word": "結果",
+          "reading": "けっか",
+          "en": "result"
+        }
+      ],
+      "mnemonic": "Thread (糸) tied in a good (吉) knot."
+    },
+    {
+      "char": "婚",
+      "onyomi": [
+        "コン"
+      ],
+      "kunyomi": [],
+      "meaning_en": "marriage",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "結婚",
+          "reading": "けっこん",
+          "en": "marriage"
+        },
+        {
+          "word": "婚約",
+          "reading": "こんやく",
+          "en": "engagement"
+        }
+      ],
+      "mnemonic": "A woman (女) at dusk (昏), when weddings were once held."
+    },
+    {
+      "char": "卒",
+      "onyomi": [
+        "ソツ",
+        "シュツ"
+      ],
+      "kunyomi": [
+        "そっ.する",
+        "お.える",
+        "お.わる",
+        "ついに",
+        "にわか"
+      ],
+      "meaning_en": "graduate",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "卒業",
+          "reading": "そつぎょう",
+          "en": "graduation"
+        },
+        {
+          "word": "卒業式",
+          "reading": "そつぎょうしき",
+          "en": "graduation ceremony"
+        }
+      ],
+      "mnemonic": "Soldiers (人人) in uniform under a lid (亠), finishing their ten (十) years."
+    },
+    {
+      "char": "退",
+      "onyomi": [
+        "タイ"
+      ],
+      "kunyomi": [
+        "しりぞ.く",
+        "しりぞ.ける",
+        "ひ.く",
+        "の.く",
+        "の.ける",
+        "ど.く"
+      ],
+      "meaning_en": "retreat, leave",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "退院",
+          "reading": "たいいん",
+          "en": "leaving hospital"
+        },
+        {
+          "word": "引退",
+          "reading": "いんたい",
+          "en": "retirement"
+        }
+      ],
+      "mnemonic": "Going (辶) back the way you came (艮): retreat."
+    },
+    {
+      "char": "引",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [
+        "ひ.く",
+        "ひ.ける"
+      ],
+      "meaning_en": "pull",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "引く",
+          "reading": "ひく",
+          "en": "to pull"
+        },
+        {
+          "word": "引っ越す",
+          "reading": "ひっこす",
+          "en": "to move house"
+        }
+      ],
+      "mnemonic": "A bow (弓) and its string (丨) being pulled."
+    },
+    {
+      "char": "越",
+      "onyomi": [
+        "エツ",
+        "オツ"
+      ],
+      "kunyomi": [
+        "こ.す",
+        "-こ.す",
+        "-ご.し",
+        "こ.える",
+        "-ご.え"
+      ],
+      "meaning_en": "cross over",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "越える",
+          "reading": "こえる",
+          "en": "to cross"
+        },
+        {
+          "word": "引っ越す",
+          "reading": "ひっこす",
+          "en": "to move house"
+        }
+      ],
+      "mnemonic": "Running (走) with a halberd (戉) over the border."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>会議<rt>かいぎ</rt></ruby>の＿＿に、<ruby>電話<rt>でんわ</rt></ruby>がなりました。",
+      "options": [
+        "<ruby>以来<rt>いらい</rt></ruby>",
+        "<ruby>最中<rt>さいちゅう</rt></ruby>",
+        "うち",
+        "とたん"
+      ],
+      "correct": "<ruby>最中<rt>さいちゅう</rt></ruby>",
+      "explanation": "In the middle: <ruby>最中<rt>さいちゅう</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て＿＿、<ruby>毎日<rt>まいにち</rt></ruby><ruby>日本語<rt>にほんご</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っています。",
+      "options": [
+        "から",
+        "ばかり",
+        "<ruby>以来<rt>いらい</rt></ruby>",
+        "とたん"
+      ],
+      "correct": "<ruby>以来<rt>いらい</rt></ruby>",
+      "explanation": "Ever since: て<ruby>以来<rt>いらい</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: <ruby>医者<rt>いしゃ</rt></ruby>と<ruby>話<rt>はな</rt></ruby>して＿＿、<ruby>退院<rt>たいいん</rt></ruby>できません。",
+      "options": [
+        "<ruby>以来<rt>いらい</rt></ruby>",
+        "うちに",
+        "ところに",
+        "からでないと"
+      ],
+      "correct": "からでないと",
+      "explanation": "Not until: てからでないと."
+    },
+    {
+      "prompt": "What comes after 〜てからでないと?",
+      "options": [
+        "Something negative or impossible",
+        "A request",
+        "A suggestion",
+        "A past action that went well"
+      ],
+      "correct": "Something negative or impossible",
+      "explanation": "〜てからでないと、できません."
+    },
+    {
+      "prompt": "Which word means \"to move house\"?",
+      "options": [
+        "<ruby>越<rt>こ</rt></ruby>える",
+        "<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す",
+        "<ruby>引<rt>ひ</rt></ruby>く",
+        "<ruby>退院<rt>たいいん</rt></ruby>する"
+      ],
+      "correct": "<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す",
+      "explanation": "<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す: to move house."
+    },
+    {
+      "prompt": "How is 卒業⁠ read?",
+      "options": [
+        "そつごう",
+        "しゅつぎょう",
+        "そつぎょう",
+        "そうぎょう"
+      ],
+      "correct": "そつぎょう",
+      "explanation": "卒業⁠ is read そつぎょう."
+    },
+    {
+      "prompt": "Choose the meaning of かぜを<ruby>引<rt>ひ</rt></ruby>いて、<ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みました。",
+      "options": [
+        "I pulled the window shut and left school.",
+        "I changed schools because of the wind.",
+        "I went to school with a cold.",
+        "I caught a cold and stayed off school."
+      ],
+      "correct": "I caught a cold and stayed off school.",
+      "explanation": "かぜを<ruby>引<rt>ひ</rt></ruby>く: to catch a cold."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is NOT natural?",
+      "options": [
+        "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て<ruby>以来<rt>いらい</rt></ruby>、ずっと<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しています。",
+        "<ruby>結婚<rt>けっこん</rt></ruby>して<ruby>以来<rt>いらい</rt></ruby>、この<ruby>町<rt>まち</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます。",
+        "<ruby>去年<rt>きょねん</rt></ruby><ruby>以来<rt>いらい</rt></ruby>、たなかさんに<ruby>会<rt>あ</rt></ruby>っていません。",
+        "きのう<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>って<ruby>以来<rt>いらい</rt></ruby>、すぐねました。"
+      ],
+      "correct": "きのう<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>って<ruby>以来<rt>いらい</rt></ruby>、すぐねました。",
+      "explanation": "て<ruby>以来<rt>いらい</rt></ruby> is for a state that has lasted, not one quick action."
+    },
+    {
+      "prompt": "You can't decide until you talk to your family. What do you say?",
+      "options": [
+        "<ruby>家族<rt>かぞく</rt></ruby>と<ruby>話<rt>はな</rt></ruby>してからでないと、きめられません。",
+        "<ruby>家族<rt>かぞく</rt></ruby>と<ruby>話<rt>はな</rt></ruby>して<ruby>以来<rt>いらい</rt></ruby>、きめられません。",
+        "<ruby>家族<rt>かぞく</rt></ruby>と<ruby>話<rt>はな</rt></ruby>しているうちに、きめられません。",
+        "<ruby>家族<rt>かぞく</rt></ruby>と<ruby>話<rt>はな</rt></ruby>したとたん、きめられません。"
+      ],
+      "correct": "<ruby>家族<rt>かぞく</rt></ruby>と<ruby>話<rt>はな</rt></ruby>してからでないと、きめられません。",
+      "explanation": "Not until: てからでないと."
+    },
+    {
+      "prompt": "What is the difference between 〜てから and 〜て<ruby>以来<rt>いらい</rt></ruby>?",
+      "options": [
+        "〜てから: ever since / 〜て<ruby>以来<rt>いらい</rt></ruby>: after",
+        "〜てから: after (once) / 〜て<ruby>以来<rt>いらい</rt></ruby>: ever since (and still now)",
+        "〜て<ruby>以来<rt>いらい</rt></ruby> is casual",
+        "There is no difference."
+      ],
+      "correct": "〜てから: after (once) / 〜て<ruby>以来<rt>いらい</rt></ruby>: ever since (and still now)",
+      "explanation": "て<ruby>以来<rt>いらい</rt></ruby>: the state continues."
+    },
+    {
+      "prompt": "Read: <ruby>初<rt>はじ</rt></ruby>めて<ruby>来<rt>き</rt></ruby>て<ruby>以来<rt>いらい</rt></ruby>、<ruby>毎週<rt>まいしゅう</rt></ruby><ruby>来<rt>き</rt></ruby>ています。 What is true?",
+      "options": [
+        "It's Ana's first visit.",
+        "Ana came once and never again.",
+        "Ana has come every week since her first visit.",
+        "Ana will start coming every week."
+      ],
+      "correct": "Ana has come every week since her first visit.",
+      "explanation": "<ruby>以来<rt>いらい</rt></ruby>: ever since."
+    },
+    {
+      "prompt": "Review (N4): complete <ruby>大学<rt>だいがく</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>したら、<ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>く＿＿です。 (intend)",
+      "options": [
+        "ばかり",
+        "ところ",
+        "<ruby>以来<rt>いらい</rt></ruby>",
+        "つもり"
+      ],
+      "correct": "つもり",
+      "explanation": "V-る つもりです."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-1-in-the-middle",
+    "japanese-n4-unit-5-before-and-after",
+    "japanese-n4-unit-5-i-intend-to"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

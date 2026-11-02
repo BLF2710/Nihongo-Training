@@ -1,0 +1,340 @@
+{
+  "id": "japanese-n3-unit-4-review",
+  "slug": "n3-unit-4-review",
+  "unit": "Japanese N3 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 6,
+  "is_review": true,
+  "title": "Unit 4 Review",
+  "title_jp": "ユニット4のふくしゅう",
+  "objectives": [
+    "I can compare things and talk about degree.",
+    "Use ば〜ほど, ほど and くらい",
+    "Correct and compare with というより, むしろ and に<ruby>比<rt>くら</rt></ruby>べて",
+    "Use だけでなく, さえ and てばかりいる",
+    "Read a survey about life in Japan"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>増<rt>ふ</rt></ruby>える",
+      "",
+      "to increase"
+    ],
+    [
+      "<ruby>減<rt>へ</rt></ruby>る",
+      "",
+      "to decrease"
+    ],
+    [
+      "<ruby>値段<rt>ねだん</rt></ruby>",
+      "",
+      "price"
+    ],
+    [
+      "<ruby>寒<rt>さむ</rt></ruby>い",
+      "",
+      "cold (weather)"
+    ],
+    [
+      "<ruby>暑<rt>あつ</rt></ruby>い",
+      "",
+      "hot (weather)"
+    ],
+    [
+      "<ruby>涼<rt>すず</rt></ruby>しい",
+      "",
+      "cool"
+    ],
+    [
+      "<ruby>普段<rt>ふだん</rt></ruby>",
+      "",
+      "usually, everyday"
+    ],
+    [
+      "<ruby>趣味<rt>しゅみ</rt></ruby>",
+      "",
+      "hobby"
+    ],
+    [
+      "<ruby>比<rt>くら</rt></ruby>べる",
+      "",
+      "to compare"
+    ],
+    [
+      "<ruby>平均<rt>へいきん</rt></ruby>",
+      "",
+      "average"
+    ],
+    [
+      "<ruby>両親<rt>りょうしん</rt></ruby>",
+      "",
+      "parents"
+    ],
+    [
+      "しあい",
+      "",
+      "match, game"
+    ]
+  ],
+  "kanji_form": [],
+  "concept": {
+    "title": "Comparisons and degree",
+    "text": "ば〜ほど: the more …, the more. ほど: so much that.\nA は B ほど〜ない: not as … as. 〜ほど〜はない: nothing is as.\nくらい / ぐらい: about; so much that. <ruby>頃<rt>ごろ</rt></ruby>: around a point in time.\n\nというより: rather than. より むしろ: if anything.\nに<ruby>比<rt>くら</rt></ruby>べて: compared with. に<ruby>対<rt>たい</rt></ruby>して: toward; whereas.\n\nだけでなく〜も: not only … but also. さえ: even. さえ〜ば: if only. てばかりいる: nothing but.",
+    "examples": [
+      "ば〜ほど / ほど〜ない / くらい",
+      "というより / むしろ / に<ruby>比<rt>くら</rt></ruby>べて / に<ruby>対<rt>たい</rt></ruby>して",
+      "だけでなく / さえ / てばかりいる"
+    ]
+  },
+  "grammar": [],
+  "examples": [
+    [
+      "<ruby>日本語<rt>にほんご</rt></ruby>は<ruby>勉強<rt>べんきょう</rt></ruby>すればするほど、おもしろくなります。",
+      "The more you study Japanese, the more interesting it gets."
+    ],
+    [
+      "<ruby>今年<rt>ことし</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>ほど<ruby>寒<rt>さむ</rt></ruby>くないです。",
+      "This winter isn't as cold as last year."
+    ],
+    [
+      "<ruby>駅<rt>えき</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>いて<ruby>十五分<rt>じゅうごふん</rt></ruby>くらいです。",
+      "It's about fifteen minutes' walk to the station."
+    ],
+    [
+      "かれは<ruby>友<rt>とも</rt></ruby>だちというより、<ruby>家族<rt>かぞく</rt></ruby>のような<ruby>人<rt>ひと</rt></ruby>です。",
+      "He's more like family than a friend."
+    ],
+    [
+      "<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>比<rt>くら</rt></ruby>べて、この<ruby>町<rt>まち</rt></ruby>はやちんが<ruby>安<rt>やす</rt></ruby>いです。",
+      "Compared with Tokyo, rent is cheap in this town."
+    ],
+    [
+      "<ruby>弟<rt>おとうと</rt></ruby>は<ruby>遊<rt>あそ</rt></ruby>んでばかりいて、<ruby>全然<rt>ぜんぜん</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+      "My brother does nothing but play and never studies."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "この<ruby>町<rt>まち</rt></ruby>、どうですか。",
+      "けん",
+      "<ruby>東京<rt>とうきょう</rt></ruby>ほどべんりではないですが、<ruby>静<rt>しず</rt></ruby>かでいいですよ。"
+    ],
+    [
+      "リー",
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>暑<rt>あつ</rt></ruby>いですね。",
+      "マイ",
+      "<ruby>暑<rt>あつ</rt></ruby>いというより、むし<ruby>暑<rt>あつ</rt></ruby>いですね。"
+    ],
+    [
+      "ゆき",
+      "リンさんは<ruby>何<rt>なに</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>ですか。",
+      "たなか",
+      "<ruby>料理<rt>りょうり</rt></ruby>だけでなく、<ruby>歌<rt>うた</rt></ruby>も<ruby>上手<rt>じょうず</rt></ruby>ですよ。"
+    ],
+    [
+      "リン",
+      "<ruby>試験<rt>しけん</rt></ruby>、どうでしたか。",
+      "アナ",
+      "<ruby>名前<rt>なまえ</rt></ruby>さえ<ruby>書<rt>か</rt></ruby>き<ruby>忘<rt>わす</rt></ruby>れそうになりました。"
+    ]
+  ],
+  "introduced_kanji": [],
+  "reading": {
+    "genre": "Survey report",
+    "text_jp": "<ruby>留学生<rt>りゅうがくせい</rt></ruby><ruby>百人<rt>ひゃくにん</rt></ruby>に、<ruby>日本<rt>にほん</rt></ruby>のせいかつで<ruby>何<rt>なに</rt></ruby>が<ruby>大変<rt>たいへん</rt></ruby>かを<ruby>聞<rt>き</rt></ruby>きました。いちばん<ruby>多<rt>おお</rt></ruby>かった<ruby>答<rt>こた</rt></ruby>えは「<ruby>物<rt>もの</rt></ruby>の<ruby>値段<rt>ねだん</rt></ruby>」でした。<ruby>国<rt>くに</rt></ruby>に<ruby>比<rt>くら</rt></ruby>べて、<ruby>日本<rt>にほん</rt></ruby>は<ruby>物<rt>もの</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いと<ruby>答<rt>こた</rt></ruby>えた<ruby>人<rt>ひと</rt></ruby>が<ruby>半分<rt>はんぶん</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>いました。でも、<ruby>交通<rt>こうつう</rt></ruby>がべんりなだけでなく、<ruby>町<rt>まち</rt></ruby>が<ruby>静<rt>しず</rt></ruby>かできれいだという<ruby>人<rt>ひと</rt></ruby>も<ruby>多<rt>おお</rt></ruby>かったです。また、<ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>国<rt>くに</rt></ruby>ほど<ruby>暑<rt>あつ</rt></ruby>くないという<ruby>人<rt>ひと</rt></ruby>もいましたが、<ruby>暑<rt>あつ</rt></ruby>い<ruby>国<rt>くに</rt></ruby>から<ruby>来<rt>き</rt></ruby>た<ruby>人<rt>ひと</rt></ruby>は、<ruby>日本<rt>にほん</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>すぎると<ruby>言<rt>い</rt></ruby>っていました。<ruby>日本<rt>にほん</rt></ruby>に<ruby>長<rt>なが</rt></ruby>く<ruby>住<rt>す</rt></ruby>めば<ruby>住<rt>す</rt></ruby>むほど、せいかつになれて、<ruby>楽<rt>たの</rt></ruby>しくなるようです。",
+    "en_translation": "We asked a hundred international students what is hard about life in Japan. The most common answer was \"prices\": more than half said things cost more in Japan than in their own countries. But many also said that not only is transport convenient, the towns are quiet and clean. Some said Japanese summers aren't as hot as at home, but students from hot countries said Japanese winters are too cold. It seems the longer people live in Japan, the more they get used to life here and enjoy it.",
+    "questions": [
+      {
+        "prompt": "What was the most common difficulty?",
+        "options": [
+          "The weather",
+          "Prices",
+          "Transport",
+          "Making friends"
+        ],
+        "correct": "Prices",
+        "explanation": "いちばん<ruby>多<rt>おお</rt></ruby>かった<ruby>答<rt>こた</rt></ruby>えは「<ruby>物<rt>もの</rt></ruby>の<ruby>値段<rt>ねだん</rt></ruby>」."
+      },
+      {
+        "prompt": "What did many students like?",
+        "options": [
+          "Cheap food",
+          "Hot summers",
+          "Convenient transport and quiet, clean towns",
+          "Cold winters"
+        ],
+        "correct": "Convenient transport and quiet, clean towns",
+        "explanation": "<ruby>交通<rt>こうつう</rt></ruby>がべんりなだけでなく、<ruby>町<rt>まち</rt></ruby>が<ruby>静<rt>しず</rt></ruby>かできれい."
+      },
+      {
+        "prompt": "What happens the longer students live in Japan?",
+        "options": [
+          "They want to go home.",
+          "They spend more money.",
+          "They stop studying.",
+          "They get used to it and enjoy it more."
+        ],
+        "correct": "They get used to it and enjoy it more.",
+        "explanation": "<ruby>住<rt>す</rt></ruby>めば<ruby>住<rt>す</rt></ruby>むほど、せいかつになれて、<ruby>楽<rt>たの</rt></ruby>しくなる."
+      }
+    ]
+  },
+  "practice": [
+    {
+      "prompt": "Complete: <ruby>練習<rt>れんしゅう</rt></ruby>すれば＿＿ほど、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+      "options": [
+        "した",
+        "すれ",
+        "する",
+        "して"
+      ],
+      "correct": "する",
+      "explanation": "V-ば V-る ほど."
+    },
+    {
+      "prompt": "Complete: <ruby>今年<rt>ことし</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>去年<rt>きょねん</rt></ruby>＿＿<ruby>暑<rt>あつ</rt></ruby>くないです。",
+      "options": [
+        "より",
+        "まで",
+        "だけ",
+        "ほど"
+      ],
+      "correct": "ほど",
+      "explanation": "Not as … as: ほど〜ない."
+    },
+    {
+      "prompt": "Complete: <ruby>駅<rt>えき</rt></ruby>まで<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿です。 (about)",
+      "options": [
+        "くらい",
+        "ごろ",
+        "ほど〜ない",
+        "さえ"
+      ],
+      "correct": "くらい",
+      "explanation": "About: くらい."
+    },
+    {
+      "prompt": "Complete: <ruby>涼<rt>すず</rt></ruby>しいという＿＿、<ruby>寒<rt>さむ</rt></ruby>いです。",
+      "options": [
+        "ほど",
+        "より",
+        "くらい",
+        "さえ"
+      ],
+      "correct": "より",
+      "explanation": "Rather: というより."
+    },
+    {
+      "prompt": "Complete: <ruby>去年<rt>きょねん</rt></ruby>に＿＿、<ruby>雨<rt>あめ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。",
+      "options": [
+        "<ruby>対<rt>たい</rt></ruby>して",
+        "よって",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "とって"
+      ],
+      "correct": "<ruby>比<rt>くら</rt></ruby>べて",
+      "explanation": "Compared with: に<ruby>比<rt>くら</rt></ruby>べて."
+    },
+    {
+      "prompt": "Complete: <ruby>英語<rt>えいご</rt></ruby>だけで＿＿、<ruby>日本語<rt>にほんご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せます。",
+      "options": [
+        "ない",
+        "あって",
+        "いて",
+        "なく"
+      ],
+      "correct": "なく",
+      "explanation": "Not only: だけでなく."
+    },
+    {
+      "prompt": "Complete: <ruby>子<rt>こ</rt></ruby>どもで＿＿<ruby>知<rt>し</rt></ruby>っています。 (even)",
+      "options": [
+        "さえ",
+        "だけ",
+        "ほど",
+        "くらい"
+      ],
+      "correct": "さえ",
+      "explanation": "Even: さえ."
+    },
+    {
+      "prompt": "Complete: <ruby>弟<rt>おとうと</rt></ruby>は<ruby>寝<rt>ね</rt></ruby>て＿＿います。 (nothing but)",
+      "options": [
+        "さえ",
+        "ばかり",
+        "だけで",
+        "ほど"
+      ],
+      "correct": "ばかり",
+      "explanation": "Nothing but: てばかりいる."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Read the survey: what did students from hot countries say?",
+      "options": [
+        "Japanese winters are too cold.",
+        "Japanese summers are too hot.",
+        "Japan is too expensive.",
+        "The towns are too noisy."
+      ],
+      "correct": "Japanese winters are too cold.",
+      "explanation": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>すぎる."
+    },
+    {
+      "prompt": "Which sentence is NOT correct?",
+      "options": [
+        "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかより<ruby>大<rt>おお</rt></ruby>きいです。",
+        "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかほど<ruby>大<rt>おお</rt></ruby>きいです。",
+        "おおさかは<ruby>東京<rt>とうきょう</rt></ruby>ほど<ruby>大<rt>おお</rt></ruby>きくないです。",
+        "<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>比<rt>くら</rt></ruby>べて、おおさかは<ruby>小<rt>ちい</rt></ruby>さいです。"
+      ],
+      "correct": "<ruby>東京<rt>とうきょう</rt></ruby>はおおさかほど<ruby>大<rt>おお</rt></ruby>きいです。",
+      "explanation": "ほど needs a negative."
+    },
+    {
+      "prompt": "Which sentence shows a contrast (whereas)?",
+      "options": [
+        "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>対<rt>たい</rt></ruby>して、ていねいに<ruby>話<rt>はな</rt></ruby>します。",
+        "<ruby>兄<rt>あに</rt></ruby>に<ruby>比<rt>くら</rt></ruby>べて、わたしはせがひくいです。",
+        "<ruby>兄<rt>あに</rt></ruby>は<ruby>静<rt>しず</rt></ruby>かなのに<ruby>対<rt>たい</rt></ruby>して、わたしはよく<ruby>話<rt>はな</rt></ruby>します。",
+        "<ruby>兄<rt>あに</rt></ruby>ほどせが<ruby>高<rt>たか</rt></ruby>くありません。"
+      ],
+      "correct": "<ruby>兄<rt>あに</rt></ruby>は<ruby>静<rt>しず</rt></ruby>かなのに<ruby>対<rt>たい</rt></ruby>して、わたしはよく<ruby>話<rt>はな</rt></ruby>します。",
+      "explanation": "のに<ruby>対<rt>たい</rt></ruby>して: whereas."
+    },
+    {
+      "prompt": "What does <ruby>名前<rt>なまえ</rt></ruby>さえ<ruby>書<rt>か</rt></ruby>き<ruby>忘<rt>わす</rt></ruby>れそうになりました mean?",
+      "options": [
+        "I only wrote my name.",
+        "I forgot everything except my name.",
+        "I wrote my name twice.",
+        "I nearly forgot to write even my name."
+      ],
+      "correct": "I nearly forgot to write even my name.",
+      "explanation": "さえ: even."
+    },
+    {
+      "prompt": "Review (Unit 3): complete <ruby>来月<rt>らいげつ</rt></ruby>からおおさかで<ruby>働<rt>はたら</rt></ruby>くことに＿＿。 (arranged)",
+      "options": [
+        "なりました",
+        "しました",
+        "<ruby>比<rt>くら</rt></ruby>べました",
+        "させられました"
+      ],
+      "correct": "なりました",
+      "explanation": "ことになる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-4-the-more",
+    "japanese-n3-unit-4-not-as",
+    "japanese-n3-unit-4-rather-than",
+    "japanese-n3-unit-4-compared-to",
+    "japanese-n3-unit-4-not-only",
+    "japanese-n3-unit-3-its-been-decided"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

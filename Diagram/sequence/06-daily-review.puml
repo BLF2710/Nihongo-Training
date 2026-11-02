@@ -74,7 +74,7 @@ loop each card in the session
     opt level up
       Gam -> Notif : notifyLevelUp()
       Notif -> DB : save notification
-      Notif --> Web : publish → bell updates (all open tabs)
+      Notif -> Web : publish → bell updates (all open tabs)
       note right of Notif : «Observer»\npublish() → every open tab\nis subscribed
     end
     Gam --> Svc : reward

@@ -1,0 +1,540 @@
+{
+  "id": "japanese-n3-unit-4-the-more",
+  "slug": "n3-unit-4-the-more",
+  "unit": "Japanese N3 Unit 4",
+  "unit_number": 4,
+  "lesson_number": 1,
+  "is_review": false,
+  "title": "The More, the Better",
+  "title_jp": "〜ば 〜ほど",
+  "objectives": [
+    "I can say the more one thing happens, the more another does.",
+    "Link two changes with 〜ば〜ほど",
+    "Show a degree with 〜ほど",
+    "Talk about numbers, amounts and prices"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>増<rt>ふ</rt></ruby>える",
+      "",
+      "to increase"
+    ],
+    [
+      "<ruby>増<rt>ふ</rt></ruby>やす",
+      "",
+      "to increase (something)"
+    ],
+    [
+      "<ruby>減<rt>へ</rt></ruby>る",
+      "",
+      "to decrease"
+    ],
+    [
+      "<ruby>減<rt>へ</rt></ruby>らす",
+      "",
+      "to reduce"
+    ],
+    [
+      "<ruby>数<rt>かず</rt></ruby>",
+      "",
+      "number"
+    ],
+    [
+      "<ruby>数学<rt>すうがく</rt></ruby>",
+      "",
+      "mathematics"
+    ],
+    [
+      "<ruby>量<rt>りょう</rt></ruby>",
+      "",
+      "amount, quantity"
+    ],
+    [
+      "<ruby>値段<rt>ねだん</rt></ruby>",
+      "",
+      "price"
+    ],
+    [
+      "<ruby>値上<rt>ねあ</rt></ruby>がり",
+      "",
+      "price rise"
+    ],
+    [
+      "かいだん",
+      "",
+      "stairs"
+    ],
+    [
+      "〜ば〜ほど",
+      "",
+      "the more …, the more …"
+    ],
+    [
+      "〜ほど",
+      "",
+      "so … that; to the extent"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "増える",
+      "word_reading": "ふえる"
+    },
+    {
+      "word_japanese": "増やす",
+      "word_reading": "ふやす"
+    },
+    {
+      "word_japanese": "減る",
+      "word_reading": "へる"
+    },
+    {
+      "word_japanese": "減らす",
+      "word_reading": "へらす"
+    },
+    {
+      "word_japanese": "数",
+      "word_reading": "かず"
+    },
+    {
+      "word_japanese": "数学",
+      "word_reading": "すうがく"
+    },
+    {
+      "word_japanese": "量",
+      "word_reading": "りょう"
+    },
+    {
+      "word_japanese": "値段",
+      "word_reading": "ねだん"
+    },
+    {
+      "word_japanese": "値上がり",
+      "word_reading": "ねあがり"
+    }
+  ],
+  "concept": {
+    "title": "The more, the more: ば〜ほど",
+    "text": "The same word is said twice, first in the ば form, then in the plain form + ほど:\n\n<ruby>練習<rt>れんしゅう</rt></ruby>すればするほど、<ruby>上手<rt>じょうず</rt></ruby>になります。 The more you practise, the better you get.\n<ruby>安<rt>やす</rt></ruby>ければ<ruby>安<rt>やす</rt></ruby>いほど、よく<ruby>売<rt>う</rt></ruby>れます。 The cheaper it is, the better it sells.\nしずかならしずかなほどいいです。 The quieter, the better.\n\nThe ば part can be dropped: <ruby>早<rt>はや</rt></ruby>いほどいい (the sooner the better).\n\nほど on its own shows a degree, often with exaggeration:\n<ruby>死<rt>し</rt></ruby>ぬほどつかれました。 I'm dead tired.",
+    "examples": [
+      "V-ば V-る ほど",
+      "い-adj-ければ 〜い ほど",
+      "な-adj なら 〜な ほど",
+      "〜ほど (so … that)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "The more…: 〜ば〜ほど",
+      "pattern": "V-ば V-る ほど / い-adj-ければ い-adj ほど / な-adj なら な-adj な ほど",
+      "explanation": "As one thing increases, so does another. The same word is repeated.",
+      "examples": [
+        {
+          "japanese": "<ruby>練習<rt>れんしゅう</rt></ruby>すればするほど、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+          "romaji": "",
+          "meaning": "The more you practise, the better you get."
+        },
+        {
+          "japanese": "<ruby>考<rt>かんが</rt></ruby>えれば<ruby>考<rt>かんが</rt></ruby>えるほど、<ruby>分<rt>わ</rt></ruby>からなくなります。",
+          "romaji": "",
+          "meaning": "The more I think about it, the less I understand."
+        },
+        {
+          "japanese": "<ruby>値段<rt>ねだん</rt></ruby>が<ruby>安<rt>やす</rt></ruby>ければ<ruby>安<rt>やす</rt></ruby>いほど、よく<ruby>売<rt>う</rt></ruby>れます。",
+          "romaji": "",
+          "meaning": "The cheaper it is, the better it sells."
+        },
+        {
+          "japanese": "<ruby>部屋<rt>へや</rt></ruby>はしずかならしずかなほどいいです。",
+          "romaji": "",
+          "meaning": "The quieter the room, the better."
+        }
+      ],
+      "notes": [
+        "Shortened form: <ruby>早<rt>はや</rt></ruby>いほどいい (the sooner the better).",
+        "It describes a steady relationship, not a single event."
+      ]
+    },
+    {
+      "title": "So much that: 〜ほど",
+      "pattern": "V-る / V-ない / い-adj + ほど",
+      "explanation": "ほど shows how far something goes, often with an exaggeration.",
+      "examples": [
+        {
+          "japanese": "<ruby>足<rt>あし</rt></ruby>がいたくて、<ruby>歩<rt>ある</rt></ruby>けないほどです。",
+          "romaji": "",
+          "meaning": "My feet hurt so much I can hardly walk."
+        },
+        {
+          "japanese": "なきたいほどうれしかったです。",
+          "romaji": "",
+          "meaning": "I was so happy I could have cried."
+        },
+        {
+          "japanese": "<ruby>死<rt>し</rt></ruby>ぬほどつかれました。",
+          "romaji": "",
+          "meaning": "I'm dead tired."
+        },
+        {
+          "japanese": "びっくりするほど<ruby>値段<rt>ねだん</rt></ruby>が<ruby>上<rt>あ</rt></ruby>がりました。",
+          "romaji": "",
+          "meaning": "Prices have gone up surprisingly."
+        }
+      ],
+      "notes": [
+        "ほど and くらい (next lesson) can often swap here: <ruby>歩<rt>ある</rt></ruby>けないくらいいたい."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>る<ruby>留学生<rt>りゅうがくせい</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えています。",
+      "The number of students coming to Japan from abroad is rising."
+    ],
+    [
+      "<ruby>体重<rt>たいじゅう</rt></ruby>が<ruby>三<rt>さん</rt></ruby>キロ<ruby>減<rt>へ</rt></ruby>りました。",
+      "I've lost three kilos."
+    ],
+    [
+      "<ruby>数学<rt>すうがく</rt></ruby>がにがてです。",
+      "I'm bad at maths."
+    ],
+    [
+      "この<ruby>店<rt>みせ</rt></ruby>は<ruby>量<rt>りょう</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くて、<ruby>値段<rt>ねだん</rt></ruby>も<ruby>安<rt>やす</rt></ruby>いです。",
+      "This place gives big portions, and it's cheap too."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>日本語<rt>にほんご</rt></ruby>、<ruby>上手<rt>じょうず</rt></ruby>になりましたね。",
+      "けん",
+      "<ruby>話<rt>はな</rt></ruby>せば<ruby>話<rt>はな</rt></ruby>すほど、<ruby>楽<rt>たの</rt></ruby>しくなります。"
+    ],
+    [
+      "リー",
+      "<ruby>最近<rt>さいきん</rt></ruby>、やさいの<ruby>値段<rt>ねだん</rt></ruby>が<ruby>上<rt>あ</rt></ruby>がりましたね。",
+      "マイ",
+      "ええ、びっくりするほど<ruby>高<rt>たか</rt></ruby>いです。"
+    ],
+    [
+      "ゆき",
+      "<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>しはいつがいいですか。",
+      "リン",
+      "<ruby>早<rt>はや</rt></ruby>ければ<ruby>早<rt>はや</rt></ruby>いほどいいです。"
+    ],
+    [
+      "たなか",
+      "<ruby>最近<rt>さいきん</rt></ruby>、<ruby>運動<rt>うんどう</rt></ruby>していますか。",
+      "アナ",
+      "いいえ、<ruby>体重<rt>たいじゅう</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えてしまいました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "増",
+      "onyomi": [
+        "ゾウ"
+      ],
+      "kunyomi": [
+        "ま.す",
+        "ま.し",
+        "ふ.える",
+        "ふ.やす"
+      ],
+      "meaning_en": "increase",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "増える",
+          "reading": "ふえる",
+          "en": "to increase"
+        },
+        {
+          "word": "増加",
+          "reading": "ぞうか",
+          "en": "increase"
+        }
+      ],
+      "mnemonic": "Soil (土) piled up layer upon layer: increase."
+    },
+    {
+      "char": "減",
+      "onyomi": [
+        "ゲン"
+      ],
+      "kunyomi": [
+        "へ.る",
+        "へ.らす"
+      ],
+      "meaning_en": "decrease",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "減る",
+          "reading": "へる",
+          "en": "to decrease"
+        },
+        {
+          "word": "減らす",
+          "reading": "へらす",
+          "en": "to reduce"
+        }
+      ],
+      "mnemonic": "Water (氵) that all (咸) drains away."
+    },
+    {
+      "char": "数",
+      "onyomi": [
+        "スウ",
+        "ス",
+        "サク",
+        "ソク",
+        "シュ"
+      ],
+      "kunyomi": [
+        "かず",
+        "かぞ.える",
+        "しばしば",
+        "せ.める",
+        "わずらわ.しい"
+      ],
+      "meaning_en": "number",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "数",
+          "reading": "かず",
+          "en": "number"
+        },
+        {
+          "word": "数学",
+          "reading": "すうがく",
+          "en": "mathematics"
+        }
+      ],
+      "mnemonic": "Counting rice (米) with a woman's (女) hand (攵)."
+    },
+    {
+      "char": "量",
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [
+        "はか.る"
+      ],
+      "meaning_en": "quantity",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "量",
+          "reading": "りょう",
+          "en": "amount"
+        },
+        {
+          "word": "大量",
+          "reading": "たいりょう",
+          "en": "large amount"
+        }
+      ],
+      "mnemonic": "The sun (日) over a village (里): measuring the land."
+    },
+    {
+      "char": "値",
+      "onyomi": [
+        "チ"
+      ],
+      "kunyomi": [
+        "ね",
+        "あたい"
+      ],
+      "meaning_en": "value, price",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "値段",
+          "reading": "ねだん",
+          "en": "price"
+        },
+        {
+          "word": "価値",
+          "reading": "かち",
+          "en": "value"
+        }
+      ],
+      "mnemonic": "A person (亻) who sets things straight (直): the right price."
+    },
+    {
+      "char": "段",
+      "onyomi": [
+        "ダン",
+        "タン"
+      ],
+      "kunyomi": [],
+      "meaning_en": "step",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "値段",
+          "reading": "ねだん",
+          "en": "price"
+        },
+        {
+          "word": "階段",
+          "reading": "かいだん",
+          "en": "stairs"
+        }
+      ],
+      "mnemonic": "Steps cut into a cliff with a tool (殳)."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review (Unit 3): complete <ruby>先輩<rt>せんぱい</rt></ruby>に<ruby>部屋<rt>へや</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>＿＿。 (made to)",
+      "options": [
+        "させました",
+        "させられました",
+        "されました",
+        "しました"
+      ],
+      "correct": "させられました",
+      "explanation": "Causative-passive."
+    },
+    {
+      "prompt": "Complete: <ruby>練習<rt>れんしゅう</rt></ruby>すれば＿＿ほど、<ruby>上手<rt>じょうず</rt></ruby>になります。",
+      "options": [
+        "した",
+        "すれ",
+        "する",
+        "して"
+      ],
+      "correct": "する",
+      "explanation": "V-ば V-る ほど."
+    },
+    {
+      "prompt": "Complete: <ruby>安<rt>やす</rt></ruby>ければ<ruby>安<rt>やす</rt></ruby>い＿＿、よく<ruby>売<rt>う</rt></ruby>れます。",
+      "options": [
+        "ばかり",
+        "ため",
+        "より",
+        "ほど"
+      ],
+      "correct": "ほど",
+      "explanation": "The more: ほど."
+    },
+    {
+      "prompt": "Complete: <ruby>早<rt>はや</rt></ruby>い＿＿いいです。 (the sooner the better)",
+      "options": [
+        "ほど",
+        "ばかり",
+        "うちに",
+        "ため"
+      ],
+      "correct": "ほど",
+      "explanation": "Short form: 〜ほどいい."
+    },
+    {
+      "prompt": "Which word means \"to decrease\"?",
+      "options": [
+        "<ruby>増<rt>ふ</rt></ruby>える",
+        "<ruby>減<rt>へ</rt></ruby>る",
+        "<ruby>数<rt>かぞ</rt></ruby>える",
+        "<ruby>値上<rt>ねあ</rt></ruby>がり"
+      ],
+      "correct": "<ruby>減<rt>へ</rt></ruby>る",
+      "explanation": "<ruby>減<rt>へ</rt></ruby>る: to decrease."
+    },
+    {
+      "prompt": "How is 値段⁠ read?",
+      "options": [
+        "ちだん",
+        "ねたん",
+        "ねだん",
+        "あたいだん"
+      ],
+      "correct": "ねだん",
+      "explanation": "値段⁠ is read ねだん."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>死<rt>し</rt></ruby>ぬほどつかれました。",
+      "options": [
+        "Someone died of tiredness.",
+        "I was tired before I died.",
+        "I'm not tired at all.",
+        "I'm dead tired."
+      ],
+      "correct": "I'm dead tired.",
+      "explanation": "ほど: an exaggerated degree."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which sentence is correct?",
+      "options": [
+        "<ruby>考<rt>かんが</rt></ruby>えれば<ruby>考<rt>かんが</rt></ruby>えたほど、<ruby>分<rt>わ</rt></ruby>からなくなります。",
+        "<ruby>考<rt>かんが</rt></ruby>えるば<ruby>考<rt>かんが</rt></ruby>えるほど、<ruby>分<rt>わ</rt></ruby>からなくなります。",
+        "<ruby>考<rt>かんが</rt></ruby>えれば<ruby>考<rt>かんが</rt></ruby>えほど、<ruby>分<rt>わ</rt></ruby>からなくなります。",
+        "<ruby>考<rt>かんが</rt></ruby>えれば<ruby>考<rt>かんが</rt></ruby>えるほど、<ruby>分<rt>わ</rt></ruby>からなくなります。"
+      ],
+      "correct": "<ruby>考<rt>かんが</rt></ruby>えれば<ruby>考<rt>かんが</rt></ruby>えるほど、<ruby>分<rt>わ</rt></ruby>からなくなります。",
+      "explanation": "V-ば V-る ほど."
+    },
+    {
+      "prompt": "What does なきたいほどうれしかった mean?",
+      "options": [
+        "I was so happy I could have cried.",
+        "I cried because I was sad.",
+        "I wanted to cry but couldn't.",
+        "I was happy that someone cried."
+      ],
+      "correct": "I was so happy I could have cried.",
+      "explanation": "ほど: so much that."
+    },
+    {
+      "prompt": "Complete: <ruby>部屋<rt>へや</rt></ruby>はしずかならしずか＿＿ほどいいです。",
+      "options": [
+        "だ",
+        "な",
+        "の",
+        "に"
+      ],
+      "correct": "な",
+      "explanation": "な-adjective + な ほど."
+    },
+    {
+      "prompt": "Read: ええ、びっくりするほど<ruby>高<rt>たか</rt></ruby>いです。 What does Mai mean?",
+      "options": [
+        "She was surprised vegetables were cheap.",
+        "Vegetables are a little expensive.",
+        "Vegetables are surprisingly expensive.",
+        "She didn't buy any vegetables."
+      ],
+      "correct": "Vegetables are surprisingly expensive.",
+      "explanation": "びっくりするほど: surprisingly."
+    },
+    {
+      "prompt": "Review (Unit 3): complete <ruby>健康<rt>けんこう</rt></ruby>のために、<ruby>毎日<rt>まいにち</rt></ruby><ruby>歩<rt>ある</rt></ruby>く＿＿にしています。",
+      "options": [
+        "べき",
+        "わけ",
+        "ほど",
+        "よう"
+      ],
+      "correct": "よう",
+      "explanation": "Try to: ようにしている."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-3-made-to-do",
+    "japanese-n4-unit-4-if-you-study",
+    "japanese-n4-unit-3-i-can-sing"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -1,0 +1,530 @@
+{
+  "id": "japanese-n3-unit-6-a-bit-like",
+  "slug": "n3-unit-6-a-bit-like",
+  "unit": "Japanese N3 Unit 6",
+  "unit_number": 6,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "A Bit Like a Cold",
+  "title_jp": "〜っぽい・〜ぎみ",
+  "objectives": [
+    "I can say something is a little like something, or I feel slightly unwell.",
+    "Describe a tendency or impression with 〜っぽい",
+    "Say you feel slightly unwell or off with 〜<ruby>気味<rt>ぎみ</rt></ruby>",
+    "Talk about colds, tiredness, aches, sleep and anger"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>風邪<rt>かぜ</rt></ruby>",
+      "",
+      "a cold"
+    ],
+    [
+      "<ruby>疲<rt>つか</rt></ruby>れる",
+      "",
+      "to get tired"
+    ],
+    [
+      "<ruby>疲<rt>つか</rt></ruby>れ",
+      "",
+      "tiredness"
+    ],
+    [
+      "<ruby>痛<rt>いた</rt></ruby>い",
+      "",
+      "painful, sore"
+    ],
+    [
+      "<ruby>頭痛<rt>ずつう</rt></ruby>",
+      "",
+      "headache"
+    ],
+    [
+      "お<ruby>腹<rt>なか</rt></ruby>",
+      "",
+      "stomach"
+    ],
+    [
+      "<ruby>腹<rt>はら</rt></ruby>が<ruby>立<rt>た</rt></ruby>つ",
+      "",
+      "to get angry"
+    ],
+    [
+      "<ruby>眠<rt>ねむ</rt></ruby>い",
+      "",
+      "sleepy"
+    ],
+    [
+      "<ruby>眠<rt>ねむ</rt></ruby>る",
+      "",
+      "to sleep"
+    ],
+    [
+      "<ruby>怒<rt>おこ</rt></ruby>る",
+      "",
+      "to get angry; to scold"
+    ],
+    [
+      "〜っぽい",
+      "",
+      "-ish, kind of"
+    ],
+    [
+      "〜<ruby>気味<rt>ぎみ</rt></ruby>",
+      "",
+      "a touch of, slightly"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "風邪",
+      "word_reading": "かぜ"
+    },
+    {
+      "word_japanese": "疲れる",
+      "word_reading": "つかれる"
+    },
+    {
+      "word_japanese": "疲れ",
+      "word_reading": "つかれ"
+    },
+    {
+      "word_japanese": "痛い",
+      "word_reading": "いたい"
+    },
+    {
+      "word_japanese": "頭痛",
+      "word_reading": "ずつう"
+    },
+    {
+      "word_japanese": "眠い",
+      "word_reading": "ねむい"
+    },
+    {
+      "word_japanese": "眠る",
+      "word_reading": "ねむる"
+    },
+    {
+      "word_japanese": "怒る",
+      "word_reading": "おこる"
+    }
+  ],
+  "concept": {
+    "title": "A bit like",
+    "text": "〜っぽい turns a word into an い-adjective meaning \"-ish\":\n・colour or look: <ruby>白<rt>しろ</rt></ruby>っぽい (whitish), <ruby>子<rt>こ</rt></ruby>どもっぽい (childish)\n・a tendency, after a verb stem: <ruby>忘<rt>わす</rt></ruby>れっぽい (forgetful), <ruby>怒<rt>おこ</rt></ruby>りっぽい (quick to anger)\n・a vague impression: <ruby>風邪<rt>かぜ</rt></ruby>っぽい (like I'm getting a cold)\nIt is casual and often a little negative.\n\n〜<ruby>気味<rt>ぎみ</rt></ruby> means a touch of something, usually unwanted:\n<ruby>風邪気味<rt>かぜぎみ</rt></ruby>です。 I have a bit of a cold.\n<ruby>最近<rt>さいきん</rt></ruby>、<ruby>疲<rt>つか</rt></ruby>れ<ruby>気味<rt>ぎみ</rt></ruby>です。 I've been a bit tired lately.\nIt follows a noun or verb stem and works like a な-adjective or noun.",
+    "examples": [
+      "N / V-stem / い-adj stem + っぽい",
+      "N / V-stem + <ruby>気味<rt>ぎみ</rt></ruby>"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "-ish: 〜っぽい",
+      "pattern": "N / V-stem / い-adj stem + っぽい",
+      "explanation": "Something looks like, feels like, or tends towards something. Casual, often a little critical.",
+      "examples": [
+        {
+          "japanese": "<ruby>白<rt>しろ</rt></ruby>っぽいシャツを<ruby>着<rt>き</rt></ruby>ています。",
+          "romaji": "",
+          "meaning": "He's wearing a whitish shirt."
+        },
+        {
+          "japanese": "もう<ruby>大人<rt>おとな</rt></ruby>なのに、<ruby>子<rt>こ</rt></ruby>どもっぽいですね。",
+          "romaji": "",
+          "meaning": "He's an adult, but he's so childish."
+        },
+        {
+          "japanese": "<ruby>最近<rt>さいきん</rt></ruby>、<ruby>忘<rt>わす</rt></ruby>れっぽくなりました。",
+          "romaji": "",
+          "meaning": "I've become forgetful lately."
+        },
+        {
+          "japanese": "<ruby>父<rt>ちち</rt></ruby>は<ruby>怒<rt>おこ</rt></ruby>りっぽい<ruby>人<rt>ひと</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "My father gets angry easily."
+        }
+      ],
+      "notes": [
+        "っぽい conjugates like an い-adjective: っぽくない, っぽかった.",
+        "In speech it also means \"seems\": <ruby>雨<rt>あめ</rt></ruby>っぽい (looks like rain)."
+      ]
+    },
+    {
+      "title": "A touch of: 〜<ruby>気味<rt>ぎみ</rt></ruby>",
+      "pattern": "N / V-stem + <ruby>気味<rt>ぎみ</rt></ruby> (だ / の N)",
+      "explanation": "A slight, usually unwanted, condition or tendency.",
+      "examples": [
+        {
+          "japanese": "<ruby>今日<rt>きょう</rt></ruby>は<ruby>風邪気味<rt>かぜぎみ</rt></ruby>なので、<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>ます。",
+          "romaji": "",
+          "meaning": "I have a bit of a cold today, so I'll go to bed early."
+        },
+        {
+          "japanese": "<ruby>最近<rt>さいきん</rt></ruby>、<ruby>仕事<rt>しごと</rt></ruby>がいそがしくて、<ruby>疲<rt>つか</rt></ruby>れ<ruby>気味<rt>ぎみ</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "Work's busy and I've been a bit tired lately."
+        },
+        {
+          "japanese": "<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れ<ruby>気味<rt>ぎみ</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "The trains are running a little late."
+        },
+        {
+          "japanese": "<ruby>少<rt>すこ</rt></ruby>しふとり<ruby>気味<rt>ぎみ</rt></ruby>なので、<ruby>運動<rt>うんどう</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めました。",
+          "romaji": "",
+          "meaning": "I've put on a little weight, so I've started exercising."
+        }
+      ],
+      "notes": [
+        "<ruby>気味<rt>ぎみ</rt></ruby> is for conditions; っぽい is for impressions and character."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>風邪<rt>かぜ</rt></ruby>をひいて、<ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みました。",
+      "I caught a cold and missed school."
+    ],
+    [
+      "<ruby>一日中<rt>いちにちじゅう</rt></ruby><ruby>歩<rt>ある</rt></ruby>いて、<ruby>疲<rt>つか</rt></ruby>れました。",
+      "I walked all day and I'm tired."
+    ],
+    [
+      "<ruby>朝<rt>あさ</rt></ruby>からお<ruby>腹<rt>なか</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>いです。",
+      "I've had a stomach ache since this morning."
+    ],
+    [
+      "<ruby>昨日<rt>きのう</rt></ruby>はよく<ruby>眠<rt>ねむ</rt></ruby>れませんでした。",
+      "I couldn't sleep well last night."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>顔色<rt>かおいろ</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>いですね。",
+      "けん",
+      "ちょっと<ruby>風邪気味<rt>かぜぎみ</rt></ruby>なんです。"
+    ],
+    [
+      "リー",
+      "マイさん、またさいふを<ruby>忘<rt>わす</rt></ruby>れたんですか。",
+      "マイ",
+      "ええ、<ruby>最近<rt>さいきん</rt></ruby><ruby>忘<rt>わす</rt></ruby>れっぽくて……"
+    ],
+    [
+      "ゆき",
+      "どうして<ruby>先生<rt>せんせい</rt></ruby>は<ruby>怒<rt>おこ</rt></ruby>っているんですか。",
+      "リン",
+      "だれもしゅくだいをしなかったからですよ。"
+    ],
+    [
+      "たなか",
+      "<ruby>眠<rt>ねむ</rt></ruby>そうですね。",
+      "アナ",
+      "<ruby>昨日<rt>きのう</rt></ruby><ruby>頭痛<rt>ずつう</rt></ruby>で、あまり<ruby>眠<rt>ねむ</rt></ruby>れなかったんです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "邪",
+      "onyomi": [
+        "ジャ"
+      ],
+      "kunyomi": [
+        "よこし.ま"
+      ],
+      "meaning_en": "wicked",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "風邪",
+          "reading": "かぜ",
+          "en": "a cold"
+        },
+        {
+          "word": "邪魔",
+          "reading": "じゃま",
+          "en": "hindrance"
+        }
+      ],
+      "mnemonic": "A crooked fang (牙) in the village (阝): something bad."
+    },
+    {
+      "char": "疲",
+      "onyomi": [
+        "ヒ"
+      ],
+      "kunyomi": [
+        "つか.れる",
+        "-づか.れ",
+        "つか.らす"
+      ],
+      "meaning_en": "tired",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "疲れる",
+          "reading": "つかれる",
+          "en": "to get tired"
+        },
+        {
+          "word": "疲労",
+          "reading": "ひろう",
+          "en": "fatigue"
+        }
+      ],
+      "mnemonic": "A sickbed (疒) for skin (皮) worn thin: exhausted."
+    },
+    {
+      "char": "痛",
+      "onyomi": [
+        "ツウ"
+      ],
+      "kunyomi": [
+        "いた.い",
+        "いた.む",
+        "いた.ましい",
+        "いた.める"
+      ],
+      "meaning_en": "pain",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "痛い",
+          "reading": "いたい",
+          "en": "painful"
+        },
+        {
+          "word": "頭痛",
+          "reading": "ずつう",
+          "en": "headache"
+        }
+      ],
+      "mnemonic": "Sickness (疒) that goes right through (甬): pain."
+    },
+    {
+      "char": "腹",
+      "onyomi": [
+        "フク"
+      ],
+      "kunyomi": [
+        "はら"
+      ],
+      "meaning_en": "belly",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "お腹",
+          "reading": "おなか",
+          "en": "stomach"
+        },
+        {
+          "word": "腹",
+          "reading": "はら",
+          "en": "belly"
+        }
+      ],
+      "mnemonic": "Flesh (月) that goes back and forth (复) as you breathe."
+    },
+    {
+      "char": "眠",
+      "onyomi": [
+        "ミン"
+      ],
+      "kunyomi": [
+        "ねむ.る",
+        "ねむ.い"
+      ],
+      "meaning_en": "sleep",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "眠い",
+          "reading": "ねむい",
+          "en": "sleepy"
+        },
+        {
+          "word": "眠る",
+          "reading": "ねむる",
+          "en": "to sleep"
+        }
+      ],
+      "mnemonic": "An eye (目) of the people (民), closed at night."
+    },
+    {
+      "char": "怒",
+      "onyomi": [
+        "ド",
+        "ヌ"
+      ],
+      "kunyomi": [
+        "いか.る",
+        "おこ.る"
+      ],
+      "meaning_en": "anger",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "怒る",
+          "reading": "おこる",
+          "en": "to get angry"
+        },
+        {
+          "word": "怒り",
+          "reading": "いかり",
+          "en": "anger"
+        }
+      ],
+      "mnemonic": "A servant woman's (奴) heart (心) boiling over."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>家<rt>いえ</rt></ruby>にいるに＿＿。 (must be)",
+      "options": [
+        "<ruby>決<rt>き</rt></ruby>めない",
+        "<ruby>違<rt>ちが</rt></ruby>う",
+        "<ruby>違<rt>ちが</rt></ruby>いない",
+        "っぽい"
+      ],
+      "correct": "<ruby>違<rt>ちが</rt></ruby>いない",
+      "explanation": "Must be: に<ruby>違<rt>ちが</rt></ruby>いない."
+    },
+    {
+      "prompt": "Complete: もう<ruby>大人<rt>おとな</rt></ruby>なのに、<ruby>子<rt>こ</rt></ruby>ども＿＿ですね。",
+      "options": [
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "らしい",
+        "ほど",
+        "っぽい"
+      ],
+      "correct": "っぽい",
+      "explanation": "-ish: っぽい."
+    },
+    {
+      "prompt": "Complete: <ruby>今日<rt>きょう</rt></ruby>は<ruby>風邪<rt>かぜ</rt></ruby>＿＿なので、<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>ます。",
+      "options": [
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "っぽい",
+        "ほど",
+        "さえ"
+      ],
+      "correct": "<ruby>気味<rt>ぎみ</rt></ruby>",
+      "explanation": "A touch of: <ruby>気味<rt>ぎみ</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: <ruby>最近<rt>さいきん</rt></ruby>、<ruby>忘<rt>わす</rt></ruby>れ＿＿なりました。",
+      "options": [
+        "っぽい",
+        "っぽく",
+        "<ruby>気味<rt>ぎみ</rt></ruby>",
+        "そう"
+      ],
+      "correct": "っぽく",
+      "explanation": "っぽい conjugates like an い-adjective."
+    },
+    {
+      "prompt": "Which word means \"sleepy\"?",
+      "options": [
+        "<ruby>痛<rt>いた</rt></ruby>い",
+        "<ruby>疲<rt>つか</rt></ruby>れ",
+        "<ruby>眠<rt>ねむ</rt></ruby>い",
+        "<ruby>怒<rt>おこ</rt></ruby>る"
+      ],
+      "correct": "<ruby>眠<rt>ねむ</rt></ruby>い",
+      "explanation": "<ruby>眠<rt>ねむ</rt></ruby>い: sleepy."
+    },
+    {
+      "prompt": "How is 風邪⁠ read?",
+      "options": [
+        "ふうじゃ",
+        "かじゃ",
+        "ふうせ",
+        "かぜ"
+      ],
+      "correct": "かぜ",
+      "explanation": "風邪⁠ is a special reading: かぜ."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>父<rt>ちち</rt></ruby>は<ruby>怒<rt>おこ</rt></ruby>りっぽい<ruby>人<rt>ひと</rt></ruby>です。",
+      "options": [
+        "My father gets angry easily.",
+        "My father is angry right now.",
+        "My father is never angry.",
+        "My father made someone angry."
+      ],
+      "correct": "My father gets angry easily.",
+      "explanation": "<ruby>怒<rt>おこ</rt></ruby>りっぽい: quick to anger."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You feel you're catching a cold. What do you say?",
+      "options": [
+        "ちょっと<ruby>風邪気味<rt>かぜぎみ</rt></ruby>です。",
+        "ちょっと<ruby>風邪<rt>かぜ</rt></ruby>に<ruby>違<rt>ちが</rt></ruby>いないです。",
+        "ちょっと<ruby>風邪<rt>かぜ</rt></ruby>にとってです。",
+        "ちょっと<ruby>風邪<rt>かぜ</rt></ruby>というよりです。"
+      ],
+      "correct": "ちょっと<ruby>風邪気味<rt>かぜぎみ</rt></ruby>です。",
+      "explanation": "<ruby>気味<rt>ぎみ</rt></ruby>: a touch of."
+    },
+    {
+      "prompt": "What does <ruby>白<rt>しろ</rt></ruby>っぽいシャツ mean?",
+      "options": [
+        "A pure white shirt",
+        "A whitish shirt",
+        "A shirt that isn't white",
+        "A white shirt for children"
+      ],
+      "correct": "A whitish shirt",
+      "explanation": "っぽい: -ish."
+    },
+    {
+      "prompt": "Which word means \"stomach\"?",
+      "options": [
+        "<ruby>頭痛<rt>ずつう</rt></ruby>",
+        "<ruby>風邪<rt>かぜ</rt></ruby>",
+        "お<ruby>腹<rt>なか</rt></ruby>",
+        "<ruby>疲<rt>つか</rt></ruby>れ"
+      ],
+      "correct": "お<ruby>腹<rt>なか</rt></ruby>",
+      "explanation": "お<ruby>腹<rt>なか</rt></ruby>: stomach."
+    },
+    {
+      "prompt": "Read: <ruby>昨日<rt>きのう</rt></ruby><ruby>頭痛<rt>ずつう</rt></ruby>で、あまり<ruby>眠<rt>ねむ</rt></ruby>れなかったんです。 Why is Ana sleepy?",
+      "options": [
+        "She worked all night.",
+        "She had a cold.",
+        "She was watching TV.",
+        "She had a headache and couldn't sleep."
+      ],
+      "correct": "She had a headache and couldn't sleep.",
+      "explanation": "<ruby>頭痛<rt>ずつう</rt></ruby>: headache."
+    },
+    {
+      "prompt": "Review (Unit 5): complete わたしに＿＿、<ruby>家族<rt>かぞく</rt></ruby>はいちばん<ruby>大切<rt>たいせつ</rt></ruby>です。",
+      "options": [
+        "とって",
+        "ついて",
+        "っぽい",
+        "<ruby>関<rt>かん</rt></ruby>して"
+      ],
+      "correct": "とって",
+      "explanation": "From my point of view: にとって."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-6-must-be",
+    "japanese-n3-unit-5-to-me",
+    "japanese-n4-unit-3-looks-tasty"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

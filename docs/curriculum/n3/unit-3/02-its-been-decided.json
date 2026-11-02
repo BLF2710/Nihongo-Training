@@ -1,0 +1,514 @@
+{
+  "id": "japanese-n3-unit-3-its-been-decided",
+  "slug": "n3-unit-3-its-been-decided",
+  "unit": "Japanese N3 Unit 3",
+  "unit_number": 3,
+  "lesson_number": 2,
+  "is_review": false,
+  "title": "It's Been Decided",
+  "title_jp": "〜ことに なる",
+  "objectives": [
+    "I can explain rules and arrangements.",
+    "Report an arrangement made for you with 〜ことになった",
+    "Explain an existing rule with 〜ことになっている",
+    "Talk about rules, laws, methods and ceremonies"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>規則<rt>きそく</rt></ruby>",
+      "",
+      "rule, regulation"
+    ],
+    [
+      "ほうりつ",
+      "",
+      "law"
+    ],
+    [
+      "<ruby>方法<rt>ほうほう</rt></ruby>",
+      "",
+      "method, way"
+    ],
+    [
+      "<ruby>文法<rt>ぶんぽう</rt></ruby>",
+      "",
+      "grammar"
+    ],
+    [
+      "<ruby>禁止<rt>きんし</rt></ruby>",
+      "",
+      "prohibition (+ する: to forbid)"
+    ],
+    [
+      "きんえん",
+      "",
+      "no smoking"
+    ],
+    [
+      "じむしょ",
+      "",
+      "office"
+    ],
+    [
+      "ぎむ",
+      "",
+      "duty, obligation"
+    ],
+    [
+      "<ruby>式<rt>しき</rt></ruby>",
+      "",
+      "ceremony"
+    ],
+    [
+      "<ruby>結婚式<rt>けっこんしき</rt></ruby>",
+      "",
+      "wedding"
+    ],
+    [
+      "〜ことになる",
+      "",
+      "it is decided that, it turns out that"
+    ],
+    [
+      "〜ことになっている",
+      "",
+      "the rule is that"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "規則",
+      "word_reading": "きそく"
+    },
+    {
+      "word_japanese": "方法",
+      "word_reading": "ほうほう"
+    },
+    {
+      "word_japanese": "文法",
+      "word_reading": "ぶんぽう"
+    },
+    {
+      "word_japanese": "禁止",
+      "word_reading": "きんし"
+    },
+    {
+      "word_japanese": "式",
+      "word_reading": "しき"
+    },
+    {
+      "word_japanese": "結婚式",
+      "word_reading": "けっこんしき"
+    }
+  ],
+  "concept": {
+    "title": "Decided for you: ことになる",
+    "text": "V-る / V-ない + ことになる: something is decided by others, by your company, or by circumstances:\n\n<ruby>来月<rt>らいげつ</rt></ruby>からおおさかで<ruby>働<rt>はたら</rt></ruby>くことになりました。 It's been arranged that I'll work in Osaka from next month.\n\nAnnouncing your own news with ことになりました also sounds modest, as if it simply turned out that way.\n\nことになっている describes a rule or arrangement that is already in place:\n<ruby>日本<rt>にほん</rt></ruby>では、<ruby>車<rt>くるま</rt></ruby>は<ruby>左<rt>ひだり</rt></ruby>を<ruby>走<rt>はし</rt></ruby>ることになっています。 In Japan, cars drive on the left.",
+    "examples": [
+      "〜ことになった (it was arranged)",
+      "〜ことになっている (the rule is)",
+      "ことにする vs ことになる"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "It's been decided: 〜ことになった",
+      "pattern": "V-る / V-ない + ことになる / ことになった",
+      "explanation": "A decision made by someone else or by circumstances. It also sounds modest about your own plans.",
+      "examples": [
+        {
+          "japanese": "<ruby>来月<rt>らいげつ</rt></ruby>からおおさかで<ruby>働<rt>はたら</rt></ruby>くことになりました。",
+          "romaji": "",
+          "meaning": "It's been arranged that I'll work in Osaka from next month."
+        },
+        {
+          "japanese": "<ruby>来年<rt>らいねん</rt></ruby>の<ruby>春<rt>はる</rt></ruby>、<ruby>結婚<rt>けっこん</rt></ruby>することになりました。",
+          "romaji": "",
+          "meaning": "We're getting married next spring."
+        },
+        {
+          "japanese": "<ruby>雨<rt>あめ</rt></ruby>のため、しあいは<ruby>来週<rt>らいしゅう</rt></ruby>に<ruby>行<rt>おこな</rt></ruby>うことになりました。",
+          "romaji": "",
+          "meaning": "Because of the rain, the match will be held next week."
+        },
+        {
+          "japanese": "<ruby>会議<rt>かいぎ</rt></ruby>は<ruby>中止<rt>ちゅうし</rt></ruby>することになりました。",
+          "romaji": "",
+          "meaning": "The meeting has been called off."
+        }
+      ],
+      "notes": [
+        "ことにする: I decide. ことになる: it is decided.",
+        "Good news is often shared with ことになりました."
+      ]
+    },
+    {
+      "title": "The rule is: 〜ことになっている",
+      "pattern": "V-る / V-ない + ことになっている",
+      "explanation": "A rule, a custom or an arrangement that is already in place.",
+      "examples": [
+        {
+          "japanese": "この<ruby>部屋<rt>へや</rt></ruby>では、<ruby>食<rt>た</rt></ruby>べてはいけないことになっています。",
+          "romaji": "",
+          "meaning": "You're not allowed to eat in this room."
+        },
+        {
+          "japanese": "りょうは<ruby>十一時<rt>じゅういちじ</rt></ruby>にドアをしめることになっています。",
+          "romaji": "",
+          "meaning": "The dorm door is locked at eleven."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>では、<ruby>車<rt>くるま</rt></ruby>は<ruby>左<rt>ひだり</rt></ruby>を<ruby>走<rt>はし</rt></ruby>ることになっています。",
+          "romaji": "",
+          "meaning": "In Japan, cars drive on the left."
+        },
+        {
+          "japanese": "<ruby>学校<rt>がっこう</rt></ruby>の<ruby>中<rt>なか</rt></ruby>では、たばこをすわないことになっています。",
+          "romaji": "",
+          "meaning": "Smoking isn't allowed inside the school."
+        }
+      ],
+      "notes": [
+        "Signs often use <ruby>禁止<rt>きんし</rt></ruby>: ちゅうしゃ<ruby>禁止<rt>きんし</rt></ruby> (no parking)."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>学校<rt>がっこう</rt></ruby>の<ruby>規則<rt>きそく</rt></ruby>を<ruby>守<rt>まも</rt></ruby>ってください。",
+      "Please follow the school rules."
+    ],
+    [
+      "<ruby>何<rt>なに</rt></ruby>かいい<ruby>方法<rt>ほうほう</rt></ruby>がありますか。",
+      "Is there a good way to do it?"
+    ],
+    [
+      "<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>文法<rt>ぶんぽう</rt></ruby>はむずかしいです。",
+      "Japanese grammar is difficult."
+    ],
+    [
+      "<ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>友<rt>とも</rt></ruby>だちの<ruby>結婚式<rt>けっこんしき</rt></ruby>に<ruby>出<rt>で</rt></ruby>ます。",
+      "I'm going to a friend's wedding next week."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>何<rt>なに</rt></ruby>かいいことがありましたか。",
+      "けん",
+      "<ruby>来月<rt>らいげつ</rt></ruby>から<ruby>東京<rt>とうきょう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くことになったんです。"
+    ],
+    [
+      "リー",
+      "ここで<ruby>写真<rt>しゃしん</rt></ruby>をとってもいいですか。",
+      "マイ",
+      "すみません、ここは<ruby>写真<rt>しゃしん</rt></ruby><ruby>禁止<rt>きんし</rt></ruby>になっています。"
+    ],
+    [
+      "ゆき",
+      "<ruby>会議<rt>かいぎ</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>からですか。",
+      "たなか",
+      "<ruby>九時<rt>くじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>めることになっています。"
+    ],
+    [
+      "リン",
+      "<ruby>結婚式<rt>けっこんしき</rt></ruby>はいつですか。",
+      "アナ",
+      "<ruby>六月<rt>ろくがつ</rt></ruby>にすることになりました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "規",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "standard",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "規則",
+          "reading": "きそく",
+          "en": "rule"
+        },
+        {
+          "word": "規定",
+          "reading": "きてい",
+          "en": "regulation"
+        }
+      ],
+      "mnemonic": "A husband (夫) who sees (見) that the rules are kept."
+    },
+    {
+      "char": "則",
+      "onyomi": [
+        "ソク"
+      ],
+      "kunyomi": [
+        "のっと.る",
+        "のり",
+        "すなわち"
+      ],
+      "meaning_en": "rule",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "規則",
+          "reading": "きそく",
+          "en": "rule"
+        },
+        {
+          "word": "原則",
+          "reading": "げんそく",
+          "en": "principle"
+        }
+      ],
+      "mnemonic": "A shell (貝) of money and a knife (刂): the rule of law."
+    },
+    {
+      "char": "法",
+      "onyomi": [
+        "ホウ",
+        "ハッ",
+        "ホッ",
+        "フラン"
+      ],
+      "kunyomi": [
+        "のり"
+      ],
+      "meaning_en": "law, method",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "方法",
+          "reading": "ほうほう",
+          "en": "method"
+        },
+        {
+          "word": "文法",
+          "reading": "ぶんぽう",
+          "en": "grammar"
+        }
+      ],
+      "mnemonic": "Water (氵) that goes (去) where it must: the law."
+    },
+    {
+      "char": "禁",
+      "onyomi": [
+        "キン"
+      ],
+      "kunyomi": [],
+      "meaning_en": "forbid",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "禁止",
+          "reading": "きんし",
+          "en": "prohibition"
+        },
+        {
+          "word": "禁煙",
+          "reading": "きんえん",
+          "en": "no smoking"
+        }
+      ],
+      "mnemonic": "A sign (示) under the woods (林): keep out."
+    },
+    {
+      "char": "務",
+      "onyomi": [
+        "ム"
+      ],
+      "kunyomi": [
+        "つと.める"
+      ],
+      "meaning_en": "duty",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "事務所",
+          "reading": "じむしょ",
+          "en": "office"
+        },
+        {
+          "word": "義務",
+          "reading": "ぎむ",
+          "en": "duty"
+        }
+      ],
+      "mnemonic": "Strength (力) used with a spear (矛): a duty."
+    },
+    {
+      "char": "式",
+      "onyomi": [
+        "シキ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "ceremony; style",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "結婚式",
+          "reading": "けっこんしき",
+          "en": "wedding"
+        },
+        {
+          "word": "入学式",
+          "reading": "にゅうがくしき",
+          "en": "entrance ceremony"
+        }
+      ],
+      "mnemonic": "Work (工) done with a stake (弋): a set form."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>来年<rt>らいねん</rt></ruby>、<ruby>留学<rt>りゅうがく</rt></ruby>する＿＿にしました。",
+      "options": [
+        "よう",
+        "わけ",
+        "こと",
+        "ため"
+      ],
+      "correct": "こと",
+      "explanation": "Decide: ことにする."
+    },
+    {
+      "prompt": "Complete: <ruby>来月<rt>らいげつ</rt></ruby>からおおさかで<ruby>働<rt>はたら</rt></ruby>くことに＿＿。 (it was arranged)",
+      "options": [
+        "しました",
+        "いました",
+        "ありました",
+        "なりました"
+      ],
+      "correct": "なりました",
+      "explanation": "Decided for you: ことになった."
+    },
+    {
+      "prompt": "Complete: この<ruby>部屋<rt>へや</rt></ruby>では、<ruby>食<rt>た</rt></ruby>べてはいけないことに＿＿います。 (the rule)",
+      "options": [
+        "なって",
+        "して",
+        "いて",
+        "おいて"
+      ],
+      "correct": "なって",
+      "explanation": "The rule: ことになっている."
+    },
+    {
+      "prompt": "Which one is decided for you?",
+      "options": [
+        "ことにした",
+        "ことになった",
+        "ことにしている",
+        "ようにしている"
+      ],
+      "correct": "ことになった",
+      "explanation": "ことになる: decided by others."
+    },
+    {
+      "prompt": "Which word means \"grammar\"?",
+      "options": [
+        "<ruby>方法<rt>ほうほう</rt></ruby>",
+        "<ruby>規則<rt>きそく</rt></ruby>",
+        "<ruby>文法<rt>ぶんぽう</rt></ruby>",
+        "<ruby>禁止<rt>きんし</rt></ruby>"
+      ],
+      "correct": "<ruby>文法<rt>ぶんぽう</rt></ruby>",
+      "explanation": "<ruby>文法<rt>ぶんぽう</rt></ruby>: grammar."
+    },
+    {
+      "prompt": "How is 結婚式⁠ read?",
+      "options": [
+        "けっこんしょく",
+        "けつこんしき",
+        "けっこんいしき",
+        "けっこんしき"
+      ],
+      "correct": "けっこんしき",
+      "explanation": "結婚式⁠ is read けっこんしき."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>日本<rt>にほん</rt></ruby>では、<ruby>車<rt>くるま</rt></ruby>は<ruby>左<rt>ひだり</rt></ruby>を<ruby>走<rt>はし</rt></ruby>ることになっています。",
+      "options": [
+        "In Japan, cars drive on the left.",
+        "In Japan, cars may drive on either side.",
+        "In Japan, I decided to drive on the left.",
+        "In Japan, cars will soon drive on the left."
+      ],
+      "correct": "In Japan, cars drive on the left.",
+      "explanation": "ことになっている: the rule."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Your company is sending you to Osaka. How do you tell a friend?",
+      "options": [
+        "おおさかに<ruby>行<rt>い</rt></ruby>くことになりました。",
+        "おおさかに<ruby>行<rt>い</rt></ruby>くことにしました。",
+        "おおさかに<ruby>行<rt>い</rt></ruby>くわけがありません。",
+        "おおさかに<ruby>行<rt>い</rt></ruby>くことにしています。"
+      ],
+      "correct": "おおさかに<ruby>行<rt>い</rt></ruby>くことになりました。",
+      "explanation": "Decided for you: ことになる."
+    },
+    {
+      "prompt": "A sign says ちゅうしゃ<ruby>禁止<rt>きんし</rt></ruby>. What does it mean?",
+      "options": [
+        "Parking here",
+        "No parking",
+        "Parking is free",
+        "No entry"
+      ],
+      "correct": "No parking",
+      "explanation": "<ruby>禁止<rt>きんし</rt></ruby>: forbidden."
+    },
+    {
+      "prompt": "What is the difference between ことにしている and ことになっている?",
+      "options": [
+        "ことにしている: a rule set by others / ことになっている: my own rule",
+        "Both mean \"I tried\".",
+        "ことにしている: my own rule / ことになっている: a rule set by others",
+        "There is no difference."
+      ],
+      "correct": "ことにしている: my own rule / ことになっている: a rule set by others",
+      "explanation": "する: I decide; なる: it is decided."
+    },
+    {
+      "prompt": "Read: <ruby>九時<rt>くじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>めることになっています。 What is true?",
+      "options": [
+        "Tanaka wants to start at nine.",
+        "Nobody knows when it starts.",
+        "It started at nine yesterday.",
+        "The meeting is scheduled to start at nine."
+      ],
+      "correct": "The meeting is scheduled to start at nine.",
+      "explanation": "ことになっている: the arrangement."
+    },
+    {
+      "prompt": "Review (Unit 2): complete <ruby>日本人<rt>にほんじん</rt></ruby>がみんなすしがすきな＿＿ではありません。",
+      "options": [
+        "わけ",
+        "こと",
+        "はず",
+        "ため"
+      ],
+      "correct": "わけ",
+      "explanation": "Not all: わけではない."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-3-i-decided",
+    "japanese-n3-unit-2-not-always",
+    "japanese-n4-unit-1-i-think"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

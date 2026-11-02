@@ -1,0 +1,535 @@
+{
+  "id": "japanese-n3-unit-5-speaking-of",
+  "slug": "n3-unit-5-speaking-of",
+  "unit": "Japanese N3 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 4,
+  "is_review": false,
+  "title": "Speaking of Summer…",
+  "title_jp": "〜と いえば",
+  "objectives": [
+    "I can raise a topic someone reminded me of.",
+    "Pick up a topic with 〜といえば and 〜というと",
+    "Use the casual topic marker って",
+    "Talk about festivals, seasons, scenery and sightseeing"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>祭<rt>まつ</rt></ruby>り",
+      "",
+      "festival"
+    ],
+    [
+      "<ruby>夏祭<rt>なつまつ</rt></ruby>り",
+      "",
+      "summer festival"
+    ],
+    [
+      "<ruby>季節<rt>きせつ</rt></ruby>",
+      "",
+      "season"
+    ],
+    [
+      "<ruby>景色<rt>けしき</rt></ruby>",
+      "",
+      "scenery, view"
+    ],
+    [
+      "<ruby>風景<rt>ふうけい</rt></ruby>",
+      "",
+      "landscape, scene"
+    ],
+    [
+      "<ruby>観光<rt>かんこう</rt></ruby>",
+      "",
+      "sightseeing (+ する: to go sightseeing)"
+    ],
+    [
+      "<ruby>観光地<rt>かんこうち</rt></ruby>",
+      "",
+      "tourist spot"
+    ],
+    [
+      "<ruby>光<rt>ひかり</rt></ruby>",
+      "",
+      "light"
+    ],
+    [
+      "<ruby>光<rt>ひか</rt></ruby>る",
+      "",
+      "to shine"
+    ],
+    [
+      "<ruby>日光<rt>にっこう</rt></ruby>",
+      "",
+      "sunlight; Nikko"
+    ],
+    [
+      "〜といえば",
+      "",
+      "speaking of"
+    ],
+    [
+      "〜って",
+      "",
+      "(casual topic marker; casual quote)"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "祭り",
+      "word_reading": "まつり"
+    },
+    {
+      "word_japanese": "夏祭り",
+      "word_reading": "なつまつり"
+    },
+    {
+      "word_japanese": "季節",
+      "word_reading": "きせつ"
+    },
+    {
+      "word_japanese": "景色",
+      "word_reading": "けしき"
+    },
+    {
+      "word_japanese": "風景",
+      "word_reading": "ふうけい"
+    },
+    {
+      "word_japanese": "観光",
+      "word_reading": "かんこう"
+    },
+    {
+      "word_japanese": "観光地",
+      "word_reading": "かんこうち"
+    },
+    {
+      "word_japanese": "光",
+      "word_reading": "ひかり"
+    },
+    {
+      "word_japanese": "光る",
+      "word_reading": "ひかる"
+    },
+    {
+      "word_japanese": "日光",
+      "word_reading": "にっこう"
+    }
+  ],
+  "concept": {
+    "title": "Speaking of …",
+    "text": "〜といえば picks up a word that was just mentioned and says the first thing it brings to mind:\n<ruby>京都<rt>きょうと</rt></ruby>といえば、おてらですね。 Speaking of Kyoto, there are the temples.\n\n〜というと is similar. It can also ask what someone means:\n「さとうさん」というと、あのせの<ruby>高<rt>たか</rt></ruby>い<ruby>人<rt>ひと</rt></ruby>ですか。 By \"Sato\", do you mean that tall person?\n\nIn casual speech, って is used as a topic marker and as a quote:\n<ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>って<ruby>暑<rt>あつ</rt></ruby>いね。 Japanese summers are hot, aren't they.\n<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>だって。 They say it'll rain tomorrow.",
+    "examples": [
+      "N といえば (speaking of)",
+      "N というと (when you say …)",
+      "N って (casual topic)",
+      "plain form + って (casual quote)"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Speaking of: 〜といえば / 〜というと",
+      "pattern": "N といえば / N というと",
+      "explanation": "Takes up a topic and says the first thing it brings to mind.",
+      "examples": [
+        {
+          "japanese": "<ruby>京都<rt>きょうと</rt></ruby>といえば、おてらですね。",
+          "romaji": "",
+          "meaning": "Speaking of Kyoto, you think of temples."
+        },
+        {
+          "japanese": "<ruby>夏<rt>なつ</rt></ruby>といえば、<ruby>花火<rt>はなび</rt></ruby>と<ruby>祭<rt>まつ</rt></ruby>りです。",
+          "romaji": "",
+          "meaning": "When I think of summer, it's fireworks and festivals."
+        },
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>料理<rt>りょうり</rt></ruby>というと、すしを<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>す<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "Many people think of sushi when you say Japanese food."
+        },
+        {
+          "japanese": "<ruby>旅行<rt>りょこう</rt></ruby>といえば、<ruby>来月<rt>らいげつ</rt></ruby>どこかに<ruby>行<rt>い</rt></ruby>きますか。",
+          "romaji": "",
+          "meaning": "Speaking of travel, are you going anywhere next month?"
+        }
+      ],
+      "notes": [
+        "といえば can also change the subject to something related.",
+        "というと can ask what someone means."
+      ]
+    },
+    {
+      "title": "Casual topic and quote: 〜って",
+      "pattern": "N って / plain form + って",
+      "explanation": "In conversation, って replaces は (for a topic), という, or と<ruby>言<rt>い</rt></ruby>っていた.",
+      "examples": [
+        {
+          "japanese": "<ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>って<ruby>暑<rt>あつ</rt></ruby>いね。",
+          "romaji": "",
+          "meaning": "Japanese summers are really hot, huh."
+        },
+        {
+          "japanese": "「<ruby>季節<rt>きせつ</rt></ruby>」って、どういう<ruby>意味<rt>いみ</rt></ruby>？",
+          "romaji": "",
+          "meaning": "What does \"kisetsu\" mean?"
+        },
+        {
+          "japanese": "<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>だって。",
+          "romaji": "",
+          "meaning": "They say it'll rain tomorrow."
+        },
+        {
+          "japanese": "けんさん、<ruby>少<rt>すこ</rt></ruby>し<ruby>遅<rt>おく</rt></ruby>れるって。",
+          "romaji": "",
+          "meaning": "Ken says he'll be a little late."
+        }
+      ],
+      "notes": [
+        "Use って with friends, not in formal writing."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>には<ruby>季節<rt>きせつ</rt></ruby>が<ruby>四<rt>よっ</rt></ruby>つあります。",
+      "Japan has four seasons."
+    ],
+    [
+      "<ruby>山<rt>やま</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>からの<ruby>景色<rt>けしき</rt></ruby>はすばらしいです。",
+      "The view from the top of the mountain is wonderful."
+    ],
+    [
+      "<ruby>京都<rt>きょうと</rt></ruby>へ<ruby>観光<rt>かんこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。",
+      "I went sightseeing in Kyoto."
+    ],
+    [
+      "<ruby>夜空<rt>よぞら</rt></ruby>にほしが<ruby>光<rt>ひか</rt></ruby>っています。",
+      "Stars are shining in the night sky."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "<ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>町<rt>まち</rt></ruby>の<ruby>夏祭<rt>なつまつ</rt></ruby>りがありますよ。",
+      "けん",
+      "<ruby>夏祭<rt>なつまつ</rt></ruby>りといえば、やっぱり<ruby>花火<rt>はなび</rt></ruby>ですね。"
+    ],
+    [
+      "リー",
+      "どの<ruby>季節<rt>きせつ</rt></ruby>がいちばんすきですか。",
+      "マイ",
+      "<ruby>秋<rt>あき</rt></ruby>です。<ruby>山<rt>やま</rt></ruby>の<ruby>景色<rt>けしき</rt></ruby>がきれいですから。"
+    ],
+    [
+      "ゆき",
+      "「<ruby>観光地<rt>かんこうち</rt></ruby>」って、どういう<ruby>意味<rt>いみ</rt></ruby>？",
+      "リン",
+      "<ruby>人<rt>ひと</rt></ruby>がたくさん<ruby>観光<rt>かんこう</rt></ruby>に<ruby>来<rt>く</rt></ruby>るところだよ。"
+    ],
+    [
+      "たなか",
+      "<ruby>日光<rt>にっこう</rt></ruby>というと、とうしょうぐうが<ruby>有名<rt>ゆうめい</rt></ruby>ですね。",
+      "アナ",
+      "ええ、<ruby>秋<rt>あき</rt></ruby>の<ruby>景色<rt>けしき</rt></ruby>もすばらしいそうですよ。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "祭",
+      "onyomi": [
+        "サイ"
+      ],
+      "kunyomi": [
+        "まつ.る",
+        "まつ.り",
+        "まつり"
+      ],
+      "meaning_en": "festival",
+      "stroke_count": 11,
+      "example_words": [
+        {
+          "word": "祭り",
+          "reading": "まつり",
+          "en": "festival"
+        },
+        {
+          "word": "文化祭",
+          "reading": "ぶんかさい",
+          "en": "school festival"
+        }
+      ],
+      "mnemonic": "A hand (又) placing meat on the altar (示): a festival."
+    },
+    {
+      "char": "季",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "season",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "季節",
+          "reading": "きせつ",
+          "en": "season"
+        },
+        {
+          "word": "四季",
+          "reading": "しき",
+          "en": "the four seasons"
+        }
+      ],
+      "mnemonic": "Young (子) rice plants (禾): the season of growth."
+    },
+    {
+      "char": "節",
+      "onyomi": [
+        "セツ",
+        "セチ"
+      ],
+      "kunyomi": [
+        "ふし",
+        "-ぶし",
+        "のっと"
+      ],
+      "meaning_en": "season; joint",
+      "stroke_count": 13,
+      "example_words": [
+        {
+          "word": "季節",
+          "reading": "きせつ",
+          "en": "season"
+        },
+        {
+          "word": "節約",
+          "reading": "せつやく",
+          "en": "saving"
+        }
+      ],
+      "mnemonic": "The joints of bamboo (竹): divisions of the year."
+    },
+    {
+      "char": "景",
+      "onyomi": [
+        "ケイ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "scenery",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "景色",
+          "reading": "けしき",
+          "en": "scenery"
+        },
+        {
+          "word": "風景",
+          "reading": "ふうけい",
+          "en": "landscape"
+        }
+      ],
+      "mnemonic": "The sun (日) over the capital (京): a fine view."
+    },
+    {
+      "char": "観",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [
+        "み.る",
+        "しめ.す"
+      ],
+      "meaning_en": "view, look",
+      "stroke_count": 18,
+      "example_words": [
+        {
+          "word": "観光",
+          "reading": "かんこう",
+          "en": "sightseeing"
+        },
+        {
+          "word": "観光地",
+          "reading": "かんこうち",
+          "en": "tourist spot"
+        }
+      ],
+      "mnemonic": "A heron with big eyes (見) looking carefully."
+    },
+    {
+      "char": "光",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "ひか.る",
+        "ひかり"
+      ],
+      "meaning_en": "light",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "光",
+          "reading": "ひかり",
+          "en": "light"
+        },
+        {
+          "word": "光る",
+          "reading": "ひかる",
+          "en": "to shine"
+        }
+      ],
+      "mnemonic": "Fire held high above a person: light."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>留学生<rt>りゅうがくせい</rt></ruby>＿＿<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>ました。",
+      "options": [
+        "として",
+        "にとって",
+        "といえば",
+        "について"
+      ],
+      "correct": "として",
+      "explanation": "In the role of: として."
+    },
+    {
+      "prompt": "Complete: <ruby>京都<rt>きょうと</rt></ruby>と＿＿、おてらですね。",
+      "options": [
+        "して",
+        "いえば",
+        "とって",
+        "ついて"
+      ],
+      "correct": "いえば",
+      "explanation": "Speaking of: といえば."
+    },
+    {
+      "prompt": "Complete: <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>だ＿＿。 (casual: they say)",
+      "options": [
+        "から",
+        "ので",
+        "って",
+        "ほど"
+      ],
+      "correct": "って",
+      "explanation": "Casual quote: って."
+    },
+    {
+      "prompt": "Complete: <ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>＿＿<ruby>暑<rt>あつ</rt></ruby>いね。 (casual topic)",
+      "options": [
+        "といえば",
+        "として",
+        "にとって",
+        "って"
+      ],
+      "correct": "って",
+      "explanation": "Casual topic: って."
+    },
+    {
+      "prompt": "Which word means \"season\"?",
+      "options": [
+        "<ruby>季節<rt>きせつ</rt></ruby>",
+        "<ruby>景色<rt>けしき</rt></ruby>",
+        "<ruby>観光<rt>かんこう</rt></ruby>",
+        "<ruby>風景<rt>ふうけい</rt></ruby>"
+      ],
+      "correct": "<ruby>季節<rt>きせつ</rt></ruby>",
+      "explanation": "<ruby>季節<rt>きせつ</rt></ruby>: season."
+    },
+    {
+      "prompt": "How is 景色⁠ read?",
+      "options": [
+        "けいしょく",
+        "けしき",
+        "けいいろ",
+        "けしょく"
+      ],
+      "correct": "けしき",
+      "explanation": "景色⁠ is a special reading: けしき."
+    },
+    {
+      "prompt": "Choose the meaning of <ruby>京都<rt>きょうと</rt></ruby>へ<ruby>観光<rt>かんこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。",
+      "options": [
+        "I went to work in Kyoto.",
+        "I live in Kyoto.",
+        "I went sightseeing in Kyoto.",
+        "I want to go to Kyoto."
+      ],
+      "correct": "I went sightseeing in Kyoto.",
+      "explanation": "<ruby>観光<rt>かんこう</rt></ruby>: sightseeing."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Your friend mentions summer. What do you say to pick up the topic?",
+      "options": [
+        "<ruby>夏<rt>なつ</rt></ruby>として、<ruby>祭<rt>まつ</rt></ruby>りですね。",
+        "<ruby>夏<rt>なつ</rt></ruby>にとって、<ruby>祭<rt>まつ</rt></ruby>りですね。",
+        "<ruby>夏<rt>なつ</rt></ruby>といえば、<ruby>祭<rt>まつ</rt></ruby>りですね。",
+        "<ruby>夏<rt>なつ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>して、<ruby>祭<rt>まつ</rt></ruby>りですね。"
+      ],
+      "correct": "<ruby>夏<rt>なつ</rt></ruby>といえば、<ruby>祭<rt>まつ</rt></ruby>りですね。",
+      "explanation": "といえば: speaking of."
+    },
+    {
+      "prompt": "What does けんさん、<ruby>少<rt>すこ</rt></ruby>し<ruby>遅<rt>おく</rt></ruby>れるって mean?",
+      "options": [
+        "Ken was a little late.",
+        "Ken is never late.",
+        "Is Ken late?",
+        "Ken says he'll be a little late."
+      ],
+      "correct": "Ken says he'll be a little late.",
+      "explanation": "Casual quote: って."
+    },
+    {
+      "prompt": "Which sentence is too casual for a business email?",
+      "options": [
+        "<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>って<ruby>何時<rt>なんじ</rt></ruby>から？",
+        "<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>からでしょうか。",
+        "<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>について、お<ruby>知<rt>し</rt></ruby>らせします。",
+        "<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>して、<ruby>質問<rt>しつもん</rt></ruby>があります。"
+      ],
+      "correct": "<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>って<ruby>何時<rt>なんじ</rt></ruby>から？",
+      "explanation": "って is casual."
+    },
+    {
+      "prompt": "Read: <ruby>秋<rt>あき</rt></ruby>です。<ruby>山<rt>やま</rt></ruby>の<ruby>景色<rt>けしき</rt></ruby>がきれいですから。 Why does Mai like autumn?",
+      "options": [
+        "The festivals are fun.",
+        "The mountain scenery is beautiful.",
+        "It's cool.",
+        "The food is good."
+      ],
+      "correct": "The mountain scenery is beautiful.",
+      "explanation": "<ruby>景色<rt>けしき</rt></ruby>: scenery."
+    },
+    {
+      "prompt": "Review (Unit 4): complete <ruby>涼<rt>すず</rt></ruby>しいという＿＿、<ruby>寒<rt>さむ</rt></ruby>いです。",
+      "options": [
+        "ほど",
+        "って",
+        "より",
+        "さえ"
+      ],
+      "correct": "より",
+      "explanation": "Rather: というより."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-5-as-a",
+    "japanese-n3-unit-4-rather-than",
+    "japanese-n4-unit-1-they-said"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

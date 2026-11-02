@@ -1,0 +1,527 @@
+{
+  "id": "japanese-n3-unit-9-throughout",
+  "slug": "n3-unit-9-throughout",
+  "unit": "Japanese N3 Unit 9",
+  "unit_number": 9,
+  "lesson_number": 3,
+  "is_review": false,
+  "title": "All Year Round",
+  "title_jp": "〜じゅう・〜を とおして",
+  "objectives": [
+    "I can say something lasts through a whole period or place.",
+    "Say \"all through\" with N<ruby>中<rt>じゅう</rt></ruby>",
+    "Say \"throughout\" or \"through\" with 〜を<ruby>通<rt>とお</rt></ruby>して / 〜を<ruby>通<rt>つう</rt></ruby>じて",
+    "Talk about history, kings, people, castles and temples"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>歴史<rt>れきし</rt></ruby>",
+      "",
+      "history"
+    ],
+    [
+      "<ruby>日本史<rt>にほんし</rt></ruby>",
+      "",
+      "Japanese history"
+    ],
+    [
+      "<ruby>女王<rt>じょおう</rt></ruby>",
+      "",
+      "queen"
+    ],
+    [
+      "<ruby>国民<rt>こくみん</rt></ruby>",
+      "",
+      "the people (of a nation)"
+    ],
+    [
+      "<ruby>市民<rt>しみん</rt></ruby>",
+      "",
+      "citizen"
+    ],
+    [
+      "<ruby>民族<rt>みんぞく</rt></ruby>",
+      "",
+      "ethnic group, people"
+    ],
+    [
+      "<ruby>城<rt>しろ</rt></ruby>",
+      "",
+      "castle"
+    ],
+    [
+      "お<ruby>寺<rt>てら</rt></ruby>",
+      "",
+      "temple"
+    ],
+    [
+      "<ruby>一年中<rt>いちねんじゅう</rt></ruby>",
+      "",
+      "all year round"
+    ],
+    [
+      "<ruby>世界中<rt>せかいじゅう</rt></ruby>",
+      "",
+      "all over the world"
+    ],
+    [
+      "〜を<ruby>通<rt>とお</rt></ruby>して",
+      "",
+      "throughout; through"
+    ],
+    [
+      "〜を<ruby>通<rt>つう</rt></ruby>じて",
+      "",
+      "throughout; via"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "歴史",
+      "word_reading": "れきし"
+    },
+    {
+      "word_japanese": "日本史",
+      "word_reading": "にほんし"
+    },
+    {
+      "word_japanese": "女王",
+      "word_reading": "じょおう"
+    },
+    {
+      "word_japanese": "国民",
+      "word_reading": "こくみん"
+    },
+    {
+      "word_japanese": "市民",
+      "word_reading": "しみん"
+    },
+    {
+      "word_japanese": "民族",
+      "word_reading": "みんぞく"
+    },
+    {
+      "word_japanese": "城",
+      "word_reading": "しろ"
+    },
+    {
+      "word_japanese": "お寺",
+      "word_reading": "おてら"
+    },
+    {
+      "word_japanese": "一年中",
+      "word_reading": "いちねんじゅう"
+    },
+    {
+      "word_japanese": "世界中",
+      "word_reading": "せかいじゅう"
+    }
+  ],
+  "concept": {
+    "title": "All through",
+    "text": "<ruby>中<rt>じゅう</rt></ruby> after a time or place word means \"all through\" or \"all over\":\n<ruby>一年中<rt>いちねんじゅう</rt></ruby> (all year round), <ruby>一日中<rt>いちにちじゅう</rt></ruby> (all day), <ruby>世界中<rt>せかいじゅう</rt></ruby> (all over the world), <ruby>町中<rt>まちじゅう</rt></ruby> (all over town).\n\nCompare <ruby>中<rt>ちゅう</rt></ruby>: \"in the middle of\" an activity: <ruby>会議中<rt>かいぎちゅう</rt></ruby> (in a meeting).\n\nN を<ruby>通<rt>とお</rt></ruby>して / を<ruby>通<rt>つう</rt></ruby>じて has two meanings:\n1. Throughout a period: <ruby>一年<rt>いちねん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>してあたたかい (warm all year).\n2. Through, by means of: <ruby>友達<rt>ともだち</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して<ruby>知<rt>し</rt></ruby>りあった (we met through a friend).\n\nを<ruby>通<rt>つう</rt></ruby>じて sounds a little more formal.",
+    "examples": [
+      "time / place + <ruby>中<rt>じゅう</rt></ruby> (all through)",
+      "activity + <ruby>中<rt>ちゅう</rt></ruby> (in the middle of)",
+      "N を <ruby>通<rt>とお</rt></ruby>して / <ruby>通<rt>つう</rt></ruby>じて"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "All through: N<ruby>中<rt>じゅう</rt></ruby>",
+      "pattern": "time / place + <ruby>中<rt>じゅう</rt></ruby>",
+      "explanation": "The whole of a period or the whole of a place.",
+      "examples": [
+        {
+          "japanese": "この<ruby>町<rt>まち</rt></ruby>は<ruby>一年中<rt>いちねんじゅう</rt></ruby>かんこうきゃくが<ruby>多<rt>おお</rt></ruby>いです。",
+          "romaji": "",
+          "meaning": "This town is full of tourists all year round."
+        },
+        {
+          "japanese": "<ruby>昨日<rt>きのう</rt></ruby>は<ruby>一日中<rt>いちにちじゅう</rt></ruby><ruby>雨<rt>あめ</rt></ruby>でした。",
+          "romaji": "",
+          "meaning": "It rained all day yesterday."
+        },
+        {
+          "japanese": "この<ruby>歌<rt>うた</rt></ruby>は<ruby>世界中<rt>せかいじゅう</rt></ruby>で<ruby>知<rt>し</rt></ruby>られています。",
+          "romaji": "",
+          "meaning": "This song is known all over the world."
+        },
+        {
+          "japanese": "さいふを<ruby>家中<rt>いえじゅう</rt></ruby>さがしましたが、ありませんでした。",
+          "romaji": "",
+          "meaning": "I searched the whole house for my wallet, but it wasn't there."
+        }
+      ],
+      "notes": [
+        "<ruby>中<rt>ちゅう</rt></ruby> after an activity: <ruby>会議中<rt>かいぎちゅう</rt></ruby>, <ruby>工事中<rt>こうじちゅう</rt></ruby> (in progress)."
+      ]
+    },
+    {
+      "title": "Throughout; through: 〜を<ruby>通<rt>とお</rt></ruby>して / 〜を<ruby>通<rt>つう</rt></ruby>じて",
+      "pattern": "N を <ruby>通<rt>とお</rt></ruby>して / N を <ruby>通<rt>つう</rt></ruby>じて",
+      "explanation": "Throughout a whole period, or by means of something or someone.",
+      "examples": [
+        {
+          "japanese": "おきなわは<ruby>一年<rt>いちねん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>してあたたかいです。",
+          "romaji": "",
+          "meaning": "Okinawa is warm all year round."
+        },
+        {
+          "japanese": "<ruby>友達<rt>ともだち</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して、<ruby>今<rt>いま</rt></ruby>の<ruby>妻<rt>つま</rt></ruby>と<ruby>知<rt>し</rt></ruby>りあいました。",
+          "romaji": "",
+          "meaning": "I met my wife through a friend."
+        },
+        {
+          "japanese": "この<ruby>城<rt>しろ</rt></ruby>は、<ruby>歴史<rt>れきし</rt></ruby>を<ruby>通<rt>つう</rt></ruby>じて<ruby>一度<rt>いちど</rt></ruby>もせんそうでやけたことがない。",
+          "romaji": "",
+          "meaning": "Throughout its history, this castle has never burned down in a war."
+        },
+        {
+          "japanese": "インターネットを<ruby>通<rt>つう</rt></ruby>じて、<ruby>世界中<rt>せかいじゅう</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>と<ruby>話<rt>はな</rt></ruby>せます。",
+          "romaji": "",
+          "meaning": "You can talk to people all over the world through the internet."
+        }
+      ],
+      "notes": [
+        "を<ruby>通<rt>つう</rt></ruby>じて is a little more formal."
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "<ruby>日本<rt>にほん</rt></ruby>の<ruby>歴史<rt>れきし</rt></ruby>にきょうみがあります。",
+      "I'm interested in Japanese history."
+    ],
+    [
+      "せんきょは<ruby>国民<rt>こくみん</rt></ruby>の<ruby>大切<rt>たいせつ</rt></ruby>なけんりです。",
+      "Voting is an important right of the people."
+    ],
+    [
+      "おおさか<ruby>城<rt>じょう</rt></ruby>は<ruby>有名<rt>ゆうめい</rt></ruby>なお<ruby>城<rt>しろ</rt></ruby>です。",
+      "Osaka Castle is a famous castle."
+    ],
+    [
+      "<ruby>京都<rt>きょうと</rt></ruby>にはたくさんのお<ruby>寺<rt>てら</rt></ruby>があります。",
+      "There are many temples in Kyoto."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "このお<ruby>寺<rt>てら</rt></ruby>はいつ<ruby>建<rt>た</rt></ruby>てられたんですか。",
+      "たなか",
+      "<ruby>八百年前<rt>はっぴゃくねんまえ</rt></ruby>だそうです。<ruby>長<rt>なが</rt></ruby>い<ruby>歴史<rt>れきし</rt></ruby>がありますね。"
+    ],
+    [
+      "けん",
+      "おきなわは<ruby>冬<rt>ふゆ</rt></ruby>もあたたかいですか。",
+      "リー",
+      "ええ、<ruby>一年<rt>いちねん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>してあたたかいですよ。"
+    ],
+    [
+      "マイ",
+      "どうやって<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>先生<rt>せんせい</rt></ruby>と<ruby>知<rt>し</rt></ruby>りあったんですか。",
+      "ゆき",
+      "<ruby>大学<rt>だいがく</rt></ruby>の<ruby>先輩<rt>せんぱい</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して<ruby>知<rt>し</rt></ruby>りあいました。"
+    ],
+    [
+      "リン",
+      "<ruby>今日<rt>きょう</rt></ruby>は<ruby>何<rt>なに</rt></ruby>をしていたんですか。",
+      "アナ",
+      "<ruby>一日中<rt>いちにちじゅう</rt></ruby>、<ruby>城<rt>しろ</rt></ruby>の<ruby>写真<rt>しゃしん</rt></ruby>をとっていました。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "歴",
+      "onyomi": [
+        "レキ",
+        "レッキ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "history; pass",
+      "stroke_count": 14,
+      "example_words": [
+        {
+          "word": "歴史",
+          "reading": "れきし",
+          "en": "history"
+        },
+        {
+          "word": "学歴",
+          "reading": "がくれき",
+          "en": "educational background"
+        }
+      ],
+      "mnemonic": "Footsteps (止) passing through rows of grain under a cliff (厂)."
+    },
+    {
+      "char": "史",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "history",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "歴史",
+          "reading": "れきし",
+          "en": "history"
+        },
+        {
+          "word": "日本史",
+          "reading": "にほんし",
+          "en": "Japanese history"
+        }
+      ],
+      "mnemonic": "A hand holding a record of what happened."
+    },
+    {
+      "char": "王",
+      "onyomi": [
+        "オウ",
+        "-ノウ"
+      ],
+      "kunyomi": [],
+      "meaning_en": "king",
+      "stroke_count": 4,
+      "example_words": [
+        {
+          "word": "王",
+          "reading": "おう",
+          "en": "king"
+        },
+        {
+          "word": "女王",
+          "reading": "じょおう",
+          "en": "queen"
+        }
+      ],
+      "mnemonic": "One ruler joining heaven, people and earth (三) with one line."
+    },
+    {
+      "char": "民",
+      "onyomi": [
+        "ミン"
+      ],
+      "kunyomi": [
+        "たみ"
+      ],
+      "meaning_en": "people",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "国民",
+          "reading": "こくみん",
+          "en": "the people"
+        },
+        {
+          "word": "市民",
+          "reading": "しみん",
+          "en": "citizen"
+        }
+      ],
+      "mnemonic": "An eye pierced by a needle: the common people of old."
+    },
+    {
+      "char": "城",
+      "onyomi": [
+        "ジョウ",
+        "セイ"
+      ],
+      "kunyomi": [
+        "しろ"
+      ],
+      "meaning_en": "castle",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "城",
+          "reading": "しろ",
+          "en": "castle"
+        },
+        {
+          "word": "大阪城",
+          "reading": "おおさかじょう",
+          "en": "Osaka Castle"
+        }
+      ],
+      "mnemonic": "Soil (土) piled up until it's complete (成): a castle wall."
+    },
+    {
+      "char": "寺",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "てら"
+      ],
+      "meaning_en": "temple",
+      "stroke_count": 6,
+      "example_words": [
+        {
+          "word": "お寺",
+          "reading": "おてら",
+          "en": "temple"
+        },
+        {
+          "word": "寺院",
+          "reading": "じいん",
+          "en": "temple"
+        }
+      ],
+      "mnemonic": "Soil (土) and a hand (寸): building a temple."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete このバスは<ruby>十分<rt>じゅっぷん</rt></ruby>＿＿<ruby>来<rt>き</rt></ruby>ます。",
+      "options": [
+        "たびに",
+        "<ruby>中<rt>じゅう</rt></ruby>",
+        "うちに",
+        "ごとに"
+      ],
+      "correct": "ごとに",
+      "explanation": "Every ten minutes: ごとに."
+    },
+    {
+      "prompt": "Complete: この<ruby>町<rt>まち</rt></ruby>は<ruby>一年<rt>いちねん</rt></ruby>＿＿かんこうきゃくが<ruby>多<rt>おお</rt></ruby>いです。 (all year round)",
+      "options": [
+        "<ruby>中<rt>じゅう</rt></ruby>",
+        "<ruby>中<rt>ちゅう</rt></ruby>",
+        "ごと",
+        "たび"
+      ],
+      "correct": "<ruby>中<rt>じゅう</rt></ruby>",
+      "explanation": "All through: <ruby>中<rt>じゅう</rt></ruby>."
+    },
+    {
+      "prompt": "Complete: おきなわは<ruby>一年<rt>いちねん</rt></ruby>を＿＿あたたかいです。",
+      "options": [
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "<ruby>通<rt>とお</rt></ruby>して",
+        "<ruby>対<rt>たい</rt></ruby>して",
+        "ついて"
+      ],
+      "correct": "<ruby>通<rt>とお</rt></ruby>して",
+      "explanation": "Throughout: を<ruby>通<rt>とお</rt></ruby>して."
+    },
+    {
+      "prompt": "Complete: <ruby>友達<rt>ともだち</rt></ruby>を＿＿、<ruby>妻<rt>つま</rt></ruby>と<ruby>知<rt>し</rt></ruby>りあいました。",
+      "options": [
+        "とって",
+        "<ruby>比<rt>くら</rt></ruby>べて",
+        "<ruby>通<rt>とお</rt></ruby>して",
+        "<ruby>関<rt>かん</rt></ruby>して"
+      ],
+      "correct": "<ruby>通<rt>とお</rt></ruby>して",
+      "explanation": "Through (a person): を<ruby>通<rt>とお</rt></ruby>して."
+    },
+    {
+      "prompt": "Which word means \"citizen\"?",
+      "options": [
+        "<ruby>国民<rt>こくみん</rt></ruby>",
+        "<ruby>民族<rt>みんぞく</rt></ruby>",
+        "<ruby>女王<rt>じょおう</rt></ruby>",
+        "<ruby>市民<rt>しみん</rt></ruby>"
+      ],
+      "correct": "<ruby>市民<rt>しみん</rt></ruby>",
+      "explanation": "<ruby>市民<rt>しみん</rt></ruby>: citizen."
+    },
+    {
+      "prompt": "How is 歴史⁠ read?",
+      "options": [
+        "れきし",
+        "れっし",
+        "れきじ",
+        "りきし"
+      ],
+      "correct": "れきし",
+      "explanation": "歴史⁠ is read れきし."
+    },
+    {
+      "prompt": "Choose the meaning of この<ruby>歌<rt>うた</rt></ruby>は<ruby>世界中<rt>せかいじゅう</rt></ruby>で<ruby>知<rt>し</rt></ruby>られています。",
+      "options": [
+        "This song is about the world.",
+        "This song is known all over the world.",
+        "Nobody knows this song.",
+        "This song is known in the middle of the world."
+      ],
+      "correct": "This song is known all over the world.",
+      "explanation": "<ruby>世界中<rt>せかいじゅう</rt></ruby>: all over the world."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "Which word uses 中⁠ to mean \"in the middle of (an activity)\"?",
+      "options": [
+        "<ruby>一年中<rt>いちねんじゅう</rt></ruby>",
+        "<ruby>会議中<rt>かいぎちゅう</rt></ruby>",
+        "<ruby>世界中<rt>せかいじゅう</rt></ruby>",
+        "<ruby>一日中<rt>いちにちじゅう</rt></ruby>"
+      ],
+      "correct": "<ruby>会議中<rt>かいぎちゅう</rt></ruby>",
+      "explanation": "<ruby>中<rt>ちゅう</rt></ruby>: in progress."
+    },
+    {
+      "prompt": "What does インターネットを<ruby>通<rt>つう</rt></ruby>じて、<ruby>世界中<rt>せかいじゅう</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>と<ruby>話<rt>はな</rt></ruby>せます mean?",
+      "options": [
+        "The internet is all over the world.",
+        "You can't talk to people on the internet.",
+        "You can talk to people all over the world through the internet.",
+        "You can only talk to people nearby."
+      ],
+      "correct": "You can talk to people all over the world through the internet.",
+      "explanation": "を<ruby>通<rt>つう</rt></ruby>じて: via."
+    },
+    {
+      "prompt": "Which word means \"castle\"?",
+      "options": [
+        "お<ruby>寺<rt>てら</rt></ruby>",
+        "<ruby>王<rt>おう</rt></ruby>",
+        "<ruby>歴史<rt>れきし</rt></ruby>",
+        "<ruby>城<rt>しろ</rt></ruby>"
+      ],
+      "correct": "<ruby>城<rt>しろ</rt></ruby>",
+      "explanation": "<ruby>城<rt>しろ</rt></ruby>: castle."
+    },
+    {
+      "prompt": "Read: <ruby>大学<rt>だいがく</rt></ruby>の<ruby>先輩<rt>せんぱい</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して<ruby>知<rt>し</rt></ruby>りあいました。 How did Yuki meet the teacher?",
+      "options": [
+        "Through a senior student at university",
+        "At a temple",
+        "On the internet",
+        "At a castle"
+      ],
+      "correct": "Through a senior student at university",
+      "explanation": "を<ruby>通<rt>とお</rt></ruby>して: through."
+    },
+    {
+      "prompt": "Review: complete <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ＿＿<ruby>出<rt>で</rt></ruby>かけた。",
+      "options": [
+        "<ruby>中<rt>じゅう</rt></ruby>",
+        "ずに",
+        "ごとに",
+        "たびに"
+      ],
+      "correct": "ずに",
+      "explanation": "Without doing: V-ずに."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-9-every-time",
+    "japanese-n3-unit-9-written-style",
+    "japanese-n3-unit-1-in-the-middle"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

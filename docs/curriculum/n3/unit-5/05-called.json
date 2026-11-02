@@ -1,0 +1,530 @@
+{
+  "id": "japanese-n3-unit-5-called",
+  "slug": "n3-unit-5-called",
+  "unit": "Japanese N3 Unit 5",
+  "unit_number": 5,
+  "lesson_number": 5,
+  "is_review": false,
+  "title": "A Word Called…",
+  "title_jp": "〜と いう",
+  "objectives": [
+    "I can explain what a word or name means.",
+    "Introduce a name with 〜というN",
+    "Explain a word with 〜というのは〜ことだ",
+    "Talk about words, names, symbols and diaries"
+  ],
+  "vocabulary": [
+    [
+      "<ruby>呼<rt>よ</rt></ruby>ぶ",
+      "",
+      "to call"
+    ],
+    [
+      "<ruby>言葉<rt>ことば</rt></ruby>",
+      "",
+      "word; language"
+    ],
+    [
+      "<ruby>葉<rt>は</rt></ruby>",
+      "",
+      "leaf"
+    ],
+    [
+      "<ruby>記事<rt>きじ</rt></ruby>",
+      "",
+      "article (news)"
+    ],
+    [
+      "<ruby>日記<rt>にっき</rt></ruby>",
+      "",
+      "diary"
+    ],
+    [
+      "<ruby>記号<rt>きごう</rt></ruby>",
+      "",
+      "symbol, sign"
+    ],
+    [
+      "〜<ruby>号<rt>ごう</rt></ruby>",
+      "",
+      "number (of a train, room or issue)"
+    ],
+    [
+      "<ruby>示<rt>しめ</rt></ruby>す",
+      "",
+      "to show, to indicate"
+    ],
+    [
+      "<ruby>表示<rt>ひょうじ</rt></ruby>",
+      "",
+      "display, sign (+ する: to display)"
+    ],
+    [
+      "<ruby>単語<rt>たんご</rt></ruby>",
+      "",
+      "word, vocabulary item"
+    ],
+    [
+      "〜という",
+      "",
+      "called, named"
+    ],
+    [
+      "〜というのは",
+      "",
+      "what … means is"
+    ]
+  ],
+  "kanji_form": [
+    {
+      "word_japanese": "呼ぶ",
+      "word_reading": "よぶ"
+    },
+    {
+      "word_japanese": "言葉",
+      "word_reading": "ことば"
+    },
+    {
+      "word_japanese": "葉",
+      "word_reading": "は"
+    },
+    {
+      "word_japanese": "記事",
+      "word_reading": "きじ"
+    },
+    {
+      "word_japanese": "日記",
+      "word_reading": "にっき"
+    },
+    {
+      "word_japanese": "記号",
+      "word_reading": "きごう"
+    },
+    {
+      "word_japanese": "示す",
+      "word_reading": "しめす"
+    },
+    {
+      "word_japanese": "表示",
+      "word_reading": "ひょうじ"
+    },
+    {
+      "word_japanese": "単語",
+      "word_reading": "たんご"
+    }
+  ],
+  "concept": {
+    "title": "Called, and what it means",
+    "text": "A という N introduces a name the listener may not know:\n「さくら」という<ruby>店<rt>みせ</rt></ruby>で<ruby>会<rt>あ</rt></ruby>いましょう。 Let's meet at a shop called Sakura.\nやまだという<ruby>人<rt>ひと</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました。 Someone called Yamada phoned.\n\nA というのは B (という)ことだ explains what a word or phrase means:\n「つん<ruby>読<rt>どく</rt></ruby>」というのは、<ruby>本<rt>ほん</rt></ruby>を<ruby>買<rt>か</rt></ruby>っても<ruby>読<rt>よ</rt></ruby>まないことです。 Tsundoku means buying books and not reading them.\n\nAfter というのは, end with ことだ (for an action or situation) or a noun.\nCasual: 〜って: 「つん<ruby>読<rt>どく</rt></ruby>」って<ruby>何<rt>なに</rt></ruby>？",
+    "examples": [
+      "A という N (called)",
+      "A というのは B (という)ことだ",
+      "casual: A って"
+    ]
+  },
+  "grammar": [
+    {
+      "title": "Called: 〜というN",
+      "pattern": "name / word + という + N",
+      "explanation": "Introduces a name or word that the listener may not know.",
+      "examples": [
+        {
+          "japanese": "「さくら」という<ruby>店<rt>みせ</rt></ruby>で<ruby>会<rt>あ</rt></ruby>いましょう。",
+          "romaji": "",
+          "meaning": "Let's meet at a shop called Sakura."
+        },
+        {
+          "japanese": "やまだという<ruby>人<rt>ひと</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました。",
+          "romaji": "",
+          "meaning": "Someone called Yamada phoned."
+        },
+        {
+          "japanese": "これは<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>何<rt>なん</rt></ruby>という<ruby>花<rt>はな</rt></ruby>ですか。",
+          "romaji": "",
+          "meaning": "What is this flower called in Japanese?"
+        },
+        {
+          "japanese": "「もったいない」という<ruby>言葉<rt>ことば</rt></ruby>がすきです。",
+          "romaji": "",
+          "meaning": "I like the word \"mottainai\"."
+        }
+      ],
+      "notes": [
+        "<ruby>何<rt>なん</rt></ruby>という N: what is it called?",
+        "Casual: っていう: 「さくら」っていう<ruby>店<rt>みせ</rt></ruby>."
+      ]
+    },
+    {
+      "title": "What … means: 〜というのは〜ことだ",
+      "pattern": "A というのは B (という)ことだ / A というのは B のことだ",
+      "explanation": "Defines a word or explains what a situation means.",
+      "examples": [
+        {
+          "japanese": "「つん<ruby>読<rt>どく</rt></ruby>」というのは、<ruby>本<rt>ほん</rt></ruby>を<ruby>買<rt>か</rt></ruby>っても<ruby>読<rt>よ</rt></ruby>まないことです。",
+          "romaji": "",
+          "meaning": "Tsundoku means buying books and not reading them."
+        },
+        {
+          "japanese": "「ゆうびんきょく」というのは、ゆうびんきょくのことです。",
+          "romaji": "",
+          "meaning": "\"Yuubinkyoku\" means the post office."
+        },
+        {
+          "japanese": "この<ruby>記号<rt>きごう</rt></ruby>というのは、「<ruby>禁止<rt>きんし</rt></ruby>」という<ruby>意味<rt>いみ</rt></ruby>です。",
+          "romaji": "",
+          "meaning": "This symbol means \"prohibited\"."
+        },
+        {
+          "japanese": "へんじがないというのは、<ruby>来<rt>こ</rt></ruby>ないということでしょう。",
+          "romaji": "",
+          "meaning": "No reply probably means they're not coming."
+        }
+      ],
+      "notes": [
+        "For a thing: 〜のことです. For an action or situation: 〜ことです.",
+        "Casual: 〜って: 「つん<ruby>読<rt>どく</rt></ruby>」って<ruby>何<rt>なに</rt></ruby>？"
+      ]
+    }
+  ],
+  "examples": [
+    [
+      "みんなはわたしを「アニー」と<ruby>呼<rt>よ</rt></ruby>びます。",
+      "Everyone calls me Annie."
+    ],
+    [
+      "<ruby>秋<rt>あき</rt></ruby>になると、<ruby>木<rt>き</rt></ruby>の<ruby>葉<rt>は</rt></ruby>が<ruby>赤<rt>あか</rt></ruby>くなります。",
+      "In autumn, the leaves turn red."
+    ],
+    [
+      "まいばん、<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>日記<rt>にっき</rt></ruby>を<ruby>書<rt>か</rt></ruby>いています。",
+      "I write a diary in Japanese every night."
+    ],
+    [
+      "<ruby>新<rt>あたら</rt></ruby>しい<ruby>単語<rt>たんご</rt></ruby>を<ruby>毎日<rt>まいにち</rt></ruby><ruby>十<rt>じゅっ</rt></ruby>こおぼえます。",
+      "I learn ten new words every day."
+    ]
+  ],
+  "dialogue": [
+    [
+      "アナ",
+      "この<ruby>記事<rt>きじ</rt></ruby>、<ruby>読<rt>よ</rt></ruby>みましたか。",
+      "けん",
+      "いいえ、<ruby>何<rt>なに</rt></ruby>についての<ruby>記事<rt>きじ</rt></ruby>ですか。"
+    ],
+    [
+      "リー",
+      "「つん<ruby>読<rt>どく</rt></ruby>」って<ruby>何<rt>なん</rt></ruby>ですか。",
+      "マイ",
+      "<ruby>本<rt>ほん</rt></ruby>を<ruby>買<rt>か</rt></ruby>っても<ruby>読<rt>よ</rt></ruby>まないことですよ。"
+    ],
+    [
+      "ゆき",
+      "<ruby>昨日<rt>きのう</rt></ruby>、たなかという<ruby>人<rt>ひと</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありましたよ。",
+      "リン",
+      "ああ、<ruby>会社<rt>かいしゃ</rt></ruby>の<ruby>先輩<rt>せんぱい</rt></ruby>です。"
+    ],
+    [
+      "たなか",
+      "この<ruby>表示<rt>ひょうじ</rt></ruby>はどういう<ruby>意味<rt>いみ</rt></ruby>ですか。",
+      "アナ",
+      "ここでたばこをすってはいけないということです。"
+    ]
+  ],
+  "introduced_kanji": [
+    {
+      "char": "呼",
+      "onyomi": [
+        "コ"
+      ],
+      "kunyomi": [
+        "よ.ぶ"
+      ],
+      "meaning_en": "call",
+      "stroke_count": 8,
+      "example_words": [
+        {
+          "word": "呼ぶ",
+          "reading": "よぶ",
+          "en": "to call"
+        },
+        {
+          "word": "呼吸",
+          "reading": "こきゅう",
+          "en": "breathing"
+        }
+      ],
+      "mnemonic": "A mouth (口) calling out a long breath (乎)."
+    },
+    {
+      "char": "葉",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [
+        "は"
+      ],
+      "meaning_en": "leaf",
+      "stroke_count": 12,
+      "example_words": [
+        {
+          "word": "葉",
+          "reading": "は",
+          "en": "leaf"
+        },
+        {
+          "word": "言葉",
+          "reading": "ことば",
+          "en": "word"
+        }
+      ],
+      "mnemonic": "Grass (艹) on a tree (木) for generations (世): leaves."
+    },
+    {
+      "char": "記",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "しる.す"
+      ],
+      "meaning_en": "record",
+      "stroke_count": 10,
+      "example_words": [
+        {
+          "word": "日記",
+          "reading": "にっき",
+          "en": "diary"
+        },
+        {
+          "word": "記事",
+          "reading": "きじ",
+          "en": "article"
+        }
+      ],
+      "mnemonic": "Words (言) written down by oneself (己): a record."
+    },
+    {
+      "char": "号",
+      "onyomi": [
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "さけ.ぶ",
+        "よびな"
+      ],
+      "meaning_en": "number, sign",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "記号",
+          "reading": "きごう",
+          "en": "symbol"
+        },
+        {
+          "word": "号",
+          "reading": "ごう",
+          "en": "number"
+        }
+      ],
+      "mnemonic": "A mouth (口) calling out a number."
+    },
+    {
+      "char": "示",
+      "onyomi": [
+        "ジ",
+        "シ"
+      ],
+      "kunyomi": [
+        "しめ.す"
+      ],
+      "meaning_en": "show",
+      "stroke_count": 5,
+      "example_words": [
+        {
+          "word": "示す",
+          "reading": "しめす",
+          "en": "to show"
+        },
+        {
+          "word": "表示",
+          "reading": "ひょうじ",
+          "en": "display"
+        }
+      ],
+      "mnemonic": "An altar where the gods show signs."
+    },
+    {
+      "char": "単",
+      "onyomi": [
+        "タン"
+      ],
+      "kunyomi": [
+        "ひとえ"
+      ],
+      "meaning_en": "single, simple",
+      "stroke_count": 9,
+      "example_words": [
+        {
+          "word": "単語",
+          "reading": "たんご",
+          "en": "word"
+        },
+        {
+          "word": "単純",
+          "reading": "たんじゅん",
+          "en": "simple"
+        }
+      ],
+      "mnemonic": "A single drum on a stand: one simple thing."
+    }
+  ],
+  "reading": {
+    "genre": "",
+    "text_jp": "",
+    "en_translation": "",
+    "questions": []
+  },
+  "practice": [
+    {
+      "prompt": "Review: complete <ruby>京都<rt>きょうと</rt></ruby>と＿＿、おてらですね。",
+      "options": [
+        "して",
+        "いえば",
+        "とって",
+        "ついて"
+      ],
+      "correct": "いえば",
+      "explanation": "Speaking of: といえば."
+    },
+    {
+      "prompt": "Complete: 「さくら」と＿＿<ruby>店<rt>みせ</rt></ruby>で<ruby>会<rt>あ</rt></ruby>いましょう。",
+      "options": [
+        "いえば",
+        "して",
+        "いう",
+        "とって"
+      ],
+      "correct": "いう",
+      "explanation": "Called: という N."
+    },
+    {
+      "prompt": "Complete: 「つん<ruby>読<rt>どく</rt></ruby>」という＿＿、<ruby>本<rt>ほん</rt></ruby>を<ruby>買<rt>か</rt></ruby>っても<ruby>読<rt>よ</rt></ruby>まないことです。",
+      "options": [
+        "のに",
+        "より",
+        "ほど",
+        "のは"
+      ],
+      "correct": "のは",
+      "explanation": "What … means: というのは."
+    },
+    {
+      "prompt": "Complete: これは<ruby>日本語<rt>にほんご</rt></ruby>で＿＿という<ruby>花<rt>はな</rt></ruby>ですか。",
+      "options": [
+        "<ruby>何<rt>なん</rt></ruby>",
+        "どう",
+        "どこ",
+        "だれ"
+      ],
+      "correct": "<ruby>何<rt>なん</rt></ruby>",
+      "explanation": "What is it called: <ruby>何<rt>なん</rt></ruby>という."
+    },
+    {
+      "prompt": "Which word means \"diary\"?",
+      "options": [
+        "<ruby>記事<rt>きじ</rt></ruby>",
+        "<ruby>日記<rt>にっき</rt></ruby>",
+        "<ruby>記号<rt>きごう</rt></ruby>",
+        "<ruby>単語<rt>たんご</rt></ruby>"
+      ],
+      "correct": "<ruby>日記<rt>にっき</rt></ruby>",
+      "explanation": "<ruby>日記<rt>にっき</rt></ruby>: diary."
+    },
+    {
+      "prompt": "How is 言葉⁠ read?",
+      "options": [
+        "げんよう",
+        "いいは",
+        "ことば",
+        "ごんば"
+      ],
+      "correct": "ことば",
+      "explanation": "言葉⁠ is read ことば."
+    },
+    {
+      "prompt": "Choose the meaning of みんなはわたしを「アニー」と<ruby>呼<rt>よ</rt></ruby>びます。",
+      "options": [
+        "I call everyone Annie.",
+        "Annie calls everyone.",
+        "Everyone is called Annie.",
+        "Everyone calls me Annie."
+      ],
+      "correct": "Everyone calls me Annie.",
+      "explanation": "<ruby>呼<rt>よ</rt></ruby>ぶ: to call."
+    }
+  ],
+  "challenge": [
+    {
+      "prompt": "You want to explain the word 「もったいない」. Which sentence fits?",
+      "options": [
+        "「もったいない」といえば、むだにするのがおしいです。",
+        "「もったいない」として、むだにするのがおしいです。",
+        "「もったいない」にとって、むだにするのがおしいです。",
+        "「もったいない」というのは、むだにするのがおしいということです。"
+      ],
+      "correct": "「もったいない」というのは、むだにするのがおしいということです。",
+      "explanation": "Definitions: というのは〜ということだ."
+    },
+    {
+      "prompt": "What does やまだという<ruby>人<rt>ひと</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました mean?",
+      "options": [
+        "Someone called Yamada phoned.",
+        "I phoned Mr Yamada.",
+        "Yamada said someone phoned.",
+        "Yamada was talking on the phone."
+      ],
+      "correct": "Someone called Yamada phoned.",
+      "explanation": "という N: called."
+    },
+    {
+      "prompt": "Which word means \"to show, to indicate\"?",
+      "options": [
+        "<ruby>呼<rt>よ</rt></ruby>ぶ",
+        "<ruby>示<rt>しめ</rt></ruby>す",
+        "<ruby>記<rt>しる</rt></ruby>す",
+        "<ruby>表示<rt>ひょうじ</rt></ruby>"
+      ],
+      "correct": "<ruby>示<rt>しめ</rt></ruby>す",
+      "explanation": "<ruby>示<rt>しめ</rt></ruby>す: to show."
+    },
+    {
+      "prompt": "Read: ここでたばこをすってはいけないということです。 What does the sign mean?",
+      "options": [
+        "Smoking area.",
+        "Cigarettes sold here.",
+        "No smoking here.",
+        "No eating here."
+      ],
+      "correct": "No smoking here.",
+      "explanation": "ということ: what it means."
+    },
+    {
+      "prompt": "Review (Unit 4): complete <ruby>弟<rt>おとうと</rt></ruby>は<ruby>寝<rt>ね</rt></ruby>て＿＿います。 (nothing but)",
+      "options": [
+        "さえ",
+        "という",
+        "ほど",
+        "ばかり"
+      ],
+      "correct": "ばかり",
+      "explanation": "Nothing but: てばかりいる."
+    }
+  ],
+  "recycled_from": [
+    "japanese-n3-unit-5-speaking-of",
+    "japanese-n3-unit-5-about",
+    "japanese-n4-unit-1-they-said"
+  ],
+  "skill_notes": "",
+  "review_flags": []
+}

@@ -103,7 +103,7 @@ const scan = page => page.evaluate(() => {
       }
     }
     // Stroke diagrams use theme colours: guide strokes differ from the background in dark mode.
-    await page.evaluate(() => localStorage.setItem('theme', 'dark')); await page.goto(base + '/learn/kanji/kanji-6642'); await page.locator('svg[role="img"] path').first().waitFor();
+    await page.evaluate(() => localStorage.setItem('theme', 'dark')); await page.goto(base + '/learn/kanji/kanji-6642'); await page.getByRole('tab', { name: /Draw/ }).click(); await page.locator('svg[role="img"] path').first().waitFor();
     const strokeColours = await page.evaluate(() => { const svg = document.querySelector('svg[role="img"]'); return svg ? [...new Set([...svg.querySelectorAll('path')].map(p => getComputedStyle(p).stroke))].slice(0, 3) : []; });
     assert.ok(strokeColours.length >= 1 && !strokeColours.includes('rgb(17, 24, 39)'), 'stroke colours follow the theme: ' + strokeColours.join(', '));
 
