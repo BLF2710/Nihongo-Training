@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { IslandGrowth, GrowthMeasure } from "../../lib/islandGrowth";
+import type { GrowthMeasure, GrowthTrack, IslandGrowth } from "../../lib/islandGrowth";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { Island, IslandState, NextStep } from "../../lib/islandMap";
@@ -57,27 +57,35 @@ export function IslandPanel({ island, state, nextStep, notes, onClose, growth = 
 
 // What each island grows with, as the learner reads it ("Grows with kanji mastered").
 const MEASURE_LABELS: Record<GrowthMeasure, string> = {
-  completedLessons: "lessons completed", levelsCompleted: "JLPT levels completed", practiceSessions: "listening, speaking and reading sessions",
-  gamesPlayed: "Particle Drop games", matureCards: "mature review cards", kanjiMastered: "kanji mastered", kanaMastered: "kana mastered",
+  completedLessons: "lessons completed", levelsCompleted: "JLPT levels completed", listeningSessions: "listening sessions",
+  speakingSessions: "speaking sessions", readingSessions: "reading sessions", gamesPlayed: "Particle Drop games",
+  cardsLearned: "review cards learned", matureCards: "mature review cards", kanjiMastered: "kanji mastered", kanaMastered: "kana mastered",
 };
 
 // Anything else that grows the island, beyond its measure.
-const MEASURE_HINTS: Partial<Record<GrowthMeasure, string>> = { levelsCompleted: "Every unit you complete also adds a lantern or azalea." };
+const MEASURE_HINTS: Partial<Record<GrowthMeasure, string>> = {
+  levelsCompleted: "Every unit you complete also adds a lantern or azalea.",
+  cardsLearned: "Fallen leaves on the sand are today's due cards; reviewing sweeps them away.",
+};
 
-/** How far an island has grown, with dots for its steps and what the next one needs. */
+/** How far an island has grown: a row for each of its tracks, with dots for its steps and what the next one needs. */
 function GrowthNote({ growth, preview }: { growth: IslandGrowth; preview?: Props["growthPreview"] }) {
-  const label = MEASURE_LABELS[growth.measure];
-  return <div className="mb-4 rounded-xl bg-[var(--ink)]/5 px-3 py-2 text-sm">
-    <div className="flex items-center gap-3">
-    <span className="flex shrink-0 gap-1" role="img" aria-label={`Grown ${growth.stage} of ${growth.maxStage} steps`}>
-      {Array.from({ length: growth.maxStage }, (_, step) => <span key={step} className={`size-2.5 rounded-full border border-[var(--ink)]/40 ${step < growth.stage ? "bg-[var(--leaf)]" : ""}`} />)}
+  return <div className="mb-4 space-y-2 rounded-xl bg-[var(--ink)]/5 px-3 py-2 text-sm">
+    {growth.tracks.map(track => <GrowthTrackRow key={track.measure} track={track} />)}
+    {preview && <GrowthPreview maxStage={growth.maxStage} {...preview} />}
+  </div>;
+}
+
+function GrowthTrackRow({ track }: { track: GrowthTrack }) {
+  const label = MEASURE_LABELS[track.measure];
+  return <div className="flex items-center gap-3">
+    <span className="flex shrink-0 gap-1" role="img" aria-label={`Grown ${track.stage} of ${track.maxStage} steps`}>
+      {Array.from({ length: track.maxStage }, (_, step) => <span key={step} className={`size-2.5 rounded-full border border-[var(--ink)]/40 ${step < track.stage ? "bg-[var(--leaf)]" : ""}`} />)}
     </span>
     <span>
-      {growth.nextAt === null ? `Fully grown: ${growth.value} ${label}.` : `Grows with ${label}: ${growth.value} so far, next step at ${growth.nextAt}.`}
-      {MEASURE_HINTS[growth.measure] && <span className="block text-xs opacity-70">{MEASURE_HINTS[growth.measure]}</span>}
+      {track.nextAt === null ? `Fully grown: ${track.value} ${label}.` : `Grows with ${label}: ${track.value} so far, next step at ${track.nextAt}.`}
+      {MEASURE_HINTS[track.measure] && <span className="block text-xs opacity-70">{MEASURE_HINTS[track.measure]}</span>}
     </span>
-    </div>
-    {preview && <GrowthPreview maxStage={growth.maxStage} {...preview} />}
   </div>;
 }
 

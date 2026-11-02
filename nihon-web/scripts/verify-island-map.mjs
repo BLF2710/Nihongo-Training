@@ -5,7 +5,7 @@ import { test } from "node:test";
 import { backdropCamera, BRIDGED_ISLANDS, cameraTransform, climbProgress, courseProgress, islandState, ISLANDS, LANDSCAPE_LAYOUT, layoutFor, nextCourseStep, PORTRAIT_LAYOUT } from "../src/lib/islandMap.ts";
 
 import { parseMapTimeSetting, timeOfDayAt, timeOfDayFor } from "../src/lib/timeOfDay.ts";
-import { islandGrowth, sessionsOf, PRACTICE_KINDS, GAME_KINDS } from "../src/lib/islandGrowth.ts";
+import { islandGrowth, sessionsOf, spreadStage, GAME_KINDS } from "../src/lib/islandGrowth.ts";
 const progress = (completedLessons, completedUnits = 0) => ({ completedLessons, completedUnits });
 const openIds = p => ISLANDS.filter(island => islandState(island.id, p).status === "open").map(island => island.id);
 
@@ -187,7 +187,10 @@ test("the sky's camera brings the chosen island to the same spot as the islands'
   assert.deepEqual([moved.x, moved.y].map(Math.round), [onScreen(target).x, onScreen(target).y].map(Math.round));
 });
 
-const facts = (overrides = {}) => ({ completedLessons: 0, levelsCompleted: 0, practiceSessions: 0, gamesPlayed: 0, matureCards: 0, kanjiMastered: 0, kanaMastered: 0, ...overrides });
+const facts = (overrides = {}) => ({
+  completedLessons: 0, levelsCompleted: 0, listeningSessions: 0, speakingSessions: 0, readingSessions: 0, gamesPlayed: 0, cardsLearned: 0, matureCards: 0,
+  kanjiMastered: 0, kanaMastered: 0, ...overrides,
+});
 
 test("an island grows a step each time its measure reaches the next threshold", () => {
   const stages = [0, 4, 5, 19, 20, 50, 400].map(completedLessons => islandGrowth("lessons", facts({ completedLessons })).stage);
@@ -195,11 +198,11 @@ test("an island grows a step each time its measure reaches the next threshold", 
 });
 
 test("growth says what the next step needs, and nothing once fully grown", () => {
-  assert.deepEqual(islandGrowth("kanji", facts({ kanjiMastered: 12 })), { stage: 1, maxStage: 3, measure: "kanjiMastered", value: 12, nextAt: 50 });
-  assert.equal(islandGrowth("kanji", facts({ kanjiMastered: 150 })).nextAt, null);
+  assert.deepEqual(islandGrowth("kanji", facts({ kanjiMastered: 12 })).tracks, [{ measure: "kanjiMastered", stage: 1, maxStage: 3, value: 12, nextAt: 50 }]);
+  assert.equal(islandGrowth("kanji", facts({ kanjiMastered: 150 })).tracks[0].nextAt, null);
 });
 
-test("Home's shrine grows with each JLPT level completed, up to N1", () => {
+test("Home's torii grows with each JLPT level completed, up to N1", () => {
   assert.deepEqual([0, 1, 3, 5].map(levelsCompleted => islandGrowth("home", facts({ levelsCompleted })).stage), [0, 1, 3, 5]);
 });
 
@@ -208,7 +211,21 @@ test("an island whose measure is unknown, or that does not grow, has no growth",
   assert.equal(islandGrowth("harbour", facts()), null);
 });
 
-test("Practice grows from listening, speaking and reading; Games from the particle game", () => {
-  const practice = [{ kind: "listening", sessions: 4 }, { kind: "reading", sessions: 3 }, { kind: "particles", sessions: 9 }, { kind: "mock-exam", sessions: 2 }];
-  assert.deepEqual([sessionsOf(practice, PRACTICE_KINDS), sessionsOf(practice, GAME_KINDS)], [7, 9]);
+test("Games grows from the particle game only", () => {
+  const practice = [{ kind: "listening", sessions: 4 }, { kind: "particles", sessions: 9 }, { kind: "mock-exam", sessions: 2 }];
+  assert.equal(sessionsOf(practice, GAME_KINDS), 9);
+});
+
+test("Practice grows a corner for each skill, so each skill's sessions count on their own", () => {
+  const growth = islandGrowth("practice", facts({ listeningSessions: 12, speakingSessions: 0, readingSessions: 3 }));
+  assert.deepEqual(growth.tracks.map(track => track.stage), [2, 0, 1]);
+});
+
+test("an island with several tracks grows by their steps added up", () => {
+  const growth = islandGrowth("review", facts({ cardsLearned: 120, matureCards: 10 }));
+  assert.deepEqual([growth.stage, growth.maxStage], [3, 6]);
+});
+
+test("a previewed total step is shared among the tracks in turn, never past a track's last step", () => {
+  assert.deepEqual([spreadStage(4, [3, 3, 3]), spreadStage(5, [3, 1]), spreadStage(9, [2, 2])], [[2, 1, 1], [3, 1], [2, 2]]);
 });

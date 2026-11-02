@@ -128,69 +128,344 @@ function Pagoda({ stage }: LandmarkProps) {
   </g>;
 }
 
-// The grove thickens as Practice grows: 3 stalks, then 5, 7 and 9 (the middle ones first).
-const BAMBOO_STALKS = [
-  { x: -4, h: 100 }, { x: -24, h: 116 }, { x: 18, h: 124 }, { x: -44, h: 92 }, { x: 40, h: 96 },
-  { x: -64, h: 80 }, { x: 60, h: 84 }, { x: -14, h: 134 }, { x: 30, h: 138 },
-] as const;
+// Built things on Practice, Games and Review are drawn as solids in the islands' shallow oblique view: depth runs up and
+// to the right, tops catch the light, right-hand sides are in shade, and each stands on a soft shadow.
+const DEPTH = { x: 0.75, y: -0.5 } as const;
+const SHADE = 0.25;
+const LIGHT = 0.2;
 
-function Bamboo({ stage }: LandmarkProps) {
-  const stalks = BAMBOO_STALKS.slice(0, 3 + stage * 2).toSorted((a, b) => b.h - a.h);
+type BoxProps = { x: number; y: number; width: number; height: number; depth: number; fill: string };
+
+/** A block seen from the front and above: front face, lit top and shaded side. (x, y) is its front bottom-left corner. */
+function Box({ x, y, width, height, depth, fill }: BoxProps) {
+  const dx = depth * DEPTH.x;
+  const dy = depth * DEPTH.y;
+  const top = y - height;
+  const right = x + width;
+  const side = `M${right},${y} L${right + dx},${y + dy} L${right + dx},${top + dy} L${right},${top} Z`;
+  const lid = `M${x},${top} L${right},${top} L${right + dx},${top + dy} L${x + dx},${top + dy} Z`;
   return <g>
-    {stalks.map(({ x, h }) => <g key={x}>
-      <line x1={x} y1="6" x2={x} y2={6 - h} stroke="var(--leaf)" strokeWidth="7" strokeLinecap="round" />
-      <line x1={x} y1="6" x2={x} y2={6 - h} stroke="var(--ink)" strokeWidth="1" opacity="0.5" />
-      {[0.3, 0.55, 0.8].map(share => <line key={share} x1={x - 4} y1={6 - h * share} x2={x + 4} y2={6 - h * share} stroke="var(--ink)" strokeWidth="1.5" />)}
-      <path d={`M${x},${8 - h} q12,-4 18,4 q-12,2 -18,-4 Z M${x},${14 - h} q-12,-6 -18,2 q12,2 18,-2 Z`} fill="var(--leaf)" {...ink} strokeWidth="1" />
-    </g>)}
-    <path d="M-78,30 l10,-6 l12,4 l-6,8 Z" fill="var(--paper)" {...ink} strokeWidth="1.5" />
+    <path d={side} fill={fill} {...ink} strokeWidth="1.2" />
+    <path d={side} fill="var(--ink)" opacity={SHADE} />
+    <path d={lid} fill={fill} {...ink} strokeWidth="1.2" />
+    <path d={lid} fill="var(--paper)" opacity={LIGHT} />
+    <rect x={x} y={top} width={width} height={height} fill={fill} {...ink} strokeWidth="1.2" />
   </g>;
 }
 
-// Games: the festival lanterns light up one by one as games are played (middle first).
-const GAME_LANTERNS = [-26, 0, 26] as const;
-const LIGHTING_ORDER = [1, 0, 2] as const;
+type RoofProps = { x: number; y: number; width: number; depth: number; height: number; ridge: number; fill: string };
 
-function Lanterns({ stage }: LandmarkProps) {
-  const litIndexes = new Set<number>(LIGHTING_ORDER.slice(0, stage));
+/** A hipped roof over a width × depth frame whose front eave runs right from (x, y). `ridge` is the ridge's share of the
+ *  width: 0 makes a pyramid roof. */
+function HipRoof({ x, y, width, depth, height, ridge, fill }: RoofProps) {
+  const dx = depth * DEPTH.x;
+  const dy = depth * DEPTH.y;
+  const centre = x + width / 2 + dx / 2;
+  const ridgeY = y + dy / 2 - height;
+  const half = (width * ridge) / 2;
+  const front = `M${x},${y} L${x + width},${y} L${centre + half},${ridgeY} L${centre - half},${ridgeY} Z`;
+  const side = `M${x + width},${y} L${x + width + dx},${y + dy} L${centre + half},${ridgeY} Z`;
   return <g>
-    <line x1="-52" y1="8" x2="-52" y2="-96" stroke="var(--wood)" strokeWidth="5" />
-    <line x1="52" y1="8" x2="52" y2="-96" stroke="var(--wood)" strokeWidth="5" />
+    <path d={side} fill={fill} {...ink} strokeWidth="1.3" />
+    <path d={side} fill="var(--ink)" opacity={SHADE} />
+    <path d={front} fill={fill} {...ink} strokeWidth="1.3" />
+    <path d={`M${x + 2},${y - 1.5} L${x + width - 2},${y - 1.5}`} stroke="var(--paper)" strokeWidth="1" opacity="0.35" />
+  </g>;
+}
+
+/** A round wooden post, outlined in ink, from (x, y) up by `height`. */
+function Post({ x, y, height, width = 3 }: { x: number; y: number; height: number; width?: number }) {
+  return <g>
+    <line x1={x} y1={y} x2={x} y2={y - height} stroke="var(--ink)" strokeWidth={width + 1.6} strokeLinecap="round" />
+    <line x1={x} y1={y} x2={x} y2={y - height} stroke="var(--wood)" strokeWidth={width} strokeLinecap="round" />
+  </g>;
+}
+
+function GroundShadow({ x, y, rx }: { x: number; y: number; rx: number }) {
+  return <ellipse cx={x} cy={y} rx={rx} ry={rx * 0.3} fill="var(--ink)" opacity="0.15" />;
+}
+
+// Practice: a corner for each skill grows with that skill's sessions, around a bamboo grove at the back right. Listening
+// (front right): a wind chime, a stone basin with a bamboo spout, then a deer scarer. Speaking (front): a stage floor,
+// its roof, then a curtain and a banner. Reading (back left): a bench with an open book, a pavilion over it, then a
+// stack of books.
+const BAMBOO_STALKS = [{ x: -26, h: 112 }, { x: -6, h: 128 }, { x: 14, h: 120 }, { x: 34, h: 104 }, { x: -44, h: 96 }] as const;
+
+function BambooGrove() {
+  return <g transform="translate(40,-8)">
+    <GroundShadow x={-4} y={-6} rx={50} />
+    {BAMBOO_STALKS.map(({ x, h }) => <g key={x}>
+      <line x1={x} y1="-6" x2={x} y2={-6 - h} stroke="var(--leaf)" strokeWidth="6" strokeLinecap="round" />
+      <line x1={x + 1.5} y1="-6" x2={x + 1.5} y2={-6 - h} stroke="var(--ink)" strokeWidth="2" opacity={SHADE} />
+      <line x1={x} y1="-6" x2={x} y2={-6 - h} stroke="var(--ink)" strokeWidth="1" opacity="0.5" />
+      {[0.35, 0.6, 0.85].map(share => <line key={share} x1={x - 3.5} y1={-6 - h * share} x2={x + 3.5} y2={-6 - h * share} stroke="var(--ink)" strokeWidth="1.3" />)}
+      <path d={`M${x},${-4 - h} q12,-4 18,4 q-12,2 -18,-4 Z M${x},${2 - h} q-12,-6 -18,2 q12,2 18,-2 Z`} fill="var(--leaf)" {...ink} strokeWidth="1" />
+    </g>)}
+  </g>;
+}
+
+/** A short round thing (a stone basin, a drum) seen from above: its side, then its lit top. */
+function Cylinder({ x, y, rx, height, fill }: { x: number; y: number; rx: number; height: number; fill: string }) {
+  const ry = rx * 0.38;
+  return <g transform={`translate(${x},${y})`}>
+    <path d={`M${-rx},${-height} V0 A${rx},${ry} 0 0 0 ${rx},0 V${-height} Z`} fill={fill} {...ink} strokeWidth="1.3" />
+    <path d={`M${rx * 0.3},${-height} V${ry * 0.9} A${rx},${ry} 0 0 0 ${rx},0 V${-height} Z`} fill="var(--ink)" opacity={SHADE} />
+    <ellipse cy={-height} rx={rx} ry={ry} fill={fill} {...ink} strokeWidth="1.3" />
+    <ellipse cy={-height} rx={rx} ry={ry} fill="var(--paper)" opacity={LIGHT} />
+  </g>;
+}
+
+function ListeningCorner({ stage }: { stage: number }) {
+  return <g transform="translate(56,4)">
+    {stage >= 1 && <g>
+      <GroundShadow x={-6} y={10} rx={10} />
+      <Box x={-10} y={10} width={4} height={56} depth={3} fill="var(--wood)" />
+      <Box x={-8} y={-41} width={24} height={3} depth={3} fill="var(--wood)" />
+      <g className="island-chime">
+        <line x1="12" y1="-41" x2="12" y2="-37" stroke="var(--ink)" strokeWidth="1" />
+        <path d="M6,-29 Q6,-38 12,-38 Q18,-38 18,-29 Z" fill="var(--shallow)" {...ink} strokeWidth="1.2" />
+        <path d="M8,-31 Q8.5,-35 11,-36" fill="none" stroke="var(--paper)" strokeWidth="1" opacity="0.8" />
+        <line x1="12" y1="-29" x2="12" y2="-23" stroke="var(--ink)" strokeWidth="0.8" />
+        <rect x="9.5" y="-23" width="5" height="9" fill="var(--paper)" stroke="var(--ink)" strokeWidth="0.8" />
+      </g>
+    </g>}
+    {stage >= 2 && <g transform="translate(20,12)">
+      <GroundShadow x={2} y={1} rx={13} />
+      <Post x={-26} y={-6} height={14} width={2} />
+      <path d="M-30,-20 L-6,-14" stroke="var(--ink)" strokeWidth="5.6" strokeLinecap="round" />
+      <path d="M-30,-20 L-6,-14" stroke="var(--leaf)" strokeWidth="4" strokeLinecap="round" />
+      <path d="M-30,-21 L-6,-15" stroke="var(--paper)" strokeWidth="0.8" opacity="0.5" />
+      <Cylinder x={0} y={0} rx={10} height={6} fill="var(--stone)" />
+      <ellipse cy="-5.6" rx="6" ry="2" fill="var(--onsen)" stroke="var(--ink)" strokeWidth="0.8" />
+      <path d="M-6,-14 q3,3 4,8" fill="none" stroke="var(--foam)" strokeWidth="1.8" strokeLinecap="round" />
+    </g>}
+    {stage >= 3 && <g transform="translate(14,24) scale(0.8)">
+      <GroundShadow x={2} y={3} rx={16} />
+      <Box x={4} y={1} width={2.5} height={13} depth={2} fill="var(--wood)" />
+      <path d="M-16,-2 L16,-12" stroke="var(--ink)" strokeWidth="6" strokeLinecap="round" />
+      <path d="M-16,-2 L16,-12" stroke="var(--leaf)" strokeWidth="4.5" strokeLinecap="round" />
+      <path d="M-15,-3.5 L15,-13" stroke="var(--paper)" strokeWidth="0.9" opacity="0.5" />
+      <Box x={-6} y={3} width={2.5} height={13} depth={2} fill="var(--wood)" />
+      <circle cx="-4.5" cy="-7.5" r="1.3" fill="var(--ink)" />
+    </g>}
+  </g>;
+}
+
+// The stage floor's depth, shared by its posts and roof.
+const STAGE_DEPTH = 20;
+
+function SpeakingCorner({ stage }: { stage: number }) {
+  if (stage < 1) return null;
+  const back = { x: STAGE_DEPTH * DEPTH.x, y: STAGE_DEPTH * DEPTH.y };
+  return <g transform="translate(-8,28)">
+    <GroundShadow x={10} y={6} rx={42} />
+    <Box x={-28} y={6} width={56} height={7} depth={STAGE_DEPTH} fill="var(--wood)" />
+    {stage >= 2 && <>
+      <Post x={-24 + back.x} y={-1 + back.y} height={30} />
+      <Post x={24 + back.x} y={-1 + back.y} height={30} />
+    </>}
+    {stage >= 3 && <g>
+      <GroundShadow x={44} y={6} rx={8} />
+      <Post x={42} y={6} height={52} width={2} />
+      <rect x="43" y="-44" width="8" height="26" fill="var(--paper)" stroke="var(--ink)" strokeWidth="1" />
+      <rect x="43" y="-44" width="8" height="5" fill="var(--vermilion)" />
+    </g>}
+    {stage >= 2 && <>
+      <Post x={-24} y={-1} height={30} />
+      <Post x={24} y={-1} height={30} />
+      {stage >= 3 && <g>
+        <path d="M-24,-29 q12,9 24,0 q12,9 24,0" fill="none" stroke="var(--ink)" strokeWidth="5" />
+        <path d="M-24,-29 q12,9 24,0 q12,9 24,0" fill="none" stroke="var(--vermilion)" strokeWidth="3.4" />
+        <path d="M-24,-29 q12,9 24,0 q12,9 24,0" fill="none" stroke="var(--paper)" strokeWidth="3.4" strokeDasharray="4 4" />
+      </g>}
+      <HipRoof x={-32} y={-31} width={64} depth={STAGE_DEPTH} height={14} ridge={0.45} fill="var(--slate)" />
+    </>}
+  </g>;
+}
+
+// The reading pavilion's depth, shared by its platform, posts and roof.
+const PAVILION_DEPTH = 18;
+const BOOK_STACK = [{ y: 6, width: 9, fill: "var(--vermilion)" }, { y: 3, width: 8, fill: "var(--leaf)" }, { y: 0, width: 7, fill: "var(--slate)" }] as const;
+
+function ReadingCorner({ stage }: { stage: number }) {
+  if (stage < 1) return null;
+  const back = { x: PAVILION_DEPTH * DEPTH.x, y: PAVILION_DEPTH * DEPTH.y };
+  const hasPavilion = stage >= 2;
+  return <g transform="translate(-62,-16)">
+    <GroundShadow x={6} y={10} rx={hasPavilion ? 32 : 16} />
+    {hasPavilion && <>
+      <Box x={-22} y={10} width={40} height={4} depth={PAVILION_DEPTH} fill="var(--stone)" />
+      <Post x={-19 + back.x} y={6 + back.y} height={30} />
+      <Post x={15 + back.x} y={6 + back.y} height={30} />
+    </>}
+    <Box x={-11} y={4} width={22} height={5} depth={8} fill="var(--wood)" />
+    <path d="M-5,-2 Q-2.5,-5 0,-2.5 Q2.5,-5 5,-2 L5,-1 Q2.5,-3.5 0,-1.5 Q-2.5,-3.5 -5,-1 Z" transform="translate(3,-1)" fill="var(--paper)" stroke="var(--ink)" strokeWidth="0.8" />
+    {stage >= 3 && BOOK_STACK.map(book => <Box key={book.y} x={14} y={book.y} width={book.width} height={3} depth={5} fill={book.fill} />)}
+    {hasPavilion && <>
+      <Post x={-19} y={6} height={30} />
+      <Post x={15} y={6} height={30} />
+      <HipRoof x={-26} y={-24} width={46} depth={PAVILION_DEPTH} height={16} ridge={0} fill="var(--slate)" />
+      <circle cx={-3 + back.x / 2} cy={-24 + back.y / 2 - 17} r="2.4" fill="var(--slate)" {...ink} strokeWidth="1" />
+    </>}
+  </g>;
+}
+
+function PracticeGrounds({ trackStages }: LandmarkProps) {
+  const [listening = 0, speaking = 0, reading = 0] = trackStages;
+  return <g>
+    <ReadingCorner stage={reading} />
+    <BambooGrove />
+    <ListeningCorner stage={listening} />
+    <SpeakingCorner stage={speaking} />
+  </g>;
+}
+
+// Games: a summer festival that builds up as games are played: the lanterns light, then a food stall opens, a taiko
+// drum arrives, and a goldfish-scooping pool, with fireworks at night.
+const GAME_LANTERNS = [-26, 0, 26] as const;
+const FESTIVAL_STEPS = { lanternsLit: 1, foodStall: 2, taiko: 3, goldfish: 4 } as const;
+const GOLDFISH = [[-8, 1, 20], [6, -1, -15], [12, 3, 160]] as const;
+const FIREWORKS = [{ x: -54, y: -136, color: "var(--checkpoint-light)", delay: 0 }, { x: 44, y: -150, color: "var(--blossom)", delay: -1.1 }, { x: 78, y: -112, color: "var(--shallow)", delay: -2.2 }] as const;
+const FIREWORK_RAYS = Array.from({ length: 12 }, (_, index) => (index / 12) * Math.PI * 2);
+const STALL_DEPTH = 12;
+// The lantern string stands at the back of the island, leaving the front for the stall, drum and pool.
+const LANTERN_STRING_SHIFT = -10;
+const AWNING_STRIPES = [-22, -12, -2, 8] as const;
+
+function FoodStall() {
+  const back = { x: STALL_DEPTH * DEPTH.x, y: STALL_DEPTH * DEPTH.y };
+  const awningAt = (x: number) => `M${x},-30 L${x + 5},-30 L${x + 5 + back.x},${-36 + back.y} L${x + back.x},${-36 + back.y} Z`;
+  return <g transform="translate(-70,22) scale(1.15)">
+    <GroundShadow x={4} y={2} rx={26} />
+    <Post x={-16 + back.x} y={2 + back.y} height={36} width={2.4} />
+    <Post x={12 + back.x} y={2 + back.y} height={36} width={2.4} />
+    <Box x={-18} y={2} width={32} height={14} depth={STALL_DEPTH} fill="var(--wood)" />
+    <Post x={-16} y={2} height={32} width={2.4} />
+    <Post x={12} y={2} height={32} width={2.4} />
+    <path d={`M-22,-30 L18,-30 L${18 + back.x},${-36 + back.y} L${-22 + back.x},${-36 + back.y} Z`} fill="var(--paper)" {...ink} strokeWidth="1.2" />
+    {AWNING_STRIPES.map(x => <path key={x} d={awningAt(x)} fill="var(--vermilion)" />)}
+    <path d={`M-22,-30 L18,-30 L${18 + back.x},${-36 + back.y} L${-22 + back.x},${-36 + back.y} Z`} fill="none" {...ink} strokeWidth="1.2" />
+    <rect x="-22" y="-30" width="40" height="5" fill="var(--paper)" {...ink} strokeWidth="1.1" />
+    {AWNING_STRIPES.map(x => <rect key={x} x={x} y="-30" width="5" height="5" fill="var(--vermilion)" />)}
+    <rect x="-22" y="-30" width="40" height="5" fill="none" {...ink} strokeWidth="1.1" />
+  </g>;
+}
+
+function TaikoDrum() {
+  return <g transform="translate(66,16) scale(1.25)">
+    <GroundShadow x={0} y={4} rx={16} />
+    <path d="M-6,0 L-2,-10 M10,-2 L6,-11" stroke="var(--wood)" strokeWidth="2.4" strokeLinecap="round" />
+    <path d="M-11,-31 Q-15,-20 -11,-9 L11,-9 Q15,-20 11,-31 Z" fill="var(--vermilion)" {...ink} strokeWidth="1.4" />
+    <path d="M4,-31 Q8,-20 4,-9 L11,-9 Q15,-20 11,-31 Z" fill="var(--ink)" opacity={SHADE} />
+    <path d="M-8,-29 Q-10,-20 -8,-11" fill="none" stroke="var(--paper)" strokeWidth="1.2" opacity="0.45" />
+    {[-7, -2, 3, 8].map(x => <circle key={x} cx={x} cy="-12.5" r="0.9" fill="var(--gold)" />)}
+    <ellipse cx="0" cy="-31" rx="11" ry="3.6" fill="var(--paper)" {...ink} strokeWidth="1.2" />
+    <path d="M-14,4 L-8,-12 M14,4 L8,-12" stroke="var(--ink)" strokeWidth="4.4" strokeLinecap="round" />
+    <path d="M-14,4 L-8,-12 M14,4 L8,-12" stroke="var(--wood)" strokeWidth="3" strokeLinecap="round" />
+    <line x1="14" y1="-41" x2="4" y2="-32" stroke="var(--wood)" strokeWidth="2" strokeLinecap="round" />
+  </g>;
+}
+
+function GoldfishPool() {
+  return <g transform="translate(0,24) scale(1.1)">
+    <ellipse cy="1.5" rx="28" ry="9.5" fill="var(--stone)" {...ink} strokeWidth="1.4" />
+    <ellipse rx="28" ry="9" fill="var(--stone)" {...ink} strokeWidth="1.4" />
+    <ellipse rx="28" ry="9" fill="var(--paper)" opacity={LIGHT} />
+    <ellipse cy="0.5" rx="23.5" ry="6.6" fill="var(--onsen-deep)" stroke="var(--ink)" strokeWidth="1" />
+    <ellipse cy="2" rx="22.5" ry="5.2" fill="var(--onsen)" />
+    {GOLDFISH.map(([x, y, angle]) => <path key={x} d="M-3,0 Q0,-2.2 3,0 Q0,2.2 -3,0 Z M-3,0 l-2.5,-2 l0,4 Z" fill="var(--lantern)" transform={`translate(${x},${y}) rotate(${angle})`} />)}
+  </g>;
+}
+
+function Fireworks() {
+  return <g className="island-fireworks">
+    {FIREWORKS.map(burst => <g key={burst.x} transform={`translate(${burst.x},${burst.y})`}>
+      <g className="island-firework" style={{ animationDelay: `${burst.delay}s` }}>
+        {FIREWORK_RAYS.map(angle => <line key={angle} x1={Math.cos(angle) * 6} y1={Math.sin(angle) * 6} x2={Math.cos(angle) * 17} y2={Math.sin(angle) * 17} stroke={burst.color} strokeWidth="2" strokeLinecap="round" />)}
+      </g>
+    </g>)}
+  </g>;
+}
+
+function Festival({ stage }: LandmarkProps) {
+  const isLit = stage >= FESTIVAL_STEPS.lanternsLit;
+  return <g>
+    {stage >= FESTIVAL_STEPS.goldfish && <Fireworks />}
+    <g transform={`translate(0,${LANTERN_STRING_SHIFT})`}>
+    <GroundShadow x={-50} y={8} rx={8} />
+    <GroundShadow x={54} y={8} rx={8} />
+    <Box x={-55} y={8} width={5} height={104} depth={3} fill="var(--wood)" />
+    <Box x={49} y={8} width={5} height={104} depth={3} fill="var(--wood)" />
     <path d="M-52,-92 Q0,-64 52,-92" fill="none" {...ink} strokeWidth="1.5" />
     {GAME_LANTERNS.map((x, index) => {
       const y = -80 + (x === 0 ? 14 : 8);
-      const isLit = litIndexes.has(index);
       return <g key={x}>
         {isLit && <circle className="island-lantern-lit" cx={x} cy={y + 12} r="22" fill="var(--lantern)" style={{ animationDelay: `${index * 0.7}s` }} />}
         <ellipse cx={x} cy={y + 12} rx="11" ry="14" fill={isLit ? "var(--lantern)" : "var(--paper)"} {...ink} strokeWidth="1.5" />
+        <path d={`M${x + 3},${y} Q${x + 12},${y + 12} ${x + 3},${y + 25}`} fill="none" stroke="var(--ink)" strokeWidth="1" opacity="0.35" />
         <rect x={x - 6} y={y - 3} width="12" height="4" fill="var(--ink)" />
         <rect x={x - 6} y={y + 25} width="12" height="4" fill="var(--ink)" />
       </g>;
     })}
-    <path d="M-20,30 l14,-8 l16,2 l10,8 l-18,6 Z" fill="var(--sand)" {...ink} strokeWidth="1.5" />
+    </g>
+    {stage >= FESTIVAL_STEPS.foodStall && <FoodStall />}
+    {stage >= FESTIVAL_STEPS.taiko && <TaikoDrum />}
+    {stage >= FESTIVAL_STEPS.goldfish && <GoldfishPool />}
   </g>;
 }
 
-// Review: the raked rings spread (1, 2, then 3) and a second rock with moss is set at the last step.
-const RAKED_RINGS = [20, 32, 44] as const;
+// Review: a raked gravel garden under a maple. Its raking spreads with cards learned (rings, then a pebble border) and
+// moss and rocks settle with mature cards. Fallen maple leaves lie on the gravel for the cards due today, one for every
+// few, and are gone once they are reviewed.
+const GRAVEL = { cx: 22, cy: 10, rx: 56, ry: 22 } as const;
+const GRAVEL_EDGE = 3;
+const RAKED_RINGS = [16, 26, 36] as const;
+const CARDS_PER_LEAF = 5;
+const FALLEN_LEAVES = [[-14, 8, 20], [52, 4, -30], [36, 22, 70], [-24, 16, -60], [62, 16, 10], [4, 24, 120], [44, -6, 200], [-4, -4, 40]] as const;
+const LEAF_PATH = "M0,-4 Q3.4,-1 0,4 Q-3.4,-1 0,-4 Z M0,-3 L0,5";
+const GRAVEL_PEBBLES = Array.from({ length: 16 }, (_, index) => (index / 16) * Math.PI * 2);
+const MAPLE_CANOPY = scallopedPath({ cx: 0, cy: -46, rx: 22, ry: 16, bumps: 9 });
+const MAPLE_SHADE = scallopedPath({ cx: 6, cy: -40, rx: 15, ry: 9, bumps: 7 });
+const MAPLE_LIGHT = scallopedPath({ cx: -7, cy: -52, rx: 10, ry: 6, bumps: 6 });
 
-function ZenGarden({ stage }: LandmarkProps) {
+/** A garden rock: a lit face and a shaded one, bedded in moss when `isMossy`. */
+function GardenRock({ x, y, size, isMossy }: { x: number; y: number; size: number; isMossy: boolean }) {
+  return <g transform={`translate(${x},${y}) scale(${size})`}>
+    {isMossy ? <ellipse cx="0" cy="2" rx="14" ry="5" fill="var(--leaf)" {...ink} strokeWidth="1.2" /> : <GroundShadow x={1} y={2} rx={12} />}
+    <path d="M-8,2 q2,-12 9,-11 q8,1 6,11 Z" fill="var(--slate)" {...ink} />
+    <path d="M2,-9 q6,2 5,11 L1,2 Z" fill="var(--ink)" opacity={SHADE} />
+    <path d="M-6,0 q2,-8 6,-9" fill="none" stroke="var(--paper)" strokeWidth="1.2" opacity="0.35" />
+  </g>;
+}
+
+function ZenGarden({ tally, trackStages }: LandmarkProps) {
+  const [learned = 0, mature = 0] = trackStages;
+  const leaves = Math.min(FALLEN_LEAVES.length, Math.ceil(tally / CARDS_PER_LEAF));
   return <g>
-    {RAKED_RINGS.slice(0, 1 + Math.min(stage, 2)).map(r => <ellipse key={r} cx="22" cy="6" rx={r} ry={r * 0.42} fill="none" stroke="var(--paper)" strokeWidth="2.5" />)}
-    {stage >= 3 && <>
-      <ellipse cx="56" cy="20" rx="16" ry="6" fill="var(--leaf)" {...ink} strokeWidth="1.2" />
-      <path d="M48,20 q2,-10 10,-10 q8,1 6,10 Z" fill="var(--slate)" {...ink} />
-    </>}
-    {stage >= 1 && <ellipse cx="18" cy="8" rx="16" ry="5" fill="var(--leaf)" {...ink} strokeWidth="1.2" />}
-    <path d="M10,6 q4,-16 16,-14 q12,2 10,14 Z" fill="var(--slate)" {...ink} />
-    <g transform="translate(-50,4)">
-      <rect x="-6" y="-24" width="12" height="24" fill="var(--paper)" {...ink} />
-      <rect x="-14" y="-34" width="28" height="10" fill="var(--paper)" {...ink} />
-      <rect x="-10" y="-50" width="20" height="16" fill="var(--paper)" {...ink} />
-      <path d="M-20,-50 L0,-66 L20,-50 Z" fill="var(--slate)" {...ink} />
-      <circle cx="0" cy="-69" r="4" fill="var(--slate)" {...ink} />
+    <g transform="translate(-88,4)">
+      <GroundShadow x={4} y={0} rx={20} />
+      <path d="M-2,0 C-1,-14 -3,-24 0,-34 M0,-26 C6,-30 10,-36 12,-42" fill="none" stroke="var(--wood)" strokeWidth="4" strokeLinecap="round" />
+      <path d={MAPLE_CANOPY} fill="var(--maple)" {...ink} strokeWidth="1.5" />
+      <path d={MAPLE_SHADE} fill="var(--ink)" opacity="0.18" />
+      <path d={MAPLE_LIGHT} fill="var(--paper)" opacity="0.3" />
     </g>
-    <Pine x={70} y={30} size={0.8} />
+    <ellipse cx={GRAVEL.cx} cy={GRAVEL.cy + GRAVEL_EDGE} rx={GRAVEL.rx} ry={GRAVEL.ry} fill="var(--shore-dark)" {...ink} strokeWidth="1.4" />
+    <ellipse {...GRAVEL} fill="var(--sand)" {...ink} strokeWidth="1.4" />
+    {RAKED_RINGS.slice(0, 1 + Math.min(learned, 2)).map(r => <ellipse key={r} cx="24" cy="8" rx={r} ry={r * 0.42} fill="none" stroke="var(--shore-dark)" strokeWidth="1.4" />)}
+    {learned >= 3 && GRAVEL_PEBBLES.map(angle => <circle key={angle} cx={GRAVEL.cx + Math.cos(angle) * GRAVEL.rx} cy={GRAVEL.cy + Math.sin(angle) * GRAVEL.ry} r="2.6" fill="var(--stone)" stroke="var(--ink)" strokeWidth="0.8" />)}
+    <GardenRock x={22} y={6} size={1.25} isMossy={mature >= 1} />
+    {mature >= 2 && <GardenRock x={58} y={14} size={0.9} isMossy />}
+    {mature >= 3 && <GardenRock x={-18} y={14} size={0.7} isMossy />}
+    {FALLEN_LEAVES.slice(0, leaves).map(([x, y, angle]) => <path key={`${x}${y}`} d={LEAF_PATH} fill="var(--maple)" stroke="var(--ink)" strokeWidth="0.6" transform={`translate(${GRAVEL.cx + x - 20},${GRAVEL.cy + y - 8}) rotate(${angle}) scale(1.8)`} />)}
+    <g transform="translate(-52,4)">
+      <GroundShadow x={2} y={0} rx={14} />
+      <Box x={-6} y={0} width={12} height={24} depth={6} fill="var(--paper)" />
+      <Box x={-14} y={-24} width={28} height={10} depth={8} fill="var(--paper)" />
+      <Box x={-10} y={-34} width={20} height={16} depth={6} fill="var(--paper)" />
+      <rect x="-6" y="-46" width="12" height="8" fill="var(--lantern)" opacity="0.8" />
+      <HipRoof x={-20} y={-50} width={40} depth={10} height={14} ridge={0} fill="var(--slate)" />
+      <circle cx={3.75} cy={-69} r="4" fill="var(--slate)" {...ink} />
+    </g>
   </g>;
 }
 
@@ -275,9 +550,10 @@ function Pine({ x, y, size }: { x: number; y: number; size: number }) {
 
 /** How many of something a landmark shows: levels reached on Fuji, badges earned (ema plaques) at the onsen, friends' boats at the
  *  harbour, the bell tower's time of day. */
-/** `stage`: how far the island has grown (lib/islandGrowth.ts): 0–3 for the ring islands, JLPT levels completed (0–5)
- *  for Home. */
-type LandmarkProps = { tally: number; stage: number };
+/** `stage`: how far the island has grown (lib/islandGrowth.ts), all its growth tracks added up; JLPT levels completed
+ *  (0–5) for Home. `trackStages`: each track's own step, for islands that grow in several ways (Practice's skills,
+ *  Review's cards learned and mature cards). Review's tally is the cards due today. */
+type LandmarkProps = { tally: number; stage: number; trackStages: readonly number[] };
 
 // The trail up Fuji's lit face: one station per JLPT level, from the foot (N5) to the summit (N1).
 const FUJI_STATIONS = [{ x: -64, y: 4 }, { x: -42, y: -36 }, { x: -30, y: -74 }, { x: -15, y: -110 }, { x: 0, y: -148 }] as const;
@@ -514,7 +790,7 @@ function Onsen({ tally }: LandmarkProps) {
 
 // New islands add a landmark here; the island base stays the same.
 const LANDMARKS: Record<IslandId, (props: LandmarkProps) => ReactElement> = {
-  home: Torii, lessons: Pagoda, practice: Bamboo, games: Lanterns, review: ZenGarden, kanji: Scroll, kana: CherryTree,
+  home: Torii, lessons: Pagoda, practice: PracticeGrounds, games: Festival, review: ZenGarden, kanji: Scroll, kana: CherryTree,
   fuji: FujiMountain, harbour: HarbourTown, teahouse: TeaHouse, belltower: BellTowerShore, onsen: Onsen,
 };
 
@@ -578,11 +854,14 @@ type IslandLandProps = {
   isletDirections?: readonly Point[];
   /** What the landmark counts (see LandmarkProps); 0 for islands that count nothing. */
   tally?: number;
-  /** How far the island has grown (see LandmarkProps). */
+  /** How far the island has grown, and each of its growth tracks (see LandmarkProps). */
   stage?: number;
+  trackStages?: readonly number[];
 };
 
-export function IslandLand({ id, isFogged, bridgeDirections, isletDirections, tally = 0, stage = 0 }: IslandLandProps) {
+const NO_TRACKS: readonly number[] = [];
+
+export function IslandLand({ id, isFogged, bridgeDirections, isletDirections, tally = 0, stage = 0, trackStages = NO_TRACKS }: IslandLandProps) {
   const blurId = useId();
   const { coast, hill } = ISLAND_SHAPES[id];
   const islets = useMemo(() => {
@@ -595,7 +874,7 @@ export function IslandLand({ id, isFogged, bridgeDirections, isletDirections, ta
     <defs><filter id={blurId} x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9" /></filter></defs>
     <g className={isFogged ? "island-fogged-art" : undefined}>
       {islets.map(islet => <Islet key={`${islet.x},${islet.y}`} {...islet} />)}
-      <Land coast={coast} hill={hill}><Landmark tally={tally} stage={stage} /></Land>
+      <Land coast={coast} hill={hill}><Landmark tally={tally} stage={stage} trackStages={trackStages} /></Land>
     </g>
     {isFogged && <Mist blurId={blurId} />}
   </svg>;

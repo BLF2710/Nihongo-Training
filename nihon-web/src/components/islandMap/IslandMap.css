@@ -28,6 +28,7 @@
   --sun-at: 100% 0%;
   --bronze: #8d7a4e;
   --onsen: #9fdcd2;
+  --maple: #d9663b;
   --onsen-deep: #5faeaa;
   --stone: #b8b4aa;
   --ema: #f1d9a6;
@@ -62,6 +63,7 @@
   --glint: #7d90b4;
   --sun-wash: transparent;
   --onsen: #3e6b70;
+  --maple: #a65436;
   --onsen-deep: #2b4c52;
   --stone: #5a5c60;
   --steam: rgba(200, 214, 235, 0.55);
@@ -242,11 +244,21 @@
   100% { transform: translate(0, 0) rotate(340deg); opacity: 0; }
 }
 
+/* Practice's wind chime sways from its hook. */
+.island-chime { transform-box: view-box; transform-origin: 68px -37px; animation: island-chime 2.6s ease-in-out infinite alternate; }
+@keyframes island-chime { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+
+/* The festival's fireworks burst over Games only at night. */
+.island-fireworks { display: none; }
+[data-time="night"] .island-fireworks { display: inline; }
+.island-firework { transform-box: fill-box; transform-origin: center; animation: island-firework 3.3s ease-out infinite; }
+@keyframes island-firework { 0% { transform: scale(0.2); opacity: 0; } 10% { opacity: 1; } 60% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(1.1); opacity: 0; } }
+
 .island-fogged-art { filter: grayscale(0.85) opacity(0.55); }
 
 @media (prefers-reduced-motion: reduce) {
   .island-mist, [data-time] .island-lantern-glow, [data-time] .scenery-lantern, [data-time] .island-lighthouse-beam, .scenery-sun-streak, .scenery-morning-mist, .island-bell-swing, .island-steam, .island-ema, .island-lantern-lit, .island-checkpoint-next, .sea-layer, .sea-sheen, .island-foam,
-  .island-petal-fall, .scenery-cloud-shadow, .scenery-sun-rays, .scenery-sun-glitter, .scenery-boat, .scenery-boat-art, .scenery-fish, .scenery-flock, .scenery-crane, .scenery-crane-shadow, .scenery-wing { animation: none; }
+  .island-petal-fall, .island-chime, .island-firework, .scenery-cloud-shadow, .scenery-sun-rays, .scenery-sun-glitter, .scenery-boat, .scenery-boat-art, .scenery-fish, .scenery-flock, .scenery-crane, .scenery-crane-shadow, .scenery-wing { animation: none; }
   .scenery-boat { offset-distance: 30%; }
   .scenery-flock, .scenery-petal { display: none; }
   .island-ripple { animation: none; opacity: 0.4; }

@@ -39,8 +39,8 @@ const fetchKanaStatistics = () => fetchStatistics();
 /** The parts of the learning overview the islands grow from, checked so an unexpected answer fails only the growth. */
 async function fetchGrowthOverview(signal: AbortSignal): Promise<LearningOverview> {
   const overview = await fetchLearningOverview(signal);
-  const isUsable = Array.isArray(overview.practice) && typeof overview.srs?.mature === "number" && typeof overview.kanji?.mastered === "number";
-  if (!isUsable) throw new TypeError("The learning overview is missing practice, review or kanji counts");
+  const isUsable = Array.isArray(overview.practice) && typeof overview.srs?.mature === "number" && typeof overview.srs.learned === "number" && typeof overview.kanji?.mastered === "number";
+  if (!isUsable) throw new TypeError("The learning overview is missing practice, review card or kanji counts");
   return overview;
 }
 

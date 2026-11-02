@@ -35,7 +35,7 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
         if (p === "/profile/me") return json(profile);
         if (p === "/srs/summary") return json({ total: 20, newCards: 0, dueNow: 7, dueToday: 7, learned: 0, mature: 0, reviewedToday: 0, dueSoon: 0, suspended: 0, newToday: 0, dueTotal: 7 });
         if (p === "/friends") return json(friends);
-        if (p === "/statistics/overview") return json({ practice: [{ kind: "particles", sessions: 1 }], srs: { mature: 0 }, kanji: { mastered: 0 } });
+        if (p === "/statistics/overview") return json({ practice: [{ kind: "particles", sessions: 1 }], srs: { mature: 0, learned: 0 }, kanji: { mastered: 0 } });
         if (p === "/statistics") return json({ hiragana: { characters: [] }, katakana: { characters: [] } });
         if (p === "/inbox") return json({ direct: 0, support: 0, total: 0, friendRequests: 0, notifications: 0 });
         return json({});
@@ -66,7 +66,7 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
     await panel.getByText("This island is in fog").waitFor();
     await panel.getByText("Finish 3 more lessons to clear the fog.").waitFor();
     await panel.getByText("Grows with Particle Drop games: 1 so far, next step at 3.").waitFor();
-    assert.equal(await panel.getByRole("img", { name: "Grown 0 of 3 steps" }).count(), 1, "the growth steps are announced");
+    assert.equal(await panel.getByRole("img", { name: "Grown 0 of 4 steps" }).count(), 1, "the growth steps are announced");
     assert.equal(await panel.getByRole("link", { name: /Continue Lesson n5-1-1/ }).getAttribute("href"), "/lessons/japanese/n5-1-1");
     assert.equal(await panel.getByRole("link", { name: /Particle Drop/ }).getAttribute("href"), "/games/particles", "fog never blocks a destination");
     assert.equal(await island(map, "Games").getAttribute("aria-expanded"), "true");
@@ -75,6 +75,10 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
     await page.keyboard.press("Escape");
     assert.equal(await panel.count(), 0, "Esc closes the panel");
     assert.equal(await island(map, "Games").evaluate(element => element === document.activeElement), true, "focus returns to the island");
+    await island(map, "Practice").click();
+    const practicePanel = page.getByRole("region", { name: "Practice" });
+    for (const skill of ["listening", "speaking", "reading"]) await practicePanel.getByText(`Grows with ${skill} sessions: 0 so far, next step at 3.`).waitFor();
+    await page.keyboard.press("Escape");
 
     // ---- Keyboard: Tab to an island, Enter opens it with focus on Close; Home shows the learner's stats
     await island(map, "Home").focus(); await page.keyboard.press("Enter");
@@ -166,6 +170,6 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
     await expectFogged(page, map, []);
     await context.close();
 
-    console.log("PASS: the island map fogs Practice, Review, Games and Kanji for a new learner and clears them with lessons and a completed unit; an island opens a panel with its destinations (still reachable in fog), the fog hint and the next lesson; Esc closes it and returns focus; Enter opens an island from the keyboard; Home shows streak, level, progress and reviews due; an island shows how far it has grown and what its next step needs; and Review carries a due badge; Progress (Mt Fuji), Community (the harbour) and Assistant (the tea house) are never fogged — Progress shows one climb station per level with “You are here” and links to the mock exam, Community names friends who studied today, and Ask sensei opens the assistant with the question; no Back bar; one screen at 1366×768 and 390×844 (bottom sheet on phones); the map follows the clock (dawn, day, dusk, night) whatever the site theme, and the Time island keeps a chosen time across reloads or returns to the clock; a failed progress request opens every island; the dashboard and the map link to each other; no page errors.");
+    console.log("PASS: the island map fogs Practice, Review, Games and Kanji for a new learner and clears them with lessons and a completed unit; an island opens a panel with its destinations (still reachable in fog), the fog hint and the next lesson; Esc closes it and returns focus; Enter opens an island from the keyboard; Home shows streak, level, progress and reviews due; an island shows how far it has grown and what its next step needs (a row for each skill on Practice); and Review carries a due badge; Progress (Mt Fuji), Community (the harbour) and Assistant (the tea house) are never fogged — Progress shows one climb station per level with “You are here” and links to the mock exam, Community names friends who studied today, and Ask sensei opens the assistant with the question; no Back bar; one screen at 1366×768 and 390×844 (bottom sheet on phones); the map follows the clock (dawn, day, dusk, night) whatever the site theme, and the Time island keeps a chosen time across reloads or returns to the clock; a failed progress request opens every island; the dashboard and the map link to each other; no page errors.");
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1800)); process.exitCode = 1; });
