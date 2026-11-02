@@ -15,6 +15,9 @@ import { syncTimeZone } from "../lib/timeZone";
 import { ThemeButton } from "./ThemeToggle";
 import LanguageMenu from "./LanguageMenu";
 
+// Pages that are a starting point, so they show no Back bar.
+const HOME_PATHS = ["/", "/map"];
+
 /** `back` gives the Back button a fixed destination instead of the previous page in history. */
 export default function Navbar({ back }: { back?: BackTarget } = {}) {
   const navigate = useNavigate();
@@ -146,7 +149,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
           <button onClick={logout} className="mt-6 w-full rounded-xl border border-gray-200 px-3 py-2.5 text-left text-sm font-semibold text-gray-600 hover:bg-red-50 hover:text-red-600 transition cursor-pointer sm:hidden">Log out</button>
         </div>
       </aside>}
-      {location.pathname !== "/" && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton target={back} className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}
+      {!HOME_PATHS.includes(location.pathname) && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton target={back} className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}
     </>
   );
 }

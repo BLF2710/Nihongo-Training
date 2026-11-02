@@ -32,6 +32,7 @@ import { LanguageProvider } from "./context/LanguageProvider";
 
 const QuizzesPage = lazy(() => import("./pages/QuizzesPage"));
 const KanjiPage = lazy(() => import("./pages/KanjiPage"));
+const IslandMapPage = lazy(() => import("./pages/IslandMapPage"));
 const KanjiPracticePage = lazy(() => import("./pages/KanjiPracticePage"));
 const KanjiFlashcardsPage = lazy(() => import("./pages/KanjiFlashcardsPage"));
 const StudyReferencePage = lazy(() => import("./pages/StudyReferencePage"));
@@ -85,6 +86,7 @@ function App() {
         <XpToast />
         <SiteGate><ActivitySessionBoundary><Routes>
           <Route path="/admin/*" element={<ProtectedRoute><Suspense fallback={<p role="status" className="mx-auto max-w-lg p-8">Loading admin…</p>}><AdminPage /></Suspense></ProtectedRoute>} />
+          <Route path="/map" element={signedInLazy("Loading map…", <IslandMapPage />)} />
           <Route path="/learn/kanji" element={signedInLazy("Loading Kanji…", <KanjiPage />)} />
           <Route path="/learn/kanji/practice" element={signedInLazy("Loading practice…", <KanjiPracticePage />)} />
           <Route path="/learn/kanji/flashcards" element={signedInLazy("Loading flashcards…", <KanjiFlashcardsPage />)} />

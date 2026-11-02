@@ -128,6 +128,7 @@ export default function JapaneseDashboard() {
           <p className="mt-1 text-gray-600">{hello.en}. Welcome to your Japanese learning hub.</p>
         </div>
         <div className="flex flex-wrap gap-2">
+          <Link to="/map" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}><span aria-hidden="true">🏝 </span>Island map</Link>
           <Link to="/levels?next=/" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}>🇯🇵 Japanese · {level} · Change</Link>
           <Link to="/profile" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}>Profile & settings</Link>
         </div>

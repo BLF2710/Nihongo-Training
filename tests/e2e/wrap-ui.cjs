@@ -87,7 +87,7 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     await page.getByRole('button', { name: /^All/ }).click(); await page.getByLabel(/Search character/).fill('rain'); await tilesAre(1); await page.getByLabel(/Search character/).fill('');
     await page.screenshot({ path: shots + '/kanji-filter.png', fullPage: true });
     // The filter survives opening a character and going back.
-    await tiles.first().click(); await page.getByText(/N5 course · Unit 5/).waitFor(); await page.goBack(); await page.waitForURL(/unit=japanese-n5-unit-5/); await tilesAre(19);
+    await tiles.first().click(); await page.getByText(/N5 · Unit 5/).first().waitFor(); await page.goBack(); await page.waitForURL(/unit=japanese-n5-unit-5/); await tilesAre(19);
     await level.selectOption('N2'); await page.getByText('No Kanji have been added for N2 yet.').waitFor(); assert.ok(await unitSelect.isDisabled());
     await level.selectOption('all'); await tilesAre(catalog.kanji.length); assert.ok(await unitSelect.isDisabled());
     await level.selectOption('N5'); await unitSelect.locator('option').nth(8).waitFor({ state: 'attached' }); assert.equal((await unitSelect.locator('option').count()), 9); // "All units" + Units 2–9
