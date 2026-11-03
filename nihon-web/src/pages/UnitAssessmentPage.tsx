@@ -1,7 +1,9 @@
 import RubyText from "../components/RubyText";
 import { useActivity, useActivityState, useActivityTitle } from "../context/ActivityContext";
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { GuideNote } from "../components/cast/GuideNote";
+import { DojoHall, PassSeal } from "../components/exam/Dojo";
 import Navbar from "../components/Navbar";
 import { apiErrorMessage } from "../api/errors";
 import { fetchAssessment, submitAssessment } from "../api/units";
@@ -53,11 +55,20 @@ function AssessmentSession({ unitId }: { unitId: string }) {
   return <div className="min-h-screen bg-gray-50"><Navbar /><main className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
 
     <h1 className="mt-6 mb-6 text-3xl font-black text-gray-900">{assessment?.title ?? "Unit Assessment"}</h1>
+    {accessChecked && assessment && !result && <div className="mb-5"><DojoHall>
+      <GuideNote character="kurama" className="max-w-xl text-sm"><p>Welcome to the dojo. Answer all {assessment.questions.length} questions, then I judge them together: {assessment.passPercent}% passes the trial.</p></GuideNote>
+    </DojoHall></div>}
     {accessChecked && assessment && !result && <button className={`${buttonClass} mb-5`} disabled={busy} onClick={restart}>Restart assessment</button>}
     {error && <p role="alert" className="mb-5 rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
     {!accessChecked && !error && <p role="status">Checking assessment access…</p>}
     {accessChecked && assessment && result ? <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-      <h2 className={`text-2xl font-bold ${result.passed ? "text-emerald-700" : "text-gray-900"}`}>{result.passed ? `✓ Unit ${assessment.unitNumber} Assessment Passed` : "Assessment Not Passed"}</h2>
+      <div className="flex items-center gap-5">
+        {result.passed && <PassSeal />}
+        <h2 className={`text-2xl font-bold ${result.passed ? "text-emerald-700" : "text-gray-900"}`}>{result.passed ? `✓ Unit ${assessment.unitNumber} Assessment Passed` : "Assessment Not Passed"}</h2>
+      </div>
+      <GuideNote character="kurama" mood={result.passed ? "happy" : "worried"} className="mt-5"><p>{result.passed
+        ? `Well fought. You have passed the trial of Unit ${assessment.unitNumber}.`
+        : <>Not yet. Train with the <Link to={`/review?unit=${assessment.unitId}`} className="font-semibold text-emerald-700 underline">unit review</Link>, then come back to the dojo.</>}</p></GuideNote>
       <dl className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">{[["Score", `${result.correct} / ${result.total}`], ["Accuracy", `${result.accuracy}%`], ["Correct", result.correct], ["Wrong", result.wrong]].map(([label, value]) => <div key={label} className="rounded-xl bg-gray-50 p-4"><dt className="text-sm text-gray-500">{label}</dt><dd className="mt-1 text-2xl font-bold">{value}</dd></div>)}</dl>
       {!result.passed && <p className="text-gray-600">You need {result.passPercent}% to pass.</p>}
       {result.unitCompleted && <p className="mt-4 font-bold text-emerald-700">✓ Unit {assessment.unitNumber} Complete{!result.passed && " — your earlier pass is still valid."}</p>}

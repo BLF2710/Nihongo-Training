@@ -1,3 +1,4 @@
+import { Reaction } from "./cast/GuideNote";
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
@@ -95,7 +96,7 @@ function KanaDrill({ kana, onDone }: { kana: WeakKana[]; onDone: () => void }) {
       <button className={primary} disabled={!value.trim() || isSaving || result !== null}>{isSaving ? "Checking…" : "Check"}</button>
     </form>
     {result && <div role="status" className={`mt-5 rounded-2xl p-4 text-center ${result.correct ? "bg-emerald-50 text-emerald-900" : "bg-red-50 text-red-900"}`}>
-      <p className="font-bold">{result.correct ? "Right ✓" : <>Not quite: <span lang="ja">{item.kana}</span> is “{result.correctAnswer}”</>}</p>
+      <Reaction character="chun" isCorrect={result.correct}><p className="font-bold">{result.correct ? "Right ✓" : <>Not quite: <span lang="ja">{item.kana}</span> is “{result.correctAnswer}”</>}</p></Reaction>
     </div>}
     {error && <p role="alert" className="mt-4 text-center text-sm text-red-700">{error}</p>}
     <div className="mt-5 flex flex-wrap justify-center gap-3">{result && <button ref={nextButton} className={primary} onClick={next}>{position + 1 < kana.length ? "Next kana →" : "Finish"}</button>}

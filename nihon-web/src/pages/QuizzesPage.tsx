@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
@@ -24,7 +25,7 @@ export default function QuizzesPage() {
     <p className="mt-2 mb-8 text-gray-600">Check what you have learned across each Japanese unit.</p>
     {error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
     {!units && !error && <p role="status">Loading assessments…</p>}
-    {units && !units.length && <p className="rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">{level} has no unit assessments yet.</p>}
+    {units && !units.length && <GuideNote character="kurama"><p className="text-gray-600">{level} has no unit assessments yet.</p></GuideNote>}
     <div className="space-y-5">{units?.map(unit => <UnitAssessmentCard key={unit.id} unit={unit} />)}</div>
   </main></div>;
 }

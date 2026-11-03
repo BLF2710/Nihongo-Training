@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -113,7 +114,7 @@ export default function KanjiPage() {
               </span>
             </Link>;
           })}</div>
-          {!visible.length && <p role="status" className="py-16 text-center font-medium text-gray-400">{scoped.length ? "No Kanji match this search and filter." : `No Kanji have been added for ${level} yet.`}</p>}
+          {!visible.length && <div role="status" className="mx-auto max-w-lg py-10"><GuideNote character="tsuru" mood="worried"><p className="text-gray-600">{scoped.length ? "No Kanji match this search and filter." : `No Kanji have been added for ${level} yet.`}</p></GuideNote></div>}
         </section>
       </>
       <KanjiAttribution />

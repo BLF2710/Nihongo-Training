@@ -127,6 +127,8 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     await page.getByRole('button', { name: 'Submit exam' }).click(); await page.getByText('30 questions are unanswered. Submit anyway?').waitFor();
     await page.getByRole('button', { name: 'Keep working' }).click(); await page.getByRole('button', { name: 'Submit exam' }).click(); await page.getByRole('button', { name: 'Yes, submit' }).click();
     const result = page.locator('section[aria-label="Exam result"]'); await result.getByText('14%').waitFor(); await result.getByText(/Saved to your statistics/).waitFor(); await result.getByText('5 / 36 correct').waitFor(); await result.getByText(/Not at the target yet/).waitFor();
+    // The climb up Fuji: short of the summit, with Kurama sending the learner back to train.
+    await result.getByRole('img', { name: 'You made camp 14% of the way up.' }).waitFor(); await result.getByText(/Not the summit this time/).waitFor();
     await page.getByText('Not answered').first().waitFor(); assert.equal(await page.getByText('Not answered').count(), 30); assert.equal(await page.getByText('✓ Correct').count(), 5); await page.getByText(/✗ Your answer:/).waitFor();
     await page.getByText(examQuestions[0].explanation).first().waitFor();
     assert.equal(await page.evaluate(() => sessionStorage.length), 0);
@@ -135,7 +137,7 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     await page.getByRole('button', { name: 'Start the exam →' }).click();
     for (const [i, section] of exam.sections.entries()) { if (i) await page.getByRole('button', { name: section.title + ' →' }).click(); for (const q of section.groups.flatMap(g => g.questions)) await answer(q, q.correctIndex); }
     await page.getByText('36 / 36 answered').waitFor(); await page.getByRole('button', { name: 'Submit exam' }).click(); await page.getByText('Submit your answers?').waitFor(); await page.getByRole('button', { name: 'Yes, submit' }).click();
-    await result.getByText('100%').first().waitFor(); await result.getByText(/Target reached/).waitFor(); assert.equal(await page.getByText('✓ Correct').count(), 36);
+    await result.getByText('100%').first().waitFor(); await result.getByText(/Target reached/).waitFor(); await result.getByRole('img', { name: 'You stand on the summit of Fuji.' }).waitFor(); assert.equal(await page.getByText('✓ Correct').count(), 36);
     await page.screenshot({ path: shots + '/mock-exam-result.png' });
     // Passing overall is not enough when one section is under its minimum.
     await page.getByRole('button', { name: 'Take it again' }).click(); await page.getByText('Your best result: 100% · target reached ✓ · 2 attempts').waitFor(); await page.getByRole('button', { name: 'Start the exam →' }).click();

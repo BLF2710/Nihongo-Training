@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -85,9 +86,12 @@ function Finished({ session, onReviewAhead }: { session: Session; onReviewAhead:
   };
   return <section aria-labelledby="done-heading" className={`${card} mt-6`}>
     <h2 id="done-heading" className="text-2xl font-black">{session.reviewed ? "All done for today 🎉" : "Nothing to review right now"}</h2>
-    <p className="mt-2 text-gray-600">{session.reviewed
-      ? `You reviewed ${session.reviewed} ${session.reviewed === 1 ? "card" : "cards"}${session.forgotten ? `, and ${session.forgotten} will come back soon` : ""}. Come back tomorrow for the next ones.`
-      : "Finish a lesson to add its words and kanji, or come back when your next cards are due."}</p>
+    <GuideNote character="zen" mood={session.reviewed ? "happy" : "calm"} className="mt-4">
+      <p className="font-semibold">{session.reviewed ? "The garden is raked for today." : "The gravel is smooth; nothing needs raking."}</p>
+      <p className="mt-1 text-gray-600">{session.reviewed
+        ? `You reviewed ${session.reviewed} ${session.reviewed === 1 ? "card" : "cards"}${session.forgotten ? `, and ${session.forgotten} will come back soon` : ""}. Come back tomorrow for the next ones.`
+        : "Finish a lesson to add its words and kanji, or come back when your next cards are due."}</p>
+    </GuideNote>
     {dueSoon !== null && dueSoon > 0 && <div className="mt-5 rounded-2xl bg-indigo-50 p-4">
       <p className="text-sm text-indigo-950"><b>{dueSoon} {dueSoon === 1 ? "card is" : "cards are"} due in the next day.</b> Reviewing early is fine before a trip or a busy day; it counts like a normal review.</p>
       <button className={`${primary} mt-3`} disabled={loading} onClick={() => void reviewAhead()}>{loading ? "Loading…" : `Review ahead (${dueSoon})`}</button>

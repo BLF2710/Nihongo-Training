@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useCallback, useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -66,7 +67,7 @@ export default function MessagesPage() {
           </form>
           {listError && <p role="alert" className="m-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">{listError}</p>}
           {!list && !listError && <p role="status" className="p-4 text-sm text-gray-500">Loading conversations…</p>}
-          {list && !list.length && <p className="p-6 text-center text-sm text-gray-500">No conversations yet. Ask a classmate for their username to say hello.</p>}
+          {list && !list.length && <GuideNote character="hato" className="p-4 text-sm"><p className="text-gray-600">No conversations yet. Ask a classmate for their username to say hello.</p></GuideNote>}
           <ul className="min-h-0 flex-1 overflow-y-auto">{list?.map(item => <li key={item.id}>
             <Link to={`/messages/${item.id}`} aria-current={item.id === openId ? "page" : undefined}
               className={`flex gap-3 border-b border-gray-100 px-4 py-3 hover:bg-gray-50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-emerald-600 ${item.id === openId ? "bg-emerald-50" : ""}`}>

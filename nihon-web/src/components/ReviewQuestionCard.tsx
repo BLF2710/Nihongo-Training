@@ -1,3 +1,4 @@
+import { Reaction } from "./cast/GuideNote";
 import RubyText from "./RubyText";
 import { useState } from "react";
 import QuizChoices from "./QuizChoices";
@@ -84,7 +85,7 @@ export default function ReviewQuestionCard({ unitId, question, isLast, onDone }:
     {busy && <p role="status" className="mt-5 text-sm text-gray-500">Checking…</p>}
     {error && <p role="alert" className="mt-5 rounded-xl bg-red-50 p-3 text-sm text-red-700">{error} {pending !== null && <button className="ml-2 font-bold underline" onClick={() => void submit(pending)}>Retry</button>}</p>}
     {grade && <div className="mt-6">
-      <p role="status" className={`text-lg font-bold ${grade.correct ? "text-emerald-700" : "text-red-700"}`}>{grade.correct ? "Correct!" : "Not quite."}</p>
+      <Reaction character="zen" isCorrect={grade.correct}><p role="status" className={`text-lg font-bold ${grade.correct ? "text-emerald-700" : "text-red-700"}`}>{grade.correct ? "Correct!" : "Not quite."}</p></Reaction>
       {!grade.correct && <p className="mt-1 text-gray-700">Correct answer: <span lang="ja" className="font-semibold">{grade.solution}</span></p>}
       {grade.explanation && <p className="mt-2 rounded-xl bg-gray-50 p-3 text-sm text-gray-700">{grade.explanation}</p>}
       <button className={`${button} mt-5`} onClick={() => onDone(grade.correct)}>{isLast ? "See results →" : "Next →"}</button>

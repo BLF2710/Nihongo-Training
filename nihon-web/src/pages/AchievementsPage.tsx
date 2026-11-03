@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -149,7 +150,7 @@ function EarningSection({ data }: { data: Gamification }) {
         <span aria-hidden="true" className="w-6 text-center">{XP_SOURCES[event.source]?.icon ?? "⚡"}</span>
         <span className="min-w-0 flex-1"><span className="block truncate font-semibold text-gray-800">{XP_SOURCES[event.source]?.label ?? event.source}</span><span className="text-xs text-gray-500">{timeAgo(event.createdAt)}</span></span>
         <span className="font-black text-emerald-700">+{event.amount}</span>
-      </li>)}</ul> : <p className="mt-3 text-sm text-gray-500">No XP yet. Finish a lesson to earn your first.</p>}
+      </li>)}</ul> : <GuideNote character="momo" className="mt-3 text-sm"><p className="text-gray-600">No XP yet. Finish a lesson to earn your first, and I'll keep the water warm.</p></GuideNote>}
     </section>
   </div>;
 }

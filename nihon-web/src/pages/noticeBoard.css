@@ -1,0 +1,91 @@
+/* The dashboard as the Home island's notice board: a framed wooden board with each section a paper sheet pinned to it.
+   In the components layer, so a sheet's own utility classes (the hero's dyed background, padding) still win. */
+@layer components {
+  .notice-board {
+    --board-wood: #9c7853;
+    --board-grain: rgb(60 38 18 / 0.12);
+    --board-seam: rgb(60 38 18 / 0.28);
+    --board-frame: #5f452d;
+    --board-plaque: #3b2c1f;
+    --pin: var(--color-red-600);
+    position: relative;
+    border: 0.5rem solid var(--board-frame);
+    border-radius: 1rem;
+    padding: 2.25rem 0.75rem 1rem;
+    background-color: var(--board-wood);
+    /* Planks with a seam every few rems, fine grain along them, and a darker shade towards the frame. */
+    background-image:
+      repeating-linear-gradient(180deg, transparent 0 4.4rem, var(--board-seam) 4.4rem 4.5rem),
+      repeating-linear-gradient(180deg, var(--board-grain) 0 1px, transparent 1px 0.45rem),
+      radial-gradient(ellipse at center, transparent 55%, rgb(40 25 12 / 0.22));
+    box-shadow: inset 0 2px 10px rgb(30 18 8 / 0.4), 0 14px 28px -16px rgb(30 18 8 / 0.55);
+  }
+  .dark .notice-board {
+    --board-wood: #4b3826;
+    --board-grain: rgb(0 0 0 / 0.16);
+    --board-seam: rgb(0 0 0 / 0.35);
+    --board-frame: #2b2017;
+    --board-plaque: #1c150f;
+  }
+  @media (min-width: 640px) {
+    .notice-board { border-width: 0.75rem; padding: 2.75rem 1.5rem 1.5rem; }
+  }
+
+  /* The board's name on a dark plaque, hanging over the top of the frame. */
+  .notice-board-plaque {
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    translate: -50% 0;
+    padding: 0.15rem 1rem 0.25rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    background: var(--board-plaque);
+    color: #f1e6cf;
+    font-weight: 900;
+    letter-spacing: 0.3em;
+  }
+
+  .notice-sheet {
+    position: relative;
+    border-radius: 0.375rem;
+    background-color: var(--color-white);
+    box-shadow: 0 1px 0 rgb(30 18 8 / 0.1), 0 8px 16px -8px rgb(30 18 8 / 0.55);
+  }
+  /* Two pins at the top corners. */
+  .notice-sheet::before, .notice-sheet::after {
+    content: "";
+    position: absolute;
+    top: 0.45rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 35%, rgb(255 255 255 / 0.75) 0 18%, var(--pin) 24%);
+    box-shadow: 1px 2px 2px rgb(30 18 8 / 0.4);
+    pointer-events: none;
+  }
+  .notice-sheet::before { left: 0.6rem; }
+  .notice-sheet::after { right: 0.6rem; }
+
+  /* The next-step sheet is dyed a mid ai blue with pale text in both themes. Its shades are named here because the dark
+     theme mirrors the palette (a -700 class shows -300's colour), which would turn it pale with dark text. */
+  .next-step-sheet {
+    --dye-from: var(--color-emerald-700);
+    --dye-via: var(--color-emerald-600);
+    --dye-to: var(--color-teal-700);
+    --dye-ink: var(--color-white);
+    --dye-label: var(--color-emerald-50);
+    --dye-ring: var(--color-emerald-200);
+    --dye-button-ink: var(--color-emerald-900);
+    --dye-button-hover: var(--color-emerald-50);
+  }
+  .dark .next-step-sheet {
+    --dye-from: var(--color-emerald-200);
+    --dye-via: var(--color-emerald-300);
+    --dye-to: var(--color-teal-300);
+    --dye-ink: var(--color-gray-950);
+    --dye-label: var(--color-emerald-950);
+    --dye-ring: var(--color-emerald-800);
+    --dye-button-ink: var(--color-emerald-100);
+    --dye-button-hover: var(--color-emerald-950);
+  }
+}

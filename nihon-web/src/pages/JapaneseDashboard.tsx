@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,10 +17,16 @@ import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
 import EmailVerificationBanner from "../components/EmailVerificationBanner";
 import TodayPanel from "../components/TodayPanel";
+import "./noticeBoard.css";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600";
-// min-w-0 lets cards shrink inside grid columns, so truncated text never widens the page.
-const card = "min-w-0 rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6";
+// On the blue next-step card the outline takes the card's pale ink, so it shows against the dye.
+const focusOnDye = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dye-ink)";
+// The board's sections are paper sheets pinned to it. min-w-0 lets them shrink inside grid columns, so truncated text
+// never widens the page.
+const card = "min-w-0 notice-sheet p-5 sm:p-6";
+// A sheet holding its own cards leaves room above them for the pins; a component's own top margin gives way to the sheet's.
+const sheet = "notice-sheet p-4 pt-6 sm:p-6 sm:pt-7 [&>section]:mt-0";
 const studyTools = [
   { title: "Vocabulary", mark: "言", href: "/vocabulary", description: "Words by unit, with audio and flashcards." },
   { title: "Grammar", mark: "文", href: "/grammar", description: "Patterns with clear examples." },
@@ -53,11 +60,11 @@ function ProgressRing({ value, max, label }: { value: number; max: number; label
   const radius = 42, circumference = 2 * Math.PI * radius;
   return <figure className="relative h-28 w-28 shrink-0" aria-label={label}>
     <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90" aria-hidden="true">
-      <circle cx="50" cy="50" r={radius} fill="none" stroke="currentColor" strokeWidth="10" className="text-white/15" />
-      <circle cx="50" cy="50" r={radius} fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" className="text-emerald-300"
+      <circle cx="50" cy="50" r={radius} fill="none" stroke="currentColor" strokeWidth="10" className="text-(--dye-ink)/15" />
+      <circle cx="50" cy="50" r={radius} fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" className="text-(--dye-ring)"
         strokeDasharray={circumference} strokeDashoffset={circumference * (1 - share)} />
     </svg>
-    <figcaption className="absolute inset-0 flex flex-col items-center justify-center text-center"><span className="text-2xl font-black">{Math.round(share * 100)}%</span><span className="text-[10px] font-bold uppercase tracking-wider text-emerald-200">of level</span></figcaption>
+    <figcaption className="absolute inset-0 flex flex-col items-center justify-center text-center"><span className="text-2xl font-black">{Math.round(share * 100)}%</span><span className="text-[10px] font-bold uppercase tracking-wider text-(--dye-label)">of level</span></figcaption>
   </figure>;
 }
 
@@ -128,25 +135,26 @@ export default function JapaneseDashboard() {
           <p className="mt-1 text-gray-600">{hello.en}. Welcome to your Japanese learning hub.</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Link to="/map" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}><span aria-hidden="true">🏝 </span>Island map</Link>
           <Link to="/levels?next=/" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}>🇯🇵 Japanese · {level} · Change</Link>
           <Link to="/profile" className={`rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold ${focus}`}>Profile & settings</Link>
         </div>
       </header>
       {(courseError || profileError) && <div role="alert" className="mb-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{courseError ? "Course progress could not be refreshed. " : ""}{profileError ? "Account progress could not be refreshed. " : ""}Your study tools are still available. <button onClick={() => setRetry(value => value + 1)} className={`ml-2 font-bold underline ${focus}`}>Retry</button></div>}
 
+      <div className="notice-board">
+      <p aria-hidden="true" lang="ja" className="notice-board-plaque">掲示板</p>
       <div className="grid gap-5 lg:grid-cols-[1.55fr_1fr]">
-        <section aria-labelledby="next-heading" className="relative min-w-0 overflow-hidden rounded-3xl bg-linear-to-br from-emerald-900 via-emerald-800 to-teal-700 p-6 text-white shadow-lg sm:p-8">
-          <span aria-hidden="true" lang="ja" className="pointer-events-none absolute -bottom-10 -right-4 select-none text-[11rem] font-black leading-none text-white/5">学</span>
+        <section aria-labelledby="next-heading" className="notice-sheet next-step-sheet min-w-0 overflow-hidden bg-linear-to-br from-(--dye-from) via-(--dye-via) to-(--dye-to) p-6 text-(--dye-ink) sm:p-8">
+          <span aria-hidden="true" lang="ja" className="pointer-events-none absolute -bottom-10 -right-4 select-none text-[11rem] font-black leading-none text-(--dye-ink)/5">学</span>
           <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center">
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-bold uppercase tracking-widest text-emerald-200">{active ? "Pick up where you left off" : nextUnit ? `Your next step · ${level} Unit ${nextUnit.number}` : "Your next step"}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-(--dye-label)">{active ? "Pick up where you left off" : nextUnit ? `Your next step · ${level} Unit ${nextUnit.number}` : "Your next step"}</p>
               <h2 id="next-heading" className="mt-3 text-2xl font-black sm:text-3xl">{active ? active.title : courseError ? "Explore your course" : !units ? "Let’s keep learning" : assessmentReady ? `Ready for Unit ${nextUnit.number} assessment` : nextLesson ? nextLesson.title : allComplete ? "Your current course is complete!" : course.length ? "Choose your learning path" : `${level} lessons are coming soon`}</h2>
-              <p className="mt-3 max-w-lg leading-relaxed text-emerald-50/90">{active ? activityProgress(active) : courseError ? "Open Lessons to check your available units." : !units ? "Loading your saved course progress…" : assessmentReady ? "All lessons are complete. Put them together in the unit assessment." : nextLesson ? `${nextUnit?.title}. Continue with your next lesson.` : allComplete ? `You finished ${level}. Try the wrap-up tools, or move on to the next level.` : course.length ? "Browse your units to see what is open and what comes next." : "Choose another level to keep studying."}</p>
-              {active && <p className="mt-3 rounded-xl bg-white/10 p-3 text-sm text-emerald-50">{active.kind === "lesson" ? "Lesson in progress" : active.kind === "speed" ? "Speed Quiz in progress" : active.kind === "assessment" ? "Assessment in progress" : "Practice in progress"} · your place is saved in this browser.</p>}
+              <p className="mt-3 max-w-lg leading-relaxed">{active ? activityProgress(active) : courseError ? "Open Lessons to check your available units." : !units ? "Loading your saved course progress…" : assessmentReady ? "All lessons are complete. Put them together in the unit assessment." : nextLesson ? `${nextUnit?.title}. Continue with your next lesson.` : allComplete ? `You finished ${level}. Try the wrap-up tools, or move on to the next level.` : course.length ? "Browse your units to see what is open and what comes next." : "Choose another level to keep studying."}</p>
+              {active && <p className="mt-3 rounded-xl bg-(--dye-ink)/10 p-3 text-sm">{active.kind === "lesson" ? "Lesson in progress" : active.kind === "speed" ? "Speed Quiz in progress" : active.kind === "assessment" ? "Assessment in progress" : "Practice in progress"} · your place is saved in this browser.</p>}
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link to={active?.href ?? (courseError ? "/lessons" : allComplete ? "/levels?next=/" : nextHref)} className={`rounded-xl bg-white px-5 py-3 font-bold text-emerald-900 shadow-sm hover:bg-emerald-50 ${focus}`}>{active ? "Resume session" : !courseError && assessmentReady ? "Start assessment" : !courseError && nextLesson ? "Continue learning" : allComplete ? "Choose a level" : "Browse lessons"} →</Link>
-                {!active && <Link to="/lessons" className={`rounded-xl border border-white/30 px-5 py-3 font-semibold text-white hover:bg-white/10 ${focus}`}>All units</Link>}
+                <Link to={active?.href ?? (courseError ? "/lessons" : allComplete ? "/levels?next=/" : nextHref)} className={`rounded-xl bg-(--dye-ink) px-5 py-3 font-bold text-(--dye-button-ink) shadow-sm hover:bg-(--dye-button-hover) ${focusOnDye}`}>{active ? "Resume session" : !courseError && assessmentReady ? "Start assessment" : !courseError && nextLesson ? "Continue learning" : allComplete ? "Choose a level" : "Browse lessons"} →</Link>
+                {!active && <Link to="/lessons" className={`rounded-xl border border-(--dye-ink)/30 px-5 py-3 font-semibold hover:bg-(--dye-ink)/10 ${focusOnDye}`}>All units</Link>}
               </div>
             </div>
             {units && total > 0 && <ProgressRing value={completed} max={total} label={`${completed} of ${total} ${level} lessons completed`} />}
@@ -167,15 +175,15 @@ export default function JapaneseDashboard() {
         </section>
       </div>
 
-      <TodayPanel units={units} />
+      <div className={`mt-6 ${sheet}`}><TodayPanel units={units} /></div>
 
-      <section aria-labelledby="path-heading" className="mt-8">
+      <section aria-labelledby="path-heading" className={`mt-6 ${sheet}`}>
         <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
           <div><h2 id="path-heading" className="text-2xl font-black">Your path</h2><p className="mt-1 text-sm text-gray-500">{level} · {levelInfo.title}{units && course.length ? ` · ${course.filter(unit => unit.completed).length} of ${course.length} units complete` : ""}</p></div>
           <Link to="/quizzes" className={`text-sm font-bold text-emerald-700 ${focus}`}>View assessments →</Link>
         </div>
         {!units && !courseError && <p role="status" className="text-sm text-gray-500">Loading units…</p>}
-        {units && !course.length && <p className={`${card} text-gray-600`}>{level} has no units yet. <Link to="/levels?next=/" className="font-semibold text-emerald-700 underline">Choose another level</Link>.</p>}
+        {units && !course.length && <GuideNote character="kon" mood="worried"><p className="text-gray-600">{level} has no units yet. <Link to="/levels?next=/" className="font-semibold text-emerald-700 underline">Choose another level</Link>.</p></GuideNote>}
         <ol className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-3">{course.map(unit => {
           const current = unit.id === nextUnit?.id;
           return <li key={unit.id} className="w-56 shrink-0 snap-start">
@@ -222,9 +230,9 @@ export default function JapaneseDashboard() {
         </section>
       </div>
 
-      {course.length > 0 && <LevelWrapUp level={level} units={course} />}
+      {course.length > 0 && <div className={`mt-6 ${sheet}`}><LevelWrapUp level={level} units={course} /></div>}
 
-      <section aria-labelledby="study-heading" className="mt-10">
+      <section aria-labelledby="study-heading" className={`mt-6 ${sheet}`}>
         <h2 id="study-heading" className="text-2xl font-black">Study & explore</h2>
         <p className="mt-1 text-sm text-gray-500">Reference tools you can browse any time. Studying here does not change quiz accuracy.</p>
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">{studyTools.map(tool => <Link key={tool.href} to={tool.href} className={`group rounded-2xl border border-gray-200 bg-white p-4 transition hover:border-emerald-400 hover:shadow-sm ${focus}`}>
@@ -232,13 +240,14 @@ export default function JapaneseDashboard() {
           <h3 className="mt-3 font-bold">{tool.title}</h3><p className="mt-1 text-xs leading-relaxed text-gray-500">{tool.description}</p></Link>)}</div>
       </section>
 
-      <section aria-labelledby="practice-heading" className="mt-10">
+      <section aria-labelledby="practice-heading" className={`mt-6 ${sheet}`}>
         <h2 id="practice-heading" className="text-2xl font-black">Put it into practice</h2>
         <p className="mt-1 text-sm text-gray-500">Games, reviews and checks. Practice answers build your accuracy and mastery.</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{practiceTools.map(tool => <Link key={tool.href} to={tool.href} className={`flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4 transition hover:border-indigo-300 ${focus}`}>
           <span aria-hidden="true" lang="ja" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-lg">{tool.icon}</span>
           <span><span className="block font-bold">{tool.title}</span><span className="mt-0.5 block text-xs leading-relaxed text-gray-500">{tool.description}</span></span></Link>)}</div>
       </section>
+      </div>
     </main>
   </div>;
 }

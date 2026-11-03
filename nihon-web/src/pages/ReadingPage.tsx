@@ -1,3 +1,5 @@
+import { Reaction } from "../components/cast/GuideNote";
+import { GuideNote } from "../components/cast/GuideNote";
 import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -39,7 +41,7 @@ export default function ReadingPage() {
     <p className="mt-2 text-gray-600">Read short passages from the units you have reached, then check your understanding.</p>
     {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !error && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
-    {units && !selected && <p className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">{course.length ? "No unit with reading passages is open yet. Passages appear here as soon as you reach their unit on the Lessons page." : `${level} has no reading passages yet. They arrive with its units.`}</p>}
+    {units && !selected && <GuideNote character="tama" className="mt-6"><p className="text-gray-600">{course.length ? "No unit with reading passages is open yet. Passages appear here as soon as you reach their unit on the Lessons page." : `${level} has no reading passages yet. They arrive with its units.`}</p></GuideNote>}
     {selected && !passage && <>
       <label className="mt-6 block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={selected.id} onChange={event => setParams({ unit: event.target.value })} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 text-gray-900 focus:outline-2 focus:outline-emerald-600">
@@ -97,7 +99,7 @@ function Passage({ passage, backTo }: { passage: UnitReading; backTo: string }) 
         <p className="mb-4 font-bold text-gray-900"><span className="text-emerald-700">{index + 1}.</span> <RubyText text={question.prompt} /></p>
         <QuizChoices choices={question.options} selected={selected} disabled={selected !== null} onChoose={choice => setAnswers(previous => ({ ...previous, [index]: choice }))} />
         {selected !== null && <div className="mt-4">
-          <p role="status" className={`font-bold ${isCorrect ? "text-emerald-700" : "text-red-700"}`}>{isCorrect ? "Correct!" : `Not quite. Correct answer: ${question.correct}`}</p>
+          <Reaction character="tama" isCorrect={isCorrect}><p role="status" className={`font-bold ${isCorrect ? "text-emerald-700" : "text-red-700"}`}>{isCorrect ? "Correct!" : `Not quite. Correct answer: ${question.correct}`}</p></Reaction>
           <p className="mt-2 rounded-xl bg-gray-50 p-3 text-sm text-gray-700">{question.explanation}</p>
         </div>}
       </li>;

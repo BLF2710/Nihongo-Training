@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -42,7 +43,7 @@ export default function GrammarSummaryPage() {
         </label>
         <button type="button" onClick={() => window.print()} className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-bold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600">Print</button>
       </div>
-      {total > 0 && !visible.length && <p role="status" className="mt-10 text-center font-medium text-gray-500">No pattern matches this search.</p>}
+      {total > 0 && !visible.length && <div role="status" className="mx-auto mt-10 max-w-lg"><GuideNote character="hakase" mood="worried"><p className="text-gray-600">No pattern matches this search.</p></GuideNote></div>}
       {!total && <Link to="/levels?next=/grammar/summary" className="mt-6 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Choose another level →</Link>}
       <div className="mt-8 space-y-10">{visible.map(({ unit, points }) => <section key={unit.id} aria-labelledby={`summary-${unit.id}`}>
         <h2 id={`summary-${unit.id}`} className="text-xl font-black"><span className="text-emerald-700">Unit {unit.number}</span> · {unit.title}</h2>

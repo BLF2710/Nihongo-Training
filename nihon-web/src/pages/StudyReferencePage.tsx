@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -26,7 +27,7 @@ function NoUnits({ kind, level }: { kind: "vocabulary" | "grammar"; level: Cours
   return <div className="min-h-screen bg-gray-50"><Navbar /><main className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6">
     <div className="mt-6"><LevelSwitch level={level} /></div>
     <h1 className="mt-3 text-3xl font-black text-gray-900 sm:text-4xl">{kind === "vocabulary" ? "Vocabulary" : "Grammar"}</h1>
-    <p className="mt-4 rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">{level} has no units yet. Its {kind} appears here as soon as its first unit arrives.</p>
+    <GuideNote character="hakase" mood="worried" className="mt-4"><p className="text-gray-600">{level} has no units yet. Its {kind} appears here as soon as its first unit arrives.</p></GuideNote>
   </main></div>;
 }
 

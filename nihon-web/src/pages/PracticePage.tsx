@@ -11,6 +11,7 @@ import { draw, shuffledDeck } from "../lib/kanaDeck";
 import type { QuizMode } from "../lib/kanaDeck";
 // Shared without changing Speed Quiz matching behavior.
 import { isRomajiMatch } from "../lib/romaji";
+import { GuideNote } from "../components/cast/GuideNote";
 
 type Kana = {
   id: number;
@@ -449,6 +450,7 @@ function RoundResults({ script, total, correct, bestStreak, timeMs, missed, onRe
           {[["Score", `${correct} / ${total}`], ["Accuracy", `${percent}%`], ["Time", duration(timeMs)], ["Best streak", `🔥 ${bestStreak}`]].map(([label, value]) =>
             <div key={label} className="rounded-2xl bg-gray-50 p-4"><dt className="text-sm font-semibold text-gray-600">{label}</dt><dd className="mt-1 text-2xl font-black">{value}</dd></div>)}
         </dl>
+        <GuideNote character="chun" mood={percent >= 80 ? "happy" : "calm"} className="mt-5"><p>{perfect ? "Chun chun! Every kana right!" : percent >= 80 ? "Quick wings! Only a few to practise." : "Let's practise the ones you missed, then fly another round."}</p></GuideNote>
         {missed.length > 0 ? <>
           <h2 className="mt-8 text-xl font-bold">To practise again ({missed.length})</h2>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">{missed.map(item => <li key={item.id} className="flex items-center gap-4 rounded-2xl border border-gray-200 p-3">

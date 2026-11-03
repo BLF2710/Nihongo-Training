@@ -40,6 +40,8 @@
   --pigeon-neck: #6d9c86;
   --letter: #ffffff;
   --pigeon-leg: #e07a6a;
+  --traveller-kimono: #2f5d8a;
+  --traveller-skin: #f1d0b0;
   --steam: rgba(255, 255, 255, 0.85);
 }
 .island-map[data-time="night"] {
@@ -77,6 +79,8 @@
   --pigeon-neck: #4b6d60;
   --letter: #e6e1d4;
   --pigeon-leg: #b0645a;
+  --traveller-kimono: #2a4a6e;
+  --traveller-skin: #c9a98a;
 }
 .island-map[data-time="dawn"] {
   --sea-top: #f7e7df;
@@ -274,9 +278,23 @@
 
 .island-fogged-art { filter: grayscale(0.85) opacity(0.55); }
 
+/* The learner's traveller: stands on its island (or walks its route, animated from script), feet on the ground. In an
+   island's strip it walks in when the page opens. */
+.island-traveller { position: absolute; left: 0; top: 0; offset-anchor: 50% 100%; offset-rotate: 0deg; pointer-events: none; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2)); }
+.traveller-leg { transform-box: view-box; }
+.traveller-leg-back { transform-origin: 10.4px 26px; }
+.traveller-leg-front { transform-origin: 13.6px 26px; }
+.traveller-walking .traveller-leg-front, .traveller-arrive .traveller-leg-front { animation: traveller-step 0.35s ease-in-out infinite alternate; }
+.traveller-walking .traveller-leg-back, .traveller-arrive .traveller-leg-back { animation: traveller-step 0.35s ease-in-out infinite alternate-reverse; }
+.traveller-arrive .traveller-leg { animation-iteration-count: 4; }
+.traveller-arrive { animation: traveller-arrive 1.4s ease-out both; }
+@keyframes traveller-step { from { rotate: -24deg; } to { rotate: 24deg; } }
+@keyframes traveller-arrive { from { translate: -2.5rem 0; opacity: 0; } 20% { opacity: 1; } to { translate: 0 0; opacity: 1; } }
+
 @media (prefers-reduced-motion: reduce) {
   .island-mist, [data-time] .island-lantern-glow, [data-time] .scenery-lantern, [data-time] .island-lighthouse-beam, .scenery-sun-streak, .scenery-morning-mist, .island-bell-swing, .island-steam, .island-ema, .island-lantern-lit, .island-checkpoint-next, .sea-layer, .sea-sheen, .island-foam,
-  .island-petal-fall, .island-chime, .island-firework, .scenery-cloud-shadow, .scenery-sun-rays, .scenery-sun-glitter, .scenery-boat, .scenery-boat-art, .scenery-fish, .scenery-flock, .scenery-crane, .scenery-crane-shadow, .scenery-wing, .island-mail-bubble { animation: none; }
+  .island-petal-fall, .island-chime, .island-firework, .scenery-cloud-shadow, .scenery-sun-rays, .scenery-sun-glitter, .scenery-boat, .scenery-boat-art, .scenery-fish, .scenery-flock, .scenery-crane, .scenery-crane-shadow, .scenery-wing, .island-mail-bubble,
+  .traveller-leg, .traveller-arrive { animation: none; }
   .scenery-boat { offset-distance: 30%; }
   .scenery-flock, .scenery-petal { display: none; }
   .island-ripple { animation: none; opacity: 0.4; }

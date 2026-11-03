@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -56,7 +57,7 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
     {!units && !error && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
     {units && !cleared.length && <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 sm:p-8">
       <h2 className="text-xl font-bold">No unit is open for {title.toLowerCase()} practice yet</h2>
-      <p className="mt-2 text-gray-600">A unit appears here as soon as you reach it on the Lessons page, with its own vocabulary, sentences, and dialogues.</p>
+      <GuideNote character="tama" className="mt-4"><p className="text-gray-600">A unit appears here as soon as you reach it on the Lessons page, with its own vocabulary, sentences, and dialogues.</p></GuideNote>
       <Link to="/lessons" className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Go to lessons →</Link>
     </section>}
     {material && <>

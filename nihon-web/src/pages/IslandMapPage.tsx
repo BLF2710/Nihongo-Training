@@ -10,9 +10,11 @@ import { CarrierPigeon, LetterPanel } from "../components/islandMap/PigeonLetter
 import { AskSensei, FujiClimb, HarbourFriends, OnsenBadges, TimeChooser } from "../components/islandMap/PlacePanels";
 import { FishingBoat, FloatingLantern, SailingBoat, SceneryAbove, SceneryBelow } from "../components/islandMap/Scenery";
 import { Sea } from "../components/islandMap/Sea";
+import { MapTraveller } from "../components/islandMap/Traveller";
 import { useIslandMapData } from "../components/islandMap/useIslandMapData";
 import { useMapTimeOfDay } from "../components/islandMap/useMapTimeOfDay";
 import { TIMES_OF_DAY } from "../lib/timeOfDay";
+import { parseGrowthMemory, rememberGrowth } from "../lib/islandGrowthMemory";
 import { GAME_KINDS, islandGrowth, sessionsOf, spreadStage } from "../lib/islandGrowth";
 import type { GrowthFacts } from "../lib/islandGrowth";
 import "../components/islandMap/IslandMap.css";
@@ -31,7 +33,7 @@ const CAMERA_TARGET_LANDSCAPE = { x: 0.33, y: 0.5 };
 const CAMERA_TARGET_PORTRAIT = { x: 0.5, y: 0.27 };
 // Islands are drawn in depth order: water first, then land further back, bridges, Home, nearer land, and labels on top.
 // A bridge is over the island behind Home it leads to and under Home, and over Home and under an island in front.
-const LAYER = { water: 1, boat: 2, landBehind: 3, bridgesBehind: 4, home: 5, bridgesFront: 6, landFront: 7, labels: 8, pigeon: 9 } as const;
+const LAYER = { water: 1, boat: 2, landBehind: 3, bridgesBehind: 4, home: 5, bridgesFront: 6, landFront: 7, traveller: 8, labels: 9, pigeon: 10 } as const;
 // Where a label sits below an island's anchor, in island-drawing units (just under the front shore).
 const LABEL_DROP = 62;
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--vermilion)]";
@@ -98,6 +100,12 @@ export default function IslandMapPage() {
     kanaMastered: kanaCharacters ? kanaCharacters.filter(character => character.status === "mastered").length : null,
   };
   const growthOf = (id: IslandId) => islandGrowth(id, growthFacts);
+  // Page strips show each island as grown as the map last saw it (real growth, never the preview).
+  const growthMemory = JSON.stringify(Object.fromEntries(ISLANDS.flatMap(({ id }) => {
+    const growth = growthOf(id);
+    return growth ? [[id, { stage: growth.stage, trackStages: growth.tracks.map(track => track.stage) }]] : [];
+  })));
+  useEffect(() => { if (growthMemory !== "{}") rememberGrowth(parseGrowthMemory(growthMemory)); }, [growthMemory]);
   // TEMPORARY, development builds only: growth steps being previewed from the panel, by island.
   const [growthPreview, setGrowthPreview] = useState<Partial<Record<IslandId, number>>>({});
   const previewGrowth = (id: IslandId, stage: number | null) => setGrowthPreview(current =>
@@ -195,6 +203,7 @@ export default function IslandMapPage() {
               </Placed>;
             })}
           </ul>
+          <div className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.traveller }}><MapTraveller layout={layout} stage={stage} destination={selectedId} /></div>
           <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.labels }}>
             {ISLANDS.map(island => <IslandLabel key={island.id} layout={layout} id={island.id} isFogged={!isOpen(island.id)} badge={badgeOf(island.id)} />)}
           </div>

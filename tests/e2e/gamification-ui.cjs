@@ -7,6 +7,8 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright')
 const [base, shots] = process.argv.slice(2);
 const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base64url')}.x`;
 
+// Earned a few days before the run: older dates are shown as a date, not "… ago".
+const daysAgo = days => new Date(Date.now() - days * 86_400_000).toISOString();
 const achievement = (id, title, category, icon, goal, progress, earnedAt = null) => ({ id, title, description: `${title} description.`, xpReward: 50, category, icon, goal, progress, earnedAt });
 const GAMIFICATION = {
   xp: 820, level: { level: 5, currentLevelXp: 700, nextLevelXp: 1000, progressXp: 120, progressPercent: 40 }, rank: 'Bronze', nextRank: { name: 'Silver', xp: 1000 },
@@ -17,10 +19,10 @@ const GAMIFICATION = {
     { source: 'kanji', amount: 1, dailyCap: 30, earned: 4 }, { source: 'daily_goal', amount: 20, dailyCap: null, earned: 0 },
   ] },
   achievements: [
-    achievement('first_steps', 'First Steps', 'lessons', '👣', 1, 1, '2026-10-20T08:00:00Z'),
+    achievement('first_steps', 'First Steps', 'lessons', '👣', 1, 1, daysAgo(5)),
     achievement('lessons_10', 'Steady Learner', 'lessons', '📘', 10, 9),
     achievement('kanji_10', 'Kanji Apprentice', 'kanji', '🖌️', 10, 3),
-    achievement('week_warrior', 'Week Warrior', 'streaks', '⚔️', 7, 7, '2026-10-25T08:00:00Z'),
+    achievement('week_warrior', 'Week Warrior', 'streaks', '⚔️', 7, 7, daysAgo(2)),
     achievement('friends_1', 'Study Buddy', 'friends', '🤝', 1, 0),
   ],
   recent: [{ source: 'review', amount: 2, createdAt: new Date().toISOString() }, { source: 'achievement', amount: 75, createdAt: new Date().toISOString() }],

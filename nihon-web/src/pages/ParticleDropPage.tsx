@@ -1,3 +1,4 @@
+import { GuideNote, Reaction } from "../components/cast/GuideNote";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -63,11 +64,13 @@ export default function ParticleDropPage() {
     {round.status === "error" && <p role="alert" className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{round.message} <button className="ml-2 font-bold underline" onClick={round.retry}>Try again</button></p>}
     {round.status === "ready" && round.available < MIN_QUESTIONS && <section className={`${card} mt-6`}>
       <h2 className="text-xl font-black">Finish a few more lessons first</h2>
+      <GuideNote character="pon" mood="worried" className="mt-3"><p>Not enough sentences for a round yet. Come back after a few lessons and we'll play!</p></GuideNote>
       <p className="mt-2 text-gray-600">Particle Drop needs at least {MIN_QUESTIONS} sentences from lessons you have finished ({round.available} so far). It uses the N5 lessons' grammar examples.</p>
       <Link to="/lessons" className={`${primary} mt-5 inline-block`}>Go to lessons →</Link>
     </section>}
     {round.status === "ready" && round.available >= MIN_QUESTIONS && <>
       {phase === "intro" && <section className={`${card} mt-6`} aria-labelledby="how-heading">
+        <GuideNote character="pon" mood="happy" className="mb-4"><p>Ponpoko! Drop each particle in before my drum stops.</p></GuideNote>
         <h2 id="how-heading" className="text-xl font-black">How to play</h2>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-gray-700">
           <li>{round.round.length} sentences, {QUESTION_SECONDS} seconds each.</li>
@@ -156,7 +159,7 @@ function Game({ questions, onFinish }: { questions: ParticleQuestion[]; onFinish
       })}
     </div>
     <div role="status" className="mt-6 min-h-16 text-center">{current && <>
-      <p className={`font-bold ${current.correct ? "text-emerald-800" : "text-red-800"}`}>{current.correct ? `Right! +${current.points}` : current.given === null ? `Time's up: the particle is ${question.answer}` : `Not quite: the particle is ${question.answer}`}</p>
+      <Reaction character="pon" isCorrect={current.correct}><p className={`font-bold ${current.correct ? "text-emerald-800" : "text-red-800"}`}>{current.correct ? `Right! +${current.points}` : current.given === null ? `Time's up: the particle is ${question.answer}` : `Not quite: the particle is ${question.answer}`}</p></Reaction>
       <p className="mt-1 text-sm text-gray-500">{question.romaji}</p>
     </>}</div>
     {current && <div className="mt-4 text-center"><button ref={nextButton} className={primary} onClick={next}>{position + 1 < questions.length ? "Next sentence →" : "See results"}</button></div>}
@@ -173,6 +176,7 @@ function Results({ answers, best, onPlayAgain }: { answers: Answer[]; best: numb
       {[["Score", String(score)], ["Right", `${right} / ${answers.length}`], ["Best", String(Math.max(best, score))]].map(([label, value]) =>
         <div key={label} className="rounded-2xl bg-gray-50 p-3"><dt className="text-xs font-bold uppercase text-gray-500">{label}</dt><dd className="mt-1 text-2xl font-black">{value}</dd></div>)}
     </dl>
+    <GuideNote character="pon" mood={right * 2 >= answers.length ? "happy" : "worried"} className="mt-5"><p>{right === answers.length ? "A perfect round! I'm drumming for you." : right * 2 >= answers.length ? "Nice drumming! Once more for a new best?" : "Particles are slippery. Look at the ones below, then try again."}</p></GuideNote>
     {missed.length > 0 && <div className="mt-6"><h3 className="font-bold">To look at again</h3>
       <ul className="mt-2 space-y-2">{missed.map(({ question, given }, index) => <li key={index} className="rounded-xl bg-gray-50 p-3 text-sm">
         <p lang="ja" className="text-base font-semibold">{question.parts.map((part, partIndex) => part === null ? <b key={partIndex} className="text-emerald-700">{question.answer}</b> : <RubyText key={partIndex} text={part} />)}</p>

@@ -1,3 +1,4 @@
+import { Reaction } from "./cast/GuideNote";
 import RubyText from "./RubyText";
 import { useEffect, useRef, useState } from "react";
 import type { SpeakingExercise } from "../lib/skillRounds";
@@ -42,7 +43,7 @@ export default function SpeakingExerciseCard({ exercise, isLast, canCheck, onDon
     </div>
     {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">{error}</p>}
     {attempt && <div role="status" className="mt-5 rounded-xl bg-gray-50 p-4">
-      <p className={`text-lg font-bold ${attempt.matched ? "text-emerald-700" : "text-red-700"}`}>{attempt.matched ? "Correct!" : "Not quite — listen again and retry."}</p>
+      <Reaction character="tama" isCorrect={attempt.matched}><p className={`text-lg font-bold ${attempt.matched ? "text-emerald-700" : "text-red-700"}`}>{attempt.matched ? "Correct!" : "Not quite — listen again and retry."}</p></Reaction>
       <p className="mt-1 text-gray-700">We heard: <span lang="ja" className="font-semibold">{attempt.heard || "(nothing)"}</span></p>
     </div>}
     <div className="mt-6 flex flex-wrap gap-3">

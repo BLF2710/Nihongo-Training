@@ -1,3 +1,5 @@
+import { Reaction } from "../components/cast/GuideNote";
+import { GuideNote } from "../components/cast/GuideNote";
 import RubyText from "../components/RubyText";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -75,7 +77,7 @@ export default function UnitReviewPage() {
     <p className="mt-2 text-gray-600">A mixed set for one unit: question-bank questions, word games, vocabulary, listening, and speaking.</p>
     {unitsError && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !unitsError && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
-    {units && !selected && <p className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">No unit is open for review yet. A unit appears here as soon as you reach it on the Lessons page.</p>}
+    {units && !selected && <GuideNote character="zen" className="mt-6"><p className="text-gray-600">No unit is open for review yet. A unit appears here as soon as you reach it on the Lessons page.</p></GuideNote>}
     {selected && !session && <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 sm:p-8">
       <label className="block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={cumulative ? `level:${cumulative}` : selected.id} onChange={event => setParams({ unit: event.target.value })} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 text-gray-900 focus:outline-2 focus:outline-emerald-600">
@@ -131,7 +133,7 @@ function VocabularyQuestionCard({ exercise, isLast, onDone }: { exercise: Listen
     <p lang="ja" className="mt-2 text-3xl font-black text-gray-900"><RubyText text={word.japanese} /></p>
     <div className="mt-5"><QuizChoices choices={exercise.choices} selected={selected} disabled={selected !== null} onChoose={setSelected} /></div>
     {selected !== null && <div className="mt-6">
-      <p role="status" className={`text-lg font-bold ${correct ? "text-emerald-700" : "text-red-700"}`}>{correct ? "Correct!" : "Not quite."}</p>
+      <Reaction character="zen" isCorrect={correct}><p role="status" className={`text-lg font-bold ${correct ? "text-emerald-700" : "text-red-700"}`}>{correct ? "Correct!" : "Not quite."}</p></Reaction>
       <p className="mt-1 text-gray-700"><span lang="ja" className="font-semibold"><RubyText text={word.japanese} /></span> ({word.romaji}) — {word.meaning}</p>
       <button className={`${button} mt-5`} onClick={() => onDone(correct)}>{isLast ? "See results →" : "Next →"}</button>
     </div>}

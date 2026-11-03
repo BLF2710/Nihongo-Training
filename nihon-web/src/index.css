@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./dark-palette.css";
+@import "./palette.css";
 
 /* `dark:` targets the dark theme, which is switched by a class on <html> (see src/lib/theme.ts). */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -10,17 +10,14 @@
   color: var(--color-gray-900);
 }
 
-/*
- * Light-theme contrast (WCAG AA). Tailwind's gray-400 is about 2.6:1 on white, and white text on its
- * emerald-600 about 3.7:1. Hints in gray-400 now use gray-500's value (4.8:1), and emerald-600 is darkened so
- * white text on primary buttons reaches 4.8:1; emerald-700 moves down a step too, so hover states still show.
- * The dark theme sets its own values (dark-palette.css) and is not affected.
- */
-:root:not(.dark) {
-  --color-gray-400: oklch(55.1% 0.027 264.364);
-  --color-emerald-600: oklch(53.5% 0.127 164.5);
-  --color-emerald-700: oklch(48% 0.112 166);
-}
+/* Native progress bars draw their own colours (Chrome ignores the palette's accent-color), so they are painted from
+   the palette: the primary colour, or rose where a bar asks for it. */
+progress { appearance: none; border: 0; border-radius: 9999px; overflow: hidden; background-color: var(--color-gray-200); }
+progress::-webkit-progress-bar { background-color: var(--color-gray-200); }
+progress::-webkit-progress-value { background-color: var(--color-emerald-600); border-radius: 9999px; }
+progress::-moz-progress-bar { background-color: var(--color-emerald-600); border-radius: 9999px; }
+progress[class*="accent-rose"]::-webkit-progress-value { background-color: var(--color-rose-600); }
+progress[class*="accent-rose"]::-moz-progress-bar { background-color: var(--color-rose-600); }
 
 /* The "+XP" pop-up (components/XpToast.tsx) rises in; no movement for people who ask for less motion. */
 @keyframes xp-pop {

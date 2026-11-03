@@ -15,7 +15,7 @@ const initial = (name: string) => name.trim().charAt(0).toUpperCase() || "?";
  * A conversation: messages, newest at the bottom, and a composer. Used for learner messages,
  * Help & support, the study assistant and the administrators' support inbox.
  */
-export default function MessageThread({ messages, onSend, canReply = true, disabledNote, placeholder = "Write a message…", maxLength = MAX, busyLabel, emptyNote, messageActions, label, otherAvatar }: {
+export default function MessageThread({ messages, onSend, canReply = true, disabledNote, placeholder = "Write a message…", maxLength = MAX, busyLabel, emptyNote, messageActions, label, otherAvatar, assistantAvatar }: {
   messages: ChatMessage[];
   onSend: (body: string) => Promise<void>;
   canReply?: boolean;
@@ -29,6 +29,8 @@ export default function MessageThread({ messages, onSend, canReply = true, disab
   label: string;
   /** The other learner's picture, in a conversation between two learners. */
   otherAvatar?: string | null;
+  /** Drawn for the study assistant's replies instead of its "AI" initials (the tea house's Sensei). */
+  assistantAvatar?: ReactNode;
 }) {
   const [draft, setDraft] = useState("");
   const [sending, setSending] = useState(false);
@@ -52,14 +54,14 @@ export default function MessageThread({ messages, onSend, canReply = true, disab
     <ol aria-label={label} className="flex-1 space-y-4 overflow-y-auto px-4 py-5 sm:px-6">
       {!messages.length && <li className="py-10 text-center text-sm text-gray-500">{emptyNote ?? "No messages yet. Say hello!"}</li>}
       {messages.map(message => <li key={message.id} className={`flex items-end gap-2 ${message.mine ? "justify-end" : "justify-start"}`}>
-        {!message.mine && message.senderRole === "learner" && otherAvatar ? <img src={avatarUrl(otherAvatar)} alt="" width={32} height={32} loading="lazy" className="h-8 w-8 shrink-0 rounded-full object-cover" /> : !message.mine && <span aria-hidden="true" className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black ${message.senderRole === "assistant" ? "bg-indigo-100 text-indigo-700" : message.senderRole === "admin" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"}`}>{message.senderRole === "assistant" ? "AI" : initial(message.sender)}</span>}
+        {!message.mine && message.senderRole === "learner" && otherAvatar ? <img src={avatarUrl(otherAvatar)} alt="" width={32} height={32} loading="lazy" className="h-8 w-8 shrink-0 rounded-full object-cover" /> : !message.mine && message.senderRole === "assistant" && assistantAvatar ? assistantAvatar : !message.mine && <span aria-hidden="true" className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black ${message.senderRole === "assistant" ? "bg-indigo-100 text-indigo-700" : message.senderRole === "admin" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"}`}>{message.senderRole === "assistant" ? "AI" : initial(message.sender)}</span>}
         <div className={`group max-w-[85%] sm:max-w-[75%] ${message.mine ? "items-end" : "items-start"} flex flex-col`}>
           <p className="mb-1 text-xs font-semibold text-gray-500">{message.mine ? "You" : message.sender} · <time dateTime={message.sentAt}>{time(message.sentAt)}</time></p>
           <p className={`whitespace-pre-wrap rounded-2xl px-4 py-2.5 leading-relaxed wrap-anywhere ${message.mine ? "rounded-br-md bg-emerald-600 text-white" : message.senderRole === "assistant" ? "rounded-bl-md border border-indigo-100 bg-indigo-50 text-gray-900" : "rounded-bl-md border border-gray-200 bg-white text-gray-900"}`}>{message.body}</p>
           {messageActions && <div className="mt-1">{messageActions(message)}</div>}
         </div>
       </li>)}
-      {sending && busyLabel && <li role="status" className="flex items-center gap-2 text-sm text-gray-500"><span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-black text-indigo-700">AI</span>{busyLabel}</li>}
+      {sending && busyLabel && <li role="status" className="flex items-center gap-2 text-sm text-gray-500">{assistantAvatar ?? <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-black text-indigo-700">AI</span>}{busyLabel}</li>}
       <div ref={end} />
     </ol>
     {canReply ? <form onSubmit={submit} className="border-t border-gray-200 bg-white p-3 sm:p-4">

@@ -1,3 +1,4 @@
+import { Reaction } from "../components/cast/GuideNote";
 import { useActivity, useActivityState } from "../context/ActivityContext";
 import { useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -78,7 +79,7 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
           <QuizChoices choices={question.options} selected={selected === null ? null : question.options[selected]} disabled={busy || selected !== null} onChoose={choice => void answer(question.options.indexOf(choice))} />
           <div aria-live="polite" className="mt-5">
             {busy && <p>Saving answer…</p>}
-            {result && <><p className={`rounded-xl p-4 font-semibold ${result.correct ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>{result.correct ? "Correct!" : `Incorrect. The correct answer is ${result.correctAnswer}.`}</p><button className={`${button} mt-4`} onClick={next}>{index + 1 === questions.length ? "View Summary" : "Next Question →"}</button></>}
+            {result && <><Reaction character="tsuru" isCorrect={result.correct}><p className={`flex-1 rounded-xl p-4 font-semibold ${result.correct ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>{result.correct ? "Correct!" : `Incorrect. The correct answer is ${result.correctAnswer}.`}</p></Reaction><button className={`${button} mt-4`} onClick={next}>{index + 1 === questions.length ? "View Summary" : "Next Question →"}</button></>}
             {selected !== null && !result && !busy && <button className={`${button} mt-4`} onClick={() => void answer(selected)}>Retry saving answer</button>}
           </div>
         </>}

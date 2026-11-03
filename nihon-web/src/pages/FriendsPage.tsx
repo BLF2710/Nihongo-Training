@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useCallback, useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -109,7 +110,7 @@ export default function FriendsPage() {
 
       <section aria-labelledby="friends-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
         <h2 id="friends-heading" className="text-lg font-bold">Your friends ({lists.friends.length})</h2>
-        {lists.friends.length === 0 ? <p className="mt-2 text-gray-600">No friends yet. Send a request above, or accept one when it arrives.</p> :
+        {lists.friends.length === 0 ? <GuideNote character="hato" className="mt-3"><p className="text-gray-600">No friends yet. Send a request above, or accept one when it arrives. I'll carry it over the sea.</p></GuideNote> :
         <ul className="mt-3 divide-y divide-gray-100">{lists.friends.map(friend => <li key={friend.username} className="flex flex-wrap items-center gap-3 py-3">
           <PersonAvatar name={friend.displayName} username={friend.username} avatar={friend.avatar} />
           <div className="min-w-0 flex-1">{profileLink(friend)}<p className="text-sm text-gray-600">{friend.progress

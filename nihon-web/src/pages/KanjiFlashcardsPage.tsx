@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -57,7 +58,7 @@ export default function KanjiFlashcardsPage() {
         <div className="mt-4 flex flex-wrap gap-3"><Link to={backTo} className={`rounded-xl bg-emerald-600 px-4 py-2 font-bold text-white ${focus}`}>Browse kanji</Link>
           <button type="button" onClick={() => setChosen("set")} className={`rounded-xl border px-4 py-2 font-bold ${focus}`}>Study {setLabel}</button></div>
       </section>}
-      {deck === "set" && !setIds.length && <p className="rounded-3xl border border-gray-200 bg-white p-6 text-gray-600">No kanji have been added for {setLabel} yet.</p>}
+      {deck === "set" && !setIds.length && <GuideNote character="tsuru" mood="worried"><p className="text-gray-600">No kanji have been added for {setLabel} yet.</p></GuideNote>}
       {deckIds.length > 0 && <KanjiFlashcards key={`${deck}:${deckIds.join(":")}`} kanjiIds={deckIds} />}
     </div>
     <footer className="mt-10 border-t border-gray-200 pt-4 text-xs text-gray-500">

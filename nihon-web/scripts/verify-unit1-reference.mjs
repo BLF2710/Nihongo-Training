@@ -15,6 +15,8 @@ function load(filename) {
   // Vite's import.meta.env doesn't exist in CommonJS: an empty one gives the app's development defaults.
   const source = readFileSync(filename, 'utf8').replace(/import\.meta\.env/g, 'globalThis.__viteEnv');
   if (filename.endsWith('.json')) return JSON.parse(source);
+  // Stylesheets only matter in the browser.
+  if (filename.endsWith('.css')) return {};
   const compiled = ts.transpileModule(source, { compilerOptions: {
     module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022,
     jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true,

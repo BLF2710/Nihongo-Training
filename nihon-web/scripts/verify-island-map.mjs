@@ -2,10 +2,11 @@
 // Run with --experimental-strip-types (see package.json).
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { backdropCamera, BRIDGED_ISLANDS, cameraTransform, climbProgress, courseProgress, islandState, ISLANDS, LANDSCAPE_LAYOUT, layoutFor, nextCourseStep, PORTRAIT_LAYOUT } from "../src/lib/islandMap.ts";
+import { backdropCamera, BRIDGED_ISLANDS, cameraTransform, climbProgress, courseProgress, islandForPage, islandState, ISLANDS, LANDSCAPE_LAYOUT, layoutFor, nextCourseStep, PORTRAIT_LAYOUT } from "../src/lib/islandMap.ts";
 
 import { parseMapTimeSetting, timeOfDayAt, timeOfDayFor } from "../src/lib/timeOfDay.ts";
 import { islandGrowth, sessionsOf, spreadStage, GAME_KINDS } from "../src/lib/islandGrowth.ts";
+import { parseGrowthMemory } from "../src/lib/islandGrowthMemory.ts";
 import { pagodaFinialTop } from "../src/lib/pagoda.ts";
 import { flightSchedule, PIGEON_PERCHES, pigeonTour, tourLegs, tourOrder } from "../src/lib/pigeonFlight.ts";
 const progress = (completedLessons, completedUnits = 0) => ({ completedLessons, completedUnits });
@@ -283,4 +284,17 @@ test("a perch that moves as its island grows replaces the usual one", () => {
 test("the pagoda's finial drops as tiers are added, and stops once all five are built", () => {
   const heights = [0, 1, 2, 3].map(stage => pagodaFinialTop(stage).y);
   assert.ok(heights[0] < heights[1] && heights[1] < heights[2] && heights[2] === heights[3]);
+});
+
+test("hub pages open with their island's strip", () => {
+  assert.deepEqual(["/lessons", "/learn/kanji/", "/mistakes", "/"].map(path => islandForPage(path, "")), ["lessons", "kanji", "review", "home"]);
+});
+
+test("lessons, games, skill practice, chats and pages in the middle of something have no strip", () => {
+  assert.deepEqual([["/lessons/japanese/n5-1-hello", ""], ["/games/particles", ""], ["/messages", ""], ["/listening", ""], ["/learn/kanji", "?level=N5"]].map(([path, search]) => islandForPage(path, search)), [null, null, null, null, null]);
+});
+
+test("remembered growth keeps only well-formed islands", () => {
+  const raw = JSON.stringify({ lessons: { stage: 2, trackStages: [2] }, practice: { stage: "x", trackStages: [] }, review: { stage: 1 } });
+  assert.deepEqual([parseGrowthMemory(raw), parseGrowthMemory("not json"), parseGrowthMemory(null)], [{ lessons: { stage: 2, trackStages: [2] } }, {}, {}]);
 });

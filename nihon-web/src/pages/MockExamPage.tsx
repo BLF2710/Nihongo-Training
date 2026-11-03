@@ -10,6 +10,9 @@ import { apiErrorMessage } from "../api/errors";
 import { fetchMockHistory, submitMockExam } from "../api/mockExams";
 import type { MockHistory } from "../api/mockExams";
 import { isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
+import { climbedShare, resultShare, trailStations } from "../lib/fujiTrail";
+import { GuideNote } from "../components/cast/GuideNote";
+import { FujiTrail } from "../components/exam/FujiTrail";
 
 const primary = "rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600";
@@ -27,6 +30,10 @@ function read<T>(storage: () => Storage, key: string): T | null {
 function write(storage: () => Storage, key: string, value: unknown) {
   try { if (value === null) storage().removeItem(key); else storage().setItem(key, JSON.stringify(value)); } catch { /* Nothing is remembered, and the exam still works. */ }
 }
+// The last minutes, when the clock turns red.
+const LAST_MINUTES = 5 * 60;
+// The timer and the count, on paper plaques in the sky over the climb.
+const plaque = "rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-1 text-[var(--ink)] shadow-sm";
 const clock = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 
 export default function MockExamPage() {
@@ -47,15 +54,17 @@ export default function MockExamPage() {
 
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <h1 className="mt-6 text-3xl font-black">{level} mock exam</h1>
-    {!exam ? <section className={`${card} mt-6`}>
-      <p className="text-gray-600">The {level} mock exam is not available yet. It arrives together with the level's units.</p>
+    {!exam ? <section className="mt-6">
+      <GuideNote character="kurama" mood="worried"><p className="text-gray-600">The {level} mock exam is not available yet. It arrives together with the level's units.</p></GuideNote>
       <Link to="/levels?next=/mock-exam" className={`${primary} mt-5 inline-block`}>Choose another level →</Link>
     </section> : <>
       {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
       {!units && !error && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
-      {units && !levelReached(course) && <section className={`${card} mt-6`}>
-        <p className="font-bold">🔒 The mock exam opens when you reach the last unit of {level}.</p>
-        <p className="mt-2 text-gray-600">It covers every unit of the level, so it is best taken at the end.</p>
+      {units && !levelReached(course) && <section className="mt-6">
+        <GuideNote character="kurama">
+          <p className="font-bold">🔒 The mock exam opens when you reach the last unit of {level}.</p>
+          <p className="mt-1 text-gray-600">It covers every unit of the level, so it is best taken at the end. The mountain will wait.</p>
+        </GuideNote>
         <Link to="/lessons" className={`${primary} mt-5 inline-block`}>Go to lessons →</Link>
       </section>}
       {units && levelReached(course) && <Exam key={exam.id} exam={exam} />}
@@ -92,7 +101,10 @@ function Exam({ exam }: { exam: MockExam }) {
 
   if (result) return <Results exam={exam} {...result} saveState={saveState} onSaveAgain={() => send(result.answers, result.timedOut)} onRetry={() => setResult(null)} />;
   if (attempt) return <Running exam={exam} attempt={attempt} total={total} onAnswer={(id, option) => save({ ...attempt, answers: { ...attempt.answers, [id]: option } })} onFinish={finish} />;
-  return <section className={`${card} mt-6`}>
+  const stations = trailStations(exam.sections.map(section => ({ title: section.title, total: questionsOf(section).length, isComplete: false })));
+  return <section className={`${card} mt-6 overflow-hidden`}>
+    <FujiTrail stations={stations} climbed={0} label={`Mount Fuji, with a station for each of the ${exam.sections.length} sections and you at the foot.`} className="-mx-6 -mt-6 mb-6 aspect-[35/9] sm:-mx-8 sm:-mt-8" />
+    <GuideNote character="kurama" className="mb-5"><p>I will guide you up. Each section is a stretch of the trail with a station at its end. Reach the summit with {exam.passPercent}% overall and {exam.sectionMinPercent}% in every section.</p></GuideNote>
     <p className="text-gray-600">A practice exam in the style of the JLPT {exam.level}, built only from what this course has taught. It is not an official test.</p>
     <dl className="mt-5 grid gap-4 sm:grid-cols-3">
       <div><dt className="text-xs font-bold uppercase tracking-wider text-gray-500">Time</dt><dd className="mt-1 text-xl font-black">{exam.minutes} minutes</dd></div>
@@ -129,20 +141,30 @@ function Running({ exam, attempt, total, onAnswer, onFinish }: {
   const isLast = sectionIndex === exam.sections.length - 1;
   const goTo = (index: number) => { setSectionIndex(index); setConfirming(false); window.scrollTo({ top: 0 }); };
   const numbers = questionNumbers(exam);
+  const stations = trailStations(exam.sections.map(item => {
+    const questions = questionsOf(item);
+    return { title: item.title, total: questions.length, isComplete: questions.every(question => attempt.answers[question.id] !== undefined) };
+  }));
 
   return <div className="mt-6">
-    <div className="sticky top-18 z-20 -mx-4 border-b border-gray-200 bg-gray-50/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p role="timer" aria-label="Time remaining" className={`text-2xl font-black tabular-nums ${remaining <= 300 ? "text-red-700" : "text-gray-900"}`}>{clock(remaining)}</p>
-        <p className="text-sm font-semibold text-gray-600">{answered} / {total} answered</p>
-      </div>
-      <div role="tablist" aria-label="Exam sections" className="mt-3 flex flex-wrap gap-2">{exam.sections.map((item, index) => {
+    <div className="sticky top-18 z-20 -mx-4 bg-gray-50/95 px-4 pt-2 pb-3 backdrop-blur sm:-mx-6 sm:px-6">
+      <div className="overflow-hidden rounded-2xl border-2 border-[var(--color-gray-300)]">
+        <div className="relative">
+          <FujiTrail stations={stations} climbed={climbedShare(answered, total)} elapsed={1 - remaining / (exam.minutes * 60)} label={`The climb: ${stations.filter(station => station.isLit).length} of ${stations.length} stations reached. The sky darkens as time runs out.`} className="h-28 sm:h-36" />
+          <div className="island-map pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-2 sm:p-3">
+            <p className={`${plaque} ${remaining <= LAST_MINUTES ? "text-red-700" : ""}`}><span className="block text-[0.65rem] font-bold uppercase tracking-wider opacity-70">Time left</span>
+              <span role="timer" aria-label="Time remaining" className="text-xl font-black tabular-nums sm:text-2xl">{clock(remaining)}</span></p>
+            <p className={`${plaque} text-sm font-bold`}>{answered} / {total} answered</p>
+          </div>
+        </div>
+      <div role="tablist" aria-label="Exam sections" className="flex flex-wrap gap-2 border-t-2 border-[var(--color-gray-300)] bg-white p-2">{exam.sections.map((item, index) => {
         const done = questionsOf(item).filter(question => attempt.answers[question.id] !== undefined).length;
         return <button key={item.id} role="tab" aria-selected={index === sectionIndex} onClick={() => goTo(index)}
           className={`rounded-xl border px-4 py-2 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 ${index === sectionIndex ? "border-emerald-600 bg-emerald-600 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-emerald-300"}`}>
           {item.title} <span className="font-normal">({done}/{questionsOf(item).length})</span>
         </button>;
       })}</div>
+      </div>
     </div>
 
     <h2 className="mt-6 text-2xl font-black">{section.title} <span lang="ja" className="ml-2 text-lg font-semibold text-gray-500">{section.titleJp}</span></h2>
@@ -181,7 +203,13 @@ function Results({ exam, result, answers, timedOut, saveState, onSaveAgain, onRe
 }) {
   const numbers = questionNumbers(exam);
   return <div className="mt-6">
-    <section aria-label="Exam result" className={card}>
+    <section aria-label="Exam result" className={`${card} overflow-hidden`}>
+      <FujiTrail stations={trailStations(result.sections.map(section => ({ title: section.title, total: section.total, isComplete: section.reached })))}
+        climbed={resultShare(result.percent, result.passed)} label={result.passed ? "You stand on the summit of Fuji." : `You made camp ${result.percent}% of the way up.`}
+        className="-mx-6 -mt-6 mb-6 aspect-[35/9] sm:-mx-8 sm:-mt-8" />
+      <GuideNote character="kurama" mood={result.passed ? "happy" : "calm"} className="mb-5"><p>{result.passed
+        ? "The summit! Look how far you have climbed."
+        : "Not the summit this time. We made camp on the way up: rest, review the trail behind you, and climb again."}</p></GuideNote>
       {timedOut && <p role="status" className="mb-3 font-bold text-amber-800">Time is up. Your answers were submitted automatically.</p>}
       <p className="text-sm font-bold uppercase tracking-wider text-gray-500">Your result</p>
       <p className="mt-1 text-4xl font-black">{result.percent}% <span className="text-lg font-semibold text-gray-600">· {result.correct} / {result.total} correct</span></p>

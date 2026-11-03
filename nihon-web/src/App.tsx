@@ -33,6 +33,8 @@ import { LanguageProvider } from "./context/LanguageProvider";
 const QuizzesPage = lazy(() => import("./pages/QuizzesPage"));
 const KanjiPage = lazy(() => import("./pages/KanjiPage"));
 const IslandMapPage = lazy(() => import("./pages/IslandMapPage"));
+// Development only: the island cast in every mood.
+const CastGalleryPage = lazy(() => import("./pages/dev/CastGalleryPage"));
 const KanjiPracticePage = lazy(() => import("./pages/KanjiPracticePage"));
 const KanjiFlashcardsPage = lazy(() => import("./pages/KanjiFlashcardsPage"));
 const StudyReferencePage = lazy(() => import("./pages/StudyReferencePage"));
@@ -87,6 +89,7 @@ function App() {
         <SiteGate><ActivitySessionBoundary><Routes>
           <Route path="/admin/*" element={<ProtectedRoute><Suspense fallback={<p role="status" className="mx-auto max-w-lg p-8">Loading admin…</p>}><AdminPage /></Suspense></ProtectedRoute>} />
           <Route path="/map" element={signedInLazy("Loading map…", <IslandMapPage />)} />
+          {import.meta.env.DEV && <Route path="/dev/cast" element={<Suspense fallback={null}><CastGalleryPage /></Suspense>} />}
           <Route path="/learn/kanji" element={signedInLazy("Loading Kanji…", <KanjiPage />)} />
           <Route path="/learn/kanji/practice" element={signedInLazy("Loading practice…", <KanjiPracticePage />)} />
           <Route path="/learn/kanji/flashcards" element={signedInLazy("Loading flashcards…", <KanjiFlashcardsPage />)} />

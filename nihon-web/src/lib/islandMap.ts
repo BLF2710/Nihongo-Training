@@ -19,6 +19,26 @@ export type ProgressUnit = { completedLessons: number; completed: boolean; isPla
 
 export type IslandState = { status: "open" } | { status: "fogged"; hint: string };
 
+// The hub pages that open with a strip showing their island (components/islandMap/IslandStrip.tsx). Only hubs: lessons,
+// quizzes, games, skill practice (listening, speaking and reading open straight on a question) and chats need the whole
+// screen, so they have none.
+const ISLAND_PAGES: Readonly<Record<string, IslandId>> = {
+  "/": "home",
+  "/lessons": "lessons", "/vocabulary": "lessons", "/grammar": "lessons", "/quizzes": "lessons",
+  "/mistakes": "review",
+  "/learn/kanji": "kanji",
+  "/learn/hiragana": "kana", "/learn/katakana": "kana",
+  "/levels": "fuji", "/statistics/japanese": "fuji",
+  "/friends": "harbour",
+  "/achievements": "onsen",
+};
+
+/** The island whose strip opens a page, or null. A page with a query (`?unit=…`) is in the middle of something, so it has none. */
+export function islandForPage(pathname: string, search: string): IslandId | null {
+  if (search) return null;
+  return ISLAND_PAGES[pathname.replace(/(.)\/$/, "$1")] ?? null;
+}
+
 export const PRACTICE_UNLOCK_LESSONS = 1;
 export const REVIEW_UNLOCK_LESSONS = 2;
 export const GAMES_UNLOCK_LESSONS = 3;
@@ -78,6 +98,9 @@ export const ISLANDS: readonly Island[] = [
     { label: "All achievements", href: "/achievements", description: "Badges you have earned and the ones still ahead." },
   ] },
 ];
+
+/** Whether a stored or typed string names an island. */
+export const isIslandId = (value: string): value is IslandId => ISLANDS.some(island => island.id === value);
 
 /** The six islands of the ring, each joined to Home by a bridge. */
 export const BRIDGED_ISLANDS = ISLANDS.filter(island => island.isBridged);

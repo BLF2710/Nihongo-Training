@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -68,9 +69,9 @@ export default function MistakesPage() {
       {status === "weak" ? (weak ? <WeakCharacters list={weak} onPractised={() => setReload(value => value + 1)} /> : !error && <p role="status" className="mt-6 text-gray-500">Loading your weak characters…</p>) : <>
       {!notebook && !error && <p role="status" className="mt-6 text-gray-500">Loading your mistakes…</p>}
       {notebook && status === "open" && practisable.length > 0 && <button className={`${primary} mt-5`} onClick={() => setPractice(shuffle(practisable))}>Practise {practisable.length} {practisable.length === 1 ? "question" : "questions"} →</button>}
-      {notebook && !shown.length && <section className={`${card} mt-6 text-gray-600`}>{status === "open"
-        ? <>Nothing to practise. Wrong answers from <Link to="/lessons" className="font-semibold text-emerald-700 underline">lessons</Link>, <Link to="/review" className="font-semibold text-emerald-700 underline">unit reviews</Link>, assessments, mock exams, kana quizzes and kanji practice appear here.</>
-        : "Mistakes you clear appear here."}</section>}
+      {notebook && !shown.length && <GuideNote character="zen" mood={status === "open" ? "happy" : "calm"} className="mt-6"><p className="text-gray-600">{status === "open"
+        ? <>Not a leaf out of place. Nothing to practise. Wrong answers from <Link to="/lessons" className="font-semibold text-emerald-700 underline">lessons</Link>, <Link to="/review" className="font-semibold text-emerald-700 underline">unit reviews</Link>, assessments, mock exams, kana quizzes and kanji practice appear here.</>
+        : "Mistakes you clear appear here."}</p></GuideNote>}
       <ul className="mt-6 space-y-3">{shown.map(mistake => <li key={mistake.id}><MistakeCard mistake={mistake} needed={notebook?.correctInARowToResolve ?? 2} onRemoved={remove} /></li>)}</ul>
       </>}
     </>}
@@ -124,6 +125,7 @@ function Practice({ mistakes, needed, onDone }: { mistakes: Practisable[]; neede
 
   if (!mistake) return <section className={`${card} mt-6`} aria-labelledby="practice-done">
     <h2 id="practice-done" className="text-2xl font-black">Practice finished</h2>
+    <GuideNote character="zen" mood={cleared ? "happy" : "calm"} className="mt-3"><p>{cleared ? "A few weeds pulled from the garden. Well done." : "Patience. Each mistake fades with practice."}</p></GuideNote>
     <p className="mt-2 text-gray-600">{cleared ? `${cleared} ${cleared === 1 ? "mistake" : "mistakes"} cleared.` : "Keep going: each needs to be answered right " + needed + " times in a row."}</p>
     <button className={`${primary} mt-5`} onClick={onDone}>Back to the notebook</button>
   </section>;

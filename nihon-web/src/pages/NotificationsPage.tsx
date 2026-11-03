@@ -1,3 +1,4 @@
+import { GuideNote } from "../components/cast/GuideNote";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -53,7 +54,7 @@ export default function NotificationsPage() {
     <p className="mt-1 text-gray-600">Friend requests, replies from support and achievements from the last 6 months.</p>
     {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-800">{error} <button className="font-bold underline" onClick={() => void load()}>Try again</button></p>}
     {!items && !error && <p role="status" className="mt-6">Loading notifications…</p>}
-    {items?.length === 0 && <section className="mt-6 rounded-2xl border border-gray-200 bg-white p-8 text-center"><p className="text-3xl" aria-hidden="true">🔔</p><p className="mt-2 font-bold">No notifications yet</p><p className="mt-1 text-gray-600">You'll see friend requests, replies from support and new achievements here.</p></section>}
+    {items?.length === 0 && <GuideNote character="hato" className="mt-6"><p className="font-bold">No notifications yet</p><p className="mt-1 text-gray-600">You'll see friend requests, replies from support and new achievements here.</p></GuideNote>}
     {items && items.length > 0 && <ul className="mt-6 divide-y divide-gray-100 overflow-hidden rounded-2xl border border-gray-200 bg-white">{items.map(item => {
       const { icon, text, href } = describeNotification(item), isNew = fresh.has(item.id);
       return <li key={item.id}><Link to={href} className={`flex gap-4 p-4 hover:bg-gray-50 ${isNew ? "bg-emerald-50/60" : ""}`}>

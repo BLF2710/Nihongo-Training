@@ -14,6 +14,7 @@ import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
 import { ThemeButton } from "./ThemeToggle";
 import LanguageMenu from "./LanguageMenu";
+import { IslandStrip } from "./islandMap/IslandStrip";
 
 // Pages that are a starting point, so they show no Back bar.
 const HOME_PATHS = ["/", "/map"];
@@ -94,6 +95,7 @@ export default function Navbar({ back }: { back?: BackTarget } = {}) {
           </div>
         </div>
       </header>
+      {token && !isAdmin() && language === "japanese" && <IslandStrip />}
 
       {token && profileOpen && <div className="fixed top-16 right-4 sm:right-6 z-50 w-72 bg-white border border-gray-200 rounded-2xl shadow-xl p-4">
         <div className="flex items-center gap-3">

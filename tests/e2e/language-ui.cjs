@@ -62,7 +62,8 @@ const [base, shots] = process.argv.slice(2);
 
     // Phone width: the menu fits and nothing scrolls sideways.
     ({ context, page, errors } = await run({ width: 375, height: 812 }));
-    await page.goto(base + '/lessons'); await page.getByRole('button', { name: /^Learning language/ }).click(); await page.getByRole('list', { name: 'Learning language' }).waitFor();
+    await page.goto(base + '/lessons'); await page.getByRole('heading', { level: 1 }).first().waitFor(); // the lazy page replaces the placeholder's header
+    await page.getByRole('button', { name: /^Learning language/ }).click(); await page.getByRole('list', { name: 'Learning language' }).waitFor();
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'overflow at phone width');
     const box = await page.getByRole('list', { name: 'Learning language' }).boundingBox(); assert.ok(box.x >= 0 && box.x + box.width <= 375, 'menu fits the screen');
     await page.screenshot({ path: shots + '/language-menu-phone.png' });

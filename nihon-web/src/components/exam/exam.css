@@ -1,0 +1,38 @@
+/* Exams as challenges: the dojo of the unit assessments and the climb up Fuji of the mock exam. */
+.dojo-hall {
+  --dojo-wall: #b08a5e;
+  --dojo-seam: rgb(60 38 18 / 0.3);
+  --dojo-beam: #6b5139;
+  --dojo-tatami: #cdbd84;
+  border: 2px solid var(--color-gray-300);
+}
+.dark .dojo-hall { --dojo-wall: #5e4630; --dojo-beam: #3b2c1f; --dojo-tatami: #7d7350; }
+.dojo-lantern { transform-box: fill-box; transform-origin: 50% 0; animation: dojo-sway 4s ease-in-out infinite alternate; }
+@keyframes dojo-sway { from { rotate: -3deg; } to { rotate: 3deg; } }
+
+/* The seal lands with a thump: from large and faint to its place, slightly askew like a hand stamp. */
+.pass-seal {
+  border: 3px solid var(--color-red-600);
+  color: var(--color-red-600);
+  rotate: -8deg;
+  text-align: center;
+  animation: pass-seal 420ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+@keyframes pass-seal { from { scale: 1.8; opacity: 0; } to { scale: 1; opacity: 1; } }
+
+.fuji-climber { transition: transform 600ms ease-out; }
+.fuji-trail-climbed { transition: stroke-dasharray 600ms ease-out; }
+/* The exam's sky moves on each second; when dawn turns to day (and day to dusk, dusk to night) the colours fade over. */
+.fuji-sky-body { transition: transform 1s linear; }
+.fuji-scene :is(stop, rect, path, circle) { transition: fill 3s ease, stop-color 3s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dojo-lantern, .pass-seal { animation: none; }
+  .fuji-climber, .fuji-trail-climbed, .fuji-sky-body, .fuji-scene :is(stop, rect, path, circle) { transition: none; }
+}
+
+/* Snow takes the light: rosy at dawn and dusk, moonlit blue at night. */
+.fuji-scene { --fuji-snow: #ffffff; }
+.fuji-scene[data-time="dawn"] { --fuji-snow: #fdf1ee; }
+.fuji-scene[data-time="dusk"] { --fuji-snow: #fbe6df; }
+.fuji-scene[data-time="night"] { --fuji-snow: #b9c3d6; }

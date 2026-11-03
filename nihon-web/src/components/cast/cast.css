@@ -1,0 +1,30 @@
+/* The island cast's frames: a portrait in a pale sea-coloured disc, and a speech bubble with a tail pointing at it. */
+.cast-portrait {
+  --cast-sky: #dcefee;
+  background: radial-gradient(circle at 50% 35%, #f6fbfa, var(--cast-sky));
+  border: 2px solid var(--color-gray-300);
+}
+.dark .cast-portrait { --cast-sky: #3a5470; background: radial-gradient(circle at 50% 35%, #5a7792, var(--cast-sky)); }
+
+.cast-bubble {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+}
+.cast-bubble::before, .cast-bubble::after {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  border-style: solid;
+  border-color: transparent;
+}
+.cast-bubble::before { left: -0.6rem; border-width: 0.5rem 0.6rem 0.5rem 0; border-right-color: var(--color-gray-200); }
+.cast-bubble::after { left: -0.38rem; top: calc(1.25rem + 0.14rem); border-width: 0.36rem 0.42rem 0.36rem 0; border-right-color: var(--color-white); }
+
+/* In the island strip the bubble is one or two lines high, so its tail points from the middle. */
+.cast-bubble-tight::before { top: calc(50% - 0.5rem); }
+.cast-bubble-tight::after { top: calc(50% - 0.36rem); }
+
+/* The strip's host bobs gently, as if greeting the learner. */
+.cast-host { display: block; animation: cast-bob 3s ease-in-out infinite alternate; }
+@keyframes cast-bob { from { translate: 0 1px; } to { translate: 0 -2px; } }
+@media (prefers-reduced-motion: reduce) { .cast-host { animation: none; } }
