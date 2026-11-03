@@ -62,7 +62,8 @@ export const ISLANDS: readonly Island[] = [
     { label: "Speaking", href: "/speaking", description: "Say it aloud and get checked." },
     { label: "Reading", href: "/reading", description: "Short passages with questions." },
   ] },
-  { id: "games", isBridged: true, name: "Games", mark: "遊", tagline: "Race the clock.", destinations: [
+  { id: "games", isBridged: true, name: "Games", mark: "遊", tagline: "Play in Japanese.", destinations: [
+    { label: "Island Errands", href: "/games/errands", description: "Walk the village and run errands in Japanese." },
     { label: "Particle Drop", href: "/games/particles", description: "Fill in は, を, に… against the clock." },
     { label: "Kana speed quiz", href: "/practice?type=hiragana", description: "Read kana as fast as you can." },
   ] },

@@ -46,6 +46,7 @@ const practiceTools = [
   { title: "Kana speed quiz", icon: "⚡", href: "/practice?type=hiragana", description: "Race the clock with hiragana." },
   { title: "Kana review", icon: "あ", href: "/review/hiragana", description: "Characters you still find hard." },
   { title: "Particle Drop", icon: "は", href: "/games/particles", description: "Fill in は, を, に… against the clock." },
+  { title: "Island Errands", icon: "🏮", href: "/games/errands", description: "Walk the village and run errands in Japanese." },
   { title: "Unit assessments", icon: "📝", href: "/quizzes", description: "Score 80% to complete a unit." },
   { title: "Mock exam", icon: "🎓", href: "/mock-exam", description: "A timed end-of-level exam." },
 ];

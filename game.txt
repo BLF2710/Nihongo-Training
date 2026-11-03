@@ -1,0 +1,55 @@
+GAME IDEAS: action first, Japanese as the mechanic
+====================================================
+
+Built: Island Errands (/games/errands). A top-down village where you walk around, talk to the island cast in
+Japanese and run errands. The ideas below are for later; each uses the island cast and the learner's traveller.
+
+When Island Errands grows: each new district is a new village file in nihon-web/src/data/errands (map rows,
+buildings, gates, villagers and their conversations, errands). The other games could then live inside the villages
+as arcade machines or festival stalls.
+
+
+1. Kana Dash (endless runner)
+-----------------------------
+Controls:  Space or tap to jump, down to slide; up/down switch lanes. The traveller runs across the islands.
+Japanese:  Gates hang ahead, each marked with a romaji sound; only the lane with the matching kana stays open.
+           Later stages swap romaji for meanings: run through 「みず」 when the sign says "water".
+Game:      Speed ramps up, combo multipliers, coins buy hats for the traveller.
+Scope:     Small. A canvas loop and lane logic on the existing kana data (lib/kanaDeck.ts).
+
+
+2. Ink Duel (rhythm combat)
+---------------------------
+Controls:  Arrow keys / WASD to dodge; draw strokes with the mouse or a finger.
+Japanese:  Kurama or a yokai attacks in patterns. To counter, trace a kanji's strokes in order; stroke-order
+           accuracy sets the damage. Bosses demand compound words.
+Game:      Dodging plus a skill-based attack, with a boss per JLPT level.
+Scope:     Medium to large. Stroke recognition is the hard part; stroke data already exists
+           (data/kanjiStrokes.json, data/kanaStrokes.json, KanaWritingCanvas).
+
+
+3. Particle Platformer
+----------------------
+Controls:  Move, jump, double-jump.
+Japanese:  Each platform is a word of a sentence and the gaps between them are particles. Collect は／を／に／で
+           and throw them into the gaps: the right particle becomes a bridge, the wrong one crumbles.
+Game:      Precise platforming plus sentence-building puzzles in the same moment.
+Scope:     Medium. Reuses Particle Drop's sentence and gap finder (lib/particleDrop.ts).
+
+
+4. Onsen Tycoon (management sim)
+--------------------------------
+Controls:  Click to place baths, lanterns and food stalls.
+Japanese:  Guests arrive with requests in Japanese, like 「あついおふろがいいです」. Serving them right earns money
+           and ratings. Vocabulary grows from N5 up to N1.
+Game:      A management loop with upgrades that brings learners back daily; ties into the streak.
+Scope:     Medium to large. Momo (the onsen monkey) runs it.
+
+
+5. Yokai Typing Defense (tower defense)
+---------------------------------------
+Controls:  The keyboard (a Japanese IME, or romaji converted to kana as you type).
+Japanese:  Yokai walk down paths toward the onsen, each carrying a word. Typing its reading fires a lantern at it.
+           Towers placed along the path auto-attack yokai of one word type (verbs, adjectives…).
+Game:      Tower defense with typing as the aiming; builds real typing skill.
+Scope:     Small to medium. Reuses lib/romaji.ts for romaji-to-kana.

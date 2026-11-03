@@ -6,14 +6,15 @@ import { HttpError } from "../utils/http-error";
 import type { ActivitySource } from "../gamification/xpRules";
 import { rewardActivity } from "./gamification.service";
 
-// Listening, speaking, reading, mock exams and Particle Drop are graded in the browser, so the browser reports a
-// finished session. Only finished work counts: a listening, speaking or Particle Drop round needs most of its questions answered.
-const MIN_ANSWERED: Record<PracticeKind, number> = { listening: 5, speaking: 5, reading: 1, "mock-exam": 1, particles: 5 };
+// Listening, speaking, reading, mock exams, Particle Drop and Island Errands are graded in the browser, so the browser reports a
+// finished session. Only finished work counts: a listening, speaking or Particle Drop round needs most of its questions answered,
+// and an errand is reported once it is done (each asks a few replies).
+const MIN_ANSWERED: Record<PracticeKind, number> = { listening: 5, speaking: 5, reading: 1, "mock-exam": 1, particles: 5, errands: 2 };
 const KINDS = Object.keys(MIN_ANSWERED) as PracticeKind[];
-// A mock exam and a Particle Drop round cover a course level (N5); the other kinds practise one unit.
-const LEVEL_KINDS: ReadonlySet<PracticeKind> = new Set(["mock-exam", "particles"]);
+// A mock exam, a Particle Drop round and an errand cover a course level (N5); the other kinds practise one unit.
+const LEVEL_KINDS: ReadonlySet<PracticeKind> = new Set(["mock-exam", "particles", "errands"]);
 // The XP a session earns. A mock exam reported here was already rewarded when the server graded it.
-const REWARD_SOURCE: Record<PracticeKind, ActivitySource | null> = { listening: "practice", speaking: "practice", reading: "practice", "mock-exam": null, particles: "game" };
+const REWARD_SOURCE: Record<PracticeKind, ActivitySource | null> = { listening: "practice", speaking: "practice", reading: "practice", "mock-exam": null, particles: "game", errands: "game" };
 const MAX_ANSWERED = 200;
 const SESSIONS_PER_HOUR = 60;
 const UNIT_SCOPE = /^japanese-n[1-5]-unit-\d{1,2}$/;

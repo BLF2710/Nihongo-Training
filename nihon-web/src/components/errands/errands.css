@@ -1,0 +1,73 @@
+/* Island Errands: the village's ground, buildings and lanterns, and the people walking in it. */
+.village {
+  --village-grass: #9cc47a;
+  --village-grass-tuft: #7fae5f;
+  --village-path: #e6d3a8;
+  --village-path-edge: #d2bb8a;
+  --village-gravel: #ece5d4;
+  --village-gravel-dot: #cfc4ab;
+  --village-water: #6fb3cf;
+  --village-water-light: #b7e0ee;
+  --village-wood: #8a6a4a;
+  --village-wood-light: #b08a62;
+  --village-leaf: #4f8a3c;
+  --village-leaf-light: #6ea957;
+  --village-wall: #f7f0df;
+  --village-wall-shade: #e2d6bb;
+  --village-ink: #2e2a26;
+  --village-sign: #fffaf0;
+  --village-vermilion: #c94f35;
+  --village-indigo: #3d5a80;
+  --village-moss: #5c7d3e;
+  --village-flower: #f2a7b8;
+  --village-flower-centre: #f6d36b;
+  --village-lantern-off: #b89a8a;
+  --village-lantern-on: #ff8a4c;
+  --village-shadow: rgb(30 25 20 / 0.22);
+  background: var(--village-water);
+}
+.dark .village {
+  --village-grass: #4c6b3c;
+  --village-grass-tuft: #3f5c32;
+  --village-path: #8c7a58;
+  --village-path-edge: #75664a;
+  --village-gravel: #77715f;
+  --village-gravel-dot: #625c4c;
+  --village-water: #2d5466;
+  --village-water-light: #4e7f94;
+  --village-wood: #6b5139;
+  --village-wood-light: #85674a;
+  --village-leaf: #355e2b;
+  --village-leaf-light: #477a39;
+  --village-wall: #cfc6b0;
+  --village-wall-shade: #aca28b;
+  --village-ink: #14110e;
+  --village-sign: #e8dfca;
+  --village-vermilion: #a8432e;
+  --village-indigo: #314a69;
+  --village-moss: #4a6633;
+  --village-flower: #c98595;
+  --village-flower-centre: #cfae55;
+  --village-lantern-off: #7d6a60;
+  --village-lantern-on: #ffa060;
+  --village-shadow: rgb(0 0 0 / 0.35);
+}
+
+.village-world { will-change: transform; }
+
+.village-lantern { fill: var(--village-lantern-off); transition: fill 1.2s ease; }
+.village-lantern-glow { fill: var(--village-lantern-on); opacity: 0; transition: opacity 1.2s ease; }
+.village-lanterns-lit .village-lantern { fill: var(--village-lantern-on); }
+.village-lanterns-lit .village-lantern-glow { opacity: 0.35; animation: village-flicker 2.4s ease-in-out infinite alternate; }
+@keyframes village-flicker { from { opacity: 0.25; } to { opacity: 0.45; } }
+
+.village-person { transition: transform 0.1s linear; }
+.village-villager { animation: village-bob 2.6s ease-in-out infinite; }
+@keyframes village-bob { 50% { transform: translateY(-4%); } }
+.village-marker { animation: village-marker 1s ease-in-out infinite alternate; }
+@keyframes village-marker { to { transform: translateY(-20%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .village-villager, .village-marker, .village-lanterns-lit .village-lantern-glow { animation: none; }
+  .village-lantern, .village-lantern-glow, .village-person { transition: none; }
+}

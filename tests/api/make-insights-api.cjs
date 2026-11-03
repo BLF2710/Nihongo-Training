@@ -71,7 +71,11 @@ const tail = String.raw`    const uid = async name => (await client.query('SELEC
     const round = await practice({ kind: 'particles', scope: 'N5', answered: 10, correct: 7 });
     assert.equal(round.status, 201); assert.equal(round.data.reward.xpEarned, 10);
     assert.equal((await client.query("SELECT count(*)::int AS n FROM xp_events WHERE user_id = $1 AND source = 'game'", [ana])).rows[0].n, 1);
-    console.log('PASS: practice sessions need sign-in and valid kind, scope, counts and limits; Particle Drop rounds by level, paid as game XP; a finished round counts toward the streak; rate limit at 60 an hour; analytics (admins only): learner totals and activity windows, 14-day daily actives, unit funnel (3 started, 1 finished, 2 attempted, 1 passed = 50%, average best 77), N4 units labelled, drop-offs between consecutive lessons ranked, practice volume and accuracy by kind; administrators\' own activity excluded. Rolled back.');
+    // ---- an Island Errands errand: a course level as scope, at least 2 replies
+    assert.equal((await practice({ kind: 'errands', scope: 'japanese-n5-unit-1', answered: 3, correct: 3 })).status, 400, 'an errand covers a level');
+    assert.equal((await practice({ kind: 'errands', scope: 'N5', answered: 1, correct: 1 })).status, 400, 'too few replies for an errand');
+    assert.equal((await practice({ kind: 'errands', scope: 'N5', answered: 3, correct: 2 })).status, 201);
+    console.log('PASS: practice sessions need sign-in and valid kind, scope, counts and limits; Particle Drop rounds and Island Errands by level, paid as game XP; a finished round counts toward the streak; rate limit at 60 an hour; analytics (admins only): learner totals and activity windows, 14-day daily actives, unit funnel (3 started, 1 finished, 2 attempted, 1 passed = 50%, average best 77), N4 units labelled, drop-offs between consecutive lessons ranked, practice volume and accuracy by kind; administrators\' own activity excluded. Rolled back.');
   } finally { await queue.catch(() => {}); await client.query('ROLLBACK').catch(() => {}); client.release(); await new Promise(r => server ? server.close(r) : r()); await pool.end(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1500)); process.exitCode = 1; });
 `;
