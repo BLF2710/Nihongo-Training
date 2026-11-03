@@ -2,6 +2,7 @@ import { useId, useMemo } from "react";
 import type { ReactElement, ReactNode } from "react";
 import { coastlinePath, coastPointToward, isletPlacements, isletToward } from "../../lib/islandCoastline";
 import { ISLAND_COASTS, ISLANDS } from "../../lib/islandMap";
+import { PAGODA_BASE, PAGODA_FINIAL, pagodaShape } from "../../lib/pagoda";
 import { smoothClosedPath } from "../../lib/svgPath";
 import type { IslandId, Point } from "../../lib/islandMap";
 
@@ -95,9 +96,7 @@ function scallopedPath({ cx, cy, rx, ry, bumps }: { cx: number; cy: number; rx: 
 // A bump's radius as a share of the gap it spans: just over half, so each bump is a little flatter than a semicircle.
 const BUMP_RADIUS_SHARE = 0.62;
 
-// The pagoda keeps its height as it gains tiers (3, 4, then 5), so the spire stays inside the drawing. It stands on a
-// stone podium at the end of a path from the bridge.
-const PAGODA_HEIGHT = 60;
+// The pagoda (its shape is in lib/pagoda) stands on a stone podium at the end of a path from the bridge.
 const PAGODA_SPIRE_RINGS = 5;
 const PAGODA_LANTERN_SIZE = 0.42;
 // How deep each tier's square plan is drawn, as a share of its half-width (the oblique view foreshortens depth).
@@ -121,12 +120,8 @@ function NoticeBoard({ x, y, sheets }: { x: number; y: number; sheets: number })
 }
 
 function Pagoda({ stage }: LandmarkProps) {
-  const tierCount = 3 + Math.min(stage, 2);
-  const spacing = PAGODA_HEIGHT / (tierCount - 1);
-  const k = spacing / 30;
+  const { tierCount, spacing, k, peak } = pagodaShape(stage);
   const tiers = Array.from({ length: tierCount }, (_, tier) => tier);
-  const topY = -8 - (tierCount - 1) * spacing;
-  const peak = topY - 34 * k;
   const metal = stage >= 3 ? "var(--gold)" : "var(--bronze)";
   return <g>
     {PAGODA_PATH_STONES.map(([x, y, rx]) => <g key={y}>
@@ -139,7 +134,7 @@ function Pagoda({ stage }: LandmarkProps) {
     <Azalea x={26} y={24} />
     <GroundShadow x={4} y={6} rx={44} />
     <Box x={-32} y={8} width={56} height={6} depth={16} fill="var(--stone)" />
-    <g transform="translate(2,4)">
+    <g transform={`translate(${PAGODA_BASE.x},${PAGODA_BASE.y})`}>
       {tiers.map(tier => {
         const y = -8 - tier * spacing, half = 26 - tier * (10 / (tierCount - 1)), roof = 44 - tier * (14 / (tierCount - 1));
         const depth = half * PAGODA_TIER_DEPTH;
@@ -166,7 +161,7 @@ function Pagoda({ stage }: LandmarkProps) {
       <path d={`M-7,${peak + 1} Q0,${peak - 8} 7,${peak + 1} Z`} fill="var(--slate)" {...ink} strokeWidth="1.2" />
       <line x1="0" y1={peak - 4} x2="0" y2={peak - 38} {...ink} strokeWidth="2.5" />
       {Array.from({ length: PAGODA_SPIRE_RINGS }, (_, ring) => <ellipse key={ring} cx="0" cy={peak - 9 - ring * 6} rx="5" ry="1.6" fill={metal} {...ink} strokeWidth="0.9" />)}
-      <circle cx="0" cy={peak - 41} r="3.2" fill={metal} {...ink} strokeWidth="1" />
+      <circle cx="0" cy={peak - PAGODA_FINIAL.rise} r={PAGODA_FINIAL.radius} fill={metal} {...ink} strokeWidth="1" />
     </g>
     {stage >= 3 && <><GardenLantern x={-44} y={20} size={PAGODA_LANTERN_SIZE} /><GardenLantern x={44} y={20} size={PAGODA_LANTERN_SIZE} /></>}
   </g>;

@@ -35,6 +35,11 @@
   --gold: #d9a93a;
   --checkpoint-light: #ffd23f;
   --straw: #e2c98f;
+  --pigeon: #a6b0be;
+  --pigeon-wing: #c6ccd5;
+  --pigeon-neck: #6d9c86;
+  --letter: #ffffff;
+  --pigeon-leg: #e07a6a;
   --steam: rgba(255, 255, 255, 0.85);
 }
 .island-map[data-time="night"] {
@@ -67,6 +72,11 @@
   --onsen-deep: #2b4c52;
   --stone: #5a5c60;
   --steam: rgba(200, 214, 235, 0.55);
+  --pigeon: #6f7886;
+  --pigeon-wing: #8a93a0;
+  --pigeon-neck: #4b6d60;
+  --letter: #e6e1d4;
+  --pigeon-leg: #b0645a;
 }
 .island-map[data-time="dawn"] {
   --sea-top: #f7e7df;
@@ -248,6 +258,12 @@
 
 /* Practice's wind chime sways from its hook. */
 .island-chime { transform-box: view-box; transform-origin: 68px -37px; animation: island-chime 2.6s ease-in-out infinite alternate; }
+/* The carrier pigeon: its tour of the islands is animated from script (it depends on which islands are open), so here
+   it only sits on its route. Its flying wings are hidden until it takes off. */
+.island-pigeon { position: absolute; left: 0; top: 0; padding: 0.4rem; offset-anchor: 50% 85%; offset-rotate: 0deg; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2)); }
+.island-pigeon-flying { opacity: 0; }
+.island-mail-bubble { position: absolute; left: 50%; top: -0.2rem; display: grid; place-items: center; width: 1.15rem; height: 1.15rem; border: 2px solid var(--ink); border-radius: 9999px; background: var(--vermilion); color: #ffffff; font-size: 0.75rem; font-weight: 900; line-height: 1; transform: translateX(-50%); animation: island-mail-bob 1.6s ease-in-out infinite; }
+@keyframes island-mail-bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -3px); } }
 @keyframes island-chime { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
 
 /* The festival's fireworks burst over Games only at night. */
@@ -260,7 +276,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .island-mist, [data-time] .island-lantern-glow, [data-time] .scenery-lantern, [data-time] .island-lighthouse-beam, .scenery-sun-streak, .scenery-morning-mist, .island-bell-swing, .island-steam, .island-ema, .island-lantern-lit, .island-checkpoint-next, .sea-layer, .sea-sheen, .island-foam,
-  .island-petal-fall, .island-chime, .island-firework, .scenery-cloud-shadow, .scenery-sun-rays, .scenery-sun-glitter, .scenery-boat, .scenery-boat-art, .scenery-fish, .scenery-flock, .scenery-crane, .scenery-crane-shadow, .scenery-wing { animation: none; }
+  .island-petal-fall, .island-chime, .island-firework, .scenery-cloud-shadow, .scenery-sun-rays, .scenery-sun-glitter, .scenery-boat, .scenery-boat-art, .scenery-fish, .scenery-flock, .scenery-crane, .scenery-crane-shadow, .scenery-wing, .island-mail-bubble { animation: none; }
   .scenery-boat { offset-distance: 30%; }
   .scenery-flock, .scenery-petal { display: none; }
   .island-ripple { animation: none; opacity: 0.4; }

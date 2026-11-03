@@ -6,6 +6,8 @@ import { backdropCamera, BRIDGED_ISLANDS, cameraTransform, climbProgress, course
 
 import { parseMapTimeSetting, timeOfDayAt, timeOfDayFor } from "../src/lib/timeOfDay.ts";
 import { islandGrowth, sessionsOf, spreadStage, GAME_KINDS } from "../src/lib/islandGrowth.ts";
+import { pagodaFinialTop } from "../src/lib/pagoda.ts";
+import { flightSchedule, PIGEON_PERCHES, pigeonTour, tourLegs, tourOrder } from "../src/lib/pigeonFlight.ts";
 const progress = (completedLessons, completedUnits = 0) => ({ completedLessons, completedUnits });
 const openIds = p => ISLANDS.filter(island => islandState(island.id, p).status === "open").map(island => island.id);
 
@@ -228,4 +230,57 @@ test("an island with several tracks grows by their steps added up", () => {
 
 test("a previewed total step is shared among the tracks in turn, never past a track's last step", () => {
   assert.deepEqual([spreadStage(4, [3, 3, 3]), spreadStage(5, [3, 1]), spreadStage(9, [2, 2])], [[2, 1, 1], [3, 1], [2, 2]]);
+});
+
+test("the pigeon starts at Home and tours the other islands clockwise from the top", () => {
+  assert.deepEqual(tourOrder(LANDSCAPE_LAYOUT, ["kana", "lessons", "home", "kanji", "fuji"]), ["home", "lessons", "kanji", "kana", "fuji"]);
+});
+
+test("the pigeon's tour is a closed loop: the last leg lands back where the first took off", () => {
+  const legs = tourLegs([{ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 10, y: 10 }]);
+  assert.deepEqual(legs.at(-1).to, legs[0].from);
+});
+
+test("each leg bows upward between its perches", () => {
+  const [leg] = tourLegs([{ x: 0, y: 0 }, { x: 10, y: 0 }]);
+  assert.ok(leg.control.y < 0);
+});
+
+test("the pigeon rests at each perch, then each flight follows the last in time and along the route", () => {
+  const { flights } = flightSchedule(tourLegs([{ x: 0, y: 0 }, { x: 30, y: 0 }, { x: 30, y: 20 }]));
+  const ordered = flights.every((flight, index) => flight.start > (index ? flights[index - 1].end : 0) && flight.end > flight.start
+    && flight.fromDistance === (index ? flights[index - 1].toDistance : 0));
+  assert.deepEqual([ordered, flights.at(-1).toDistance, flights.at(-1).end], [true, 1, 1]);
+});
+
+test("every real tour's timings and distances run from 0 to 1 and never go back, as keyframes require", () => {
+  for (const layout of [LANDSCAPE_LAYOUT, PORTRAIT_LAYOUT]) for (const ids of [ISLANDS.map(island => island.id), ["home", "lessons", "kana", ...OUTLYING]]) {
+    const { flights } = pigeonTour({ layout, islands: ids, pixelsPerUnit: 7.3 });
+    const shares = flights.flatMap(flight => [flight.start, flight.end]);
+    const distances = flights.flatMap(flight => [flight.fromDistance, flight.toDistance]);
+    assert.ok([shares, distances].every(list => list.every((value, index) => value >= 0 && value <= 1 && (index === 0 || value >= list[index - 1]))));
+  }
+});
+
+test("the pigeon faces the way it is flying", () => {
+  const { flights } = flightSchedule(tourLegs([{ x: 0, y: 0 }, { x: 30, y: 0 }]));
+  assert.deepEqual(flights.map(flight => flight.isFacingRight), [true, false]);
+});
+
+test("with only Home open there is nowhere to fly", () => {
+  assert.equal(pigeonTour({ layout: LANDSCAPE_LAYOUT, islands: ["home"], pixelsPerUnit: 5 }), null);
+});
+
+test("every island has a perch inside its drawing", () => {
+  assert.ok(ISLANDS.every(({ id }) => Math.abs(PIGEON_PERCHES[id].x) <= 140 && PIGEON_PERCHES[id].y >= -170 && PIGEON_PERCHES[id].y <= 70));
+});
+
+test("a perch that moves as its island grows replaces the usual one", () => {
+  const options = { layout: LANDSCAPE_LAYOUT, islands: ["home", "lessons"], pixelsPerUnit: 5 };
+  assert.notEqual(pigeonTour({ ...options, perches: { lessons: { x: 2, y: -120 } } }).path, pigeonTour(options).path);
+});
+
+test("the pagoda's finial drops as tiers are added, and stops once all five are built", () => {
+  const heights = [0, 1, 2, 3].map(stage => pagodaFinialTop(stage).y);
+  assert.ok(heights[0] < heights[1] && heights[1] < heights[2] && heights[2] === heights[3]);
 });

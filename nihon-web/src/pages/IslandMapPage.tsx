@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode, RefObject } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -6,6 +6,7 @@ import { IslandLand, IslandWater } from "../components/islandMap/IslandArt";
 import { HomeSummary, IslandPanel, ISLAND_PANEL_ID } from "../components/islandMap/IslandPanel";
 import type { HomeStats } from "../components/islandMap/IslandPanel";
 import { BridgeReflections, Bridges } from "../components/islandMap/Bridges";
+import { CarrierPigeon, LetterPanel } from "../components/islandMap/PigeonLetter";
 import { AskSensei, FujiClimb, HarbourFriends, OnsenBadges, TimeChooser } from "../components/islandMap/PlacePanels";
 import { FishingBoat, FloatingLantern, SailingBoat, SceneryAbove, SceneryBelow } from "../components/islandMap/Scenery";
 import { Sea } from "../components/islandMap/Sea";
@@ -19,6 +20,9 @@ import { COURSE_LEVELS, inLevel, levelOfId, useCourseLevel } from "../lib/course
 import { useInboxSummary } from "../lib/inbox";
 import { backdropCamera, BRIDGED_ISLANDS, bridgeDirections, cameraTransform, climbProgress, homeIsletDirection, courseProgress, drawingScale, islandState, ISLANDS, isBehindHome, layoutFor, nextCourseStep } from "../lib/islandMap";
 import type { IslandId, IslandPlacement, MapLayout, Point, Size } from "../lib/islandMap";
+import { useEmailReminder } from "../lib/emailReminder";
+import { pagodaFinialTop } from "../lib/pagoda";
+import { pigeonTour, pigeonWidth } from "../lib/pigeonFlight";
 import { smoothOpenPath } from "../lib/svgPath";
 
 const CAMERA_ZOOM = 1.7;
@@ -27,7 +31,7 @@ const CAMERA_TARGET_LANDSCAPE = { x: 0.33, y: 0.5 };
 const CAMERA_TARGET_PORTRAIT = { x: 0.5, y: 0.27 };
 // Islands are drawn in depth order: water first, then land further back, bridges, Home, nearer land, and labels on top.
 // A bridge is over the island behind Home it leads to and under Home, and over Home and under an island in front.
-const LAYER = { water: 1, boat: 2, landBehind: 3, bridgesBehind: 4, home: 5, bridgesFront: 6, landFront: 7, labels: 8 } as const;
+const LAYER = { water: 1, boat: 2, landBehind: 3, bridgesBehind: 4, home: 5, bridgesFront: 6, landFront: 7, labels: 8, pigeon: 9 } as const;
 // Where a label sits below an island's anchor, in island-drawing units (just under the front shore).
 const LABEL_DROP = 62;
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--vermilion)]";
@@ -56,6 +60,9 @@ export default function IslandMapPage() {
   const mapTime = useMapTimeOfDay();
   const inbox = useInboxSummary();
   const [selectedId, setSelectedId] = useState<IslandId | null>(null);
+  const [isLetterOpen, setIsLetterOpen] = useState(false);
+  const emailReminder = useEmailReminder();
+  const pigeonRef = useRef<HTMLButtonElement>(null);
   const seaRef = useRef<HTMLElement>(null);
   const islandRefs = useRef(new Map<IslandId, HTMLButtonElement>());
   const space = useElementSize(seaRef);
@@ -65,7 +72,7 @@ export default function IslandMapPage() {
   const bridgeDirectionsById = useMemo(() => Object.fromEntries(ISLANDS.map(({ id }) => [id, bridgeDirections(layout, id)])) as Record<IslandId, Point[]>, [layout]);
   const isPortrait = space.width < space.height;
 
-  const progress = units.status === "ready" ? courseProgress(units.value) : null;
+  const progress = useMemo(() => units.status === "ready" ? courseProgress(units.value) : null, [units]);
   const nextStep = useMemo(() => units.status === "ready" ? nextCourseStep(units.value.filter(inLevel(level))) : null, [units, level]);
   const reviewsDue = srs.status === "ready" ? srs.value.dueTotal : null;
   const homeStats: HomeStats | null = profile.status === "ready"
@@ -120,19 +127,34 @@ export default function IslandMapPage() {
     belltower: <TimeChooser setting={mapTime.setting} clockTimeOfDay={mapTime.clockTimeOfDay} onChoose={mapTime.chooseSetting} />,
   };
 
+  // The pigeon carries mail: unread messages, and a letter while the email is unconfirmed until that is put off for this browser session.
+  const unconfirmedEmail = profile.status === "ready" && profile.value.email && !profile.value.email_verified_at ? profile.value.email : null;
+  // TEMPORARY, development builds only: /map?preview=pigeon shows the pigeon for any account.
+  const isPigeonPreview = import.meta.env.DEV && new URLSearchParams(window.location.search).get("preview") === "pigeon";
+  const previewEmail = isPigeonPreview && profile.status === "ready" ? profile.value.email ?? "your email address" : null;
+  const letterEmail = previewEmail ?? (emailReminder.isDismissed ? null : unconfirmedEmail);
+  const openLetter = () => { setSelectedId(null); setIsLetterOpen(current => !current); };
+  const unreadMessages = inbox?.direct ?? 0;
+  const hasMail = letterEmail !== null || unreadMessages > 0;
+  const putLetterOff = () => { emailReminder.dismiss(); setIsLetterOpen(false); islandRefs.current.get("home")?.focus(); };
+
   const close = useCallback(() => {
     const id = selectedId;
     setSelectedId(null);
+    setIsLetterOpen(false);
     if (id) islandRefs.current.get(id)?.focus();
+    else pigeonRef.current?.focus();
   }, [selectedId]);
   useEffect(() => {
-    if (!selectedId) return;
+    if (!selectedId && !isLetterOpen) return;
     const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") close(); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [selectedId, close]);
+  }, [selectedId, isLetterOpen, close]);
 
   const isOpen = (id: IslandId) => islandState(id, progress).status === "open";
+  // The pigeon tours the open islands; its route (and so its flight) only changes when progress does.
+  const openIslands = useMemo(() => ISLANDS.filter(island => islandState(island.id, progress).status === "open").map(island => island.id), [progress]);
   const badgeOf = (id: IslandId) => id === "review" && reviewsDue ? `${reviewsDue} due` : null;
   const bridged = BRIDGED_ISLANDS.map(island => island.id);
   const behindIds = bridged.filter(id => isBehindHome(layout, id));
@@ -162,7 +184,7 @@ export default function IslandMapPage() {
               const layer = island.id === "home" ? LAYER.home : !island.isBridged || isBehindHome(layout, island.id) ? LAYER.landBehind : LAYER.landFront;
               return <Placed key={island.id} as="li" layout={layout} place={layout.placements[island.id]} layer={layer} isInteractive>
                 <button type="button" ref={element => { if (element) islandRefs.current.set(island.id, element); else islandRefs.current.delete(island.id); }}
-                  onClick={() => setSelectedId(current => current === island.id ? null : island.id)}
+                  onClick={() => { setIsLetterOpen(false); setSelectedId(current => current === island.id ? null : island.id); }}
                   aria-label={`${island.name}${isFogged ? " · in fog" : ""}${badgeOf(island.id) ? `, ${badgeOf(island.id)}` : ""}`}
                   aria-expanded={selectedId === island.id} aria-controls={ISLAND_PANEL_ID}
                   className={`group relative block w-full rounded-3xl ${focus}`}>
@@ -176,12 +198,14 @@ export default function IslandMapPage() {
           <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.labels }}>
             {ISLANDS.map(island => <IslandLabel key={island.id} layout={layout} id={island.id} isFogged={!isOpen(island.id)} badge={badgeOf(island.id)} />)}
           </div>
+          <PigeonPost ref={pigeonRef} layout={layout} stage={stage} islands={openIslands} lessonsStage={stageOf("lessons")} hasMail={hasMail} isExpanded={isLetterOpen} onOpen={openLetter} />
         </div>
       </div>
       <SkyCamera focus={focus} target={cameraTarget} stage={stage} space={space}><SceneryAbove /></SkyCamera>
       {selected && <IslandPanel island={selected} state={islandState(selected.id, progress)} nextStep={nextStep} growth={growthOf(selected.id)}
         growthPreview={import.meta.env.DEV ? { stage: growthPreview[selected.id] ?? null, onPreview: stage => previewGrowth(selected.id, stage) } : undefined}
         notes={notes} onClose={close}>{panelExtras[selected.id]}</IslandPanel>}
+      {isLetterOpen && hasMail && <LetterPanel email={letterEmail} unreadMessages={unreadMessages} onLater={putLetterOff} onClose={close} />}
     </main>
   </div>;
 }
@@ -223,6 +247,21 @@ function SkyCamera({ focus, target, stage, space, children }: { focus: IslandPla
   const sky = focus ? backdropCamera({ placement: focus, target, zoom: CAMERA_ZOOM, stage, stageOffset }) : null;
   return <div className="island-camera pointer-events-none absolute inset-0" style={{ transform: sky ? `translate(${sky.x}px, ${sky.y}px) scale(${sky.zoom})` : "none" }}>{children}</div>;
 }
+
+type PigeonPostProps = { layout: MapLayout; stage: Size; islands: readonly IslandId[]; lessonsStage: number; hasMail: boolean; isExpanded: boolean; onOpen: () => void };
+
+/** The carrier pigeon touring the open islands, in stage pixels; it always flies, carrying mail when there is some.
+ *  `lessonsStage` is how far Lessons has grown, which sets the height of the pagoda it lands on. */
+const PigeonPost = forwardRef<HTMLButtonElement, PigeonPostProps>(function PigeonPost({ layout, stage, islands, lessonsStage, hasMail, isExpanded, onOpen }, ref) {
+  const pixelsPerUnit = stage.height / 100;
+  // It perches on the pagoda's finial, which drops as Lessons grows.
+  const tour = useMemo(() => pixelsPerUnit > 0 ? pigeonTour({ layout, islands, pixelsPerUnit, perches: { lessons: pagodaFinialTop(lessonsStage) } }) : null,
+    [layout, islands, pixelsPerUnit, lessonsStage]);
+  if (!tour) return null;
+  return <div className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.pigeon }}>
+    <CarrierPigeon ref={ref} tour={tour} width={pigeonWidth(layout, pixelsPerUnit)} hasMail={hasMail} isExpanded={isExpanded} onOpen={onOpen} />
+  </div>;
+});
 
 /** Life on the open water where the layout has room: the boat on its lane, a fishing boat, and lanterns at night. */
 function MapScenery({ layout, stage }: { layout: MapLayout; stage: Size }) {

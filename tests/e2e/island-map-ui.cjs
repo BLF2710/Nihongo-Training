@@ -13,7 +13,7 @@ const unit = (number, done, total = 4) => ({
   completed: done === total, bestScore: null, bestCorrect: null, questionCount: 0, passPercent: null,
   lessons: Array.from({ length: total }, (_, index) => lesson(`n5-${number}-${index + 1}`, index < done)),
 });
-const profile = { username: "aki", display_name: "Aki", bio: "", avatar: null, learning_language: "japanese", learning_goal: null, daily_goal: 10, profile_visibility: "private",
+const profile = { username: "aki", display_name: "Aki", email: "aki@example.test", email_verified_at: null, bio: "", avatar: null, learning_language: "japanese", learning_goal: null, daily_goal: 10, profile_visibility: "private",
   xp: 120, level: 3, rank: "Beginner", lessons_completed: 0, current_streak: 4, achievements_count: 0, achievements: [],
   xpProgress: { currentLevelXp: 0, nextLevelXp: 200, progressXp: 120, progressPercent: 60 } };
 const FOGGED = ["Practice", "Review", "Games", "Kanji"];
@@ -88,6 +88,21 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
     assert.equal(await home.getByRole("progressbar").getAttribute("aria-valuenow"), "60");
     assert.match(await island(map, "Review").getAttribute("aria-label"), /7 due/);
     await home.getByRole("button", { name: "Close Home" }).click();
+
+    // ---- An unconfirmed email: the carrier pigeon brings it as mail; Esc returns focus to it, and "later" leaves it flying without mail
+    const pigeon = map.getByRole("button", { name: /carrier pigeon/ });
+    // Hold it still where it is (as hovering does), so the mouse can click it mid-flight.
+    await page.evaluate(() => document.querySelectorAll(".island-pigeon, .island-pigeon *").forEach(part => part.getAnimations().forEach(animation => animation.pause())));
+    await pigeon.click();
+    const letter = page.getByRole("region", { name: "Mail for you" });
+    await letter.getByText("aki@example.test").waitFor();
+    assert.equal(await pigeon.getAttribute("aria-expanded"), "true");
+    await page.keyboard.press("Escape");
+    assert.equal(await pigeon.evaluate(element => element === document.activeElement), true, "focus returns to the pigeon");
+    await pigeon.focus(); await page.keyboard.press("Enter");
+    await letter.getByRole("button", { name: "Remind me later" }).click();
+    assert.equal(await pigeon.count(), 0, "without mail the pigeon is no longer a button");
+    assert.equal(await page.locator(".island-pigeon").count(), 1, "the pigeon keeps flying without mail");
 
     // ---- The outlying places: Fuji's climb, the harbour's friends, the tea house's question box
     await island(map, "Progress").click();
@@ -170,6 +185,6 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
     await expectFogged(page, map, []);
     await context.close();
 
-    console.log("PASS: the island map fogs Practice, Review, Games and Kanji for a new learner and clears them with lessons and a completed unit; an island opens a panel with its destinations (still reachable in fog), the fog hint and the next lesson; Esc closes it and returns focus; Enter opens an island from the keyboard; Home shows streak, level, progress and reviews due; an island shows how far it has grown and what its next step needs (a row for each skill on Practice); and Review carries a due badge; Progress (Mt Fuji), Community (the harbour) and Assistant (the tea house) are never fogged — Progress shows one climb station per level with “You are here” and links to the mock exam, Community names friends who studied today, and Ask sensei opens the assistant with the question; no Back bar; one screen at 1366×768 and 390×844 (bottom sheet on phones); the map follows the clock (dawn, day, dusk, night) whatever the site theme, and the Time island keeps a chosen time across reloads or returns to the clock; a failed progress request opens every island; the dashboard and the map link to each other; no page errors.");
+    console.log("PASS: the island map fogs Practice, Review, Games and Kanji for a new learner and clears them with lessons and a completed unit; an island opens a panel with its destinations (still reachable in fog), the fog hint and the next lesson; Esc closes it and returns focus; Enter opens an island from the keyboard; Home shows streak, level, progress and reviews due; a carrier pigeon always flies, bringing the confirm-your-email letter as mail until it is put off; an island shows how far it has grown and what its next step needs (a row for each skill on Practice); and Review carries a due badge; Progress (Mt Fuji), Community (the harbour) and Assistant (the tea house) are never fogged — Progress shows one climb station per level with “You are here” and links to the mock exam, Community names friends who studied today, and Ask sensei opens the assistant with the question; no Back bar; one screen at 1366×768 and 390×844 (bottom sheet on phones); the map follows the clock (dawn, day, dusk, night) whatever the site theme, and the Time island keeps a chosen time across reloads or returns to the clock; a failed progress request opens every island; the dashboard and the map link to each other; no page errors.");
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1800)); process.exitCode = 1; });
