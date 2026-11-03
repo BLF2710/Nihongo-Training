@@ -199,9 +199,11 @@
 [data-time="night"] .scenery-lantern { display: block; filter: drop-shadow(0 0 6px var(--lantern)); animation: scenery-lantern-drift 16s ease-in-out infinite; }
 @keyframes scenery-lantern-drift { 0%, 100% { translate: 0 0; } 50% { translate: 0.8rem 0.3rem; } }
 /* The lighthouse beam sweeps at night only. */
-.island-lighthouse-beam { display: none; transform-box: fill-box; transform-origin: center; }
+/* The beam sweeps round in the horizontal plane: rotated, then flattened into the islands' oblique view, so it
+   lengthens to the sides and shortens as it turns toward or away from the viewer. */
+.island-lighthouse-beam { display: none; transform-box: fill-box; transform-origin: center; transform: scaleY(0.32); }
 [data-time="night"] .island-lighthouse-beam { display: inline; opacity: 0.28; animation: island-beam 9s linear infinite; }
-@keyframes island-beam { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes island-beam { from { transform: scaleY(0.32) rotate(0deg); } to { transform: scaleY(0.32) rotate(360deg); } }
 /* Steam rises from the onsen and fades. */
 .island-steam { transform-box: fill-box; transform-origin: 50% 100%; animation: island-steam 4s ease-out infinite; opacity: 0; }
 @keyframes island-steam { 0% { transform: translateY(6px) scaleY(0.6); opacity: 0; } 30% { opacity: 0.8; } 100% { transform: translateY(-14px) scaleY(1.1); opacity: 0; } }

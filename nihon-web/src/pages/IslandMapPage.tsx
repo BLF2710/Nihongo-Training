@@ -73,7 +73,7 @@ export default function IslandMapPage() {
     : null;
   const climb = useMemo(() => units.status === "ready" ? climbProgress(units.value, COURSE_LEVELS.map(item => item.id), levelOfId) : null, [units]);
   const friendList = friends.status === "ready" ? friends.value.friends : null;
-  // What each landmark counts: levels reached on Fuji, units completed on Home, badges by the onsen, friends' boats moored at the harbour, the
+  // What each landmark counts: levels reached on Fuji, badges by the onsen, friends' boats moored at the harbour, the
   // bell tower's time of day (a new one swings the bell), and the cards due on Review (fallen leaves on its sand).
   const levelsCompleted = climb ? climb.filter(station => station.isReached).length : null;
   const learning = overview.status === "ready" ? overview.value : null;
@@ -102,7 +102,6 @@ export default function IslandMapPage() {
     return previewed === undefined ? tracks.map(track => track.stage) : spreadStage(previewed, tracks.map(track => track.maxStage));
   };
   const tallyOf = (id: IslandId) => id === "fuji" ? growthPreview.home ?? levelsCompleted ?? 0
-    : id === "home" ? progress?.completedUnits ?? 0
     : id === "onsen" ? (profile.status === "ready" ? profile.value.achievements_count : 0)
     : id === "harbour" ? friendList?.filter(friend => friend.progress?.activeToday).length ?? 0
     : id === "belltower" ? TIMES_OF_DAY.indexOf(mapTime.timeOfDay)

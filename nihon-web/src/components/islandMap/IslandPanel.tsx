@@ -64,7 +64,7 @@ const MEASURE_LABELS: Record<GrowthMeasure, string> = {
 
 // Anything else that grows the island, beyond its measure.
 const MEASURE_HINTS: Partial<Record<GrowthMeasure, string>> = {
-  levelsCompleted: "Every unit you complete also adds a lantern or azalea.",
+  levelsCompleted: "Each level also pins a sheet to the notice board.",
   cardsLearned: "Fallen leaves on the sand are today's due cards; reviewing sweeps them away.",
 };
 

@@ -1,5 +1,5 @@
 import { useId, useMemo } from "react";
-import type { ReactElement } from "react";
+import type { ReactElement, ReactNode } from "react";
 import { coastlinePath, coastPointToward, isletPlacements, isletToward } from "../../lib/islandCoastline";
 import { ISLAND_COASTS, ISLANDS } from "../../lib/islandMap";
 import { smoothClosedPath } from "../../lib/svgPath";
@@ -24,26 +24,13 @@ const ISLAND_SHAPES = Object.fromEntries(ISLANDS.map(({ id }) => {
 })) as Record<IslandId, { coast: string; hill: string }>;
 const ink = { stroke: "var(--ink)", strokeWidth: 2, strokeLinejoin: "round" as const, strokeLinecap: "round" as const };
 
-// Home grows with each JLPT level completed: the torii gains colour, rope, gold and a stone path, then glows. A stone lantern or azalea appears on the grass for each unit completed (in these spots, clear of the
-// bridges).
-const HOME_UNIT_SPOTS = [
-  { x: -56, y: 26 }, { x: 58, y: 28 }, { x: -86, y: 2 }, { x: 88, y: 0 }, { x: -28, y: 38 }, { x: 30, y: 38 },
-  { x: -48, y: -30 }, { x: 46, y: -32 }, { x: -70, y: 34 }, { x: 72, y: 34 }, { x: -20, y: -40 }, { x: 22, y: -40 },
-] as const;
+// Home grows with each JLPT level completed: the torii gains colour, rope, gold and a stone path, then glows, and a
+// sheet is pinned to the notice board for each level.
 
 // The JLPT levels completed at which each part of Home appears.
 const HOME_STEPS = { vermilionGate: 1, gateRope: 2, goldenGate: 3, steppingStones: 4, glow: 5 } as const;
 const STEPPING_STONES = [[0, 4], [-4, 16], [2, 28]] as const;
 const SHIDE_AT = [-16, 0, 16] as const;
-
-function StoneLantern({ x, y }: { x: number; y: number }) {
-  return <g transform={`translate(${x},${y}) scale(0.5)`}>
-    <rect x="-5" y="-22" width="10" height="22" fill="var(--paper)" {...ink} strokeWidth="2.4" />
-    <rect x="-12" y="-34" width="24" height="12" fill="var(--paper)" {...ink} strokeWidth="2.4" />
-    <rect x="-5" y="-31" width="10" height="6" fill="var(--lantern)" />
-    <path d="M-16,-34 L0,-46 L16,-34 Z" fill="var(--slate)" {...ink} strokeWidth="2.4" />
-  </g>;
-}
 
 function Azalea({ x, y }: { x: number; y: number }) {
   return <g transform={`translate(${x},${y})`}>
@@ -61,24 +48,33 @@ function Shimenawa({ d, shide }: { d: string; shide: readonly (readonly [number,
   </g>;
 }
 
-function Torii({ tally, stage }: LandmarkProps) {
+// The torii's two pillars (left edges); each stands on a round stone base.
+const TORII_PILLARS = [-34, 26] as const;
+
+function Torii({ stage }: LandmarkProps) {
   const pillars = stage >= HOME_STEPS.vermilionGate ? "var(--vermilion)" : "var(--wood)";
   const isGolden = stage >= HOME_STEPS.goldenGate;
   return <g transform="translate(0,-6)">
     {stage >= HOME_STEPS.glow && <circle className="island-summit-glow" cx="0" cy="-74" r="64" fill="var(--checkpoint-light)" />}
     {stage >= HOME_STEPS.steppingStones && STEPPING_STONES.map(([x, y]) => <ellipse key={y} cx={x} cy={y} rx="9" ry="3.5" fill="var(--stone)" {...ink} strokeWidth="1.2" />)}
-    {HOME_UNIT_SPOTS.slice(0, tally).map((spot, index) => index % 2 === 0 ? <StoneLantern key={spot.x} {...spot} /> : <Azalea key={spot.x} {...spot} />)}
-    <rect x="-34" y="-80" width="8" height="76" fill={pillars} {...ink} />
-    <rect x="26" y="-80" width="8" height="76" fill={pillars} {...ink} />
-    <rect x="-46" y="-70" width="92" height="7" fill={pillars} {...ink} />
+    <Pine x={-62} y={-30} size={0.9} />
+    <NoticeBoard x={62} y={26} sheets={Math.min(NOTICE_SHEETS.length, 1 + stage)} />
+    <GroundShadow x={2} y={-2} rx={50} />
+    {TORII_PILLARS.map(x => <g key={x}>
+      <rect x={x} y="-80" width="8" height="76" fill={pillars} {...ink} />
+      <rect x={x + 5} y="-79" width="3" height="74" fill="var(--ink)" opacity={SHADE} />
+      <line x1={x + 2} y1="-78" x2={x + 2} y2="-8" stroke="var(--paper)" strokeWidth="1" opacity="0.35" />
+      <Cylinder x={x + 4} y={-2} rx={6} height={5} fill="var(--slate)" />
+    </g>)}
+    <Box x={-46} y={-63} width={92} height={7} depth={6} fill={pillars} />
     {isGolden
       ? <rect x="-8" y="-84" width="16" height="15" rx="1.5" fill="var(--ink)" stroke="var(--gold)" strokeWidth="1.6" />
       : <rect x="-3" y="-80" width="6" height="10" fill={pillars} {...ink} />}
     {/* The kasagi: dipping in the middle, its ends swept up. */}
+    <path d="M-62,-99 Q-30,-86 0,-88 Q30,-86 62,-99 L66,-102 Q34,-89 4,-91 Q-26,-89 -58,-102 Z" fill="var(--slate)" {...ink} />
     <path d="M-62,-99 Q-30,-86 0,-88 Q30,-86 62,-99 L57,-89 Q28,-79 0,-81 Q-28,-79 -57,-89 Z" fill="var(--ink)" {...ink} />
     {isGolden && <path d="M-62,-99 L-57,-89 L-52,-91 L-56,-100 Z M62,-99 L57,-89 L52,-91 L56,-100 Z" fill="var(--gold)" stroke="var(--ink)" strokeWidth="1" />}
     {stage >= HOME_STEPS.gateRope && <Shimenawa d="M-26,-60 Q0,-50 26,-60" shide={SHIDE_AT.map(x => [x, x === 0 ? -55 : -57] as const)} />}
-    <Pine x={70} y={6} size={1} />
     <Pine x={-72} y={10} size={0.8} />
   </g>;
 }
@@ -99,9 +95,30 @@ function scallopedPath({ cx, cy, rx, ry, bumps }: { cx: number; cy: number; rx: 
 // A bump's radius as a share of the gap it spans: just over half, so each bump is a little flatter than a semicircle.
 const BUMP_RADIUS_SHARE = 0.62;
 
-// The pagoda keeps its height as it gains tiers (3, 4, then 5), so the spire stays inside the drawing.
+// The pagoda keeps its height as it gains tiers (3, 4, then 5), so the spire stays inside the drawing. It stands on a
+// stone podium at the end of a path from the bridge.
 const PAGODA_HEIGHT = 60;
 const PAGODA_SPIRE_RINGS = 5;
+const PAGODA_LANTERN_SIZE = 0.42;
+// How deep each tier's square plan is drawn, as a share of its half-width (the oblique view foreshortens depth).
+const PAGODA_TIER_DEPTH = 0.9;
+const PAGODA_PATH_STONES = [[0, 14, 9], [-3, 24, 10], [1, 34, 11]] as const;
+const NOTICE_SHEETS = [{ x: -9, y: -27 }, { x: 1, y: -28 }, { x: -4, y: -19 }, { x: 6, y: -20 }] as const;
+
+/** A roofed notice board with up to four sheets pinned to it. */
+function NoticeBoard({ x, y, sheets }: { x: number; y: number; sheets: number }) {
+  return <g transform={`translate(${x},${y})`}>
+    <GroundShadow x={2} y={2} rx={16} />
+    <Post x={-10} y={2} height={34} width={2.6} />
+    <Post x={14} y={2} height={34} width={2.6} />
+    <Box x={-14} y={-12} width={30} height={20} depth={3} fill="var(--wood)" />
+    {NOTICE_SHEETS.slice(0, sheets).map(sheet => <g key={`${sheet.x}${sheet.y}`}>
+      <rect x={sheet.x} y={sheet.y} width="7" height="8" fill="var(--paper)" stroke="var(--ink)" strokeWidth="0.6" />
+      <path d={`M${sheet.x + 1.5},${sheet.y + 2.5} h4 M${sheet.x + 1.5},${sheet.y + 4.5} h3 M${sheet.x + 1.5},${sheet.y + 6.5} h4`} stroke="var(--ink)" strokeWidth="0.6" opacity="0.6" />
+    </g>)}
+    <HipRoof x={-18} y={-32} width={38} depth={6} height={7} ridge={0.6} fill="var(--slate)" />
+  </g>;
+}
 
 function Pagoda({ stage }: LandmarkProps) {
   const tierCount = 3 + Math.min(stage, 2);
@@ -111,20 +128,47 @@ function Pagoda({ stage }: LandmarkProps) {
   const topY = -8 - (tierCount - 1) * spacing;
   const peak = topY - 34 * k;
   const metal = stage >= 3 ? "var(--gold)" : "var(--bronze)";
-  return <g transform="translate(0,-4)">
-    {tiers.map(tier => {
-      const y = -8 - tier * spacing, half = 26 - tier * (10 / (tierCount - 1)), roof = 44 - tier * (14 / (tierCount - 1));
-      return <g key={tier}>
-        <rect x={-half} y={y - 22 * k} width={half * 2} height={22 * k} fill="var(--paper)" {...ink} />
-        <path d={`M${-roof},${y - 20 * k} Q0,${y - 36 * k} ${roof},${y - 20 * k} L${roof - 9},${y - 28 * k} Q0,${y - 40 * k} ${-roof + 9},${y - 28 * k} Z`} fill="var(--slate)" {...ink} />
-      </g>;
-    })}
-    <path d={`M-7,${peak + 1} Q0,${peak - 8} 7,${peak + 1} Z`} fill="var(--slate)" {...ink} strokeWidth="1.2" />
-    <line x1="0" y1={peak - 4} x2="0" y2={peak - 38} {...ink} strokeWidth="2.5" />
-    {Array.from({ length: PAGODA_SPIRE_RINGS }, (_, ring) => <ellipse key={ring} cx="0" cy={peak - 9 - ring * 6} rx="5" ry="1.6" fill={metal} {...ink} strokeWidth="0.9" />)}
-    <circle cx="0" cy={peak - 41} r="3.2" fill={metal} {...ink} strokeWidth="1" />
-    {stage >= 3 && <><StoneLantern x={-46} y={14} /><StoneLantern x={46} y={14} /></>}
+  return <g>
+    {PAGODA_PATH_STONES.map(([x, y, rx]) => <g key={y}>
+      <ellipse cx={x} cy={y + 1.5} rx={rx} ry={rx * 0.36} fill="var(--shore-dark)" {...ink} strokeWidth="1" />
+      <ellipse cx={x} cy={y} rx={rx} ry={rx * 0.36} fill="var(--stone)" {...ink} strokeWidth="1" />
+    </g>)}
     <Pine x={-74} y={8} size={0.9} />
+    <Pine x={-58} y={-18} size={0.65} />
+    <Azalea x={-28} y={26} />
+    <Azalea x={26} y={24} />
+    <GroundShadow x={4} y={6} rx={44} />
+    <Box x={-32} y={8} width={56} height={6} depth={16} fill="var(--stone)" />
+    <g transform="translate(2,4)">
+      {tiers.map(tier => {
+        const y = -8 - tier * spacing, half = 26 - tier * (10 / (tierCount - 1)), roof = 44 - tier * (14 / (tierCount - 1));
+        const depth = half * PAGODA_TIER_DEPTH;
+        const back = { x: depth * DEPTH.x, y: depth * DEPTH.y };
+        const lower = y - 20 * k, upper = y - 28 * k, crown = y - 40 * k;
+        const eave = `M${-roof},${lower} Q0,${y - 36 * k} ${roof},${lower} L${roof - 9},${upper} Q0,${crown} ${-roof + 9},${upper} Z`;
+        const roofTop = `M${-roof + 9},${upper} Q0,${crown} ${roof - 9},${upper} L${roof - 9 + back.x},${upper + back.y} Q${back.x},${crown + back.y} ${-roof + 9 + back.x},${upper + back.y} Z`;
+        const roofSide = `M${roof},${lower} L${roof + back.x},${lower + back.y} L${roof - 9 + back.x},${upper + back.y} L${roof - 9},${upper} Z`;
+        // Each tier is shifted so the centres of their square plans line up under the spire.
+        return <g key={tier} transform={`translate(${-back.x / 2},${-back.y / 2})`}>
+          <Box x={-half} y={y} width={half * 2} height={22 * k} depth={depth} fill="var(--paper)" />
+          <path d={`M${-half * 0.3},${y - 3} v${-14 * k} h${half * 0.6} v${14 * k}`} fill="var(--vermilion)" opacity="0.85" />
+          <path d={roofTop} fill="var(--slate)" {...ink} />
+          <path d={roofTop} fill="var(--paper)" opacity={LIGHT} />
+          <path d={roofSide} fill="var(--slate)" {...ink} />
+          <path d={roofSide} fill="var(--ink)" opacity={SHADE} />
+          <path d={eave} fill="var(--slate)" {...ink} />
+          {[{ x: -roof, y: lower }, { x: roof, y: lower }, { x: roof + back.x, y: lower + back.y }].map(corner => <g key={corner.x}>
+            <line x1={corner.x} y1={corner.y} x2={corner.x} y2={corner.y + 4 * k} stroke="var(--ink)" strokeWidth="0.8" />
+            <circle cx={corner.x} cy={corner.y + 5 * k} r="1.8" fill={metal} stroke="var(--ink)" strokeWidth="0.6" />
+          </g>)}
+        </g>;
+      })}
+      <path d={`M-7,${peak + 1} Q0,${peak - 8} 7,${peak + 1} Z`} fill="var(--slate)" {...ink} strokeWidth="1.2" />
+      <line x1="0" y1={peak - 4} x2="0" y2={peak - 38} {...ink} strokeWidth="2.5" />
+      {Array.from({ length: PAGODA_SPIRE_RINGS }, (_, ring) => <ellipse key={ring} cx="0" cy={peak - 9 - ring * 6} rx="5" ry="1.6" fill={metal} {...ink} strokeWidth="0.9" />)}
+      <circle cx="0" cy={peak - 41} r="3.2" fill={metal} {...ink} strokeWidth="1" />
+    </g>
+    {stage >= 3 && <><GardenLantern x={-44} y={20} size={PAGODA_LANTERN_SIZE} /><GardenLantern x={44} y={20} size={PAGODA_LANTERN_SIZE} /></>}
   </g>;
 }
 
@@ -442,7 +486,7 @@ function ZenGarden({ tally, trackStages }: LandmarkProps) {
   const [learned = 0, mature = 0] = trackStages;
   const leaves = Math.min(FALLEN_LEAVES.length, Math.ceil(tally / CARDS_PER_LEAF));
   return <g>
-    <g transform="translate(-88,4)">
+    <g transform="translate(-86,-16)">
       <GroundShadow x={4} y={0} rx={20} />
       <path d="M-2,0 C-1,-14 -3,-24 0,-34 M0,-26 C6,-30 10,-36 12,-42" fill="none" stroke="var(--wood)" strokeWidth="4" strokeLinecap="round" />
       <path d={MAPLE_CANOPY} fill="var(--maple)" {...ink} strokeWidth="1.5" />
@@ -457,42 +501,101 @@ function ZenGarden({ tally, trackStages }: LandmarkProps) {
     {mature >= 2 && <GardenRock x={58} y={14} size={0.9} isMossy />}
     {mature >= 3 && <GardenRock x={-18} y={14} size={0.7} isMossy />}
     {FALLEN_LEAVES.slice(0, leaves).map(([x, y, angle]) => <path key={`${x}${y}`} d={LEAF_PATH} fill="var(--maple)" stroke="var(--ink)" strokeWidth="0.6" transform={`translate(${GRAVEL.cx + x - 20},${GRAVEL.cy + y - 8}) rotate(${angle}) scale(1.8)`} />)}
-    <g transform="translate(-52,4)">
-      <GroundShadow x={2} y={0} rx={14} />
-      <Box x={-6} y={0} width={12} height={24} depth={6} fill="var(--paper)" />
-      <Box x={-14} y={-24} width={28} height={10} depth={8} fill="var(--paper)" />
-      <Box x={-10} y={-34} width={20} height={16} depth={6} fill="var(--paper)" />
-      <rect x="-6" y="-46" width="12" height="8" fill="var(--lantern)" opacity="0.8" />
-      <HipRoof x={-20} y={-50} width={40} depth={10} height={14} ridge={0} fill="var(--slate)" />
-      <circle cx={3.75} cy={-69} r="4" fill="var(--slate)" {...ink} />
-    </g>
+    <GardenLantern x={-46} y={6} size={0.85} />
   </g>;
 }
 
-function SmallScroll({ x, character }: { x: number; character: string }) {
-  return <g transform={`translate(${x},-16)`}>
-    <line x1="-14" y1="-58" x2="14" y2="-58" stroke="var(--wood)" strokeWidth="4" strokeLinecap="round" />
-    <rect x="-10" y="-55" width="20" height="44" fill="var(--paper)" {...ink} strokeWidth="1.5" />
-    <text x="0" y="-27" textAnchor="middle" fontSize="16" fontWeight="700" fill="var(--ink)" fontFamily="'Noto Serif JP', 'Yu Mincho', serif">{character}</text>
-    <rect x="-11" y="-11" width="22" height="3" fill="var(--wood)" />
+/** A stone lantern built of blocks; its window glows at night. */
+function GardenLantern({ x, y, size }: { x: number; y: number; size: number }) {
+  return <g transform={`translate(${x},${y}) scale(${size})`}>
+    <GroundShadow x={2} y={0} rx={14} />
+    <circle className="island-lantern-glow" cx="2" cy="-42" r="18" fill="var(--lantern)" opacity="0.5" />
+    <Box x={-6} y={0} width={12} height={24} depth={6} fill="var(--paper)" />
+    <Box x={-14} y={-24} width={28} height={10} depth={8} fill="var(--paper)" />
+    <Box x={-10} y={-34} width={20} height={16} depth={6} fill="var(--paper)" />
+    <rect x="-6" y="-46" width="12" height="8" fill="var(--lantern)" opacity="0.8" />
+    <HipRoof x={-20} y={-50} width={40} depth={10} height={14} ridge={0} fill="var(--slate)" />
+    <circle cx={3.75} cy={-69} r="4" fill="var(--slate)" {...ink} />
   </g>;
 }
 
-/** Kanji: the character is faint until the first step, then inked; more scrolls hang beside it, and a red seal is
- *  stamped at the last step. */
+const SCROLL_FONT = "'Noto Serif JP', 'Yu Mincho', serif";
+const PRACTICE_SHEETS = [{ x: -40, y: 26, angle: -8 }, { x: -18, y: 30, angle: 6 }] as const;
+const BRUSHES = [-2, 0, 2.2] as const;
+
+/** A hanging scroll: wooden rollers with round ends at top and bottom, paper between, with a soft shadow behind. */
+function HangingScroll({ x, top, width, height, children }: { x: number; top: number; width: number; height: number; children?: ReactNode }) {
+  const left = x - width / 2;
+  return <g>
+    <rect x={left + 3} y={top + 4} width={width} height={height} fill="var(--ink)" opacity="0.15" />
+    <rect x={left} y={top} width={width} height={height} fill="var(--paper)" {...ink} strokeWidth="1.4" />
+    <rect x={left + 2} y={top + 2} width={width - 4} height={height * 0.12} fill="var(--shore)" opacity="0.6" />
+    {children}
+    {[top - 1, top + height + 1].map(y => <g key={y}>
+      <line x1={left - 3} y1={y} x2={left + width + 3} y2={y} stroke="var(--ink)" strokeWidth="4.6" strokeLinecap="round" />
+      <line x1={left - 3} y1={y} x2={left + width + 3} y2={y} stroke="var(--wood)" strokeWidth="3" strokeLinecap="round" />
+      <circle cx={left - 4} cy={y} r="2.4" fill="var(--wood)" {...ink} strokeWidth="1" />
+      <circle cx={left + width + 4} cy={y} r="2.4" fill="var(--wood)" {...ink} strokeWidth="1" />
+    </g>)}
+  </g>;
+}
+
+function ScrollRack({ characters }: { characters: readonly string[] }) {
+  return <g transform="translate(-70,-12)">
+    <GroundShadow x={2} y={0} rx={20} />
+    <Post x={-16} y={0} height={66} width={3} />
+    <Post x={16} y={0} height={66} width={3} />
+    <Box x={-20} y={-64} width={40} height={4} depth={4} fill="var(--wood)" />
+    {characters.map((character, index) => <g key={character}>
+      <line x1={-8 + index * 16} y1="-64" x2={-8 + index * 16} y2="-60" stroke="var(--ink)" strokeWidth="0.8" />
+      <HangingScroll x={-8 + index * 16} top={-58} width={12} height={36}>
+        <text x={-8 + index * 16} y="-34" textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--ink)" fontFamily={SCROLL_FONT}>{character}</text>
+      </HangingScroll>
+    </g>)}
+  </g>;
+}
+
+function WritingDesk({ hasSealBox }: { hasSealBox: boolean }) {
+  return <g transform="translate(30,22)">
+    <GroundShadow x={14} y={0} rx={30} />
+    <Box x={-4} y={12} width={18} height={3} depth={10} fill="var(--vermilion)" />
+    <Box x={-10} y={0} width={42} height={8} depth={14} fill="var(--wood)" />
+    <path d="M-4,-10 L14,-10 L19,-15 L1,-15 Z" fill="var(--paper)" stroke="var(--ink)" strokeWidth="0.8" />
+    <path d="M5,-11 q2,-2 4,-1 M6,-13 l3,0" stroke="var(--ink)" strokeWidth="0.9" fill="none" />
+    <Box x={20} y={-9} width={8} height={2.5} depth={6} fill="var(--slate)" />
+    <Cylinder x={34} y={-12} rx={3} height={8} fill="var(--bronze)" />
+    {BRUSHES.map(dx => <line key={dx} x1={34 + dx} y1="-20" x2={34 + dx * 2} y2="-27" stroke="var(--wood)" strokeWidth="1.2" strokeLinecap="round" />)}
+    <line x1="-2" y1="-9" x2="16" y2="-17" stroke="var(--wood)" strokeWidth="1.4" strokeLinecap="round" />
+    {hasSealBox && <Box x={22} y={-14} width={4} height={3} depth={4} fill="var(--vermilion)" />}
+  </g>;
+}
+
+/** Kanji: a calligraphy corner. The character is faint until the first step, then inked, and practice sheets lie on
+ *  the grass; a drying rack holds more scrolls at the next steps, and a red seal is stamped at the last. */
 function Scroll({ stage }: LandmarkProps) {
-  return <g transform="translate(0,-4)">
-    <line x1="-34" y1="6" x2="-34" y2="-108" stroke="var(--wood)" strokeWidth="6" />
-    <line x1="34" y1="6" x2="34" y2="-108" stroke="var(--wood)" strokeWidth="6" />
-    <line x1="-42" y1="-108" x2="42" y2="-108" stroke="var(--wood)" strokeWidth="6" strokeLinecap="round" />
-    <rect x="-24" y="-102" width="48" height="84" fill="var(--paper)" {...ink} />
-    <text x="0" y="-48" textAnchor="middle" fontSize="38" fontWeight="700" fill="var(--ink)" opacity={stage >= 1 ? 1 : 0.3} fontFamily="'Noto Serif JP', 'Yu Mincho', serif">漢</text>
-    {stage >= 3 && <rect x="8" y="-38" width="10" height="10" rx="1.5" fill="var(--vermilion)" />}
-    <rect x="-26" y="-20" width="52" height="5" fill="var(--wood)" />
-    {stage >= 2 && <SmallScroll x={-62} character="字" />}
-    {stage >= 3 && <SmallScroll x={-88} character="書" />}
-    <ellipse cx="62" cy="14" rx="16" ry="7" fill="var(--slate)" {...ink} strokeWidth="1.5" />
-    <line x1="56" y1="10" x2="80" y2="-14" {...ink} strokeWidth="3" />
+  const rackScrolls = ["字", "書"].slice(0, Math.max(0, stage - 1));
+  return <g>
+    <Pine x={70} y={-14} size={0.7} />
+    {rackScrolls.length > 0 && <ScrollRack characters={rackScrolls} />}
+    <g transform="translate(6,-4)">
+      <GroundShadow x={3} y={0} rx={36} />
+      <Box x={-36} y={0} width={6} height={4} depth={8} fill="var(--stone)" />
+      <Box x={30} y={0} width={6} height={4} depth={8} fill="var(--stone)" />
+      <Post x={-33} y={-3} height={106} width={5} />
+      <Post x={33} y={-3} height={106} width={5} />
+      <Box x={-42} y={-108} width={84} height={5} depth={5} fill="var(--wood)" />
+      <line x1="0" y1="-103" x2="0" y2="-99" stroke="var(--ink)" strokeWidth="1" />
+      <HangingScroll x={0} top={-97} width={44} height={74}>
+        <text x="0" y="-46" textAnchor="middle" fontSize="36" fontWeight="700" fill="var(--ink)" opacity={stage >= 1 ? 1 : 0.3} fontFamily={SCROLL_FONT}>漢</text>
+        {stage >= 3 && <rect x="9" y="-37" width="9" height="9" rx="1.5" fill="var(--vermilion)" />}
+      </HangingScroll>
+    </g>
+    {stage >= 1 && PRACTICE_SHEETS.map(sheet => <g key={sheet.x} transform={`translate(${sheet.x},${sheet.y}) rotate(${sheet.angle})`}>
+      <path d="M-8,0 L8,0 L11,-5 L-5,-5 Z" fill="var(--paper)" {...ink} strokeWidth="0.9" />
+      <path d="M-2,-1.5 q2,-2 4,-1 M1,-3.5 l2,0" stroke="var(--ink)" strokeWidth="0.8" fill="none" />
+      <ellipse cx="-6" cy="-1" rx="2.4" ry="1.4" fill="var(--stone)" stroke="var(--ink)" strokeWidth="0.6" />
+    </g>)}
+    <WritingDesk hasSealBox={stage >= 3} />
   </g>;
 }
 
@@ -588,104 +691,211 @@ function FujiMountain({ tally }: LandmarkProps) {
 
 // Moorings along the pier, one boat for each friend who studied today (up to this many).
 const PIER_MOORINGS = [{ x: 96, y: 46 }, { x: 128, y: 30 }, { x: 116, y: 58 }, { x: 146, y: 42 }] as const;
+const PIER_POSTS = [[80, 24], [104, 34], [128, 44]] as const;
+const PIER_PLANKS = [72, 86, 100, 114, 128] as const;
+const NET_MESH = "M-10,-30 L10,-14 M-4,-30 L10,-19 M2,-30 L10,-24 M-10,-24 L4,-14 M-10,-19 L-2,-14 M10,-30 L-10,-14 M4,-30 L-10,-19 M-2,-30 L-10,-24 M10,-24 L-4,-14 M10,-19 L2,-14";
 
+function Lighthouse() {
+  return <g>
+    <GroundShadow x={-58} y={0} rx={22} />
+    <Box x={-76} y={2} width={28} height={6} depth={10} fill="var(--stone)" />
+    <path d="M-72,-4 L-52,-4 L-56,-78 L-68,-78 Z" fill="var(--paper)" {...ink} />
+    <path d="M-70.8,-24 L-53.2,-24 L-53.9,-36 L-70.1,-36 Z M-69.6,-50 L-54.4,-50 L-55,-62 L-69,-62 Z" fill="var(--vermilion)" />
+    <path d="M-60,-4 L-52,-4 L-56,-78 L-61,-78 Z" fill="var(--ink)" opacity={SHADE} />
+    <path d="M-68,-8 L-65,-74" stroke="var(--paper)" strokeWidth="1.4" opacity="0.5" />
+    <Box x={-72} y={-76} width={20} height={3} depth={6} fill="var(--slate)" />
+    <rect x="-69" y="-91" width="14" height="13" fill="var(--lantern)" {...ink} strokeWidth="1.5" />
+    <path d="M-64,-91 v13 M-59,-91 v13" stroke="var(--ink)" strokeWidth="1" />
+    <HipRoof x={-73} y={-91} width={22} depth={6} height={13} ridge={0} fill="var(--slate)" />
+  </g>;
+}
+
+function Pier() {
+  return <g>
+    {PIER_POSTS.map(([x, y]) => <g key={x}>
+      <line x1={x} y1={y} x2={x - 4} y2={y + 9} stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" />
+      <line x1={x} y1={y} x2={x - 4} y2={y + 9} stroke="var(--wood)" strokeWidth="2.4" strokeLinecap="round" />
+    </g>)}
+    <path d="M58,20 L128,52 L128,56 L58,24 Z" fill="var(--wood)" {...ink} strokeWidth="1.2" />
+    <path d="M58,20 L128,52 L128,56 L58,24 Z" fill="var(--ink)" opacity={SHADE} />
+    <path d="M58,20 L70,14 L140,44 L128,52 Z" fill="var(--wood)" {...ink} strokeWidth="1.5" />
+    <path d="M58,20 L70,14 L140,44 L128,52 Z" fill="var(--paper)" opacity={LIGHT} />
+    {PIER_PLANKS.map(x => <line key={x} x1={x - 1} y1={(x - 58) * 0.457 + 20} x2={x + 11} y2={(x - 58) * 0.457 + 14} stroke="var(--ink)" strokeWidth="0.7" opacity="0.4" />)}
+  </g>;
+}
+
+function MooredBoat({ x, y }: { x: number; y: number }) {
+  return <g transform={`translate(${x},${y})`}>
+    <path d="M-13,0 L13,0 L8,7 L-8,7 Z" fill="var(--wood)" {...ink} strokeWidth="1.2" />
+    <path d="M3,0 L13,0 L8,7 L2,7 Z" fill="var(--ink)" opacity={SHADE} />
+    <path d="M-11,0 L11,0 L9,2.2 L-9,2.2 Z" fill="var(--ink)" opacity="0.3" />
+    <line x1="0" y1="0" x2="0" y2="-16" {...ink} strokeWidth="1.2" />
+    <path d="M1,-15 L10,-3 L1,-3 Z" fill="var(--paper)" {...ink} strokeWidth="1" />
+  </g>;
+}
+
+/** The harbour town: a lighthouse, two houses, a red post box for messages, a bench, a net drying, and crates and a
+ *  barrel by the pier, where a boat moors for each friend who studied today (`tally`). */
 function HarbourTown({ tally }: LandmarkProps) {
   return <g>
-    <path d="M58,20 L70,14 L140,44 L128,52 Z" fill="var(--wood)" {...ink} strokeWidth="1.5" />
-    <path d="M80,24 L76,32 M104,34 L100,42 M128,44 L124,52" stroke="var(--ink)" strokeWidth="1.5" />
-    {PIER_MOORINGS.slice(0, tally).map(({ x, y }) => <g key={x} transform={`translate(${x},${y})`}>
-      <path d="M-13,0 L13,0 L8,7 L-8,7 Z" fill="var(--wood)" {...ink} strokeWidth="1.2" />
-      <line x1="0" y1="0" x2="0" y2="-16" {...ink} strokeWidth="1.2" />
-      <path d="M1,-15 L10,-3 L1,-3 Z" fill="var(--paper)" {...ink} strokeWidth="1" />
-    </g>)}
+    <Pier />
+    {PIER_MOORINGS.slice(0, tally).map(mooring => <MooredBoat key={mooring.x} {...mooring} />)}
     <g transform="translate(-62,-85)">
       <g className="island-lighthouse-beam"><path d="M0,0 L120,-18 L120,18 Z M0,0 L-120,-18 L-120,18 Z" fill="var(--lantern)" /></g>
     </g>
-    <path d="M-72,-6 L-52,-6 L-56,-78 L-68,-78 Z" fill="var(--paper)" {...ink} />
-    <path d="M-70.8,-24 L-53.2,-24 L-53.9,-36 L-70.1,-36 Z M-69.6,-50 L-54.4,-50 L-55,-62 L-69,-62 Z" fill="var(--vermilion)" />
-    <rect x="-70" y="-92" width="16" height="14" fill="var(--lantern)" {...ink} strokeWidth="1.5" />
-    <path d="M-74,-92 L-62,-105 L-50,-92 Z" fill="var(--slate)" {...ink} strokeWidth="1.5" />
-    <g transform="translate(4,-4)">
-      <rect x="-12" y="-26" width="34" height="24" fill="var(--paper)" {...ink} strokeWidth="1.5" />
-      <path d="M-18,-26 L5,-44 L28,-26 Z" fill="var(--slate)" {...ink} strokeWidth="1.5" />
-      <rect x="0" y="-14" width="8" height="12" fill="var(--wood)" />
+    <g transform="translate(-96,-14)">
+      <GroundShadow x={0} y={0} rx={14} />
+      <Post x={-10} y={0} height={32} width={2.2} />
+      <Post x={10} y={0} height={32} width={2.2} />
+      <path d="M-11,-31 L11,-31" stroke="var(--wood)" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M-10,-30 L10,-30 L10,-14 Q0,-10 -10,-14 Z" fill="var(--shallow)" opacity="0.35" />
+      <path d={NET_MESH} stroke="var(--ink)" strokeWidth="0.6" opacity="0.55" />
     </g>
-    <g transform="translate(40,4)">
-      <rect x="-10" y="-20" width="26" height="18" fill="var(--paper)" {...ink} strokeWidth="1.5" />
-      <path d="M-15,-20 L3,-34 L21,-20 Z" fill="var(--vermilion)" {...ink} strokeWidth="1.5" />
+    <Pine x={-104} y={12} size={0.65} />
+    <Lighthouse />
+    <GroundShadow x={14} y={-4} rx={30} />
+    <Box x={-8} y={-6} width={34} height={22} depth={16} fill="var(--paper)" />
+    <rect x="4" y="-18" width="8" height="12" fill="var(--wood)" {...ink} strokeWidth="1" />
+    <rect x="16" y="-21" width="6" height="6" fill="var(--shallow)" {...ink} strokeWidth="1" />
+    <HipRoof x={-12} y={-28} width={42} depth={16} height={14} ridge={0.4} fill="var(--slate)" />
+    <GroundShadow x={46} y={6} rx={20} />
+    <Box x={30} y={6} width={26} height={18} depth={12} fill="var(--paper)" />
+    <rect x="35" y="-7" width="7" height="7" fill="var(--shallow)" {...ink} strokeWidth="1" />
+    <rect x="46" y="-6" width="6" height="12" fill="var(--wood)" {...ink} strokeWidth="1" />
+    <HipRoof x={27} y={-12} width={32} depth={12} height={12} ridge={0.3} fill="var(--vermilion)" />
+    <g transform="translate(14,22)">
+      <GroundShadow x={1} y={0} rx={6} />
+      <Cylinder x={0} y={0} rx={3.6} height={13} fill="var(--vermilion)" />
+      <line x1="-2" y1="-9" x2="2" y2="-9" stroke="var(--ink)" strokeWidth="1" />
+    </g>
+    <g transform="translate(-34,26)">
+      <GroundShadow x={6} y={0} rx={14} />
+      <Box x={-8} y={0} width={22} height={4} depth={6} fill="var(--wood)" />
+    </g>
+    <g transform="translate(70,10)">
+      <GroundShadow x={6} y={0} rx={14} />
+      <Box x={-4} y={0} width={9} height={8} depth={7} fill="var(--wood)" />
+      <Box x={-3} y={-8} width={8} height={7} depth={6} fill="var(--wood)" />
+      <Cylinder x={16} y={1} rx={4} height={9} fill="var(--wood)" />
+      <path d="M12,-2 h8 M12,-6 h8" stroke="var(--ink)" strokeWidth="0.8" opacity="0.6" />
     </g>
   </g>;
 }
 
-function TeaHouse() {
-  return <g>
-    <g transform="translate(-14,-2)">
-      <rect x="-40" y="-20" width="64" height="8" fill="var(--wood)" {...ink} strokeWidth="1.5" />
-      <path d="M-36,-12 v10 M20,-12 v10" stroke="var(--ink)" strokeWidth="2" />
-      <rect x="-36" y="-46" width="56" height="26" fill="var(--paper)" {...ink} strokeWidth="1.5" />
-      <path d="M-22,-46 v26 M-8,-46 v26 M6,-46 v26 M-36,-33 h56" stroke="var(--ink)" strokeWidth="0.8" opacity="0.5" />
-      <rect x="-6" y="-44" width="10" height="9" fill="var(--slate)" />
-      <path d="M-52,-46 Q-8,-62 36,-46 L30,-58 Q-8,-74 -46,-58 Z" fill="var(--slate)" {...ink} strokeWidth="1.5" />
-    </g>
-    <g transform="translate(46,0)">
-      <path d="M-18,0 L18,0 L14,8 L-22,8 Z" fill="var(--vermilion)" {...ink} strokeWidth="1.2" />
-      <line x1="0" y1="4" x2="-6" y2="-58" {...ink} strokeWidth="1.5" />
-      <path d="M-36,-50 Q-6,-76 24,-50 Q-6,-58 -36,-50 Z" fill="var(--vermilion)" {...ink} strokeWidth="1.5" />
-    </g>
-    <g transform="translate(-74,10) scale(0.6)">
-      <rect x="-6" y="-24" width="12" height="24" fill="var(--paper)" {...ink} />
-      <rect x="-14" y="-34" width="28" height="10" fill="var(--paper)" {...ink} />
-      <path d="M-18,-34 L0,-48 L18,-34 Z" fill="var(--slate)" {...ink} />
-    </g>
+const TEAHOUSE_DEPTH = 18;
+const TEA_PATH_STONES = [[-20, 12, 6], [-13, 21, 7], [-6, 30, 7]] as const;
+
+function TeaHouseBuilding() {
+  return <g transform="translate(-22,-4)">
+    <GroundShadow x={6} y={6} rx={48} />
+    <Box x={-40} y={6} width={62} height={6} depth={TEAHOUSE_DEPTH} fill="var(--wood)" />
+    <Box x={-34} y={-2} width={50} height={24} depth={12} fill="var(--paper)" />
+    <path d="M-22,-26 v24 M-10,-26 v24 M2,-26 v24 M-34,-14 h50" stroke="var(--ink)" strokeWidth="0.8" opacity="0.5" />
+    <rect x="-6" y="-24" width="10" height="9" fill="var(--slate)" />
+    <HipRoof x={-46} y={-26} width={72} depth={TEAHOUSE_DEPTH} height={18} ridge={0.4} fill="var(--slate)" />
   </g>;
 }
+
+/** An open-air tea set (nodate): a red bench under a paper parasol, with a bowl and a kettle. */
+function OpenAirTea() {
+  return <g transform="translate(46,4)">
+    <GroundShadow x={0} y={6} rx={24} />
+    <Box x={-16} y={8} width={28} height={5} depth={10} fill="var(--vermilion)" />
+    <ellipse cx="-6" cy="0" rx="3" ry="1.4" fill="var(--paper)" stroke="var(--ink)" strokeWidth="0.7" />
+    <path d="M-9,0 q3,4 6,0" fill="var(--leaf)" stroke="var(--ink)" strokeWidth="0.7" />
+    <Cylinder x={4} y={1} rx={3} height={4} fill="var(--slate)" />
+    <line x1="2" y1="4" x2="-4" y2="-58" stroke="var(--ink)" strokeWidth="2.6" />
+    <line x1="2" y1="4" x2="-4" y2="-58" stroke="var(--wood)" strokeWidth="1.2" />
+    <path d="M-36,-50 Q-6,-76 24,-50 Q-6,-58 -36,-50 Z" fill="var(--vermilion)" {...ink} strokeWidth="1.5" />
+    <path d="M-6,-64 Q8,-62 24,-50 Q8,-56 -6,-56 Z" fill="var(--ink)" opacity={SHADE} />
+    <path d="M-5,-63 L-28,-51 M-5,-63 L-14,-54 M-5,-63 L4,-54 M-5,-63 L16,-51" stroke="var(--paper)" strokeWidth="0.7" opacity="0.6" />
+  </g>;
+}
+
+/** The tea house: a tea room on a veranda, stepping stones, a stone basin with a ladle, a stone lantern, a pine and a
+ *  flowering bush, with an open-air tea set beside it. */
+function TeaHouse() {
+  return <g>
+    <Pine x={-58} y={-24} size={0.6} />
+    <Azalea x={20} y={-22} />
+    <TeaHouseBuilding />
+    {TEA_PATH_STONES.map(([x, y, rx]) => <g key={y}>
+      <ellipse cx={x} cy={y + 1.2} rx={rx} ry={rx * 0.36} fill="var(--shore-dark)" {...ink} strokeWidth="0.9" />
+      <ellipse cx={x} cy={y} rx={rx} ry={rx * 0.36} fill="var(--stone)" {...ink} strokeWidth="0.9" />
+    </g>)}
+    <g transform="translate(-66,18)">
+      <GroundShadow x={1} y={1} rx={9} />
+      <Cylinder x={0} y={0} rx={7} height={6} fill="var(--stone)" />
+      <ellipse cy="-6" rx="4" ry="1.4" fill="var(--onsen)" stroke="var(--ink)" strokeWidth="0.6" />
+      <path d="M-2,-7 L6,-12" stroke="var(--wood)" strokeWidth="1.2" strokeLinecap="round" />
+    </g>
+    <GardenLantern x={-80} y={4} size={0.55} />
+    <OpenAirTea />
+  </g>;
+}
+
+// The bell tower's legs splay out to its base; the back pair stands this far behind the front pair.
+const TOWER_LEGS = "M-24,-10 L-17,-112 M24,-10 L17,-112";
+const TOWER_BACK = { x: 6, y: -4 } as const;
 
 /** A time bell tower (toki no kane): a wooden tower whose bell swings when the map's time of day changes (`tally`). */
 function TimeBellTower({ tally }: Pick<LandmarkProps, "tally">) {
   return <g transform="translate(-34,0)">
-    <rect x="-30" y="-10" width="60" height="12" fill="var(--slate)" {...ink} strokeWidth="1.5" />
-    <path d="M-24,-10 L-17,-112 M24,-10 L17,-112" stroke="var(--wood)" strokeWidth="6" strokeLinecap="round" />
-    <path d="M-24,-10 L-17,-112 M24,-10 L17,-112" fill="none" {...ink} strokeWidth="1" opacity="0.6" />
+    <GroundShadow x={4} y={2} rx={40} />
+    <Box x={-30} y={2} width={60} height={12} depth={12} fill="var(--slate)" />
+    <g transform={`translate(${TOWER_BACK.x},${TOWER_BACK.y})`}>
+      <path d={TOWER_LEGS} stroke="var(--ink)" strokeWidth="7.6" strokeLinecap="round" />
+      <path d={TOWER_LEGS} stroke="var(--wood)" strokeWidth="6" strokeLinecap="round" />
+      <path d={TOWER_LEGS} stroke="var(--ink)" strokeWidth="6" strokeLinecap="round" opacity={SHADE} />
+    </g>
+    <path d={TOWER_LEGS} stroke="var(--ink)" strokeWidth="7.6" strokeLinecap="round" />
+    <path d={TOWER_LEGS} stroke="var(--wood)" strokeWidth="6" strokeLinecap="round" />
     <path d="M-22,-40 L20,-62 M22,-40 L-20,-62" stroke="var(--wood)" strokeWidth="2.5" />
-    <rect x="-27" y="-66" width="54" height="7" fill="var(--wood)" {...ink} strokeWidth="1.3" />
+    <Box x={-27} y={-59} width={54} height={7} depth={8} fill="var(--wood)" />
     <path d="M-27,-66 v-5 M-13,-66 v-5 M0,-66 v-5 M13,-66 v-5 M27,-66 v-5 M-27,-71 h54" stroke="var(--ink)" strokeWidth="1.2" />
-    <rect x="-20" y="-114" width="40" height="5" fill="var(--wood)" {...ink} strokeWidth="1.2" />
+    <Box x={-20} y={-109} width={40} height={5} depth={6} fill="var(--wood)" />
     <g key={tally} className="island-bell-swing">
       <line x1="0" y1="-109" x2="0" y2="-104" {...ink} strokeWidth="1.5" />
       <path d="M-9,-104 Q-10,-96 -12,-84 L12,-84 Q10,-96 9,-104 Q0,-108 -9,-104 Z" fill="var(--bronze)" {...ink} strokeWidth="1.3" />
+      <path d="M3,-105 Q8,-96 9,-84 L12,-84 Q10,-96 9,-104 Z" fill="var(--ink)" opacity={SHADE} />
+      <path d="M-6,-101 Q-8,-94 -9,-87" fill="none" stroke="var(--paper)" strokeWidth="1.2" opacity="0.4" />
       <path d="M-11,-90 h22 M-6,-100 v4 M0,-101 v4 M6,-100 v4" stroke="var(--ink)" strokeWidth="0.8" opacity="0.5" />
     </g>
     <path d="M14,-108 L14,-96 M24,-108 L24,-96" stroke="var(--ink)" strokeWidth="0.8" />
     <rect x="10" y="-97" width="18" height="4" rx="2" fill="var(--wood)" {...ink} strokeWidth="1" />
     <path d="M-44,-106 Q-28,-110 -16,-128 L16,-128 Q28,-110 44,-106 L38,-102 Q0,-112 -38,-102 Z" fill="var(--slate)" {...ink} strokeWidth="1.5" />
+    <path d="M0,-128 L16,-128 Q28,-110 44,-106 L38,-102 Q20,-108 0,-109 Z" fill="var(--ink)" opacity={SHADE} />
     <path d="M-14,-128 L0,-138 L14,-128 Z" fill="var(--slate)" {...ink} strokeWidth="1.3" />
+    <path d="M0,-138 L14,-128 L0,-128 Z" fill="var(--ink)" opacity={SHADE} />
     <line x1="0" y1="-138" x2="0" y2="-146" {...ink} strokeWidth="1.5" />
   </g>;
 }
 
+const DECK_POSTS = [[44, 22, 14], [70, 24, 14], [100, 18, 16], [118, 14, 16]] as const;
+
 /** A moon-viewing deck (tsukimi-dai) built out over the water, with pampas grass, moon dumplings and a stone lantern. */
 function MoonViewingDeck() {
   return <g>
-    <path d="M44,22 v14 M70,24 v14 M100,18 v16 M118,14 v16" stroke="var(--wood)" strokeWidth="3" />
+    {DECK_POSTS.map(([x, y, height]) => <g key={x}>
+      <line x1={x} y1={y} x2={x} y2={y + height} stroke="var(--ink)" strokeWidth="4.4" />
+      <line x1={x} y1={y} x2={x} y2={y + height} stroke="var(--wood)" strokeWidth="3" />
+    </g>)}
+    <path d="M48,30 L124,18 L124,22 L48,34 Z" fill="var(--wood)" {...ink} strokeWidth="1.2" />
+    <path d="M48,30 L124,18 L124,22 L48,34 Z" fill="var(--ink)" opacity={SHADE} />
     <path d="M36,14 L112,4 L124,18 L48,30 Z" fill="var(--wood)" {...ink} strokeWidth="1.5" />
+    <path d="M36,14 L112,4 L124,18 L48,30 Z" fill="var(--paper)" opacity={LIGHT} />
     <path d="M56,12 L66,26 M76,9 L86,23 M96,6 L106,20" stroke="var(--ink)" strokeWidth="0.8" opacity="0.4" />
     <path d="M112,4 v-10 M124,18 v-10 M112,-6 L124,8 M48,30 v-10 M124,8 L48,20" fill="none" stroke="var(--vermilion)" strokeWidth="2.2" strokeLinecap="round" />
     <g transform="translate(66,10)">
-      <path d="M-8,0 L8,0 L5,6 L-5,6 Z" fill="var(--wood)" {...ink} strokeWidth="1" />
-      <circle cx="-4" cy="-3" r="3" fill="var(--paper)" {...ink} strokeWidth="0.8" /><circle cx="2" cy="-3" r="3" fill="var(--paper)" {...ink} strokeWidth="0.8" /><circle cx="-1" cy="-8" r="3" fill="var(--paper)" {...ink} strokeWidth="0.8" />
+      <Box x={-8} y={6} width={14} height={5} depth={6} fill="var(--wood)" />
+      <circle cx="-4" cy="-2" r="3" fill="var(--paper)" {...ink} strokeWidth="0.8" /><circle cx="2" cy="-2" r="3" fill="var(--paper)" {...ink} strokeWidth="0.8" /><circle cx="-1" cy="-7" r="3" fill="var(--paper)" {...ink} strokeWidth="0.8" />
     </g>
     <g transform="translate(92,6)">
-      <path d="M-5,0 L5,0 L4,-10 L-4,-10 Z" fill="var(--slate)" {...ink} strokeWidth="1" />
+      <Cylinder x={0} y={0} rx={5} height={10} fill="var(--slate)" />
       <path d="M0,-10 Q-6,-30 -14,-38 M0,-10 Q2,-32 6,-42 M0,-10 Q8,-26 16,-32" fill="none" stroke="var(--sand)" strokeWidth="2.5" strokeLinecap="round" />
       <path d="M0,-10 Q-6,-30 -14,-38 M0,-10 Q2,-32 6,-42 M0,-10 Q8,-26 16,-32" fill="none" stroke="var(--ink)" strokeWidth="0.6" />
     </g>
-    <g transform="translate(26,4) scale(0.6)">
-      <circle className="island-lantern-glow" cx="0" cy="-32" r="16" fill="var(--lantern)" opacity="0.5" />
-      <rect x="-6" y="-24" width="12" height="24" fill="var(--paper)" {...ink} />
-      <rect x="-14" y="-38" width="28" height="14" fill="var(--paper)" {...ink} />
-      <rect x="-6" y="-35" width="12" height="8" fill="var(--lantern)" />
-      <path d="M-18,-38 L0,-52 L18,-38 Z" fill="var(--slate)" {...ink} />
-    </g>
+    <GardenLantern x={26} y={4} size={0.6} />
   </g>;
 }
 
