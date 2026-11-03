@@ -18,6 +18,7 @@ import { friendButton, friendPrimary } from "../lib/friendStyles";
 import { refreshInbox } from "../lib/inbox";
 import { useRealtime, useRealtimeStatus } from "../lib/realtime";
 import { useUserHandle } from "../lib/userHandle";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 // Without a live connection the lists are reloaded on this interval instead.
 const FALLBACK_POLL_MS = 60_000;
@@ -78,7 +79,8 @@ export default function FriendsPage() {
       <p className="flex items-center gap-2 text-sm text-gray-600"><span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${live === "live" ? "bg-emerald-600" : "bg-gray-400"}`} />{live === "live" ? "Live: requests appear as they arrive" : "Updates every minute"}</p>
     </div>
 
-    <form onSubmit={add} className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+    <IslandBoard island="harbour" className="mt-6">
+    <form onSubmit={add} className="notice-sheet p-5 pt-7">
       <label htmlFor="friend-username" className="font-bold">Add a friend</label>
       <p className="text-sm text-gray-600">Ask your friend for their username (not their display name); usernames are unique, and there is no public list of learners.</p>
       {handle && <p className="mt-2 flex flex-wrap items-center gap-2 text-sm text-gray-700">Your username: <b className="text-gray-900">@{handle}</b><button type="button" onClick={copyHandle} className="rounded-lg border border-gray-200 px-2 py-0.5 text-xs font-bold text-gray-700 hover:border-emerald-500">{copied ? "Copied" : "Copy"}</button><span role="status" className="sr-only">{copied ? "Username copied" : ""}</span></p>}
@@ -90,10 +92,10 @@ export default function FriendsPage() {
     {handle && <InviteCard username={handle} />}
     {notice && <p role={notice.tone === "error" ? "alert" : "status"} className={`mt-4 rounded-xl p-3 text-sm ${notice.tone === "error" ? "bg-red-50 text-red-800" : "bg-emerald-50 text-emerald-800"}`}>{notice.text}</p>}
     {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-800">{error} <button className="font-bold underline" onClick={() => void load()}>Try again</button></p>}
-    {!lists && !error && <p role="status" className="mt-6">Loading friends…</p>}
+    {!lists && !error && <p role="status" className="board-label mt-6">Loading friends…</p>}
 
     {lists && <>
-      {lists.incoming.length > 0 && <section aria-labelledby="incoming-heading" className="mt-6 rounded-2xl border border-emerald-200 bg-white p-5">
+      {lists.incoming.length > 0 && <section aria-labelledby="incoming-heading" className="mt-6 notice-sheet p-5 pt-7 ring-2 ring-emerald-300">
         <h2 id="incoming-heading" className="text-lg font-bold">Friend requests <span className="ml-1 rounded-full bg-emerald-600 px-2 py-0.5 text-xs text-white">{lists.incoming.length}</span></h2>
         <ul className="mt-3 divide-y divide-gray-100">{lists.incoming.map(request => <li key={request.id} className="flex flex-wrap items-center gap-3 py-3">
           <PersonAvatar name={request.displayName} username={request.username} avatar={request.avatar} />{profileLink(request)}<span className="text-sm text-gray-500">{day(request.sentAt)}</span>
@@ -108,7 +110,7 @@ export default function FriendsPage() {
       <FriendsLeaderboard />
       <FriendActivityFeed />
 
-      <section aria-labelledby="friends-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+      <section aria-labelledby="friends-heading" className="mt-6 notice-sheet p-5 pt-7">
         <h2 id="friends-heading" className="text-lg font-bold">Your friends ({lists.friends.length})</h2>
         {lists.friends.length === 0 ? <GuideNote character="hato" className="mt-3"><p className="text-gray-600">No friends yet. Send a request above, or accept one when it arrives. I'll carry it over the sea.</p></GuideNote> :
         <ul className="mt-3 divide-y divide-gray-100">{lists.friends.map(friend => <li key={friend.username} className="flex flex-wrap items-center gap-3 py-3">
@@ -125,14 +127,15 @@ export default function FriendsPage() {
 
       <FriendSuggestions onRequested={text => { setNotice({ text, tone: "ok" }); void load(); }} />
 
-      {lists.outgoing.length > 0 && <section aria-labelledby="outgoing-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+      {lists.outgoing.length > 0 && <section aria-labelledby="outgoing-heading" className="mt-6 notice-sheet p-5 pt-7">
         <h2 id="outgoing-heading" className="text-lg font-bold">Sent requests</h2>
         <ul className="mt-3 divide-y divide-gray-100">{lists.outgoing.map(request => <li key={request.id} className="flex flex-wrap items-center gap-3 py-3">
           <PersonAvatar name={request.displayName} username={request.username} avatar={request.avatar} />{profileLink(request)}<span className="text-sm text-gray-500">Sent {day(request.sentAt)}</span>
           <button className={friendButton + " ml-auto"} disabled={!!busy} aria-label={`Cancel friend request to ${request.username}`} onClick={() => void run(`req:${request.id}`, () => cancelFriendRequest(request.id), `Request to @${request.username} cancelled.`)}>Cancel</button>
         </li>)}</ul>
       </section>}
-      <p className="mt-6 text-sm text-gray-600">Choose who can see your progress and whether others can send you requests in <Link to="/settings/privacy" className="font-bold text-emerald-700 hover:underline">privacy settings</Link>.</p>
+      <p className="board-label mt-6 text-sm">Choose who can see your progress and whether others can send you requests in <Link to="/settings/privacy" className="font-bold text-emerald-700 hover:underline">privacy settings</Link>.</p>
     </>}
+    </IslandBoard>
   </main></div>;
 }

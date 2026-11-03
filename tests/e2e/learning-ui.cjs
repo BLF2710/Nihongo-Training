@@ -93,6 +93,10 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
 
     // ---- Daily review: reveal, grade with keys and buttons; "Again" brings the card back; unknown items skipped
     await page.getByRole('heading', { name: 'Daily review' }).waitFor();
+    // A start screen first: Zen says what is waiting, under the Review island's strip.
+    await page.getByText('2 cards are waiting in the garden today.').waitFor();
+    await page.screenshot({ path: shots + '/srs-start.png' });
+    await page.getByRole('button', { name: 'Begin review →' }).click();
     const reviewCard = page.locator('section[aria-label="Review card"]');
     await reviewCard.getByText('こんにちは', { exact: true }).waitFor(); await reviewCard.getByText('2 cards left · 0 reviewed').waitFor(); await reviewCard.getByText('Forgotten 1×').waitFor();
     assert.equal(await reviewCard.getByText('Hello / Good afternoon').count(), 0, 'answer hidden first');
@@ -226,7 +230,7 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
       if (ready) await page.locator(`section[aria-labelledby="${ready}"]`).waitFor(); else await page.getByRole('heading', { level: 1 }).first().waitFor();
       await page.waitForTimeout(400); await noOverflow(page, path);
     }
-    await page.goto(base + '/srs'); await page.getByRole('button', { name: /Show answer/ }).click(); await noOverflow(page, '/srs revealed');
+    await page.goto(base + '/srs'); await page.getByRole('button', { name: 'Begin review →' }).click(); await page.getByRole('button', { name: /Show answer/ }).click(); await noOverflow(page, '/srs revealed');
     await page.screenshot({ path: shots + '/srs-phone.png' });
     assert.deepEqual(errors, []); await context.close();
     console.log('PASS: dashboard Today panel (reviews due, goal minutes, mistakes) and one-time deck enrolment of the completed lesson; daily review reveals with Space/button, interval previews on grade buttons, keys and clicks grade, Again re-queues, unknown items skipped, finish screen; mistake notebook hides locked assessment answers, filters by source, practises and clears, removes with confirmation; study timer reports a minute on learning pages, ignores idle time and the dashboard; statistics overview with charts, table view and test results; no overflow at phone width; no page errors.');

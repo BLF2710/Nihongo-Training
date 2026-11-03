@@ -98,6 +98,12 @@ const PROFILE = {
     await level.getByText('180 XP to level 6').waitFor();
     const latest = page.getByRole('region', { name: /Achievements \(2\)/ });
     await latest.getByText('Week Warrior').waitFor();
+    await page.screenshot({ path: path.join(shots, 'profile-room.png') });
+    await page.emulateMedia({ colorScheme: 'dark' }); await page.waitForFunction(() => document.documentElement.classList.contains('dark'));
+    await page.screenshot({ path: path.join(shots, 'profile-room-dark.png') });
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.screenshot({ path: path.join(shots, 'profile-room-phone.png'), fullPage: true });
+    await page.emulateMedia({ colorScheme: 'light' }); await page.setViewportSize({ width: 1366, height: 900 });
     await latest.getByRole('link', { name: 'See all →' }).click();
     await page.waitForURL(/\/achievements$/);
 

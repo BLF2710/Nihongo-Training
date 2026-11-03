@@ -21,7 +21,7 @@ export function VocabularyCard({ item, lesson }: { item: VocabularyItem; lesson:
       () => setSpeechStatus("Japanese speech could not be played on this device."));
     setSpeechStatus(started ? "Playing pronunciation…" : "Speech is not available in this browser.");
   }
-  return <article className="flex min-w-0 flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+  return <article className="notice-sheet flex min-w-0 flex-col p-5 pt-7 sm:p-6 sm:pt-7">
     <LessonReference lesson={lesson} />
     <h3 lang="ja" className="mt-4 text-2xl font-bold leading-relaxed text-gray-900 wrap-anywhere"><RubyText text={item.japanese} /></h3>
     <p className="mt-1 font-mono text-sm text-indigo-700 wrap-anywhere">{item.romaji}</p>
@@ -37,7 +37,7 @@ export function VocabularyCard({ item, lesson }: { item: VocabularyItem; lesson:
 }
 
 export function GrammarCard({ point, lesson }: { point: GrammarPoint; lesson: StudyLesson }) {
-  return <article className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+  return <article className="notice-sheet p-6 pt-7 sm:p-8">
     <LessonReference lesson={lesson} />
     <h3 className="mt-3 text-xl font-bold text-gray-900 sm:text-2xl">{point.title}</h3>
     <div className="mt-5 rounded-2xl bg-emerald-50 p-4 sm:p-5">

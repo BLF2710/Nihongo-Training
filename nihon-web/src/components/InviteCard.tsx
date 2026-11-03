@@ -24,7 +24,7 @@ export default function InviteCard({ username }: { username: string }) {
     } catch { say("Could not make the QR code. Share the link instead."); setShowQr(false); }
   };
 
-  return <section aria-labelledby="invite-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+  return <section aria-labelledby="invite-heading" className="notice-sheet mt-6 p-5 pt-7">
     <h2 id="invite-heading" className="font-bold">Invite friends</h2>
     <p className="text-sm text-gray-600">Send this link or show the QR code. It opens your profile with an Add friend button.</p>
     <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">

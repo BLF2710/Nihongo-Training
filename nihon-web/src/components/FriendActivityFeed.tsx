@@ -32,7 +32,7 @@ export default function FriendActivityFeed() {
     catch (failure) { setError(apiErrorMessage(failure, "Could not send the cheer.")); }
     finally { setBusy(null); }
   };
-  return <section aria-labelledby="activity-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+  return <section aria-labelledby="activity-heading" className="notice-sheet mt-6 p-5 pt-7">
     <h2 id="activity-heading" className="text-lg font-bold">Friend activity</h2>
     {!items && !error && <p role="status" className="mt-2 text-sm text-gray-600">Loading…</p>}
     {items && (items.length === 0

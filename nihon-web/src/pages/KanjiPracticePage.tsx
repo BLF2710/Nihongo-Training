@@ -8,6 +8,8 @@ import { KanjiAttribution } from "../components/KanjiReferences";
 import { KANJI } from "../data/kanji";
 import { answerKanji, startKanjiPractice } from "../api/kanji";
 import type { KanjiAnswer, KanjiQuestion } from "../api/kanji";
+import { GuideNote } from "../components/cast/GuideNote";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const button = "rounded-xl border border-gray-200 px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:opacity-50";
 export default function KanjiPracticePage() {
@@ -57,14 +59,15 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
   }
   const correct = answers.filter(a => a.correct).length;
   const latest = [...new Map(answers.map(a => [a.progress.kanjiId, a.progress])).values()];
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto max-w-4xl px-4 py-10">
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={phase === "quiz" ? undefined : "kanji"} /><main className="mx-auto max-w-4xl px-4 py-10">
 
     <h1 className="my-6 text-3xl font-black">Kanji Practice{character ? ` · ${character.character}` : ""}</h1>
     {phase === "quiz" && <button className={`${button} mb-5`} disabled={busy} onClick={() => void start()}>Start new practice</button>}
-    <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+    <IslandBoard island="kanji"><section className="notice-sheet p-6 pt-7 sm:p-8">
       {error && <p role="alert" className="mb-5 rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
       {kanjiId && !character ? <p>Kanji not found. Choose a character from the Kanji page.</p> : <>
         {phase === "setup" && <>
+          <GuideNote character="tsuru" mood="happy" className="mb-5"><p>Each stroke has its place. Choose how many questions, and we'll practise meanings, readings and words.</p></GuideNote>
           <h2 className="text-xl font-bold">Choose a practice length</h2>
           <div className="mt-4 flex gap-3">{[3, 5, 10].map(n => <button key={n} disabled={busy} aria-pressed={size === n} onClick={() => setSize(n)} className={`${button} ${size === n ? "border-emerald-500 bg-emerald-100" : ""}`}>{n}</button>)}</div>
           <p className="my-5 text-gray-600">Meaning, course-word reading, and vocabulary recognition. Each answer updates only the named Kanji's progress, not Kana statistics or lesson completion. No XP is awarded.</p>
@@ -91,6 +94,6 @@ function PracticeSession({ kanjiId }: { kanjiId?: string }) {
           <div className="flex flex-wrap gap-3"><button className={button} onClick={() => { setPhase("setup"); setError(""); }}>Practice Again</button></div>
         </>}
       </>}
-    </section><KanjiAttribution />
+    </section></IslandBoard><KanjiAttribution />
   </main></div>;
 }

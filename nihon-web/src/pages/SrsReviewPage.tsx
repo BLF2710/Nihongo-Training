@@ -11,11 +11,13 @@ import { describeCard, syncDeck } from "../lib/srsDeck";
 import type { DeckCard } from "../lib/srsDeck";
 import { formatInterval } from "../lib/srsIntervals";
 import { speakJapanese, supportsJapaneseSpeech } from "../services/japaneseSpeech";
+import { IslandBoard } from "../components/theme/IslandBoard";
+import { SessionStart } from "../components/cast/SessionStart";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600";
 const primary = `rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 ${focus}`;
 const button = `rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 ${focus}`;
-const card = "rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8";
+const card = "notice-sheet p-6 pt-7 sm:p-8";
 const GRADES: { grade: SrsGrade; label: string; hint: string; tone: string }[] = [
   { grade: "again", label: "Again", hint: "Forgot it", tone: "border-red-200 bg-red-50 text-red-900 hover:bg-red-100" },
   { grade: "hard", label: "Hard", hint: "Remembered with effort", tone: "border-amber-200 bg-amber-50 text-amber-950 hover:bg-amber-100" },
@@ -45,6 +47,7 @@ export default function SrsReviewPage() {
   const [session, setSession] = useState<Session | null>(null);
   const [loadError, setLoadError] = useState("");
   const [retry, setRetry] = useState(0);
+  const [isStarted, setIsStarted] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     loadSession(controller.signal).then(data => { setSession(data); setLoadError(""); })
@@ -53,16 +56,25 @@ export default function SrsReviewPage() {
   }, [retry]);
 
   const current = session?.cards[session.position];
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
+  const isReviewing = Boolean(current) && isStarted;
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={isReviewing ? undefined : "review"} /><main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
     <div className="mt-4 flex flex-wrap items-baseline justify-between gap-2"><h1 className="text-3xl font-black">Daily review</h1>
       <Link to="/srs/deck" className={`text-sm font-semibold text-emerald-700 hover:underline ${focus}`}>Your deck →</Link></div>
     <p className="mt-1 text-gray-600">Words and kanji from your completed lessons come back just before you would forget them.</p>
     {loadError && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{loadError} <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!session && !loadError && <p role="status" className="mt-6 text-gray-500">Loading your reviews…</p>}
-    {session && !current && <Finished session={session} onReviewAhead={next => setSession(next)} />}
-    {session && current && <Review key={`${current.queued.itemType}:${current.queued.itemId}:${session.position}`} session={session} current={current} onGraded={setSession} />}
+    {session && <IslandBoard island="review" className="mt-6">
+    {!current && <Finished session={session} onReviewAhead={next => { setSession(next); setIsStarted(true); }} />}
+    {current && !isStarted && <SessionStart character="zen" heading="Today's review" startLabel="Begin review →" onStart={() => setIsStarted(true)} className={card}>
+      <p className="font-semibold">{session.cards.length} {session.cards.length === 1 ? "card is" : "cards are"} waiting in the garden today.</p>
+      <p className="mt-1 text-gray-600">{newCards(session)} new · {session.cards.length - newCards(session)} to review. Rake slowly: say each answer to yourself before you turn the card.</p>
+    </SessionStart>}
+    {current && isStarted && <Review key={`${current.queued.itemType}:${current.queued.itemId}:${session.position}`} session={session} current={current} onGraded={setSession} />}
+    </IslandBoard>}
   </main></div>;
 }
+
+const newCards = (session: Session) => session.cards.filter(card => card.queued.isNew).length;
 
 /** Studied cards due within the next day, offered once today's are done. */
 function useCardsDueSoon(): number | null {
@@ -84,7 +96,7 @@ function Finished({ session, onReviewAhead }: { session: Session; onReviewAhead:
     setLoading(true); setError("");
     try { onReviewAhead(await loadAheadSession()); } catch (failure) { setError(apiErrorMessage(failure, "Those cards could not be loaded.")); setLoading(false); }
   };
-  return <section aria-labelledby="done-heading" className={`${card} mt-6`}>
+  return <section aria-labelledby="done-heading" className={card}>
     <h2 id="done-heading" className="text-2xl font-black">{session.reviewed ? "All done for today 🎉" : "Nothing to review right now"}</h2>
     <GuideNote character="zen" mood={session.reviewed ? "happy" : "calm"} className="mt-4">
       <p className="font-semibold">{session.reviewed ? "The garden is raked for today." : "The gravel is smooth; nothing needs raking."}</p>
@@ -152,8 +164,8 @@ function Review({ session, current, onGraded }: { session: Session; current: Que
     setSpeech(started ? "Playing pronunciation…" : "Speech is not available in this browser.");
   };
 
-  return <section aria-label="Review card" className="mt-6">
-    <p className="flex flex-wrap justify-between gap-2 text-sm font-semibold text-gray-600"><span>{remaining} {remaining === 1 ? "card" : "cards"} left · {session.reviewed} reviewed</span>
+  return <section aria-label="Review card">
+    <p className="board-label flex flex-wrap justify-between gap-2 text-sm font-semibold"><span>{remaining} {remaining === 1 ? "card" : "cards"} left · {session.reviewed} reviewed</span>
       <span>{queued.isNew ? <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-indigo-900">New</span> : queued.lapses ? `Forgotten ${queued.lapses}×` : "Review"}</span></p>
     <div className={`${card} mt-3 text-center`}>
       <p className="text-xs font-bold text-emerald-700">{content.source}</p>
@@ -167,7 +179,7 @@ function Review({ session, current, onGraded }: { session: Session; current: Que
       </div> : <button type="button" onClick={() => setIsRevealed(true)} className={`${primary} mt-8`}>Show answer <span className="font-normal opacity-80">(Space)</span></button>}
     </div>
     {isRevealed && <div className="mt-4">
-      <p id="grade-heading" className="text-center text-sm font-semibold text-gray-600">How well did you remember it?</p>
+      <p id="grade-heading" className="board-label text-center text-sm font-semibold">How well did you remember it?</p>
       <div role="group" aria-labelledby="grade-heading" className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">{GRADES.map((choice, index) =>
         <button key={choice.grade} type="button" disabled={saving} onClick={() => void grade(choice.grade)} className={`rounded-2xl border px-3 py-3 text-center disabled:opacity-50 ${choice.tone} ${focus}`}>
           <span className="block font-black">{choice.label}</span>
@@ -176,6 +188,6 @@ function Review({ session, current, onGraded }: { session: Session; current: Que
         </button>)}</div>
     </div>}
     {error && <p role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800">{error}</p>}
-    <p className="mt-6 text-center text-sm text-gray-500">Don't want to review this card? <button type="button" disabled={saving} onClick={() => void suspend()} className={`font-semibold text-gray-700 underline hover:text-gray-900 disabled:opacity-50 ${focus}`}>Hide it</button></p>
+    <p className="board-label mt-6 text-center text-sm">Don't want to review this card? <button type="button" disabled={saving} onClick={() => void suspend()} className={`font-semibold text-gray-700 underline hover:text-gray-900 disabled:opacity-50 ${focus}`}>Hide it</button></p>
   </section>;
 }

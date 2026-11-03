@@ -12,6 +12,7 @@ import { recordPractice } from "../api/activity";
 import LevelSwitch from "../components/LevelSwitch";
 import { inLevel, useShownLevel } from "../lib/courseLevel";
 import type { UnitReading } from "../data/japaneseReading";
+import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
 
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 const toggle = "rounded-xl border px-4 py-2 text-sm font-bold focus-visible:outline-2 focus-visible:outline-emerald-600";
@@ -35,15 +36,16 @@ export default function ReadingPage() {
   const passages = selected ? readingsForUnit(selected.id) : [];
   const passage = passages.find(item => item.id === params.get("passage"));
 
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={passage ? undefined : "practice"} /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <div className="mt-6"><LevelSwitch level={level} /></div>
     <h1 className="mt-3 text-3xl font-black">Reading</h1>
     <p className="mt-2 text-gray-600">Read short passages from the units you have reached, then check your understanding.</p>
     {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !error && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
     {units && !selected && <GuideNote character="tama" className="mt-6"><p className="text-gray-600">{course.length ? "No unit with reading passages is open yet. Passages appear here as soon as you reach their unit on the Lessons page." : `${level} has no reading passages yet. They arrive with its units.`}</p></GuideNote>}
-    {selected && !passage && <>
-      <label className="mt-6 block max-w-md text-sm font-bold text-gray-700">Choose a unit
+    {selected && !passage && <IslandBoard island="practice" className="mt-6"><section aria-label="Passages" className={SHEET}>
+      <GuideNote character="tama" mood="happy" className="mb-5"><p>Pick a passage, read it slowly, then tell me what it said. Furigana and the translation are there if you need them.</p></GuideNote>
+      <label className="block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={selected.id} onChange={event => setParams({ unit: event.target.value })} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 text-gray-900 focus:outline-2 focus:outline-emerald-600">
           {course.map(unit => <option key={unit.id} value={unit.id} disabled={!unit.allowed}>Unit {unit.number}: {unit.title}{unit.allowed ? "" : ` — 🔒 ${unit.reasons.join(" + ")}`}</option>)}
         </select>
@@ -55,7 +57,7 @@ export default function ReadingPage() {
           <p className="mt-1 text-sm text-gray-500">{item.questions.length} {item.questions.length === 1 ? "question" : "questions"}</p>
         </Link>
       </li>)}</ul>
-    </>}
+    </section></IslandBoard>}
     {selected && passage && <Passage key={passage.id} passage={passage} backTo={`?unit=${encodeURIComponent(selected.id)}`} />}
   </main></div>;
 }
@@ -77,9 +79,9 @@ function Passage({ passage, backTo }: { passage: UnitReading; backTo: string }) 
     recordPractice("reading", passage.unitId, answered, correct);
   }, [complete, passage.unitId, answered, correct]);
 
-  return <article className="mt-6">
-    <Link to={backTo} className="text-sm font-semibold text-gray-600 hover:underline">← All passages in this unit</Link>
-    <section aria-label="Passage" className="mt-4 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+  return <IslandBoard island="practice" className="mt-6"><article>
+    <Link to={backTo} className="board-label inline-block text-sm font-semibold hover:underline">← All passages in this unit</Link>
+    <section aria-label="Passage" className="notice-sheet mt-4 p-6 pt-7 sm:p-8">
       <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">{passage.genre}</p>
       <h2 className="mt-1 text-xl font-bold">{passage.lessonTitle}</h2>
       <div className="mt-4 flex flex-wrap gap-3">
@@ -91,11 +93,11 @@ function Passage({ passage, backTo }: { passage: UnitReading; backTo: string }) 
       <p className="mt-5 text-sm text-gray-500">From the lesson <Link to={passage.lessonHref} className="font-semibold text-emerald-700 hover:underline">{passage.lessonTitle}</Link>.</p>
     </section>
 
-    <h2 className="mb-3 mt-8 text-xl font-bold">Check your understanding</h2>
+    <h2 className="board-label mt-6 mb-3 inline-block text-lg font-bold">Check your understanding</h2>
     <ol className="space-y-5">{passage.questions.map((question, index) => {
       const selected = answers[index] ?? null;
       const isCorrect = selected === question.correct;
-      return <li key={question.prompt} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+      return <li key={question.prompt} className="notice-sheet p-6 pt-7">
         <p className="mb-4 font-bold text-gray-900"><span className="text-emerald-700">{index + 1}.</span> <RubyText text={question.prompt} /></p>
         <QuizChoices choices={question.options} selected={selected} disabled={selected !== null} onChoose={choice => setAnswers(previous => ({ ...previous, [index]: choice }))} />
         {selected !== null && <div className="mt-4">
@@ -109,5 +111,5 @@ function Passage({ passage, backTo }: { passage: UnitReading; backTo: string }) 
       <p className="mt-1 text-sm text-gray-600">Reading practice does not change your XP or statistics, but a finished passage counts toward your daily streak.</p>
       <div className="mt-4 flex flex-wrap gap-3"><button className={button} onClick={() => { setAnswers({}); setShowTranslation(false); }}>Try again</button><Link to={backTo} className={button}>Choose another passage</Link></div>
     </section>}
-  </article>;
+  </article></IslandBoard>;
 }

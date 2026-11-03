@@ -11,6 +11,7 @@ import { KanjiAttribution } from "../components/KanjiReferences";
 import LevelSwitch from "../components/LevelSwitch";
 import { inLevel, useShownLevel } from "../lib/courseLevel";
 import type { CourseLevel } from "../lib/courseLevel";
+import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
 
 export default function StudyReferencePage({ kind, unit: defaultUnit = JAPANESE_UNIT_1_REFERENCE }: { kind: "vocabulary" | "grammar"; unit?: StudyUnit }) {
   const [params, setParams] = useSearchParams();
@@ -50,6 +51,7 @@ function StudyReferenceContent({ kind, unit, level, units, initialLesson, onUnit
         <p className="mt-1 text-gray-600">{unit.title} · Revisit the {kind === "vocabulary" ? "words and expressions" : "sentence patterns"} from your lessons.</p>
         <p className="mt-3 text-sm text-gray-500">Browse at any time. Linked lessons keep their usual completion requirements.</p>
       </header>
+      <IslandBoard island="lessons"><div className={SHEET}>
       <label className="mb-6 block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={unit.id} onChange={event => onUnitChange(event.target.value)} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 focus-visible:outline-2 focus-visible:outline-emerald-600">
           {units.map(item => <option key={item.id} value={item.id}>Unit {item.number}: {item.title}</option>)}
@@ -60,15 +62,16 @@ function StudyReferenceContent({ kind, unit, level, units, initialLesson, onUnit
           className={`rounded-xl border px-4 py-2 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 ${view === mode ? "border-emerald-600 bg-emerald-600 text-white" : "border-gray-200 bg-white text-gray-600 hover:border-emerald-300"}`}
         >{mode === "list" ? "List" : "Flashcards"}</button>)}
       </div>}
-      <nav aria-label="Filter by lesson" className="mb-8 flex flex-wrap gap-2">
+      <nav aria-label="Filter by lesson" className="flex flex-wrap gap-2">
         {[{ id: "all", label: "All" }, ...lessons.map(lesson => ({ id: lesson.id, label: `Lesson ${lesson.number}` }))].map(filter => <button
           key={filter.id} type="button" aria-pressed={selectedLesson === filter.id} onClick={() => setSelectedLesson(filter.id)}
           className={`rounded-xl border px-4 py-2 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 ${selectedLesson === filter.id ? "border-emerald-600 bg-emerald-600 text-white" : "border-gray-200 bg-white text-gray-600 hover:border-emerald-300"}`}
         >{filter.label}</button>)}
       </nav>
+      </div>
       {kind === "vocabulary" && view === "flashcards" ? <VocabularyFlashcards key={`${unit.id}:${selectedLesson}`} lessons={visible} /> : <div className="space-y-10">
         {visible.map(lesson => <section key={lesson.id} aria-labelledby={`heading-${lesson.id}`}>
-          <div className="mb-4">
+          <div className="board-label mb-4">
             <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Unit {unit.number} · Lesson {lesson.number}</p>
             <h2 id={`heading-${lesson.id}`} className="mt-1 text-2xl font-black text-gray-900">{lesson.title}</h2>
           </div>
@@ -76,6 +79,7 @@ function StudyReferenceContent({ kind, unit, level, units, initialLesson, onUnit
             : <div className="space-y-5">{lesson.grammar.map(point => <GrammarCard key={point.id} point={point} lesson={lesson} />)}</div>}
         </section>)}
       </div>}
+      </IslandBoard>
       {kind === "vocabulary" && <KanjiAttribution />}
     </main>
   </div>;

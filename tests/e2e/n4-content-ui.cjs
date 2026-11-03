@@ -83,8 +83,9 @@ const courseUnit = unit => ({
     // ---- Listening and speaking open on N4 material
     for (const skill of ["listening", "speaking"]) {
       await page.goto(`${base}/${skill}?unit=${units[8].id}`);
-      await page.getByText(/Question 1 \//).first().waitFor();
       assert.equal(await page.getByLabel("Choose a unit").inputValue(), units[8].id);
+      await page.getByRole("button", { name: "Start practice →" }).click();
+      await page.getByText(/Question 1 \//).first().waitFor();
       await checkText(`${skill} ${units[8].id}`);
     }
 

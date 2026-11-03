@@ -12,6 +12,7 @@ import type { DirectConversation, DirectConversationSummary } from "../api/commu
 import { refreshInbox } from "../lib/inbox";
 import PersonAvatar from "../components/PersonAvatar";
 import { useRealtime } from "../lib/realtime";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const POLL_MS = 10_000;
 const shortTime = (iso: string) => new Date(iso).toLocaleDateString([], { month: "short", day: "numeric" });
@@ -55,7 +56,8 @@ export default function MessagesPage() {
   return <div className="flex min-h-screen flex-col bg-gray-50 text-gray-900"><Navbar />
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-6 sm:px-6">
       <header className="mb-4"><h1 className="text-3xl font-black">Messages</h1><p className="mt-1 text-gray-600">Practise with other learners. Only people who know your username can message you.</p></header>
-      <div className="grid min-h-[34rem] flex-1 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm md:grid-cols-[20rem_1fr]">
+      <IslandBoard island="harbour" className="flex flex-1 flex-col">
+      <div className="notice-sheet grid min-h-[34rem] flex-1 overflow-hidden md:grid-cols-[20rem_1fr]">
         <section aria-label="Conversations" className={`flex min-h-0 flex-col border-gray-200 md:border-r ${openId ? "hidden md:flex" : "flex"}`}>
           <form onSubmit={start} className="border-b border-gray-200 p-4">
             <label className="block text-sm font-bold text-gray-700">New message to a username
@@ -85,6 +87,7 @@ export default function MessagesPage() {
             : <div className="m-auto max-w-sm p-8 text-center text-gray-500"><p className="text-4xl" aria-hidden="true">💬</p><p className="mt-3 font-semibold text-gray-700">Choose a conversation</p><p className="mt-1 text-sm">Or start one with a classmate's username. Be kind, and never share passwords or personal details.</p></div>}
         </section>
       </div>
+      </IslandBoard>
     </main>
   </div>;
 }

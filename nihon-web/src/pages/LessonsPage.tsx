@@ -8,6 +8,7 @@ import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import LevelWrapUp from "../components/LevelWrapUp";
 import { COURSE_LEVELS, levelOfId, useCourseLevel } from "../lib/courseLevel";
+import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
 
 export default function LessonsPage() {
   const navigate = useNavigate(); const [allUnits, setUnits] = useState<CourseUnit[]>([]);
@@ -29,13 +30,14 @@ export default function LessonsPage() {
   const unit = units.find(item => item.id === selectedId);
   const lessons = unit?.lessons ?? [];
   return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><div className="mt-6 mb-8"><div className="flex flex-wrap items-center gap-3"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">🇯🇵 Japanese • {level} {levelTitle}</span><Link to="/levels?next=/lessons" className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-bold text-gray-700 hover:border-emerald-400 focus-visible:outline-2 focus-visible:outline-emerald-600">Change level</Link></div><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">Build practical Japanese step by step.</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
-    {!allUnits.length && !error && <p role="status">Loading units…</p>}
-    {allUnits.length > 0 && !units.length && <section className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-8"><h2 className="text-2xl font-black text-gray-900">{level} lessons are coming soon</h2><GuideNote character="hakase" mood="worried" className="mt-4"><p className="text-gray-600">This level has no units yet. Your other levels and their progress are unchanged.</p></GuideNote><Link to="/levels?next=/lessons" className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Choose another level →</Link></section>}
+    <IslandBoard island="lessons">
+    {!allUnits.length && !error && <p role="status" className="board-label">Loading units…</p>}
+    {allUnits.length > 0 && !units.length && <section className={SHEET}><h2 className="text-2xl font-black text-gray-900">{level} lessons are coming soon</h2><GuideNote character="hakase" mood="worried" className="mt-4"><p className="text-gray-600">This level has no units yet. Your other levels and their progress are unchanged.</p></GuideNote><Link to="/levels?next=/lessons" className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Choose another level →</Link></section>}
     {!unit && units.length > 0 && <section aria-labelledby="choose-unit-heading">
-      <h2 id="choose-unit-heading" className="mb-2 text-2xl font-black text-gray-900">Choose a unit</h2>
-      <p className="mb-6 text-gray-600">Select an available unit to see its lessons and assessment.</p>
+      <div className="board-label mb-4"><h2 id="choose-unit-heading" className="text-xl font-black text-gray-900">Choose a unit</h2>
+      <p className="text-sm text-gray-600">Select an available unit to see its lessons and assessment.</p></div>
       {selectedId && <p role="alert" className="mb-4 text-gray-600">That unit could not be found. Choose a unit below.</p>}
-      <div className="space-y-4">{units.map(item => <button key={item.id} disabled={!item.allowed} onClick={() => selectUnit(item.id)} className={`w-full rounded-3xl border bg-white p-6 text-left shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:p-8 ${item.allowed ? "border-emerald-200 hover:border-emerald-400 hover:shadow-md" : "cursor-not-allowed border-gray-200"}`}>
+      <div className="space-y-4">{units.map(item => <button key={item.id} disabled={!item.allowed} onClick={() => selectUnit(item.id)} className={`notice-sheet w-full p-6 pt-7 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:p-8 ${item.allowed ? "hover:-translate-y-0.5 hover:ring-2 hover:ring-emerald-400" : "cursor-not-allowed opacity-80"}`}>
         <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Unit {item.number}{item.isPlaceholder && " · Coming Soon"}</p>
         <h3 className="mt-1 text-2xl font-black text-gray-900">{item.title}</h3>
         <p className="mt-2 text-gray-600">{item.description}</p>
@@ -44,7 +46,7 @@ export default function LessonsPage() {
       </button>)}</div>
       <LevelWrapUp level={level} units={units} />
     </section>}
-    {unit && <section className="mb-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+    {unit && <section className={`${SHEET} mb-6`}>
       <button onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold text-emerald-700 hover:text-emerald-900 focus-visible:outline-2 focus-visible:outline-emerald-600">Choose another unit</button>
       <UnitSelector units={units} selectedId={unit.id} onChange={selectUnit} />
       <p className="mt-6 text-xs font-bold uppercase tracking-wider text-emerald-700">Unit {unit.number}</p>
@@ -58,5 +60,5 @@ export default function LessonsPage() {
       </>}
       {!unit.allowed && <p className="mt-2 text-sm text-gray-600">🔒 {unit.reasons.join(" + ")}</p>}
     </section>}
-    <div className="space-y-4">{lessons.map((lesson, index) => <button key={lesson.id} disabled={lesson.isPlaceholder || !lesson.allowed} onClick={() => !lesson.isPlaceholder && lesson.allowed && navigate(`/lessons/japanese/${lesson.slug}`)} className={`w-full text-left bg-white rounded-3xl border shadow-sm transition p-6 sm:p-8 ${lesson.allowed ? "border-emerald-200 hover:shadow-md hover:border-emerald-400 cursor-pointer" : "border-gray-200 opacity-75 cursor-not-allowed"}`}><div className="flex flex-col sm:flex-row sm:items-center gap-5"><div className="w-14 h-14 shrink-0 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-3xl font-bold">{index + 1}</div><div className="flex-1"><p className="text-xs font-bold tracking-wider uppercase text-emerald-700">Unit {unit?.number} • Lesson {index + 1}{!lesson.isPlaceholder && " • 5–10 min"}</p><h2 className="mt-1 text-2xl font-black text-gray-900">{lesson.title}</h2><p className="mt-1 text-sm text-gray-600">{lesson.isPlaceholder ? lesson.description : lesson.allowed ? "Ready to continue your Japanese foundations." : `🔒 Requires: ${lesson.reasons.join(" • ")}`}</p></div><span className="text-emerald-700 font-bold">{lesson.isPlaceholder ? "Coming Soon" : lesson.allowed ? "Start lesson →" : "Locked"}</span></div></button>)}</div>{unit && <div className="mt-10"><UnitAssessmentCard unit={unit} /></div>}</main></div>;
+    <div className="space-y-4">{lessons.map((lesson, index) => <button key={lesson.id} disabled={lesson.isPlaceholder || !lesson.allowed} onClick={() => !lesson.isPlaceholder && lesson.allowed && navigate(`/lessons/japanese/${lesson.slug}`)} className={`notice-sheet w-full text-left transition p-6 pt-7 sm:p-8 ${lesson.allowed ? "hover:-translate-y-0.5 hover:ring-2 hover:ring-emerald-400 cursor-pointer" : "opacity-75 cursor-not-allowed"}`}><div className="flex flex-col sm:flex-row sm:items-center gap-5"><div className="w-14 h-14 shrink-0 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-3xl font-bold">{index + 1}</div><div className="flex-1"><p className="text-xs font-bold tracking-wider uppercase text-emerald-700">Unit {unit?.number} • Lesson {index + 1}{!lesson.isPlaceholder && " • 5–10 min"}</p><h2 className="mt-1 text-2xl font-black text-gray-900">{lesson.title}</h2><p className="mt-1 text-sm text-gray-600">{lesson.isPlaceholder ? lesson.description : lesson.allowed ? "Ready to continue your Japanese foundations." : `🔒 Requires: ${lesson.reasons.join(" • ")}`}</p></div><span className="text-emerald-700 font-bold">{lesson.isPlaceholder ? "Coming Soon" : lesson.allowed ? "Start lesson →" : "Locked"}</span></div></button>)}</div>{unit && <div className="mt-10"><UnitAssessmentCard unit={unit} /></div>}</IslandBoard></main></div>;
 }

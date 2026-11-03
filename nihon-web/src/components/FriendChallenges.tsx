@@ -76,7 +76,7 @@ export default function FriendChallenges() {
     void work().then(() => load()).catch(failure => setError(apiErrorMessage(failure, "That didn't work. Please try again."))).finally(() => setBusy(false));
   };
   if (!error && !challenges?.length) return null;
-  return <section id="challenges" aria-labelledby="challenges-heading" className="mt-6 rounded-2xl border border-amber-200 bg-white p-5">
+  return <section id="challenges" aria-labelledby="challenges-heading" className="notice-sheet mt-6 p-5 pt-7 ring-2 ring-amber-200">
     <h2 id="challenges-heading" className="text-lg font-bold"><span aria-hidden="true">⚔️ </span>Challenges</h2>
     {challenges && <ul className="mt-2 divide-y divide-gray-100">{challenges.map(challenge => <ChallengeRow key={challenge.id} challenge={challenge} busy={busy} act={act} />)}</ul>}
     {error && <p role="alert" className="mt-2 text-sm text-red-700">{error}</p>}

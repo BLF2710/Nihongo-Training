@@ -7,6 +7,7 @@ import { apiErrorMessage } from "../api/errors";
 import { fetchGamification } from "../api/gamification";
 import type { Achievement, AchievementCategory, Gamification, TodayActivity } from "../api/gamification";
 import { timeAgo } from "../lib/notifications";
+import { IslandBoard } from "../components/theme/IslandBoard";
 import {
   ACHIEVEMENT_CATEGORIES, achievementPercent, describeCap, isCapReached, isEarned, nextAchievements, SHOWN_SOURCES, XP_SOURCES,
 } from "../lib/gamification";
@@ -64,7 +65,7 @@ function LevelHero({ data }: { data: Gamification }) {
 
 /** Every rank in order, with the learner's place and the XP still needed for the next one. */
 function RankLadder({ data }: { data: Gamification }) {
-  return <section aria-labelledby="ranks-heading" className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+  return <section aria-labelledby="ranks-heading" className="notice-sheet p-5 pt-7">
     <div className="flex flex-wrap items-baseline justify-between gap-2"><h2 id="ranks-heading" className="text-lg font-black">Ranks</h2>
       <p className="text-sm text-gray-600">{data.nextRank ? <><b className="text-gray-900">{(data.nextRank.xp - data.xp).toLocaleString()} XP</b> to {data.nextRank.name}</> : "You've reached the top rank."}</p></div>
     <ol className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">{data.ranks.map(rank => {
@@ -132,7 +133,7 @@ function ActivityRow({ activity }: { activity: TodayActivity }) {
       <span className={`mt-1 block text-xs ${capped ? "font-semibold text-amber-800" : "text-gray-500"}`}>{capped ? "Today's limit reached — more tomorrow" : describeCap(activity)}</span>
     </span>
   </>;
-  const className = "flex gap-3 rounded-2xl border border-gray-200 bg-white p-4";
+  const className = "flex gap-3 notice-sheet p-4 pt-7";
   return <li>{info.href ? <Link to={info.href} className={`${className} hover:border-emerald-400 focus-visible:outline-2 focus-visible:outline-emerald-600`}>{body}</Link> : <div className={className}>{body}</div>}</li>;
 }
 
@@ -144,7 +145,7 @@ function EarningSection({ data }: { data: Gamification }) {
       <p className="mb-3 text-sm text-gray-600">Repeated activities have a daily limit, so XP follows real study. Achievements add their own XP on top.</p>
       <ul className="grid gap-3 md:grid-cols-2">{activities.map(item => <ActivityRow key={item.source} activity={item} />)}</ul>
     </section>
-    <section aria-labelledby="recent-heading" className="h-fit rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+    <section aria-labelledby="recent-heading" className="h-fit notice-sheet p-5 pt-7">
       <h2 id="recent-heading" className="text-lg font-black">Recent XP</h2>
       {data.recent.length ? <ul className="mt-3 divide-y divide-gray-100">{data.recent.map((event, index) => <li key={`${event.createdAt}-${index}`} className="flex items-center gap-3 py-2 text-sm">
         <span aria-hidden="true" className="w-6 text-center">{XP_SOURCES[event.source]?.icon ?? "⚡"}</span>
@@ -165,12 +166,12 @@ export default function AchievementsPage() {
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
       {error && <p role="alert" className="mb-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{error} <button className="ml-2 font-bold underline" onClick={retry}>Try again</button></p>}
       {!data && !error && <p role="status" className="text-gray-500">Loading your level and achievements…</p>}
-      {data && <>
+      {data && <IslandBoard island="onsen">
         <LevelHero data={data} />
         <div className="mt-6"><RankLadder data={data} /></div>
         <div className="mt-8"><SectionTabs label="Achievements sections" tabs={SECTIONS.map(item => ({ to: item.path, label: item.label, icon: item.icon, end: true }))} /></div>
         {current === "xp" ? <EarningSection data={data} /> : <AchievementsSection data={data} />}
-      </>}
+      </IslandBoard>}
     </main>
   </div>;
 }

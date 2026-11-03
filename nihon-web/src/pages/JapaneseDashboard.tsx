@@ -17,6 +17,7 @@ import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
 import EmailVerificationBanner from "../components/EmailVerificationBanner";
 import TodayPanel from "../components/TodayPanel";
+import "../components/theme/islandBoard.css";
 import "./noticeBoard.css";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600";

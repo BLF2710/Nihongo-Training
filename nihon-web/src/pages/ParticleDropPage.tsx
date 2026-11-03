@@ -11,13 +11,14 @@ import { levelOfId } from "../lib/courseLevel";
 import { scoreAnswer } from "../lib/particleDrop";
 import type { ParticleQuestion } from "../lib/particleDrop";
 import { MIN_QUESTIONS, useParticleRound } from "../lib/useParticleRound";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const QUESTION_SECONDS = 15;
 const TICK_MS = 100;
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600";
 const primary = `rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 disabled:opacity-50 ${focus}`;
 const button = `rounded-xl border border-gray-200 bg-white px-4 py-2 font-semibold hover:bg-gray-100 ${focus}`;
-const card = "rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8";
+const card = "notice-sheet p-5 pt-7 sm:p-8";
 
 type Answer = { question: ParticleQuestion; given: string | null; correct: boolean; points: number };
 
@@ -57,19 +58,20 @@ export default function ParticleDropPage() {
   }, []);
   const playAgain = () => { round.newRound(); setPhase("playing"); };
 
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={phase === "playing" ? undefined : "games"} /><main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
     <h1 className="mt-4 text-3xl font-black">Particle Drop</h1>
     <p className="mt-1 text-gray-600">Drop the right particle into each sentence before time runs out. Sentences come from lessons you have finished.</p>
     {round.status === "loading" && <p role="status" className="mt-6 text-gray-500">Loading your sentences…</p>}
     {round.status === "error" && <p role="alert" className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{round.message} <button className="ml-2 font-bold underline" onClick={round.retry}>Try again</button></p>}
-    {round.status === "ready" && round.available < MIN_QUESTIONS && <section className={`${card} mt-6`}>
+    {round.status === "ready" && <IslandBoard island="games" className="mt-6">
+    {round.status === "ready" && round.available < MIN_QUESTIONS && <section className={card}>
       <h2 className="text-xl font-black">Finish a few more lessons first</h2>
       <GuideNote character="pon" mood="worried" className="mt-3"><p>Not enough sentences for a round yet. Come back after a few lessons and we'll play!</p></GuideNote>
       <p className="mt-2 text-gray-600">Particle Drop needs at least {MIN_QUESTIONS} sentences from lessons you have finished ({round.available} so far). It uses the N5 lessons' grammar examples.</p>
       <Link to="/lessons" className={`${primary} mt-5 inline-block`}>Go to lessons →</Link>
     </section>}
     {round.status === "ready" && round.available >= MIN_QUESTIONS && <>
-      {phase === "intro" && <section className={`${card} mt-6`} aria-labelledby="how-heading">
+      {phase === "intro" && <section className={card} aria-labelledby="how-heading">
         <GuideNote character="pon" mood="happy" className="mb-4"><p>Ponpoko! Drop each particle in before my drum stops.</p></GuideNote>
         <h2 id="how-heading" className="text-xl font-black">How to play</h2>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-gray-700">
@@ -84,6 +86,7 @@ export default function ParticleDropPage() {
       {phase === "playing" && <Game key={round.round.map(question => question.lessonId + sentenceWithGap(question)).join("|")} questions={round.round} onFinish={finish} />}
       {phase === "finished" && <Results answers={answers} best={readBest()} onPlayAgain={playAgain} />}
     </>}
+    </IslandBoard>}
   </main></div>;
 }
 
@@ -135,7 +138,7 @@ function Game({ questions, onFinish }: { questions: ParticleQuestion[]; onFinish
   }, [answer, current, question]);
 
   const timePercent = Math.round(secondsLeft / QUESTION_SECONDS * 100);
-  return <section className={`${card} mt-6`} aria-label="Particle Drop question">
+  return <section className={card} aria-label="Particle Drop question">
     <div className="flex items-center justify-between text-sm font-semibold text-gray-600">
       <span>Sentence {position + 1} of {questions.length}</span>
       <span>{score} points{runningStreak > 1 && <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-amber-900">🔥 {runningStreak} in a row</span>}</span>
@@ -170,7 +173,7 @@ function Results({ answers, best, onPlayAgain }: { answers: Answer[]; best: numb
   const right = answers.filter(answer => answer.correct).length;
   const score = answers.reduce((total, answer) => total + answer.points, 0);
   const missed = answers.filter(answer => !answer.correct);
-  return <section className={`${card} mt-6`} aria-labelledby="results-heading">
+  return <section className={card} aria-labelledby="results-heading">
     <h2 id="results-heading" className="text-2xl font-black">{right === answers.length ? "Perfect round! 🎉" : "Round finished"}</h2>
     <dl className="mt-4 grid grid-cols-3 gap-3 text-center">
       {[["Score", String(score)], ["Right", `${right} / ${answers.length}`], ["Best", String(Math.max(best, score))]].map(([label, value]) =>

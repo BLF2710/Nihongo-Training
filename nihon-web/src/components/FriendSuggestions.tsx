@@ -33,7 +33,7 @@ export default function FriendSuggestions({ onRequested }: { onRequested: (messa
     finally { setBusy(null); }
   };
   if (!data && !error) return null;
-  return <section aria-labelledby="suggestions-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+  return <section aria-labelledby="suggestions-heading" className="notice-sheet mt-6 p-5 pt-7">
     <h2 id="suggestions-heading" className="text-lg font-bold">People you might know</h2>
     {data && !data.enabled && <p className="mt-2 text-sm text-gray-600">Turn on <b>Friend suggestions</b> in <Link to="/settings/privacy" className="font-bold text-emerald-700 hover:underline">settings</Link> to see friends of your friends and learners on your level who did the same.</p>}
     {data?.enabled && (data.suggestions.length === 0

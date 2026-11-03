@@ -8,6 +8,7 @@ import type { AppNotification } from "../api/notifications";
 import { refreshInbox } from "../lib/inbox";
 import { describeNotification, timeAgo } from "../lib/notifications";
 import { useRealtime } from "../lib/realtime";
+import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
 
 const PAGE = 20;
 
@@ -53,9 +54,10 @@ export default function NotificationsPage() {
     <h1 className="text-3xl font-black">Notifications</h1>
     <p className="mt-1 text-gray-600">Friend requests, replies from support and achievements from the last 6 months.</p>
     {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-800">{error} <button className="font-bold underline" onClick={() => void load()}>Try again</button></p>}
-    {!items && !error && <p role="status" className="mt-6">Loading notifications…</p>}
-    {items?.length === 0 && <GuideNote character="hato" className="mt-6"><p className="font-bold">No notifications yet</p><p className="mt-1 text-gray-600">You'll see friend requests, replies from support and new achievements here.</p></GuideNote>}
-    {items && items.length > 0 && <ul className="mt-6 divide-y divide-gray-100 overflow-hidden rounded-2xl border border-gray-200 bg-white">{items.map(item => {
+    <IslandBoard island="harbour" className="mt-6">
+    {!items && !error && <p role="status" className="board-label">Loading notifications…</p>}
+    {items?.length === 0 && <GuideNote character="hato" className={SHEET}><p className="font-bold">No notifications yet</p><p className="mt-1 text-gray-600">You'll see friend requests, replies from support and new achievements here.</p></GuideNote>}
+    {items && items.length > 0 && <ul className="notice-sheet divide-y divide-gray-100 overflow-hidden pt-4">{items.map(item => {
       const { icon, text, href } = describeNotification(item), isNew = fresh.has(item.id);
       return <li key={item.id}><Link to={href} className={`flex gap-4 p-4 hover:bg-gray-50 ${isNew ? "bg-emerald-50/60" : ""}`}>
         <span aria-hidden="true" className="text-xl">{icon}</span>
@@ -64,6 +66,7 @@ export default function NotificationsPage() {
       </Link></li>;
     })}</ul>}
     {hasMore && <button className="mt-4 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-gray-700 hover:border-emerald-500 disabled:opacity-50" disabled={loadingMore} onClick={() => void loadOlder()}>{loadingMore ? "Loading…" : "Load older notifications"}</button>}
-    <p className="mt-6 text-sm text-gray-600">Friend requests can be answered on the <Link to="/friends" className="font-bold text-emerald-700 hover:underline">Friends</Link> page.</p>
+    <p className="board-label mt-6 text-sm">Friend requests can be answered on the <Link to="/friends" className="font-bold text-emerald-700 hover:underline">Friends</Link> page.</p>
+    </IslandBoard>
   </main></div>;
 }

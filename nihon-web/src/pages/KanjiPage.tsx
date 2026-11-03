@@ -10,6 +10,7 @@ import { fetchKanjiProgress } from "../api/kanji";
 import type { KanjiProgress } from "../api/kanji";
 import { COURSE_LEVELS, isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { isInKanjiScope, KANJI_PLACEMENT as placement } from "../lib/kanjiPlacement";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const labels = { untested: "Untested", learning: "Learning", mastered: "Mastered" };
 const masteryStyle = {
@@ -72,7 +73,7 @@ export default function KanjiPage() {
         <p className="mt-2 text-gray-600">Recognize characters through familiar vocabulary from your lessons. Filter by course level and unit to study one set at a time.</p>
         <p className="mt-2 text-sm text-gray-500">Mastered: at least 3 correct answers and 80% displayed accuracy (rounded to whole percent, matching Kana). Only practice answers change progress.</p>
         <Link to={`/learn/kanji/flashcards?${new URLSearchParams({ level, ...(unitId === "all" ? {} : { unit: unitId }) })}`} className="mt-4 inline-block rounded-xl border bg-white px-4 py-2 font-bold focus-visible:outline-2">Study flashcards</Link>
-        <section aria-labelledby="kanji-mastery-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+        <IslandBoard island="kanji" className="mt-6"><section aria-labelledby="kanji-mastery-heading" className="notice-sheet p-6 pt-7 sm:p-8">
           <div className="flex flex-col items-start justify-between gap-4 border-b border-gray-100 pb-6 sm:flex-row sm:items-center">
             <div>
               <h2 id="kanji-mastery-heading" className="text-2xl font-bold text-gray-900">漢 Kanji Character Mastery</h2>
@@ -115,7 +116,7 @@ export default function KanjiPage() {
             </Link>;
           })}</div>
           {!visible.length && <div role="status" className="mx-auto max-w-lg py-10"><GuideNote character="tsuru" mood="worried"><p className="text-gray-600">{scoped.length ? "No Kanji match this search and filter." : `No Kanji have been added for ${level} yet.`}</p></GuideNote></div>}
-        </section>
+        </section></IslandBoard>
       </>
       <KanjiAttribution />
     </main>

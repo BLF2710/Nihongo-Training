@@ -88,8 +88,9 @@ const courseUnit = unit => ({
     const lastUnit = liveUnits.at(-1);
     for (const skill of ["listening", "speaking"]) {
       await page.goto(`${base}/${skill}?unit=${lastUnit.id}`);
-      await page.getByText(/Question 1 \//).first().waitFor();
       assert.equal(await page.getByLabel("Choose a unit").inputValue(), lastUnit.id);
+      await page.getByRole("button", { name: "Start practice →" }).click();
+      await page.getByText(/Question 1 \//).first().waitFor();
       await checkText(`${skill} ${lastUnit.id}`);
     }
 

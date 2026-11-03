@@ -15,8 +15,15 @@ import { buildListeningRound, buildSpeakingRound, SKILL_SECTIONS } from "../lib/
 import type { ListeningExercise, Skill, SkillSection, SpeakingExercise } from "../lib/skillRounds";
 import { supportsJapaneseSpeech } from "../services/japaneseSpeech";
 import { supportsSpeechRecognition } from "../services/japaneseSpeechRecognition";
+import { SessionStart } from "../components/cast/SessionStart";
+import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
 
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
+// What Tama says before a round.
+const TAMA_SAYS: Record<Skill, string> = {
+  listening: "Ears ready? Listen to each one as often as you like, then choose what you heard.",
+  speaking: "Say each phrase out loud, clearly and at your own pace. I'm listening!",
+};
 const COPY: Record<Skill, { title: string; intro: string }> = {
   listening: { title: "Listening", intro: "Hear words, sentences, and short dialogues from the units you have reached, then choose what you heard." },
   speaking: { title: "Speaking", intro: "Say words, sentences, and dialogue replies from the units you have reached. Your speech is checked against the phrase." },
@@ -29,6 +36,7 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
   const [retry, setRetry] = useState(0);
   const [section, setSection] = useState<SkillSection>("vocabulary");
   const [round, setRound] = useState(1);
+  const [isStarted, setIsStarted] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     fetchUnits(controller.signal).then(data => { setUnits(data); setError(false); }).catch(() => { if (!controller.signal.aborted) setError(true); });
@@ -45,7 +53,7 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
   const audioAvailable = supportsJapaneseSpeech();
   const canCheckSpeech = supportsSpeechRecognition();
 
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={isStarted ? undefined : "practice"} /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <div className="mt-6"><LevelSwitch level={level} /></div>
     <h1 className="mt-3 text-3xl font-black">{title}</h1>
     <p className="mt-2 text-gray-600">{intro}</p>
@@ -60,8 +68,8 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
       <GuideNote character="tama" className="mt-4"><p className="text-gray-600">A unit appears here as soon as you reach it on the Lessons page, with its own vocabulary, sentences, and dialogues.</p></GuideNote>
       <Link to="/lessons" className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Go to lessons →</Link>
     </section>}
-    {material && <>
-      <label className="mt-6 block max-w-md text-sm font-bold text-gray-700">Choose a unit
+    {material && !isStarted && <IslandBoard island="practice" className="mt-6"><SessionStart character="tama" heading={`${title} · Unit ${selected.number}`} startLabel="Start practice →" onStart={() => setIsStarted(true)} className={SHEET} options={<>
+      <label className="block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={material.unitId} onChange={event => { setParams({ unit: event.target.value }); setRound(1); }} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 text-gray-900 focus:outline-2 focus:outline-emerald-600">
           {course.map(unit => <option key={unit.id} value={unit.id} disabled={!unit.allowed}>Unit {unit.number}: {unit.title}{unit.allowed ? "" : ` — 🔒 ${unit.reasons.join(" + ")}`}</option>)}
         </select>
@@ -71,8 +79,14 @@ export default function SkillPracticePage({ skill }: { skill: Skill }) {
       </div>
       {!audioAvailable && <p role="alert" className="mb-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">This browser cannot play Japanese audio, so {skill === "listening" ? "listening practice is unavailable here" : "model pronunciation cannot be played"}.</p>}
       {skill === "speaking" && !canCheckSpeech && <p role="alert" className="mb-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">This browser has no speech recognition, so your speaking cannot be checked here. Use Chrome or Edge on a device with a microphone to have it checked.</p>}
-      <PracticeRound key={`${skill}:${material.unitId}:${section}:${round}`} skill={skill} unit={material} section={section} canCheckSpeech={canCheckSpeech} onRestart={() => setRound(value => value + 1)} />
-    </>}
+    </>}>
+      <p>{TAMA_SAYS[skill]}</p>
+    </SessionStart></IslandBoard>}
+    {material && isStarted && <IslandBoard island="practice" className="mt-6">
+      <p className="board-label flex flex-wrap items-center justify-between gap-2 text-sm font-semibold"><span>Unit {selected.number} · {SKILL_SECTIONS.find(item => item.key === section)?.label}</span>
+        <button onClick={() => setIsStarted(false)} className="font-bold text-emerald-700 underline">Change unit or practice</button></p>
+  <PracticeRound key={`${skill}:${material.unitId}:${section}:${round}`} skill={skill} unit={material} section={section} canCheckSpeech={canCheckSpeech} onRestart={() => setRound(value => value + 1)} />
+    </IslandBoard>}
   </main></div>;
 }
 
@@ -94,7 +108,7 @@ function PracticeRound({ skill, unit, section, canCheckSpeech, onRestart }: { sk
   }, [finished, skill, unit.unitId, results.length, correct]);
 
   if (!exercises.length) return <p className="rounded-xl bg-white p-6 text-gray-600">This unit has no {section} practice yet.</p>;
-  if (!exercise) return <section aria-label="Round results" className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+  if (!exercise) return <section aria-label="Round results" className="notice-sheet p-6 pt-7 sm:p-8">
     <h2 className="text-2xl font-bold">Round complete</h2>
     <p className="mt-3 text-lg">You got <span className="font-black text-emerald-700">{correct} / {exercises.length}</span> correct.</p>
     <p className="mt-1 text-sm text-gray-500">Practice rounds do not change your XP or statistics, but a finished round counts toward your daily streak.</p>
@@ -103,7 +117,7 @@ function PracticeRound({ skill, unit, section, canCheckSpeech, onRestart }: { sk
 
   const isLast = index === exercises.length - 1;
   return <>
-    <div className="mb-3 flex items-center justify-between text-sm font-semibold text-gray-600"><span>Question {index + 1} / {exercises.length}</span><span>{correct} correct</span></div>
+    <div className="board-label mb-3 flex items-center justify-between text-sm font-semibold"><span>Question {index + 1} / {exercises.length}</span><span>{correct} correct</span></div>
     {skill === "listening"
       ? <ListeningExerciseCard key={exercise.id} exercise={exercise as ListeningExercise} isLast={isLast} onDone={record} />
       : <SpeakingExerciseCard key={exercise.id} exercise={exercise as SpeakingExercise} isLast={isLast} canCheck={canCheckSpeech} onDone={record} />}

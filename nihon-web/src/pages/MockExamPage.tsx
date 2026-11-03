@@ -13,10 +13,11 @@ import { isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { climbedShare, resultShare, trailStations } from "../lib/fujiTrail";
 import { GuideNote } from "../components/cast/GuideNote";
 import { FujiTrail } from "../components/exam/FujiTrail";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const primary = "rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600";
-const card = "rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8";
+const card = "notice-sheet p-6 sm:p-8";
 
 type Attempt = { startedAt: number; answers: Record<string, number> };
 type SaveState = { status: "saving" } | { status: "saved" } | { status: "failed"; message: string; canRetry: boolean };
@@ -51,8 +52,10 @@ export default function MockExamPage() {
     return () => controller.abort();
   }, [retry]);
   const course = (units ?? []).filter(unit => levelOfId(unit.id) === level && !unit.isPlaceholder);
+  // The Progress island's strip shows until the climb begins, and again once it is over.
+  const [isClimbing, setIsClimbing] = useState(() => exam !== undefined && read<Attempt>(() => sessionStorage, attemptKey(exam)) !== null);
 
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={isClimbing ? undefined : "fuji"} /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <h1 className="mt-6 text-3xl font-black">{level} mock exam</h1>
     {!exam ? <section className="mt-6">
       <GuideNote character="kurama" mood="worried"><p className="text-gray-600">The {level} mock exam is not available yet. It arrives together with the level's units.</p></GuideNote>
@@ -67,12 +70,12 @@ export default function MockExamPage() {
         </GuideNote>
         <Link to="/lessons" className={`${primary} mt-5 inline-block`}>Go to lessons →</Link>
       </section>}
-      {units && levelReached(course) && <Exam key={exam.id} exam={exam} />}
+      {units && levelReached(course) && <Exam key={exam.id} exam={exam} onClimbingChange={setIsClimbing} />}
     </>}
   </main></div>;
 }
 
-function Exam({ exam }: { exam: MockExam }) {
+function Exam({ exam, onClimbingChange }: { exam: MockExam; onClimbingChange: (isClimbing: boolean) => void }) {
   const [attempt, setAttempt] = useState<Attempt | null>(() => read<Attempt>(() => sessionStorage, attemptKey(exam)));
   const [result, setResult] = useState<{ result: MockResult; answers: Record<string, number>; timedOut: boolean } | null>(null);
   const [saveState, setSaveState] = useState<SaveState>({ status: "saving" });
@@ -85,7 +88,7 @@ function Exam({ exam }: { exam: MockExam }) {
     return () => controller.abort();
   }, [exam.level, result]);
 
-  const save = (next: Attempt | null) => { setAttempt(next); write(() => sessionStorage, attemptKey(exam), next); };
+  const save = (next: Attempt | null) => { setAttempt(next); onClimbingChange(next !== null); write(() => sessionStorage, attemptKey(exam), next); };
   // The result is shown at once (the browser applies the same rules); the server's grading is what is saved.
   const send = (answers: Record<string, number>, timedOut: boolean) => {
     if (!Object.keys(answers).length) { setSaveState({ status: "failed", message: "An exam without answers isn't saved.", canRetry: false }); return; }
@@ -102,7 +105,7 @@ function Exam({ exam }: { exam: MockExam }) {
   if (result) return <Results exam={exam} {...result} saveState={saveState} onSaveAgain={() => send(result.answers, result.timedOut)} onRetry={() => setResult(null)} />;
   if (attempt) return <Running exam={exam} attempt={attempt} total={total} onAnswer={(id, option) => save({ ...attempt, answers: { ...attempt.answers, [id]: option } })} onFinish={finish} />;
   const stations = trailStations(exam.sections.map(section => ({ title: section.title, total: questionsOf(section).length, isComplete: false })));
-  return <section className={`${card} mt-6 overflow-hidden`}>
+  return <IslandBoard island="fuji" className="mt-6"><section className={`${card} overflow-hidden`}>
     <FujiTrail stations={stations} climbed={0} label={`Mount Fuji, with a station for each of the ${exam.sections.length} sections and you at the foot.`} className="-mx-6 -mt-6 mb-6 aspect-[35/9] sm:-mx-8 sm:-mt-8" />
     <GuideNote character="kurama" className="mb-5"><p>I will guide you up. Each section is a stretch of the trail with a station at its end. Reach the summit with {exam.passPercent}% overall and {exam.sectionMinPercent}% in every section.</p></GuideNote>
     <p className="text-gray-600">A practice exam in the style of the JLPT {exam.level}, built only from what this course has taught. It is not an official test.</p>
@@ -122,7 +125,7 @@ function Exam({ exam }: { exam: MockExam }) {
     {history && history.results.length > 0 && <details className="mt-2 text-sm text-gray-600"><summary className="cursor-pointer font-semibold">Earlier results</summary>
       <ul className="mt-2 space-y-1">{history.results.map(item => <li key={item.id}>{new Date(item.createdAt).toLocaleString()} · {item.percent}%{item.passed ? " ✓" : ""}{item.timedOut ? " · time ran out" : ""}</li>)}</ul></details>}
     <button className={`${primary} mt-6`} onClick={() => save({ startedAt: Date.now(), answers: {} })}>Start the exam →</button>
-  </section>;
+  </section></IslandBoard>;
 }
 
 function Running({ exam, attempt, total, onAnswer, onFinish }: {
@@ -203,7 +206,7 @@ function Results({ exam, result, answers, timedOut, saveState, onSaveAgain, onRe
 }) {
   const numbers = questionNumbers(exam);
   return <div className="mt-6">
-    <section aria-label="Exam result" className={`${card} overflow-hidden`}>
+    <IslandBoard island="fuji"><section aria-label="Exam result" className={`${card} overflow-hidden`}>
       <FujiTrail stations={trailStations(result.sections.map(section => ({ title: section.title, total: section.total, isComplete: section.reached })))}
         climbed={resultShare(result.percent, result.passed)} label={result.passed ? "You stand on the summit of Fuji." : `You made camp ${result.percent}% of the way up.`}
         className="-mx-6 -mt-6 mb-6 aspect-[35/9] sm:-mx-8 sm:-mt-8" />
@@ -226,7 +229,7 @@ function Results({ exam, result, answers, timedOut, saveState, onSaveAgain, onRe
         {saveState.status === "failed" && saveState.canRetry && <button className="ml-2 font-bold underline" onClick={onSaveAgain}>Try again</button>}
       </p>
       <div className="mt-5 flex flex-wrap gap-3"><button className={primary} onClick={onRetry}>Take it again</button><Link to={`/review?unit=level:${exam.level}`} className={button}>Cumulative review →</Link><Link to={`/grammar/summary?level=${exam.level}`} className={button}>Grammar summary →</Link></div>
-    </section>
+    </section></IslandBoard>
 
     <h2 className="mt-8 text-2xl font-black">Review your answers</h2>
     {exam.sections.map(section => <section key={section.id} className="mt-6">

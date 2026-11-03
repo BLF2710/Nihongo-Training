@@ -20,6 +20,7 @@ import type { ReviewItem } from "../lib/reviewSession";
 import type { ListeningExercise } from "../lib/skillRounds";
 import { supportsJapaneseSpeech } from "../services/japaneseSpeech";
 import { supportsSpeechRecognition } from "../services/japaneseSpeechRecognition";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const button = "rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
 const primary = "rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-50";
@@ -71,14 +72,15 @@ export default function UnitReviewPage() {
     finally { setStarting(false); }
   };
 
-  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
+  return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={session ? undefined : "review"} /><main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
     <div className="mt-6"><LevelSwitch level={level} /></div>
     <h1 className="mt-3 text-3xl font-black">Unit Review</h1>
     <p className="mt-2 text-gray-600">A mixed set for one unit: question-bank questions, word games, vocabulary, listening, and speaking.</p>
     {unitsError && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">Your units could not be loaded. <button className="ml-2 font-bold underline" onClick={() => setRetry(value => value + 1)}>Retry</button></p>}
     {!units && !unitsError && <p role="status" className="mt-5 text-gray-500">Loading your units…</p>}
     {units && !selected && <GuideNote character="zen" className="mt-6"><p className="text-gray-600">No unit is open for review yet. A unit appears here as soon as you reach it on the Lessons page.</p></GuideNote>}
-    {selected && !session && <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 sm:p-8">
+    {selected && !session && <IslandBoard island="review" className="mt-6"><section className="notice-sheet p-6 pt-7 sm:p-8">
+      <GuideNote character="zen" mood="happy" className="mb-5"><p>A mixed set from one unit: questions, words, listening and speaking. Take your time; a review never changes your score.</p></GuideNote>
       <label className="block max-w-md text-sm font-bold text-gray-700">Choose a unit
         <select value={cumulative ? `level:${cumulative}` : selected.id} onChange={event => setParams({ unit: event.target.value })} className="mt-2 w-full rounded-xl border border-gray-200 bg-white p-3 text-gray-900 focus:outline-2 focus:outline-emerald-600">
           {levels.map(level => <option key={level} value={`level:${level}`}>{level} cumulative review — every unit you have reached</option>)}
@@ -88,8 +90,8 @@ export default function UnitReviewPage() {
       <p className="mt-4 text-sm text-gray-500">{cumulative ? `A longer review of ${CUMULATIVE_REVIEW_SIZE} questions drawn from all ${reached.filter(unit => levelOfId(unit.id) === cumulative).length} ${cumulative} units you have reached. ` : ""}Each review picks a fresh set of questions. Listening and speaking questions can be swapped for another question if you cannot hear or speak right now.</p>
       {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">{error}</p>}
       <button className={`${primary} mt-5`} disabled={starting} onClick={() => void start()}>{starting ? "Preparing…" : "Start review →"}</button>
-    </section>}
-    {session && <ReviewRun session={session} onChange={setSession} onClose={() => setSession(null)} />}
+    </section></IslandBoard>}
+    {session && <IslandBoard island="review" className="mt-6"><ReviewRun session={session} onChange={setSession} onClose={() => setSession(null)} /></IslandBoard>}
   </main></div>;
 }
 
@@ -102,7 +104,7 @@ function ReviewRun({ session, onChange, onClose }: { session: Session; onChange:
   // Replaces a listening or speaking question the learner cannot do; with nothing left to swap in, it is simply dropped.
   const swap = () => onChange({ ...session, items: [...items.slice(0, index), ...reserve.slice(0, 1), ...items.slice(index + 1)], reserve: reserve.slice(1) });
 
-  if (!item) return <section aria-label="Review results" className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+  if (!item) return <section aria-label="Review results" className="notice-sheet p-6 pt-7 sm:p-8">
     <h2 className="text-2xl font-bold">{label} review complete</h2>
     <p className="mt-3 text-lg">You got <span className="font-black text-emerald-700">{correct} / {items.length}</span> correct.</p>
     <p className="mt-1 text-sm text-gray-500">Reviews are for practice: they do not change your XP, statistics, or assessment result.</p>
@@ -110,8 +112,8 @@ function ReviewRun({ session, onChange, onClose }: { session: Session; onChange:
   </section>;
 
   const isLast = index === items.length - 1;
-  return <div className="mt-6">
-    <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-sm font-semibold text-gray-600">
+  return <div>
+    <div className="board-label mb-3 flex flex-wrap items-center justify-between gap-2 text-sm font-semibold">
       <span>{label} · Question {index + 1} / {items.length} · <span className="text-emerald-700">{KIND_LABELS[item.kind]}</span></span>
       <span>{correct} correct</span>
     </div>
@@ -119,7 +121,7 @@ function ReviewRun({ session, onChange, onClose }: { session: Session; onChange:
     {item.kind === "vocabulary" && <VocabularyQuestionCard key={item.id} exercise={item.exercise} isLast={isLast} onDone={record} />}
     {item.kind === "listening" && <ListeningExerciseCard key={item.id} exercise={item.exercise} isLast={isLast} onDone={record} onSkip={swap} />}
     {item.kind === "speaking" && <SpeakingExerciseCard key={item.id} exercise={item.exercise} isLast={isLast} canCheck onDone={record} onSkip={swap} />}
-    <button className="mt-4 text-sm font-semibold text-gray-500 underline" onClick={onClose}>End review</button>
+    <button className="board-label mt-4 text-sm font-semibold underline" onClick={onClose}>End review</button>
   </div>;
 }
 
@@ -128,7 +130,7 @@ function VocabularyQuestionCard({ exercise, isLast, onDone }: { exercise: Listen
   const [selected, setSelected] = useState<string | null>(null);
   const [word] = exercise.reveal;
   const correct = selected === exercise.answer;
-  return <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+  return <section className="notice-sheet p-6 pt-7 sm:p-8">
     <p className="text-sm font-semibold text-emerald-700">What does this word mean?</p>
     <p lang="ja" className="mt-2 text-3xl font-black text-gray-900"><RubyText text={word.japanese} /></p>
     <div className="mt-5"><QuizChoices choices={exercise.choices} selected={selected} disabled={selected !== null} onChoose={setSelected} /></div>

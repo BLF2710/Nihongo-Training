@@ -6,6 +6,7 @@ import RubyText from "../components/RubyText";
 import { JAPANESE_STUDY_UNITS } from "../data/japaneseStudyUnits";
 import { COURSE_LEVELS, isCourseLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { toPlain } from "../lib/furigana";
+import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
 
 const normalize = (text: string) => toPlain(text).normalize("NFKC").toLowerCase();
 
@@ -32,7 +33,8 @@ export default function GrammarSummaryPage() {
         <h1 className="mt-3 text-3xl font-black sm:text-4xl">{level} grammar summary</h1>
         <p className="mt-2 text-gray-600">{total ? `All ${total} sentence patterns of the level, in the order you learn them. Open a pattern's lesson for the full explanation.` : "This level has no grammar yet."}</p>
       </header>
-      <div className="mt-6 flex flex-wrap items-end gap-4 print:hidden">
+      <IslandBoard island="lessons" className="mt-6 print:border-0 print:bg-none print:p-0">
+      <div className="notice-sheet flex flex-wrap items-end gap-4 p-5 pt-7 print:hidden">
         <label className="block text-sm font-bold text-gray-700">Level
           <select value={level} onChange={event => setParams({ level: event.target.value })} className="mt-2 block rounded-xl border border-gray-200 bg-white p-3 focus-visible:outline-2 focus-visible:outline-emerald-600">
             {COURSE_LEVELS.map(item => <option key={item.id} value={item.id}>{item.id}</option>)}
@@ -43,11 +45,11 @@ export default function GrammarSummaryPage() {
         </label>
         <button type="button" onClick={() => window.print()} className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-bold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-emerald-600">Print</button>
       </div>
-      {total > 0 && !visible.length && <div role="status" className="mx-auto mt-10 max-w-lg"><GuideNote character="hakase" mood="worried"><p className="text-gray-600">No pattern matches this search.</p></GuideNote></div>}
+      {total > 0 && !visible.length && <div role="status" className={`${SHEET} mx-auto mt-6 max-w-lg`}><GuideNote character="hakase" mood="worried"><p className="text-gray-600">No pattern matches this search.</p></GuideNote></div>}
       {!total && <Link to="/levels?next=/grammar/summary" className="mt-6 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Choose another level →</Link>}
-      <div className="mt-8 space-y-10">{visible.map(({ unit, points }) => <section key={unit.id} aria-labelledby={`summary-${unit.id}`}>
-        <h2 id={`summary-${unit.id}`} className="text-xl font-black"><span className="text-emerald-700">Unit {unit.number}</span> · {unit.title}</h2>
-        <div className="mt-4 overflow-hidden rounded-2xl border border-gray-200 bg-white">
+      <div className="mt-6 space-y-8">{visible.map(({ unit, points }) => <section key={unit.id} aria-labelledby={`summary-${unit.id}`}>
+        <h2 id={`summary-${unit.id}`} className="board-label inline-block text-xl font-black"><span className="text-emerald-700">Unit {unit.number}</span> · {unit.title}</h2>
+        <div className="notice-sheet mt-3 overflow-hidden pt-4">
           <table className="w-full table-fixed text-left text-sm">
             <thead className="bg-gray-50 text-xs uppercase tracking-wider text-gray-500"><tr>
               <th scope="col" className="w-2/5 px-4 py-3">Pattern</th><th scope="col" className="hidden w-1/4 px-4 py-3 sm:table-cell">Use</th><th scope="col" className="px-4 py-3">Example</th>
@@ -67,6 +69,7 @@ export default function GrammarSummaryPage() {
           </table>
         </div>
       </section>)}</div>
+      </IslandBoard>
     </main>
   </div>;
 }

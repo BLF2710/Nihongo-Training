@@ -8,10 +8,11 @@ import type { DeckCardState, DeckStatus } from "../api/srs";
 import { toPlain } from "../lib/furigana";
 import { describeCard } from "../lib/srsDeck";
 import { formatInterval } from "../lib/srsIntervals";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const PAGE_SIZE = 50;
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600";
-const card = "rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6";
+const card = "notice-sheet p-5 pt-7 sm:p-6 sm:pt-7";
 const STATUSES: { id: DeckStatus; label: string; tone: string; help: string }[] = [
   { id: "new", label: "New", tone: "bg-indigo-50 text-indigo-900", help: "Not studied yet" },
   { id: "learning", label: "Learning", tone: "bg-amber-50 text-amber-900", help: "Comes back within three weeks" },
@@ -65,9 +66,10 @@ export default function SrsDeckPage() {
     <p className="mt-1 text-gray-600">Every word and kanji in your daily review. Hide a card you don't want to review; it stays here with its progress, and you can show it again any time.</p>
     {error && <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{error} <button className="ml-2 font-bold underline" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>}
     {!rows && !error && <p role="status" className="mt-6 text-gray-500">Loading your deck…</p>}
-    {rows && !rows.length && <section className={`${card} mt-6 text-gray-600`}>Your deck is empty. Finish a <Link to="/lessons" className="font-semibold text-emerald-700 underline">lesson</Link> to add its words and kanji, or add a kanji from its page.</section>}
-    {rows && rows.length > 0 && <>
-      <div className="mt-6 flex flex-wrap items-end gap-3">
+    {rows && <IslandBoard island="review" className="mt-6">
+    {!rows.length && <section className={`${card} text-gray-600`}>Your deck is empty. Finish a <Link to="/lessons" className="font-semibold text-emerald-700 underline">lesson</Link> to add its words and kanji, or add a kanji from its page.</section>}
+    {rows.length > 0 && <>
+      <div className={card}><div className="flex flex-wrap items-end gap-3">
         <label className="min-w-48 flex-1 text-sm font-semibold">Find a card
           <input type="search" value={search} onChange={event => { setSearch(event.target.value); setShown(PAGE_SIZE); }} placeholder="Word, reading or meaning"
             className={`mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 font-normal ${focus}`} /></label>
@@ -77,11 +79,13 @@ export default function SrsDeckPage() {
           <button key={item.id} aria-pressed={filter === item.id} onClick={() => { setFilter(item.id); setShown(PAGE_SIZE); }}
             className={`rounded-full border px-3 py-1 text-sm font-semibold ${focus} ${filter === item.id ? "border-indigo-600 bg-indigo-50 text-indigo-900" : "border-gray-200 bg-white text-gray-700"}`}>{item.label} · {item.count}</button>)}
       </div>
-      <p role="status" className="mt-3 text-sm text-gray-500">{filtered.length} {filtered.length === 1 ? "card" : "cards"}</p>
-      <ul className="mt-2 divide-y divide-gray-100 rounded-3xl border border-gray-200 bg-white">{filtered.slice(0, shown).map(row =>
+      </div>
+      <p role="status" className="board-label mt-3 inline-block text-sm">{filtered.length} {filtered.length === 1 ? "card" : "cards"}</p>
+      <ul className="notice-sheet mt-2 divide-y divide-gray-100 pt-5">{filtered.slice(0, shown).map(row =>
         <DeckRow key={`${row.state.itemType}:${row.state.itemId}`} row={row} now={loadedAt} onChanged={replace} />)}</ul>
       {filtered.length > shown && <button className={`mt-4 rounded-xl border border-gray-200 bg-white px-4 py-2 font-semibold hover:bg-gray-100 ${focus}`} onClick={() => setShown(value => value + PAGE_SIZE)}>Show more ({filtered.length - shown} left)</button>}
     </>}
+    </IslandBoard>}
   </main></div>;
 }
 

@@ -1,0 +1,136 @@
+/* Each island's board: a framed board, wooden by default, with each section a washi sheet pinned to it (the dashboard is
+   the Home island's notice board). Other islands swap the material through data-material.
+   In the components layer, so a sheet's own utility classes (the hero's dyed background, padding) still win. */
+@layer components {
+  .notice-board {
+    --board-wood: #9c7853;
+    --board-grain: rgb(60 38 18 / 0.12);
+    --board-seam: rgb(60 38 18 / 0.28);
+    --board-frame: #5f452d;
+    --board-plaque: #3b2c1f;
+    --pin: var(--color-red-600);
+    position: relative;
+    border: 0.5rem solid var(--board-frame);
+    border-radius: 1rem;
+    padding: 2.25rem 0.75rem 1rem;
+    --board-vignette: radial-gradient(ellipse at center, transparent 55%, rgb(40 25 12 / 0.22));
+    /* Planks with a seam every few rems, fine grain along them, and a darker shade towards the frame. */
+    --board-pattern:
+      repeating-linear-gradient(180deg, transparent 0 4.4rem, var(--board-seam) 4.4rem 4.5rem),
+      repeating-linear-gradient(180deg, var(--board-grain) 0 1px, transparent 1px 0.45rem);
+    background-color: var(--board-wood);
+    background-image: var(--board-pattern), var(--board-vignette);
+    box-shadow: inset 0 2px 10px rgb(30 18 8 / 0.4), 0 14px 28px -16px rgb(30 18 8 / 0.55);
+  }
+  .dark .notice-board {
+    --board-wood: #4b3826;
+    --board-grain: rgb(0 0 0 / 0.16);
+    --board-seam: rgb(0 0 0 / 0.35);
+    --board-frame: #2b2017;
+    --board-plaque: #1c150f;
+  }
+  @media (min-width: 640px) {
+    .notice-board { border-width: 0.75rem; padding: 2.25rem 1.25rem 1.25rem; }
+  }
+
+  /* The board's name on a dark plaque, hanging over the top of the frame. */
+  .notice-board-plaque {
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    translate: -50% 0;
+    padding: 0.15rem 1rem 0.25rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    background: var(--board-plaque);
+    color: var(--board-plaque-ink, #f1e6cf);
+    white-space: nowrap;
+    font-weight: 900;
+    letter-spacing: 0.3em;
+  }
+
+  .notice-sheet {
+    position: relative;
+    border-radius: 0.375rem;
+    background-color: var(--color-white);
+    box-shadow: 0 1px 0 rgb(30 18 8 / 0.1), 0 8px 16px -8px rgb(30 18 8 / 0.55);
+  }
+  /* Two pins at the top corners. */
+  .notice-sheet::before, .notice-sheet::after {
+    content: "";
+    position: absolute;
+    top: 0.45rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 35%, rgb(255 255 255 / 0.75) 0 18%, var(--pin) 24%);
+    box-shadow: 1px 2px 2px rgb(30 18 8 / 0.4);
+    pointer-events: none;
+  }
+  .notice-sheet::before { left: 0.6rem; }
+  .notice-sheet::after { right: 0.6rem; }
+
+  /* A line written straight on the board (a count, a hint) goes on a narrow paper strip, readable on any material. */
+  .board-label {
+    border-radius: 0.375rem;
+    padding: 0.3rem 0.7rem;
+    background-color: color-mix(in srgb, var(--color-white) 92%, transparent);
+    color: var(--color-gray-700);
+    box-shadow: 0 2px 6px -3px rgb(30 18 8 / 0.5);
+  }
+  .notice-board > :not(.notice-board-plaque) ~ * { margin-top: 1rem; }
+
+  /* What the sheets are pinned to, island by island. */
+  .notice-board[data-material="bamboo"] {
+    --board-wood: #c2ad62; --board-frame: #5d5a26; --board-plaque: #3e3c18; --pin: var(--color-emerald-700);
+    --board-pattern:
+      repeating-linear-gradient(180deg, transparent 0 5.6rem, rgb(70 60 20 / 0.35) 5.6rem 5.8rem, transparent 5.8rem 6rem),
+      repeating-linear-gradient(90deg, rgb(255 255 230 / 0.18) 0 0.3rem, transparent 0.3rem 2.1rem, rgb(70 60 20 / 0.4) 2.1rem 2.25rem);
+  }
+  .notice-board[data-material="sand"] {
+    --board-wood: #e2d8c2; --board-frame: #7d7b74; --board-plaque: #4a4945; --pin: var(--color-gray-600);
+    --board-vignette: radial-gradient(ellipse at center, transparent 60%, rgb(60 55 45 / 0.16));
+    --board-pattern: repeating-radial-gradient(ellipse at 15% 110%, transparent 0 0.55rem, rgb(120 105 80 / 0.22) 0.55rem 0.68rem);
+  }
+  .notice-board[data-material="lacquer"] {
+    --board-wood: #9b2c22; --board-frame: #1f1a17; --board-plaque: #c9a24a; --board-plaque-ink: #1f1a17; --pin: #c9a24a;
+    --board-pattern: linear-gradient(160deg, rgb(255 255 255 / 0.12), transparent 35%), repeating-linear-gradient(45deg, rgb(0 0 0 / 0.05) 0 1px, transparent 1px 0.6rem);
+    box-shadow: inset 0 0 0 2px #c9a24a, inset 0 2px 10px rgb(30 8 8 / 0.5), 0 14px 28px -16px rgb(30 8 8 / 0.6);
+  }
+  .notice-board[data-material="shoji"] {
+    --board-wood: #f3ecdc; --board-frame: #7a5b3e; --board-plaque: #3b2c1f; --pin: var(--color-gray-900);
+    --board-vignette: radial-gradient(ellipse at center, transparent 60%, rgb(120 90 50 / 0.12));
+    --board-pattern:
+      repeating-linear-gradient(90deg, transparent 0 4.85rem, #9a7a58 4.85rem 5rem),
+      repeating-linear-gradient(180deg, transparent 0 3.35rem, #9a7a58 3.35rem 3.5rem);
+  }
+  .notice-board[data-material="indigo"] {
+    --board-wood: #2f4a74; --board-frame: #1b2b45; --board-plaque: #f1e6cf; --board-plaque-ink: #1b2b45; --pin: #f1e6cf;
+    /* Seigaiha: rows of overlapping wave arcs. */
+    --board-pattern:
+      radial-gradient(circle at 50% 100%, transparent 0 0.9rem, rgb(241 230 207 / 0.2) 0.9rem 1rem, transparent 1rem 1.3rem, rgb(241 230 207 / 0.2) 1.3rem 1.4rem, transparent 1.4rem);
+    background-size: 2.8rem 1.4rem, auto;
+  }
+  .notice-board[data-material="tatami"] {
+    --board-wood: #c6b87c; --board-frame: #2e3a2a; --board-plaque: #2e3a2a; --pin: var(--color-red-700);
+    --board-pattern:
+      repeating-linear-gradient(180deg, transparent 0 9rem, #2e3a2a 9rem 9.4rem),
+      repeating-linear-gradient(90deg, rgb(90 80 30 / 0.16) 0 1px, transparent 1px 0.3rem);
+  }
+  .notice-board[data-material="harbour"] {
+    --board-wood: #7593a8; --board-grain: rgb(20 35 50 / 0.12); --board-seam: rgb(20 35 50 / 0.35); --board-frame: #3a4c5b; --board-plaque: #24323e; --pin: var(--color-amber-500);
+  }
+  .notice-board[data-material="stone"] {
+    --board-wood: #9a9d98; --board-frame: #5b5e5a; --board-plaque: #3a3c39; --pin: var(--color-sky-700);
+    --board-pattern:
+      repeating-linear-gradient(90deg, transparent 0 5.9rem, rgb(40 42 40 / 0.35) 5.9rem 6rem),
+      repeating-linear-gradient(180deg, transparent 0 3.9rem, rgb(40 42 40 / 0.35) 3.9rem 4rem);
+  }
+  .dark .notice-board[data-material="bamboo"] { --board-wood: #5f5730; --board-frame: #2e2c13; --board-plaque: #22200d; }
+  .dark .notice-board[data-material="sand"] { --board-wood: #57513f; --board-frame: #34332f; --board-plaque: #22211f; }
+  .dark .notice-board[data-material="lacquer"] { --board-wood: #5c1b15; --board-frame: #120f0d; }
+  .dark .notice-board[data-material="shoji"] { --board-wood: #4a4436; --board-frame: #2b2017; }
+  .dark .notice-board[data-material="indigo"] { --board-wood: #1d2f4b; --board-frame: #0f1828; }
+  .dark .notice-board[data-material="tatami"] { --board-wood: #5f5a3a; --board-frame: #1a2118; --board-plaque: #1a2118; }
+  .dark .notice-board[data-material="harbour"] { --board-wood: #34495a; --board-frame: #1c2731; --board-plaque: #121a21; }
+  .dark .notice-board[data-material="stone"] { --board-wood: #4a4c49; --board-frame: #2c2e2b; --board-plaque: #1d1e1c; }
+}

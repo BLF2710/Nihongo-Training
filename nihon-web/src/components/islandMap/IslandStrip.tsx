@@ -12,10 +12,11 @@ import "./IslandMap.css";
 const NO_BRIDGES: readonly [] = [];
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--vermilion)]";
 
-/** A short strip under the top bar of a hub page, showing the island it belongs to on the map. */
-export function IslandStrip() {
+/** A short strip under the top bar of a hub page, showing the island it belongs to on the map (or `island`, given by a
+ *  page that shows it only at times, such as on its start screen). */
+export function IslandStrip({ island }: { island?: IslandId }) {
   const { pathname, search } = useLocation();
-  const id = islandForPage(pathname, search);
+  const id = island ?? islandForPage(pathname, search);
   return id ? <IslandBanner id={id} /> : null;
 }
 

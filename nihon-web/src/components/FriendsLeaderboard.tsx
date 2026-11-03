@@ -30,7 +30,7 @@ export default function FriendsLeaderboard() {
   const place = (entry: LeaderboardEntry) => sorted.filter(other => other[metric] > entry[metric]).length + 1;
   const friendsShown = sorted.filter(entry => !entry.self).length;
 
-  return <section aria-labelledby="leaderboard-heading" className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+  return <section aria-labelledby="leaderboard-heading" className="notice-sheet mt-6 p-5 pt-7">
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div><h2 id="leaderboard-heading" className="text-lg font-bold">Leaderboard</h2><p className="text-sm text-gray-600">You and your friends over the last 7 days.</p></div>
       <div role="group" aria-label="Rank by" className="flex flex-wrap gap-1 rounded-xl bg-gray-100 p-1">{METRICS.map(item =>

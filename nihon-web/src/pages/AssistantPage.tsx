@@ -7,6 +7,7 @@ import { askAssistant, fetchAssistant, startAssistantChat } from "../api/communi
 import type { AssistantState } from "../api/communication";
 import { useCourseLevel } from "../lib/courseLevel";
 import { GuideNote, Portrait } from "../components/cast/GuideNote";
+import { IslandBoard } from "../components/theme/IslandBoard";
 
 const SUGGESTIONS = ["What does 思う mean?", "When do I use は and when が?", "How do I make the て-form?", "Give me three sentences with 〜たいです"];
 const button = "rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-bold text-gray-700 hover:border-emerald-400 focus-visible:outline-2 focus-visible:outline-emerald-600 disabled:opacity-50";
@@ -58,18 +59,18 @@ export default function AssistantPage() {
       </header>
       {error && <p role="alert" className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">{error}</p>}
       {!state && !error && <p role="status" className="text-gray-500">Loading…</p>}
-      {state && <div className="grid min-h-[34rem] flex-1 gap-5 md:grid-cols-[16rem_1fr]">
+      {state && <IslandBoard island="teahouse" className="flex flex-1 flex-col"><div className="grid min-h-[34rem] flex-1 gap-5 md:grid-cols-[16rem_1fr]">
         <aside className="hidden flex-col gap-3 md:flex">
           <button className={button} onClick={() => void newChat()}>+ New chat</button>
-          <section aria-labelledby="earlier-chats" className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+          <section aria-labelledby="earlier-chats" className="notice-sheet overflow-hidden pt-4">
             <h2 id="earlier-chats" className="border-b border-gray-200 px-3 py-2 text-sm font-bold text-gray-600">Earlier chats</h2>
             {!state.conversations.length && <p className="p-3 text-sm text-gray-500">None yet. Your chats with Sensei are kept here.</p>}
             <ul>{state.conversations.map(chat => <li key={chat.id}><button onClick={() => void load(chat.id)} aria-current={chat.id === state.conversationId ? "true" : undefined}
               className={`block w-full truncate border-b border-gray-100 px-3 py-2 text-left text-sm hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600 ${chat.id === state.conversationId ? "bg-emerald-50 font-bold" : ""}`}>{chat.title}</button></li>)}</ul>
           </section>
-          <p className="text-xs leading-relaxed text-gray-500">{state.provider.ai ? "Answers are written by an AI and can be wrong. Check important points against your lessons." : "The course helper searches the vocabulary and grammar of your lessons. A full AI tutor can be connected later."}</p>
+          <p className="board-label text-xs leading-relaxed">{state.provider.ai ? "Answers are written by an AI and can be wrong. Check important points against your lessons." : "The course helper searches the vocabulary and grammar of your lessons. A full AI tutor can be connected later."}</p>
         </aside>
-        <section aria-label="Chat" className="flex min-h-[30rem] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+        <section aria-label="Chat" className="notice-sheet flex min-h-[30rem] flex-col overflow-hidden pt-3">
           <div className="flex items-center justify-between border-b border-gray-200 px-4 py-2 md:hidden"><span className="text-sm text-gray-500">{state.provider.label}</span><button className={button} onClick={() => void newChat()}>New chat</button></div>
           <MessageThread label="Study assistant chat" messages={state.messages} onSend={send} maxLength={1000} busyLabel="Thinking…" placeholder="Ask a question in English or Japanese…" assistantAvatar={<Portrait character="sensei" size="small" />}
             emptyNote={<div><GuideNote character="sensei" mood="happy" className="mx-auto max-w-md text-left"><p className="font-semibold">Welcome to the tea house. What would you like to learn?</p></GuideNote>
@@ -77,7 +78,7 @@ export default function AssistantPage() {
                 <button onClick={() => void send(suggestion).catch(failure => setError(failure.message))} className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-indigo-800 hover:bg-indigo-100 focus-visible:outline-2 focus-visible:outline-emerald-600">{suggestion}</button>
               </li>)}</ul></div>} />
         </section>
-      </div>}
+      </div></IslandBoard>}
     </main>
   </div>;
 }

@@ -1,0 +1,88 @@
+/* The profile's washitsu: plaster walls, cedar wood, shoji paper and tatami, warm by day and lamplit in the dark theme. */
+.japanese-room {
+  --room-wall: #efe5cf;
+  --room-side-wall: #e3d6b8;
+  --room-ceiling: #b89068;
+  --room-wood: #a07650;
+  --room-wood-dark: #6b4a2f;
+  --room-shoji: #faf5e8;
+  --room-tatami: #cfc289;
+  --room-tatami-edge: #45503a;
+  --room-fusuma: #f1e7cf;
+  --room-fuji: #8ea4c4;
+  --room-alcove: #e2d3b0;
+  --room-glow: rgb(255 214 140 / 0.35);
+  --room-lantern: #fff1cf;
+  --room-ink: #2e2a26;
+  --room-cushion: #4b6a8e;
+  --room-cushion-side: #34506f;
+  background: var(--room-wall);
+}
+.dark .japanese-room {
+  --room-wall: #3d3a42;
+  --room-side-wall: #34323a;
+  --room-ceiling: #3a2c20;
+  --room-wood: #5a4330;
+  --room-wood-dark: #3a2a1c;
+  --room-shoji: #6b6556;
+  --room-tatami: #6e6844;
+  --room-tatami-edge: #262c20;
+  --room-fusuma: #4e4a44;
+  --room-fuji: #4d5f7c;
+  --room-alcove: #35322f;
+  --room-glow: rgb(255 190 110 / 0.3);
+  --room-lantern: #ffd98f;
+  --room-ink: #0f0d0b;
+  --room-cushion: #33496a;
+  --room-cushion-side: #22334b;
+}
+.japanese-room :where(polygon, rect, ellipse, circle, path, line) { stroke-linejoin: round; stroke-linecap: round; }
+.room-ceiling { fill: var(--room-ceiling); }
+.room-batten { stroke: var(--room-wood-dark); stroke-width: 6; opacity: 0.5; }
+.room-side-wall { fill: var(--room-side-wall); }
+.room-wall { fill: var(--room-wall); }
+.room-shoji { fill: var(--room-shoji); }
+.room-lattice { stroke: var(--room-wood); stroke-width: 3; }
+.room-frame { fill: none; stroke: var(--room-wood-dark); stroke-width: 6; }
+.room-beam { stroke: var(--room-wood-dark); stroke-width: 12; }
+.room-beam-fill, .room-post, .room-wood-dark { fill: var(--room-wood-dark); }
+.room-wood { fill: var(--room-wood); }
+.room-wood-sheen { fill: none; stroke: rgb(255 255 255 / 0.18); stroke-width: 3; }
+.room-fusuma { fill: var(--room-fusuma); }
+.room-painted-fuji { fill: var(--room-fuji); opacity: 0.8; }
+.room-painted-snow { fill: #fbfbf7; opacity: 0.9; }
+.room-painted-sun { fill: #d9583f; opacity: 0.75; }
+.room-pull { fill: none; stroke: var(--room-ink); stroke-width: 2.5; }
+.room-alcove { fill: var(--room-alcove); }
+.room-alcove-floor { fill: var(--room-wood); }
+.room-scroll { fill: #f8f2e2; stroke: #c9b78e; stroke-width: 2; }
+.room-scroll-rod { fill: var(--room-wood-dark); }
+.room-scroll-text { fill: #2e2a26; font-size: 40px; font-weight: 900; }
+.room-vase { fill: #3c5a7a; }
+.room-branch, .room-trunk { fill: none; stroke: #5b3f28; stroke-width: 5; }
+.room-blossom { fill: #f2a7b5; }
+.room-tatami { fill: var(--room-tatami); }
+.room-mat-edge { stroke: var(--room-tatami-edge); stroke-width: 5; }
+.room-sill { fill: var(--room-wood-dark); }
+.room-shadow { fill: rgb(30 20 10 / 0.2); }
+.room-teapot { fill: #4a5b4a; }
+.room-teapot-spout, .room-teapot-handle { fill: none; stroke: #4a5b4a; stroke-width: 6; }
+.room-cup { fill: #f3ede0; stroke: var(--room-ink); stroke-width: 1.5; }
+.room-tea { fill: #8aa356; }
+.room-cushion { fill: var(--room-cushion); }
+.room-cushion-side { fill: var(--room-cushion-side); }
+.room-cushion-tuft { fill: #e9d9a8; }
+.room-glow { fill: var(--room-glow); filter: blur(30px); }
+.room-lantern { fill: var(--room-lantern); }
+.room-lantern-side { fill: var(--room-lantern); opacity: 0.75; }
+.room-lantern-bar { stroke: var(--room-wood-dark); stroke-width: 4; }
+.room-pot { fill: #6b4a3a; }
+.room-leaves { fill: #557a45; }
+
+/* The profile's panels: washi laid over the room, letting a little of it show through. */
+.room-panel {
+  border-radius: 1rem;
+  background-color: color-mix(in srgb, var(--color-white) 90%, transparent);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 0 rgb(30 18 8 / 0.08), 0 14px 30px -18px rgb(30 18 8 / 0.6);
+}

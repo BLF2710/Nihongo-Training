@@ -7,6 +7,7 @@ import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import LevelSwitch from "../components/LevelSwitch";
 import { inLevel, useCourseLevel } from "../lib/courseLevel";
+import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
 
 export default function QuizzesPage() {
   const level = useCourseLevel();
@@ -24,8 +25,11 @@ export default function QuizzesPage() {
     <h1 className="mt-3 text-3xl font-black text-gray-900">Quizzes</h1>
     <p className="mt-2 mb-8 text-gray-600">Check what you have learned across each Japanese unit.</p>
     {error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
-    {!units && !error && <p role="status">Loading assessments…</p>}
-    {units && !units.length && <GuideNote character="kurama"><p className="text-gray-600">{level} has no unit assessments yet.</p></GuideNote>}
+    <IslandBoard island="fuji">
+    {!units && !error && <p role="status" className="board-label">Loading assessments…</p>}
+    {units && !units.length && <div className={SHEET}><GuideNote character="kurama"><p className="text-gray-600">{level} has no unit assessments yet.</p></GuideNote></div>}
+    {units && units.length > 0 && <div className={SHEET}><GuideNote character="kurama" mood="happy"><p>Each unit ends with a trial in my dojo. Finish its lessons, then show me what you have learned.</p></GuideNote></div>}
     <div className="space-y-5">{units?.map(unit => <UnitAssessmentCard key={unit.id} unit={unit} />)}</div>
+    </IslandBoard>
   </main></div>;
 }
