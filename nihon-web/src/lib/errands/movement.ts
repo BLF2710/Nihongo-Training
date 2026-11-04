@@ -6,8 +6,9 @@ export type Direction = "up" | "down" | "left" | "right";
 /** Whether a tile can't be walked through (see townMap's isBlocked). */
 export type IsBlocked = (x: number, y: number) => boolean;
 
-/** Tiles per second. */
+/** Tiles per second, walking and (holding Shift) running. */
 export const WALK_SPEED = 4.5;
+export const RUN_SPEED = 7.5;
 /** The traveller's feet: a box this far either side of the position, so they fit through a one-tile gap. */
 export const FEET_HALF_WIDTH = 0.3;
 export const FEET_HALF_DEPTH = 0.2;
@@ -37,10 +38,10 @@ const fitsAt = ({ x, y }: Vector, isBlocked: IsBlocked) => {
   return true;
 };
 
-/** Where the traveller ends up after walking `direction` for `seconds`, at the same speed however slow the frames. */
-export function walk(from: Vector, direction: Vector, seconds: number, isBlocked: IsBlocked): Vector {
+/** Where the traveller ends up after moving `direction` for `seconds` at `speed`, the same however slow the frames. */
+export function walk(from: Vector, direction: Vector, seconds: number, isBlocked: IsBlocked, speed = WALK_SPEED): Vector {
   let position = from;
-  for (let left = Math.min(seconds, MAX_FRAME_SECONDS); left > 0; left -= MAX_STEP_SECONDS) position = walkStep(position, direction, Math.min(left, MAX_STEP_SECONDS), isBlocked);
+  for (let left = Math.min(seconds, MAX_FRAME_SECONDS); left > 0; left -= MAX_STEP_SECONDS) position = walkStep(position, direction, Math.min(left, MAX_STEP_SECONDS) * speed, isBlocked);
   return position;
 }
 
@@ -50,8 +51,7 @@ const upToEdge = (at: number, move: number, half: number) =>
 
 /** One short step. Each axis is tried on its own, so walking diagonally into a wall slides along it instead of stopping;
  *  walking into a wall stops right at it. */
-function walkStep(from: Vector, direction: Vector, seconds: number, isBlocked: IsBlocked): Vector {
-  const distance = WALK_SPEED * seconds;
+function walkStep(from: Vector, direction: Vector, distance: number, isBlocked: IsBlocked): Vector {
   const moveAlong = (position: Vector, axis: "x" | "y", half: number): Vector => {
     const move = direction[axis] * distance;
     if (move === 0) return position;

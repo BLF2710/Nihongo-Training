@@ -1,3 +1,4 @@
+import { useVillageShortcuts } from "../lib/village/useVillageShortcuts";
 import { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode, RefObject } from "react";
 import { Link } from "react-router-dom";
@@ -57,6 +58,7 @@ function stageSize(space: Size, layout: MapLayout): Size {
 }
 
 export default function IslandMapPage() {
+  useVillageShortcuts("map");
   const level = useCourseLevel();
   const { units, profile, srs, friends, overview, kanaStatistics } = useIslandMapData();
   const mapTime = useMapTimeOfDay();

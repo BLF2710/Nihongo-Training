@@ -6,8 +6,8 @@ import { test } from "node:test";
 import { afterBuild, afterLine, afterReply, missingSteps, openingTalk, stepOf } from "../src/lib/errands/conversation.ts";
 import { currentObjective, newErrandsState, newlyFinished, questScore } from "../src/lib/errands/errandsState.ts";
 import { readSavedState } from "../src/lib/errands/errandsSave.ts";
-import { FEET_HALF_WIDTH, facingOf, heldDirection, nearestWithin, walk } from "../src/lib/errands/movement.ts";
-import { isBlocked, parseTownMap, TownMapError } from "../src/lib/errands/townMap.ts";
+import { FEET_HALF_WIDTH, RUN_SPEED, WALK_SPEED, facingOf, heldDirection, nearestWithin, walk } from "../src/lib/errands/movement.ts";
+import { isBlocked, parseTownMap, rowRuns, TownMapError } from "../src/lib/errands/townMap.ts";
 import { isGateOpen, isVillageComplete, villageBlockedTiles } from "../src/lib/errands/village.ts";
 import { MATSURI_VILLAGE as village } from "../src/data/errands/matsuriVillage.ts";
 
@@ -176,4 +176,17 @@ test("the village can be finished in order, each errand opening the way to the n
   assert.equal(currentObjective(state, village.quests), null);
   assert.ok(village.gates.every(gate => isGateOpen(gate, state)));
   assert.deepEqual(state.inventory, ["ticket", "key"]);
+});
+
+test("finds each row's unbroken runs of a terrain", () => {
+  const map = parseTownMap(["TT.T", "....", "TTTT"]);
+  assert.deepEqual(rowRuns(map, "tree"), [
+    { x: 0, y: 0, width: 2, height: 1 }, { x: 3, y: 0, width: 1, height: 1 }, { x: 0, y: 2, width: 4, height: 1 },
+  ]);
+});
+
+test("running covers more ground than walking in the same time", () => {
+  const walked = walk({ x: 1, y: 1 }, { x: 1, y: 0 }, 0.2, open);
+  const ran = walk({ x: 1, y: 1 }, { x: 1, y: 0 }, 0.2, open, RUN_SPEED);
+  assert.ok(Math.abs(walked.x - 1 - WALK_SPEED * 0.2) < 1e-9 && Math.abs(ran.x - 1 - RUN_SPEED * 0.2) < 1e-9, JSON.stringify({ walked, ran }));
 });

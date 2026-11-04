@@ -14,34 +14,39 @@ const PON_BREAD = "pon-bread", HATO_LETTER = "hato-letter", ZEN_TEA = "zen-tea";
 const festivalStarted = [{ kind: "finished", quest: ZEN_TEA }] as const;
 const COUNTING_HINT = "ひとつ = one, ふたつ = two, みっつ = three (things).";
 
+/** The village's ground, also used by the village square (ひろば). */
+export const MATSURI_MAP = parseTownMap([
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT,,,,,T,T,,,,,,TfTT......==.....TTT",
+  "T,~~~~,,,,,,,,,,,f........==......TT",
+  "T,~~~~,,,,,,,,,,,f........==.......T",
+  "T,,,,,,*,,,,,,,,,f........==.......T",
+  "T,,*,,,,,,,,,,,,,f........==.......T",
+  "T,,,*,,,,,*,,,*,,f==========.......T",
+  "TT,,,,,,,,,,,,,T,f........==...*...T",
+  "T~~~~~~~bb~~~~~~~f..*.....==......TT",
+  "T~~~~~~~bb~~~~~~~f.....*..==......TT",
+  "TT....*.==......TfT.......==.......T",
+  "T.......==.......fT.......==.......T",
+  "T.......==.......f........======...T",
+  "T.......==.....*.f....*...==.......T",
+  "T.......==.......f........==....*..T",
+  "T==================================T",
+  "T==================================T",
+  "T..*....==....*..f..========.......T",
+  "T.......==.......f........==.......T",
+  "T.......==.......f........==.......T",
+  "T.......==.......f........==.......T",
+  "T.*..*..==..*..T.f........==..*...TT",
+  "TT......==...*..TfTT....*.==.*...TTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+]);
+/** Along both sides of the main road. */
+export const MATSURI_LANTERNS = [2, 6, 11, 15, 20, 24, 29, 32].flatMap(x => [{ x, y: 14 }, { x, y: 17 }]);
+
 export const MATSURI_VILLAGE: Village = {
   id: "matsuri", name: "Festival Village", japaneseName: "まつりむら", level: "N5",
-  map: parseTownMap([
-    "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-    "TT,,,,,T,T,,,,,,TfTT......==.....TTT",
-    "T,~~~~,,,,,,,,,,,f........==......TT",
-    "T,~~~~,,,,,,,,,,,f........==.......T",
-    "T,,,,,,*,,,,,,,,,f........==.......T",
-    "T,,*,,,,,,,,,,,,,f........==.......T",
-    "T,,,*,,,,,*,,,*,,f==========.......T",
-    "TT,,,,,,,,,,,,,T,f........==...*...T",
-    "T~~~~~~~bb~~~~~~~f..*.....==......TT",
-    "T~~~~~~~bb~~~~~~~f.....*..==......TT",
-    "TT....*.==......TfT.......==.......T",
-    "T.......==.......fT.......==.......T",
-    "T.......==.......f........======...T",
-    "T.......==.....*.f....*...==.......T",
-    "T.......==.......f........==....*..T",
-    "T==================================T",
-    "T==================================T",
-    "T..*....==....*..f..========.......T",
-    "T.......==.......f........==.......T",
-    "T.......==.......f........==.......T",
-    "T.......==.......f........==.......T",
-    "T.*..*..==..*..T.f........==..*...TT",
-    "TT......==...*..TfTT....*.==.*...TTT",
-    "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  ]),
+  map: MATSURI_MAP,
   start: { x: 9, y: 20.5 },
   buildings: [
     { id: "bakery", x: 2, y: 11, width: 5, height: 3, sign: "パン", label: "Tama's bakery", roof: "wood" },
@@ -57,10 +62,8 @@ export const MATSURI_VILLAGE: Village = {
     { id: "east-gate", label: "The east gate", x: 17, y: 15, width: 1, height: 2, opensWhen: [{ kind: "finished", quest: PON_BREAD }] },
     { id: "garden-gate", label: "The garden gate", x: 8, y: 8, width: 2, height: 1, opensWhen: [{ kind: "finished", quest: HATO_LETTER }] },
   ],
-  lanterns: {
-    tiles: [2, 6, 11, 15, 20, 24, 29, 32].flatMap(x => [{ x, y: 14 }, { x, y: 17 }]),
-    litWhen: festivalStarted,
-  },
+  lanterns: MATSURI_LANTERNS,
+  lanternsLitWhen: festivalStarted,
   items: {
     bread: { id: "bread", japanese: "パン ×2", english: "Two pieces of bread", icon: "🍞" },
     ticket: { id: "ticket", japanese: "きっぷ", english: "A festival ticket", icon: "🎫" },

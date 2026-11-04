@@ -14,6 +14,7 @@ import { KANJI, kanjiLevel } from "../data/kanji";
 import { activityProgress, parseSession, sessionSnapshot, subscribeSession } from "../lib/activitySession";
 import { COURSE_LEVELS, inLevel, useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
+import { useVillageShortcuts } from "../lib/village/useVillageShortcuts";
 import { syncTimeZone } from "../lib/timeZone";
 import EmailVerificationBanner from "../components/EmailVerificationBanner";
 import TodayPanel from "../components/TodayPanel";
@@ -37,6 +38,7 @@ const studyTools = [
   { title: "Grammar summary", mark: "要", href: "/grammar/summary", description: "Every pattern of your level on one page." },
 ];
 const practiceTools = [
+  { title: "Village square", icon: "🏘️", href: "/village", description: "Walk around: today's news and errands from the cast." },
   { title: "Daily review", icon: "🗂️", href: "/srs", description: "Spaced repetition for your words and kanji." },
   { title: "Mistake notebook", icon: "📒", href: "/mistakes", description: "Practise the questions you got wrong." },
   { title: "Unit review", icon: "🔄", href: "/review", description: "Mixed questions per unit or level." },
@@ -78,6 +80,7 @@ function StatTile({ icon, value, label, detail, href }: { icon: string; value: s
 
 export default function JapaneseDashboard() {
   const navigate = useNavigate();
+  useVillageShortcuts("dashboard");
   const snapshot = useSyncExternalStore(subscribeSession, sessionSnapshot, () => null);
   const saved = parseSession(snapshot);
   const active = saved?.status === "active" ? saved : null;

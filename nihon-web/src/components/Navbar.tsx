@@ -17,8 +17,8 @@ import LanguageMenu from "./LanguageMenu";
 import { IslandStrip } from "./islandMap/IslandStrip";
 import type { IslandId } from "../lib/islandMap";
 
-// Pages that are a starting point, so they show no Back bar. The profile counts: its room fills the page and the navbar always links to it.
-const PATHS_WITHOUT_BACK_BUTTON = ["/", "/map", "/profile"];
+// Pages that are a starting point, so they show no Back bar. The village square and profile count: they fill the page and the menu always links to them.
+const PATHS_WITHOUT_BACK_BUTTON = ["/", "/map", "/village", "/profile"];
 
 /** `back` gives the Back button a fixed destination instead of the previous page in history. `island` shows that
  *  island's strip on a page that has none of its own, such as the start screen before a practice session. */
@@ -115,6 +115,7 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
         <div className="h-full overflow-y-auto p-4 flex flex-col">
           <div className="mb-5"><p className="px-3 text-[11px] font-bold tracking-wider uppercase text-gray-400">Navigation</p>
             <button onClick={() => go("/")} className={`mt-2 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/")}`}><span>⌂</span> Dashboard</button>
+            <button onClick={() => go("/village")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/village")}`}><span aria-hidden="true">🏮</span> Village square</button>
             <button onClick={() => go("/achievements")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/achievements"))}`}><span aria-hidden="true">🏆</span> Achievements</button>
             {currentLanguage && <p className="mt-3 px-3 text-sm font-bold text-gray-800"><span aria-hidden="true">{currentLanguage.flag} </span>{currentLanguage.name}</p>}
           </div>

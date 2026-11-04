@@ -59,11 +59,11 @@ export function useErrands({ village, store, onErrandFinished }: UseErrandsOptio
 
   return {
     state, hasSave: saved !== null, conversation, nearby, errandVillagerIds, openGateIds: openIds,
-    areLanternsLit: meetsAll(state, village.lanterns.litWhen),
+    litLanterns: meetsAll(state, village.lanternsLitWhen) ? village.lanterns.length : 0,
     isFinaleShown, closeFinale: () => setIsFinaleShown(false),
     startOver() { store.clear(); setTalking(null); setState(newErrandsState(village.start)); },
-    walkBy(direction: Vector, seconds: number) {
-      setState(current => ({ ...current, position: walk(current.position, direction, seconds, (x, y) => isBlocked(village.map, blocked, x, y)), facing: facingOf(direction, current.facing) }));
+    walkBy(direction: Vector, seconds: number, speed: number) {
+      setState(current => ({ ...current, position: walk(current.position, direction, seconds, (x, y) => isBlocked(village.map, blocked, x, y), speed), facing: facingOf(direction, current.facing) }));
     },
     talkTo(id: CharacterId) {
       const villager = villagerOf(id);

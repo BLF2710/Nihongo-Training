@@ -1,4 +1,5 @@
 // A village: its ground, buildings, gates, villagers and errands, and what stands in the traveller's way right now.
+import type { CharacterId } from "../cast.ts";
 import type { Villager } from "./conversation.ts";
 import { meetsAll } from "./errandsState.ts";
 import type { Condition, ErrandsState, ItemId, Quest } from "./errandsState.ts";
@@ -11,14 +12,22 @@ export type RoofColour = "vermilion" | "indigo" | "moss" | "wood";
 export type Building = Rect & { id: string; sign: string; label: string; roof: RoofColour };
 export type Gate = Rect & { id: string; label: string; opensWhen: readonly Condition[] };
 export type Item = { id: ItemId; japanese: string; english: string; icon: string };
-/** Festival lanterns along the streets, lit once the village's last errand is done. */
-export type Lanterns = { tiles: readonly Vector[]; litWhen: readonly Condition[] };
+/** Someone standing on a tile of the village. */
+export type Resident = { id: CharacterId; tile: Vector };
 
-export type Village = {
-  id: string; name: string; japaneseName: string; level: "N5";
+/** What a village looks like and where people stand: enough to walk around it. `lanterns` are paper lanterns along the
+ *  streets, lit as the learner gets things done. */
+export type VillageLayout = {
   map: TownMap; start: Vector;
-  buildings: readonly Building[]; gates: readonly Gate[]; lanterns: Lanterns;
+  buildings: readonly Building[]; gates: readonly Gate[]; lanterns: readonly Vector[];
+  villagers: readonly Resident[];
+};
+
+/** A story village: a layout whose villagers talk, with errands to run. Its lanterns light once every errand is done. */
+export type Village = Omit<VillageLayout, "villagers"> & {
+  id: string; name: string; japaneseName: string; level: "N5";
   villagers: readonly Villager[]; quests: readonly Quest[]; items: Readonly<Record<ItemId, Item>>;
+  lanternsLitWhen: readonly Condition[];
 };
 
 export const isGateOpen = (gate: Gate, state: ErrandsState) => meetsAll(state, gate.opensWhen);
@@ -26,7 +35,7 @@ export const isGateOpen = (gate: Gate, state: ErrandsState) => meetsAll(state, g
 export const openGateIds = (village: Village, state: ErrandsState) => village.gates.filter(gate => isGateOpen(gate, state)).map(gate => gate.id);
 
 /** The tiles that can't be walked through with these gates open: blocking ground, buildings, closed gates and villagers. */
-export function blockedTilesWithOpenGates(village: Village, openIds: readonly string[]): ReadonlySet<TileKey> {
+export function blockedTilesWithOpenGates(village: VillageLayout, openIds: readonly string[]): ReadonlySet<TileKey> {
   const closedGates = village.gates.filter(gate => !openIds.includes(gate.id));
   const villagers = village.villagers.map(({ tile }) => ({ ...tile, width: 1, height: 1 }));
   return blockedTiles(village.map, [...village.buildings, ...closedGates, ...villagers]);

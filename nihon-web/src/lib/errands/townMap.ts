@@ -52,3 +52,17 @@ export function isBlocked(map: TownMap, blocked: ReadonlySet<TileKey>, x: number
   if (x < 0 || y < 0 || x >= map.width || y >= map.height) return true;
   return blocked.has(tileKey(x, y));
 }
+
+/** The unbroken runs of one terrain along each row, left to right (a row of trees is drawn as one piece). */
+export function rowRuns(map: TownMap, terrain: Terrain): Rect[] {
+  const runs: Rect[] = [];
+  map.terrain.forEach((row, y) => {
+    let start = -1;
+    row.forEach((tile, x) => {
+      if (tile === terrain && start < 0) start = x;
+      const isRunOver = start >= 0 && (tile !== terrain || x === row.length - 1);
+      if (isRunOver) { const end = tile === terrain ? x + 1 : x; runs.push({ x: start, y, width: end - start, height: 1 }); start = -1; }
+    });
+  });
+  return runs;
+}

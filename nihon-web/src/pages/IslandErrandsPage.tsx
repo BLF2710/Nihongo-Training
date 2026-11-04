@@ -15,7 +15,7 @@ import { CAST } from "../lib/cast";
 import { currentObjective, questScore } from "../lib/errands/errandsState";
 import type { QuestScore } from "../lib/errands/errandsState";
 import { localErrandsSave } from "../lib/errands/errandsSave";
-import { heldDirection } from "../lib/errands/movement";
+import { RUN_SPEED, WALK_SPEED, heldDirection } from "../lib/errands/movement";
 import { useErrands } from "../lib/errands/useErrands";
 import { useFrameLoop, useHeldDirections } from "../lib/errands/useWalkControls";
 
@@ -40,17 +40,10 @@ export default function IslandErrandsPage() {
   const errands = useErrands({ village, store, onErrandFinished: reportErrand });
   const [isPlaying, setIsPlaying] = useState(false);
   const [showsEnglish, setShowsEnglish] = useState(readShowsEnglish);
-  const [isWalking, setIsWalking] = useState(false);
   const isTalking = errands.conversation !== null;
   const canWalk = isPlaying && !isTalking && !errands.isFinaleShown;
-  const { held, press, release } = useHeldDirections(canWalk);
-
-  useFrameLoop(canWalk, seconds => {
-    const direction = heldDirection(held.current);
-    const isMoving = direction.x !== 0 || direction.y !== 0;
-    if (isMoving !== isWalking) setIsWalking(isMoving);
-    if (isMoving) errands.walkBy(direction, seconds);
-  });
+  const { held, isHolding, isRunning, press, release, setIsRunning } = useHeldDirections(canWalk);
+  useFrameLoop(isHolding, seconds => errands.walkBy(heldDirection(held.current), seconds, isRunning ? RUN_SPEED : WALK_SPEED));
 
   const { conversation, nearby, next, talkTo } = errands;
   const talk = useCallback(() => { if (nearby) talkTo(nearby.id); }, [nearby, talkTo]);
@@ -83,15 +76,15 @@ export default function IslandErrandsPage() {
   const items = errands.state.inventory.map(id => village.items[id]).filter(item => item !== undefined);
   return <div className="flex h-dvh flex-col bg-gray-50 text-gray-900"><Navbar />
     <main className="relative min-h-0 flex-1" aria-label={`Island Errands: ${village.name}`}>
-      <VillageScene village={village} position={errands.state.position} facing={errands.state.facing} isWalking={canWalk && isWalking}
-        openGateIds={errands.openGateIds} areLanternsLit={errands.areLanternsLit} errandVillagerIds={errands.errandVillagerIds}
+      <VillageScene village={village} position={errands.state.position} facing={errands.state.facing} isWalking={isHolding} isRunning={isRunning}
+        openGateIds={errands.openGateIds} litLanterns={errands.litLanterns} markedVillagerIds={errands.errandVillagerIds}
         nearbyId={nearby?.id ?? null} onTalk={talkTo}>
         <ErrandsHud current={current} items={items} finishedCount={errands.state.finished.length} questCount={village.quests.length} />
         <p className="sr-only" aria-live="polite">{nearby ? `${CAST[nearby.id].name} is nearby. Press E to talk.` : ""}</p>
-        {!isTalking && <p className="pointer-events-none absolute bottom-3 left-1/2 z-[800] -translate-x-1/2 rounded-full bg-black/45 px-3 py-1 text-xs font-semibold text-white pointer-coarse:hidden">
-          Walk: WASD or arrow keys · Talk: E
+        {!isTalking && <p className="pointer-events-none absolute bottom-3 left-1/2 z-[800] -translate-x-1/2 village-hint rounded-full px-3 py-1 text-xs font-semibold pointer-coarse:hidden">
+          Walk: WASD or arrow keys · Run: hold Shift · Talk: E
         </p>}
-        {!isTalking && !errands.isFinaleShown && <TouchControls onPress={press} onRelease={release} onTalk={talk} canTalk={nearby !== null} />}
+        {!isTalking && !errands.isFinaleShown && <TouchControls onPress={press} onRelease={release} onTalk={talk} canTalk={nearby !== null} isRunning={isRunning} onRunningChange={setIsRunning} />}
         {conversation && <DialoguePanel speaker={conversation.step.kind === "say" ? conversation.step.line.speaker : conversation.villager.id} step={conversation.step}
           showsEnglish={showsEnglish} onShowsEnglishChange={changeShowsEnglish}
           onNext={errands.next} onReply={errands.reply} onBuild={errands.build} onLeave={errands.leave} />}
@@ -105,7 +98,7 @@ export default function IslandErrandsPage() {
 function StartOptions({ hasSave, onStartOver }: { hasSave: boolean; onStartOver: () => void }) {
   return <div className="space-y-3 text-sm text-gray-700">
     <ul className="list-inside list-disc space-y-1">
-      <li><span className="font-semibold">Walk</span> with WASD or the arrow keys (or the pad on a touch screen).</li>
+      <li><span className="font-semibold">Walk</span> with WASD or the arrow keys (or the pad on a touch screen). Hold Shift (or tap Run) to run.</li>
       <li><span className="font-semibold">Talk</span> with E when you're next to someone. A <span className="font-bold">!</span> means they have something for you.</li>
       <li>Answer by picking a reply (keys 1–3) or building the sentence from word tiles.</li>
     </ul>

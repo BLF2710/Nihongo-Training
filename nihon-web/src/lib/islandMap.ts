@@ -46,6 +46,7 @@ export const KANJI_UNLOCK_UNITS = 1;
 
 export const ISLANDS: readonly Island[] = [
   { id: "home", isBridged: false, name: "Home", mark: "家", tagline: "Your streak, level and next step.", destinations: [
+    { label: "Village square", href: "/village", description: "Walk around: the cast has today's news and errands." },
     { label: "Classic dashboard", href: "/", description: "Every tool and statistic on one page." },
     { label: "Statistics", href: "/statistics/japanese", description: "Accuracy, time studied and test results." },
     { label: "Achievements", href: "/achievements", description: "Badges you have earned." },

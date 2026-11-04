@@ -24,7 +24,11 @@
   --village-lantern-off: #b89a8a;
   --village-lantern-on: #ff8a4c;
   --village-shadow: rgb(30 25 20 / 0.22);
-  background: var(--village-water);
+  --village-bank: #9a7b55;
+  --village-forest: #5f8f45;
+  --village-sky-top: #8fc4e8;
+  --village-sky-horizon: #e3f0f2;
+  background: linear-gradient(var(--village-sky-top), var(--village-sky-horizon) 55%, var(--village-forest) 56%);
 }
 .dark .village {
   --village-grass: #4c6b3c;
@@ -51,23 +55,49 @@
   --village-lantern-off: #7d6a60;
   --village-lantern-on: #ffa060;
   --village-shadow: rgb(0 0 0 / 0.35);
+  --village-bank: #5e4b35;
+  --village-forest: #2f4a27;
+  --village-sky-top: #10182c;
+  --village-sky-horizon: #34405a;
 }
 
-.village-world { will-change: transform; }
+/* The 2.5D scene (see scene3d.ts): the ground plane and everything standing on it share one 3D space. */
+.village-3d { transform-style: preserve-3d; }
+.village-world { will-change: transform; pointer-events: none; }
+.village-surroundings { background: var(--village-forest); transform: translateZ(-1px); }
+.village-haze { background: linear-gradient(var(--village-sky-horizon) 15%, transparent); opacity: 0.6; }
+.village-upright { position: absolute; transform-origin: 50% 100%; }
+
+.village-face { position: absolute; border: 2px solid var(--village-ink); }
+.village-front-wall { background: linear-gradient(var(--village-wall-shade) 0 12%, var(--village-wall) 12%); }
+.village-gable { background: var(--village-wall-shade); border: none; }
+.village-roof { background-image: repeating-linear-gradient(90deg, rgb(0 0 0 / 0.16) 0 2px, transparent 2px 14px); border-radius: 3px; box-shadow: inset 0 5px 0 rgb(0 0 0 / 0.3); }
+.village-roof-back { filter: brightness(0.8); }
+.village-sign { position: absolute; top: 9%; left: 50%; transform: translateX(-50%); padding: 0.02em 0.18em; border: 2px solid var(--village-ink); border-radius: 0.08em;
+  background: var(--village-sign); color: var(--village-ink); font-size: 0.4em; font-weight: 800; line-height: 1.2; white-space: nowrap; }
+.village-door { position: absolute; bottom: 0; left: 50%; width: 0.7em; height: 0.62em; transform: translateX(-50%); border: 2px solid var(--village-ink); border-bottom: none;
+  background: linear-gradient(90deg, transparent calc(50% - 1px), var(--village-wood-light) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)), var(--village-wood); }
+.village-window { position: absolute; bottom: 0.22em; width: 0.55em; height: 0.4em; border: 2px solid var(--village-ink);
+  background: repeating-linear-gradient(90deg, var(--village-wood) 0 2px, var(--village-sign) 2px 0.18em); }
+.village-gate-post { display: block; width: 100%; height: 100%; border: 2px solid var(--village-ink); border-radius: 3px; background: var(--village-vermilion); }
 
 .village-lantern { fill: var(--village-lantern-off); transition: fill 1.2s ease; }
 .village-lantern-glow { fill: var(--village-lantern-on); opacity: 0; transition: opacity 1.2s ease; }
-.village-lanterns-lit .village-lantern { fill: var(--village-lantern-on); }
-.village-lanterns-lit .village-lantern-glow { opacity: 0.35; animation: village-flicker 2.4s ease-in-out infinite alternate; }
+.village-lantern-lit .village-lantern { fill: var(--village-lantern-on); }
+.village-lantern-lit .village-lantern-glow { opacity: 0.35; animation: village-flicker 2.4s ease-in-out infinite alternate; }
 @keyframes village-flicker { from { opacity: 0.25; } to { opacity: 0.45; } }
 
 .village-person { transition: transform 0.1s linear; }
+.village-running .traveller-walking .traveller-leg { animation-duration: 0.2s; }
 .village-villager { animation: village-bob 2.6s ease-in-out infinite; }
 @keyframes village-bob { 50% { transform: translateY(-4%); } }
 .village-marker { animation: village-marker 1s ease-in-out infinite alternate; }
 @keyframes village-marker { to { transform: translateY(-20%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .village-villager, .village-marker, .village-lanterns-lit .village-lantern-glow { animation: none; }
+  .village-villager, .village-marker, .village-lantern-lit .village-lantern-glow { animation: none; }
   .village-lantern, .village-lantern-glow, .village-person { transition: none; }
 }
+
+/* Fixed colours rather than the palette's white and black, which swap in dark mode: it sits over the scene either way. */
+.village-hint { background: rgb(20 18 16 / 0.55); color: #fffaf0; }
