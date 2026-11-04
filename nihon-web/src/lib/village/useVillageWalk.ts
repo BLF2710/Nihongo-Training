@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { facingOf, nearestWithin, walk } from "../errands/movement";
+import { facingOf, walk } from "../errands/movement";
 import type { Direction, Vector } from "../errands/movement";
 import { isBlocked } from "../errands/townMap";
 import { blockedTilesWithOpenGates } from "../errands/village";
@@ -24,7 +24,7 @@ function rememberPlace(key: string, place: Place) {
   try { sessionStorage.setItem(key, JSON.stringify(place)); } catch { /* only a convenience */ }
 }
 
-/** Walking around a village with every gate open: where the traveller stands, and who is near enough to talk to. */
+/** Walking around a village with every gate open: where the traveller stands and faces. */
 export function useVillageWalk(layout: VillageLayout, rememberKey: string) {
   const blocked = useMemo(() => blockedTilesWithOpenGates(layout, layout.gates.map(gate => gate.id)), [layout]);
   const [place, setPlace] = useState<Place>(() => {
@@ -39,7 +39,6 @@ export function useVillageWalk(layout: VillageLayout, rememberKey: string) {
   }, [place, rememberKey]);
   return {
     ...place,
-    nearby: nearestWithin(place.position, layout.villagers),
     walkBy(direction: Vector, seconds: number, speed: number) {
       setPlace(current => ({ position: walk(current.position, direction, seconds, (x, y) => isBlocked(layout.map, blocked, x, y), speed), facing: facingOf(direction, current.facing) }));
     },

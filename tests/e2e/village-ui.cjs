@@ -9,7 +9,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright')
 const [base, shots] = process.argv.slice(2);
 const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base64url')}.x`;
 const PLACE_KEY = 'village-square:place';
-const NEXT_TO = { zen: { x: 7.5, y: 3.6 }, hato: { x: 23.5, y: 21.6 }, hakase: { x: 23.5, y: 5.6 } };
+const NEXT_TO = { zen: { x: 7.5, y: 3.6 }, hato: { x: 23.5, y: 21.6 }, hakase: { x: 23.5, y: 5.6 }, home: { x: 22.5, y: 12.6 } };
 
 const lesson = (slug, title, completed) => ({ id: slug, slug, title, description: '', isPlaceholder: false, allowed: true, reasons: [], completed });
 const units = { units: [{ id: 'japanese-n5-unit-3', number: 3, title: 'Shopping', description: '', requiredLevel: 1, allowed: true, reasons: [], completedLessons: 1, totalLessons: 2, allLessonsCompleted: false, assessmentUnlocked: false, assessmentPassed: false, completed: false, bestScore: null, bestCorrect: null, questionCount: 0, passPercent: null,
@@ -27,7 +27,7 @@ const srs = (done) => ({ total: 80, newCards: 10, dueNow: done ? 0 : 9, dueToday
 
 async function open(browser, { done = false, failing = false, viewport = { width: 1366, height: 768 }, mobile = false } = {}) {
   const context = await browser.newContext({ viewport, hasTouch: mobile, isMobile: mobile });
-  await context.addInitScript(t => { localStorage.setItem('token', t); localStorage.setItem('app_language', 'japanese'); localStorage.setItem('user_role', 'learner'); localStorage.setItem('user_handle', 'kai'); localStorage.setItem('course_level', 'N5'); }, token);
+  await context.addInitScript(t => { localStorage.setItem('token', t); localStorage.setItem('app_language', 'japanese'); localStorage.setItem('user_role', 'learner'); localStorage.setItem('user_handle', 'kai'); localStorage.setItem('user_name', 'Kai'); localStorage.setItem('course_level', 'N5'); }, token);
   await context.route('http://localhost:5000/api/**', async route => {
     const p = new URL(route.request().url()).pathname.replace('/api', ''), json = data => route.fulfill({ status: 200, json: data });
     if (p === '/site') return json({ registration_enabled: true, announcement: '', disabled: [] });
@@ -53,11 +53,11 @@ async function open(browser, { done = false, failing = false, viewport = { width
 
 // Moves the traveller next to a villager by rewriting the remembered spot, then reloads. It waits first: the page saves
 // the spot half a second after loading, which would otherwise overwrite this one.
-async function moveNextTo(page, id) {
+async function moveNextTo(page, id, prompt = 'Talk E') {
   await page.waitForTimeout(800);
   await page.evaluate(([key, position]) => sessionStorage.setItem(key, JSON.stringify({ position, facing: 'left' })), [PLACE_KEY, NEXT_TO[id]]);
   await page.reload();
-  await page.getByText('Talk E').waitFor();
+  await page.getByText(prompt).waitFor();
 }
 
 (async () => {
@@ -126,6 +126,13 @@ async function moveNextTo(page, id) {
     await page.keyboard.press('KeyM'); await page.waitForURL('**/village'); await backAtHakase();
     await page.keyboard.press('Tab'); await page.waitForURL(url => new URL(url).pathname === '/'); await page.waitForTimeout(1000);
     await page.keyboard.press('Tab'); await page.waitForURL('**/village'); await backAtHakase();
+
+    // ---- the learner's house: at its door E goes in, to the profile
+    await moveNextTo(page, 'home', 'Enter E');
+    await page.getByRole('button', { name: 'Go into your house' }).waitFor();
+    await page.locator('.village-sign', { hasText: 'Kai のいえ' }).waitFor();
+    await page.screenshot({ path: path.join(shots, 'village-home.png') });
+    await page.keyboard.press('KeyE'); await page.waitForURL('**/profile');
     await context.close();
 
     // ---- every errand done: ticked, thanks, and every lantern lit
@@ -164,6 +171,6 @@ async function moveNextTo(page, id) {
     assert.deepEqual(errors, []);
     await context.close();
 
-    console.log('PASS: today\'s errands from real data (review, next lesson, practice, daily goal; links to each; none done, then all done with all 16 lanterns lit); villagers with news marked; Zen counts due cards, Hato reports mail, Hakase points to the next lesson, thanks once an errand is done; Escape and E close; following a link and coming back returns to the same spot; walking remembered; holding Shift runs; M opens the map and Tab the dashboard, and the same key comes back; no Back row; data failing shows a notice and the villagers still link; phone fits (the errands start folded); dark mode; no page errors.');
+    console.log('PASS: today\'s errands from real data (review, next lesson, practice, daily goal; links to each; none done, then all done with all 16 lanterns lit); villagers with news marked; Zen counts due cards, Hato reports mail, Hakase points to the next lesson, thanks once an errand is done; Escape and E close; following a link and coming back returns to the same spot; walking remembered; holding Shift runs; M opens the map and Tab the dashboard, and the same key comes back; the house is signed with the learner\'s name and E at its door opens the profile; no Back row; data failing shows a notice and the villagers still link; phone fits (the errands start folded); dark mode; no page errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 2000)); process.exitCode = 1; });

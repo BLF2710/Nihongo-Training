@@ -3,6 +3,10 @@
 // What they say comes from lib/village/villageNews; this is only where everything stands.
 import { MATSURI_LANTERNS, MATSURI_MAP } from "../errands/matsuriVillage.ts";
 import type { VillageLayout } from "../../lib/errands/village.ts";
+import type { Door } from "../../lib/village/villageDoors.ts";
+
+/** The learner's own house: its sign shows their name (see lib/village/homeSign). */
+export const HOME_BUILDING_ID = "home";
 
 export const VILLAGE_SQUARE: VillageLayout = {
   map: MATSURI_MAP,
@@ -11,6 +15,8 @@ export const VILLAGE_SQUARE: VillageLayout = {
     { id: "teahouse", x: 11, y: 2, width: 5, height: 3, sign: "茶", label: "The tea house: the study assistant", roof: "moss" },
     { id: "school", x: 20, y: 2, width: 6, height: 3, sign: "学校", label: "The school: lessons", roof: "indigo" },
     { id: "practice-hall", x: 29, y: 2, width: 4, height: 3, sign: "練習", label: "The practice hall", roof: "wood" },
+    // The learner's own house, in the field by the main road; its door opens their profile.
+    { id: HOME_BUILDING_ID, x: 20, y: 9, width: 5, height: 3, sign: "いえ", label: "Your house: your profile", roof: "wood" },
     { id: "shrine", x: 29, y: 9, width: 4, height: 3, sign: "神社", label: "The shrine: today's goal", roof: "vermilion" },
     { id: "kana-school", x: 2, y: 11, width: 5, height: 3, sign: "かな", label: "The kana school", roof: "indigo" },
     { id: "stall", x: 11, y: 11, width: 4, height: 2, sign: "まつり", label: "The festival stall: games", roof: "vermilion" },
@@ -36,3 +42,7 @@ export const VILLAGE_SQUARE: VillageLayout = {
     { id: "momo", tile: { x: 31, y: 21 } },
   ],
 };
+
+export const VILLAGE_DOORS: readonly Door[] = [
+  { id: "home", tile: { x: 22, y: 12 }, href: "/profile", label: "Your house" },
+];

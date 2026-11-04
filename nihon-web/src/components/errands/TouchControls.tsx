@@ -12,12 +12,14 @@ const padButton = "flex size-12 touch-none select-none items-center justify-cent
 type TouchControlsProps = {
   onPress: (direction: Direction) => void; onRelease: (direction: Direction) => void;
   onTalk: () => void; canTalk: boolean;
+  /** What the talk button says: "Talk" by default, or what it does instead (such as "Enter" at a door). */
+  talkLabel?: string;
   /** Run is a toggle on a touch screen: holding it as well as a direction takes two thumbs. */
   isRunning: boolean; onRunningChange: (isRunning: boolean) => void;
 };
 
 /** A direction pad, and run and talk buttons, for touch screens, over the bottom corners of the village. */
-export function TouchControls({ onPress, onRelease, onTalk, canTalk, isRunning, onRunningChange }: TouchControlsProps) {
+export function TouchControls({ onPress, onRelease, onTalk, canTalk, talkLabel = "Talk", isRunning, onRunningChange }: TouchControlsProps) {
   const hold = (direction: Direction) => ({
     onPointerDown: (event: PointerEvent<HTMLButtonElement>) => { event.currentTarget.setPointerCapture(event.pointerId); onPress(direction); },
     onPointerUp: () => onRelease(direction),
@@ -30,7 +32,7 @@ export function TouchControls({ onPress, onRelease, onTalk, canTalk, isRunning, 
     </div>
     <div className="flex flex-col items-center gap-2">
       <button type="button" aria-pressed={isRunning} onClick={() => onRunningChange(!isRunning)} className={`pointer-events-auto size-12 rounded-full border-2 border-white/80 text-sm font-black text-white shadow ${isRunning ? "bg-amber-500" : "bg-black/35"}`}>Run</button>
-      <button type="button" onClick={onTalk} disabled={!canTalk} className="pointer-events-auto size-16 rounded-full border-2 border-white/80 bg-emerald-600 font-black text-white shadow-lg disabled:bg-black/35">Talk</button>
+      <button type="button" onClick={onTalk} disabled={!canTalk} className="pointer-events-auto size-16 rounded-full border-2 border-white/80 bg-emerald-600 font-black text-white shadow-lg disabled:bg-black/35">{talkLabel}</button>
     </div>
   </div>;
 }

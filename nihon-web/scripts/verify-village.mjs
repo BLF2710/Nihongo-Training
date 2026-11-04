@@ -7,7 +7,9 @@ import { isBlocked } from "../src/lib/errands/townMap.ts";
 import { blockedTilesWithOpenGates } from "../src/lib/errands/village.ts";
 import { dailyErrands, villagerNews } from "../src/lib/village/villageNews.ts";
 import { shortcutPath } from "../src/lib/village/villageShortcuts.ts";
-import { VILLAGE_SQUARE as square } from "../src/data/village/villageSquare.ts";
+import { nearbyThing } from "../src/lib/village/villageDoors.ts";
+import { homeSign, withHomeSign } from "../src/lib/village/homeSign.ts";
+import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_SQUARE as square } from "../src/data/village/villageSquare.ts";
 
 const UNKNOWN = { reviews: null, inbox: null, nextStep: null, goal: null, today: null, streak: null, openMistakes: null };
 const busyDay = {
@@ -117,4 +119,43 @@ test("the shortcuts leave other keys, held keys and modified keys alone", () => 
 
 test("Tab moves focus as usual once a control has it", () => {
   assert.equal(press("Tab", { isFocusTaken: true }), null);
+});
+
+const door = { id: "home", tile: { x: 5, y: 5 }, href: "/profile", label: "Your house" };
+
+test("standing at a door, the traveller can go through it", () => {
+  assert.deepEqual(nearbyThing({ x: 5.5, y: 5.6 }, [], [door]), { kind: "door", door });
+});
+
+test("a villager nearer than the door is talked to instead", () => {
+  assert.deepEqual(nearbyThing({ x: 6.6, y: 5.5 }, [{ id: "pon", tile: { x: 6, y: 5 } }], [door]), { kind: "villager", id: "pon" });
+});
+
+test("nothing is in reach far from doors and villagers", () => {
+  assert.equal(nearbyThing({ x: 15, y: 15 }, [{ id: "pon", tile: { x: 6, y: 5 } }], [door]), null);
+});
+
+test("the learner's house door opens onto the profile, from a tile that can be reached", () => {
+  const [home] = VILLAGE_DOORS;
+  const blocked = blockedTilesWithOpenGates(square, []);
+  assert.equal(home.href, "/profile");
+  assert.equal(isBlocked(square.map, blocked, home.tile.x, home.tile.y), false);
+  assert.equal(isBlocked(square.map, blocked, home.tile.x, home.tile.y - 1), true, "the door is in the house's front wall");
+});
+
+test("the learner's house is signed with their name", () => {
+  assert.equal(homeSign("Kai"), "Kai のいえ");
+});
+
+test("a house without a known name keeps the plain sign", () => {
+  assert.deepEqual([homeSign(null), homeSign("   ")], ["いえ", "いえ"]);
+});
+
+test("a long name is cut short by whole characters, so the sign still fits", () => {
+  assert.equal(homeSign("たなかはなこさんのいもうと"), "たなかはなこさんの… のいえ");
+});
+
+test("only the learner's house gets the name", () => {
+  const signed = withHomeSign(square, HOME_BUILDING_ID, "Kai");
+  assert.deepEqual(signed.buildings.filter(building => building.sign !== square.buildings.find(({ id }) => id === building.id)?.sign).map(({ id }) => id), [HOME_BUILDING_ID]);
 });

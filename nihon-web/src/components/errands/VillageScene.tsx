@@ -20,6 +20,7 @@ const MIN_TILES_DOWN = 8;
 const VILLAGER_SIZE = 1.15;
 // The ground beyond the map, so the edges of the village don't hang in the sky.
 const SURROUNDINGS = 40;
+const DOOR_PROMPT_HEIGHT = 2;
 const TRAVELLER_HEIGHT = 1.5;
 
 type Size = { width: number; height: number };
@@ -81,6 +82,9 @@ type VillageSceneProps = {
   /** Villagers shown with a "!" because they have something for the learner. */
   markedVillagerIds: readonly CharacterId[]; nearbyId: CharacterId | null;
   onTalk: (id: CharacterId) => void;
+  /** A door the traveller is standing at, shown with a prompt to go in (pressed, it calls `onEnterDoor`). */
+  nearbyDoor?: { tile: Vector; label: string } | null;
+  onEnterDoor?: () => void;
   /** How many tiles fit across a wide screen: more shows more of the village, smaller. */
   tilesAcross?: number;
   /** Overlays (the errand, inventory, conversation, controls), drawn over the village and not moved by the camera. */
@@ -89,7 +93,7 @@ type VillageSceneProps = {
 
 /** The village in 2.5D, seen from above at an angle in perspective and following the traveller. Everything standing
  *  is a 3D card, so the browser sorts it by depth: whoever walks behind a house is hidden by it. */
-export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
+export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, nearbyDoor, onEnterDoor, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
   const { ref, size } = useSize();
   const { map } = village;
   const { tile, x, y } = camera(size, map, position, tilesAcross);
@@ -103,6 +107,11 @@ export function VillageScene({ village, position, facing, isWalking, isRunning, 
         <VillageScenery map={map} buildings={village.buildings} gates={village.gates} openGateIds={openGateIds} lanterns={village.lanterns} litLanterns={litLanterns} tile={tile} />
         {village.villagers.map(villager => <VillagerToken key={villager.id} villager={villager} tile={tile}
           hasErrand={markedVillagerIds.includes(villager.id)} isNearby={nearbyId === villager.id} onTalk={onTalk} />)}
+        {/* Stood just in front of the house's wall (not in it, where the wall would hide it), above the traveller's head. */}
+        {nearbyDoor && <div className="village-upright" style={{ left: (nearbyDoor.tile.x - 0.5) * tile, top: (nearbyDoor.tile.y + 0.4 - DOOR_PROMPT_HEIGHT) * tile, width: 2 * tile, height: DOOR_PROMPT_HEIGHT * tile, transform: STAND_UP }}>
+          <button type="button" tabIndex={-1} onClick={onEnterDoor} aria-label={`Go into ${nearbyDoor.label.toLowerCase()}`}
+            className="pointer-events-auto absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-lg border border-[var(--village-ink)] bg-white px-2 py-0.5 text-xs font-bold text-gray-900 shadow">Enter <kbd className="font-mono">E</kbd></button>
+        </div>}
         <FeetShadow feet={position} width={0.6} tile={tile} />
         <div aria-hidden="true" className={`village-upright village-person ${isRunning ? "village-running" : ""}`}
           style={{ left: position.x * tile - travellerWidth / 2, top: position.y * tile - travellerHeight, height: travellerHeight, width: travellerWidth, transform: STAND_UP + travellerTurn }}>
