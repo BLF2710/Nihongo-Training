@@ -1,15 +1,16 @@
 import { memo } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
 import { rowRuns } from "../../lib/errands/townMap";
 import type { Rect, TownMap } from "../../lib/errands/townMap";
 import type { Vector } from "../../lib/errands/movement";
 import type { Building, Gate, RoofColour } from "../../lib/errands/village";
+import { BuildingFront, BuildingProps } from "./BuildingDetails";
+import { LOOK_SHAPES } from "./buildingLooks";
 import { STAND_UP, STAND_UP_ALONG_Y } from "./scene3d";
+import { Upright } from "./Upright";
 
 // Everything that stands up off the ground, as cards in 3D (the browser sorts them by depth, so whoever walks behind a
 // house is hidden by it). Sizes are in tiles.
-const WALL_HEIGHT = 1.6;
-const RIDGE_HEIGHT = 0.9;
 const EAVE_OVERHANG = 0.2;
 const TREE_HEIGHT = 1.9;
 // The row of trees nearest the viewer is squashed into bushes, so it doesn't hide the people on the street behind it.
@@ -22,11 +23,6 @@ const ROOF_FILL: Readonly<Record<RoofColour, string>> = {
   vermilion: "var(--village-vermilion)", indigo: "var(--village-indigo)", moss: "var(--village-moss)", wood: "var(--village-wood)",
 };
 const ink = { stroke: "var(--village-ink)", strokeWidth: 0.05, strokeLinejoin: "round" as const };
-
-/** A card standing on the ground with its bottom edge centred on `feet` (in tiles), facing the viewer. */
-function Upright({ feet, width, height, tile, className, children }: { feet: Vector; width: number; height: number; tile: number; className?: string; children: ReactNode }) {
-  return <div className={`village-upright ${className ?? ""}`} style={{ left: (feet.x - width / 2) * tile, top: (feet.y - height) * tile, width: width * tile, height: height * tile, transform: STAND_UP }}>{children}</div>;
-}
 
 function TreeRow({ run, height, tile }: { run: Rect; height: number; tile: number }) {
   return <Upright feet={{ x: run.x + run.width / 2, y: run.y + TREE_FEET }} width={run.width + 0.3} height={height} tile={tile}>
@@ -52,29 +48,32 @@ function FencePost({ x, y, tile }: { x: number; y: number; tile: number }) {
   </Upright>;
 }
 
-/** A building as a box: walls with a sign and a door at the front, gable ends at the sides and a two-sided roof. */
+/** A building as a box: walls (the front one with its sign, door and windows), gable ends at the sides and a
+ *  two-sided roof, shaped and dressed by what the building is (see buildingLooks and BuildingDetails). */
 function House({ building, tile }: { building: Building; tile: number }) {
-  const { x, y, width, height, sign, roof } = building;
-  const wide = width * tile, deep = height * tile, wall = WALL_HEIGHT * tile, ridge = RIDGE_HEIGHT * tile, eave = EAVE_OVERHANG * tile;
+  const { x, y, width, height, roof } = building;
+  const shape = LOOK_SHAPES[building.look];
+  const wide = width * tile, deep = height * tile, wall = shape.wallHeight * tile, ridge = shape.ridgeHeight * tile, eave = EAVE_OVERHANG * tile;
   const slope = Math.hypot(deep / 2 + eave, ridge), pitch = Math.atan2(ridge, deep / 2 + eave);
   const gable: CSSProperties = { top: -(wall + ridge), width: deep, height: wall + ridge, transform: STAND_UP_ALONG_Y, transformOrigin: "0 100%",
     clipPath: `polygon(0 100%, 0 ${ridge}px, 50% 0, 100% ${ridge}px, 100% 100%)` };
   const roofSide = (isFront: boolean): CSSProperties => ({
-    left: -eave, width: wide + 2 * eave, height: slope, background: ROOF_FILL[roof],
+    left: -eave, width: wide + 2 * eave, height: slope, backgroundColor: shape.roofFill ?? ROOF_FILL[roof],
     top: isFront ? deep + eave - slope : -eave, transformOrigin: isFront ? "50% 100%" : "50% 0",
     transform: `translateZ(${wall}px) rotateX(${isFront ? -pitch : pitch}rad)`,
   });
-  return <div className="village-3d absolute" style={{ left: x * tile, top: y * tile, width: wide, height: deep }}>
-    <div className="village-face village-gable" style={{ ...gable, left: 0 }} />
-    <div className="village-face village-gable" style={{ ...gable, left: wide }} />
-    <div className="village-face village-front-wall" style={{ left: 0, top: deep - wall, width: wide, height: wall, transform: "rotateX(-90deg)", transformOrigin: "50% 100%", fontSize: tile }}>
-      <span className="village-sign" lang="ja">{sign}</span>
-      <span className="village-door" />
-      {width >= 4 && <><span className="village-window" style={{ left: "12%" }} /><span className="village-window" style={{ right: "12%" }} /></>}
+  return <>
+    <div className="village-3d absolute" style={{ left: x * tile, top: y * tile, width: wide, height: deep }}>
+      <div className={`village-face village-gable ${shape.wallClass}`} style={{ ...gable, left: 0 }} />
+      <div className={`village-face village-gable ${shape.wallClass}`} style={{ ...gable, left: wide }} />
+      <div className={`village-face ${shape.wallClass}`} style={{ left: 0, top: deep - wall, width: wide, height: wall, transform: "rotateX(-90deg)", transformOrigin: "50% 100%", fontSize: tile }}>
+        <BuildingFront building={building} />
+      </div>
+      <div className={`village-face village-roof village-roof-back ${shape.roofClass}`} style={roofSide(false)} />
+      <div className={`village-face village-roof ${shape.roofClass}`} style={roofSide(true)} />
     </div>
-    <div className="village-face village-roof village-roof-back" style={roofSide(false)} />
-    <div className="village-face village-roof" style={roofSide(true)} />
-  </div>;
+    <BuildingProps building={building} tile={tile} shape={shape} />
+  </>;
 }
 
 /** A gate: red posts, and while closed a rope hung with paper streamers across the way. */

@@ -28,6 +28,12 @@
   --village-forest: #5f8f45;
   --village-sky-top: #8fc4e8;
   --village-sky-horizon: #e3f0f2;
+  --village-wall-warm: #fbe9c8;
+  --village-thatch: #c9a86a;
+  --village-stone: #b9b4aa;
+  --village-chalkboard: #2f4a3a;
+  --village-stall-inside: #3b2a1d;
+  --village-steam: rgb(255 255 255 / 0.85);
   background: linear-gradient(var(--village-sky-top), var(--village-sky-horizon) 55%, var(--village-forest) 56%);
 }
 .dark .village {
@@ -59,6 +65,12 @@
   --village-forest: #2f4a27;
   --village-sky-top: #10182c;
   --village-sky-horizon: #34405a;
+  --village-wall-warm: #d6c29c;
+  --village-thatch: #8f7646;
+  --village-stone: #7d796f;
+  --village-chalkboard: #1f3328;
+  --village-stall-inside: #24190f;
+  --village-steam: rgb(220 225 235 / 0.6);
 }
 
 /* The 2.5D scene (see scene3d.ts): the ground plane and everything standing on it share one 3D space. */
@@ -69,16 +81,65 @@
 .village-upright { position: absolute; transform-origin: 50% 100%; }
 
 .village-face { position: absolute; border: 2px solid var(--village-ink); }
-.village-front-wall { background: linear-gradient(var(--village-wall-shade) 0 12%, var(--village-wall) 12%); }
-.village-gable { background: var(--village-wall-shade); border: none; }
-.village-roof { background-image: repeating-linear-gradient(90deg, rgb(0 0 0 / 0.16) 0 2px, transparent 2px 14px); border-radius: 3px; box-shadow: inset 0 5px 0 rgb(0 0 0 / 0.3); }
+.village-gable { border: none; filter: brightness(0.86); }
+
+/* Walls (see buildingLooks.ts) */
+.village-wall-plaster { background: linear-gradient(var(--village-wall-shade) 0 12%, var(--village-wall) 12%); }
+.village-wall-warm { background: linear-gradient(var(--village-wall-shade) 0 12%, var(--village-wall-warm) 12%); }
+.village-wall-planks { background: linear-gradient(rgb(0 0 0 / 0.18) 0 12%, transparent 12%),
+  repeating-linear-gradient(90deg, var(--village-wood) 0 18px, var(--village-wood-light) 18px 20px); }
+.village-wall-shrine { background: linear-gradient(var(--village-wall-shade) 0 10%, var(--village-wall) 10% 84%, var(--village-vermilion) 84%); }
+.village-wall-stall { background: linear-gradient(var(--village-stall-inside) 0 70%, var(--village-wood) 70%); }
+
+/* Roofs */
+.village-roof { border-radius: 3px; box-shadow: inset 0 5px 0 rgb(0 0 0 / 0.3); }
+.village-roof-tiles { background-image: repeating-linear-gradient(90deg, rgb(0 0 0 / 0.16) 0 2px, transparent 2px 14px); }
+.village-roof-thatch { background-image: repeating-linear-gradient(0deg, rgb(0 0 0 / 0.14) 0 2px, transparent 2px 8px); box-shadow: inset 0 9px 0 var(--village-moss); }
+.village-roof-awning { background-image: repeating-linear-gradient(90deg, var(--village-vermilion) 0 18px, var(--village-sign) 18px 36px); }
 .village-roof-back { filter: brightness(0.8); }
-.village-sign { position: absolute; top: 9%; left: 50%; transform: translateX(-50%); padding: 0.02em 0.18em; border: 2px solid var(--village-ink); border-radius: 0.08em;
+
+/* Front walls: 1em is a tile (see BuildingDetails.tsx) */
+.village-sign { position: absolute; top: 9%; left: 50%; z-index: 1; transform: translateX(-50%); padding: 0.02em 0.18em; border: 2px solid var(--village-ink); border-radius: 0.08em;
   background: var(--village-sign); color: var(--village-ink); font-size: 0.4em; font-weight: 800; line-height: 1.2; white-space: nowrap; }
+.village-sign-low { top: 34%; }
+.village-sign-on-noren { top: 30%; }
+.village-plaque { background: var(--village-wood); color: var(--village-sign); border-radius: 0.04em; }
 .village-door { position: absolute; bottom: 0; left: 50%; width: 0.7em; height: 0.62em; transform: translateX(-50%); border: 2px solid var(--village-ink); border-bottom: none;
   background: linear-gradient(90deg, transparent calc(50% - 1px), var(--village-wood-light) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)), var(--village-wood); }
+.village-door-home { border-radius: 0.3em 0.3em 0 0; background: var(--village-vermilion); }
+.village-door-lattice { width: 1.1em; background: repeating-linear-gradient(90deg, var(--village-vermilion) 0 2px, transparent 2px 0.12em),
+  repeating-linear-gradient(0deg, var(--village-vermilion) 0 2px, transparent 2px 0.12em), var(--village-sign); }
 .village-window { position: absolute; bottom: 0.22em; width: 0.55em; height: 0.4em; border: 2px solid var(--village-ink);
   background: repeating-linear-gradient(90deg, var(--village-wood) 0 2px, var(--village-sign) 2px 0.18em); }
+.village-window-upper { bottom: auto; top: 26%; }
+.village-window-flowers::after { content: ""; position: absolute; left: -0.08em; right: -0.08em; bottom: -0.17em; height: 0.14em; border: 2px solid var(--village-ink);
+  background: radial-gradient(circle, var(--village-flower) 0 35%, transparent 38%) 0 0 / 0.14em 0.14em, var(--village-wood); }
+.village-window-shop { display: flex; align-items: flex-end; justify-content: center; gap: 0.06em; width: 0.9em; height: 0.5em; padding-bottom: 0.04em; background: var(--village-sign); }
+.village-bread { width: 0.3em; height: 0.15em; border: 2px solid var(--village-ink); border-radius: 50%; background: #d99a4e; }
+.village-awning { position: absolute; left: 4%; right: 4%; top: 40%; height: 0.2em; border: 2px solid var(--village-ink); border-radius: 0 0 0.1em 0.1em;
+  background: repeating-linear-gradient(90deg, var(--village-vermilion) 0 0.15em, var(--village-sign) 0.15em 0.3em); }
+.village-clock { position: absolute; top: 4%; left: 50%; width: 0.55em; height: 0.55em; transform: translateX(-50%); }
+.village-chalkboard { position: absolute; left: 10%; bottom: 0.25em; padding: 0.06em 0.12em; border: 0.18em solid var(--village-wood); background: var(--village-chalkboard);
+  color: #f3f1e6; font-size: 0.32em; font-weight: 700; white-space: nowrap; }
+.village-pillar { position: absolute; top: 10%; bottom: 0; width: 0.16em; border: 2px solid var(--village-ink); background: var(--village-vermilion); }
+.village-shimenawa { position: absolute; top: 38%; left: 50%; z-index: 1; width: 1.6em; height: 0.35em; transform: translateX(-50%); }
+.village-shoji { position: absolute; bottom: 0; left: 50%; width: 46%; height: 55%; transform: translateX(-50%); border: 2px solid var(--village-ink);
+  background: repeating-linear-gradient(90deg, var(--village-wood) 0 2px, transparent 2px 0.2em), repeating-linear-gradient(0deg, var(--village-wood) 0 2px, transparent 2px 0.2em), var(--village-sign); }
+.village-scroll { position: absolute; top: 30%; width: 1.1em; height: 2.6em; padding-top: 0.25em; border-block: 0.2em solid var(--village-wood); box-shadow: 0 0 0 2px var(--village-ink);
+  background: var(--village-sign); color: var(--village-ink); font-size: 0.34em; font-weight: 800; line-height: 1.2; text-align: center; }
+.village-band { position: absolute; left: 0; right: 0; top: 42%; height: 0.12em; background: var(--village-vermilion); }
+.village-chochin { position: absolute; top: 3%; width: 0.22em; height: 0.28em; transform: translateX(-50%); border: 2px solid var(--village-ink); border-radius: 45%;
+  background: linear-gradient(90deg, transparent 45%, rgb(0 0 0 / 0.25) 45% 55%, transparent 55%), var(--village-lantern-on); }
+.village-noren { position: absolute; top: 24%; left: 8%; right: 8%; height: 40%; border: 2px solid var(--village-ink);
+  background: linear-gradient(90deg, transparent 0 32%, var(--village-stall-inside) 32% 34%, transparent 34% 66%, var(--village-stall-inside) 66% 68%, transparent 68%), var(--village-indigo); }
+.village-counter { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; border-top: 2px solid var(--village-ink);
+  background: repeating-linear-gradient(90deg, var(--village-wood-light) 0 0.3em, var(--village-wood) 0.3em 0.32em); }
+.village-round-window { position: absolute; left: 14%; bottom: 0.2em; width: 0.55em; height: 0.55em; border: 2px solid var(--village-ink); border-radius: 50%;
+  background: repeating-linear-gradient(90deg, var(--village-wood) 0 2px, var(--village-sign) 2px 0.14em); }
+.village-noren-door { position: absolute; left: 0; right: 0; top: 0; display: flex; align-items: center; justify-content: center; height: 45%;
+  background: linear-gradient(90deg, transparent 48%, rgb(0 0 0 / 0.3) 48% 52%, transparent 52%), var(--village-indigo); color: #fffaf0; font-size: 0.3em; font-weight: 800; }
+.village-steam-wisp { animation: village-steam 2.7s ease-in-out infinite; }
+@keyframes village-steam { 0% { opacity: 0; transform: translateY(6%); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-6%); } }
 .village-gate-post { display: block; width: 100%; height: 100%; border: 2px solid var(--village-ink); border-radius: 3px; background: var(--village-vermilion); }
 
 .village-lantern { fill: var(--village-lantern-off); transition: fill 1.2s ease; }
@@ -95,7 +156,7 @@
 @keyframes village-marker { to { transform: translateY(-20%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .village-villager, .village-marker, .village-lantern-lit .village-lantern-glow { animation: none; }
+  .village-villager, .village-marker, .village-lantern-lit .village-lantern-glow, .village-steam-wisp { animation: none; }
   .village-lantern, .village-lantern-glow, .village-person { transition: none; }
 }
 

@@ -6,7 +6,7 @@ export const TILT_DEGREES = 50;
 const TILT = TILT_DEGREES * Math.PI / 180;
 
 /** Seen at the tilt, an upright card looks squashed (by the sine of the tilt); stretching it back keeps art its shape. */
-const UPRIGHT_STRETCH = 1 / Math.sin(TILT);
+export const UPRIGHT_STRETCH = 1 / Math.sin(TILT);
 
 /** Stands a card up on the ground from its bottom edge, facing the viewer (needs `transform-origin` at the bottom). */
 export const STAND_UP = `rotateX(-90deg) scaleY(${UPRIGHT_STRETCH})`;

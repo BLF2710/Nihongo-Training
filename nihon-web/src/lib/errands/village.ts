@@ -8,8 +8,12 @@ import { blockedTiles } from "./townMap.ts";
 import type { Rect, TileKey, TownMap } from "./townMap.ts";
 
 export type RoofColour = "vermilion" | "indigo" | "moss" | "wood";
+/** What a building is, which decides how it's drawn (a shrine has a torii in front, the post office a postbox…). */
+export type BuildingLook =
+  | "house" | "home" | "bakery" | "school" | "kana-school" | "shrine" | "dojo" | "calligraphy"
+  | "post-office" | "stall" | "teahouse" | "practice-hall" | "onsen";
 /** A building's sign is Japanese (its kanji or kana is part of what the learner reads); `label` says it in English. */
-export type Building = Rect & { id: string; sign: string; label: string; roof: RoofColour };
+export type Building = Rect & { id: string; sign: string; label: string; roof: RoofColour; look: BuildingLook };
 export type Gate = Rect & { id: string; label: string; opensWhen: readonly Condition[] };
 export type Item = { id: ItemId; japanese: string; english: string; icon: string };
 /** Someone standing on a tile of the village. */
