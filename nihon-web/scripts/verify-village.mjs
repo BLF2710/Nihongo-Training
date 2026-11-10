@@ -105,8 +105,8 @@ test("every villager in the square can be walked up to from the start", () => {
 
 const press = (code, extra = {}, place = "village") => shortcutPath({ code, repeat: false, shiftKey: false, ctrlKey: false, altKey: false, metaKey: false, isFocusTaken: false, ...extra }, place);
 
-test("Tab leaves the square for the dashboard and M for the island map", () => {
-  assert.deepEqual([press("Tab"), press("KeyM")], ["/", "/map"]);
+test("Tab leaves the square for the dashboard and M for the island map (the home page)", () => {
+  assert.deepEqual([press("Tab"), press("KeyM")], ["/dashboard", "/"]);
 });
 
 test("the same key goes back to the square, and the other one does nothing there", () => {

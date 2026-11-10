@@ -1,0 +1,129 @@
+' D2. Design classes: outside services behind our own interfaces
+' Source: nihon-api/src services/mail/mailer.ts, services/account-security.service.ts,
+' services/google/google-token-verifier.ts, services/google/google-sign-in.service.ts,
+' services/images/avatar-processor.ts, services/avatar.service.ts, services/assistant-providers.ts,
+' services/assistant.service.ts
+'
+' Design patterns:
+'   - Adapter: each outside library or API (nodemailer, google-auth-library, sharp, Anthropic) is wrapped in a
+'     class that implements our own small interface
+'   - Strategy: the implementation is chosen at start-up from the configuration (SMTP or console mail; Claude or the
+'     course helper), and tests swap in a fake (MemoryMailer, a fake verifier)
+'   - Factory: mailerFromConfig() and activeProvider() pick the implementation
+'   - Dependency injection: services receive the interface (createAccountSecurityService({ mailer }),
+'     createGoogleSignInService(verifier), uploadAvatar(…, processor)) instead of creating it
+@startuml D2 Outside services
+title D2. Design classes: outside services behind our own interfaces
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam packageStyle rectangle
+hide empty members
+
+package "Email" {
+  interface Mailer {
+    + send(mail : OutgoingMail) : Promise<void>
+  }
+  class SmtpMailer {
+    - transport : Transport
+    - from : String
+    + SmtpMailer(smtpUrl : String, from : String)
+    + send(mail : OutgoingMail) : Promise<void>
+  }
+  class ConsoleMailer {
+    + send(mail : OutgoingMail) : Promise<void>
+  }
+  class MemoryMailer {
+    + sent : OutgoingMail [0..*] {readOnly}
+    + send(mail : OutgoingMail) : Promise<void>
+  }
+  class MailerFactory <<factory>> {
+    + mailerFromConfig(mail : MailConfig) : Mailer
+  }
+  class AccountSecurityService <<service>> {
+    - mailer : Mailer
+    - appUrl : String
+    + requestPasswordReset(email) : Promise<void>
+    + resetPassword(token, password, confirmPassword) : Promise<void>
+    + sendVerificationEmail(userId : Integer) : Promise<void>
+    + verifyEmail(token) : Promise<void>
+    + changePassword(userId : Integer, input) : Promise<void>
+    + logOutEverywhere(userId : Integer) : Promise<void>
+    + sendResetLinkForUser(adminId : Integer, userId, signOut) : Promise<void>
+  }
+  SmtpMailer ..|> Mailer
+  ConsoleMailer ..|> Mailer
+  MemoryMailer ..|> Mailer
+  MailerFactory ..> Mailer : creates
+  AccountSecurityService o--> "1" Mailer
+  note bottom of MemoryMailer : tests only
+}
+
+package "Google sign-in" {
+  interface GoogleTokenVerifier {
+    + verify(idToken : String) : Promise<GoogleIdentity>
+  }
+  class GoogleLibraryVerifier {
+    - clientId : String
+    - client : OAuth2Client
+    + verify(idToken : String) : Promise<GoogleIdentity>
+  }
+  class GoogleSignInService <<service>> {
+    - verifier : GoogleTokenVerifier [0..1]
+    + configured : Boolean
+    + nonce() : Promise<String>
+    + signIn(credential) : Promise<GoogleSignInResult>
+    + link(userId : Integer, credential) : Promise<void>
+    + unlink(userId : Integer) : Promise<void>
+  }
+  class GoogleIdTokenVerificationError
+  GoogleLibraryVerifier ..|> GoogleTokenVerifier
+  GoogleSignInService o--> "0..1" GoogleTokenVerifier
+  GoogleLibraryVerifier ..> GoogleIdTokenVerificationError : throws
+}
+
+package "Profile pictures" {
+  interface AvatarProcessor {
+    + toAvatar(input : Buffer) : Promise<Buffer>
+  }
+  class SharpAvatarProcessor {
+    + toAvatar(input : Buffer) : Promise<Buffer>
+  }
+  class AvatarService <<service>> {
+    + uploadAvatar(userId : Integer, body, processor : AvatarProcessor) : Promise<Avatar>
+    + removeAvatar(userId : Integer) : Promise<void>
+    + getAvatarImage(file) : Promise<Buffer>
+  }
+  class InvalidImageError
+  SharpAvatarProcessor ..|> AvatarProcessor
+  AvatarService ..> AvatarProcessor : uses
+  SharpAvatarProcessor ..> InvalidImageError : throws
+  note bottom of SharpAvatarProcessor : square WebP from the centre;\nre-encoding drops GPS and camera data
+}
+
+package "Study assistant" {
+  interface AssistantProvider {
+    + id : "claude" | "course-helper"
+    + label : String
+    + reply(history : AssistantTurn [0..*], context : AssistantContext) : Promise<String>
+  }
+  class ClaudeProvider {
+    + reply(history, context) : Promise<String>
+  }
+  class CourseHelperProvider {
+    + reply(history, context) : Promise<String>
+  }
+  class ProviderFactory <<factory>> {
+    + activeProvider() : AssistantProvider
+  }
+  class AssistantService <<service>> {
+    + getAssistant(userId : Integer, conversationId) : Promise<AssistantChat>
+    + startAssistantConversation(userId : Integer) : Promise<Conversation>
+    + askAssistant(userId : Integer, input) : Promise<Message>
+  }
+  ClaudeProvider ..|> AssistantProvider
+  CourseHelperProvider ..|> AssistantProvider
+  ProviderFactory ..> AssistantProvider : chooses
+  AssistantService ..> ProviderFactory
+  note bottom of CourseHelperProvider : no AI: searches the learner's\nlessons; used without an API key
+}
+@enduml

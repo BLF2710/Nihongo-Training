@@ -1,0 +1,126 @@
+' D1. Design classes: the API's layers, shown for one feature (friends)
+' Source: nihon-api/src routes/friend.routes.ts, middleware/, controllers/friend.controller.ts, utils/action.ts,
+' utils/http-error.ts, services/friend.service.ts, services/realtime.service.ts, repositories/friendship.repository.ts,
+' db/transaction.ts. Every other feature has the same shape (route → controller → service → repository).
+'
+' The API is written as TypeScript modules of functions, not classes: a «module» class here is one file, and its
+' operations are the functions it exports.
+'
+' Design patterns:
+'   - Layered architecture: each layer only calls the one below it
+'   - Chain of responsibility: Express runs the middleware in order; each one answers or calls next()
+'   - Decorator: action() wraps every controller function with the shared error handling
+'   - Repository: all SQL for friendships lives in one module
+'   - Unit of work: withTransaction() runs a service's changes in one database transaction
+@startuml D1 Layered architecture
+title D1. Design classes: the API's layers (friends feature)
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam packageStyle rectangle
+hide empty members
+
+package "Presentation (HTTP)" {
+  class FriendRoutes <<module>> {
+    + GET /friends
+    + POST /friends/requests
+    + PUT /friends/requests/:id
+    + DELETE /friends/requests/:id
+    + DELETE /friends/:username
+    + GET /friends/leaderboard
+    + GET /people/:username
+  }
+  class AuthMiddleware <<module>> {
+    + authenticate(req, res, next) : void
+    + optionalAuthenticate(req, res, next) : void
+    + isSignedIn(req) : Promise<Boolean>
+  }
+  class RateLimitMiddleware <<module>> {
+    + rateLimit(rules : RateLimitRule [1..*]) : Handler
+    + consume(rule : RateLimitRule, key : String) : Promise<Integer [0..1]>
+  }
+  class ContentAvailabilityMiddleware <<module>> {
+    + enforceContentAvailability(req, res, next) : void
+    + contentKeysForPath(path : String) : String [0..*]
+  }
+  class AuthRoutes <<module>> {
+    + POST /auth/register
+    + POST /auth/login
+  }
+  class FriendController <<module>> {
+    + listFriends : Action
+    + sendRequest : Action
+    + respondToRequest : Action
+    + cancelRequest : Action
+    + removeFriend : Action
+    + getLeaderboard : Action
+    + getPublicProfile : Action
+  }
+  class ActionDecorator <<module>> {
+    + action(run : Action, fallback : Fallback [0..1]) : Action
+  }
+}
+
+package "Application (services)" {
+  class FriendService <<module>> {
+    + sendFriendRequest(userId : Integer, username : unknown) : Promise<Friendship>
+    + respondToFriendRequest(userId : Integer, requestId : unknown, accept : unknown) : Promise<Friendship>
+    + cancelFriendRequest(userId : Integer, requestId : unknown) : Promise<void>
+    + removeFriend(userId : Integer, username : unknown) : Promise<void>
+    + listFriends(userId : Integer) : Promise<FriendList>
+    + getLeaderboard(userId : Integer) : Promise<LeaderboardRow [0..*]>
+    + getPublicProfile(viewerId : Integer, username : unknown) : Promise<PublicProfile>
+    - change<T>(work : (notices, client) → T) : Promise<T>
+  }
+  class RealtimeService <<module>> {
+    + openStream(userId : Integer, res : Response) : void
+    + publish(userId : Integer, event : RealtimeEvent) : void
+    + closeStreams(userId : Integer) : void
+  }
+  class HttpError {
+    + status : Integer {readOnly}
+    + details : JSON {readOnly}
+    + body : JSON
+  }
+}
+
+package "Infrastructure (persistence)" {
+  class FriendshipRepository <<module>> {
+    + findLearnerByUsername(username : String) : Promise<LearnerRow [0..1]>
+    + lockPair(db : Queryable, a : Integer, b : Integer) : Promise<void>
+    + findPair(db : Queryable, a : Integer, b : Integer) : Promise<FriendshipRow [0..1]>
+    + savePendingRequest(db : Queryable, requesterId : Integer, addresseeId : Integer) : Promise<FriendshipRow>
+    + setFriendshipStatus(db : Queryable, id : Integer, status : FriendshipStatus) : Promise<void>
+    + deletePair(db : Queryable, a : Integer, b : Integer) : Promise<FriendshipRow [0..1]>
+    + countRecentRequests(userId : Integer, seconds : Integer) : Promise<Integer>
+    + listConnections(userId : Integer) : Promise<Connection [0..*]>
+  }
+  class Transaction <<module>> {
+    + withTransaction<T>(work : (client : PoolClient) → Promise<T>) : Promise<T>
+  }
+  class "Queryable" as Queryable <<type>> {
+    Pool | PoolClient
+  }
+  class PostgreSQL <<database>>
+}
+
+FriendRoutes ..> AuthMiddleware : 1. every request
+FriendRoutes ..> ContentAvailabilityMiddleware : 2. app-wide
+AuthRoutes ..> RateLimitMiddleware : register, log in,\npassword reset
+FriendRoutes ..> FriendController : 3. handler
+FriendController ..> ActionDecorator : each action wrapped by
+ActionDecorator ..> HttpError : turns into an HTTP answer
+FriendController ..> FriendService
+FriendService ..> HttpError : throws
+FriendService ..> Transaction : unit of work
+FriendService ..> FriendshipRepository
+FriendService ..> RealtimeService : after commit, tell both learners
+FriendshipRepository ..> Queryable
+Transaction ..> PostgreSQL
+FriendshipRepository ..> PostgreSQL
+
+note bottom of FriendService
+  Business rules live here: not yourself, respects the other learner's
+  friend-request setting, 20 requests an hour, 50 waiting, 500 friends,
+  a day's wait after a decline. Live updates go out only after the commit.
+end note
+@enduml

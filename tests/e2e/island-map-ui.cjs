@@ -1,4 +1,4 @@
-// The island map (/map): fog over islands a learner has not reached, clearing with progress; the island panel
+// The island map, the home page (/; the old /map address redirects there): fog over islands a learner has not reached, clearing with progress; the island panel
 // (destinations, fog hint with the next step, Home stats), Esc and keyboard use; one screen on a laptop and a phone;
 // the night palette; a failed progress request opens every island; links to and from the dashboard. Fixture API.
 //   node island-map-ui.cjs <baseUrl> <shotsDir>
@@ -55,7 +55,8 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
 
     // ---- A new learner: only Home, Lessons and Kana are clear; the fog explains itself and points to the next lesson
     let { context, page, errors, map } = await run({ width: 1366, height: 768 }, { units: [unit(1, 0)] });
-    await page.goto(`${base}/map`);
+    // The old address still finds the map, which is now the home page.
+    await page.goto(`${base}/map`); await page.waitForURL(url => url.pathname === "/");
     await page.getByRole("heading", { name: "Island map" }).waitFor();
     await island(map, "Lessons").waitFor();
     await expectFogged(page, map, FOGGED);
@@ -130,16 +131,16 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
 
     // ---- Progress clears the fog: three lessons open Games; a completed unit opens Kanji
     ({ context, page, errors, map } = await run({ width: 1366, height: 768 }, { units: [unit(1, 3)] }));
-    await page.goto(`${base}/map`); await island(map, "Lessons").waitFor();
+    await page.goto(`${base}/`); await island(map, "Lessons").waitFor();
     await expectFogged(page, map, ["Kanji"]);
     await context.close();
     ({ context, page, errors, map } = await run({ width: 1366, height: 768 }, { units: [unit(1, 4), unit(2, 0)] }));
-    await page.goto(`${base}/map`); await island(map, "Lessons").waitFor();
+    await page.goto(`${base}/`); await island(map, "Lessons").waitFor();
     await page.getByText("Lv 3").waitFor(); await page.waitForTimeout(300);
     await expectFogged(page, map, []);
     // The dashboard links to the map, and the map back to the dashboard.
-    await page.getByRole("link", { name: "Classic dashboard" }).first().click(); await page.waitForURL(`${base}/`);
-    await page.getByRole("link", { name: "Island map" }).click(); await page.waitForURL("**/map");
+    await page.getByRole("link", { name: "Classic dashboard" }).first().click(); await page.waitForURL(`${base}/dashboard`);
+    await page.getByRole("link", { name: "Island map" }).click(); await page.waitForURL(url => url.pathname === "/");
     await island(map, "Lessons").waitFor();
     assert.deepEqual(errors, []); await context.close();
 
@@ -147,7 +148,7 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
     //      and "Follow my clock" returns to the clock. One screen, the panel as a bottom sheet.
     const seaTop = map => map.evaluate(element => getComputedStyle(element).getPropertyValue("--sea-top").trim());
     ({ context, page, errors, map } = await run({ width: 390, height: 844 }, { units: [unit(1, 0)], theme: "dark", hour: 12 }));
-    await page.goto(`${base}/map`); await island(map, "Kana").waitFor();
+    await page.goto(`${base}/`); await island(map, "Kana").waitFor();
     assert.equal(await page.evaluate(() => document.documentElement.classList.contains("dark")), true);
     assert.equal(await map.getAttribute("data-time"), "day", "the site's dark theme does not change the map");
     await fitsScreen(page, "phone map");
@@ -171,7 +172,7 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
     // ---- The map follows the learner's clock: dawn 5–8, day 8–16, dusk 16–18, night otherwise
     for (const [hour, mood, seaTop] of [[6, "dawn", "#f7e7df"], [12, "day", "#e2f3f2"], [17, "dusk", "#f8d8b6"], [21, "night", "#131a26"]]) {
       ({ context, page, errors, map } = await run({ width: 1366, height: 768 }, { units: [unit(1, 0)], hour }));
-      await page.goto(`${base}/map`); await island(map, "Lessons").waitFor();
+      await page.goto(`${base}/`); await island(map, "Lessons").waitFor();
       assert.equal(await map.getAttribute("data-time"), mood, `${hour}:30 is ${mood}`);
       assert.equal(await map.evaluate(element => getComputedStyle(element).getPropertyValue("--sea-top").trim()), seaTop, `${mood} sea`);
       if (mood === "dusk") await page.screenshot({ path: `${shots}/island-map-dusk.png` });
@@ -180,7 +181,7 @@ const friends = { friends: [friend("Yui", { level: 4, currentStreak: 3, activeTo
 
     // ---- Progress fails to load: the map says so and opens every island
     ({ context, page, errors, map } = await run({ width: 1366, height: 768 }, { units: null }));
-    await page.goto(`${base}/map`);
+    await page.goto(`${base}/`);
     await page.getByRole("status").filter({ hasText: "every island is open" }).waitFor();
     await expectFogged(page, map, []);
     await context.close();

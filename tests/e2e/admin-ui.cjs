@@ -54,10 +54,10 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     // A learner who signs in gets no Admin link and is refused by the page itself.
     role = 'learner';
     await page.getByLabel('Email or username').fill('kai'); await page.getByLabel('Password', { exact: true }).fill('x'); await page.getByRole('button', { name: 'Sign in' }).click();
-    await heading('Your path').waitFor();
+    await heading('Island map').waitFor();
     assert.equal(await page.getByRole('button', { name: /Admin$/ }).count(), 0);
     await page.goto(base + '/admin'); await heading('Administrator access required').waitFor();
-    await page.getByRole('link', { name: 'Return to learning' }).click(); await heading('Your path').waitFor();
+    await page.getByRole('link', { name: 'Return to learning' }).click(); await heading('Island map').waitFor();
 
     // An administrator gets the link, the dashboard and the sidebar.
     role = 'admin';
@@ -134,7 +134,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     assert.equal(await page.getByRole('link', { name: /Open learner page/ }).count(), 0);
     await page.getByRole('button', { name: 'Log out' }).click(); await page.waitForURL('**/login');
     assert.equal(await page.evaluate(() => localStorage.getItem('token')), null);
-    role = 'learner'; await signIn(); await heading('Your path').waitFor();
+    role = 'learner'; await signIn(); await heading('Island map').waitFor();
     await page.getByText('📣 Maintenance tonight at 22:00').waitFor();
     for (const [path, title] of [['/vocabulary', 'Japanese vocabulary & flashcards'], ['/learn/kanji', 'Kanji learning & flashcards'], ['/learn/kanji/kanji-65e5', 'Kanji learning & flashcards'], ['/lessons/japanese/n5-unit-1-hello', 'How to Say Hello']]) {
       await page.goto(base + path); await heading('Temporarily unavailable').waitFor(); await page.getByText(`${title} has been switched off`).waitFor();
@@ -148,12 +148,12 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     role = 'admin'; await signIn(); await heading('Overview').waitFor();
     await page.goto(base + '/admin/content');
     await page.locator('article').filter({ hasText: 'Japanese vocabulary & flashcards' }).getByRole('button', { name: 'Enable' }).click(); await page.getByText('is now available.').waitFor();
-    role = 'learner'; await signIn(); await heading('Your path').waitFor();
+    role = 'learner'; await signIn(); await heading('Island map').waitFor();
     await page.goto(base + '/vocabulary'); await heading('Vocabulary').waitFor();
     // A demoted administrator with a stale stored role is not trapped in a redirect loop.
     await page.evaluate(() => localStorage.setItem('user_role', 'admin')); await page.goto(base + '/');
     await heading('Administrator access required').waitFor();
-    await page.getByRole('link', { name: 'Return to learning' }).click(); await heading('Your path').waitFor();
+    await page.getByRole('link', { name: 'Return to learning' }).click(); await heading('Island map').waitFor();
     role = 'admin'; await signIn(); await heading('Overview').waitFor();
     await page.goto(base + '/admin/nope'); await heading('Page not found').waitFor();
     await page.setViewportSize({ width: 390, height: 844 });

@@ -53,7 +53,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     // ---- A learner sees it after signing in, and it goes away on logout even on the same page.
     await signIn('learner'); await banner('New N4 units are out!').waitFor();
     await page.screenshot({ path: shots + '/announce-learner.png' });
-    await page.goto(base + '/'); await banner('New N4 units are out!').waitFor();
+    await page.goto(base + '/dashboard'); await banner('New N4 units are out!').waitFor();
     await page.getByRole('button', { name: 'Logout' }).click(); await page.waitForTimeout(500);
     assert.equal(await banner('New N4 units').count(), 0, 'gone after logging out on the same address');
 

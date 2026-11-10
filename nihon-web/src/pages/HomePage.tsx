@@ -1,9 +1,13 @@
+import { lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import GuestLandingPage from "./GuestLandingPage";
-import JapaneseDashboard from "./JapaneseDashboard";
+import LoadingPage from "../components/LoadingPage";
 import { useLanguage } from "../context/LanguageContext";
 import { hasSession } from "../lib/authStorage";
+
+// The island map is the Japanese learner's home page; the dashboard is a step off it, at /dashboard.
+const IslandMapPage = lazy(() => import("./IslandMapPage"));
 
 export default function HomePage() {
   return hasSession() ? <LearnerHome /> : <GuestLandingPage />;
@@ -14,7 +18,7 @@ function LearnerHome() {
   const { language } = useLanguage();
 
   const isJapanese = language === "japanese";
-  if (isJapanese) return <JapaneseDashboard />;
+  if (isJapanese) return <Suspense fallback={<LoadingPage label="Loading map…" />}><IslandMapPage /></Suspense>;
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">

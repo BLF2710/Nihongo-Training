@@ -32,7 +32,7 @@ export default function SiteGate({ children }: { children: ReactNode }) {
       <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
         <h1 className="text-2xl font-black text-gray-900">Temporarily unavailable</h1>
         <p className="mt-3 text-gray-600">{unavailable.title} has been switched off by an administrator. Your progress is saved and will be here when it returns.</p>
-        <Link to="/" className="mt-6 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Return to dashboard</Link>
+        <Link to="/dashboard" className="mt-6 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Return to dashboard</Link>
       </section>
     </main></div> : children}
   </>;

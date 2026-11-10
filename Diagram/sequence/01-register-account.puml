@@ -55,7 +55,7 @@ note right of Mailer : «Strategy» chosen by\nmailerFromConfig():\nSMTP in prod
 Mailer -> Email : SMTP
 Svc --> Ctrl : session token
 Ctrl --> Web : 201 { token, user }
-Web --> Guest : signed in → dashboard
+Web -> Web : open sign in with "Your account is ready. Sign in to start learning…"
 
 == Later: the email link ==
 Guest -> Web : open confirmation link
@@ -64,5 +64,5 @@ Ctrl -> Sec : verifyEmail(token)
 Sec -> Repo : token valid, unused, newest? → mark used, address confirmed
 Repo -> DB : UPDATE
 Ctrl --> Web : confirmed
-Web --> Guest : "Email confirmed"
+Web -> Web : show "Email confirmed"
 @enduml

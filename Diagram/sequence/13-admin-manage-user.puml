@@ -1,0 +1,88 @@
+' 13. Admin manages a user (change role / suspend, audit log)
+' Use cases: Edit user accounts, Manage user roles, Suspend user accounts, View audit log (Manage users) · Actor: Admin
+' Secondary: the suspended Learner
+'
+' Design patterns:
+'   - Chain of responsibility: authenticate → requireAdmin on every admin route (routes/admin.routes.ts,
+'     middleware/admin.middleware.ts)
+'   - Decorator: action() wraps the controller with shared error handling (utils/action.ts)
+'   - Unit of work: the change and its audit log entries are one transaction, with row locks so two admins can never
+'     remove the last active administrator between them (services/admin.service.ts updateUser, withTransaction)
+'   - Repository: users and audit log SQL in repositories/user.repository.ts, audit-log.repository.ts
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 13 Admin manages a user
+title 13. Admin manages a user (change role / suspend, audit log)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Admin
+boundary "Admin web app" as AdminWeb
+control "Middleware chain\n(authenticate → requireAdmin)" as MW
+control "Admin controller" as Ctrl
+control "Admin service" as Svc
+entity "Repository" as Repo
+database "Database" as DB
+boundary "Web app" as Web
+actor Learner
+
+Admin -> AdminWeb : open Users, search a name
+AdminWeb -> MW : GET /api/admin/users?search=…
+MW -> Repo : token valid? account is an active admin?
+alt not an active admin
+  MW --> AdminWeb : 403 "Administrator access is required."
+end
+MW -> Ctrl : listUsers()
+Ctrl -> Repo : users matching the search (page)
+Repo -> DB : SELECT …
+Ctrl --> AdminWeb : users list
+
+Admin -> AdminWeb : edit a user: role, status (suspend), username, email → Save
+AdminWeb -> MW : PATCH /api/admin/users/:id
+MW -> Ctrl : updateUser()
+Ctrl -> Svc : updateUser(adminId, id, edit)
+Svc -> Svc : valid username, email, role, status?
+alt invalid
+  Svc --> AdminWeb : 400 "Enter a valid username, email, role, and status."
+else editing yourself and it would remove your admin access or suspend you
+  Svc --> AdminWeb : 409 "You cannot remove your own administrator access…"
+end
+group «Unit of work» withTransaction()
+  Svc -> Repo : lock administrator changes; still an active admin?
+  Svc -> Repo : lock the user's role and status
+  alt user not found
+    Svc --> AdminWeb : 404 "User not found."
+  else the last active admin would lose access
+    Svc --> AdminWeb : 409 "At least one active administrator must remain."
+  end
+  Svc -> Repo : update the account
+  Repo -> DB : UPDATE users …
+  alt username or email already used
+    Svc --> AdminWeb : 409 "That username or email is already in use."
+  end
+  loop each change (suspended / reactivated, role changed, details changed)
+    Svc -> Repo : audit log entry (admin, user, action, from → to)
+    Repo -> DB : INSERT audit_log …
+  end
+end
+Ctrl --> AdminWeb : updated user
+AdminWeb -> AdminWeb : show the new role / status in the row
+
+opt the learner was suspended
+  Learner -> Web : any action (next request)
+  Web -> MW : any /api request with the old token
+  MW -> Repo : account status
+  MW --> Web : 403 "This account is inactive"
+  Web -> Web : show the error (signing in again is refused while suspended)
+end
+
+Admin -> AdminWeb : open Audit log
+AdminWeb -> MW : GET /api/admin/audit-log?action=…&user=…
+MW -> Ctrl : listAuditLog() (moderation controller)
+Ctrl -> Repo : entries matching the filters (newest first)
+Repo -> DB : SELECT …
+Ctrl --> AdminWeb : entries
+AdminWeb -> AdminWeb : show who changed what, and when
+@enduml

@@ -1,0 +1,65 @@
+' 15. Learner views statistics (overview loaded once, tabs)
+' Use cases: View Japanese statistics, View study time per day, View lessons per week, View test results,
+'   View Hiragana / Katakana accuracy (View statistics, Track learning progress) · Actor: Learner
+'
+' Design patterns:
+'   - Facade: getLearningOverview() is one entry point over a dozen repositories (study time, goals, lessons,
+'     assessments, kanji, reviews, mistakes, mock exams, practice, speaking), queried in parallel
+'     (services/learning-statistics.service.ts)
+'   - Decorator: action() wraps the controller with shared error handling (utils/action.ts)
+'   - Repository
+'   - Loaded once, shared by the tabs: useLearningOverview() fetches the overview when the page opens; switching
+'     between Overview, Tests and Practice only changes the address and redraws from that data (web lib/learningOverview.ts)
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 15 View statistics
+title 15. Learner views statistics (overview loaded once, tabs)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app\n(Statistics page)" as Web
+control "Statistics controller" as Ctrl
+control "Learning statistics\nservice" as Svc
+control "Kana statistics\nservice" as Kana
+entity "Repository" as Repo
+database "Database" as DB
+
+note over Web, Ctrl : every request goes through authenticate first (not drawn)
+
+Learner -> Web : open Statistics (/statistics/japanese/overview)
+par overview
+  Web -> Ctrl : GET /api/statistics/overview
+  Ctrl -> Svc : getLearningOverview(userId)
+  group «Facade», queried in parallel (Promise.all)
+    Svc -> Repo : study seconds per day (30 days), daily goal
+    Svc -> Repo : lessons completed, lessons per week
+    Svc -> Repo : assessment results, mock exam results
+    Svc -> Repo : kanji mastery, review deck summary, reviews per day
+    Svc -> Repo : mistakes, practice sessions, speaking by level
+    Repo -> DB : SELECT … (one query each)
+  end
+  Svc -> Svc : totals: time studied, days the goal was met
+  Ctrl --> Web : overview
+else kana
+  Web -> Ctrl : GET /api/statistics
+  Ctrl -> Kana : getStatistics(userId)
+  Kana -> Repo : hiragana and katakana answers per character
+  Repo -> DB : SELECT …
+  Ctrl --> Web : accuracy and mastery per character
+end
+alt a request fails
+  Web -> Web : show "Your learning statistics could not be loaded." + Try again
+else
+  Web -> Web : show Overview: study time chart, lessons per week, goal days
+end
+
+Learner -> Web : Tests tab (/statistics/japanese/tests)
+note right of Web : no request: drawn from the overview\nalready loaded
+Web -> Web : show assessment and mock exam results (chart, or as a table)
+
+Learner -> Web : Kana tab → filter "learning", open a character
+Web -> Web : show the character's accuracy, attempts and status
+@enduml

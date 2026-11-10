@@ -33,7 +33,7 @@ Web -> Ctrl : GET /api/lessons/:lessonId/access
 Ctrl -> Repo : previous lesson done? unit unlocked? level reached?
 alt locked
   Ctrl --> Web : 403 + reasons
-  Web --> Learner : "Lesson locked"
+  Web -> Web : show "Lesson locked"
 end
 Ctrl --> Web : allowed
 Learner -> Web : vocabulary → concept → conversation → practice → challenge (in the browser)
@@ -61,7 +61,7 @@ end
 Notif -> DB : save notifications
 Notif -> Web : «Observer» publish → bell updates in every open tab
 Ctrl --> Web : completion, achievements, reward
-Web --> Learner : "+XP" pop-up, level up / achievement
+Web -> Web : show "+XP" pop-up, level up / achievement
 Web -> Ctrl : POST /api/mistakes/lessons/:lessonId (challenge answers)
 note right of Web : wrong answers go to\nthe mistake notebook
 @enduml

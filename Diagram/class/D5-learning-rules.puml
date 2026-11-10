@@ -1,0 +1,123 @@
+' D5. Design classes: question types, spaced repetition and rewards
+' Source: nihon-api/src services/question-types.ts, services/question-bank.service.ts, services/unit-review.service.ts,
+' learning/srsScheduler.ts, services/srs.service.ts, gamification/xpRules.ts, gamification/achievementRules.ts,
+' services/xp.service.ts, services/gamification.service.ts, services/notification.service.ts
+'
+' Design patterns:
+'   - Strategy + registry (open/closed): each question type is one object with parse / present / grade / describe,
+'     registered in QUESTION_TYPES; a new type is a new entry, with no switch statements to change
+'   - Pure domain functions: scheduleReview() (SM-2 style) and measureAchievements() take values and return values,
+'     with no database, so they are unit-tested directly
+'   - Rules as data: XP amounts and daily caps, and achievement goals, are tables in code
+'   - Facade: rewardActivity() is one call for "this activity happened": XP, level, rank, achievements, notifications
+@startuml D5 Learning rules
+title D5. Design classes: question types, spaced repetition and rewards
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam packageStyle rectangle
+hide empty members
+
+package "Question bank" {
+  interface "QuestionType<Content>" as QuestionType {
+    + parse(input : JSON) : Content [0..1]
+    + present(content : Content) : PresentedQuestion
+    + grade(content : Content, answer : unknown) : Graded [0..1]
+    + describe(content : Content, answer : unknown) : AnsweredQuestion
+  }
+  class MultipleChoice <<strategy>> {
+    content : { prompt, options [2..6], correctIndex, explanation [0..1] }
+  }
+  class WordMatch <<strategy>> {
+    content : { prompt [0..1], pairs [1..*] }
+  }
+  class WordScramble <<strategy>> {
+    content : { answer, hint }
+  }
+  class QuestionTypeRegistry <<module>> {
+    + QUESTION_TYPES : Map<BankQuestionType, QuestionType>
+    + questionType(type : BankQuestionType) : QuestionType
+    + isQuestionType(value : unknown) : Boolean
+  }
+  class QuestionBankService <<service>> {
+    + addQuestion(adminId, input) : Promise<BankQuestion>
+    + editQuestion(adminId, id, input) : Promise<BankQuestion>
+    + removeQuestion(adminId, id) : Promise<void>
+  }
+  class UnitReviewService <<service>> {
+    + getReviewQuestions(userId, unitId) : Promise<PresentedQuestion [0..*]>
+    + checkReviewAnswer(userId, unitId, questionId, answer) : Promise<Graded>
+  }
+  MultipleChoice ..|> QuestionType
+  WordMatch ..|> QuestionType
+  WordScramble ..|> QuestionType
+  QuestionTypeRegistry o--> "3" QuestionType
+  QuestionBankService ..> QuestionTypeRegistry : parse (admin input)
+  UnitReviewService ..> QuestionTypeRegistry : present, grade
+  note bottom of QuestionType : present() never includes the answer
+}
+
+package "Spaced repetition" {
+  class SrsScheduler <<module>> {
+    + NEW_CARD : CardState
+    + scheduleReview(card : CardState, grade : SrsGrade, now : DateTime) : ScheduledCard
+    + previewIntervals(card : CardState, now : DateTime) : Map<SrsGrade, Number>
+  }
+  class CardState <<value>> {
+    + ease : Number {1.3..3.5}
+    + intervalDays : Number {≤ 365}
+    + repetitions : Integer
+    + lapses : Integer
+  }
+  class SrsService <<service>> {
+    + enrollItems(userId, items) : Promise<void>
+    + getQueue(userId, options) : Promise<SrsCard [0..*]>
+    + reviewCard(userId, input) : Promise<ReviewResult>
+    + getDeck(userId) : Promise<DeckCard [0..*]>
+    + setCardSuspended(userId, itemType, itemId, suspended) : Promise<void>
+  }
+  SrsScheduler ..> CardState
+  SrsService ..> SrsScheduler
+}
+
+package "Rewards" {
+  class XpRules <<module>> {
+    + XP_RULES : Map<ActivitySource, XpRule>
+    + cappedAmount(source, amount, earnedToday) : Integer
+  }
+  class AchievementRules <<module>> {
+    + ACHIEVEMENT_RULES : AchievementRule [1..*]
+    + measureAchievements(facts : AchievementFacts) : AchievementProgress [0..*]
+  }
+  class XpService <<service>> {
+    + awardXP(userId, amount, source, referenceId, transaction [0..1]) : Promise<XpAward>
+  }
+  class GamificationService <<service>> {
+    + rewardActivity(userId, source, referenceId) : Promise<Reward [0..1]>
+    + rewardActivities(userId, rewards : ActivityReward [1..*]) : Promise<Reward [0..1]>
+    + getGamificationSummary(userId) : Promise<Summary>
+    - celebrate(userId, awards) : Promise<Reward>
+  }
+  class Reward <<value>> {
+    + xpEarned : Integer
+    + xp : Integer
+    + level : Integer
+    + leveledUp : Boolean
+    + rank : String
+    + rankedUp : Boolean
+    + achievements : Achievement [0..*]
+  }
+  class NotificationService <<service>> {
+    + notifyAchievement(userId, achievement) : Promise<void>
+    + notifyLevelUp(userId, level : Integer) : Promise<void>
+  }
+  GamificationService ..> XpService
+  XpService ..> XpRules : daily caps
+  GamificationService ..> AchievementRules
+  GamificationService ..> NotificationService : level up, new badge
+  GamificationService ..> Reward : returns
+}
+
+class "LessonCompletionService, AssessmentService,\nSpeakingTestService, MockExamService …" as Activities <<service>>
+Activities ..> GamificationService : rewardActivity()
+SrsService ..> GamificationService
+@enduml

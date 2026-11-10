@@ -62,5 +62,5 @@ group «Unit of work» withTransaction()
 end
 Svc -> Svc : reward "speaking_test" (XP)
 Ctrl --> Web : result
-Web --> Learner : score, band, feedback, "+XP"
+Web -> Web : show score, band, feedback, "+XP"
 @enduml

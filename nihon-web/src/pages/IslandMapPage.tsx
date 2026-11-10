@@ -1,6 +1,6 @@
 import { useVillageShortcuts } from "../lib/village/useVillageShortcuts";
-import { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import type { ReactNode, RefObject } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { IslandLand, IslandWater } from "../components/islandMap/IslandArt";
@@ -19,9 +19,11 @@ import { parseGrowthMemory, rememberGrowth } from "../lib/islandGrowthMemory";
 import { GAME_KINDS, islandGrowth, sessionsOf, spreadStage } from "../lib/islandGrowth";
 import type { GrowthFacts } from "../lib/islandGrowth";
 import "../components/islandMap/IslandMap.css";
+import { IslandLabel, Placed } from "../components/islandMap/MapStage";
+import { islandLayer, MAP_LAYER, stageSize, useElementSize } from "../components/islandMap/stageLayout";
 import { COURSE_LEVELS, inLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
-import { backdropCamera, BRIDGED_ISLANDS, bridgeDirections, cameraTransform, climbProgress, homeIsletDirection, courseProgress, drawingScale, islandState, ISLANDS, isBehindHome, layoutFor, nextCourseStep } from "../lib/islandMap";
+import { backdropCamera, BRIDGED_ISLANDS, bridgeDirections, cameraTransform, climbProgress, homeIsletDirection, courseProgress, islandState, ISLANDS, isBehindHome, layoutFor, nextCourseStep } from "../lib/islandMap";
 import type { IslandId, IslandPlacement, MapLayout, Point, Size } from "../lib/islandMap";
 import { useEmailReminder } from "../lib/emailReminder";
 import { pagodaFinialTop } from "../lib/pagoda";
@@ -32,30 +34,7 @@ const CAMERA_ZOOM = 1.7;
 // Where the chosen island comes to rest: left of the side panel on wide screens, above the bottom sheet on phones.
 const CAMERA_TARGET_LANDSCAPE = { x: 0.33, y: 0.5 };
 const CAMERA_TARGET_PORTRAIT = { x: 0.5, y: 0.27 };
-// Islands are drawn in depth order: water first, then land further back, bridges, Home, nearer land, and labels on top.
-// A bridge is over the island behind Home it leads to and under Home, and over Home and under an island in front.
-const LAYER = { water: 1, boat: 2, landBehind: 3, bridgesBehind: 4, home: 5, bridgesFront: 6, landFront: 7, traveller: 8, labels: 9, pigeon: 10 } as const;
-// Where a label sits below an island's anchor, in island-drawing units (just under the front shore).
-const LABEL_DROP = 62;
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--vermilion)]";
-
-function useElementSize(ref: RefObject<HTMLElement | null>): Size {
-  const [size, setSize] = useState<Size>({ width: 0, height: 0 });
-  useLayoutEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    const observer = new ResizeObserver(([entry]) => setSize({ width: entry.contentRect.width, height: entry.contentRect.height }));
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [ref]);
-  return size;
-}
-
-/** The largest stage of the layout's aspect that fits the space. */
-function stageSize(space: Size, layout: MapLayout): Size {
-  const width = Math.min(space.width, space.height * layout.aspect);
-  return { width, height: width / layout.aspect };
-}
 
 export default function IslandMapPage() {
   useVillageShortcuts("map");
@@ -184,14 +163,14 @@ export default function IslandMapPage() {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: stage.width, height: stage.height }}>
         <div className="island-camera absolute inset-0" style={{ transform: camera }} onClick={event => { if (event.target === event.currentTarget) setSelectedId(null); }}>
           <MapScenery layout={layout} stage={stage} />
-          {ISLANDS.map(island => <Placed key={island.id} layout={layout} place={layout.placements[island.id]} layer={LAYER.water}><IslandWater id={island.id} /></Placed>)}
+          {ISLANDS.map(island => <Placed key={island.id} layout={layout} place={layout.placements[island.id]} layer={MAP_LAYER.water}><IslandWater id={island.id} /></Placed>)}
           <BridgeReflections layout={layout} />
-          <Bridges layout={layout} ids={behindIds} isOpen={isOpen} style={{ zIndex: LAYER.bridgesBehind }} />
-          <Bridges layout={layout} ids={frontIds} isOpen={isOpen} style={{ zIndex: LAYER.bridgesFront }} />
+          <Bridges layout={layout} ids={behindIds} isOpen={isOpen} style={{ zIndex: MAP_LAYER.bridgesBehind }} />
+          <Bridges layout={layout} ids={frontIds} isOpen={isOpen} style={{ zIndex: MAP_LAYER.bridgesFront }} />
           <ul aria-label="Islands">
             {ISLANDS.map(island => {
               const isFogged = !isOpen(island.id);
-              const layer = island.id === "home" ? LAYER.home : !island.isBridged || isBehindHome(layout, island.id) ? LAYER.landBehind : LAYER.landFront;
+              const layer = islandLayer(layout, island);
               return <Placed key={island.id} as="li" layout={layout} place={layout.placements[island.id]} layer={layer} isInteractive>
                 <button type="button" ref={element => { if (element) islandRefs.current.set(island.id, element); else islandRefs.current.delete(island.id); }}
                   onClick={() => { setIsLetterOpen(false); setSelectedId(current => current === island.id ? null : island.id); }}
@@ -205,8 +184,8 @@ export default function IslandMapPage() {
               </Placed>;
             })}
           </ul>
-          <div className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.traveller }}><MapTraveller layout={layout} stage={stage} destination={selectedId} /></div>
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.labels }}>
+          <div className="pointer-events-none absolute inset-0" style={{ zIndex: MAP_LAYER.traveller }}><MapTraveller layout={layout} stage={stage} destination={selectedId} /></div>
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ zIndex: MAP_LAYER.labels }}>
             {ISLANDS.map(island => <IslandLabel key={island.id} layout={layout} id={island.id} isFogged={!isOpen(island.id)} badge={badgeOf(island.id)} />)}
           </div>
           <PigeonPost ref={pigeonRef} layout={layout} stage={stage} islands={openIslands} lessonsStage={stageOf("lessons")} hasMail={hasMail} isExpanded={isLetterOpen} onOpen={openLetter} />
@@ -230,26 +209,8 @@ function MapHud({ streak, level, hasProgressError }: { streak: number | null; le
       {level !== null && <p className={chip}>Lv {level}<span className="sr-only">, your level</span></p>}
       {hasProgressError && <p role="status" className={`${chip} font-normal`}>Progress could not be loaded, so every island is open.</p>}
     </div>
-    <Link to="/" className={`pointer-events-auto ${chip} hover:bg-white ${focus}`}>Classic dashboard</Link>
+    <Link to="/dashboard" className={`pointer-events-auto ${chip} hover:bg-white ${focus}`}>Classic dashboard</Link>
   </div>;
-}
-
-/** Puts an island-sized drawing at its placement: anchored at the island's centre, in its depth layer. */
-function Placed({ layout, place, layer, as: Tag = "div", isInteractive = false, children }: { layout: MapLayout; place: IslandPlacement; layer: number; as?: "div" | "li"; isInteractive?: boolean; children: ReactNode }) {
-  return <Tag className={`absolute -translate-x-1/2 -translate-y-[71%] ${isInteractive ? "" : "pointer-events-none"}`} style={{ left: `${place.x * 100}%`, top: `${place.y * 100}%`, width: `${layout.islandWidth * place.scale * 100}%`, zIndex: layer }}>{children}</Tag>;
-}
-
-function IslandLabel({ layout, id, isFogged, badge }: { layout: MapLayout; id: IslandId; isFogged: boolean; badge: string | null }) {
-  const island = ISLANDS.find(item => item.id === id);
-  const place = layout.placements[id];
-  if (!island) return null;
-  return <span className="absolute inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-md border-2 border-[var(--ink)] bg-[var(--paper)] px-2 py-0.5 text-xs font-bold text-[var(--ink)] shadow-sm sm:text-sm"
-    style={{ left: `${place.x * 100}%`, top: `${place.y * 100 + LABEL_DROP * drawingScale(layout, place)}%` }}>
-    <span lang="ja" className="text-[var(--vermilion)]">{island.mark}</span>
-    {island.name}
-    {isFogged && <span className="font-normal opacity-70 max-sm:hidden">· in fog</span>}
-    {badge && <span className="rounded-full bg-[var(--vermilion)] px-1.5 text-xs text-white">{badge}</span>}
-  </span>;
 }
 
 /** The sky (sun, clouds, cranes) covers the whole map area, so it follows the islands' camera in pixels. */
@@ -269,7 +230,7 @@ const PigeonPost = forwardRef<HTMLButtonElement, PigeonPostProps>(function Pigeo
   const tour = useMemo(() => pixelsPerUnit > 0 ? pigeonTour({ layout, islands, pixelsPerUnit, perches: { lessons: pagodaFinialTop(lessonsStage) } }) : null,
     [layout, islands, pixelsPerUnit, lessonsStage]);
   if (!tour) return null;
-  return <div className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.pigeon }}>
+  return <div className="pointer-events-none absolute inset-0" style={{ zIndex: MAP_LAYER.pigeon }}>
     <CarrierPigeon ref={ref} tour={tour} width={pigeonWidth(layout, pixelsPerUnit)} hasMail={hasMail} isExpanded={isExpanded} onOpen={onOpen} />
   </div>;
 });
@@ -279,7 +240,7 @@ function MapScenery({ layout, stage }: { layout: MapLayout; stage: Size }) {
   const { boatRoute, fishingBoat, lanterns } = layout.scenery;
   const pixelsPerUnit = stage.height / 100;
   const at = (point: Point) => ({ left: `${(point.x / (layout.aspect * 100)) * 100}%`, top: `${point.y}%` });
-  return <div className="pointer-events-none absolute inset-0" style={{ zIndex: LAYER.boat }}>
+  return <div className="pointer-events-none absolute inset-0" style={{ zIndex: MAP_LAYER.boat }}>
     {boatRoute && pixelsPerUnit > 0 && <SailingBoat route={smoothOpenPath(boatRoute.map(point => ({ x: point.x * pixelsPerUnit, y: point.y * pixelsPerUnit })))} />}
     {fishingBoat && <div className="absolute" style={at(fishingBoat)}><FishingBoat /></div>}
     {lanterns.map((point, index) => <div key={`${point.x},${point.y}`} className="absolute" style={{ ...at(point), animationDelay: `${-index * 3}s` }}><FloatingLantern /></div>)}

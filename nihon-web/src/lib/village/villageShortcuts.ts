@@ -1,12 +1,12 @@
 // Keys between the village square and the pages it opens, like a game's menu and map keys: Tab opens the dashboard and
-// M the island map, and the same key again goes back to the square. Pure, so it runs under node.
+// M the island map (the home page), and the same key again goes back to the square. Pure, so it runs under node.
 
 export type ShortcutPlace = "village" | "dashboard" | "map";
 export const VILLAGE_PATH = "/village";
 
 /** Physical keys, so they work the same on any keyboard layout. */
 const SHORTCUT_PATHS: Readonly<Record<ShortcutPlace, Readonly<Record<string, string>>>> = {
-  village: { Tab: "/", KeyM: "/map" },
+  village: { Tab: "/dashboard", KeyM: "/" },
   dashboard: { Tab: VILLAGE_PATH },
   map: { KeyM: VILLAGE_PATH },
 };

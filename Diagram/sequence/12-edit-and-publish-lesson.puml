@@ -54,7 +54,7 @@ Learner -> LearnerWeb : open the site
 LearnerWeb -> Ctrl : GET /api/site/lesson-edits
 Ctrl --> LearnerWeb : published edits
 LearnerWeb -> LearnerWeb : apply edits to every lesson page, keep a copy for offline
-LearnerWeb --> Learner : lesson shows the new text
+LearnerWeb -> LearnerWeb : show the lesson with the new text
 
 opt Restore original
   Admin -> AdminWeb : Restore original

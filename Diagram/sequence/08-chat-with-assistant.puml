@@ -51,5 +51,5 @@ group «Unit of work» withTransaction()
   Repo -> DB : INSERT …
 end
 Ctrl --> Web : answer
-Web --> Learner : show the answer
+Web -> Web : show the answer
 @enduml

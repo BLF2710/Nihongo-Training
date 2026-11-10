@@ -42,7 +42,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     const choice = name => page.getByRole('button', { name, exact: true });
 
     // Entry points: dashboard cards and the existing sidebar.
-    await page.goto(base + '/'); await heading('Your path').waitFor();
+    await page.goto(base + '/dashboard'); await heading('Your path').waitFor();
     for (const href of ['/listening', '/speaking']) assert.equal(await page.locator(`main a[href="${href}"]`).count(), 1);
     await page.getByRole('button', { name: 'Toggle navigation sidebar' }).click();
     await page.locator('aside').getByRole('button', { name: /Listening$/ }).click(); await heading('Listening').waitFor();

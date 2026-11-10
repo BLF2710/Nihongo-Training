@@ -1,0 +1,68 @@
+/* A clipboard: a hardboard backing with a metal clip at the top, holding a ruled sheet of paper. The board and clip
+   keep their colours in both themes; the paper follows the theme (white by day, the dark surface by night) so the
+   text and fields on it keep the theme's contrast. */
+.clipboard {
+  --board: #a8743f;
+  --board-dark: #8a5a2b;
+  --clip-light: #f1f3f5;
+  --clip-dark: #8d939b;
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 2.5rem 0.75rem 0.75rem;
+  background:
+    repeating-linear-gradient(97deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 9px),
+    repeating-linear-gradient(83deg, rgba(0, 0, 0, 0.05) 0 1px, transparent 1px 13px),
+    linear-gradient(160deg, var(--board), var(--board-dark));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 18px 40px -18px rgba(60, 35, 10, 0.55);
+}
+.dark .clipboard { --board: #6e4a28; --board-dark: #523519; }
+
+.clipboard-clip {
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  z-index: 1;
+  width: 8.5rem;
+  height: 3rem;
+  transform: translateX(-50%);
+  border-radius: 0.9rem 0.9rem 0.5rem 0.5rem;
+  background: linear-gradient(180deg, var(--clip-light), var(--clip-dark));
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25), 0 6px 12px -4px rgba(0, 0, 0, 0.4);
+}
+/* The hole a clipboard hangs from, and the clip's lower jaw pressing on the paper. */
+.clipboard-clip::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  width: 1.8rem;
+  height: 0.7rem;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: var(--board-dark);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.clipboard-clip::after {
+  content: "";
+  position: absolute;
+  inset: auto 0.6rem -0.5rem;
+  height: 0.75rem;
+  border-radius: 0 0 0.4rem 0.4rem;
+  background: linear-gradient(180deg, var(--clip-dark), #6b7178);
+}
+
+.clipboard-paper {
+  position: relative;
+  border-radius: 0.35rem;
+  padding: 2.25rem 1.25rem 1.5rem;
+  background-color: var(--color-white);
+  /* Faint ruled lines, as on a pad. */
+  background-image: repeating-linear-gradient(180deg, transparent 0 1.95rem, color-mix(in srgb, var(--color-sky-500) 14%, transparent) 1.95rem 2rem);
+  background-position: 0 1.2rem;
+  color: var(--color-gray-900);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+@media (min-width: 640px) {
+  .clipboard { padding: 2.75rem 1rem 1rem; }
+  .clipboard-paper { padding: 2.5rem 2rem 2rem; }
+}

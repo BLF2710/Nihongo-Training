@@ -59,13 +59,13 @@ alt accept
   note left of WebA : A's tab updates on its own:\n"You and B are now friends"
   Svc -> Svc : check friend achievements for A and B (Study Buddy)
   Ctrl --> WebB : accepted
-  WebB --> B : A added to the friends list
+  WebB -> WebB : add A to the friends list
 else decline
   Svc -> Repo : status declined
   Svc -> Bus : publish(A, "updated")
   Bus -> WebA : event
   note left of WebA : the request leaves A's list\n(A isn't told why)
   Ctrl --> WebB : declined
-  WebB --> B : request removed
+  WebB -> WebB : remove the request
 end
 @enduml

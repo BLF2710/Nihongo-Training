@@ -78,7 +78,7 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
 
     // ---- Dashboard: today's reviews, goal and mistakes; the deck gets the completed lesson's words, once
     let { context, page, state, errors } = await run();
-    await page.goto(base + '/');
+    await page.goto(base + '/dashboard');
     const today = page.locator('section[aria-labelledby="today-goals-heading"]');
     await today.getByText('3 due today').waitFor(); await today.getByText('1 to review · 2 new').waitFor();
     await today.getByText('4 / 10 min').waitFor(); await today.getByText('About 6 more minutes of lessons or practice.').waitFor();
@@ -189,7 +189,7 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
     await page.clock.runFor(180_000); await page.waitForTimeout(300);
     const idleTotal = state.studyTime.slice(1).reduce((a, b) => a + b, 0); assert.ok(idleTotal <= 92, 'idle time not counted: ' + idleTotal);
     // The dashboard isn't study time.
-    await page.goto(base + '/'); await page.locator('section[aria-labelledby="today-goals-heading"]').waitFor();
+    await page.goto(base + '/dashboard'); await page.locator('section[aria-labelledby="today-goals-heading"]').waitFor();
     const before = state.studyTime.length;
     for (let s = 0; s < 7; s++) { await page.mouse.move(100 + s * 10, 300); await page.clock.runFor(10_000); }
     await page.waitForTimeout(300);
@@ -225,7 +225,7 @@ const NEW_INTERVALS = { again: 10 * MIN, hard: DAY, good: DAY, easy: 3 * DAY };
 
     // ---- Phone width: no sideways scrolling
     ({ context, page, errors } = await run({ viewport: { width: 375, height: 812 } }));
-    for (const [path, ready] of [['/', 'today-goals-heading'], ['/srs', null], ['/mistakes', null], ['/statistics/japanese', null]]) {
+    for (const [path, ready] of [['/dashboard', 'today-goals-heading'], ['/srs', null], ['/mistakes', null], ['/statistics/japanese', null]]) {
       await page.goto(base + path);
       if (ready) await page.locator(`section[aria-labelledby="${ready}"]`).waitFor(); else await page.getByRole('heading', { level: 1 }).first().waitFor();
       await page.waitForTimeout(400); await noOverflow(page, path);

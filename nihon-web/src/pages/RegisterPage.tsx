@@ -5,15 +5,19 @@ import AuthLayout, { AuthField, PasswordField, authSubmitClass } from "../compon
 import { register } from "../api/auth";
 import { apiErrorMessage } from "../api/errors";
 import { safeReturnPath } from "../lib/returnTo";
+import { guestNameFrom } from "../lib/guest/guestName";
 import GoogleSignInSection from "../components/GoogleSignInSection";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
   // An invite link (or another page) to return to after signing in with the new account.
-  const next = safeReturnPath(new URLSearchParams(useLocation().search).get("next"));
+  const location = useLocation();
+  const next = safeReturnPath(new URLSearchParams(location.search).get("next"));
+  // The name a guest gave at the end of the first lesson starts as their display name.
+  const guestName = guestNameFrom(location.state);
   const loginPath = next ? `/login?next=${encodeURIComponent(next)}` : "/login";
   const [username, setUsername] = useState("");
-  const [displayName, setDisplayName] = useState("");
+  const [displayName, setDisplayName] = useState(guestName ?? "");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -34,7 +38,7 @@ export default function RegisterPage() {
     }
   };
 
-  return <AuthLayout title="Create your account" subtitle="Free, and it takes less than a minute."
+  return <AuthLayout title="Create your account" subtitle={guestName ? `Nice to meet you, ${guestName}! Free, and it takes less than a minute.` : "Free, and it takes less than a minute."}
     footer={<>Already have an account? <Link className="font-bold text-emerald-700 hover:underline" to={loginPath}>Sign in</Link></>}>
     <form onSubmit={handleRegister} className="space-y-5">
       {error && <p role="alert" className="rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-700">{error}</p>}

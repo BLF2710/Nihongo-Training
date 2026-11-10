@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS user_katakana_progress (
   UNIQUE (user_id, katakana_id)
 );
 
--- Also created at server start by services/games.seed.ts (kept there; both are idempotent).
 CREATE TABLE IF NOT EXISTS user_game_scores (
   id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL REFERENCES users(id),

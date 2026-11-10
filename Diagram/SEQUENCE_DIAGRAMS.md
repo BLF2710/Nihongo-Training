@@ -4,7 +4,7 @@
 to, the participants (left to right), and the main messages taken from the actual code. Tick them off as you draw.
 
 **PlantUML versions:** every diagram below has a ready file in [`sequence/`](sequence/) (`01-register-account.puml` …
-`12-edit-and-publish-lesson.puml`). Each file lists its design patterns at the top and marks them in the diagram
+`12-edit-and-publish-lesson.puml`, plus the extras `13`–`15`). Each file lists its design patterns at the top and marks them in the diagram
 (`«Unit of work»`, `«Observer»`, `«Adapter»` …). Preview them with the PlantUML extension in VS Code, then redraw in
 Visual Paradigm.
 
@@ -25,6 +25,7 @@ Merge a controller and its service into one control box if a diagram gets too wi
 learner's open tabs (Observer) use a solid arrow plus a note, because nobody asked for them and nobody answers them.
 
 **Tips**
+- Only the actor starts arrows to the web app; the web app never sends an arrow back to the actor. What the screen shows is a self-message on the web app (`Web -> Web : show …`).
 - Use `alt` for either/or (e.g. password vs Google, passed vs failed) and `opt` for optional steps (the «extend» cases).
 - Errors can be one `alt` branch at the end ("invalid → 400 message shown"), not a separate diagram.
 - Every API call goes through *authenticate* (checks the sign-in token) first; draw it once as a note, not on every arrow.
@@ -68,7 +69,7 @@ password (strategy mailer + unit of work).
 4. `alt` already used → 400 "Email/Username already exists"
 5. Hash the password (bcrypt) → create account + profile in one transaction (Database)
 6. Send confirmation email: create link token (Database) → Email service sends the link
-7. Return session token → Web app stores it and opens the dashboard
+7. Account created → Web app opens sign in with "Your account is ready" (the learner signs in next, diagram 2)
 8. *Later:* Guest opens the link → `POST /api/auth/email/verify` → token checked and used once → address marked confirmed
 
 ## 2. [ ] Log in (password or Google)
@@ -81,7 +82,7 @@ password (strategy mailer + unit of work).
 2. Rate limit (per account and per network)
 3. Find user (Database) → `alt` not found / wrong password → 401; `alt` suspended → 403
 4. Compare password (bcrypt) → record last login → create session token (with the account's token version)
-5. Web app stores the token → admin goes to /admin, learner to the dashboard
+5. Web app stores the token → admin goes to /admin, learner to the island map (home)
 
 `alt` **Google**
 1. Web app → `GET /api/auth/google/nonce` (one-time value)
@@ -222,7 +223,35 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
 
 ---
 
-### Optional extras
-- [ ] Admin manages a user (edit role / suspend, audit log)
-- [ ] Admin turns a feature off (Content → Availability) and a learner sees "temporarily unavailable"
-- [ ] Learner views statistics (overview loaded once, tabs)
+### Optional extras (drafted)
+These cover the Manage users, Manage system and View statistics use cases, which no diagram above reaches.
+
+## 13. [ ] Admin manages a user (edit role / suspend, audit log)
+**Use case:** Edit user accounts, Manage user roles, Suspend user accounts, View audit log (Manage users) · **Actors:** Admin, Learner
+**Participants:** Admin *(actor)*, Admin web app *(boundary)*, Middleware chain *(control)*, Admin controller *(control)*, Admin service *(control)*, Repository *(entity)*, Database *(database)*, Web app *(boundary)*, Learner *(actor)*
+**File:** [`13-admin-manage-user.puml`](sequence/13-admin-manage-user.puml)
+
+1. Admin opens Users → `GET /api/admin/users` (authenticate → `requireAdmin`, 403 if not an active admin)
+2. Edits role / status / username / email → `PATCH /api/admin/users/:id` → 400 invalid · 409 demoting or suspending yourself
+3. «Unit of work»: lock admin changes and the user → 404 · 409 last active admin → update → 409 username/email taken
+4. One audit log entry per change (suspended / reactivated, role changed, details changed)
+5. `opt` suspended learner's next request → 403 "This account is inactive"
+6. Admin opens Audit log → `GET /api/admin/audit-log`
+
+## 14. [ ] Admin turns a feature off → learner sees "temporarily unavailable"
+**Use case:** Toggle features (Manage system) · **Actors:** Admin, Learner
+**Participants:** Admin *(actor)*, Admin web app *(boundary)*, Middleware chain *(control)*, Admin controller *(control)*, Admin service *(control)*, Site controller *(control)*, Repository *(entity)*, Database *(database)*, Web app (SiteGate) *(boundary)*, Learner *(actor)*
+**File:** [`14-switch-off-feature.puml`](sequence/14-switch-off-feature.puml)
+
+1. Admin switches content off → `PUT /api/admin/content/:key { enabled: false }` → 400 unknown key → saved + audit log `content.disabled`
+2. Learner navigates → `GET /api/site` → disabled list with paths → `alt` the page is off → "Temporarily unavailable"
+3. An open tab or direct call → `enforceContentAvailability` → 403 "This activity is temporarily unavailable."
+
+## 15. [ ] Learner views statistics
+**Use case:** View statistics / Track learning progress · **Actor:** Learner
+**Participants:** Learner *(actor)*, Web app (Statistics page) *(boundary)*, Statistics controller *(control)*, Learning statistics service *(control)*, Kana statistics service *(control)*, Repository *(entity)*, Database *(database)*
+**File:** [`15-view-statistics.puml`](sequence/15-view-statistics.puml)
+
+1. Open Statistics → `par` `GET /api/statistics/overview` («Facade»: a dozen repository queries in parallel) and `GET /api/statistics` (kana)
+2. `alt` failure → "Your learning statistics could not be loaded." + Try again
+3. Tabs (Overview / Tests / Practice / Kana) redraw from the loaded data, no new requests

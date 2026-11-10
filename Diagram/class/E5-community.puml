@@ -1,0 +1,151 @@
+' E5. Entity classes: friends, messages, notifications and moderation
+' Source: nihon-api/migrations (011, 014, 016, 024, 025)
+@startuml E5 Community
+title E5. Entity classes: friends, messages, notifications and moderation
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty methods
+hide <<enumeration>> circle
+
+class User <<entity>> {
+  id : Integer {PK}
+  username : String
+  role : Role
+}
+note top of User : see E1
+
+class Friendship <<entity>> {
+  id : Integer {PK}
+  status : FriendshipStatus
+  createdAt : DateTime
+  respondedAt : DateTime [0..1]
+}
+note right of Friendship : requester ≠ addressee;\none per pair of learners
+
+class FriendChallenge <<entity>> {
+  id : Integer {PK}
+  metric : ChallengeMetric
+  days : Integer {3 or 7}
+  status : ChallengeStatus
+  createdAt : DateTime
+  startsAt : DateTime [0..1]
+  endsAt : DateTime [0..1]
+  challengerScore : Integer [0..1]
+  opponentScore : Integer [0..1]
+}
+
+class Block <<entity>> {
+  createdAt : DateTime
+}
+
+class Conversation <<entity>> {
+  id : Integer {PK}
+  kind : ConversationKind
+  subject : String
+  status : ConversationStatus
+  directKey : String [0..1] {unique}
+  staffReadMessageId : Integer [0..1]
+  createdAt : DateTime
+  lastMessageAt : DateTime
+}
+note right of Conversation : directKey is set exactly when kind = direct,\nso two learners share one conversation
+
+class ConversationMember <<entity>> {
+  lastReadMessageId : Integer
+}
+
+class Message <<entity>> {
+  id : Integer {PK}
+  senderRole : SenderRole
+  body : String {1..4000 chars}
+  createdAt : DateTime
+}
+
+class Notification <<entity>> {
+  id : Integer {PK}
+  kind : NotificationKind
+  data : JSON
+  createdAt : DateTime
+  readAt : DateTime [0..1]
+}
+
+class LearnerReport <<entity>> {
+  id : Integer {PK}
+  kind : ReportKind
+  reason : String
+  createdAt : DateTime
+  resolvedAt : DateTime [0..1]
+  resolution : ReportResolution [0..1]
+}
+
+enum FriendshipStatus <<enumeration>> {
+  pending
+  accepted
+  declined
+}
+enum ChallengeMetric <<enumeration>> {
+  xp
+  lessons
+}
+enum ChallengeStatus <<enumeration>> {
+  pending
+  active
+  declined
+  cancelled
+  finished
+}
+enum ConversationKind <<enumeration>> {
+  direct
+  support
+  assistant
+}
+enum ConversationStatus <<enumeration>> {
+  open
+  closed
+}
+enum SenderRole <<enumeration>> {
+  learner
+  admin
+  assistant
+}
+enum NotificationKind <<enumeration>> {
+  friend_request
+  friend_accepted
+  support_reply
+  achievement
+  nudge
+  cheer
+  challenge
+  level_up
+}
+enum ReportKind <<enumeration>> {
+  profile
+  message
+}
+enum ReportResolution <<enumeration>> {
+  dismissed
+  warned
+  suspended
+}
+
+Friendship "0..*" --> "1" User : requester >
+Friendship "0..*" --> "1" User : addressee >
+FriendChallenge "0..*" --> "1" User : challenger >
+FriendChallenge "0..*" --> "1" User : opponent >
+Block "0..*" --> "1" User : blocker >
+Block "0..*" --> "1" User : blocked >
+
+Conversation "1" *-- "1..*" ConversationMember
+ConversationMember "0..*" --> "1" User : member >
+Conversation "1" *-- "0..*" Message
+Message "0..*" --> "0..1" User : sender >
+Conversation "0..*" --> "0..1" User : created by >
+
+Notification "0..*" --> "1" User : for >
+Notification "0..*" --> "0..1" User : actor >
+
+LearnerReport "0..*" --> "1" User : reporter >
+LearnerReport "0..*" --> "1" User : reported >
+LearnerReport "0..*" --> "0..1" User : resolved by >
+LearnerReport "0..*" --> "0..1" Conversation : support request >
+@enduml

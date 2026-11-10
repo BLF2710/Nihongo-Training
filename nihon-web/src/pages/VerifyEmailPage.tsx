@@ -21,7 +21,7 @@ export default function VerifyEmailPage() {
       .catch(failure => setState({ name: "failed", message: apiErrorMessage(failure, "Your email couldn't be confirmed. Please try again.") }));
   }, [token]);
 
-  const next = hasSession() ? <Link className="font-bold text-emerald-700 hover:underline" to="/">Go to your dashboard</Link> : <Link className="font-bold text-emerald-700 hover:underline" to="/login">Sign in</Link>;
+  const next = hasSession() ? <Link className="font-bold text-emerald-700 hover:underline" to="/dashboard">Go to your dashboard</Link> : <Link className="font-bold text-emerald-700 hover:underline" to="/login">Sign in</Link>;
   return <AuthLayout title="Confirm your email" subtitle="This keeps your account recoverable if you forget your password." footer={next}>
     {state.name === "checking" && <p role="status">Confirming your email…</p>}
     {state.name === "verified" && <p role="status" className="rounded-xl bg-emerald-50 p-4 font-semibold text-emerald-900">✓ Your email is confirmed. Thank you!</p>}

@@ -11,7 +11,7 @@ import {
 import ProtectedRoute
 from "./components/ProtectedRoute";
 import LearnerRoute from "./components/LearnerRoute";
-import Navbar from "./components/Navbar";
+import LoadingPage from "./components/LoadingPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -32,7 +32,7 @@ import { LanguageProvider } from "./context/LanguageProvider";
 
 const QuizzesPage = lazy(() => import("./pages/QuizzesPage"));
 const KanjiPage = lazy(() => import("./pages/KanjiPage"));
-const IslandMapPage = lazy(() => import("./pages/IslandMapPage"));
+const DashboardPage = lazy(() => import("./pages/DashboardPage"));
 // Development only: the island cast in every mood.
 const CastGalleryPage = lazy(() => import("./pages/dev/CastGalleryPage"));
 const KanjiPracticePage = lazy(() => import("./pages/KanjiPracticePage"));
@@ -68,10 +68,6 @@ const SrsReviewPage = lazy(() => import("./pages/SrsReviewPage"));
 const MistakesPage = lazy(() => import("./pages/MistakesPage"));
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 
-function LoadingPage({ label }: { label: string }) {
-  return <div className="min-h-screen bg-gray-50"><Navbar /><p role="status" className="mx-auto max-w-6xl p-8">{label}</p></div>;
-}
-
 // Signed-in learner pages; lazily loaded ones show a labelled placeholder while their code arrives.
 const signedIn = (page: ReactNode) => <ProtectedRoute><LearnerRoute>{page}</LearnerRoute></ProtectedRoute>;
 const signedInLazy = (label: string, page: ReactNode) => signedIn(<Suspense fallback={<LoadingPage label={label} />}>{page}</Suspense>);
@@ -90,7 +86,9 @@ function App() {
         <XpToast />
         <SiteGate><ActivitySessionBoundary><Routes>
           <Route path="/admin/*" element={<ProtectedRoute><Suspense fallback={<p role="status" className="mx-auto max-w-lg p-8">Loading admin…</p>}><AdminPage /></Suspense></ProtectedRoute>} />
-          <Route path="/map" element={signedInLazy("Loading map…", <IslandMapPage />)} />
+          {/* The island map is the home page now; old links and bookmarks to /map still find it. */}
+          <Route path="/map" element={<Navigate to="/" replace />} />
+          <Route path="/dashboard" element={signedInLazy("Loading dashboard…", <DashboardPage />)} />
           {import.meta.env.DEV && <Route path="/dev/cast" element={<Suspense fallback={null}><CastGalleryPage /></Suspense>} />}
           <Route path="/learn/kanji" element={signedInLazy("Loading Kanji…", <KanjiPage />)} />
           <Route path="/learn/kanji/practice" element={signedInLazy("Loading practice…", <KanjiPracticePage />)} />

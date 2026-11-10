@@ -122,9 +122,9 @@ async function moveNextTo(page, id, prompt = 'Talk E') {
     // ---- M opens the island map and Tab the dashboard, and the same key again comes back to the same spot
     // (the fixtures don't cover those pages, so only where each key goes is checked)
     const backAtHakase = () => page.getByRole('button', { name: /^Hakase/ }).getByText('Talk E').waitFor();
-    await page.keyboard.press('KeyM'); await page.waitForURL('**/map'); await page.waitForTimeout(1000);
+    await page.keyboard.press('KeyM'); await page.waitForURL(url => new URL(url).pathname === '/'); await page.waitForTimeout(1000);
     await page.keyboard.press('KeyM'); await page.waitForURL('**/village'); await backAtHakase();
-    await page.keyboard.press('Tab'); await page.waitForURL(url => new URL(url).pathname === '/'); await page.waitForTimeout(1000);
+    await page.keyboard.press('Tab'); await page.waitForURL('**/dashboard'); await page.waitForTimeout(1000);
     await page.keyboard.press('Tab'); await page.waitForURL('**/village'); await backAtHakase();
 
     // ---- the learner's house: at its door E goes in, to the profile

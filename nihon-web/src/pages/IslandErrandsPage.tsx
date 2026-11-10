@@ -118,7 +118,7 @@ function Finale({ score, onKeepExploring, onPlayAgain }: { score: QuestScore; on
       <div className="mt-5 flex flex-wrap justify-center gap-2">
         <button type="button" autoFocus className={primary} onClick={onKeepExploring}>Keep exploring</button>
         <button type="button" className={secondary} onClick={onPlayAgain}>Play again</button>
-        <Link to="/map" className={secondary}>Island map</Link>
+        <Link to="/" className={secondary}>Island map</Link>
       </div>
     </section>
   </div>;

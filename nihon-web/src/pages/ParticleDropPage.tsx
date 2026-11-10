@@ -186,6 +186,6 @@ function Results({ answers, best, onPlayAgain }: { answers: Answer[]; best: numb
         <p className="text-gray-600">{question.meaning}{given ? <> · you chose <span lang="ja">{given}</span></> : " · time ran out"}</p>
       </li>)}</ul>
       <p className="mt-2 text-sm text-gray-500">Wrong answers are in your <Link to="/mistakes" className="font-semibold text-emerald-700 underline">mistake notebook</Link>.</p></div>}
-    <div className="mt-6 flex flex-wrap gap-3"><button className={primary} onClick={onPlayAgain}>Play again</button><Link to="/" className={button}>Back to the dashboard</Link></div>
+    <div className="mt-6 flex flex-wrap gap-3"><button className={primary} onClick={onPlayAgain}>Play again</button><Link to="/dashboard" className={button}>Back to the dashboard</Link></div>
   </section>;
 }

@@ -40,7 +40,7 @@ function IslandBanner({ id }: { id: IslandId }) {
         <p className="truncate text-xs opacity-75 max-sm:hidden">{island.tagline}</p>
       </div>
       <IslandHost island={id} />
-      <Link to="/map" aria-label="Island map" className={`ml-auto shrink-0 rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-1.5 text-sm font-bold text-[var(--ink)] shadow-sm hover:bg-white ${focus}`}><span aria-hidden="true">🏝 </span><span className="max-sm:hidden">Island </span>map</Link>
+      <Link to="/" aria-label="Island map" className={`ml-auto shrink-0 rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-1.5 text-sm font-bold text-[var(--ink)] shadow-sm hover:bg-white ${focus}`}><span aria-hidden="true">🏝 </span><span className="max-sm:hidden">Island </span>map</Link>
     </div>
   </div>;
 }

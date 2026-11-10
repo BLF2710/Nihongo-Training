@@ -1,0 +1,55 @@
+/* The guest's opening scene: the boat rocks and its wake trails while the camera holds close, then pulls back. */
+.intro-boat-rock { transform-origin: 50% 85%; animation: intro-rock 3.2s ease-in-out infinite; }
+.intro-wake { animation: intro-wake 2.4s ease-in-out infinite; }
+@keyframes intro-rock { 0%, 100% { rotate: -3deg; translate: 0 0; } 50% { rotate: 3deg; translate: 0 4%; } }
+@keyframes intro-wake { 0%, 100% { opacity: 0.55; translate: 0 0; } 50% { opacity: 1; translate: -6% 0; } }
+
+/* The camera over the island during the opening. It is promoted to its own layer and the island's own animations
+   (mist, ripples, foam) pause, so the pull-back only moves a picture the browser has already drawn instead of redrawing
+   the whole island, blurred mist and all, every frame. The boat keeps moving: its animations run on its own layers. */
+.intro-camera { transform-origin: 0 0; }
+.intro-camera-moving { will-change: transform; }
+.intro-camera-moving :not(.intro-boat, .intro-boat *) { animation-play-state: paused; }
+.intro-sailing { will-change: transform; }
+
+/* Open sea before the visitor starts: swells roll past (each layer moves by exactly one tile of its pattern, so the
+   loop is seamless) while the boat drifts and turns this way and that, with nothing on the horizon. */
+.open-sea { background: radial-gradient(ellipse at 50% 40%, var(--sea-top), var(--sea-bottom)); transition: opacity 900ms ease-out; }
+.open-sea-leaving { opacity: 0; }
+.open-sea-swell {
+  --tile-width: 160px;
+  position: absolute;
+  inset: -10% 0 -10% calc(-1 * var(--tile-width));
+  background-color: var(--wave);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80'%3E%3Cpath d='M10 30 q15 -12 30 0 t30 0' fill='none' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M92 64 q12 -9 24 0 t24 0' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80'%3E%3Cpath d='M10 30 q15 -12 30 0 t30 0' fill='none' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M92 64 q12 -9 24 0 t24 0' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  mask-size: var(--tile-width) calc(var(--tile-width) / 2);
+  -webkit-mask-size: var(--tile-width) calc(var(--tile-width) / 2);
+  will-change: transform;
+  animation: open-sea-roll var(--roll-duration) linear infinite, open-sea-heave var(--heave-duration) ease-in-out infinite;
+}
+.open-sea-swell-far { --tile-width: 120px; --roll-duration: 9s; --heave-duration: 7s; opacity: 0.45; }
+.open-sea-swell-near { --tile-width: 220px; --roll-duration: 6s; --heave-duration: 5s; opacity: 0.7; }
+.open-sea-swell-front { --tile-width: 360px; --roll-duration: 4.5s; --heave-duration: 6s; opacity: 0.5; top: 55%; }
+@keyframes open-sea-roll { from { transform: translateX(0); } to { transform: translateX(var(--tile-width)); } }
+@keyframes open-sea-heave { 0%, 100% { translate: 0 0; } 50% { translate: 0 10px; } }
+.open-sea-drift { will-change: transform; animation: open-sea-drift 28s ease-in-out infinite; }
+@keyframes open-sea-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-7vw, 2vh) rotate(-4deg); }
+  45% { transform: translate(2vw, -3vh) rotate(3deg); }
+  70% { transform: translate(8vw, 1vh) rotate(-2deg); }
+  85% { transform: translate(3vw, 3vh) rotate(4deg); }
+}
+
+.intro-prompt { animation: intro-prompt 2s ease-in-out infinite; }
+@keyframes intro-prompt { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+.intro-tap { display: none; }
+@media (pointer: coarse) { .intro-tap { display: inline; } .intro-click { display: none; } }
+
+.intro-fade-in { animation: intro-fade-in 600ms ease-out both; }
+@keyframes intro-fade-in { from { opacity: 0; translate: 0 0.5rem; } to { opacity: 1; translate: 0 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-boat-rock, .intro-wake, .intro-prompt, .intro-fade-in, .open-sea-swell, .open-sea-drift { animation: none; }
+}

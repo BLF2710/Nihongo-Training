@@ -45,7 +45,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     await page.getByLabel('Email or username').fill('offline'); await password.fill('anything1'); await page.getByRole('button', { name: 'Sign in' }).click();
     await page.getByRole('alert').filter({ hasText: 'Sign-in failed. Check your connection' }).waitFor();
     await page.getByLabel('Email or username').fill('kai'); await password.fill('goodpass1'); await page.getByRole('button', { name: 'Sign in' }).click();
-    await heading('Your path').waitFor();
+    await heading('Island map').waitFor();
     assert.deepEqual(await page.evaluate(() => ['token', 'user_name', 'user_email', 'user_role'].map(k => localStorage.getItem(k))), [token, 'kai', 'kai@example.com', 'learner']);
     await page.evaluate(() => localStorage.clear()); await page.goto(base + '/login');
     await page.getByLabel('Email or username').fill('boss'); await password.fill('goodpass1'); await page.getByRole('button', { name: 'Sign in' }).click();
@@ -69,7 +69,7 @@ const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base6
     await heading('Welcome back').waitFor(); await page.getByRole('status').filter({ hasText: 'Your account is ready' }).waitFor();
     assert.deepEqual(posts.at(-1), { path: '/auth/register', body: { username: 'kai_k', displayName: 'Kai K', email: 'kai@example.com', password: 'password1', confirmPassword: 'password1' } });
     await page.reload(); await heading('Welcome back').waitFor();
-    await page.getByRole('link', { name: '← Back to home' }).click(); await heading('Learn Japanese through active play').waitFor();
+    await page.getByRole('link', { name: '← Back to home' }).click(); await page.getByRole('button', { name: 'Click anywhere to start' }).waitFor();  // a guest's first look at the island opens on the boat
     await page.goto(base + '/register'); await page.getByRole('link', { name: /Try a Kana speed quiz as a guest/ }).click(); await heading('Hiragana Speed Quiz').waitFor();
 
     // ---- small screens: form only, no overflow

@@ -287,7 +287,11 @@ test("the pagoda's finial drops as tiers are added, and stops once all five are 
 });
 
 test("hub pages open with their island's strip", () => {
-  assert.deepEqual(["/lessons", "/learn/kanji/", "/mistakes", "/"].map(path => islandForPage(path, "")), ["lessons", "kanji", "review", "home"]);
+  assert.deepEqual(["/lessons", "/learn/kanji/", "/mistakes", "/dashboard"].map(path => islandForPage(path, "")), ["lessons", "kanji", "review", "home"]);
+});
+
+test("the home page is the island map itself, so it has no strip", () => {
+  assert.equal(islandForPage("/", ""), null);
 });
 
 test("lessons, games, skill practice, chats and pages in the middle of something have no strip", () => {

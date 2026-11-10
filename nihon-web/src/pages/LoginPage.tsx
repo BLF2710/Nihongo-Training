@@ -6,6 +6,7 @@ import { login as signIn } from "../api/auth";
 import { apiErrorMessage } from "../api/errors";
 import { saveSession } from "../lib/authStorage";
 import { safeReturnPath } from "../lib/returnTo";
+import { guestNameFrom } from "../lib/guest/guestName";
 import GoogleSignInSection from "../components/GoogleSignInSection";
 
 export default function LoginPage() {
@@ -21,6 +22,8 @@ export default function LoginPage() {
   const notice = query.get("expired") === "1" ? "Your session has ended (for example, the password was changed). Please sign in again."
     : query.get("reset") === "1" ? "Your password has been changed. Sign in with your new password."
     : query.get("signedOut") === "all" ? "You've been signed out on every device." : "";
+  // A guest who has just given their name at the end of the first lesson.
+  const guestName = guestNameFrom(location.state);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -41,7 +44,7 @@ export default function LoginPage() {
     }
   };
 
-  return <AuthLayout title="Welcome back" subtitle="Sign in to pick up where you left off."
+  return <AuthLayout title="Welcome back" subtitle={guestName ? `Welcome back, ${guestName}. Sign in to pick up where you left off.` : "Sign in to pick up where you left off."}
     footer={<>New here? <Link className="font-bold text-emerald-700 hover:underline" to={next ? `/register?next=${encodeURIComponent(next)}` : "/register"}>Create an account</Link></>}>
     <form onSubmit={handleLogin} className="space-y-5">
       {notice && <p role="status" className="rounded-xl bg-emerald-50 p-3 text-sm font-semibold text-emerald-800">{notice}</p>}

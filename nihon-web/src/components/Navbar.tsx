@@ -17,8 +17,9 @@ import LanguageMenu from "./LanguageMenu";
 import { IslandStrip } from "./islandMap/IslandStrip";
 import type { IslandId } from "../lib/islandMap";
 
-// Pages that are a starting point, so they show no Back bar. The village square and profile count: they fill the page and the menu always links to them.
-const PATHS_WITHOUT_BACK_BUTTON = ["/", "/map", "/village", "/profile"];
+// Pages that are a starting point, so they show no Back bar: the home page (the island map), and the dashboard, village
+// square and profile, which the menu always links to.
+const PATHS_WITHOUT_BACK_BUTTON = ["/", "/dashboard", "/village", "/profile"];
 
 /** `back` gives the Back button a fixed destination instead of the previous page in history. `island` shows that
  *  island's strip on a page that has none of its own, such as the start screen before a practice session. */
@@ -114,7 +115,8 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
       {token && <aside className={`fixed top-18 left-0 bottom-0 z-40 w-72 bg-white border-r border-gray-200 shadow-xl transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="h-full overflow-y-auto p-4 flex flex-col">
           <div className="mb-5"><p className="px-3 text-[11px] font-bold tracking-wider uppercase text-gray-400">Navigation</p>
-            <button onClick={() => go("/")} className={`mt-2 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/")}`}><span>⌂</span> Dashboard</button>
+            <button onClick={() => go("/")} className={`mt-2 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/")}`}>{language === "japanese" ? <><span aria-hidden="true">🏝</span> Island map</> : <><span>⌂</span> Home</>}</button>
+            {language === "japanese" && <button onClick={() => go("/dashboard")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/dashboard")}`}><span>⌂</span> Dashboard</button>}
             <button onClick={() => go("/village")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/village")}`}><span aria-hidden="true">🏮</span> Village square</button>
             <button onClick={() => go("/achievements")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/achievements"))}`}><span aria-hidden="true">🏆</span> Achievements</button>
             {currentLanguage && <p className="mt-3 px-3 text-sm font-bold text-gray-800"><span aria-hidden="true">{currentLanguage.flag} </span>{currentLanguage.name}</p>}

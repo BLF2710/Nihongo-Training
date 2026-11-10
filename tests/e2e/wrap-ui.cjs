@@ -171,7 +171,7 @@ const kanjiIn = unit => new Set(catalog.lessonIntroductions.filter(i => i.lesson
     await page.goto(base + '/review?unit=japanese-n5-unit-4'); assert.equal(await reviewSelect.inputValue(), 'japanese-n5-unit-4');
 
     // ---- Dashboard entry points and mobile layout
-    await page.goto(base + '/'); await page.getByRole('link', { name: /N5 · Change/ }).waitFor(); await page.getByRole('link', { name: /Mock exam/ }).first().waitFor(); await page.getByRole('link', { name: /Grammar summary/ }).first().waitFor();
+    await page.goto(base + '/dashboard'); await page.getByRole('link', { name: /N5 · Change/ }).waitFor(); await page.getByRole('link', { name: /Mock exam/ }).first().waitFor(); await page.getByRole('link', { name: /Grammar summary/ }).first().waitFor();
     await page.setViewportSize({ width: 390, height: 844 });
     for (const [path, wait] of [['/levels', 'Step by step.'], ['/learn/kanji', 'Course level'], ['/grammar/summary', 'N5 grammar summary'], ['/lessons', 'N5 wrap-up'], ['/review', 'Unit Review']]) { await page.goto(base + path); await page.getByText(wait).first().waitFor(); await noOverflow(path); }
     await page.goto(base + '/mock-exam'); await page.getByRole('button', { name: 'Start the exam →' }).click(); await timer.waitFor(); await noOverflow('/mock-exam running');

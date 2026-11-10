@@ -66,7 +66,7 @@ const present = ({ key, explanation, ...question }) => question;
 
     if (process.argv[4] !== 'admin-only') {
       // ---- learner: entry points, unit choice, a full mixed review
-      await page.goto(base + '/'); await heading('Your path').waitFor();
+      await page.goto(base + '/dashboard'); await heading('Your path').waitFor();
       assert.equal(await page.locator('main a[href="/review"]').count(), 1);
       await page.getByRole('button', { name: 'Toggle navigation sidebar' }).click(); await page.locator('aside').getByRole('button', { name: /Review$/ }).click();
       await heading('Unit Review').waitFor();

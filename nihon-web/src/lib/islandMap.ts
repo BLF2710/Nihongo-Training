@@ -23,7 +23,7 @@ export type IslandState = { status: "open" } | { status: "fogged"; hint: string 
 // quizzes, games, skill practice (listening, speaking and reading open straight on a question) and chats need the whole
 // screen, so they have none.
 const ISLAND_PAGES: Readonly<Record<string, IslandId>> = {
-  "/": "home",
+  "/dashboard": "home",
   "/lessons": "lessons", "/vocabulary": "lessons", "/grammar": "lessons", "/quizzes": "lessons",
   "/mistakes": "review",
   "/learn/kanji": "kanji",
@@ -47,7 +47,7 @@ export const KANJI_UNLOCK_UNITS = 1;
 export const ISLANDS: readonly Island[] = [
   { id: "home", isBridged: false, name: "Home", mark: "家", tagline: "Your streak, level and next step.", destinations: [
     { label: "Village square", href: "/village", description: "Walk around: the cast has today's news and errands." },
-    { label: "Classic dashboard", href: "/", description: "Every tool and statistic on one page." },
+    { label: "Classic dashboard", href: "/dashboard", description: "Every tool and statistic on one page." },
     { label: "Statistics", href: "/statistics/japanese", description: "Accuracy, time studied and test results." },
     { label: "Achievements", href: "/achievements", description: "Badges you have earned." },
   ] },

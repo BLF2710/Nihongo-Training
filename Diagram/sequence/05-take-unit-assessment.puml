@@ -49,8 +49,8 @@ opt passed
 end
 Ctrl --> Web : score, passed, unit completed, reward
 alt passed
-  Web --> Learner : "Unit complete", next unit unlocks, "+XP"
+  Web -> Web : show "Unit complete", next unit unlocks, "+XP"
 else failed
-  Web --> Learner : score + what to review
+  Web -> Web : show score + what to review
 end
 @enduml

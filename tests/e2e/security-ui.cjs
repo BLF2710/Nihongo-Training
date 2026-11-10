@@ -55,6 +55,8 @@ const LINK = 'A'.repeat(43);
 
     // ---- Signed in: dashboard banner, resend, remind me later
     await page.goto(base + '/login'); await page.getByLabel('Email or username').fill('kai'); await page.getByLabel('Password', { exact: true }).fill('x'); await page.getByRole('button', { name: 'Sign in' }).click(); await page.waitForURL(base + '/');
+    // The banner is on the dashboard (on the island map, the pigeon carries the same reminder as a letter).
+    await page.goto(base + '/dashboard');
     const banner = page.getByRole('region', { name: 'Confirm your email' }); await banner.waitFor();
     await banner.getByRole('button', { name: 'Send a new link' }).click(); await banner.getByText("We've sent a confirmation link to kai@example.com").waitFor();
     await page.screenshot({ path: shots + '/verify-banner.png' });

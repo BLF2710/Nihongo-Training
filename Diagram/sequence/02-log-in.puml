@@ -50,7 +50,7 @@ alt password
   Svc -> Repo : record last login
   Svc --> Ctrl : session token (with token version)
   Ctrl --> Web : { token, role }
-  Web --> Guest : admin → /admin, learner → dashboard
+  Web -> Web : store the token; admin → /admin, learner → island map (home)
 
 else Google
   Web -> MW : GET /api/auth/google/nonce
@@ -75,6 +75,6 @@ else Google
   end
   Svc --> Ctrl : session token
   Ctrl --> Web : { token, role }
-  Web --> Guest : signed in
+  Web -> Web : store the token, open the island map (home)
 end
 @enduml

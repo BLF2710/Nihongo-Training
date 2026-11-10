@@ -109,7 +109,7 @@ function Finished({ session, onReviewAhead }: { session: Session; onReviewAhead:
       <button className={`${primary} mt-3`} disabled={loading} onClick={() => void reviewAhead()}>{loading ? "Loading…" : `Review ahead (${dueSoon})`}</button>
       {error && <p role="alert" className="mt-2 text-sm text-red-700">{error}</p>}
     </div>}
-    <div className="mt-5 flex flex-wrap gap-3"><Link to="/" className={primary}>Back to the dashboard</Link><Link to="/mistakes" className={button}>Mistake notebook →</Link><Link to="/lessons" className={button}>Lessons →</Link></div>
+    <div className="mt-5 flex flex-wrap gap-3"><Link to="/dashboard" className={primary}>Back to the dashboard</Link><Link to="/mistakes" className={button}>Mistake notebook →</Link><Link to="/lessons" className={button}>Lessons →</Link></div>
   </section>;
 }
 

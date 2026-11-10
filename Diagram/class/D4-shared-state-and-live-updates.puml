@@ -1,0 +1,113 @@
+' D4. Design classes: shared state and live updates
+' Source: nihon-api/src shared-state/ (index.ts, rate-limit-store.ts, nonce-store.ts, realtime-bus.ts),
+' services/realtime.service.ts, middleware/rate-limit.middleware.ts, services/notification.service.ts
+'
+' Design patterns:
+'   - Strategy: each store has a memory version (one API process, tests) and a PostgreSQL version (several API
+'     processes agree through the database); SHARED_STATE in the configuration chooses
+'   - Abstract factory: createSharedState() builds the matching set of three stores together
+'   - Observer / publish–subscribe: services publish events; the RealtimeBus delivers them to every API process,
+'     and each process pushes them to that learner's open browser tabs (Server-Sent Events)
+@startuml D4 Shared state and live updates
+title D4. Design classes: shared state and live updates
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty members
+
+class SharedState <<type>> {
+  + rateLimits : RateLimitStore
+  + nonces : NonceStore
+  + realtime : RealtimeBus
+}
+class SharedStateFactory <<factory>> {
+  - current : SharedState [0..1]
+  + sharedState() : SharedState
+  + useSharedState(state : SharedState) : void
+  - createSharedState() : SharedState
+}
+note right of SharedStateFactory : useSharedState() lets tests\nput in-memory stores
+
+interface RateLimitStore {
+  + hit(id : String, windowMs : Integer) : Promise<WindowHit>
+  + reset() : Promise<void>
+}
+class MemoryRateLimitStore
+class PostgresRateLimitStore {
+  - db : Queryable
+}
+
+interface NonceStore {
+  + save(nonce : String, lifetimeMs : Integer) : Promise<void>
+  + use(nonce : String) : Promise<Boolean>
+}
+class MemoryNonceStore
+class PostgresNonceStore {
+  - db : Queryable
+}
+
+interface RealtimeBus {
+  + send(message : BusMessage) : Promise<void>
+  + onMessage(handler : (BusMessage) → void) : void
+  + close() : Promise<void>
+}
+class MemoryRealtimeBus {
+  - handlers : Handler [0..*]
+}
+class PostgresRealtimeBus {
+  - db : Queryable
+  - listener : Client [0..1]
+  - channel : String
+}
+note bottom of PostgresRealtimeBus : LISTEN / NOTIFY
+
+class BusMessage <<union>> {
+  { kind = "event", userId : Integer, event }
+  { kind = "close", userId : Integer }
+}
+
+class RealtimeService <<module>> {
+  - streams : Map<userId, Response [0..*]>
+  + openStream(userId : Integer, res : Response) : void
+  + publish(userId : Integer, event : RealtimeEvent) : void
+  + closeStreams(userId : Integer) : void
+  + countOpenStreams() : { connections, learners }
+}
+class RealtimeEvent <<union>> {
+  { type = "friends", reason, person [0..1] }
+  { type = "inbox" }
+  { type = "notifications" }
+}
+
+class RateLimitMiddleware <<module>> {
+  + rateLimit(rules : RateLimitRule [1..*]) : Handler
+}
+class RateLimitRule <<type>> {
+  + name : String
+  + windowMs : Integer
+  + max : Integer
+  + key(req) : String [0..1]
+  + message : String
+}
+class GoogleSignInService <<service>>
+class "FriendService, DirectMessageService,\nNotificationService, SupportService,\nModerationService, LessonEditService …" as Publishers <<service>>
+
+MemoryRateLimitStore ..|> RateLimitStore
+PostgresRateLimitStore ..|> RateLimitStore
+MemoryNonceStore ..|> NonceStore
+PostgresNonceStore ..|> NonceStore
+MemoryRealtimeBus ..|> RealtimeBus
+PostgresRealtimeBus ..|> RealtimeBus
+
+SharedStateFactory ..> SharedState : creates
+SharedState *-- "1" RateLimitStore
+SharedState *-- "1" NonceStore
+SharedState *-- "1" RealtimeBus
+
+RateLimitMiddleware ..> RateLimitStore : hit()
+RateLimitMiddleware ..> RateLimitRule
+GoogleSignInService ..> NonceStore : save() / use()
+Publishers ..> RealtimeService : publish(userId, event)
+RealtimeService ..> RealtimeBus : send() / onMessage()
+RealtimeBus ..> BusMessage
+RealtimeService ..> RealtimeEvent
+@enduml

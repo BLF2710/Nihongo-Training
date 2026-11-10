@@ -69,7 +69,7 @@ const scan = page => page.evaluate(() => {
     const ctx = await context(browser, { colorScheme: 'dark' });
     const page = await ctx.newPage(); const errors = []; page.on('pageerror', e => errors.push(e.message));
     const dark = () => page.evaluate(() => document.documentElement.classList.contains('dark'));
-    await page.goto(base + '/'); await page.getByRole('heading', { name: 'Your path' }).waitFor();
+    await page.goto(base + '/dashboard'); await page.getByRole('heading', { name: 'Your path' }).waitFor();
     assert.equal(await dark(), true, 'System + dark device → dark');
     await page.emulateMedia({ colorScheme: 'light' }); await page.waitForFunction(() => !document.documentElement.classList.contains('dark'));
     await page.emulateMedia({ colorScheme: 'dark' }); await page.waitForFunction(() => document.documentElement.classList.contains('dark'));
@@ -79,7 +79,7 @@ const scan = page => page.evaluate(() => {
     await toggle.click(); assert.equal(await dark(), true); assert.equal(await page.evaluate(() => localStorage.getItem('theme')), 'dark');
     await page.emulateMedia({ colorScheme: 'light' }); await page.waitForTimeout(100); assert.equal(await dark(), true, 'an explicit Dark ignores the device');
     // No flash: the class is already set before any script of the app runs.
-    await page.goto(base + '/'); assert.equal(await page.evaluate(() => document.documentElement.classList.contains('dark')), true);
+    await page.goto(base + '/dashboard'); assert.equal(await page.evaluate(() => document.documentElement.classList.contains('dark')), true);
     const firstPaint = await page.evaluate(() => performance.getEntriesByType('paint').length); void firstPaint;
     // The sidebar has no theme section; the header button is the one place to change it.
     await page.getByRole('button', { name: 'Toggle navigation sidebar' }).click(); await page.getByRole('button', { name: 'Close navigation' }).waitFor();

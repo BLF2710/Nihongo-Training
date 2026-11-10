@@ -1,0 +1,152 @@
+' E2. Entity classes: course content and progress through it
+' Source: nihon-api/migrations (002, 003, 008, 017, 020, 025) and nihon-api/src/data (units, lessons, unit assessments,
+' speaking tasks, mock exams). «content» classes are course files shipped with the code, not database tables;
+' progress rows point at them by id.
+@startuml E2 Course and progress
+title E2. Entity classes: course content and progress through it
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty methods
+hide <<enumeration>> circle
+
+class User <<entity>> {
+  id : Integer {PK}
+  username : String
+}
+note left of User : see E1
+
+package "Course content (files)" <<Rectangle>> {
+  class Unit <<content>> {
+    id : String
+    number : Integer
+    title : String
+    description : String
+    requiredLevel : Integer
+  }
+  class Lesson <<content>> {
+    id : String
+    slug : String
+    title : String
+    minimumLevel : Integer [0..1]
+    minimumRank : String [0..1]
+  }
+  class UnitAssessment <<content>> {
+    id : String
+    passPercent : Integer
+  }
+  class SpeakingTask <<content>> {
+    id : String
+    level : CourseLevel
+    kind : String
+    title : String
+    canDo : String
+  }
+  class MockExam <<content>> {
+    id : String
+    level : CourseLevel
+    minutes : Integer
+    passPercent : Integer
+    sectionMinPercent : Integer
+  }
+}
+
+class LessonProgress <<entity>> {
+  status : "completed"
+  challengeScore : Integer [0..1] {0..100}
+  completedAt : DateTime
+  updatedAt : DateTime
+}
+
+class AssessmentProgress <<entity>> {
+  bestScore : Decimal {0..100}
+  lastScore : Decimal {0..100}
+  passedAt : DateTime [0..1]
+  createdAt : DateTime
+  updatedAt : DateTime
+}
+
+class SpeakingAttempt <<entity>> {
+  id : Integer {PK}
+  level : CourseLevel
+  score : Integer {0..100}
+  band : Integer {1..4}
+  met : Boolean
+  deliverySource : DeliverySource
+  transcript : String
+  result : JSON
+  createdAt : DateTime
+}
+
+class MockExamResult <<entity>> {
+  id : Integer {PK}
+  level : CourseLevel
+  correct : Integer
+  total : Integer
+  percent : Integer {0..100}
+  passed : Boolean
+  timedOut : Boolean
+  sections : JSON
+  createdAt : DateTime
+}
+
+class LessonEdit <<entity>> {
+  lessonId : String {PK}
+  draft : JSON [0..1]
+  draftUpdatedAt : DateTime [0..1]
+  published : JSON [0..1]
+  publishedAt : DateTime [0..1]
+  revision : Integer
+}
+
+class ReviewQuestion <<entity>> {
+  id : Integer {PK}
+  type : QuestionType
+  content : JSON
+  enabled : Boolean
+  createdAt : DateTime
+  updatedAt : DateTime
+}
+
+enum CourseLevel <<enumeration>> {
+  N5
+  N4
+  N3
+  N2
+  N1
+}
+enum DeliverySource <<enumeration>> {
+  azure
+  browser
+}
+enum QuestionType <<enumeration>> {
+  multiple_choice
+  word_match
+  word_scramble
+}
+
+Unit "1" *-- "1..*" Lesson
+Unit "1" *-- "0..1" UnitAssessment
+Unit "0..1" <-- "0..1" Unit : previous unit
+Lesson "0..1" <-- "0..1" Lesson : previous lesson
+
+User "1" -- "0..*" LessonProgress
+LessonProgress "0..*" --> "1" Lesson
+note on link : one per learner and lesson
+
+User "1" -- "0..*" AssessmentProgress
+AssessmentProgress "0..*" --> "1" UnitAssessment
+note on link : one per learner and assessment
+
+User "1" -- "0..*" SpeakingAttempt
+SpeakingAttempt "0..*" --> "1" SpeakingTask
+
+User "1" -- "0..*" MockExamResult
+MockExamResult "0..*" ..> "1" MockExam : by level
+
+LessonEdit "0..1" --> "1" Lesson : overrides >
+LessonEdit "0..*" --> "0..1" User : draft updated by >
+LessonEdit "0..*" --> "0..1" User : published by >
+
+Unit "1" -- "0..*" ReviewQuestion : question bank >
+ReviewQuestion "0..*" --> "0..1" User : created by >
+@enduml

@@ -74,7 +74,7 @@ function fixture() {
     const noOverflow = async label => assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${label} overflows`);
 
     // ---- Dashboard
-    await page.goto(base + '/'); await page.getByRole('heading', { level: 1 }).filter({ hasText: 'Mika' }).waitFor();
+    await page.goto(base + '/dashboard'); await page.getByRole('heading', { level: 1 }).filter({ hasText: 'Mika' }).waitFor();
     assert.match(await page.getByRole('heading', { level: 1 }).innerText(), /^(おはようございます|こんにちは|こんばんは), Mika$/);
     await heading('Lesson 2.3').waitFor(); await page.getByRole('link', { name: 'Continue learning →', exact: true }).waitFor();
     await page.getByLabel('8 of 18 N5 lessons completed').waitFor();
@@ -140,8 +140,8 @@ function fixture() {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(base + '/messages'); await page.getByRole('link', { name: /Ken/ }).waitFor(); assert.ok(!(await page.getByText('Choose a conversation').isVisible()));
     await page.goto(base + '/messages/1'); await page.getByRole('link', { name: '← All' }).waitFor(); assert.ok(!(await page.getByLabel('New message to a username').isVisible())); await noOverflow('messages mobile');
-    for (const path of ['/', '/support', '/assistant']) { await page.goto(base + path); await page.waitForLoadState('networkidle'); await noOverflow(path); }
-    await page.goto(base + '/'); await page.screenshot({ path: shots + '/dashboard-mobile.png', fullPage: true });
+    for (const path of ['/', '/dashboard', '/support', '/assistant']) { await page.goto(base + path); await page.waitForLoadState('networkidle'); await noOverflow(path); }
+    await page.goto(base + '/dashboard'); await page.screenshot({ path: shots + '/dashboard-mobile.png', fullPage: true });
     assert.deepEqual(errors, []);
 
     // ---- Admin support inbox

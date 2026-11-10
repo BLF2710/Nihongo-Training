@@ -1,0 +1,139 @@
+' D3. Design classes: the speaking test
+' Source: nihon-api/src services/speaking/speaking-test.service.ts, pronunciation-assessor.ts, content-grader.ts,
+' wav.ts, grading/jfGrading.ts, repositories/speaking-attempt.repository.ts, services/gamification.service.ts
+'
+' Design patterns:
+'   - Dependency injection: createSpeakingTestService(dependencies) receives the assessor, the grader and the
+'     reward function; tests pass fakes, so no audio service or AI is called
+'   - Adapter: Azure Speech (REST) and Claude are wrapped behind PronunciationAssessor and SpeakingContentGrader
+'   - Factory: pronunciationAssessorFromEnv() / contentGraderFromEnv() build them, or return null when not configured
+'   - Facade: submitAnswer() is one entry point over WAV checks, pronunciation, content grading, the JF score,
+'     saving and the XP reward
+'   - Discriminated unions for results: AssessmentOutcome (assessed | no_speech), SubmitOutcome (graded | no_answer)
+@startuml D3 Speaking test
+title D3. Design classes: the speaking test
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty members
+
+class SpeakingTestController <<module>> {
+  + listTasks : Action
+  + submitAnswer : Action
+  + listAttempts : Action
+  + getAttempt : Action
+  + reportAttempt : Action
+}
+
+class SpeakingTestService <<service>> {
+  + listTasks(userId : Integer, level) : Promise<TaskSummary [0..*]>
+  + submitAnswer(userId : Integer, taskId, input) : Promise<SubmitOutcome>
+  + listAttempts(userId : Integer, taskId) : Promise<SpeakingAttempt [0..*]>
+  + getAttempt(userId : Integer, attemptId) : Promise<SpeakingResult>
+  + reportAttempt(userId : Integer, attemptId, note) : Promise<void>
+  - requireTest(userId : Integer, level) : Promise<CourseLevel>
+  - deliveryFor(task : SpeakingTask, input) : Promise<Delivery>
+}
+note right of SpeakingTestService::submitAnswer
+  30 graded answers a day;
+  N3–N1 only (N5/N4 keep read-aloud practice)
+end note
+
+class SpeakingTestDependencies <<type>> {
+  + assessor : PronunciationAssessor [0..1]
+  + grader : SpeakingContentGrader [0..1]
+  + hasReachedLevel(userId, level) : Promise<Boolean>
+  + rewardAttempt(userId, attemptId) : Promise<Reward [0..1]>
+}
+
+class SpeakingServiceFactory <<factory>> {
+  + createSpeakingTestService(dependencies : SpeakingTestDependencies) : SpeakingTestService
+}
+
+interface PronunciationAssessor {
+  + assessFreeAnswer(wav : Buffer) : Promise<AssessmentOutcome>
+  + assessReading(wav : Buffer, passage : String) : Promise<AssessmentOutcome>
+}
+class AzurePronunciationAssessor {
+  - endpoint : String
+  - key : String
+  - fetcher : Fetch
+  + assessFreeAnswer(wav : Buffer) : Promise<AssessmentOutcome>
+  + assessReading(wav : Buffer, passage : String) : Promise<AssessmentOutcome>
+}
+
+interface SpeakingContentGrader {
+  + grade(input : ContentGradingInput) : Promise<ContentGrade>
+}
+class ClaudeContentGrader {
+  + grade(input : ContentGradingInput) : Promise<ContentGrade>
+}
+
+class AdapterFactories <<factory>> {
+  + pronunciationAssessorFromEnv(env) : PronunciationAssessor [0..1]
+  + contentGraderFromEnv(env) : SpeakingContentGrader [0..1]
+}
+
+class AssessmentOutcome <<union>> {
+  { status = "assessed", assessment : PronunciationAssessment }
+  { status = "no_speech" }
+}
+class PronunciationAssessment {
+  + transcript : String
+  + accuracy : Number
+  + fluency : Number
+  + completeness : Number [0..1]
+  + words : WordScore [0..*]
+  + durationSeconds : Number
+}
+class ContentGrade {
+  + offTask : Boolean
+  + criteria : Map<ContentCriterionId, { band, comment }>
+  + corrections : Correction [0..12]
+  + summary : String
+  + strengths : String [0..3]
+  + nextSteps : String [0..3]
+  + estimatedLevel : JfLevel
+}
+
+class JfGrading <<module>> {
+  + gradeFromCriteria(criteria : CriterionGrade [1..*]) : GradeResult
+  + bandForSpeechScore(score : Number, level : JfLevel) : Band
+}
+class Wav <<module>> {
+  + readWav(base64 : unknown) : { wav : Buffer, seconds : Number }
+}
+class SpeakingAttemptRepository <<repository>> {
+  + insertSpeakingAttempt(attempt : NewSpeakingAttempt) : Promise<Integer>
+  + countSpeakingAttemptsSince(userId, since) : Promise<Integer>
+  + listSpeakingAttempts(userId, taskId) : Promise<SpeakingAttemptRow [0..*]>
+  + summarizeSpeakingTasks(userId) : Promise<TaskSummaryRow [0..*]>
+}
+class GamificationService <<service>> {
+  + rewardActivity(userId, source, referenceId) : Promise<Reward [0..1]>
+}
+
+SpeakingTestController ..> SpeakingTestService
+SpeakingServiceFactory ..> SpeakingTestService : creates
+SpeakingServiceFactory ..> SpeakingTestDependencies
+SpeakingServiceFactory ..> AdapterFactories : default dependencies
+SpeakingTestService o--> "1" SpeakingTestDependencies
+SpeakingTestDependencies o--> "0..1" PronunciationAssessor
+SpeakingTestDependencies o--> "0..1" SpeakingContentGrader
+SpeakingTestDependencies ..> GamificationService : rewardAttempt
+AzurePronunciationAssessor ..|> PronunciationAssessor
+ClaudeContentGrader ..|> SpeakingContentGrader
+AdapterFactories ..> AzurePronunciationAssessor : creates
+AdapterFactories ..> ClaudeContentGrader : creates
+PronunciationAssessor ..> AssessmentOutcome : returns
+AssessmentOutcome *-- "0..1" PronunciationAssessment
+SpeakingContentGrader ..> ContentGrade : returns
+SpeakingTestService ..> Wav
+SpeakingTestService ..> JfGrading : score and band
+SpeakingTestService ..> SpeakingAttemptRepository
+
+note bottom of AzurePronunciationAssessor
+  Without Azure the browser's own speech
+  recognition sends a transcript instead
+  (deliverySource = browser).
+end note
+@enduml

@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import type { InputHTMLAttributes, ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { Clipboard } from "./Clipboard";
 
 const highlights = [
   { mark: "あ", title: "Start with the sounds", text: "Hiragana and Katakana with stroke order, audio, and speed quizzes." },
@@ -37,11 +38,14 @@ export default function AuthLayout({ title, subtitle, children, footer }: { titl
         </Link>
       </div>
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center py-8">
-        <h1 className="text-3xl font-black tracking-tight">{title}</h1>
-        <p className="mt-2 text-gray-600">{subtitle}</p>
-        <div className="mt-7 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">{children}</div>
-        <p className="mt-6 text-center text-sm text-gray-600">{footer}</p>
-        <p className="mt-3 text-center text-xs text-gray-500"><Link to="/privacy" className="hover:underline">Privacy policy</Link></p>
+        {/* The form is a sheet on a clipboard, like the name card a guest fills in after their first lesson. */}
+        <Clipboard>
+          <h1 className="text-3xl font-black tracking-tight">{title}</h1>
+          <p className="mt-2 text-gray-600">{subtitle}</p>
+          <div className="mt-7">{children}</div>
+          <p className="mt-6 text-center text-sm text-gray-600">{footer}</p>
+        </Clipboard>
+        <p className="mt-4 text-center text-xs text-gray-500"><Link to="/privacy" className="hover:underline">Privacy policy</Link></p>
       </div>
     </main>
   </div>;

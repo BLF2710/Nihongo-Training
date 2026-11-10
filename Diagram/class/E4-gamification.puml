@@ -1,0 +1,112 @@
+' E4. Entity classes: XP, levels, streaks and achievements
+' Source: nihon-api/migrations (001, 012, 024, 027, 029, 032) and src/gamification (xpRules.ts, achievementRules.ts)
+@startuml E4 Gamification
+title E4. Entity classes: XP, levels, streaks and achievements
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty methods
+hide <<enumeration>> circle
+
+class User <<entity>> {
+  id : Integer {PK}
+  username : String
+}
+note left of User : see E1
+
+class Gamification <<entity>> {
+  xp : Integer {≥ 0}
+  currentStreak : Integer {≥ 0}
+  longestStreak : Integer {≥ 0}
+  lastActivityAt : DateTime [0..1]
+  createdAt : DateTime
+  updatedAt : DateTime
+  --
+  /level : Integer
+  /rank : String
+}
+note right of Gamification : level and rank are derived from xp\n(progression.service.ts), not stored
+
+class XpEvent <<entity>> {
+  id : Integer {PK}
+  amount : Integer {> 0}
+  source : XpSource
+  referenceId : String
+  createdAt : DateTime
+}
+note right of XpEvent : unique per learner, source and reference:\nthe same piece of work never pays twice
+
+class ActivityDay <<entity>> {
+  day : Date
+}
+
+class Achievement <<entity>> {
+  id : String {PK}
+  title : String
+  description : String
+  xpReward : Integer {≥ 0}
+  category : String
+  icon : String
+  sortOrder : Integer
+}
+
+class UserAchievement <<entity>> {
+  earnedAt : DateTime
+  progress : Integer [0..1]
+}
+
+class GameScore <<entity>> {
+  id : Integer {PK}
+  gameType : String
+  score : Integer
+  accuracy : Decimal {0..100}
+  difficulty : String
+  timeTakenSeconds : Integer
+  playedAt : DateTime
+  sessionId : String [0..1]
+}
+
+class XpRule <<rule>> {
+  source : XpSource
+  amount : Integer
+  dailyCap : Integer [0..1]
+}
+class AchievementRule <<rule>> {
+  id : String
+  fact : String
+  goal : Integer
+}
+
+enum XpSource <<enumeration>> {
+  lesson_completion
+  lesson_challenge
+  assessment
+  quiz
+  game
+  review
+  mistake
+  kanji
+  practice
+  mock_exam
+  mock_exam_pass
+  speaking_test
+  daily_goal
+  achievement
+}
+
+User "1" *-- "0..1" Gamification
+User "1" -- "0..*" XpEvent : earns >
+User "1" -- "0..*" ActivityDay : studied on >
+note on link : one per learner and day;\nthe streak is counted from these
+User "1" -- "0..*" UserAchievement
+UserAchievement "0..*" --> "1" Achievement
+note on link : one per learner and achievement
+User "1" -- "0..*" GameScore
+
+XpEvent "0..*" ..> "1" XpRule : amount capped by >
+UserAchievement ..> AchievementRule : earned when the fact reaches the goal
+AchievementRule "1" -- "1" Achievement : same id
+
+legend bottom left
+  «rule» classes are fixed tables in code (gamification/xpRules.ts, achievementRules.ts), not database rows.
+endlegend
+@enduml

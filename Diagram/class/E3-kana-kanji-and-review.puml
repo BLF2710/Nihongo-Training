@@ -1,0 +1,165 @@
+' E3. Entity classes: kana, kanji, spaced repetition and practice records
+' Source: nihon-api/migrations (000, 004, 013, 020, 022, 028, 030)
+@startuml E3 Kana kanji and review
+title E3. Entity classes: kana, kanji, spaced repetition and practice records
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty methods
+hide <<enumeration>> circle
+
+class User <<entity>> {
+  id : Integer {PK}
+  username : String
+}
+note top of User : see E1
+
+package "Character catalogues" <<Rectangle>> {
+  class Hiragana <<entity>> {
+    id : Integer {PK}
+    kana : String
+    romaji : String
+  }
+  class Katakana <<entity>> {
+    id : Integer {PK}
+    kana : String
+    romaji : String
+  }
+  class Kanji <<entity>> {
+    id : String {PK}
+    character : String {unique}
+  }
+}
+
+class HiraganaProgress <<entity>> {
+  correctCount : Integer
+  wrongCount : Integer
+}
+class KatakanaProgress <<entity>> {
+  correctCount : Integer
+  wrongCount : Integer
+}
+class KanjiProgress <<entity>> {
+  correctCount : Integer
+  wrongCount : Integer
+  lastPracticedAt : DateTime
+  createdAt : DateTime
+  updatedAt : DateTime
+}
+class KanjiPracticeQuestion <<entity>> {
+  id : UUID {PK}
+  kind : KanjiQuestionKind
+  options : String [4]
+  correctIndex : Integer {0..3}
+  answerIndex : Integer [0..1] {0..3}
+  createdAt : DateTime
+  expiresAt : DateTime
+  answeredAt : DateTime [0..1]
+}
+note bottom of KanjiPracticeQuestion : the answer stays on the server\nuntil the learner has answered
+class KanjiFlashcard <<entity>> {
+  addedAt : DateTime
+}
+
+class SrsCard <<entity>> {
+  itemType : SrsItemType
+  itemId : String
+  ease : Decimal {1.3..3.5}
+  intervalDays : Decimal
+  repetitions : Integer
+  lapses : Integer
+  dueAt : DateTime
+  lastReviewedAt : DateTime [0..1]
+  suspendedAt : DateTime [0..1]
+  createdAt : DateTime
+}
+class SrsReview <<entity>> {
+  id : Integer {PK}
+  grade : SrsGrade
+  wasNew : Boolean
+  reviewedAt : DateTime
+}
+
+class Mistake <<entity>> {
+  id : Integer {PK}
+  source : MistakeSource
+  itemKey : String
+  payload : JSON
+  wrongCount : Integer {≥ 1}
+  correctStreak : Integer
+  firstWrongAt : DateTime
+  lastWrongAt : DateTime
+  resolvedAt : DateTime [0..1]
+}
+
+class PracticeSession <<entity>> {
+  id : Integer {PK}
+  kind : PracticeKind
+  scope : String
+  answered : Integer {> 0}
+  correct : Integer {≤ answered}
+  createdAt : DateTime
+}
+
+class StudyTime <<entity>> {
+  day : Date
+  seconds : Integer {0..86400}
+  lastCreditedAt : DateTime
+}
+
+enum KanjiQuestionKind <<enumeration>> {
+  meaning
+  reading
+  vocabulary
+}
+enum SrsItemType <<enumeration>> {
+  vocabulary
+  kanji
+}
+enum SrsGrade <<enumeration>> {
+  again
+  hard
+  good
+  easy
+}
+enum MistakeSource <<enumeration>> {
+  lesson
+  review
+  assessment
+  mock_exam
+  kana
+  kanji
+}
+enum PracticeKind <<enumeration>> {
+  listening
+  speaking
+  reading
+  mock-exam
+  particles
+  errands
+}
+
+User "1" -- "0..*" HiraganaProgress
+HiraganaProgress "0..*" --> "1" Hiragana
+User "1" -- "0..*" KatakanaProgress
+KatakanaProgress "0..*" --> "1" Katakana
+User "1" -- "0..*" KanjiProgress
+KanjiProgress "0..*" --> "1" Kanji
+User "1" -- "0..*" KanjiPracticeQuestion
+KanjiPracticeQuestion "0..*" --> "1" Kanji
+User "1" -- "0..*" KanjiFlashcard
+KanjiFlashcard "0..*" ..> "1" Kanji : by id
+
+User "1" -- "0..*" SrsCard
+note on link : one card per learner and item
+SrsCard "1" -- "0..*" SrsReview : same learner and item >
+
+User "1" -- "0..*" Mistake
+note on link : one open entry per learner and item;\nresolved after enough correct answers in a row
+User "1" -- "0..*" PracticeSession
+User "1" -- "0..*" StudyTime
+note on link : one row per learner and day
+
+legend bottom left
+  Technical table not drawn: quiz_answer_receipts (makes a resent kana answer count once).
+endlegend
+@enduml

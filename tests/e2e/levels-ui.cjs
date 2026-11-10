@@ -51,7 +51,7 @@ const [base, shots] = process.argv.slice(2);
     await page.goto(base + '/review'); await heading('Unit Review').waitFor(); await badge('N4').waitFor();
     assert.deepEqual((await optionTexts()).map(o => o.split(' —')[0]), ['N4 cumulative review', 'Unit 1: N4 title 1', 'Unit 2: N4 title 2']);
     await page.goto(base + '/quizzes'); await heading('Quizzes').waitFor(); assert.equal(await page.locator('section[aria-label$="Assessment"]').count(), 2);
-    await page.goto(base + '/'); await page.getByText('🇯🇵 Japanese · N4 · Change').waitFor(); await page.getByText('N4 title 2').first().waitFor(); assert.equal(await page.locator('section[aria-labelledby="path-heading"] ol > li').count(), 2);
+    await page.goto(base + '/dashboard'); await page.getByText('🇯🇵 Japanese · N4 · Change').waitFor(); await page.getByText('N4 title 2').first().waitFor(); assert.equal(await page.locator('section[aria-labelledby="path-heading"] ol > li').count(), 2);
     // A lesson names its level, and furigana is shown.
     await page.goto(base + '/lessons/japanese/n4-unit-1-i-think'); await page.getByText('N4 · Unit 1 • Lesson 1').waitFor();
     await page.getByRole('button', { name: 'Continue →' }).click(); await heading('Useful words').waitFor(); assert.ok(await page.locator('main ruby rt').count() >= 4);

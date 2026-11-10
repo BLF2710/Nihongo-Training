@@ -1,0 +1,153 @@
+' E1. Entity classes: account and administration
+' Source: nihon-api/migrations (000, 001, 007, 018, 019, 025, 026) and services/admin-content.service.ts
+' Foreign keys are drawn as associations, not repeated as attributes. Types are domain types
+' (String, Integer, Boolean, DateTime, Binary, JSON); [0..1] marks a column that may be empty.
+@startuml E1 Account and administration
+title E1. Entity classes: account and administration
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty methods
+hide <<enumeration>> circle
+
+class User <<entity>> {
+  id : Integer {PK}
+  username : String {unique}
+  email : String {unique}
+  passwordHash : String [0..1]
+  role : Role
+  status : AccountStatus
+  tokenVersion : Integer
+  emailVerifiedAt : DateTime [0..1]
+  allLessonsUnlocked : Boolean
+  lastLoginAt : DateTime [0..1]
+  createdAt : DateTime
+  updatedAt : DateTime
+}
+note right of User::passwordHash
+  empty for an account made
+  with Google sign-in
+end note
+note right of User::tokenVersion
+  raised on password change or
+  "sign out everywhere": older
+  session tokens stop working
+end note
+
+class Profile <<entity>> {
+  displayName : String
+  bio : String
+  nativeLanguage : String [0..1]
+  learningLanguage : String
+  learningGoal : String [0..1]
+  dailyGoal : Integer {1..1440}
+  timeZone : String
+  profileVisibility : ProfileVisibility
+  friendRequests : FriendRequestSetting
+  suggestMe : Boolean
+  shareActivity : Boolean
+  showStudyingNow : Boolean
+  createdAt : DateTime
+  updatedAt : DateTime
+}
+
+class Avatar <<entity>> {
+  imageKey : String {unique}
+  image : Binary {≤ 64 KB, WebP}
+  updatedAt : DateTime
+}
+
+class LinkedIdentity <<entity>> {
+  id : Integer {PK}
+  provider : IdentityProvider
+  providerSubject : String
+  email : String
+  createdAt : DateTime
+  lastUsedAt : DateTime
+}
+
+class AccountToken <<entity>> {
+  id : Integer {PK}
+  purpose : TokenPurpose
+  tokenHash : String {unique, SHA-256}
+  email : String
+  createdAt : DateTime
+  expiresAt : DateTime
+  usedAt : DateTime [0..1]
+}
+
+class AuditLogEntry <<entity>> {
+  id : Integer {PK}
+  action : String
+  targetRef : String [0..1]
+  details : JSON
+  createdAt : DateTime
+}
+
+class SystemSettings <<entity>> {
+  registrationEnabled : Boolean
+  announcement : String
+  announcementAudience : AnnouncementAudience
+  updatedAt : DateTime
+}
+note bottom of SystemSettings : exactly one row
+
+class ContentAvailability <<entity>> {
+  contentKey : String {PK}
+  enabled : Boolean
+  updatedAt : DateTime
+}
+
+class ManagedContent <<content>> {
+  key : String
+  title : String
+  category : String
+  paths : String [1..*]
+}
+note bottom of ManagedContent : defined in code, not stored:\nlessons, quizzes, games, skills,\nmessages, friends, assistant …
+
+enum Role <<enumeration>> {
+  learner
+  admin
+}
+enum AccountStatus <<enumeration>> {
+  active
+  suspended
+}
+enum ProfileVisibility <<enumeration>> {
+  private
+  friends
+  public
+}
+enum FriendRequestSetting <<enumeration>> {
+  everyone
+  nobody
+}
+enum IdentityProvider <<enumeration>> {
+  google
+}
+enum TokenPurpose <<enumeration>> {
+  password_reset
+  email_verification
+}
+enum AnnouncementAudience <<enumeration>> {
+  everyone
+  learners
+}
+
+User "1" *-- "0..1" Profile
+User "1" *-- "0..1" Avatar
+User "1" *-- "0..*" LinkedIdentity : signs in with >
+note on link : one per provider; a provider\naccount links to one user only
+User "1" *-- "0..*" AccountToken : password reset,\nemail confirmation >
+
+AuditLogEntry "0..*" --> "0..1" User : actor >
+AuditLogEntry "0..*" --> "0..1" User : target user >
+SystemSettings "0..*" --> "0..1" User : updated by >
+ContentAvailability "0..*" --> "0..1" User : updated by >
+ContentAvailability "0..1" --> "1" ManagedContent : switches >
+
+
+legend bottom left
+  Technical tables not drawn: rate_limit_windows, sign_in_nonces (shared state, see D3).
+endlegend
+@enduml

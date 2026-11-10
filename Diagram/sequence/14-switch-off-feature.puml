@@ -1,0 +1,67 @@
+' 14. Admin switches a feature off → a learner sees "temporarily unavailable"
+' Use cases: Toggle features (Manage system) · Actors: Admin, Learner
+'
+' Design patterns:
+'   - Chain of responsibility: authenticate → requireAdmin on the admin route; for learners, the app-wide
+'     enforceContentAvailability middleware runs before every controller (app.ts, middleware/content-availability.middleware.ts)
+'   - Decorator: action() wraps the controller with shared error handling (utils/action.ts)
+'   - Repository: content availability and audit log SQL (repositories/site.repository.ts, audit-log.repository.ts)
+'   - Two lines of defence: the web app hides a switched-off page (SiteGate reads the site settings on every
+'     navigation), and the API refuses its requests anyway, so an open tab or a direct call cannot get around it
+' Lifelines use BCE stereotypes: «boundary» screens and outside services, «control» use-case logic (controllers,
+' services, and the adapter interfaces in front of outside services), «entity» stored data (repository, stores);
+' the database keeps its own symbol.
+@startuml 14 Switch off a feature
+title 14. Admin switches a feature off → a learner sees "temporarily unavailable"
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Admin
+boundary "Admin web app" as AdminWeb
+control "Middleware chain" as MW
+control "Admin controller" as Ctrl
+control "Admin service" as Svc
+control "Site controller" as Site
+entity "Repository" as Repo
+database "Database" as DB
+boundary "Web app\n(SiteGate)" as Web
+actor Learner
+
+Admin -> AdminWeb : Content → Availability: switch "Study assistant" off
+AdminWeb -> MW : PUT /api/admin/content/assistant { enabled: false }
+note right of MW : authenticate → requireAdmin\n(as in diagram 13)
+MW -> Ctrl : updateContent()
+Ctrl -> Svc : setContentEnabled(adminId, "assistant", false)
+alt unknown content key or enabled is not true/false
+  Svc --> AdminWeb : 400 "Invalid content or availability."
+end
+Svc -> Repo : save availability (who, when)
+Repo -> DB : INSERT … ON CONFLICT DO UPDATE content_availability
+Svc -> Repo : audit log entry "content.disabled"
+Repo -> DB : INSERT audit_log …
+Ctrl --> AdminWeb : { key, enabled: false }
+AdminWeb -> AdminWeb : show the switch as off
+
+== Later: a learner opens the assistant ==
+Learner -> Web : open the Study assistant
+Web -> Site : GET /api/site (on every page change)
+Site -> Repo : announcement, switched-off content
+Repo -> DB : SELECT …
+Site --> Web : { announcement, disabled: [ { title: "Study assistant chat", paths: ["/assistant"] } ] }
+alt the page is switched off
+  Web -> Web : show "Temporarily unavailable: Study assistant chat has been switched off by an administrator.\nYour progress is saved and will be here when it returns."
+end
+
+== An open tab, or a direct call, still tries ==
+Learner -> Web : send a question (page opened before the switch)
+Web -> MW : POST /api/assistant/…
+MW -> Repo : is any content key for this path disabled?
+Repo -> DB : SELECT …
+alt switched off
+  MW --> Web : 403 "This activity is temporarily unavailable."
+  Web -> Web : show the message
+else on
+  MW -> MW : next() → the assistant controller as usual
+end
+@enduml
