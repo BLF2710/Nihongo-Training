@@ -56,6 +56,7 @@ const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
 const AchievementsPage = lazy(() => import("./pages/AchievementsPage"));
 const ParticleDropPage = lazy(() => import("./pages/ParticleDropPage"));
+const KanaWildsPage = lazy(() => import("./pages/KanaWildsPage"));
 const IslandErrandsPage = lazy(() => import("./pages/IslandErrandsPage"));
 const VillagePage = lazy(() => import("./pages/VillagePage"));
 const SrsDeckPage = lazy(() => import("./pages/SrsDeckPage"));
@@ -132,6 +133,7 @@ function App() {
           <Route path="/guest/practice" element={<GuestPracticePage />} />
           <Route path="/arcade" element={signedIn(<EnglishArcadePage />)} />
           <Route path="/games/particles" element={signedInLazy("Loading Particle Drop…", <ParticleDropPage />)} />
+          <Route path="/games/kana-wilds" element={signedInLazy("Loading Kana Wilds…", <KanaWildsPage />)} />
           <Route path="/games/errands" element={signedInLazy("Loading Island Errands…", <IslandErrandsPage />)} />
           <Route path="/village" element={signedInLazy("Loading the village…", <VillagePage />)} />
           <Route path="/games/english" element={signedIn(<EnglishArcadePage />)} />

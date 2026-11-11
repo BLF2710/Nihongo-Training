@@ -11,6 +11,7 @@ export function contentKeysForPath(path: string): string[] {
   if (path === "/quiz/random" || path === "/quiz/answer") keys.push("kana-practice");
   if (path === "/kanji/practice" || path === "/kanji/answer") keys.push("kanji-practice");
   if (path.startsWith("/english/")) keys.push("english-games");
+  if (path.startsWith("/kana-wilds/")) keys.push("kana-wilds");
   if (path.startsWith("/messages/")) keys.push("messages");
   if (path === "/assistant" || path.startsWith("/assistant/")) keys.push("assistant");
   if (path === "/speaking-tests" || path.startsWith("/speaking-tests/")) keys.push("speaking");

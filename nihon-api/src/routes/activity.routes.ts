@@ -4,7 +4,7 @@ import { authenticate } from "../middleware/auth.middleware";
 
 const router = Router();
 router.use(authenticate);
-// A finished listening, speaking, reading, mock-exam, Particle Drop or Island Errands session (graded in the browser).
+// A finished listening, speaking, reading, mock-exam, Particle Drop, Island Errands or Kana Wilds session (graded in the browser).
 router.post("/practice", recordPractice);
 // Active study time on learning pages, reported about once a minute, for the daily goal.
 router.post("/study-time", recordStudyTime);

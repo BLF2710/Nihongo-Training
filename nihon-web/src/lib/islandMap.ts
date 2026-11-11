@@ -82,6 +82,7 @@ export const ISLANDS: readonly Island[] = [
     { label: "Hiragana", href: "/learn/hiragana", description: "Flashcards, stroke order and writing." },
     { label: "Katakana", href: "/learn/katakana", description: "Flashcards, stroke order and writing." },
     { label: "Kana review", href: "/review/hiragana", description: "Characters you still find hard." },
+    { label: "Kana Wilds", href: "/games/kana-wilds", description: "Battle wild kana and catch them." },
   ] },
   { id: "fuji", isBridged: false, name: "Progress", mark: "進", tagline: "Your climb from N5 to N1.", destinations: [
     { label: "Choose your level", href: "/levels", description: "Move up when you are ready." },

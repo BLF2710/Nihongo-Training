@@ -1,0 +1,267 @@
+/* The Kana Wilds battle scene: a meadow with the wild kana on a far platform (top right) and the learner on a near
+   one (bottom left), each with an HP box, then a text box and a move menu below. Night colours in the dark theme. */
+.kw-field {
+  --kw-sky-top: #bfe6ff;
+  --kw-sky-bottom: #e9f8ff;
+  --kw-grass: #a6dd8a;
+  --kw-grass-dark: #7cc266;
+  --kw-platform: #8fcf6f;
+  --kw-platform-rim: #5f9f48;
+  --kw-box: #fffdf6;
+  --kw-box-ink: #1f2a1c;
+  --kw-box-border: #3f4b36;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid var(--kw-box-border);
+  border-radius: 1rem;
+  height: clamp(12rem, 32dvh, 15rem);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% 115%, var(--kw-grass-dark) 0 45%, transparent 46%),
+    linear-gradient(180deg, var(--kw-sky-top), var(--kw-sky-bottom) 52%, var(--kw-grass) 52.5%, var(--kw-grass) 100%);
+}
+/* Lower while tracing, to leave the screen to the tracing box. */
+.kw-field[data-compact="true"] { height: clamp(9rem, 22dvh, 11rem); }
+.dark .kw-field {
+  --kw-sky-top: #0f1d3a;
+  --kw-sky-bottom: #26365c;
+  --kw-grass: #2d4a2c;
+  --kw-grass-dark: #223b22;
+  --kw-platform: #3a5e37;
+  --kw-platform-rim: #253f24;
+  --kw-box: #1d2430;
+  --kw-box-ink: #eef2f7;
+  --kw-box-border: #8a97ab;
+}
+
+.kw-platform {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 40%, var(--kw-platform) 0 60%, var(--kw-platform-rim) 61% 100%);
+}
+.kw-platform--enemy { right: 8%; top: 44%; width: 34%; height: 15%; }
+.kw-platform--player { left: 4%; bottom: 4%; width: 38%; height: 17%; }
+
+.kw-sprite { position: absolute; display: flex; align-items: center; justify-content: center; }
+.kw-sprite--enemy { right: 12%; top: 6%; width: 26%; height: 46%; align-items: flex-end; }
+/* Stands on its platform: the avatar's foot sits a little inside the platform's top edge. */
+.kw-sprite--player { left: 10%; bottom: 10%; width: 26%; height: 46%; align-items: flex-end; }
+.kw-enemy-kana {
+  font-size: clamp(4rem, 15dvh, 7.5rem);
+  line-height: 1;
+  font-weight: 900;
+  color: #1b1f2a;
+  text-shadow: 0 0.12em 0 rgb(0 0 0 / 0.12), 0 0 0.3em rgb(255 255 255 / 0.8);
+  animation: kw-idle 2.4s ease-in-out infinite;
+}
+.dark .kw-enemy-kana { color: #f4f1ff; text-shadow: 0 0 0.35em rgb(170 190 255 / 0.55); }
+.kw-enemy-kana[data-exhausted="true"] { opacity: 0.55; transform: rotate(-8deg); animation: none; }
+
+.kw-player-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(4.5rem, 13dvh, 6.5rem);
+  aspect-ratio: 1;
+  border: 4px solid #fff;
+  border-radius: 9999px;
+  overflow: hidden;
+  font-size: clamp(2rem, 6dvh, 3rem);
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, #10b981, #4f46e5);
+  box-shadow: 0 6px 14px -6px rgb(0 0 0 / 0.45);
+}
+.kw-player-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* The cue wrapper fills its sprite. */
+.kw-cue { position: relative; display: flex; align-items: center; justify-content: center; }
+.kw-enter-enemy { animation: kw-enter 0.6s ease-out both; }
+.kw-enter-player { animation: kw-enter-player 0.5s ease-out both; }
+
+/* Turn animations. Each turn re-keys the cue wrappers and effects, so every animation plays once. The whole sequence
+   (word flies, impact, shake, damage number) ends within BATTLE_CUE_MS in BattleArena.tsx, which holds the menu
+   until then. --kw-impact is when the blow lands: after the flight for an attack, after the lunge for the enemy's. */
+.kw-cue { --kw-impact: 0.42s; }
+
+/* The word the learner played flies from them to the wild kana. */
+.kw-projectile {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  white-space: nowrap;
+  font-weight: 900;
+  font-size: clamp(1.25rem, 4.5dvh, 2rem);
+  color: #fff;
+  text-shadow: 0 0 4px #059669, 0 0 12px #34d399, 0 0 22px #34d399;
+  transform: translate(-50%, -50%);
+  animation: kw-fly 0.42s cubic-bezier(0.45, 0, 0.75, 0.6) forwards;
+}
+.kw-projectile[data-critical="true"] { font-size: clamp(1.5rem, 5.5dvh, 2.4rem); text-shadow: 0 0 4px #b45309, 0 0 12px #facc15, 0 0 24px #fde047; }
+.kw-projectile[data-matchup="weak"] { opacity: 0.75; text-shadow: 0 0 4px #475569, 0 0 10px #94a3b8; }
+/* A word read wrong runs out of steam halfway and puffs away. */
+.kw-projectile[data-fizzle="true"] { animation: kw-fizzle 0.55s ease-out forwards; text-shadow: 0 0 6px #94a3b8; }
+
+/* The impact on the wild kana: a burst, then the shake, then the damage number. */
+.kw-burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 130%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.95) 0 18%, rgb(251 146 60 / 0.75) 34%, transparent 64%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.2);
+  animation: kw-burst 0.38s ease-out var(--kw-impact) forwards;
+}
+.kw-burst[data-variant="critical"] { background: radial-gradient(circle, rgb(255 255 255 / 0.95) 0 18%, rgb(250 204 21 / 0.85) 36%, transparent 66%); width: 165%; }
+.kw-burst[data-variant="strong"] { background: radial-gradient(circle, rgb(255 255 255 / 0.95) 0 18%, rgb(52 211 153 / 0.8) 36%, transparent 66%); }
+.kw-burst[data-variant="weak"] { background: radial-gradient(circle, rgb(255 255 255 / 0.8) 0 14%, rgb(148 163 184 / 0.6) 30%, transparent 56%); width: 95%; }
+.kw-burst[data-variant="hurt"] { background: radial-gradient(circle, rgb(255 255 255 / 0.9) 0 14%, rgb(239 68 68 / 0.75) 32%, transparent 62%); }
+.kw-cue-struck { animation: kw-shake 0.4s ease-in-out var(--kw-impact), kw-flash 0.4s steps(2) var(--kw-impact); }
+
+/* The wild kana's turn: it lunges at the learner, and the blow lands as the lunge peaks. */
+.kw-cue-lunge { animation: kw-lunge 0.45s ease-in-out; }
+.kw-cue--player { --kw-impact: 0.22s; }
+.kw-hurt-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 22% 72%, rgb(239 68 68 / 0.45), transparent 60%);
+  opacity: 0;
+  animation: kw-red 0.4s ease-out 0.22s forwards;
+}
+/* A block: a shield bubble rises around the learner and the blow glances off it. */
+.kw-shield {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  aspect-ratio: 1;
+  border: 3px solid #60a5fa;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgb(191 219 254 / 0.1) 0 50%, rgb(96 165 250 / 0.35) 100%);
+  box-shadow: 0 0 18px rgb(96 165 250 / 0.7);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.3);
+  animation: kw-shield-up 0.7s ease-out 0.12s forwards;
+}
+.kw-callout {
+  position: absolute;
+  top: 10%;
+  left: 115%;
+  white-space: nowrap;
+  font-weight: 900;
+  font-size: 1rem;
+  color: #2563eb;
+  text-shadow: 0 1px 0 #fff, 0 0 4px #fff;
+  pointer-events: none;
+  opacity: 0;
+  animation: kw-pop 0.8s ease-out var(--kw-impact) forwards;
+}
+/* A failed catch: the kana wriggles free. */
+.kw-cue-escape { animation: kw-wriggle 0.5s ease-in-out; }
+
+.kw-damage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #dc2626;
+  text-shadow: 0 1px 0 #fff, 0 0 4px #fff;
+  pointer-events: none;
+  opacity: 0;
+  animation: kw-float 0.9s ease-out var(--kw-impact) forwards;
+}
+.kw-damage[data-critical="true"] { font-size: 1.6rem; color: #d97706; }
+
+.kw-info {
+  position: absolute;
+  /* Above the turn's effects, so the HP numbers stay readable through a flash. */
+  z-index: 4;
+  min-width: 11rem;
+  width: 40%;
+  max-width: 17rem;
+  padding: 0.4rem 0.7rem 0.5rem;
+  border: 3px solid var(--kw-box-border);
+  border-radius: 0.75rem;
+  background: var(--kw-box);
+  color: var(--kw-box-ink);
+  box-shadow: 0 4px 0 rgb(0 0 0 / 0.12);
+}
+.kw-info--enemy { left: 3%; top: 6%; border-bottom-right-radius: 1.5rem; }
+.kw-info--player { right: 3%; bottom: 7%; border-top-left-radius: 1.5rem; }
+.kw-hp-track { height: 0.55rem; overflow: hidden; border-radius: 9999px; background: rgb(0 0 0 / 0.15); }
+/* The bar starts draining when the blow lands (BattleField delays the HP it shows). */
+.kw-hp-fill { height: 100%; border-radius: 9999px; transition: width 0.5s ease-out, background-color 0.3s; }
+
+/* The text box under the scene. */
+.kw-textbox {
+  border: 3px solid #3f4b36;
+  border-radius: 0.9rem;
+  background: #fffdf6;
+  color: #1f2a1c;
+  box-shadow: inset 0 0 0 3px #d9e7c9;
+}
+.dark .kw-textbox { border-color: #8a97ab; background: #1d2430; color: #eef2f7; box-shadow: inset 0 0 0 3px #2e3a4e; }
+
+/* Phones: a shorter scene, slimmer HP boxes and a smaller kana and avatar, so the move menu still fits below. */
+@media (max-width: 767px) {
+  .kw-field { height: clamp(10.5rem, 24dvh, 12.5rem); }
+  .kw-info { min-width: 0; width: 56%; padding: 0.3rem 0.5rem 0.35rem; }
+  .kw-info--enemy { top: 5%; }
+  .kw-info--player { bottom: 5%; }
+  .kw-sprite--enemy { right: 4%; width: 34%; }
+  .kw-platform--enemy { right: 2%; width: 40%; }
+  .kw-enemy-kana { font-size: clamp(3.5rem, 11dvh, 5rem); }
+  .kw-player-avatar { width: clamp(3.5rem, 9dvh, 4.5rem); font-size: 1.75rem; border-width: 3px; }
+  .kw-sprite--player { left: 4%; }
+}
+
+@keyframes kw-enter { from { opacity: 0; transform: translateX(40%); } to { opacity: 1; transform: none; } }
+@keyframes kw-enter-player { from { opacity: 0; transform: translateX(-40%); } to { opacity: 1; transform: none; } }
+@keyframes kw-idle { 50% { transform: translateY(-5%); } }
+@keyframes kw-shake { 20% { transform: translateX(-8%); } 40% { transform: translateX(8%); } 60% { transform: translateX(-5%); } 80% { transform: translateX(4%); } }
+@keyframes kw-flash { 50% { opacity: 0.35; } }
+@keyframes kw-fly {
+  from { left: 24%; top: 64%; opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(-8deg); }
+  15% { opacity: 1; }
+  to { left: 74%; top: 30%; opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(4deg); }
+}
+@keyframes kw-fizzle {
+  from { left: 24%; top: 64%; opacity: 0; transform: translate(-50%, -50%) scale(0.6); filter: none; }
+  15% { opacity: 1; }
+  60% { left: 46%; top: 50%; opacity: 0.9; transform: translate(-50%, -50%) scale(1); filter: none; }
+  to { left: 50%; top: 52%; opacity: 0; transform: translate(-50%, -50%) scale(1.6); filter: blur(6px); }
+}
+@keyframes kw-burst {
+  from { opacity: 0.95; transform: translate(-50%, -50%) scale(0.2); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+/* Mostly sideways: towards the learner, above their HP box. */
+@keyframes kw-lunge {
+  20% { transform: translate(8%, -4%) scale(0.96); }
+  45% { transform: translate(-85%, 12%) scale(1.12); }
+  60% { transform: translate(-75%, 10%) scale(1.08); }
+}
+@keyframes kw-red { 30% { opacity: 1; } to { opacity: 0; } }
+@keyframes kw-shield-up {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+  25% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+  45% { box-shadow: 0 0 30px rgb(147 197 253 / 0.95); }
+  75% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(1.15); }
+}
+@keyframes kw-pop { from { opacity: 0; transform: scale(0.6); } 20% { opacity: 1; transform: scale(1.1); } 75% { opacity: 1; transform: scale(1); } to { opacity: 0; transform: translateY(-30%); } }
+@keyframes kw-wriggle { 20% { transform: rotate(-12deg); } 45% { transform: rotate(10deg); } 70% { transform: rotate(-6deg); } }
+@keyframes kw-float { from { opacity: 1; transform: translate(-50%, 0); } 70% { opacity: 1; } to { opacity: 0; transform: translate(-50%, -140%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .kw-enemy-kana, .kw-enter-enemy, .kw-enter-player, .kw-cue-struck, .kw-cue-lunge, .kw-cue-escape { animation: none; }
+  .kw-projectile, .kw-burst, .kw-hurt-flash, .kw-shield, .kw-callout, .kw-damage { display: none; }
+  .kw-hp-fill { transition: none; }
+}

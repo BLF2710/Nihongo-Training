@@ -11,6 +11,7 @@ import authRoutes from "./routes/auth.routes";
 import communicationRoutes from "./routes/communication.routes";
 import englishRoutes from "./routes/english.routes";
 import friendRoutes from "./routes/friend.routes";
+import kanaWildsRoutes from "./routes/kana-wilds.routes";
 import kanjiRoutes from "./routes/kanji.routes";
 import lessonRoutes from "./routes/lesson.routes";
 import mistakeRoutes from "./routes/mistake.routes";
@@ -61,6 +62,7 @@ export function createApp() {
   });
 
   app.use("/api/quiz", quizRoutes);
+  app.use("/api/kana-wilds", kanaWildsRoutes);
   app.use("/api/statistics", statisticsRoutes);
   app.use("/api/english", englishRoutes);
   app.use("/api/review", reviewRoutes);

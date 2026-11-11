@@ -251,6 +251,26 @@ unit-tested without a browser or database, like `srsScheduler.ts`.
 
 Milestone 1 is a complete small game on its own. Each later milestone is playable when it lands.
 
+**Beta status (built):** milestone 1, plus from milestone 2 the stance, the full vowel circle, word fatigue and the meaning critical.
+- Routes and code:
+  - the page is `/games/kana-wilds`, listed on the Kana island;
+  - the rules are in `nihon-web/src/lib/kanaWilds/`;
+  - the collection API is `/api/kana-wilds` (migration 033, `moji_collection`).
+- Wild kana come from the first two rows not yet complete, so the table fills in row by row.
+- Grading:
+  - attack readings are graded in the browser;
+  - the battle is saved as a `battle` practice session (game XP, daily cap);
+  - defence readings go through `/quiz/answer`, so they count toward kana progress and the mistake notebook.
+- Catching:
+  - by tracing, graded against KanjiVG strokes, with a looser tolerance the weaker the kana;
+  - a stroke-count question replaces tracing for keyboard and screen-reader players.
+- Not yet built:
+  - defence levels beyond a plain reading choice;
+  - kana levels from mastery;
+  - the challengers and the stroke reveal;
+  - katakana;
+  - friend battles.
+
 ## 15. Open questions
 
 1. Every N5 word playable, or only words from completed lessons? -> every N5 words (every japanese words if you can)
