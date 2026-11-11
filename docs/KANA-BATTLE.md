@@ -119,12 +119,15 @@ Wild kana use levels 1–2. Each challenger has a signature defence from level 3
 
 ## 7. Catching
 
-- **When:** "Catch" becomes available once the wild kana is below `CATCH_HP_THRESHOLD` (30% of its HP).
+- **When:** "Catch" becomes available once the wild kana is at or below `CATCH_HP_SHARE` (60% of its HP). A good trace
+  catches it at the **catch chance**: `MIN_CATCH_CHANCE` (40%) as catching opens, rising to 100% at 0 HP. The button
+  shows the chance ("Catch it! (65%)"), so catching early is a gamble the player chooses.
 - **How:** you trace the kana's strokes in order. Tracing is checked against the KanjiVG strokes for **order**,
-  **direction** and **rough shape**.
+  **direction** and **rough shape**. The whole trace is first centred and scaled to the kana (0.6×–1.6×), so where
+  and how big you draw doesn't count; the strokes' places relative to each other still do.
 - **How forgiving the check is** depends on the kana's remaining HP: the weaker it is, the looser the tolerance. A
   perfect trace always catches it.
-- **If you fail:** the kana attacks. After `MAX_CATCH_TRIES` (3) failures it runs away. It isn't gone: it will appear
+- **If you fail** (a missed trace, or a good trace that loses the roll and breaks out): the kana attacks. After `MAX_CATCH_TRIES` (3) failures it runs away. It isn't gone: it will appear
   again.
 - **On a phone or tablet** you trace with a finger or stylus. On a keyboard-only setup there's an alternative: pick
   the strokes in the right order from a set of stroke cards.
@@ -264,10 +267,34 @@ Milestone 1 is a complete small game on its own. Each later milestone is playabl
 - Catching:
   - by tracing, graded against KanjiVG strokes, with a looser tolerance the weaker the kana;
   - a stroke-count question replaces tracing for keyboard and screen-reader players.
+- Words are dealt as a hand of 8 each attack turn (`lib/kanaWilds/hand.ts`), not the strongest 8. The hand always has:
+  - 2 words strong against the enemy;
+  - 1 word from the latest 2 catches;
+  - 1 word read wrong before (remembered in this browser);
+  - 1 short word;
+  - the rest at random, avoiding words already played this battle.
+- **Redraw:** swap the hand for a new one. You lose the attack, but you brace for the enemy's next attack:
+  - the block offers 2 choices and no look-alikes;
+  - a missed block does half damage.
+- **The hidden wild kana** (`reveal.ts`, `enemyAttacks.ts`): the wild kana starts as a blank card ("Wild ？") and shows
+  its strokes, in stroke order, as it loses HP: `floor(strokes × HP lost / max HP)`, all of them at 0 HP or when the
+  battle ends. Wearing it down is how you learn what you are about to catch.
+  - It attacks with its **moveset** (its look-alikes and the rest of its row, never itself) or with a course **word
+    containing it** (up to 4 kana). Words are the clue: the first row uses them 20% of the time, each later row 5%
+    more, up to 70%.
+  - Each attack is drawn stroke by stroke. Reading it right blocks; reading it before it is fully drawn is a **perfect
+    block** and hits back for `COUNTER_DAMAGE` (2).
+  - Kana attacks are graded by `/quiz/answer` (progress and mistake notebook for the attacking kana). Word attacks are
+    graded in the browser and go on the missed-words list when read wrong.
+  - Catching early means tracing from memory: the guide draws only the strokes shown so far, and the hint shows the
+    next hidden stroke.
+  - A kana of one stroke (く し そ つ て の ひ へ る ろ ん) shows nothing until 0 HP; its attacks are its only clues.
+  - The HP box still shows its vowel and weakness, which the stance needs; with the row known from the area, this can
+    narrow it to two or three kana.
 - Not yet built:
   - defence levels beyond a plain reading choice;
   - kana levels from mastery;
-  - the challengers and the stroke reveal;
+  - the challengers;
   - katakana;
   - friend battles.
 

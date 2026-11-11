@@ -5,10 +5,7 @@ import { meaningChoices, readingChoices } from "../../lib/kanaWilds/choices";
 import { vowelOfWord } from "../../lib/kanaWilds/vowelCircle";
 import type { Matchup } from "../../lib/kanaWilds/vowelCircle";
 import type { BattleWord } from "../../lib/kanaWilds/words";
-import { choiceButton, secondaryButton } from "./styles";
-
-/** The most words offered at once, so the panel fits the screen; the strongest come first. */
-const MAX_WORDS_SHOWN = 8;
+import { choiceButton, focusRing, secondaryButton } from "./styles";
 
 export type WordPlay = { word: BattleWord; isReadingCorrect: boolean; isMeaningCorrect: boolean };
 type Step = { kind: "pick" } | { kind: "reading"; word: BattleWord; choices: string[] } | { kind: "meaning"; word: BattleWord; choices: string[] };
@@ -20,17 +17,20 @@ const MATCHUP_BADGE: Readonly<Record<Matchup, { label: string; className: string
 };
 
 type Props = {
-  state: BattleState; words: readonly BattleWord[]; pool: readonly BattleWord[]; random: () => number;
-  onPlay: (play: WordPlay) => void;
+  state: BattleState; hand: readonly BattleWord[]; pool: readonly BattleWord[]; random: () => number;
+  onPlay: (play: WordPlay) => void; onRedraw: () => void;
 };
 
-/** The attack turn: pick a word spelled from your kana, read it (and, for a critical hit, say what it means). */
-export function AttackPanel({ state, words, pool, random, onPlay }: Props) {
+/**
+ * The attack turn: pick a word from the hand dealt, read it (and, for a critical hit, say what it means). Or redraw:
+ * a new hand, but the turn goes to the enemy (with an easier block).
+ */
+export function AttackPanel({ state, hand, pool, random, onPlay, onRedraw }: Props) {
   const [step, setStep] = useState<Step>({ kind: "pick" });
-  const ranked = useMemo(() => words
+  // Strongest first within the hand, so the choice is still tactical.
+  const ranked = useMemo(() => hand
     .map(word => ({ word, ...previewAttack(word, state.enemy.vowel, state.timesPlayed[word.japanese] ?? 0) }))
-    .sort((a, b) => b.damage - a.damage)
-    .slice(0, MAX_WORDS_SHOWN), [words, state.enemy.vowel, state.timesPlayed]);
+    .sort((a, b) => b.damage - a.damage), [hand, state.enemy.vowel, state.timesPlayed]);
 
   const pick = (word: BattleWord) => setStep({ kind: "reading", word, choices: readingChoices(word, pool, random) });
   const finish = (play: WordPlay) => { setStep({ kind: "pick" }); onPlay(play); };
@@ -54,7 +54,11 @@ export function AttackPanel({ state, words, pool, random, onPlay }: Props) {
   </div>;
 
   return <div role="group" aria-labelledby="attack-prompt">
-    <p id="attack-prompt" className="font-bold">Your turn: attack with a word</p>
+    <div className="flex items-center justify-between gap-2">
+      <p id="attack-prompt" className="font-bold">Your turn: attack with a word</p>
+      <button type="button" className={`shrink-0 rounded-lg border border-gray-200 bg-white px-3 py-0.5 text-sm font-semibold hover:bg-gray-100 ${focusRing}`} onClick={onRedraw}
+        aria-label="Redraw: new words, but you skip this attack and brace for the enemy's" title="New words, but you skip this attack and brace for the enemy's">↻ Redraw</button>
+    </div>
     <ul className="mt-2 grid grid-cols-2 gap-2 lg:grid-cols-4">{ranked.map(({ word, damage, matchup }) => {
       const badge = MATCHUP_BADGE[matchup];
       return <li key={word.japanese}><button type="button" className={`${choiceButton} flex w-full items-center justify-between gap-1 px-2.5 py-1.5 text-left md:flex-col md:items-start md:px-3`} onClick={() => pick(word)}

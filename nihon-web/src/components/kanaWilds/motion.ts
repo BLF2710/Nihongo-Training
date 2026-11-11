@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
 /** Whether the learner asked their system for less motion: battle animations are then skipped, with no waits. */
+/** When each side's blow lands (matching --kw-impact in battleField.css), so its HP changes on impact. */
+export const ENEMY_IMPACT_MS = 420;
+export const PLAYER_IMPACT_MS = 220;
+
 export const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**

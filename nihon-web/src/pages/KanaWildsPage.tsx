@@ -13,7 +13,10 @@ import type { BattleState } from "../lib/kanaWilds/battle";
 import { COURSE_BATTLE_WORDS } from "../lib/kanaWilds/courseWords";
 import { pickEncounter } from "../lib/kanaWilds/encounters";
 import type { Encounter } from "../lib/kanaWilds/encounters";
-import { kanaById } from "../lib/kanaWilds/gojuon";
+import { STARTERS, VOWEL_IDS, kanaById } from "../lib/kanaWilds/gojuon";
+import { latestCatches } from "../lib/kanaWilds/hand";
+import { wordsUsingKana } from "../lib/kanaWilds/missedWords";
+import { useMissedWords } from "../lib/kanaWilds/useMissedWords";
 import { useKanaCollection } from "../lib/kanaWilds/useKanaCollection";
 import { playableWords } from "../lib/kanaWilds/words";
 
@@ -36,6 +39,13 @@ export default function KanaWildsPage() {
   const ownedIds = useMemo(() => new Set(state.status === "ready" ? state.collection.kanaIds : []), [state]);
   const ownedCharacters = useMemo(() => new Set([...ownedIds].flatMap(id => kanaById(id)?.kana ?? [])), [ownedIds]);
   const words = useMemo(() => playableWords(COURSE_BATTLE_WORDS, ownedCharacters), [ownedCharacters]);
+  const { missed, noteWordReading } = useMissedWords();
+  const starter = state.status === "ready" ? state.collection.starter : null;
+  const practice = useMemo(() => {
+    const starterSet = new Set([...VOWEL_IDS, ...STARTERS.filter(item => item.key === starter).map(item => item.kanaId)]);
+    const latest = new Set(latestCatches([...ownedIds], starterSet).flatMap(id => kanaById(id)?.kana ?? []));
+    return { newWords: wordsUsingKana(words, latest), missedWords: new Set(missed), noteReading: noteWordReading };
+  }, [ownedIds, starter, words, missed, noteWordReading]);
 
   const battle = (encounter: Encounter) => { setRound(value => value + 1); setScreen({ kind: "battle", encounter, round: round + 1 }); };
   const explore = () => battle(pickEncounter(ownedIds, random));
@@ -64,7 +74,7 @@ export default function KanaWildsPage() {
         </div>
         <CollectionBoard ownedIds={ownedIds} />
       </section>}
-      {state.collection.starter && screen.kind === "battle" && <BattleArena key={screen.round} encounter={screen.encounter} words={words} pool={COURSE_BATTLE_WORDS} random={random}
+      {state.collection.starter && screen.kind === "battle" && <BattleArena key={screen.round} encounter={screen.encounter} words={words} pool={COURSE_BATTLE_WORDS} practice={practice} random={random}
         onEnd={ended => void finish(screen.encounter, ended)} />}
       {state.collection.starter && screen.kind === "result" && <BattleResult state={screen.state} catchSave={screen.catchSave}
         onRematch={() => battle({ kana: screen.encounter.kana, isCatchable: !ownedIds.has(screen.encounter.kana.id) })} onExplore={explore} onHome={() => setScreen({ kind: "hub" })} />}

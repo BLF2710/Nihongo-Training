@@ -13,20 +13,29 @@ export const CRITICAL_MULTIPLIER = 1.25;
 /** Playing the same word again in one battle multiplies its power by this each time. */
 export const FATIGUE_FACTOR = 0.5;
 export const ENEMY_ATTACK_POWER = 6;
-/** Catching opens once the enemy is at or below this share of its HP. */
-export const CATCH_HP_SHARE = 0.3;
+/** Catching opens once the enemy is at or below this share of its HP, at a low chance that rises as it weakens. */
+export const CATCH_HP_SHARE = 0.6;
+/** The chance that a good trace catches the kana just as catching opens; it rises to certain at 0 HP. */
+export const MIN_CATCH_CHANCE = 0.4;
+/** A perfect block (answered before the attack finished drawing) hits back for this much. */
+export const COUNTER_DAMAGE = 2;
 export const MAX_CATCH_TRIES = 3;
 /** How far (in KanjiVG's 109-unit box) a traced stroke may stray: strict at the catch threshold, loose at 0 HP. */
-export const CATCH_TOLERANCE = { strictest: 12, loosest: 24 } as const;
+export const CATCH_TOLERANCE = { strictest: 15, loosest: 27 } as const;
+/** Redrawing gives up the attack but braces the player: a missed block on the enemy's next attack hurts this much less. */
+export const BRACED_DAMAGE_FACTOR = 0.5;
 
 export type Phase = "attack" | "defend" | "over";
 export type Outcome = "caught" | "fled" | "lost" | "ran";
+/** How the player met an enemy attack: read right before it finished drawing, read right after, or read wrong. */
+export type DefenceResult = "perfect" | "blocked" | "missed";
 export type BattleEvent =
   | { kind: "hit"; word: string; damage: number; matchup: Matchup; isCritical: boolean }
   | { kind: "fizzle"; word: string }
-  | { kind: "blocked" }
-  | { kind: "hurt"; damage: number; matchup: Matchup }
-  | { kind: "catch-failed"; triesLeft: number }
+  | { kind: "blocked"; counterDamage: number }
+  | { kind: "hurt"; damage: number; matchup: Matchup; wasBraced: boolean }
+  | { kind: "redrew" }
+  | { kind: "catch-failed"; triesLeft: number; reason: "trace" | "broke-out" }
   | { kind: "ended"; outcome: Outcome };
 
 export type BattleState = {
@@ -36,6 +45,8 @@ export type BattleState = {
   readonly playerHp: number;
   /** The vowel of the word last played; the enemy's attacks are judged against it. */
   readonly stance: Vowel | null;
+  /** Set by a redraw: the enemy's next attack is easier to block (fewer choices) and softer if it lands. */
+  readonly isBraced: boolean;
   readonly timesPlayed: Readonly<Record<string, number>>;
   readonly catchTries: number;
   readonly phase: Phase;
@@ -46,7 +57,7 @@ export type BattleState = {
 
 export function startBattle(enemy: WildKana, isCatchable: boolean): BattleState {
   return {
-    enemy, isCatchable, enemyHp: ENEMY_MAX_HP, playerHp: PLAYER_MAX_HP, stance: null, timesPlayed: {}, catchTries: 0,
+    enemy, isCatchable, enemyHp: ENEMY_MAX_HP, playerHp: PLAYER_MAX_HP, stance: null, isBraced: false, timesPlayed: {}, catchTries: 0,
     phase: "attack", outcome: null, readings: { answered: 0, correct: 0 }, lastEvent: null,
   };
 }
@@ -82,34 +93,61 @@ export function enemyAttackDamage(enemyVowel: Vowel | null, stance: Vowel | null
   return { damage: Math.round(ENEMY_ATTACK_POWER * MATCHUP_MULTIPLIER[attackMatchup]), matchup: attackMatchup };
 }
 
-/** The enemy attacks: reading it right blocks the attack, reading it wrong takes the hit (judged against the stance). */
-export function defend(state: BattleState, isBlocked: boolean): BattleState {
+/** The player swaps their hand for a new one: no attack this turn, but they brace for the enemy's. */
+export function redraw(state: BattleState): BattleState {
+  if (state.phase !== "attack" || isExhausted(state)) return state;
+  return { ...state, isBraced: true, phase: "defend", lastEvent: { kind: "redrew" } };
+}
+
+/**
+ * The enemy attacks: reading it right blocks the attack (a perfect block also hits back), reading it wrong takes the
+ * hit, judged against the stance.
+ */
+export function defend(state: BattleState, result: DefenceResult): BattleState {
   if (state.phase !== "defend") return state;
-  const readings = counted(state, isBlocked);
-  if (isBlocked) return { ...state, readings, phase: "attack", lastEvent: { kind: "blocked" } };
-  const { damage, matchup: attackMatchup } = enemyAttackDamage(state.enemy.vowel, state.stance);
+  const readings = counted(state, result !== "missed");
+  const wasBraced = state.isBraced;
+  const settled = { ...state, readings, isBraced: false };
+  if (result !== "missed") {
+    const counterDamage = result === "perfect" ? Math.min(COUNTER_DAMAGE, state.enemyHp) : 0;
+    return { ...settled, enemyHp: state.enemyHp - counterDamage, phase: "attack", lastEvent: { kind: "blocked", counterDamage } };
+  }
+  const attack = enemyAttackDamage(state.enemy.vowel, state.stance);
+  const damage = wasBraced ? Math.max(1, Math.round(attack.damage * BRACED_DAMAGE_FACTOR)) : attack.damage;
   const playerHp = Math.max(0, state.playerHp - damage);
-  if (playerHp === 0) return end({ ...state, readings, playerHp }, "lost");
-  return { ...state, readings, playerHp, phase: "attack", lastEvent: { kind: "hurt", damage, matchup: attackMatchup } };
+  if (playerHp === 0) return end({ ...settled, playerHp }, "lost");
+  return { ...settled, playerHp, phase: "attack", lastEvent: { kind: "hurt", damage, matchup: attack.matchup, wasBraced } };
 }
 
 export const canCatch = (state: BattleState) =>
   state.phase === "attack" && state.isCatchable && state.enemyHp <= ENEMY_MAX_HP * CATCH_HP_SHARE;
 
-/** The tracing tolerance for a catch now: the weaker the enemy, the more forgiving. */
-export function catchTolerance(state: BattleState): number {
-  const threshold = ENEMY_MAX_HP * CATCH_HP_SHARE;
-  const weakness = 1 - Math.min(1, state.enemyHp / threshold);
-  return CATCH_TOLERANCE.strictest + (CATCH_TOLERANCE.loosest - CATCH_TOLERANCE.strictest) * weakness;
+/** 0 just as catching opens, 1 at 0 HP: how far the enemy is worn down within the catching range. */
+function weakness(state: BattleState): number {
+  return 1 - Math.min(1, state.enemyHp / (ENEMY_MAX_HP * CATCH_HP_SHARE));
 }
 
-/** A catch attempt: a good trace catches it; a failed one lets it strike back, and after the last try it flees. */
-export function attemptCatch(state: BattleState, isTraceAccepted: boolean): BattleState {
+/** The tracing tolerance for a catch now: the weaker the enemy, the more forgiving. */
+export function catchTolerance(state: BattleState): number {
+  return CATCH_TOLERANCE.strictest + (CATCH_TOLERANCE.loosest - CATCH_TOLERANCE.strictest) * weakness(state);
+}
+
+/** The chance a good trace catches the enemy now: low as catching opens, certain at 0 HP. */
+export function catchChance(state: BattleState): number {
+  return MIN_CATCH_CHANCE + (1 - MIN_CATCH_CHANCE) * weakness(state);
+}
+
+/**
+ * A catch attempt: a good trace catches it if the roll (0–1, from the caller's random source) is under the catch
+ * chance. A missed trace or a lost roll lets it strike back, and after the last try it flees.
+ */
+export function attemptCatch(state: BattleState, isTraceAccepted: boolean, roll: number): BattleState {
   if (!canCatch(state)) return state;
-  if (isTraceAccepted) return end(state, "caught");
+  if (isTraceAccepted && roll < catchChance(state)) return end(state, "caught");
   const catchTries = state.catchTries + 1;
   if (catchTries >= MAX_CATCH_TRIES) return end({ ...state, catchTries }, "fled");
-  return { ...state, catchTries, phase: turnAfterPlayer(state), lastEvent: { kind: "catch-failed", triesLeft: MAX_CATCH_TRIES - catchTries } };
+  const reason = isTraceAccepted ? "broke-out" : "trace";
+  return { ...state, catchTries, phase: turnAfterPlayer(state), lastEvent: { kind: "catch-failed", triesLeft: MAX_CATCH_TRIES - catchTries, reason } };
 }
 
 export const runAway = (state: BattleState): BattleState => (state.phase === "over" ? state : end(state, "ran"));

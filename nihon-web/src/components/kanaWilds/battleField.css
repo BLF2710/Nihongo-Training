@@ -45,16 +45,35 @@
 .kw-sprite--enemy { right: 12%; top: 6%; width: 26%; height: 46%; align-items: flex-end; }
 /* Stands on its platform: the avatar's foot sits a little inside the platform's top edge. */
 .kw-sprite--player { left: 10%; bottom: 10%; width: 26%; height: 46%; align-items: flex-end; }
-.kw-enemy-kana {
-  font-size: clamp(4rem, 15dvh, 7.5rem);
-  line-height: 1;
-  font-weight: 900;
+
+/* The hidden wild kana: a paper card, blank at first, its strokes appearing as it weakens. */
+.kw-enemy-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Sized by the sprite box, so it never pokes out of a compact or phone field. */
+  flex: none;
+  height: 100%;
+  max-height: 7.5rem;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  border: 3px solid #3f4b36;
+  border-radius: 1rem;
+  background: #fffdf6;
   color: #1b1f2a;
-  text-shadow: 0 0.12em 0 rgb(0 0 0 / 0.12), 0 0 0.3em rgb(255 255 255 / 0.8);
+  box-shadow: 0 8px 0 rgb(0 0 0 / 0.12);
   animation: kw-idle 2.4s ease-in-out infinite;
 }
-.dark .kw-enemy-kana { color: #f4f1ff; text-shadow: 0 0 0.35em rgb(170 190 255 / 0.55); }
-.kw-enemy-kana[data-exhausted="true"] { opacity: 0.55; transform: rotate(-8deg); animation: none; }
+.dark .kw-enemy-card { border-color: #8a97ab; background: #f4f1ff; color: #1b1f2a; }
+.kw-enemy-card[data-exhausted="true"] { opacity: 0.7; transform: rotate(-8deg); animation: none; }
+.kw-enemy-strokes { width: 85%; height: 85%; }
+.kw-enemy-strokes path { animation: kw-stroke-in 0.5s ease-out both; }
+.kw-enemy-mystery { font-size: clamp(2.5rem, 8dvh, 4rem); font-weight: 900; color: #9ca3af; }
+
+/* An enemy attack being drawn, under the choices. */
+.kw-attack-card { border: 2px solid #3f4b36; border-radius: 0.75rem; background: #fffdf6; color: #1b1f2a; }
+.dark .kw-attack-card { border-color: #8a97ab; background: #f4f1ff; }
+.kw-attack-card path { animation: kw-stroke-in 0.35s ease-out both; }
 
 .kw-player-avatar {
   display: flex;
@@ -71,10 +90,14 @@
   background: linear-gradient(135deg, #10b981, #4f46e5);
   box-shadow: 0 6px 14px -6px rgb(0 0 0 / 0.45);
 }
+/* Braced after a redraw: a steady blue guard until the enemy's attack. */
+.kw-player-avatar[data-braced="true"] { box-shadow: 0 0 0 4px #93c5fd, 0 0 18px #60a5fa; }
 .kw-player-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
 /* The cue wrapper fills its sprite. */
 .kw-cue { position: relative; display: flex; align-items: center; justify-content: center; }
+/* The enemy card is sized by the sprite box, so its wrapper takes the box's full height. */
+.kw-sprite--enemy > .kw-cue { height: 100%; align-items: flex-end; }
 .kw-enter-enemy { animation: kw-enter 0.6s ease-out both; }
 .kw-enter-player { animation: kw-enter-player 0.5s ease-out both; }
 
@@ -94,7 +117,8 @@
   color: #fff;
   text-shadow: 0 0 4px #059669, 0 0 12px #34d399, 0 0 22px #34d399;
   transform: translate(-50%, -50%);
-  animation: kw-fly 0.42s cubic-bezier(0.45, 0, 0.75, 0.6) forwards;
+  /* It flies, then vanishes on impact so it doesn't cover the kana's strokes. */
+  animation: kw-fly 0.42s cubic-bezier(0.45, 0, 0.75, 0.6) forwards, kw-vanish 0.12s ease-out 0.42s forwards;
 }
 .kw-projectile[data-critical="true"] { font-size: clamp(1.5rem, 5.5dvh, 2.4rem); text-shadow: 0 0 4px #b45309, 0 0 12px #facc15, 0 0 24px #fde047; }
 .kw-projectile[data-matchup="weak"] { opacity: 0.75; text-shadow: 0 0 4px #475569, 0 0 10px #94a3b8; }
@@ -217,7 +241,7 @@
   .kw-info--player { bottom: 5%; }
   .kw-sprite--enemy { right: 4%; width: 34%; }
   .kw-platform--enemy { right: 2%; width: 40%; }
-  .kw-enemy-kana { font-size: clamp(3.5rem, 11dvh, 5rem); }
+  .kw-enemy-card { border-radius: 0.75rem; }
   .kw-player-avatar { width: clamp(3.5rem, 9dvh, 4.5rem); font-size: 1.75rem; border-width: 3px; }
   .kw-sprite--player { left: 4%; }
 }
@@ -232,6 +256,7 @@
   15% { opacity: 1; }
   to { left: 74%; top: 30%; opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(4deg); }
 }
+@keyframes kw-vanish { from { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(4deg); } to { opacity: 0; transform: translate(-50%, -50%) scale(1.4) rotate(4deg); } }
 @keyframes kw-fizzle {
   from { left: 24%; top: 64%; opacity: 0; transform: translate(-50%, -50%) scale(0.6); filter: none; }
   15% { opacity: 1; }
@@ -257,11 +282,12 @@
   to { opacity: 0; transform: translate(-50%, -50%) scale(1.15); }
 }
 @keyframes kw-pop { from { opacity: 0; transform: scale(0.6); } 20% { opacity: 1; transform: scale(1.1); } 75% { opacity: 1; transform: scale(1); } to { opacity: 0; transform: translateY(-30%); } }
+@keyframes kw-stroke-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes kw-wriggle { 20% { transform: rotate(-12deg); } 45% { transform: rotate(10deg); } 70% { transform: rotate(-6deg); } }
 @keyframes kw-float { from { opacity: 1; transform: translate(-50%, 0); } 70% { opacity: 1; } to { opacity: 0; transform: translate(-50%, -140%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .kw-enemy-kana, .kw-enter-enemy, .kw-enter-player, .kw-cue-struck, .kw-cue-lunge, .kw-cue-escape { animation: none; }
+  .kw-enemy-card, .kw-enemy-strokes path, .kw-attack-card path, .kw-enter-enemy, .kw-enter-player, .kw-cue-struck, .kw-cue-lunge, .kw-cue-escape { animation: none; }
   .kw-projectile, .kw-burst, .kw-hurt-flash, .kw-shield, .kw-callout, .kw-damage { display: none; }
   .kw-hp-fill { transition: none; }
 }
