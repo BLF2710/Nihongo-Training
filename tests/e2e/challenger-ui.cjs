@@ -2,7 +2,8 @@
 // Kana island, walked up to and challenged with E; a lost challenge (nothing saved, try again at once); a won challenge
 // (three open kana in a row, HP carried over, the win saved, a rematch offered); each challenger's signature defence
 // (Chun: look-alikes; Tama: the kana shouts, with a caption; Pon: the stroke reveal) and the hints after a loss
-// ("You read ね as れ twice"); the challenge on one screen at 1366×768 and 390×844. Against a fixture API that grades
+// ("You read ね as れ twice"); rewards (the riverside grass quiet until Chun is beaten, the forest's last rows held
+// for Tama, Pon's title "Sharp Eyes"); the challenge on one screen at 1366×768 and 390×844. Against a fixture API that grades
 // kana answers like the server; speech is stubbed so the test knows what was shouted.
 //   node challenger-ui.cjs <baseUrl> <shotsDir>
 const assert = require('node:assert/strict');
@@ -70,11 +71,11 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     };
     const arena = (page, name = 'Chun') => page.getByRole('region', { name: 'Challenge against ' + name });
     const MIXED_UP = new Set('ぬめねれわるろさちきはほけいりこにうらしつそんたなまもあおくへすむ');
-    /** The traveller's feet, in tiles. */
-    const travellerAt = page => page.evaluate(() => {
-      const world = document.querySelector('.village-world'), me = document.querySelector('div.village-person'), tile = world.offsetWidth / 30;
+    /** The traveller's feet, in tiles (`tilesAcross`: the map's width; an island's is 30, a path's 36). */
+    const travellerAt = (page, tilesAcross = 30) => page.evaluate(across => {
+      const world = document.querySelector('.village-world'), me = document.querySelector('div.village-person'), tile = world.offsetWidth / across;
       return { x: (parseFloat(me.style.left) + me.offsetWidth / 2) / tile, y: (parseFloat(me.style.top) + me.offsetHeight) / tile };
-    });
+    }, tilesAcross);
     /** Holds a key until `isDone` (checked often) or the time runs out. */
     const holdUntil = async (page, key, isDone, ms = 12000) => {
       await page.keyboard.down(key);
@@ -149,6 +150,16 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
       await page.getByRole('link', { name, exact: true }).waitFor();
     }
 
+    // ---- rows held back: the riverside grass is quiet until Chun is beaten (walking through it starts no battle), and
+    // the forest's last rows wait on Tama
+    await page.goto(base + '/wilds/home-practice');
+    await page.getByText('The riverside path: the grass is quiet. Beat Chun to bring the さ and た rows here.').waitFor();
+    assert.ok(await holdUntil(page, 'ArrowRight', async () => (await travellerAt(page, 36)).x >= 27), 'walked across the riverside grass');
+    assert.equal(await page.getByRole('region', { name: 'Battle against a wild kana' }).count(), 0, 'quiet grass starts no battle');
+    await page.screenshot({ path: path.join(shots, 'riverside-quiet.png') });
+    await page.goto(base + '/wilds/home-games');
+    await page.getByText('The forest path: wild kana in the tall grass. Beat Tama to bring the ま, や, ら, わ and ん rows here.').waitFor();
+
     // ---- Chun waits on the Kana island; E challenges; answering wrong loses, nothing is saved, and Chun can be challenged again
     await page.goto(base + '/islands/kana');
     const answers = await loadAnswers(page, state);
@@ -182,6 +193,7 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.getByRole('heading', { name: 'You beat Chun!' }).waitFor();
     await page.getByText(/Come back for a rematch whenever you like/).waitFor();
     assert.equal(await page.getByRole('list', { name: 'What tripped you up' }).count(), 0, 'no hints after a win');
+    await page.getByText('The さ and た rows now live in the tall grass of the riverside path.').waitFor();
     await page.getByRole('button', { name: 'Challenge Chun again' }).waitFor();
     assert.deepEqual(sent.wins, ['chun']);
     assert.ok(sent.practice.some(item => item.kind === 'battle' && item.answered >= 3), 'the challenge counts as practice');
@@ -189,6 +201,10 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.getByRole('button', { name: 'Back to the Kana island' }).click();
     await page.getByRole('heading', { name: 'The Kana island (かなのしま)' }).waitFor({ state: 'attached' });
     await page.getByRole('button', { name: 'Chun', exact: true }).waitFor({ state: 'attached' });
+
+    // ---- with Chun beaten, the riverside grass holds wild kana
+    await page.goto(base + '/wilds/home-practice');
+    await page.getByText('The riverside path: wild kana in the tall grass', { exact: true }).waitFor();
 
     // ---- Tama waits on the Practice island, and Pon on the Games island
     for (const [island, heading, challenger] of [['practice', 'The Practice island (れんしゅうのしま)', 'Tama'], ['games', 'The Games island (あそびのしま)', 'Pon']]) {
@@ -260,6 +276,9 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
       grazed = true;
       await group.getByText('All drawn: reading it now still lets half the hit through.').waitFor({ timeout: 8000 });
     } }).then(seenPon => assert.ok([...seenPon.statuses].some(text => text.includes('Read once it was drawn, it grazed you.')), 'a graze: ' + [...seenPon.statuses]));
+    await page.getByRole('heading', { name: 'You beat Pon!' }).waitFor();
+    await page.getByText('You earned the title “Sharp Eyes”.').waitFor();
+    await page.screenshot({ path: path.join(shots, 'challenge-pon-won.png') });
     assert.deepEqual(errors, []); await context.close();
 
     // ---- a phone: the challenge fits one screen, and the touch button says Fight next to Chun
@@ -272,6 +291,6 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.screenshot({ path: path.join(shots, 'challenge-phone.png') });
     assert.deepEqual(errors, []); await context.close();
 
-    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; signature defences (Chun’s look-alike attacks and choices, Tama’s shout with caption and hearing again, Pon’s slow stroke reveal with a graze when read late); hints after a loss name each mix-up and how often, none after a win; one screen at 1366×768 and 390×844; no page errors.');
+    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; signature defences (Chun’s look-alike attacks and choices, Tama’s shout with caption and hearing again, Pon’s slow stroke reveal with a graze when read late); hints after a loss name each mix-up and how often, none after a win; the riverside grass quiet (no battle) until Chun is beaten and the forest’s last rows waiting on Tama, each win naming its reward (rows, or Pon’s title Sharp Eyes); one screen at 1366×768 and 390×844; no page errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 2000)); process.exitCode = 1; });

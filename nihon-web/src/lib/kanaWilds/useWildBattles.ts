@@ -3,6 +3,7 @@ import { recordPractice } from "../../api/activity";
 import type { BattleState } from "./battle";
 import { COURSE_BATTLE_WORDS } from "./courseWords";
 import { pickEncounter } from "./encounters";
+import { isChallengerId } from "../world/challenges";
 import type { Challenger, ChallengeSummary } from "../world/challenges";
 import type { Encounter } from "./encounters";
 import { STARTERS, VOWEL_IDS, kanaById } from "./gojuon";
@@ -46,7 +47,8 @@ export function useWildBattles(random: () => number) {
   const ownedIds = useMemo(() => new Set(state.status === "ready" ? state.collection.kanaIds : []), [state]);
   const ownedCharacters = useMemo(() => new Set([...ownedIds].flatMap(id => kanaById(id)?.kana ?? [])), [ownedIds]);
   const words = useMemo(() => playableWords(COURSE_BATTLE_WORDS, ownedCharacters), [ownedCharacters]);
-  const beatenChallengers = useMemo(() => new Set(state.status === "ready" ? state.collection.beatenChallengers : []), [state]);
+  // Only the challengers this app knows: an id the API adds later means nothing here yet.
+  const beatenChallengers = useMemo(() => new Set(state.status === "ready" ? state.collection.beatenChallengers.filter(isChallengerId) : []), [state]);
   const kanaLevels = useMemo(() => state.status === "ready" ? kanaLevelsOf(state.collection.answers) : NO_LEVELS, [state]);
   const { missed, noteWordReading } = useMissedWords();
   const starter = state.status === "ready" ? state.collection.starter : null;

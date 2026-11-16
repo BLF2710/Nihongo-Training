@@ -47,9 +47,12 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
 - **Encounters** (`lib/world/grassEncounters.ts`): stepping onto a new tall-grass tile starts a battle with a chance of
   `ENCOUNTER_CHANCE` (1 in 8). After a battle, the next `SAFE_GRASS_STEPS` (3) grass tiles are safe, so you can walk
   out of the grass.
-- **Which kana:** each path has its own rows (`wildRows`): the meadow path the vowels and the か row, the riverside
-  path the さ and た rows. Kana not yet caught come from the first two of them still incomplete; once a path's rows
-  are all caught, its kana still appear for practice. The quick battle draws from every path's rows.
+- **Which kana:** each path has its own rows (`wildRows`), and some are held back until a challenger is beaten
+  (`rewardRows`, docs/KANA-BATTLE.md section 9): the meadow path has the vowels and the か row; the riverside path is
+  quiet (no battles) until Chun is beaten, then has the さ and た rows; the forest path has the な and は rows, and the
+  ま, や, ら, わ rows and ん once Tama is beaten. The path's sign says who holds rows back. The API refuses catches of
+  held-back kana the same way. Kana not yet caught come from the first two open rows still incomplete; once a path's
+  rows are all caught, its kana still appear for practice. The quick battle draws from every row open now.
 - **Before a starter is chosen,** the path asks you to choose one first (and an island does, before a challenge).
 - **Ends of a path:** `/wilds/:routeId?from=<island>` opens the path at that island's end (`arrivalOn`), or at the
   Home end when `from` is missing or isn't one of its ends. Leaving for Home goes to `/village?from=<path>`; leaving

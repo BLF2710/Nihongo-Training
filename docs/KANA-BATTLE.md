@@ -191,7 +191,18 @@ path (docs/WORLD.md). Every path is open from the start; a win is saved, pays XP
 
 Chun, Tama and Pon are in the game (docs/WORLD.md section 4), each on their island with their signature defence
 (section 6): Chun (Kana) with あ, こ, お and look-alikes; Tama (Practice) with さ, ち, つ and the shout; Pon (Games)
-with ぬ, ね, は and the stroke reveal. The rewards in the table are still to come.
+with ぬ, ね, は and the stroke reveal.
+
+**Rewards** (each named on the result screen once the win is saved):
+- **Chun** brings the さ and た rows into the riverside path's grass, which is quiet until then.
+- **Tama** brings the ま, や, ら, わ rows and ん into the forest path's grass (the な and は rows live there from the
+  start).
+- **Pon** gives the title **Sharp Eyes**, an achievement (games category, migration 037). The achievement check runs
+  even when today's game XP cap is reached, so the title is never put off.
+
+The rows are held back in both places: the web app's paths (`rewardRows` in `data/world/routes.ts`) and the API's
+catches (`HELD_KANA` in `kana-wilds.service.ts`, refused with 409). A starter kana from a held row (さ or た) is still
+the learner's from the start.
 
 **Hints after a loss.** Every wrong read of a kana attack is kept with the battle (`{ kana, mistakenFor, way }`, where
 `way` is "read" or "heard") and carried through the challenge's rounds. After a loss (or giving up) the challenger

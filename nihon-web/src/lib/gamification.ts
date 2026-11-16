@@ -22,7 +22,7 @@ export const XP_SOURCES: Record<XpSource, { icon: string; label: string; how: st
 export const ACHIEVEMENT_CATEGORIES: { id: AchievementCategory; label: string; icon: string }[] = [
   { id: "lessons", label: "Lessons", icon: "📖" }, { id: "units", label: "Units", icon: "🎓" }, { id: "review", label: "Review", icon: "🗂️" },
   { id: "kanji", label: "Kanji", icon: "漢" }, { id: "streaks", label: "Streaks", icon: "🔥" }, { id: "tests", label: "Practice & tests", icon: "📝" },
-  { id: "friends", label: "Friends", icon: "🤝" }, { id: "levels", label: "Levels", icon: "⭐" },
+  { id: "friends", label: "Friends", icon: "🤝" }, { id: "levels", label: "Levels", icon: "⭐" }, { id: "games", label: "Games", icon: "🎮" },
 ];
 
 export const isEarned = (achievement: Achievement) => achievement.earnedAt !== null;

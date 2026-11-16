@@ -8,9 +8,12 @@ import { kanaByCharacter } from "../kanaWilds/gojuon.ts";
 import type { WildKana } from "../kanaWilds/gojuon.ts";
 import type { KanaMistake } from "../kanaWilds/mistakes.ts";
 
-export type ChallengerId = "chun" | "tama" | "pon";
-/** `defence`: the challenger's signature way of attacking (docs/KANA-BATTLE.md section 9). */
-export type Challenger = { id: ChallengerId; character: CharacterId; team: readonly WildKana[]; defence: DefenceStyle };
+export const CHALLENGER_IDS = ["chun", "tama", "pon"] as const;
+export type ChallengerId = (typeof CHALLENGER_IDS)[number];
+export const isChallengerId = (value: string): value is ChallengerId => CHALLENGER_IDS.some(id => id === value);
+/** `defence`: the challenger's signature way of attacking (docs/KANA-BATTLE.md section 9). `title`: the title a win
+ *  earns, for a challenger whose reward is one (the API grants it as an achievement). */
+export type Challenger = { id: ChallengerId; character: CharacterId; team: readonly WildKana[]; defence: DefenceStyle; title?: string };
 
 type Readings = { readonly answered: number; readonly correct: number };
 export type Challenge = {

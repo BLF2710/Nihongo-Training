@@ -14,13 +14,12 @@ import { allWildRows, routeHref } from "../lib/world/routes";
 const random = Math.random;
 const [FIRST_ROUTE] = WILD_ROUTES;
 /** A quick battle meets the kana of every path's grass. */
-const WILD_ROWS = allWildRows(WILD_ROUTES);
 
 /** Kana Wilds: your collection, and battles against wild hiragana (on a wild path, or a quick battle from here). */
 export default function KanaWildsPage() {
   const battles = useWildBattles(random);
   const { collection: { state, retry, chooseStarter, actionError }, ownedIds, kanaLevels, words, screen, explore, close } = battles;
-  const quickBattle = () => explore(WILD_ROWS);
+  const quickBattle = () => explore(allWildRows(WILD_ROUTES, battles.beatenChallengers));
   const isInBattle = screen.kind === "battle";
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={isInBattle ? undefined : "kana"} /><main className="mx-auto w-full max-w-5xl px-4 py-2 sm:px-6 sm:py-3">
     <h1 className="text-xl font-black sm:text-2xl">Kana Wilds</h1>

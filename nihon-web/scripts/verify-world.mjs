@@ -5,16 +5,18 @@ import { test } from "node:test";
 import { isBlocked, parseTownMap, terrainAt, withTerrain } from "../src/lib/errands/townMap.ts";
 import { blockedTilesWithOpenGates } from "../src/lib/errands/village.ts";
 import { AFTER_BATTLE, ENCOUNTER_CHANCE, FRESH_GRASS_WALK, SAFE_GRASS_STEPS, stepOnto } from "../src/lib/world/grassEncounters.ts";
-import { allWildRows, arrivalOn, exitHref, nearbyExit, routeHref } from "../src/lib/world/routes.ts";
+import { allWildRows, arrivalOn, exitHref, isHeldBack, nearbyExit, openRowsOf, routeHref, routeRewardedBy, rowNames } from "../src/lib/world/routes.ts";
 import { TALK_DISTANCE } from "../src/lib/errands/movement.ts";
 import { islandSceneOf, ISLAND_SCENES } from "../src/data/world/islandScenes.ts";
 import { VILLAGE_DOORS, VILLAGE_SQUARE, villageArrivalFrom } from "../src/data/village/villageSquare.ts";
 import { afterRound, kanaInPlay, startChallenge, teamOf } from "../src/lib/world/challenges.ts";
 import { CHALLENGERS } from "../src/data/world/challengers.ts";
 import { ENEMY_MAX_HP, PLAYER_MAX_HP, startBattle } from "../src/lib/kanaWilds/battle.ts";
-import { HIRAGANA_ROWS } from "../src/lib/kanaWilds/gojuon.ts";
+import { BASIC_HIRAGANA, HIRAGANA_ROWS } from "../src/lib/kanaWilds/gojuon.ts";
 import { isIslandId } from "../src/lib/islandMap.ts";
 import { routeById, WILD_ROUTES } from "../src/data/world/routes.ts";
+
+const NONE_BEATEN = new Set(), ALL_BEATEN = new Set(["chun", "tama", "pon"]);
 
 // ---- tall grass
 
@@ -122,9 +124,10 @@ for (const route of WILD_ROUTES) {
     assert.equal(reachable(route.layout, { from: home.arrival, isGrassAvoided: true }).has(keyOf(far.tile)), false);
   });
 
-  test(`${route.id}: its grass holds real hiragana rows`, () => {
+  test(`${route.id}: its grass holds real hiragana rows, at least once every challenger is beaten`, () => {
     const rows = HIRAGANA_ROWS.map(({ row }) => row);
-    assert.ok(route.wildRows.length > 0 && route.wildRows.every(row => rows.includes(row)));
+    const everyRow = [...route.wildRows, ...(route.rewardRows?.rows ?? [])];
+    assert.ok(openRowsOf(route, ALL_BEATEN).length > 0 && everyRow.every(row => rows.includes(row)));
   });
 
   test(`${route.id}: its exits lead to its two islands`, () => {
@@ -164,8 +167,49 @@ test("a path opens at the end the traveller comes from, and at the Home end when
   assert.deepEqual(arrivalOn(meadow, "practice"), endAt("home"));
 });
 
-test("the quick battle meets every path's rows, in table order", () => {
-  assert.deepEqual(allWildRows(WILD_ROUTES), ["vowels", "k", "s", "t", "n", "h"]);
+test("the quick battle meets the rows open on every path, in table order", () => {
+  assert.deepEqual(allWildRows(WILD_ROUTES, NONE_BEATEN), ["vowels", "k", "n", "h"]);
+  assert.deepEqual(allWildRows(WILD_ROUTES, ALL_BEATEN), HIRAGANA_ROWS.map(({ row }) => row), "every row once all are beaten");
+});
+
+// ---- challenger rewards: rows held back from the grass until a win (docs/KANA-BATTLE.md section 9)
+
+const riverside = routeById("home-practice"), forest = routeById("home-games");
+
+test("the riverside grass is quiet until Chun is beaten, then holds the さ and た rows", () => {
+  assert.deepEqual(openRowsOf(riverside, NONE_BEATEN), []);
+  assert.equal(isHeldBack(riverside, NONE_BEATEN), true);
+  assert.deepEqual(openRowsOf(riverside, new Set(["chun"])), ["s", "t"]);
+  assert.equal(isHeldBack(riverside, new Set(["chun"])), false);
+});
+
+test("the forest holds the な and は rows from the start, and the rest of the table once Tama is beaten", () => {
+  assert.deepEqual(openRowsOf(forest, new Set(["chun", "pon"])), ["n", "h"]);
+  assert.deepEqual(openRowsOf(forest, new Set(["tama"])), ["n", "h", "m", "y", "r", "w", "final-n"]);
+});
+
+test("the meadow's rows are never held back", () => {
+  assert.deepEqual(openRowsOf(routeById("home-kana"), NONE_BEATEN), ["vowels", "k"]);
+});
+
+test("Chun and Tama each fill one path's grass; Pon gives a title instead", () => {
+  assert.equal(routeRewardedBy(WILD_ROUTES, "chun").id, "home-practice");
+  assert.equal(routeRewardedBy(WILD_ROUTES, "tama").id, "home-games");
+  assert.equal(routeRewardedBy(WILD_ROUTES, "pon"), undefined);
+  assert.equal(CHALLENGERS.pon.title, "Sharp Eyes");
+});
+
+test("the held-back kana are the ones the API holds back from catches (ids 11–20 for Chun, 31–46 for Tama)", () => {
+  const idsOf = rows => BASIC_HIRAGANA.filter(item => rows.includes(item.row)).map(item => item.id);
+  const range = (first, last) => Array.from({ length: last - first + 1 }, (_, index) => first + index);
+  assert.deepEqual(idsOf(routeRewardedBy(WILD_ROUTES, "chun").rewardRows.rows), range(11, 20));
+  assert.deepEqual(idsOf(routeRewardedBy(WILD_ROUTES, "tama").rewardRows.rows), range(31, 46));
+});
+
+test("rows are named by their first kana", () => {
+  assert.equal(rowNames(["s", "t"]), "さ and た");
+  assert.equal(rowNames(["m", "y", "r", "w", "final-n"]), "ま, や, ら, わ and ん");
+  assert.equal(rowNames(["k"]), "か");
 });
 
 // ---- the islands on foot

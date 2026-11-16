@@ -79,7 +79,9 @@ const HOME_PRACTICE: WildRoute = {
     { tile: { x: 1, y: 6 }, arrival: { x: 4, y: 7 }, island: "home", label: "Back to the village" },
     { tile: { x: 34, y: 6 }, arrival: { x: 32, y: 7 }, island: "practice", label: "On to the Practice island" },
   ],
-  wildRows: ["s", "t"],
+  // Quiet until Chun is beaten: then the さ and た rows come.
+  wildRows: [],
+  rewardRows: { rows: ["s", "t"], until: "chun" },
 };
 
 /** もり, the forest path along the bridge from Home to the Games island: winding between trees hung with festival
@@ -118,6 +120,8 @@ const HOME_GAMES: WildRoute = {
     { tile: { x: 34, y: 6 }, arrival: { x: 32, y: 7 }, island: "games", label: "On to the Games island" },
   ],
   wildRows: ["n", "h"],
+  // Beating Tama brings the rest of the table.
+  rewardRows: { rows: ["m", "y", "r", "w", "final-n"], until: "tama" },
 };
 
 export const WILD_ROUTES: readonly WildRoute[] = [HOME_KANA, HOME_PRACTICE, HOME_GAMES];

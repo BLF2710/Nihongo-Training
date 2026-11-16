@@ -70,6 +70,19 @@ export async function rewardActivities(userId: number, rewards: ActivityReward[]
 
 export const rewardActivity = (userId: number, source: ActivitySource, referenceId: string) => rewardActivities(userId, [{ source, referenceId }]);
 
+/**
+ * rewardActivity for work that can itself earn an achievement (beating a challenger): the achievements are checked
+ * even when no XP was paid because today's cap was reached, so the achievement is never put off to another day.
+ */
+export async function rewardAchievingActivity(userId: number, source: ActivitySource, referenceId: string): Promise<Reward | null> {
+  try {
+    return await celebrate(userId, [await awardXP(userId, XP_RULES[source].amount, source, referenceId)]);
+  } catch (error) {
+    console.error("XP reward failed", error);
+    return null;
+  }
+}
+
 /** Everything the Achievements page shows: level, rank, today's XP by activity, achievements with progress, recent XP. */
 export async function getGamificationSummary(userId: number) {
   const [profile, facts, catalog, today, earnedToday, recent] = await Promise.all([

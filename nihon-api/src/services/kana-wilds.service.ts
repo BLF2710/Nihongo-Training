@@ -4,7 +4,7 @@ import * as collectionRepository from "../repositories/moji-collection.repositor
 import * as challengerRepository from "../repositories/wild-challenger.repository";
 import type { CollectedKana } from "../repositories/moji-collection.repository";
 import { HttpError } from "../utils/http-error";
-import { rewardActivity } from "./gamification.service";
+import { rewardAchievingActivity, rewardActivity } from "./gamification.service";
 
 // Kana Wilds (docs/KANA-BATTLE.md). Battles are graded in the browser and reported as practice sessions; this
 // service keeps the collection: the starter set, and each wild kana caught.
@@ -19,6 +19,19 @@ export type Starter = keyof typeof STARTER_KANA_IDS;
 
 /** The island cast who challenge the learner on their islands (docs/WORLD.md); the web app holds their teams. */
 export const CHALLENGER_IDS: readonly string[] = ["chun", "tama", "pon"];
+
+/**
+ * Kana held back from the wilds until the learner beats a challenger (docs/KANA-BATTLE.md section 9): Chun brings the
+ * さ and た rows, Tama the ま, や, ら, わ rows and ん. The web app's paths hold the same rows back from their grass
+ * (nihon-web/src/data/world/routes.ts). Ids are the catalog's, in table order.
+ */
+export const HELD_KANA = [
+  { firstId: 11, lastId: 20, until: "chun", rows: "さ and た" },
+  { firstId: 31, lastId: 46, until: "tama", rows: "ま, や, ら, わ and ん" },
+] as const;
+const CHALLENGER_NAMES: Readonly<Record<(typeof HELD_KANA)[number]["until"], string>> = { chun: "Chun", tama: "Tama" };
+
+const heldBackBy = (kanaId: number) => HELD_KANA.find(held => kanaId >= held.firstId && kanaId <= held.lastId);
 
 const STARTERS = Object.keys(STARTER_KANA_IDS) as Starter[];
 const isStarter = (value: unknown): value is Starter => STARTERS.some(starter => starter === value);
@@ -69,6 +82,10 @@ export async function catchKana(userId: number, kanaId: unknown) {
   if (!isBasicKanaId(kanaId)) throw new HttpError(400, "Only the 46 basic hiragana live in the wilds.");
   const before = await collectionRepository.listCollection(userId);
   if (!before.length) throw new HttpError(409, "Choose your starter kana first.");
+  const held = heldBackBy(kanaId);
+  if (held && !(await challengerRepository.listChallengerWins(userId)).includes(held.until)) {
+    throw new HttpError(409, `The ${held.rows} rows come to the wilds once you beat ${CHALLENGER_NAMES[held.until]}.`);
+  }
   const isNew = await collectionRepository.addCaughtKana(userId, kanaId);
   const reward = isNew ? await rewardActivity(userId, "game", `kana-wilds-catch:${kanaId}`) : null;
   return { ...(await getCollection(userId)), isNew, reward };
@@ -80,6 +97,7 @@ export async function recordChallengerWin(userId: number, challengerId: unknown)
   if (!isChallengerId(challengerId)) throw new HttpError(404, "There is no such challenger.");
   if (!(await collectionRepository.listCollection(userId)).length) throw new HttpError(409, "Choose your starter kana first.");
   const isNew = await challengerRepository.addChallengerWin(userId, challengerId);
-  const reward = isNew ? await rewardActivity(userId, "game", `kana-wilds-challenger:${challengerId}`) : null;
+  // A win can earn an achievement (Pon: "Sharp Eyes"), checked even once today's game XP is used up.
+  const reward = isNew ? await rewardAchievingActivity(userId, "game", `kana-wilds-challenger:${challengerId}`) : null;
   return { ...(await getCollection(userId)), isNew, reward };
 }

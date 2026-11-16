@@ -38,6 +38,9 @@ const MASTERED_CORRECT = 3;
 const MATURE_INTERVAL_DAYS = 21;
 
 /** The learner's facts, with total XP in place of the level (the service works the level out). */
+/** The Kana Wilds challenger whose defeat earns "Sharp Eyes" (kana-wilds.service.ts CHALLENGER_IDS). */
+const SHARP_EYES_CHALLENGER = "pon";
+
 export async function getAchievementFacts(userId: number): Promise<Omit<AchievementFacts, "level"> & { xp: number }> {
   const result = await pool.query(
     `SELECT
@@ -56,15 +59,16 @@ export async function getAchievementFacts(userId: number): Promise<Omit<Achievem
        (SELECT COUNT(*) FROM mock_exam_results WHERE user_id = $1 AND passed)::int AS mock_exams_passed,
        (SELECT COUNT(*) FROM speaking_attempts WHERE user_id = $1 AND met)::int AS speaking_tests_met,
        (SELECT COUNT(*) FROM friendships WHERE status = 'accepted' AND $1 IN (requester_id, addressee_id))::int AS friends,
+       (SELECT COUNT(*) FROM wild_challenger_wins WHERE user_id = $1 AND challenger_id = $5)::int AS pon_wins,
        (SELECT xp FROM user_gamification WHERE user_id = $1)::int AS xp`,
-    [userId, MASTERED_ACCURACY, MASTERED_CORRECT, MATURE_INTERVAL_DAYS]);
+    [userId, MASTERED_ACCURACY, MASTERED_CORRECT, MATURE_INTERVAL_DAYS, SHARP_EYES_CHALLENGER]);
   const row = result.rows[0];
   const count = (value: unknown) => Number(value ?? 0);
   return {
     lessons: count(row.lessons), perfectChallenges: count(row.perfect_challenges), unitsPassed: count(row.units_passed), wordsLearned: count(row.words_learned),
     reviews: count(row.reviews), matureCards: count(row.mature_cards), mistakesCleared: count(row.mistakes_cleared), kanjiMastered: count(row.kanji_mastered),
     longestStreak: count(row.longest_streak), goalDays: count(row.goal_days), practiceSessions: count(row.practice_sessions),
-    mockExamsPassed: count(row.mock_exams_passed), speakingTestsMet: count(row.speaking_tests_met), friends: count(row.friends), xp: count(row.xp),
+    mockExamsPassed: count(row.mock_exams_passed), speakingTestsMet: count(row.speaking_tests_met), friends: count(row.friends), ponWins: count(row.pon_wins), xp: count(row.xp),
   };
 }
 

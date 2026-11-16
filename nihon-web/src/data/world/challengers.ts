@@ -10,6 +10,6 @@ const CHUN: Challenger = { id: "chun", character: "chun", team: teamOf("あこ�
 /** Tama, on the Practice island: さ, ち, つ (look-alikes ち and き, さ, し). Her kana shout: pick what you heard. */
 const TAMA: Challenger = { id: "tama", character: "tama", team: teamOf("さちつ"), defence: "shout" };
 /** Pon, on the Games island: ぬ, ね, は (look-alikes め, れ and わ, ほ and け). The stroke reveal: read it early. */
-const PON: Challenger = { id: "pon", character: "pon", team: teamOf("ぬねは"), defence: "stroke-reveal" };
+const PON: Challenger = { id: "pon", character: "pon", team: teamOf("ぬねは"), defence: "stroke-reveal", title: "Sharp Eyes" };
 
 export const CHALLENGERS: Readonly<Record<ChallengerId, Challenger>> = { chun: CHUN, tama: TAMA, pon: PON };

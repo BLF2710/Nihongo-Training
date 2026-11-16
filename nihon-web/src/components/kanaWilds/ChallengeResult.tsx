@@ -1,10 +1,12 @@
 import { GuideNote } from "../cast/GuideNote";
+import { WILD_ROUTES } from "../../data/world/routes";
 import { CAST } from "../../lib/cast";
 import type { Mood } from "../../lib/cast";
 import type { DefenceStyle } from "../../lib/kanaWilds/defenceStyles";
 import { mistakeHints } from "../../lib/kanaWilds/mistakes";
 import type { WinSave } from "../../lib/kanaWilds/useWildBattles";
 import type { Challenger, ChallengeOutcome, ChallengeSummary } from "../../lib/world/challenges";
+import { routeRewardedBy, rowNames } from "../../lib/world/routes";
 import { primaryButton, secondaryButton, sheet } from "./styles";
 
 type Props = {
@@ -34,6 +36,13 @@ function challengerNote(challenger: Challenger, outcome: ChallengeOutcome): stri
   return `My team is ${team}. ${DEFENCE_TIP[challenger.defence]} Challenge me again whenever you like.`;
 }
 
+/** What beating the challenger gives: rows in a path's grass, or a title. */
+function rewardText(challenger: Challenger): string | null {
+  const route = routeRewardedBy(WILD_ROUTES, challenger.id);
+  if (route) return `The ${rowNames(route.rewardRows.rows)} rows now live in the tall grass of ${route.name.charAt(0).toLowerCase()}${route.name.slice(1)}.`;
+  return challenger.title ? `You earned the title “${challenger.title}”.` : null;
+}
+
 /** After a loss, the kana the player mixed up, most often first; none after a win. */
 function ChallengerHints({ summary }: { summary: ChallengeSummary }) {
   const hints = summary.outcome === "won" ? [] : mistakeHints(summary.mistakes);
@@ -51,7 +60,8 @@ export function ChallengeResult({ challenger, summary, winSave, backLabel, onRet
     <h2 id="challenge-result-heading" className="text-2xl font-black">{TITLE[outcome](name)}</h2>
     <p className="mt-1 text-gray-600">Readings right: {readings.correct} / {readings.answered}</p>
     {winSave === "saving" && <p role="status" className="mt-2 text-sm text-gray-500">Saving your win…</p>}
-    {winSave === "failed" && <p role="alert" className="mt-2 text-sm text-amber-900">Your win could not be saved. Challenge {name} again to open the next path.</p>}
+    {winSave === "saved" && rewardText(challenger) && <p className="mt-2 font-bold text-emerald-800">{rewardText(challenger)}</p>}
+    {winSave === "failed" && <p role="alert" className="mt-2 text-sm text-amber-900">Your win could not be saved. Challenge {name} again to claim it.</p>}
     <GuideNote character={challenger.character} mood={MOOD[outcome]} className="mt-4"><p>{challengerNote(challenger, outcome)}</p><ChallengerHints summary={summary} /></GuideNote>
     <div className="mt-5 flex flex-wrap gap-2">
       <button type="button" className={primaryButton} onClick={onBack}>{backLabel}</button>

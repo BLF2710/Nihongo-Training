@@ -4,7 +4,7 @@ export type XpSource =
   | "lesson_completion" | "lesson_challenge" | "assessment" | "quiz" | "game" | "review" | "mistake" | "kanji"
   | "practice" | "mock_exam" | "mock_exam_pass" | "speaking_test" | "daily_goal" | "achievement" | "streak";
 export type ActivitySource = Exclude<XpSource, "achievement" | "streak">;
-export type AchievementCategory = "lessons" | "units" | "review" | "kanji" | "streaks" | "tests" | "friends" | "levels";
+export type AchievementCategory = "lessons" | "units" | "review" | "kanji" | "streaks" | "tests" | "friends" | "levels" | "games";
 
 export type LevelProgress = { level: number; currentLevelXp: number; nextLevelXp: number; progressXp: number; progressPercent: number };
 export type Rank = { name: string; xp: number };
