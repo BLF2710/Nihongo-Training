@@ -116,7 +116,19 @@ KanjiVG data. You can answer at any moment, and the earlier you answer correctly
 Speed is rewarded rather than demanded, nobody fails because a clock ran out, and the reveal itself teaches stroke
 order. With reduced motion turned on, the strokes appear in steps instead of animating.
 
-Wild kana use levels 1–2. Each challenger has a signature defence from level 3 up (section 9).
+Wild kana use levels 1–2. Each challenger has a signature defence (section 9). In the game today
+(`lib/kanaWilds/defenceStyles.ts`, one strategy per style, with the panels in `DefencePanel.tsx`):
+- **Reading** (wild kana): the attack draws quickly; read right before it is drawn for a perfect block, after for a
+  block. Wrong choices lean on look-alikes.
+- **Look-alikes** (Chun): every attack is the kana itself or one of its look-alikes, never a word, and every wrong
+  choice is a kana learners mix up (its own look-alikes first).
+- **Shout** (Tama): the attack is a single kana, spoken instead of shown. Pick the kana you heard among kana that
+  sound like it (the same vowel first). Right on the first hearing is a perfect block; after **Hear it again**, a
+  block. **Caption** shows the sound in romaji, and is on from the start where the browser can't speak.
+- **Stroke reveal** (Pon): drawn slowly (900 ms a stroke), judged as above: perfect before half the strokes, a
+  quarter of the hit before the last ("glanced"), half once drawn ("grazed"), the full hit when wrong.
+
+Braced (after a redraw), every style offers two choices that are easy to tell apart.
 
 ## 7. Catching
 
@@ -177,10 +189,15 @@ path (docs/WORLD.md). Every path is open from the start; a win is saved, pays XP
 | 5 | Zen (Review) | your weakest kana | recall (level 6) | **evolution**: small kana (き + ゃ → きゃ) |
 | 6 | Kurama (Fuji) | everything | brush style (level 7) + mixed | the katakana wilds (milestone 4) |
 
-Chun, Tama and Pon are in the game (docs/WORLD.md section 4), each on their island: Chun (Kana) with あ, こ, お;
-Tama (Practice) with さ, ち, つ; Pon (Games) with ぬ, ね, は. Their signature defences and the rewards in the table
-are still to come. The hint after a loss names the challenger's team; the per-kana hint below ("You read ね as れ
-twice") is still to come too.
+Chun, Tama and Pon are in the game (docs/WORLD.md section 4), each on their island with their signature defence
+(section 6): Chun (Kana) with あ, こ, お and look-alikes; Tama (Practice) with さ, ち, つ and the shout; Pon (Games)
+with ぬ, ね, は and the stroke reveal. The rewards in the table are still to come.
+
+**Hints after a loss.** Every wrong read of a kana attack is kept with the battle (`{ kana, mistakenFor, way }`, where
+`way` is "read" or "heard") and carried through the challenge's rounds. After a loss (or giving up) the challenger
+names the team, a tip for their defence, and up to three mix-ups, the most frequent first: "You read ね as れ
+twice.", "You heard つ as す once." (`lib/kanaWilds/mistakes.ts`). A win shows none. Words read wrong already go to
+the mistake notebook, so the hints are about single kana.
 
 **Evolution adds new tiles** (が, ば, きゃ…), which open new words such as えいが (film), しごと (work) and きょう (today). The base
 tile stays in your collection.

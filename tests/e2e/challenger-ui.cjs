@@ -1,7 +1,9 @@
 // Challengers on the islands (docs/WORLD.md milestones 3–4): every path open on the map from the start; Chun on the
 // Kana island, walked up to and challenged with E; a lost challenge (nothing saved, try again at once); a won challenge
-// (three open kana in a row, HP carried over, the win saved, a rematch offered); Tama and Pon waiting on their islands;
-// the challenge on one screen at 1366×768 and 390×844. Against a fixture API that grades kana answers like the server.
+// (three open kana in a row, HP carried over, the win saved, a rematch offered); each challenger's signature defence
+// (Chun: look-alikes; Tama: the kana shouts, with a caption; Pon: the stroke reveal) and the hints after a loss
+// ("You read ね as れ twice"); the challenge on one screen at 1366×768 and 390×844. Against a fixture API that grades
+// kana answers like the server; speech is stubbed so the test knows what was shouted.
 //   node challenger-ui.cjs <baseUrl> <shotsDir>
 const assert = require('node:assert/strict');
 const path = require('node:path');
@@ -22,6 +24,8 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
       const context = await browser.newContext({ viewport, hasTouch: isTouch, isMobile: isTouch });
       await context.addInitScript(t => {
         localStorage.setItem('token', t); localStorage.setItem('app_language', 'japanese'); localStorage.setItem('course_level', 'N5'); localStorage.setItem('user_handle', 'aki');
+        window.__shouts = [];
+        window.speechSynthesis.speak = utterance => { window.__shouts.push(utterance.text); setTimeout(() => utterance.onend?.(), 0); };
       }, token);
       const state = { collection: { starter: 'ka', kanaIds: [1, 2, 3, 4, 5, 6], beatenChallengers: [...beatenChallengers] }, romajiById: {} };
       const sent = { wins: [], practice: [] };
@@ -64,7 +68,13 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
       for (const item of kana) state.romajiById[item.id] = item.romaji;
       return { wordByJapanese: new Map(words.map(word => [word.japanese, word])), kanaByCharacter: new Map(kana.map(item => [item.kana, item])) };
     };
-    const arena = page => page.getByRole('region', { name: 'Challenge against Chun' });
+    const arena = (page, name = 'Chun') => page.getByRole('region', { name: 'Challenge against ' + name });
+    const MIXED_UP = new Set('ぬめねれわるろさちきはほけいりこにうらしつそんたなまもあおくへすむ');
+    /** The traveller's feet, in tiles. */
+    const travellerAt = page => page.evaluate(() => {
+      const world = document.querySelector('.village-world'), me = document.querySelector('div.village-person'), tile = world.offsetWidth / 30;
+      return { x: (parseFloat(me.style.left) + me.offsetWidth / 2) / tile, y: (parseFloat(me.style.top) + me.offsetHeight) / tile };
+    });
     /** Holds a key until `isDone` (checked often) or the time runs out. */
     const holdUntil = async (page, key, isDone, ms = 12000) => {
       await page.keyboard.down(key);
@@ -78,28 +88,30 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
       const nearChun = page.getByText('Chun is here. Press E to challenge them.');
       assert.ok(await holdUntil(page, 'ArrowRight', async () => Boolean(await nearChun.count())), 'walked up to Chun');
     };
-    const wrongChoice = async (group, right) => {
-      for (const button of await group.getByRole('button').all()) if ((await button.innerText()).trim() !== right) return button;
+    const wrongChoice = async (group, right, buttons = group.getByRole('button')) => {
+      for (const button of await buttons.all()) if ((await button.innerText()).trim() !== right) return button;
       throw new Error('no wrong choice');
     };
 
     /** Plays the challenge to its end, answering right (`isRight`) or always wrong; notes what the rounds showed. */
-    const playChallenge = async (page, answers, { isRight, onRound }) => {
-      const seen = { rounds: [], hpAtRoundStart: [] };
+    const playChallenge = async (page, answers, { isRight, onRound, name = 'Chun', onDefence }) => {
+      const seen = { rounds: [], hpAtRoundStart: [], attacks: [], choices: [], prompts: new Set(), notes: new Set(), statuses: new Set() };
+      const over = new RegExp(`^You beat ${name}!|${name} won this time`);
       for (let turn = 0; turn < MAX_TURNS; turn++) {
         await page.waitForTimeout(50);
         await page.waitForFunction(() => !document.querySelector('section[data-animating="true"]'));
-        if (await page.getByRole('heading', { name: /^You beat Chun!|Chun won this time/ }).count()) return seen;
-        const status = await arena(page).getByRole('status').first().innerText().catch(() => '');
-        const opening = status.match(/^Chun sends out (\S)! \(kana (\d) of 3\)$/);
+        if (await page.getByRole('heading', { name: over }).count()) return seen;
+        const status = await arena(page, name).getByRole('status').first().innerText().catch(() => '');
+        seen.statuses.add(status);
+        const opening = status.match(new RegExp(`^${name} sends out (\\S)! \\(kana (\\d) of 3\\)$`));
         if (opening && !seen.rounds.includes(opening[1])) {
           seen.rounds.push(opening[1]);
           seen.hpAtRoundStart.push(Number((await page.locator('.kw-info--player').getByText(/^\d+ \/ 30$/).innerText()).split(' ')[0]));
           if (onRound) await onRound(seen);
         }
-        const group = arena(page).getByRole('group').first();
+        const group = arena(page, name).getByRole('group').first();
         const prompt = (await group.count()) ? await group.innerText() : '';
-        const next = arena(page).getByRole('button', { name: 'Next', exact: true });
+        const next = arena(page, name).getByRole('button', { name: 'Next', exact: true });
         if (await next.count()) { await next.click(); continue; }
         if (prompt.startsWith('How do you read')) {
           const word = answers.wordByJapanese.get(prompt.match(/How do you read (\S+?)\?/)[1]);
@@ -107,10 +119,21 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
         } else if (prompt.startsWith('Right:')) {
           const word = answers.wordByJapanese.get(prompt.match(/^Right: (\S+) is/)[1]);
           await group.getByRole('button', { name: word.meaning, exact: true }).click();
-        } else if (prompt.includes('attacks! Read it to block.')) {
+        } else if (prompt.includes('shouts!')) {
+          const shouted = await page.evaluate(() => window.__shouts.at(-1));
+          seen.prompts.add(prompt.split('\n')[0]); seen.attacks.push(shouted);
+          const kanaButtons = group.locator('button[lang="ja"]');
+          seen.choices.push(...(await kanaButtons.allInnerTexts()).map(text => text.trim()));
+          if (onDefence) await onDefence(group, seen);
+          await (isRight ? group.getByRole('button', { name: shouted, exact: true }) : await wrongChoice(group, shouted, kanaButtons)).click();
+        } else if (await group.locator('.kw-attack-card').count()) {
           const attack = await group.locator('.kw-attack-card').getAttribute('aria-label');
           const attackKana = answers.kanaByCharacter.get(attack);
           const reading = attackKana ? attackKana.romaji : answers.wordByJapanese.get(attack).romaji;
+          seen.prompts.add(prompt.split('\n')[0]); seen.attacks.push(attack);
+          if (attackKana) seen.choices.push(...(await group.getByRole('button').allInnerTexts()).map(text => text.trim()));
+          if (onDefence) await onDefence(group, seen);
+          seen.notes.add(await group.locator('p.text-xs').innerText());
           await (isRight ? group.getByRole('button', { name: reading, exact: true }) : await wrongChoice(group, reading)).click();
         } else if (prompt.startsWith('Your turn')) {
           await group.getByRole('listitem').first().getByRole('button').click();
@@ -137,10 +160,18 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     assert.equal(await page.locator('.kw-enemy-card').getAttribute('aria-label'), "Chun's あ", 'a challenger\'s kana is in the open');
     assert.ok(await fitsScreen(page), 'the challenge fits one screen');
     await page.screenshot({ path: path.join(shots, 'challenge-start.png') });
-    await playChallenge(page, answers, { isRight: false });
+    const lostToChun = await playChallenge(page, answers, { isRight: false });
     await page.getByRole('heading', { name: 'Chun won this time' }).waitFor();
     assert.deepEqual(sent.wins, [], 'a loss saves nothing');
     await page.getByText(/My team is あ, こ, お/).waitFor();
+    // Chun's signature: every attack is the kana or its look-alike, and every choice is a kana learners mix up.
+    assert.deepEqual([...lostToChun.prompts], ['A look-alike attack! Read it carefully to block.']);
+    assert.ok(lostToChun.attacks.every(attack => 'あおこに'.includes(attack)), 'look-alike attacks: ' + lostToChun.attacks);
+    const romajiOf = new Map([...answers.kanaByCharacter.values()].map(item => [item.romaji, item.kana]));
+    assert.ok(lostToChun.choices.every(romaji => MIXED_UP.has(romajiOf.get(romaji))), 'look-alike choices: ' + lostToChun.choices);
+    // The hint names the kana read wrong, and how often.
+    const chunHints = await page.getByRole('list', { name: 'What tripped you up' }).getByRole('listitem').allInnerTexts();
+    assert.ok(chunHints.length >= 1 && chunHints.every(hint => /^You read [あおこに] as \S (once|twice|\d+ times)\.$/.test(hint)), 'hints: ' + chunHints);
     await page.screenshot({ path: path.join(shots, 'challenge-lost.png') });
     await page.getByRole('button', { name: 'Challenge Chun again' }).click();
 
@@ -150,6 +181,7 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     assert.ok(seen.hpAtRoundStart.slice(1).every((hp, index) => hp <= seen.hpAtRoundStart[index]), 'no healing between rounds: ' + seen.hpAtRoundStart);
     await page.getByRole('heading', { name: 'You beat Chun!' }).waitFor();
     await page.getByText(/Come back for a rematch whenever you like/).waitFor();
+    assert.equal(await page.getByRole('list', { name: 'What tripped you up' }).count(), 0, 'no hints after a win');
     await page.getByRole('button', { name: 'Challenge Chun again' }).waitFor();
     assert.deepEqual(sent.wins, ['chun']);
     assert.ok(sent.practice.some(item => item.kind === 'battle' && item.answered >= 3), 'the challenge counts as practice');
@@ -168,6 +200,68 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     }
     assert.deepEqual(errors, []); await context.close();
 
+    // ---- Tama's kana shout: pick the kana heard (a caption shows the sound); the hint says what it was heard as
+    ({ context, page, errors, state, sent } = await run());
+    await page.goto(base + '/islands/practice');
+    const practiceAnswers = await loadAnswers(page, state);
+    await page.getByRole('heading', { name: 'The Practice island (れんしゅうのしま)' }).waitFor({ state: 'attached' });
+    // East along the road to Tama's column, then down beside her.
+    assert.ok(await holdUntil(page, 'ArrowRight', async () => (await travellerAt(page)).x >= 22.2), 'walked east toward Tama');
+    assert.ok(await holdUntil(page, 'ArrowDown', async () => Boolean(await page.getByText('Tama is here. Press E to challenge them.').count())), 'walked up to Tama');
+    await page.keyboard.press('KeyE');
+    await arena(page, 'Tama').waitFor();
+    let captioned = false;
+    const lostToTama = await playChallenge(page, practiceAnswers, { isRight: false, name: 'Tama', onDefence: async group => {
+      if (captioned) return;
+      captioned = true;
+      await group.getByRole('button', { name: 'Caption' }).click();
+      const shouted = await page.evaluate(() => window.__shouts.at(-1));
+      await group.getByText(`Shouted: “${practiceAnswers.kanaByCharacter.get(shouted).romaji}!”`).waitFor();
+      await group.getByRole('button', { name: 'Hear it again' }).click();
+      assert.equal(await page.evaluate(() => window.__shouts.at(-1)), shouted, 'heard again');
+      await group.getByText('Heard again: a right pick still blocks.').waitFor();
+      assert.ok(await fitsScreen(page), 'the shout fits one screen');
+      await page.screenshot({ path: path.join(shots, 'challenge-tama-shout.png') });
+    } });
+    assert.deepEqual([...lostToTama.prompts], ['The kana shouts! Pick the one you heard.']);
+    assert.ok(lostToTama.attacks.length >= 1 && lostToTama.attacks.every(attack => answers.kanaByCharacter.has(attack)), 'single kana shouted: ' + lostToTama.attacks);
+    await page.getByRole('heading', { name: 'Tama won this time' }).waitFor();
+    await page.getByText(/Listen to the whole sound/).waitFor();
+    const tamaHints = await page.getByRole('list', { name: 'What tripped you up' }).getByRole('listitem').allInnerTexts();
+    assert.ok(tamaHints.length >= 1 && tamaHints.every(hint => /^You heard \S as \S (once|twice|\d+ times)\.$/.test(hint)), 'hints: ' + tamaHints);
+    await page.screenshot({ path: path.join(shots, 'challenge-tama-lost.png') });
+    assert.deepEqual(errors, []); await context.close();
+
+    // ---- Pon's stroke reveal: a slow drawing, perfect before half its strokes, a partial block after
+    ({ context, page, errors, state, sent } = await run());
+    await page.goto(base + '/islands/games');
+    const gamesAnswers = await loadAnswers(page, state);
+    await page.getByRole('heading', { name: 'The Games island (あそびのしま)' }).waitFor({ state: 'attached' });
+    // Down past the goldfish pond to Pon's row, then east to Pon.
+    assert.ok(await holdUntil(page, 'ArrowDown', async () => (await travellerAt(page)).y >= 9.4), 'walked down to Pon\'s row');
+    assert.ok(await holdUntil(page, 'ArrowRight', async () => Boolean(await page.getByText('Pon is here. Press E to challenge them.').count())), 'walked up to Pon');
+    await page.keyboard.press('KeyE');
+    await arena(page, 'Pon').waitFor();
+    let waited = false;
+    const lostToPon = await playChallenge(page, gamesAnswers, { isRight: false, name: 'Pon', onDefence: async group => {
+      if (waited) return;
+      waited = true;
+      await group.getByText('Read it now for a perfect block!').waitFor();
+      await page.screenshot({ path: path.join(shots, 'challenge-pon-reveal.png') });
+      await group.getByText('All drawn: reading it now still lets half the hit through.').waitFor({ timeout: 8000 });
+    } });
+    assert.deepEqual([...lostToPon.prompts], ['A stroke reveal! The earlier you read it, the better the block.']);
+    await page.getByRole('heading', { name: 'Pon won this time' }).waitFor();
+    await page.getByRole('button', { name: 'Challenge Pon again' }).click();
+    // Read right once it is all drawn: the block grazes, taking half the hit.
+    let grazed = false;
+    await playChallenge(page, gamesAnswers, { isRight: true, name: 'Pon', onDefence: async group => {
+      if (grazed) return;
+      grazed = true;
+      await group.getByText('All drawn: reading it now still lets half the hit through.').waitFor({ timeout: 8000 });
+    } }).then(seenPon => assert.ok([...seenPon.statuses].some(text => text.includes('Read once it was drawn, it grazed you.')), 'a graze: ' + [...seenPon.statuses]));
+    assert.deepEqual(errors, []); await context.close();
+
     // ---- a phone: the challenge fits one screen, and the touch button says Fight next to Chun
     ({ context, page, errors, state, sent } = await run({ viewport: { width: 390, height: 844 }, beatenChallengers: ['chun'], isTouch: true }));
     await page.goto(base + '/islands/kana');
@@ -178,6 +272,6 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.screenshot({ path: path.join(shots, 'challenge-phone.png') });
     assert.deepEqual(errors, []); await context.close();
 
-    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; one screen at 1366×768 and 390×844; no page errors.');
+    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; signature defences (Chun’s look-alike attacks and choices, Tama’s shout with caption and hearing again, Pon’s slow stroke reveal with a graze when read late); hints after a loss name each mix-up and how often, none after a win; one screen at 1366×768 and 390×844; no page errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 2000)); process.exitCode = 1; });

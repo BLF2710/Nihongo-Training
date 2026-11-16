@@ -11,11 +11,13 @@ export const TRAVELLER_CHOICES = {
   hair: ["black", "brown", "chestnut", "silver"],
   hat: ["kasa", "hachimaki", "none"],
   accessory: ["bundle", "fan", "lantern", "none"],
+  cheeks: ["plain", "rosy"],
 } as const satisfies Record<keyof StoredTravellerLook, readonly string[]>;
 
 export const DEFAULT_TRAVELLER_LOOK: StoredTravellerLook = {
   outfit: TRAVELLER_CHOICES.outfit[0], sash: TRAVELLER_CHOICES.sash[0], skin: TRAVELLER_CHOICES.skin[1],
   hair: TRAVELLER_CHOICES.hair[0], hat: TRAVELLER_CHOICES.hat[0], accessory: TRAVELLER_CHOICES.accessory[0],
+  cheeks: TRAVELLER_CHOICES.cheeks[0],
 };
 
 const isChoice = (part: keyof StoredTravellerLook, value: unknown): value is string =>
@@ -29,7 +31,7 @@ function parseLook(body: unknown): StoredTravellerLook {
     if (!isChoice(part, value)) throw new HttpError(400, `Choose one of the ${part} options.`);
     return value;
   };
-  return { outfit: choiceOf("outfit"), sash: choiceOf("sash"), skin: choiceOf("skin"), hair: choiceOf("hair"), hat: choiceOf("hat"), accessory: choiceOf("accessory") };
+  return { outfit: choiceOf("outfit"), sash: choiceOf("sash"), skin: choiceOf("skin"), hair: choiceOf("hair"), hat: choiceOf("hat"), accessory: choiceOf("accessory"), cheeks: choiceOf("cheeks") };
 }
 
 export async function getTravellerLook(userId: number): Promise<StoredTravellerLook> {

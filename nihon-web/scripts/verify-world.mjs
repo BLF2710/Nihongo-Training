@@ -274,13 +274,25 @@ test("beating the last kana wins the challenge, with every round's readings", ()
     step = afterRound(challenge, won(startBattle(kanaInPlay(challenge), { isCatchable: false }), PLAYER_MAX_HP));
     if (step.kind === "next") challenge = step.challenge;
   }
-  assert.deepEqual(step, { kind: "over", outcome: "won", readings: { answered: 12, correct: 9 } });
+  assert.deepEqual(step, { kind: "over", summary: { outcome: "won", readings: { answered: 12, correct: 9 }, mistakes: [] } });
 });
 
 test("losing a round loses the challenge, and giving up leaves it", () => {
   const battle = startBattle(chun.team[0], { isCatchable: false });
   const lost = { ...battle, playerHp: 0, phase: "over", outcome: "lost" };
-  assert.equal(afterRound(startChallenge(chun), lost).outcome, "lost");
+  assert.equal(afterRound(startChallenge(chun), lost).summary.outcome, "lost");
   const gaveUp = { ...battle, enemyHp: ENEMY_MAX_HP, phase: "over", outcome: "ran" };
-  assert.equal(afterRound(startChallenge(chun), gaveUp).outcome, "ran");
+  assert.equal(afterRound(startChallenge(chun), gaveUp).summary.outcome, "ran");
+});
+
+test("the kana mixed up in every round reach the end of the challenge, in order", () => {
+  const mixUp = (kana, mistakenFor) => ({ kana, mistakenFor, way: "read" });
+  const first = { ...won(startBattle(chun.team[0], { isCatchable: false }), 20), mistakes: [mixUp("あ", "お")] };
+  const step = afterRound(startChallenge(chun), first);
+  const second = { ...startBattle(chun.team[1], { isCatchable: false }), playerHp: 0, phase: "over", outcome: "lost", mistakes: [mixUp("こ", "に")] };
+  assert.deepEqual(afterRound(step.challenge, second).summary.mistakes, [mixUp("あ", "お"), mixUp("こ", "に")]);
+});
+
+test("each challenger has their own signature defence", () => {
+  assert.deepEqual(Object.fromEntries(Object.values(CHALLENGERS).map(({ id, defence }) => [id, defence])), { chun: "look-alikes", tama: "shout", pon: "stroke-reveal" });
 });

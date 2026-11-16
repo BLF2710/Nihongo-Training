@@ -15,22 +15,24 @@ export function rememberTravellerLook(look: TravellerLook) {
   listeners.forEach(listener => listener());
 }
 
+const readStored = (stored: string | null): TravellerLook | null => {
+  if (stored === null) return null;
+  try { return parseTravellerLook(JSON.parse(stored)); } catch { return null; }
+};
+
+/** Asks the API for the look when none usable is stored (none yet, or one saved before a part was added). */
 function learn() {
-  if (lookup || getStoredTravellerLook() !== null || !hasSession() || isAdmin()) return;
+  if (lookup || readStored(getStoredTravellerLook()) || !hasSession() || isAdmin()) return;
   lookup = fetchTravellerLook()
     .then(rememberTravellerLook)
     .catch(() => { /* the default look until the next page tries again */ })
     .finally(() => { lookup = null; });
 }
 
-const readStored = (stored: string | null): TravellerLook => {
-  if (stored === null) return DEFAULT_TRAVELLER_LOOK;
-  try { return parseTravellerLook(JSON.parse(stored)) ?? DEFAULT_TRAVELLER_LOOK; } catch { return DEFAULT_TRAVELLER_LOOK; }
-};
-
 /** The learner's look (the default one for guests, and until it is known). */
 export function useTravellerLook(): TravellerLook {
   const stored = useSyncExternalStore(listener => { listeners.add(listener); return () => listeners.delete(listener); }, getStoredTravellerLook, () => null);
-  useEffect(() => { if (stored === null) learn(); }, [stored]);
-  return useMemo(() => readStored(stored), [stored]);
+  const look = useMemo(() => readStored(stored), [stored]);
+  useEffect(() => { if (!look) learn(); }, [look]);
+  return look ?? DEFAULT_TRAVELLER_LOOK;
 }

@@ -15,8 +15,8 @@ export function WildBattleScreen({ battles, random, exploreLabel, onExplore, onH
   if (screen.kind === "result") return <BattleResult state={screen.state} catchSave={screen.catchSave} exploreLabel={exploreLabel}
     onRematch={() => rematch(screen.encounter)} onExplore={onExplore} onHome={onHome} />;
   if (screen.kind === "challenge") return <ChallengeScreen key={screen.round} challenger={screen.challenger} battles={battles} random={random}
-    onOver={(outcome, readings) => void finishChallenge(screen.challenger, outcome, readings)} />;
-  if (screen.kind === "challenge-result") return <ChallengeResult challenger={screen.challenger} outcome={screen.outcome} readings={screen.readings}
+    onOver={summary => void finishChallenge(screen.challenger, summary)} />;
+  if (screen.kind === "challenge-result") return <ChallengeResult challenger={screen.challenger} summary={screen.summary}
     winSave={screen.winSave} backLabel={exploreLabel} onRetry={() => challenge(screen.challenger)} onBack={onExplore} />;
   return null;
 }

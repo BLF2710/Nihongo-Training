@@ -3,7 +3,7 @@ import { recordPractice } from "../../api/activity";
 import type { BattleState } from "./battle";
 import { COURSE_BATTLE_WORDS } from "./courseWords";
 import { pickEncounter } from "./encounters";
-import type { Challenger, ChallengeOutcome } from "../world/challenges";
+import type { Challenger, ChallengeSummary } from "../world/challenges";
 import type { Encounter } from "./encounters";
 import { STARTERS, VOWEL_IDS, kanaById } from "./gojuon";
 import { latestCatches } from "./hand";
@@ -33,7 +33,7 @@ export type BattleScreen =
   | { kind: "battle"; encounter: Encounter; round: number }
   | { kind: "result"; encounter: Encounter; state: BattleState; catchSave: CatchSave }
   | { kind: "challenge"; challenger: Challenger; round: number }
-  | { kind: "challenge-result"; challenger: Challenger; outcome: ChallengeOutcome; readings: Readings; winSave: WinSave };
+  | { kind: "challenge-result"; challenger: Challenger; summary: ChallengeSummary; winSave: WinSave };
 
 /**
  * Battling wild kana, wherever it happens (the Kana Wilds page, a wild path): the learner's collection, the words they
@@ -81,12 +81,12 @@ export function useWildBattles(random: () => number) {
     setScreen({ kind: "result", encounter, state: ended, catchSave: isSaved ? "saved" : "failed" });
   }, [addCatch, refresh]);
 
-  const finishChallenge = useCallback(async (challenger: Challenger, outcome: ChallengeOutcome, readings: Readings) => {
-    recordReadings(readings);
-    if (outcome !== "won") { setScreen({ kind: "challenge-result", challenger, outcome, readings, winSave: "not-won" }); await refresh(); return; }
-    setScreen({ kind: "challenge-result", challenger, outcome, readings, winSave: "saving" });
+  const finishChallenge = useCallback(async (challenger: Challenger, summary: ChallengeSummary) => {
+    recordReadings(summary.readings);
+    if (summary.outcome !== "won") { setScreen({ kind: "challenge-result", challenger, summary, winSave: "not-won" }); await refresh(); return; }
+    setScreen({ kind: "challenge-result", challenger, summary, winSave: "saving" });
     const isSaved = await addChallengerWin(challenger.id);
-    setScreen({ kind: "challenge-result", challenger, outcome, readings, winSave: isSaved ? "saved" : "failed" });
+    setScreen({ kind: "challenge-result", challenger, summary, winSave: isSaved ? "saved" : "failed" });
   }, [addChallengerWin, refresh]);
 
   return { collection, ownedIds, kanaLevels, beatenChallengers, words, practice, screen, explore, challenge, rematch, finish, finishChallenge, close };

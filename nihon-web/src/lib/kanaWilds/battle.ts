@@ -3,6 +3,7 @@
 import type { Vowel, WildKana } from "./gojuon.ts";
 import { NO_LEVELS, wordPower } from "./mastery.ts";
 import type { KanaLevels } from "./mastery.ts";
+import type { KanaMistake } from "./mistakes.ts";
 import { MATCHUP_MULTIPLIER, matchup, vowelOfWord } from "./vowelCircle.ts";
 import type { Matchup } from "./vowelCircle.ts";
 import type { BattleWord } from "./words.ts";
@@ -28,13 +29,18 @@ export const BRACED_DAMAGE_FACTOR = 0.5;
 export type Phase = "attack" | "defend" | "over";
 /** "won": a kana that can't be caught (already collected, or a challenger's) worn out to 0 HP. */
 export type Outcome = "caught" | "fled" | "lost" | "ran" | "won";
-/** How the player met an enemy attack: read right before it finished drawing, read right after, or read wrong. */
-export type DefenceResult = "perfect" | "blocked" | "missed";
+/**
+ * How the player met an enemy attack: read right early (a perfect block), read right (blocked), read right but late in
+ * a stroke reveal (glanced: before the last stroke; grazed: once it was all drawn), or read wrong (missed).
+ */
+export type DefenceResult = "perfect" | "blocked" | "glanced" | "grazed" | "missed";
+/** The share of an attack's damage that gets through each defence. */
+export const DEFENCE_DAMAGE_SHARE: Readonly<Record<DefenceResult, number>> = { perfect: 0, blocked: 0, glanced: 0.25, grazed: 0.5, missed: 1 };
 export type BattleEvent =
   | { kind: "hit"; word: string; damage: number; matchup: Matchup; isCritical: boolean }
   | { kind: "fizzle"; word: string }
   | { kind: "blocked"; counterDamage: number }
-  | { kind: "hurt"; damage: number; matchup: Matchup; wasBraced: boolean }
+  | { kind: "hurt"; damage: number; matchup: Matchup; wasBraced: boolean; defence: "glanced" | "grazed" | "missed" }
   | { kind: "redrew" }
   | { kind: "catch-failed"; triesLeft: number; reason: "trace" | "broke-out" }
   | { kind: "ended"; outcome: Outcome };
@@ -57,6 +63,8 @@ export type BattleState = {
   readonly phase: Phase;
   readonly outcome: Outcome | null;
   readonly readings: { readonly answered: number; readonly correct: number };
+  /** The kana the player read (or heard) as another in this battle, in order: what the hints after a loss come from. */
+  readonly mistakes: readonly KanaMistake[];
   readonly lastEvent: BattleEvent | null;
 };
 
@@ -71,7 +79,7 @@ export type BattleSetup = {
 export function startBattle(enemy: WildKana, { isCatchable, isHidden = true, kanaLevels = NO_LEVELS, playerHp = PLAYER_MAX_HP }: BattleSetup): BattleState {
   return {
     enemy, kanaLevels, isCatchable, isHidden, enemyHp: ENEMY_MAX_HP, playerHp, stance: null, isBraced: false, timesPlayed: {}, catchTries: 0,
-    phase: "attack", outcome: null, readings: { answered: 0, correct: 0 }, lastEvent: null,
+    phase: "attack", outcome: null, readings: { answered: 0, correct: 0 }, mistakes: [], lastEvent: null,
   };
 }
 
@@ -115,22 +123,25 @@ export function redraw(state: BattleState): BattleState {
 
 /**
  * The enemy attacks: reading it right blocks the attack (a perfect block also hits back), reading it wrong takes the
- * hit, judged against the stance.
+ * hit, judged against the stance; a late read in a stroke reveal takes part of it. `mistake` is what a wrong read
+ * took the kana for.
  */
-export function defend(state: BattleState, result: DefenceResult): BattleState {
+export function defend(state: BattleState, result: DefenceResult, mistake?: KanaMistake): BattleState {
   if (state.phase !== "defend") return state;
   const readings = counted(state, result !== "missed");
+  const mistakes = mistake ? [...state.mistakes, mistake] : state.mistakes;
   const wasBraced = state.isBraced;
-  const settled = { ...state, readings, isBraced: false };
-  if (result !== "missed") {
+  const settled = { ...state, readings, mistakes, isBraced: false };
+  if (result === "perfect" || result === "blocked") {
     const counterDamage = result === "perfect" ? Math.min(COUNTER_DAMAGE, state.enemyHp) : 0;
     return { ...settled, enemyHp: state.enemyHp - counterDamage, phase: "attack", lastEvent: { kind: "blocked", counterDamage } };
   }
   const attack = enemyAttackDamage(state.enemy.vowel, state.stance);
-  const damage = wasBraced ? Math.max(1, Math.round(attack.damage * BRACED_DAMAGE_FACTOR)) : attack.damage;
+  const share = DEFENCE_DAMAGE_SHARE[result] * (wasBraced ? BRACED_DAMAGE_FACTOR : 1);
+  const damage = Math.max(1, Math.round(attack.damage * share));
   const playerHp = Math.max(0, state.playerHp - damage);
   if (playerHp === 0) return end({ ...settled, playerHp }, "lost");
-  return { ...settled, playerHp, phase: "attack", lastEvent: { kind: "hurt", damage, matchup: attack.matchup, wasBraced } };
+  return { ...settled, playerHp, phase: "attack", lastEvent: { kind: "hurt", damage, matchup: attack.matchup, wasBraced, defence: result } };
 }
 
 export const canCatch = (state: BattleState) =>

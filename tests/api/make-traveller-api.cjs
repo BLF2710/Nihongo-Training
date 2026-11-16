@@ -10,8 +10,8 @@ head = head.replace("// Unit review + question bank API", "// Traveller look API
 for (const needle of ['routes/traveller.routes.ts', "'ben']"]) if (!head.includes(needle)) throw new Error('harness changed: ' + needle);
 
 const tail = String.raw`    const L = 'learner';
-    const DEFAULT = { outfit: 'indigo', sash: 'red', skin: 'light', hair: 'black', hat: 'kasa', accessory: 'bundle' };
-    const CHOSEN = { outfit: 'plum', sash: 'teal', skin: 'deep', hair: 'silver', hat: 'hachimaki', accessory: 'lantern' };
+    const DEFAULT = { outfit: 'indigo', sash: 'red', skin: 'light', hair: 'black', hat: 'kasa', accessory: 'bundle', cheeks: 'plain' };
+    const CHOSEN = { outfit: 'plum', sash: 'teal', skin: 'deep', hair: 'silver', hat: 'hachimaki', accessory: 'lantern', cheeks: 'rosy' };
     const look = (as = L) => call('GET', '/traveller/look', { as });
     const dress = (body, as = L) => call('PUT', '/traveller/look', { as, body });
     for (const [method, url] of [['GET', '/traveller/look'], ['PUT', '/traveller/look']])
@@ -23,7 +23,7 @@ const tail = String.raw`    const L = 'learner';
     assert.deepEqual((await look()).data, CHOSEN, 'the look is kept');
     assert.deepEqual((await dress({ ...CHOSEN, hat: 'none' })).data.hat, 'none', 'a look can be changed again');
     assert.deepEqual((await look('ben')).data, DEFAULT, 'looks are per learner');
-    for (const bad of [{ ...CHOSEN, outfit: 'rainbow' }, { ...CHOSEN, skin: undefined }, { ...CHOSEN, accessory: 7 }, []])
+    for (const bad of [{ ...CHOSEN, outfit: 'rainbow' }, { ...CHOSEN, skin: undefined }, { ...CHOSEN, accessory: 7 }, { ...CHOSEN, cheeks: 'glitter' }, []])
       assert.equal((await dress(bad)).status, 400, 'refused: ' + JSON.stringify(bad));
     assert.deepEqual((await look()).data.outfit, 'plum', 'a refused look changes nothing');
     console.log('PASS: sign-in required; a new learner has the first look; a chosen look saved, kept and changed again; per learner; unknown or missing choices refused without changing anything. Rolled back.');

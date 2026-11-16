@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { DEFAULT_TRAVELLER_LOOK, LOOK_PARTS, lookColours, parseTravellerLook, withPart } from "../src/lib/travellerLook.ts";
 
-const CHOSEN = { outfit: "plum", sash: "teal", skin: "deep", hair: "silver", hat: "hachimaki", accessory: "lantern" };
+const CHOSEN = { outfit: "plum", sash: "teal", skin: "deep", hair: "silver", hat: "hachimaki", accessory: "lantern", cheeks: "rosy" };
 
 test("a saved look with every part one of its choices is read as it is", () => {
   assert.deepEqual(parseTravellerLook(CHOSEN), CHOSEN);

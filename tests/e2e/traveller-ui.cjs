@@ -7,7 +7,7 @@ const path = require('node:path');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright');
 const [base, shots] = process.argv.slice(2);
 const token = `test.${Buffer.from(JSON.stringify({ userId: 1 })).toString('base64url')}.x`;
-const SAVED_LOOK = { outfit: 'moss', sash: 'gold', skin: 'tan', hair: 'brown', hat: 'kasa', accessory: 'bundle' };
+const SAVED_LOOK = { outfit: 'moss', sash: 'gold', skin: 'tan', hair: 'brown', hat: 'kasa', accessory: 'bundle', cheeks: 'plain' };
 const VERMILION = '#c4472f';
 
 (async () => {
@@ -53,8 +53,9 @@ const VERMILION = '#c4472f';
     // ---- trying things on shows at once; the arrow keys move between choices
     await choice(page, 'Kimono', 'Vermilion').check({ force: true });
     await choice(page, 'Skin', 'Deep').check({ force: true });
-    await choice(page, 'Hat', 'Headband (hachimaki)').check({ force: true });
+    await choice(page, 'Hat', 'Headband').check({ force: true });
     await choice(page, 'Carrying', 'Lantern').check({ force: true });
+    await choice(page, 'Cheeks', 'Rosy').check({ force: true });
     await choice(page, 'Hair', 'Black').focus();
     await page.keyboard.press('ArrowRight');
     assert.ok(await choice(page, 'Hair', 'Brown').isChecked(), 'arrow keys choose the next hair colour');
@@ -65,7 +66,7 @@ const VERMILION = '#c4472f';
     // ---- Save sends the look; the traveller wears it on the islands, and it is still there on the next visit
     await page.getByRole('button', { name: 'Save' }).click();
     await page.getByText('Saved. Your traveller wears it everywhere now.').waitFor();
-    assert.deepEqual(sent, [{ outfit: 'vermilion', sash: 'gold', skin: 'deep', hair: 'brown', hat: 'hachimaki', accessory: 'lantern' }]);
+    assert.deepEqual(sent, [{ outfit: 'vermilion', sash: 'gold', skin: 'deep', hair: 'brown', hat: 'hachimaki', accessory: 'lantern', cheeks: 'rosy' }]);
     await page.goto(base + '/islands/kana');
     await page.getByRole('heading', { name: 'The Kana island (かなのしま)' }).waitFor({ state: 'attached' });
     await page.locator(`.village-person svg path[fill="${VERMILION}"]`).first().waitFor({ state: 'attached' });

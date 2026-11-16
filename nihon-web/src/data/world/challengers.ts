@@ -5,11 +5,11 @@ import type { Challenger, ChallengerId } from "../../lib/world/challenges.ts";
 
 // Each team comes from the rows in the grass of the path to that island, and each kana has a look-alike to trip on.
 
-/** Chun, on the Kana island: あ, こ, お (look-alikes お, に, あ). */
-const CHUN: Challenger = { id: "chun", character: "chun", team: teamOf("あこお") };
-/** Tama, on the Practice island: さ, ち, つ (look-alikes ち and き, さ, し). */
-const TAMA: Challenger = { id: "tama", character: "tama", team: teamOf("さちつ") };
-/** Pon, on the Games island: ぬ, ね, は (look-alikes め, れ and わ, ほ and け). */
-const PON: Challenger = { id: "pon", character: "pon", team: teamOf("ぬねは") };
+/** Chun, on the Kana island: あ, こ, お (look-alikes お, に, あ). Every attack is a look-alike. */
+const CHUN: Challenger = { id: "chun", character: "chun", team: teamOf("あこお"), defence: "look-alikes" };
+/** Tama, on the Practice island: さ, ち, つ (look-alikes ち and き, さ, し). Her kana shout: pick what you heard. */
+const TAMA: Challenger = { id: "tama", character: "tama", team: teamOf("さちつ"), defence: "shout" };
+/** Pon, on the Games island: ぬ, ね, は (look-alikes め, れ and わ, ほ and け). The stroke reveal: read it early. */
+const PON: Challenger = { id: "pon", character: "pon", team: teamOf("ぬねは"), defence: "stroke-reveal" };
 
 export const CHALLENGERS: Readonly<Record<ChallengerId, Challenger>> = { chun: CHUN, tama: TAMA, pon: PON };

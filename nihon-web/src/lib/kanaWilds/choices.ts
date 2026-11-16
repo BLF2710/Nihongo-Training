@@ -62,3 +62,30 @@ export function bracedReadingChoices(word: BattleWord, pool: readonly BattleWord
   const [other] = readingChoices(word, pool, random).filter(choice => choice !== word.romaji);
   return shuffle([word.romaji, ...(other ? [other] : [])], random);
 }
+
+const lookAlikeGroupOf = (kana: WildKana) => LOOK_ALIKES.find(set => set.includes(kana.kana)) ?? kana.kana;
+
+/** The kana that learners mix up with this one (itself included), or just itself when it has none. */
+export const lookAlikesOf = (kana: WildKana): WildKana[] => BASIC_HIRAGANA.filter(item => lookAlikeGroupOf(kana).includes(item.kana));
+
+/** Every wrong choice is a kana learners mix up: its own look-alikes first, then those of other kana. */
+export function lookAlikeChoices(kana: WildKana, random: () => number): string[] {
+  const others = BASIC_HIRAGANA.filter(item => LOOK_ALIKES.some(set => set.includes(item.kana)) && !lookAlikeGroupOf(kana).includes(item.kana));
+  const wrong = [...shuffle(lookAlikesOf(kana), random), ...shuffle(others, random)].map(item => item.romaji).filter(romaji => romaji !== kana.romaji);
+  return shuffle([kana.romaji, ...wrong.slice(0, CHOICE_COUNT - 1)], random);
+}
+
+/** A shouted kana: the kana that sound like it (the same vowel, then the same row), as kana to pick from. */
+export function soundAlikeChoices(kana: WildKana, random: () => number): string[] {
+  const others = BASIC_HIRAGANA.filter(item => item.id !== kana.id);
+  const sameVowel = others.filter(item => item.vowel !== null && item.vowel === kana.vowel);
+  const sameRow = others.filter(item => item.row === kana.row);
+  const close = [...shuffle(sameVowel, random), ...shuffle(sameRow, random), ...shuffle(others, random)].map(item => item.kana);
+  return shuffle([kana.kana, ...[...new Set(close)].slice(0, CHOICE_COUNT - 1)], random);
+}
+
+/** A shouted kana when braced: it and one kana that sounds nothing like it (another vowel and row). */
+export function bracedSoundChoices(kana: WildKana, random: () => number): string[] {
+  const unlike = BASIC_HIRAGANA.filter(item => item.vowel !== kana.vowel && item.row !== kana.row);
+  return shuffle([kana.kana, ...shuffle(unlike, random).slice(0, BRACED_CHOICE_COUNT - 1).map(item => item.kana)], random);
+}

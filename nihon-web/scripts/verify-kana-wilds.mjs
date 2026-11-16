@@ -6,14 +6,19 @@ import { test } from "node:test";
 import { BASIC_HIRAGANA, kanaByCharacter, STARTERS, VOWEL_IDS } from "../src/lib/kanaWilds/gojuon.ts";
 import { matchup, vowelOfWord } from "../src/lib/kanaWilds/vowelCircle.ts";
 import { collectBattleWords, countWordsOpenedBy, playableWords } from "../src/lib/kanaWilds/words.ts";
-import { BRACED_CHOICE_COUNT, bracedDefenceChoices, bracedReadingChoices, catchChoices, CHOICE_COUNT, defenceChoices, meaningChoices, readingChoices } from "../src/lib/kanaWilds/choices.ts";
+import {
+  BRACED_CHOICE_COUNT, bracedDefenceChoices, bracedReadingChoices, bracedSoundChoices, catchChoices, CHOICE_COUNT, defenceChoices, LOOK_ALIKES, lookAlikeChoices, lookAlikesOf,
+  meaningChoices, readingChoices, soundAlikeChoices,
+} from "../src/lib/kanaWilds/choices.ts";
+import { drawnBlock, heardBlock, pickAttack, revealBlock } from "../src/lib/kanaWilds/defenceStyles.ts";
+import { MAX_HINTS, mistakeHints } from "../src/lib/kanaWilds/mistakes.ts";
 import { dealHand, HAND_SIZE, latestCatches, NEW_CATCH_COUNT, SHORT_WORD_LENGTH } from "../src/lib/kanaWilds/hand.ts";
 import { MAX_MISSED_WORDS, noteReading, wordsUsingKana } from "../src/lib/kanaWilds/missedWords.ts";
 import { pickEncounter } from "../src/lib/kanaWilds/encounters.ts";
 import { isStrokeCountShown, revealedStrokeCount, STROKE_COUNT_HP_SHARE } from "../src/lib/kanaWilds/reveal.ts";
 import { attackWordsOf, MAX_ATTACK_WORD_LENGTH, movesetOf, pickEnemyAttack, WORD_ATTACK_SHARE, wordAttackShare } from "../src/lib/kanaWilds/enemyAttacks.ts";
 import {
-  attemptCatch, BRACED_DAMAGE_FACTOR, canCatch, catchChance, CATCH_HP_SHARE, CATCH_TOLERANCE, catchTolerance, COUNTER_DAMAGE, defend, MIN_CATCH_CHANCE, ENEMY_ATTACK_POWER, ENEMY_MAX_HP, MAX_CATCH_TRIES,
+  attemptCatch, BRACED_DAMAGE_FACTOR, canCatch, DEFENCE_DAMAGE_SHARE, catchChance, CATCH_HP_SHARE, CATCH_TOLERANCE, catchTolerance, COUNTER_DAMAGE, defend, MIN_CATCH_CHANCE, ENEMY_ATTACK_POWER, ENEMY_MAX_HP, MAX_CATCH_TRIES,
   PLAYER_MAX_HP, playWord, previewAttack, redraw, runAway, startBattle, canFinish, finishBattle,
 } from "../src/lib/kanaWilds/battle.ts";
 import { kanaLevelsOf, masteryLevel, MASTERY_STEPS, NO_LEVELS, TILE_POWER_BY_LEVEL, wordPower } from "../src/lib/kanaWilds/mastery.ts";
@@ -206,6 +211,22 @@ test("a perfect block hits back for COUNTER_DAMAGE; a plain block does no damage
   assert.equal(perfect.enemyHp, attacked.enemyHp - COUNTER_DAMAGE);
   assert.deepEqual(perfect.lastEvent, { kind: "blocked", counterDamage: COUNTER_DAMAGE });
   assert.equal(defend(attacked, "blocked").enemyHp, attacked.enemyHp);
+});
+
+test("a late read in a stroke reveal lets part of the hit through: a quarter when it glances, half when it grazes", () => {
+  const attacked = { ...startBattle(ne, { isCatchable: true }), phase: "defend" };
+  const full = PLAYER_MAX_HP - defend(attacked, "missed").playerHp;
+  assert.equal(PLAYER_MAX_HP - defend(attacked, "glanced").playerHp, Math.max(1, Math.round(full * DEFENCE_DAMAGE_SHARE.glanced)));
+  assert.equal(PLAYER_MAX_HP - defend(attacked, "grazed").playerHp, Math.round(full * DEFENCE_DAMAGE_SHARE.grazed));
+  assert.equal(defend(attacked, "grazed").lastEvent.defence, "grazed");
+  assert.deepEqual(defend(attacked, "glanced").readings, { answered: 1, correct: 1 }, "a late read is still a right read");
+});
+
+test("a mix-up is kept with the battle, in order, and a right read adds none", () => {
+  const attacked = { ...startBattle(ne, { isCatchable: true }), phase: "defend" };
+  const mixUp = { kana: "ね", mistakenFor: "れ", way: "read" };
+  assert.deepEqual(defend(attacked, "missed", mixUp).mistakes, [mixUp]);
+  assert.deepEqual(defend(attacked, "blocked").mistakes, []);
 });
 
 test("a perfect block never takes the enemy below 0 HP", () => {
@@ -536,4 +557,73 @@ test("a battle starts hidden at full HP unless set up otherwise", () => {
   assert.deepEqual([wild.isHidden, wild.playerHp], [true, PLAYER_MAX_HP]);
   const round = startBattle(ne, { isCatchable: false, isHidden: false, playerHp: 12 });
   assert.deepEqual([round.isHidden, round.playerHp], [false, 12]);
+});
+
+// ---- defence styles (docs/KANA-BATTLE.md sections 6 and 9)
+
+test("reading as it draws: right before it is drawn is perfect, right after is a block, wrong is a miss", () => {
+  assert.deepEqual([drawnBlock(true, 1, 3), drawnBlock(true, 3, 3), drawnBlock(false, 0, 3)], ["perfect", "blocked", "missed"]);
+});
+
+test("the stroke reveal: perfect before half the strokes, glancing before the last, grazing once drawn", () => {
+  assert.deepEqual([0, 1, 2, 3, 4].map(drawn => revealBlock(true, drawn, 4)), ["perfect", "perfect", "glanced", "glanced", "grazed"]);
+  assert.equal(revealBlock(false, 0, 4), "missed");
+});
+
+test("a shout picked right on the first hearing is perfect; after hearing it again, a block", () => {
+  assert.deepEqual([heardBlock(true, 1), heardBlock(true, 2), heardBlock(false, 1)], ["perfect", "blocked", "missed"]);
+});
+
+test("Chun's look-alike attacks are the kana or one of its look-alikes, never a word", () => {
+  const random = seeded(7);
+  for (let i = 0; i < 40; i++) {
+    const attack = pickAttack("look-alikes", kana("あ"), COURSE_WORDS, random);
+    assert.equal(attack.kind, "kana");
+    assert.ok(["あ", "お"].includes(attack.kana.kana), attack.kana.kana);
+  }
+});
+
+test("a shout is always a single kana, never a word", () => {
+  const random = seeded(3);
+  for (let i = 0; i < 40; i++) assert.equal(pickAttack("shout", kana("つ"), COURSE_WORDS, random).kind, "kana");
+});
+
+test("look-alike choices are the answer and three kana that learners mix up, its own look-alikes first", () => {
+  const mixedUp = new Set(LOOK_ALIKES.join(""));
+  for (let seed = 1; seed < 20; seed++) {
+    const choices = lookAlikeChoices(kana("ね"), seeded(seed));
+    assert.equal(choices.length, CHOICE_COUNT);
+    assert.ok(choices.includes("ne"));
+    assert.ok(["re", "wa"].every(romaji => choices.includes(romaji)), JSON.stringify(choices));
+    assert.ok(choices.every(romaji => mixedUp.has(BASIC_HIRAGANA.find(item => item.romaji === romaji).kana)), JSON.stringify(choices));
+  }
+  assert.deepEqual(lookAlikesOf(kana("ね")).map(item => item.kana), ["ね", "れ", "わ"]);
+});
+
+test("a shout offers kana that sound like it (the same vowel first), and braced, one that sounds nothing like it", () => {
+  const choices = soundAlikeChoices(kana("つ"), seeded(5));
+  assert.equal(new Set(choices).size, CHOICE_COUNT);
+  assert.ok(choices.includes("つ"));
+  assert.ok(choices.filter(choice => choice !== "つ").every(choice => kana(choice).vowel === "u"), JSON.stringify(choices));
+  const braced = bracedSoundChoices(kana("つ"), seeded(5));
+  const [other] = braced.filter(choice => choice !== "つ");
+  assert.equal(braced.length, BRACED_CHOICE_COUNT);
+  assert.ok(kana(other).vowel !== "u" && kana(other).row !== "t", other);
+});
+
+// ---- hints after a challenge lost
+
+test("hints name each mix-up with how often, the most frequent first", () => {
+  const mistakes = [
+    { kana: "こ", mistakenFor: "に", way: "read" }, { kana: "ね", mistakenFor: "れ", way: "read" }, { kana: "ね", mistakenFor: "れ", way: "read" },
+    { kana: "つ", mistakenFor: "す", way: "heard" },
+  ];
+  assert.deepEqual(mistakeHints(mistakes), ["You read ね as れ twice.", "You read こ as に once.", "You heard つ as す once."]);
+});
+
+test("hints stop at MAX_HINTS and say nothing without mistakes", () => {
+  const many = [..."あいうえおか"].map(character => ({ kana: character, mistakenFor: "ぬ", way: "read" }));
+  assert.equal(mistakeHints(many).length, MAX_HINTS);
+  assert.deepEqual(mistakeHints([]), []);
+  assert.deepEqual(mistakeHints(Array(3).fill({ kana: "は", mistakenFor: "ほ", way: "read" })), ["You read は as ほ 3 times."]);
 });

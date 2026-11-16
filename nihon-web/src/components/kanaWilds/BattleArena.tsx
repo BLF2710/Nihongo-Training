@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { MAX_CATCH_TRIES, attemptCatch, canCatch, canFinish, catchChance, catchTolerance, defend, finishBattle, isExhausted, playWord, redraw, runAway, startBattle } from "../../lib/kanaWilds/battle";
 import { dealHand } from "../../lib/kanaWilds/hand";
-import { pickEnemyAttack } from "../../lib/kanaWilds/enemyAttacks";
+import { pickAttack } from "../../lib/kanaWilds/defenceStyles";
+import type { DefenceStyle } from "../../lib/kanaWilds/defenceStyles";
 import type { EnemyAttack } from "../../lib/kanaWilds/enemyAttacks";
 import type { BattleEvent, BattleState } from "../../lib/kanaWilds/battle";
 import type { Encounter } from "../../lib/kanaWilds/encounters";
@@ -19,9 +20,9 @@ import { primaryButton, secondaryButton, sheet } from "./styles";
 /** What the hands are dealt from: the new words (latest catches) and the missed words get a slot each. */
 export type WordPractice = { newWords: ReadonlySet<string>; missedWords: ReadonlySet<string>; noteReading: (word: string, isCorrect: boolean) => void };
 
-/** A round of a challenge: the challenger's name, the HP the player has left from the rounds before, and which of the
- *  challenger's kana this is. */
-export type ChallengeRound = { challengerName: string; playerHp: number; number: number; of: number };
+/** A round of a challenge: the challenger's name, the HP the player has left from the rounds before, which of the
+ *  challenger's kana this is, and the challenger's signature defence. */
+export type ChallengeRound = { challengerName: string; playerHp: number; number: number; of: number; defence: DefenceStyle };
 
 type Props = {
   encounter: Encounter; kanaLevels: KanaLevels; words: readonly BattleWord[]; pool: readonly BattleWord[]; practice: WordPractice; random: () => number;
@@ -31,6 +32,8 @@ type Props = {
 };
 
 const MATCHUP_NOTE = { strong: " It's strong against it!", neutral: "", weak: " It's weak against it…" } as const;
+
+const HURT_NOTE = { glanced: " Read a little late, it glanced off you.", grazed: " Read once it was drawn, it grazed you.", missed: "" } as const;
 
 const triesLeftText = (tries: number) => `${tries} ${tries === 1 ? "try" : "tries"} left.`;
 
@@ -43,7 +46,7 @@ function describeEvent(event: BattleEvent | null, enemy: string, opening: string
     case "hit": return `${event.word} hits for ${event.damage}${event.isCritical ? ", a critical hit" : ""}.${MATCHUP_NOTE[event.matchup]}`;
     case "fizzle": return `${event.word} was read wrong and fizzles.`;
     case "blocked": return event.counterDamage > 0 ? `Perfect block! You hit back for ${event.counterDamage}.` : "You read it right and block the attack.";
-    case "hurt": return `${Enemy} hits you for ${event.damage}.${event.wasBraced ? " Bracing softened it." : event.matchup === "strong" ? " Your stance was weak against it." : event.matchup === "weak" ? " Your stance softened the blow." : ""}`;
+    case "hurt": return `${Enemy} hits you for ${event.damage}.${HURT_NOTE[event.defence]}${event.wasBraced ? " Bracing softened it." : event.matchup === "strong" ? " Your stance was weak against it." : event.matchup === "weak" ? " Your stance softened the blow." : ""}`;
     case "redrew": return `You draw new words and brace yourself. ${Enemy} attacks!`;
     case "catch-failed": return event.reason === "broke-out"
       ? `Good trace, but ${enemy} broke out! ${triesLeftText(event.triesLeft)}`
@@ -62,7 +65,7 @@ const ANIMATED_EVENTS: ReadonlySet<BattleEvent["kind"]> = new Set(["hit", "fizzl
 function cueOf(before: BattleState, after: BattleState): BattleEvent | null {
   if (after.lastEvent?.kind !== "ended") return after.lastEvent;
   if (after.outcome !== "lost") return null;
-  return { kind: "hurt", damage: before.playerHp - after.playerHp, matchup: "neutral", wasBraced: before.isBraced };
+  return { kind: "hurt", damage: before.playerHp - after.playerHp, matchup: "neutral", wasBraced: before.isBraced, defence: "missed" };
 }
 
 /** One battle: the scene on top, then the text box (with catch and run) beside the current turn's menu. */
@@ -82,6 +85,7 @@ export function BattleArena({ encounter, kanaLevels, words, pool, practice, rand
   const timers = useRef<number[]>([]);
   useEffect(() => () => timers.current.forEach(timer => window.clearTimeout(timer)), []);
   const { enemy } = state;
+  const defence = round?.defence ?? "reading";
 
   const later = (task: () => void, delay: number) => { timers.current.push(window.setTimeout(task, delay)); };
   const advance = (next: BattleState) => {
@@ -89,7 +93,7 @@ export function BattleArena({ encounter, kanaLevels, words, pool, practice, rand
     const delay = nextCue && ANIMATED_EVENTS.has(nextCue.kind) && !prefersReducedMotion() ? BATTLE_CUE_MS : 0;
     setState(next);
     setCue(nextCue);
-    if (next.phase === "defend") setEnemyAttack(pickEnemyAttack(next.enemy, pool, random));
+    if (next.phase === "defend") setEnemyAttack(pickAttack(defence, next.enemy, pool, random));
     if (next.phase !== "attack") setIsCatching(false);
     if (delay) { setIsAnimating(true); later(() => setIsAnimating(false), delay); }
     // The result screen waits for the last blow to land.
@@ -129,8 +133,8 @@ export function BattleArena({ encounter, kanaLevels, words, pool, practice, rand
       </div>
       {/* Held while the turn plays out, so the next question comes after the blow lands. */}
       <div inert={isAnimating}>
-        {state.phase === "defend" && enemyAttack && <DefencePanel key={state.readings.answered} attack={enemyAttack} isBraced={state.isBraced} pool={pool} random={random}
-          onDefend={result => advance(defend(state, result))} onWordReading={practice.noteReading} />}
+        {state.phase === "defend" && enemyAttack && <DefencePanel key={state.readings.answered} style={defence} attack={enemyAttack} isBraced={state.isBraced} pool={pool} random={random}
+          onDefend={(result, mistake) => advance(defend(state, result, mistake))} onWordReading={practice.noteReading} />}
         {state.phase === "attack" && !isExhausted(state) && <AttackPanel state={state} hand={hand} pool={pool} random={random} onPlay={play} onRedraw={swapHand} />}
         {state.phase === "attack" && isExhausted(state) && <p className="font-bold" lang="ja">{state.isCatchable ? `${enemy.kana} is worn out. Catch it now!` : `${enemy.kana} is worn out. You won!`}</p>}
       </div>

@@ -3,18 +3,27 @@
 import type { CharacterId } from "../cast.ts";
 import { PLAYER_MAX_HP } from "../kanaWilds/battle.ts";
 import type { BattleState } from "../kanaWilds/battle.ts";
+import type { DefenceStyle } from "../kanaWilds/defenceStyles.ts";
 import { kanaByCharacter } from "../kanaWilds/gojuon.ts";
 import type { WildKana } from "../kanaWilds/gojuon.ts";
+import type { KanaMistake } from "../kanaWilds/mistakes.ts";
 
 export type ChallengerId = "chun" | "tama" | "pon";
-export type Challenger = { id: ChallengerId; character: CharacterId; team: readonly WildKana[] };
+/** `defence`: the challenger's signature way of attacking (docs/KANA-BATTLE.md section 9). */
+export type Challenger = { id: ChallengerId; character: CharacterId; team: readonly WildKana[]; defence: DefenceStyle };
 
 type Readings = { readonly answered: number; readonly correct: number };
-export type Challenge = { readonly challenger: Challenger; readonly round: number; readonly playerHp: number; readonly readings: Readings };
+export type Challenge = {
+  readonly challenger: Challenger; readonly round: number; readonly playerHp: number; readonly readings: Readings;
+  /** Every kana the player mixed up so far, over all rounds. */
+  readonly mistakes: readonly KanaMistake[];
+};
 export type ChallengeOutcome = "won" | "lost" | "ran";
+/** How a challenge went, for the result screen. */
+export type ChallengeSummary = { outcome: ChallengeOutcome; readings: Readings; mistakes: readonly KanaMistake[] };
 export type ChallengeStep =
   | { kind: "next"; challenge: Challenge }
-  | { kind: "over"; outcome: ChallengeOutcome; readings: Readings };
+  | { kind: "over"; summary: ChallengeSummary };
 
 /** A challenger's team, from its kana; fails loudly on a kana that isn't basic hiragana (a content mistake). */
 export function teamOf(characters: string): WildKana[] {
@@ -26,7 +35,7 @@ export function teamOf(characters: string): WildKana[] {
 }
 
 export const startChallenge = (challenger: Challenger): Challenge =>
-  ({ challenger, round: 0, playerHp: PLAYER_MAX_HP, readings: { answered: 0, correct: 0 } });
+  ({ challenger, round: 0, playerHp: PLAYER_MAX_HP, readings: { answered: 0, correct: 0 }, mistakes: [] });
 
 /** The challenger's kana the player is facing now. */
 export const kanaInPlay = (challenge: Challenge): WildKana => challenge.challenger.team[challenge.round];
@@ -34,8 +43,9 @@ export const kanaInPlay = (challenge: Challenge): WildKana => challenge.challeng
 /** After a round: on to the challenger's next kana with the HP left, or the challenge is over. */
 export function afterRound(challenge: Challenge, ended: BattleState): ChallengeStep {
   const readings = { answered: challenge.readings.answered + ended.readings.answered, correct: challenge.readings.correct + ended.readings.correct };
-  if (ended.outcome !== "won") return { kind: "over", outcome: ended.outcome === "lost" ? "lost" : "ran", readings };
+  const mistakes = [...challenge.mistakes, ...ended.mistakes];
+  if (ended.outcome !== "won") return { kind: "over", summary: { outcome: ended.outcome === "lost" ? "lost" : "ran", readings, mistakes } };
   const round = challenge.round + 1;
-  if (round >= challenge.challenger.team.length) return { kind: "over", outcome: "won", readings };
-  return { kind: "next", challenge: { ...challenge, round, playerHp: ended.playerHp, readings } };
+  if (round >= challenge.challenger.team.length) return { kind: "over", summary: { outcome: "won", readings, mistakes } };
+  return { kind: "next", challenge: { ...challenge, round, playerHp: ended.playerHp, readings, mistakes } };
 }

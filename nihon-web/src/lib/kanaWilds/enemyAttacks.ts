@@ -12,7 +12,7 @@ export const MAX_ATTACK_WORD_LENGTH = 4;
 /** The share of word attacks: the first row attacks mostly with kana, each later row a little more with words. */
 export const WORD_ATTACK_SHARE = { first: 0.2, perRow: 0.05, most: 0.7 } as const;
 
-const pickOne = <T>(items: readonly T[], random: () => number): T => items[Math.min(items.length - 1, Math.floor(random() * items.length))];
+export const pickOne = <T>(items: readonly T[], random: () => number): T => items[Math.min(items.length - 1, Math.floor(random() * items.length))];
 
 /** Its look-alikes and the other kana of its row. */
 export function movesetOf(enemy: WildKana): WildKana[] {

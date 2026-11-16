@@ -35,6 +35,8 @@ const BY_ID = new Map(BASIC_HIRAGANA.map(item => [item.id, item]));
 
 export const kanaByCharacter = (character: string): WildKana | undefined => BY_CHARACTER.get(character);
 export const kanaById = (id: number): WildKana | undefined => BY_ID.get(id);
+const BY_ROMAJI = new Map(BASIC_HIRAGANA.map(item => [item.romaji, item]));
+export const kanaByRomaji = (romaji: string): WildKana | undefined => BY_ROMAJI.get(romaji);
 export const isBasicHiragana = (character: string) => BY_CHARACTER.has(character);
 
 export const VOWEL_IDS: readonly number[] = HIRAGANA_ROWS[0].kana.map(item => item.id);

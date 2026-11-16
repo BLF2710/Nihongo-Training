@@ -51,18 +51,17 @@ function Hat({ hat, hair }: { hat: TravellerLook["hat"]; hair: string }) {
     <path d="M1.4,10.2 L12.4,1.4 L23.4,10.2 Q12.4,12.6 1.4,10.2 Z" fill={STRAW} {...ink} />
     <path d="M5.4,9.6 L12.4,1.4 M9,10.4 L12.4,1.4 M15.8,10.4 L12.4,1.4 M19.4,9.6 L12.4,1.4" stroke={STRAW_DARK} strokeWidth="0.45" />
     <path d="M3.8,8.2 Q12.4,9.8 21,8.2" fill="none" stroke={STRAW_DARK} strokeWidth="0.45" />
-    <path d="M16.2,11.4 Q16.8,15.2 15.4,16.4" fill="none" stroke={WOOD} strokeWidth="0.45" />
   </g>;
   if (hat === "hachimaki") return <g>
     <path d="M7.6,8.6 Q12.4,7.2 17.6,8.8 L17.4,10.4 Q12.4,9 7.8,10.2 Z" fill={PAPER} {...ink} strokeWidth="0.6" />
-    <circle cx="13.6" cy="8.9" r="0.75" fill={LANTERN_RED} />
+    <circle cx="13.6" cy="8.9" r="0.42" fill={LANTERN_RED} />
     <path d="M7.8,9.4 Q5,9.2 3.4,11.4 M7.8,9.6 Q5.4,10.6 4.6,13" fill="none" stroke={PAPER} strokeWidth="1.1" strokeLinecap="round" />
   </g>;
   // No hat: a topknot.
   return <g><circle cx="10.6" cy="5.4" r="1.7" fill={hair} {...ink} strokeWidth="0.6" /><path d="M10.4,7 v0.8" stroke={LANTERN_RED} strokeWidth="0.8" /></g>;
 }
 
-function Head({ colours, hat }: { colours: Colours; hat: TravellerLook["hat"] }) {
+function Head({ colours, hat, cheeks }: { colours: Colours; hat: TravellerLook["hat"]; cheeks: TravellerLook["cheeks"] }) {
   return <g>
     {/* hair at the back of the head, and the face */}
     <path d="M7.4,11.4 Q6.6,16 9.4,16.8 L10.4,11 Z" fill={colours.hair} {...ink} strokeWidth="0.6" />
@@ -74,8 +73,8 @@ function Head({ colours, hat }: { colours: Colours; hat: TravellerLook["hat"] })
     <ellipse cx="15" cy="12.4" rx="0.62" ry="0.85" fill="var(--ink, #2e2a26)" />
     <circle cx="15.2" cy="12.05" r="0.24" fill="#ffffff" />
     <path d="M14.2,11 q0.8,-0.4 1.6,0" fill="none" stroke={colours.hair} strokeWidth="0.45" strokeLinecap="round" />
-    <ellipse cx="16" cy="14" rx="0.9" ry="0.55" fill={BLUSH} opacity="0.55" />
-    <path d="M15.6,15 q0.5,0.35 1,0" fill="none" stroke="var(--ink, #2e2a26)" strokeWidth="0.45" strokeLinecap="round" />
+    {cheeks === "rosy" && <ellipse cx="15.1" cy="14" rx="0.8" ry="0.5" fill={BLUSH} opacity="0.55" />}
+    <path d="M14.6,15.1 q0.45,0.3 0.9,0" fill="none" stroke="var(--ink, #2e2a26)" strokeWidth="0.45" strokeLinecap="round" />
     <Hat hat={hat} hair={colours.hair} />
   </g>;
 }
@@ -110,6 +109,6 @@ export function TravellerFigure({ look, isWalking = false }: { look: TravellerLo
     <path d="M7,21.6 Q6.6,23.4 7.4,24.6" fill="none" stroke={colours.sash} strokeWidth="0.9" strokeLinecap="round" />
     <circle cx="7.2" cy="21.4" r="0.6" fill={colours.sash} {...ink} strokeWidth="0.5" />
     {carried.front}
-    <Head colours={colours} hat={look.hat} />
+    <Head colours={colours} hat={look.hat} cheeks={look.cheeks} />
   </svg>;
 }

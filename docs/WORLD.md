@@ -66,11 +66,13 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
 - A challenger stands on their island, marked "!" until beaten. Walk up and press E (or tap Fight).
 - A challenge is a battle against each kana of the challenger's team in turn (`lib/world/challenges.ts`). The kana are
   in the open (not hidden), can't be caught, and your HP carries over between them. Wearing a kana out wins the round.
-- Losing, or giving up, costs nothing: the challenger tells you their team and you can try again at once.
+- Losing, or giving up, costs nothing: the challenger tells you their team, a tip and the kana you mixed up ("You read
+  ね as れ twice"), and you can try again at once.
 - A win is saved by the API (`POST /kana-wilds/challengers/:id/wins`, migration 034); the first win pays game XP once.
   The collection's `beatenChallengers` marks who is beaten; a rematch is always on offer. The challenge's readings
   count as battle practice.
-- Teams (`data/world/challengers.ts`): Chun あ, こ, お (each with a look-alike); Tama さ, ち, つ; Pon ぬ, ね, は.
+- Teams and signature defences (`data/world/challengers.ts`, docs/KANA-BATTLE.md section 6): Chun あ, こ, お with
+  look-alikes; Tama さ, ち, つ, whose kana shout; Pon ぬ, ね, は with the stroke reveal.
 
 ## 5. Code
 

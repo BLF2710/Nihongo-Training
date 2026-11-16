@@ -38,8 +38,8 @@ export const HAIR_COLOURS = {
 } as const satisfies Record<string, ColourChoice>;
 
 export const HATS = {
-  kasa: { label: "Straw hat (kasa)" },
-  hachimaki: { label: "Headband (hachimaki)" },
+  kasa: { label: "Straw hat" },
+  hachimaki: { label: "Headband" },
   none: { label: "No hat" },
 } as const satisfies Record<string, Choice>;
 
@@ -50,9 +50,15 @@ export const ACCESSORIES = {
   none: { label: "Nothing" },
 } as const satisfies Record<string, Choice>;
 
+export const CHEEKS = {
+  plain: { label: "Plain" },
+  rosy: { label: "Rosy" },
+} as const satisfies Record<string, Choice>;
+
 export type TravellerLook = {
   outfit: keyof typeof OUTFITS; sash: keyof typeof SASHES; skin: keyof typeof SKIN_TONES;
   hair: keyof typeof HAIR_COLOURS; hat: keyof typeof HATS; accessory: keyof typeof ACCESSORIES;
+  cheeks: keyof typeof CHEEKS;
 };
 export type LookPart = keyof TravellerLook;
 
@@ -64,9 +70,10 @@ export const LOOK_PARTS = [
   { part: "hair", name: "Hair", choices: HAIR_COLOURS },
   { part: "hat", name: "Hat", choices: HATS },
   { part: "accessory", name: "Carrying", choices: ACCESSORIES },
+  { part: "cheeks", name: "Cheeks", choices: CHEEKS },
 ] as const satisfies readonly { part: LookPart; name: string; choices: Record<string, Choice> }[];
 
-export const DEFAULT_TRAVELLER_LOOK: TravellerLook = { outfit: "indigo", sash: "red", skin: "light", hair: "black", hat: "kasa", accessory: "bundle" };
+export const DEFAULT_TRAVELLER_LOOK: TravellerLook = { outfit: "indigo", sash: "red", skin: "light", hair: "black", hat: "kasa", accessory: "bundle", cheeks: "plain" };
 
 const isKeyOf = <T extends object>(choices: T, value: unknown): value is keyof T => typeof value === "string" && Object.hasOwn(choices, value);
 
@@ -74,10 +81,10 @@ const isKeyOf = <T extends object>(choices: T, value: unknown): value is keyof T
 export function parseTravellerLook(value: unknown): TravellerLook | null {
   if (typeof value !== "object" || value === null) return null;
   const partOf = (part: LookPart): unknown => Reflect.get(value, part);
-  const [outfit, sash, skin, hair, hat, accessory] = (["outfit", "sash", "skin", "hair", "hat", "accessory"] as const).map(partOf);
+  const [outfit, sash, skin, hair, hat, accessory, cheeks] = (["outfit", "sash", "skin", "hair", "hat", "accessory", "cheeks"] as const).map(partOf);
   if (!isKeyOf(OUTFITS, outfit) || !isKeyOf(SASHES, sash) || !isKeyOf(SKIN_TONES, skin)) return null;
-  if (!isKeyOf(HAIR_COLOURS, hair) || !isKeyOf(HATS, hat) || !isKeyOf(ACCESSORIES, accessory)) return null;
-  return { outfit, sash, skin, hair, hat, accessory };
+  if (!isKeyOf(HAIR_COLOURS, hair) || !isKeyOf(HATS, hat) || !isKeyOf(ACCESSORIES, accessory) || !isKeyOf(CHEEKS, cheeks)) return null;
+  return { outfit, sash, skin, hair, hat, accessory, cheeks };
 }
 
 /** The look with one part changed. */
