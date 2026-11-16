@@ -60,10 +60,19 @@ function Projectile({ event }: { event: BattleEvent | null }) {
 }
 
 /** The wild kana as a card: blank with a question mark at first, then its strokes as it weakens. */
-function EnemyCard({ state, shown, total }: { state: BattleState; shown: number; total: number }) {
-  return <div className="kw-enemy-card" data-exhausted={isExhausted(state)} role="img"
-    aria-label={shown === total ? `Wild ${state.enemy.kana}` : `Hidden kana, ${shown} of ${total} strokes shown`}>
-    {shown === 0 ? <span className="kw-enemy-mystery" aria-hidden="true">？</span> : <StrokeKana kana={state.enemy.kana} shown={shown} className="kw-enemy-strokes" />}
+const strokesText = (count: number) => `${count} ${count === 1 ? "stroke" : "strokes"}`;
+
+function describeEnemyCard(state: BattleState, { shown, total, isRevealed, isCountShown }: EnemyReveal): string {
+  if (isRevealed) return `Wild ${state.enemy.kana}`;
+  // The total is a clue of its own, so it is only told once the card shows it.
+  return isCountShown ? `Hidden kana, ${shown} of ${strokesText(total)} shown` : "Hidden kana, no strokes shown";
+}
+
+/** The wild kana as a card: blank with a question mark at first, then its stroke count, then its strokes as it weakens. */
+function EnemyCard({ state, reveal }: { state: BattleState; reveal: EnemyReveal }) {
+  return <div className="kw-enemy-card" data-exhausted={isExhausted(state)} role="img" aria-label={describeEnemyCard(state, reveal)}>
+    {reveal.shown === 0 ? <span className="kw-enemy-mystery" aria-hidden="true">？</span> : <StrokeKana kana={state.enemy.kana} shown={reveal.shown} className="kw-enemy-strokes" />}
+    {reveal.isCountShown && !reveal.isRevealed && <span className="kw-stroke-count" aria-hidden="true">{strokesText(reveal.total)}</span>}
   </div>;
 }
 
@@ -83,7 +92,7 @@ export function BattleField({ state, reveal, cue: lastEvent, turn, isCompact }: 
     {/* The sprites slide in once; everything keyed by the turn replays for each new turn. */}
     <div className="kw-sprite kw-sprite--enemy kw-enter-enemy">
       <div key={turn} className={`kw-cue ${cues.enemy}`}>
-        <EnemyCard state={state} shown={reveal.shown} total={reveal.total} />
+        <EnemyCard state={state} reveal={reveal} />
         {lastEvent?.kind === "blocked" && lastEvent.counterDamage > 0 && <span className="kw-damage" aria-hidden="true">−{lastEvent.counterDamage}</span>}
         {lastEvent?.kind === "hit" && <>
           <span className="kw-burst" data-variant={cues.burst} aria-hidden="true" />

@@ -68,6 +68,23 @@
 .kw-enemy-card[data-exhausted="true"] { opacity: 0.7; transform: rotate(-8deg); animation: none; }
 .kw-enemy-strokes { width: 85%; height: 85%; }
 .kw-enemy-strokes path { animation: kw-stroke-in 0.5s ease-out both; }
+/* The stroke count, pinned under the card once the kana is worn down a little. */
+.kw-enemy-card { position: relative; }
+.kw-stroke-count {
+  position: absolute;
+  left: 50%;
+  bottom: -0.7rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  border-radius: 999px;
+  background: #3f4b36;
+  padding: 0.05rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #fffdf6;
+  animation: kw-tag-in 0.35s ease-out both;
+}
+.dark .kw-stroke-count { background: #8a97ab; color: #1b1f2a; }
 .kw-enemy-mystery { font-size: clamp(2.5rem, 8dvh, 4rem); font-weight: 900; color: #9ca3af; }
 
 /* An enemy attack being drawn, under the choices. */
@@ -282,12 +299,13 @@
   to { opacity: 0; transform: translate(-50%, -50%) scale(1.15); }
 }
 @keyframes kw-pop { from { opacity: 0; transform: scale(0.6); } 20% { opacity: 1; transform: scale(1.1); } 75% { opacity: 1; transform: scale(1); } to { opacity: 0; transform: translateY(-30%); } }
+@keyframes kw-tag-in { from { opacity: 0; transform: translate(-50%, 0.4rem); } to { opacity: 1; transform: translateX(-50%); } }
 @keyframes kw-stroke-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes kw-wriggle { 20% { transform: rotate(-12deg); } 45% { transform: rotate(10deg); } 70% { transform: rotate(-6deg); } }
 @keyframes kw-float { from { opacity: 1; transform: translate(-50%, 0); } 70% { opacity: 1; } to { opacity: 0; transform: translate(-50%, -140%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .kw-enemy-card, .kw-enemy-strokes path, .kw-attack-card path, .kw-enter-enemy, .kw-enter-player, .kw-cue-struck, .kw-cue-lunge, .kw-cue-escape { animation: none; }
+  .kw-enemy-card, .kw-stroke-count, .kw-enemy-strokes path, .kw-attack-card path, .kw-enter-enemy, .kw-enter-player, .kw-cue-struck, .kw-cue-lunge, .kw-cue-escape { animation: none; }
   .kw-projectile, .kw-burst, .kw-hurt-flash, .kw-shield, .kw-callout, .kw-damage { display: none; }
   .kw-hp-fill { transition: none; }
 }

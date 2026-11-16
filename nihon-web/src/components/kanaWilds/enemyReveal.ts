@@ -1,6 +1,6 @@
 import { ENEMY_MAX_HP } from "../../lib/kanaWilds/battle";
 import type { BattleState } from "../../lib/kanaWilds/battle";
-import { revealedStrokeCount } from "../../lib/kanaWilds/reveal";
+import { isStrokeCountShown, revealedStrokeCount } from "../../lib/kanaWilds/reveal";
 import { strokePathsOf } from "../../lib/kanaWilds/strokeSamples";
 import { ENEMY_IMPACT_MS, useDelayedValue } from "./motion";
 
@@ -10,7 +10,8 @@ export function useEnemyReveal(state: BattleState) {
   const shownHp = useDelayedValue(state.enemyHp, ENEMY_IMPACT_MS);
   const total = strokePathsOf(state.enemy.kana).length;
   const shown = state.phase === "over" ? total : revealedStrokeCount(total, shownHp, ENEMY_MAX_HP);
-  return { shown, total, isRevealed: shown === total };
+  const isOver = state.phase === "over";
+  return { shown, total, isRevealed: shown === total, isCountShown: isOver || isStrokeCountShown(shownHp, ENEMY_MAX_HP) };
 }
 
 export type EnemyReveal = ReturnType<typeof useEnemyReveal>;

@@ -4,7 +4,7 @@ import { sampleStrokes, strokePathsOf } from "../../lib/kanaWilds/strokeSamples"
 import { STROKE_BOX, gradeTrace } from "../../lib/kanaWilds/tracing";
 import type { Point, TraceResult } from "../../lib/kanaWilds/tracing";
 import type { WildKana } from "../../lib/kanaWilds/gojuon";
-import { shuffle } from "../../lib/random";
+import { catchChoices } from "../../lib/kanaWilds/choices";
 import { choiceButton, primaryButton, secondaryButton } from "./styles";
 
 /** Canvas pixels per KanjiVG unit, for a sharp line. */
@@ -83,7 +83,7 @@ export function CatchPanel({ enemy, shownStrokes, tolerance, chance, triesLeft, 
     onAttempt(result.status === "accepted");
   };
 
-  if (isKeyboardMode) return <StrokeCountQuestion strokeCount={paths.length} random={random} onAnswer={onAttempt} onBack={() => setIsKeyboardMode(false)} />;
+  if (isKeyboardMode) return <KanaChoiceQuestion enemy={enemy} random={random} onAnswer={onAttempt} onBack={() => setIsKeyboardMode(false)} />;
 
   return <div className="grid gap-3 sm:grid-cols-[auto_1fr] sm:items-start">
     <div className="relative mx-auto aspect-square w-[min(13rem,28dvh)] overflow-hidden rounded-2xl border-2 border-emerald-700 bg-white">
@@ -116,13 +116,15 @@ export function CatchPanel({ enemy, shownStrokes, tolerance, chance, triesLeft, 
   </div>;
 }
 
-/** The catch without drawing, for keyboard and screen-reader players: how many strokes does the kana have? */
-function StrokeCountQuestion({ strokeCount, random, onAnswer, onBack }: { strokeCount: number; random: () => number; onAnswer: (isRight: boolean) => void; onBack: () => void }) {
-  const choices = useMemo(() => shuffle([...new Set([strokeCount, strokeCount + 1, Math.max(1, strokeCount - 1), strokeCount + 2])], random), [strokeCount, random]);
-  return <div role="group" aria-labelledby="stroke-count-prompt">
-    <p id="stroke-count-prompt" className="font-bold">How many strokes does the kana have?</p>
+type KanaChoiceProps = { enemy: WildKana; random: () => number; onAnswer: (isRight: boolean) => void; onBack: () => void };
+
+/** The catch without drawing, for keyboard and screen-reader players: which kana is it? */
+function KanaChoiceQuestion({ enemy, random, onAnswer, onBack }: KanaChoiceProps) {
+  const choices = useMemo(() => catchChoices(enemy, random), [enemy, random]);
+  return <div role="group" aria-labelledby="kana-choice-prompt">
+    <p id="kana-choice-prompt" className="font-bold">Which kana is it?</p>
     <div className="mt-3 grid grid-cols-4 gap-2">{choices.map(choice =>
-      <button key={choice} type="button" className={`${choiceButton} text-lg`} onClick={() => onAnswer(choice === strokeCount)}>{choice}</button>)}</div>
+      <button key={choice} type="button" lang="ja" className={`${choiceButton} text-2xl`} onClick={() => onAnswer(choice === enemy.kana)}>{choice}</button>)}</div>
     <button type="button" className="mt-3 text-sm font-semibold text-emerald-800 underline" onClick={onBack}>Trace it instead</button>
   </div>;
 }

@@ -82,20 +82,23 @@ const MAX_TURNS = 60;
       return index === -1 ? 0 : index;
     };
 
-    /** Plays a battle to its end as a learner who knows every answer; catches by tracing or by the stroke-count question. */
+    /** Plays a battle to its end as a learner who knows every answer; catches by tracing or by picking the kana. */
     const fight = async (page, answers, { catchBy, sloppyFirstTrace = false, redrawFirst = false, onAttack }) => {
       const arena = page.getByRole('region', { name: 'Battle against a wild kana' });
       await arena.waitFor();
       // The wild kana hides at first: a blank card and no name.
       await page.locator('.kw-info--enemy').getByText('Wild ？').waitFor();
-      assert.match(await page.locator('.kw-enemy-card').getAttribute('aria-label'), /^Hidden kana, 0 of \d+ strokes shown$/);
+      assert.equal(await page.locator('.kw-enemy-card').getAttribute('aria-label'), 'Hidden kana, no strokes shown', 'not even its stroke count at full HP');
       let enemy = null, hasTracedSloppily = !sloppyFirstTrace, sawStrong = false;
       const seen = { projectile: false, burst: false, shield: false, heldHp: false, redrew: false, strokesShown: new Set(), partialChance: false, kanaAttack: false, wordAttack: false };
       const noteReveal = async () => {
         const label = await page.locator('.kw-enemy-card').getAttribute('aria-label').catch(() => null);
         if (!label) return;
-        const hidden = label.match(/^Hidden kana, (\d+) of (\d+)/);
-        if (hidden) { seen.strokesShown.add(Number(hidden[1])); seen.strokeTotal = Number(hidden[2]); }
+        const hidden = label.match(/^Hidden kana, (\d+) of (\d+) strokes? shown$/);
+        if (hidden) {
+          seen.strokesShown.add(Number(hidden[1])); seen.strokeTotal = Number(hidden[2]);
+          seen.strokeCountTag ||= (await page.locator('.kw-stroke-count').innerText().catch(() => '')) === `${hidden[2]} stroke${hidden[2] === '1' ? '' : 's'}`;
+        }
         else enemy = answers.kanaByCharacter.get(label.replace('Wild ', ''));
       };
       const noteEffects = async () => { for (const [name, selector] of [['projectile', '.kw-projectile'], ['burst', '.kw-burst'], ['shield', '.kw-shield']]) seen[name] ||= Boolean(await page.locator(selector).count()); };
@@ -141,9 +144,9 @@ const MAX_TURNS = 60;
           await group.getByRole('button', { name: reading, exact: true }).click();
           await arena.getByRole('status').getByText(/Perfect block|block the attack/).waitFor();
           assert.equal(await page.locator('section[data-animating="true"] .kw-shield').count(), 1, 'a block raises the shield while the turn plays');
-        } else if (prompt.startsWith('How many strokes')) {
-          const count = await page.evaluate(character => import('/src/lib/kanaWilds/strokeSamples.ts').then(module => module.strokePathsOf(character).length), enemy.kana);
-          await group.getByRole('button', { name: String(count), exact: true }).click();
+        } else if (prompt.startsWith('Which kana is it?')) {
+          assert.equal(await group.getByRole('button', { name: /^[ぁ-ん]$/ }).count(), 4, 'four kana to pick from');
+          await group.getByRole('button', { name: enemy.kana, exact: true }).click();
         } else if (catchChance === 100 && !(await page.locator('canvas[aria-label^="Tracing area"]').count())) {
           // Waits for a certain catch, so the test isn't left to the dice; the odds themselves are unit tested.
           await catchButton.click();
@@ -211,6 +214,7 @@ const MAX_TURNS = 60;
     assert.ok(first.seen.redrew && first.seen.handAfter, 'a redraw, then an attack turn');
     // A one-stroke kana has nothing to show before its last stroke, at 0 HP.
     if (first.seen.strokeTotal > 1) assert.ok([...first.seen.strokesShown].some(count => count > 0), 'the kana showed some strokes before all of them: ' + [...first.seen.strokesShown]);
+    assert.ok(first.seen.strokeCountTag, 'the card told its stroke count before it was fully shown');
     assert.ok(first.seen.partialChance, 'catching opened before the kana was worn out, at a lower chance');
     assert.notDeepEqual([...first.seen.handAfter].sort(), [...first.seen.handBefore].sort(), 'a redraw deals a different hand');
     assert.ok(['k', 's'].includes(first.enemy.row), 'wild kana come from the first rows not yet caught: ' + first.enemy.kana);
@@ -233,9 +237,10 @@ const MAX_TURNS = 60;
     assert.notEqual(second.enemy.id, first.enemy.id, 'a caught kana is no longer wild while others are');
     await page.getByRole('heading', { name: `You caught ${second.enemy.kana}!` }).waitFor();
     assert.deepEqual(sent.catches, [first.enemy.id, second.enemy.id]);
-    // Which attacks come as kana is down to chance, so these hold over the two battles.
+    // Whether an attack comes as a kana or a word is down to chance (the share is unit tested), so these only ask that
+    // it attacked, and check the kana attacks that came.
     const secondAnswers = sent.answers.slice(firstAnswers.length);
-    assert.ok(first.seen.kanaAttack || second.seen.kanaAttack, 'it attacked with its moveset');
+    assert.ok([first, second].every(battle => battle.seen.kanaAttack || battle.seen.wordAttack), 'each wild kana attacked');
     assert.ok(sent.answers.every(answer => answer.type === 'hiragana' && /^[0-9a-f-]{36}$/.test(answer.submissionId)), 'kana attacks are graded by the server');
     assert.ok(!firstAnswers.some(answer => answer.kanaId === first.enemy.id) && !secondAnswers.some(answer => answer.kanaId === second.enemy.id), 'an attack never gives the wild kana away');
     assert.equal(new Set(sent.answers.map(answer => answer.submissionId)).size, sent.answers.length, 'a new submission id for every block');
@@ -269,6 +274,6 @@ const MAX_TURNS = 60;
     assert.equal(sent.catches.length, 1);
     assert.deepEqual(errors, []); await context.close();
 
-    console.log('PASS: Kana Wilds — load error with retry; starter choice (か/さ/た with their word counts) gives the vowels plus the starter; the collection table; wild kana from the first rows still incomplete, hidden at first and shown stroke by stroke; attacks with course words read right (and meaning for criticals); its moveset kana and words blocked by reading, kana graded by the server with fresh submission ids; catching opens at a lower chance; a backwards trace breaks free, a good trace catches; the stroke-count alternative catches without drawing; catches saved and filled in; battles saved as N5 practice (not when run from at once); rematch; one screen at 1366×768 and 390×844; no page errors.');
+    console.log('PASS: Kana Wilds — load error with retry; starter choice (か/さ/た with their word counts) gives the vowels plus the starter; the collection table; wild kana from the first rows still incomplete, hidden at first and shown stroke by stroke; attacks with course words read right (and meaning for criticals); its moveset kana and words blocked by reading, kana graded by the server with fresh submission ids; catching opens at a lower chance; a backwards trace breaks free, a good trace catches; picking the kana catches without drawing; catches saved and filled in; battles saved as N5 practice (not when run from at once); rematch; one screen at 1366×768 and 390×844; no page errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 2000)); process.exitCode = 1; });

@@ -35,6 +35,19 @@ export function defenceChoices(enemy: WildKana, random: () => number): string[] 
   return shuffle([enemy.romaji, ...[...new Set(wrong)].slice(0, CHOICE_COUNT - 1)], random);
 }
 
+/**
+ * The catch without drawing: which kana is it? The answer among its look-alikes and row-mates, so it takes the same
+ * working out as a trace (from the strokes shown and the attacks), filled up with other kana when those run short.
+ */
+export function catchChoices(enemy: WildKana, random: () => number): string[] {
+  const group = LOOK_ALIKES.find(set => set.includes(enemy.kana)) ?? "";
+  const others = BASIC_HIRAGANA.filter(item => item.id !== enemy.id);
+  const lookAlikes = others.filter(item => group.includes(item.kana));
+  const rowMates = others.filter(item => item.row === enemy.row && !group.includes(item.kana));
+  const close = [...shuffle(lookAlikes, random), ...shuffle(rowMates, random), ...shuffle(others, random)].map(item => item.kana);
+  return shuffle([enemy.kana, ...[...new Set(close)].slice(0, CHOICE_COUNT - 1)], random);
+}
+
 /** Choices when braced (after a redraw): two, and never a look-alike, so the block is easier. */
 export const BRACED_CHOICE_COUNT = 2;
 

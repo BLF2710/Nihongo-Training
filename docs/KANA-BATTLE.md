@@ -130,7 +130,7 @@ Wild kana use levels 1–2. Each challenger has a signature defence from level 3
 - **If you fail** (a missed trace, or a good trace that loses the roll and breaks out): the kana attacks. After `MAX_CATCH_TRIES` (3) failures it runs away. It isn't gone: it will appear
   again.
 - **On a phone or tablet** you trace with a finger or stylus. On a keyboard-only setup there's an alternative: pick
-  the strokes in the right order from a set of stroke cards.
+  which kana it is from four look-alikes and row-mates.
 - **What you can meet:** wild encounters favour kana you haven't caught, and kana you often get wrong (your weak
   kana from the statistics). Kana you already own still appear sometimes, for practice, but can't be caught twice.
 
@@ -266,7 +266,8 @@ Milestone 1 is a complete small game on its own. Each later milestone is playabl
   - defence readings go through `/quiz/answer`, so they count toward kana progress and the mistake notebook.
 - Catching:
   - by tracing, graded against KanjiVG strokes, with a looser tolerance the weaker the kana;
-  - a stroke-count question replaces tracing for keyboard and screen-reader players.
+  - for keyboard and screen-reader players, "Which kana is it?" replaces tracing: the kana among its look-alikes and
+    row-mates, worked out from the same clues (the stroke count and the attacks, which screen readers announce).
 - Words are dealt as a hand of 8 each attack turn (`lib/kanaWilds/hand.ts`), not the strongest 8. The hand always has:
   - 2 words strong against the enemy;
   - 1 word from the latest 2 catches;
@@ -279,6 +280,8 @@ Milestone 1 is a complete small game on its own. Each later milestone is playabl
 - **The hidden wild kana** (`reveal.ts`, `enemyAttacks.ts`): the wild kana starts as a blank card ("Wild ？") and shows
   its strokes, in stroke order, as it loses HP: `floor(strokes × HP lost / max HP)`, all of them at 0 HP or when the
   battle ends. Wearing it down is how you learn what you are about to catch.
+  - At 80% HP (`STROKE_COUNT_HP_SHARE`) the card tells how many strokes it has ("3 strokes"), before any stroke
+    shows. This is the first clue, and the only shape clue a one-stroke kana gets before 0 HP.
   - It attacks with its **moveset** (its look-alikes and the rest of its row, never itself) or with a course **word
     containing it** (up to 4 kana). Words are the clue: the first row uses them 20% of the time, each later row 5%
     more, up to 70%.
@@ -288,9 +291,10 @@ Milestone 1 is a complete small game on its own. Each later milestone is playabl
     graded in the browser and go on the missed-words list when read wrong.
   - Catching early means tracing from memory: the guide draws only the strokes shown so far, and the hint shows the
     next hidden stroke.
-  - A kana of one stroke (く し そ つ て の ひ へ る ろ ん) shows nothing until 0 HP; its attacks are its only clues.
-  - The HP box still shows its vowel and weakness, which the stance needs; with the row known from the area, this can
-    narrow it to two or three kana.
+  - A kana of one stroke (く し そ つ て の ひ へ る ろ ん) shows no stroke until 0 HP; its stroke count and its
+    attacks are its clues.
+  - The HP box shows its vowel and weakness, which the stance needs. With the row known from the area, this narrows
+    it to two or three kana, and that is meant as a hint.
 - Not yet built:
   - defence levels beyond a plain reading choice;
   - kana levels from mastery;

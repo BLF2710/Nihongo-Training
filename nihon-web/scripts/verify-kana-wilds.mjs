@@ -6,11 +6,11 @@ import { test } from "node:test";
 import { BASIC_HIRAGANA, kanaByCharacter, STARTERS, VOWEL_IDS } from "../src/lib/kanaWilds/gojuon.ts";
 import { matchup, vowelOfWord } from "../src/lib/kanaWilds/vowelCircle.ts";
 import { collectBattleWords, countWordsOpenedBy, playableWords } from "../src/lib/kanaWilds/words.ts";
-import { BRACED_CHOICE_COUNT, bracedDefenceChoices, bracedReadingChoices, CHOICE_COUNT, defenceChoices, meaningChoices, readingChoices } from "../src/lib/kanaWilds/choices.ts";
+import { BRACED_CHOICE_COUNT, bracedDefenceChoices, bracedReadingChoices, catchChoices, CHOICE_COUNT, defenceChoices, meaningChoices, readingChoices } from "../src/lib/kanaWilds/choices.ts";
 import { dealHand, HAND_SIZE, latestCatches, NEW_CATCH_COUNT, SHORT_WORD_LENGTH } from "../src/lib/kanaWilds/hand.ts";
 import { MAX_MISSED_WORDS, noteReading, wordsUsingKana } from "../src/lib/kanaWilds/missedWords.ts";
 import { pickEncounter } from "../src/lib/kanaWilds/encounters.ts";
-import { revealedStrokeCount } from "../src/lib/kanaWilds/reveal.ts";
+import { isStrokeCountShown, revealedStrokeCount, STROKE_COUNT_HP_SHARE } from "../src/lib/kanaWilds/reveal.ts";
 import { attackWordsOf, MAX_ATTACK_WORD_LENGTH, movesetOf, pickEnemyAttack, WORD_ATTACK_SHARE, wordAttackShare } from "../src/lib/kanaWilds/enemyAttacks.ts";
 import {
   attemptCatch, BRACED_DAMAGE_FACTOR, canCatch, catchChance, CATCH_HP_SHARE, CATCH_TOLERANCE, catchTolerance, COUNTER_DAMAGE, defend, MIN_CATCH_CHANCE, ENEMY_ATTACK_POWER, ENEMY_MAX_HP, MAX_CATCH_TRIES,
@@ -424,4 +424,29 @@ test("an enemy attacks with words and with its moveset over a battle", () => {
   assert.ok(attacks.some(attack => attack.kind === "word"));
   assert.ok(attacks.some(attack => attack.kind === "kana"));
   assert.ok(!attacks.some(attack => attack.kind === "kana" && attack.kana.kana === "ね"), "never attacks as itself");
+});
+
+test("the stroke count is told once the kana is down to 80% HP, not before", () => {
+  assert.equal(isStrokeCountShown(ENEMY_MAX_HP, ENEMY_MAX_HP), false);
+  assert.equal(isStrokeCountShown(ENEMY_MAX_HP * STROKE_COUNT_HP_SHARE + 1, ENEMY_MAX_HP), false);
+  assert.equal(isStrokeCountShown(ENEMY_MAX_HP * STROKE_COUNT_HP_SHARE, ENEMY_MAX_HP), true);
+});
+
+test("the stroke count comes before the first stroke, even for a kana of four strokes (the most hiragana have)", () => {
+  assert.equal(revealedStrokeCount(4, ENEMY_MAX_HP * STROKE_COUNT_HP_SHARE + 1, ENEMY_MAX_HP), 0);
+});
+
+test("the keyboard catch offers the kana among four different kana, look-alikes first", () => {
+  for (const seed of [1, 2, 3]) {
+    const choices = catchChoices(kana("ね"), seeded(seed));
+    assert.equal(new Set(choices).size, CHOICE_COUNT);
+    assert.ok(choices.includes("ね"));
+    assert.ok(choices.includes("れ") && choices.includes("わ"), `seed ${seed}: ${choices}`);
+  }
+});
+
+test("the keyboard catch still has four choices for ん, with no look-alike row", () => {
+  const choices = catchChoices(kana("ん"), seeded(5));
+  assert.equal(new Set(choices).size, CHOICE_COUNT);
+  assert.ok(choices.includes("ん"));
 });
