@@ -1,7 +1,7 @@
 import { memo } from "react";
-import type { CSSProperties } from "react";
-import { rowRuns } from "../../lib/errands/townMap";
-import type { Rect, TownMap } from "../../lib/errands/townMap";
+import type { CSSProperties, ReactElement } from "react";
+import { rowRuns, terrainAt } from "../../lib/errands/townMap";
+import type { Rect, Terrain, TownMap } from "../../lib/errands/townMap";
 import type { Vector } from "../../lib/errands/movement";
 import type { Building, Gate, RoofColour } from "../../lib/errands/village";
 import { BuildingFront, BuildingProps } from "./BuildingDetails";
@@ -17,6 +17,8 @@ const TREE_HEIGHT = 1.9;
 const BUSH_HEIGHT = 0.9;
 const TREE_FEET = 0.62;
 const FENCE_HEIGHT = 0.7;
+/** Tall grass stands about knee high, so the traveller wades through it. */
+const TALL_GRASS_HEIGHT = 0.5;
 const LANTERN_HEIGHT = 1.25;
 const GATE_HEIGHT = 1.1;
 const ROOF_FILL: Readonly<Record<RoofColour, string>> = {
@@ -24,16 +26,77 @@ const ROOF_FILL: Readonly<Record<RoofColour, string>> = {
 };
 const ink = { stroke: "var(--village-ink)", strokeWidth: 0.05, strokeLinejoin: "round" as const };
 
-function TreeRow({ run, height, tile }: { run: Rect; height: number; tile: number }) {
+/** One tree of a row, drawn in a 1 × TREE_HEIGHT box; `index` is its place along the row (to vary the look). */
+type TreeDrawing = (index: number) => ReactElement;
+
+const LEAFY_TREE: TreeDrawing = () => <>
+  <rect x={0.42} y={1.25} width={0.16} height={0.65} fill="var(--village-wood)" />
+  <ellipse cx={0.5} cy={1.05} rx={0.48} ry={0.42} fill="var(--village-leaf)" {...ink} />
+  <ellipse cx={0.5} cy={0.62} rx={0.38} ry={0.36} fill="var(--village-leaf)" {...ink} />
+  <ellipse cx={0.4} cy={0.52} rx={0.14} ry={0.12} fill="var(--village-leaf-light)" />
+  <ellipse cx={0.32} cy={0.98} rx={0.16} ry={0.12} fill="var(--village-leaf-light)" />
+</>;
+
+/** A ring of small bumps around a circle: the edge of a cluster of blossom. */
+function scallop(cx: number, cy: number, r: number, bumps: number): string {
+  const at = (index: number) => {
+    const angle = (index / bumps) * Math.PI * 2;
+    return `${(cx + r * Math.cos(angle)).toFixed(3)},${(cy + r * Math.sin(angle)).toFixed(3)}`;
+  };
+  const bump = (r * Math.sin(Math.PI / bumps) * 1.15).toFixed(3);
+  return `M${at(0)} ${Array.from({ length: bumps }, (_, index) => `A${bump},${bump} 0 0 1 ${at(index + 1)}`).join(" ")} Z`;
+}
+
+/** Where a cherry tree's clusters of blossom sit (x, y, radius), on branches spreading from the trunk. */
+const BLOSSOM_CLUSTERS = [[0.2, 0.86, 0.2], [0.8, 0.8, 0.21], [0.48, 0.5, 0.24], [0.28, 0.58, 0.16], [0.7, 0.5, 0.17], [0.52, 0.92, 0.17]] as const;
+/** Single flowers dotted over the clusters, lighter and darker. */
+const FLORETS = [[0.14, 0.8], [0.3, 0.92], [0.42, 0.42], [0.56, 0.56], [0.74, 0.74], [0.86, 0.86], [0.66, 0.44], [0.24, 0.52], [0.5, 0.98]] as const;
+
+/** A cherry tree in bloom: a dark crooked trunk forking into branches, each ending in a cluster of blossom with gaps
+ *  between, so the branches show through. Every other tree is mirrored, so a row doesn't look stamped. */
+const CHERRY_TREE: TreeDrawing = index => <g transform={index % 2 ? "translate(1 0) scale(-1 1)" : undefined}>
+  <path d="M0.5,1.9 C0.46,1.55 0.56,1.35 0.48,1.12 M0.48,1.12 C0.36,1.0 0.26,0.95 0.2,0.86 M0.49,1.12 C0.62,0.98 0.74,0.9 0.8,0.8 M0.48,1.1 C0.5,0.86 0.46,0.7 0.48,0.5 M0.47,0.8 C0.38,0.7 0.32,0.64 0.28,0.58 M0.48,0.72 C0.58,0.62 0.66,0.56 0.7,0.5"
+    fill="none" stroke="var(--village-bark)" strokeWidth={0.07} strokeLinecap="round" />
+  <path d="M0.5,1.9 C0.46,1.55 0.56,1.35 0.48,1.12" fill="none" stroke="var(--village-bark)" strokeWidth={0.13} strokeLinecap="round" />
+  {BLOSSOM_CLUSTERS.map(([cx, cy, r]) => <path key={`${cx},${cy}`} d={scallop(cx, cy, r, 7)} fill="var(--village-blossom)" stroke="var(--village-blossom-deep)" strokeWidth={0.025} />)}
+  {BLOSSOM_CLUSTERS.map(([cx, cy, r]) => <path key={`light-${cx},${cy}`} d={scallop(cx - r * 0.25, cy - r * 0.3, r * 0.5, 5)} fill="var(--village-blossom-light)" />)}
+  {FLORETS.map(([x, y], floret) => <circle key={`${x},${y}`} cx={x} cy={y} r={0.028} fill={floret % 3 ? "var(--village-sign)" : "var(--village-blossom-deep)"} />)}
+</g>;
+
+/** A clump of bamboo: three jointed canes of different heights, with a few leaves at the top. */
+const BAMBOO_CLUMP: TreeDrawing = index => <>
+  {[0.22, 0.5, 0.78].map((x, cane) => {
+    const top = 0.15 + ((index + cane) % 3) * 0.18;
+    return <g key={x}>
+      <rect x={x - 0.06} y={top} width={0.12} height={TREE_HEIGHT - top} rx={0.04} fill={cane === 1 ? "var(--village-bamboo-light)" : "var(--village-bamboo)"} {...ink} strokeWidth={0.03} />
+      {[0.45, 0.85, 1.25, 1.65].filter(y => y > top + 0.1).map(y => <path key={y} d={`M${x - 0.07},${y} h0.14`} stroke="var(--village-ink)" strokeWidth={0.03} />)}
+      <path d={`M${x},${top + 0.05} q0.2,-0.05 0.3,0.06 M${x},${top + 0.12} q-0.2,-0.04 -0.28,0.08`} fill="none" stroke="var(--village-leaf)" strokeWidth={0.06} strokeLinecap="round" />
+    </g>;
+  })}
+</>;
+
+/** How each kind of standing tree is drawn. */
+const TREE_DRAWINGS = { tree: LEAFY_TREE, sakura: CHERRY_TREE, bamboo: BAMBOO_CLUMP } as const satisfies Partial<Record<Terrain, TreeDrawing>>;
+type TreeTerrain = keyof typeof TREE_DRAWINGS;
+const TREE_TERRAINS = Object.keys(TREE_DRAWINGS) as TreeTerrain[]; // the keys of a literal object: a safe cast
+
+function TreeRow({ run, height, tile, draw }: { run: Rect; height: number; tile: number; draw: TreeDrawing }) {
   return <Upright feet={{ x: run.x + run.width / 2, y: run.y + TREE_FEET }} width={run.width + 0.3} height={height} tile={tile}>
     <svg viewBox={`-0.15 0 ${run.width + 0.3} ${TREE_HEIGHT}`} className="block size-full overflow-visible" preserveAspectRatio="none">
-      {Array.from({ length: run.width }, (_, index) => <g key={index} transform={`translate(${index} 0)`}>
-        <rect x={0.42} y={1.25} width={0.16} height={0.65} fill="var(--village-wood)" />
-        <ellipse cx={0.5} cy={1.05} rx={0.48} ry={0.42} fill="var(--village-leaf)" {...ink} />
-        <ellipse cx={0.5} cy={0.62} rx={0.38} ry={0.36} fill="var(--village-leaf)" {...ink} />
-        <ellipse cx={0.4} cy={0.52} rx={0.14} ry={0.12} fill="var(--village-leaf-light)" />
-        <ellipse cx={0.32} cy={0.98} rx={0.16} ry={0.12} fill="var(--village-leaf-light)" />
-      </g>)}
+      {Array.from({ length: run.width }, (_, index) => <g key={index} transform={`translate(${index} 0)`}>{draw(run.x + index)}</g>)}
+    </svg>
+  </Upright>;
+}
+
+/** A run of tall grass blades along a row, standing just in front of the tiles' middle. */
+function TallGrassRow({ run, tile }: { run: Rect; tile: number }) {
+  return <Upright feet={{ x: run.x + run.width / 2, y: run.y + 0.75 }} width={run.width} height={TALL_GRASS_HEIGHT} tile={tile}>
+    <svg viewBox={`0 0 ${run.width} ${TALL_GRASS_HEIGHT}`} className="block size-full overflow-visible" preserveAspectRatio="none">
+      {Array.from({ length: run.width * 3 }, (_, index) => {
+        const x = (index + 0.5) / 3, lean = index % 2 ? 0.08 : -0.06;
+        return <path key={index} d={`M${x - 0.12},${TALL_GRASS_HEIGHT} Q${x},${TALL_GRASS_HEIGHT * 0.4} ${x + lean},0 Q${x + 0.04},${TALL_GRASS_HEIGHT * 0.5} ${x + 0.12},${TALL_GRASS_HEIGHT} Z`}
+          fill={index % 3 ? "var(--village-leaf)" : "var(--village-leaf-light)"} {...ink} strokeWidth={0.02} />;
+      })}
     </svg>
   </Upright>;
 }
@@ -106,11 +169,21 @@ function Lantern({ at, isLit, tile }: { at: Vector; isLit: boolean; tile: number
   </Upright>;
 }
 
+/** A row of trees with nothing but water from it to the near edge is the one nearest the viewer: drawn as bushes. */
+function isFrontRow(map: TownMap, run: Rect): boolean {
+  for (let y = run.y + 1; y < map.height; y++) {
+    for (let x = run.x; x < run.x + run.width; x++) if (terrainAt(map, x, y) !== "water") return false;
+  }
+  return true;
+}
+
 // Memoised: none of it changes while the traveller walks.
 const StaticScenery = memo(function StaticScenery({ map, buildings, tile }: { map: TownMap; buildings: readonly Building[]; tile: number }) {
   const fences = map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => terrain === "fence" ? [{ x, y }] : []));
   return <>
-    {rowRuns(map, "tree").map(run => <TreeRow key={`${run.x},${run.y}`} run={run} height={run.y === map.height - 1 ? BUSH_HEIGHT : TREE_HEIGHT} tile={tile} />)}
+    {TREE_TERRAINS.flatMap(terrain => rowRuns(map, terrain).map(run => <TreeRow key={`${terrain}-${run.x},${run.y}`} run={run}
+      height={isFrontRow(map, run) ? BUSH_HEIGHT : TREE_HEIGHT} tile={tile} draw={TREE_DRAWINGS[terrain]} />))}
+    {rowRuns(map, "tallgrass").map(run => <TallGrassRow key={`grass-${run.x},${run.y}`} run={run} tile={tile} />)}
     {fences.map(({ x, y }) => <FencePost key={`${x},${y}`} x={x} y={y} tile={tile} />)}
     {buildings.map(building => <House key={building.id} building={building} tile={tile} />)}
   </>;

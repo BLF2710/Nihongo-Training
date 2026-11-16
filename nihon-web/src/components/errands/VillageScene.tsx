@@ -6,6 +6,7 @@ import { CAST } from "../../lib/cast";
 import type { CharacterId } from "../../lib/cast";
 import type { Direction, Vector } from "../../lib/errands/movement";
 import type { Resident, VillageLayout } from "../../lib/errands/village";
+import type { SceneTheme } from "../../lib/world/sceneTheme";
 import { VillageGround } from "./VillageGround";
 import { VillageScenery } from "./VillageScenery";
 import { FOCUS_FROM_TOP, PERSPECTIVE_PER_HEIGHT, STAND_UP, TILT_DEGREES, groundDistance } from "./scene3d";
@@ -22,6 +23,11 @@ const VILLAGER_SIZE = 1.15;
 const SURROUNDINGS = 40;
 const DOOR_PROMPT_HEIGHT = 2;
 const TRAVELLER_HEIGHT = 1.5;
+/** Blossom drifting down over a cherry-blossom scene (across the screen, in %; seconds). */
+const FALLING_PETALS = [
+  { left: 12, duration: 11, delay: 0 }, { left: 34, duration: 14, delay: -5 }, { left: 58, duration: 12, delay: -9 },
+  { left: 76, duration: 15, delay: -2 }, { left: 93, duration: 13, delay: -7 },
+] as const;
 
 type Size = { width: number; height: number };
 
@@ -58,10 +64,10 @@ function FeetShadow({ feet, width, tile }: { feet: Vector; width: number; tile: 
     style={{ left: (feet.x - width / 2) * tile, top: feet.y * tile - width * tile * 0.18, width: width * tile, height: width * tile * 0.36 }} />;
 }
 
-type VillagerTokenProps = { villager: Resident; tile: number; hasErrand: boolean; isNearby: boolean; onTalk: (id: CharacterId) => void };
+type VillagerTokenProps = { villager: Resident; tile: number; hasErrand: boolean; isNearby: boolean; talkAction: string; onTalk: (id: CharacterId) => void };
 
 // Memoised: while the traveller walks, the villagers' props stay the same, so they aren't redrawn every frame.
-const VillagerToken = memo(function VillagerToken({ villager, tile, hasErrand, isNearby, onTalk }: VillagerTokenProps) {
+const VillagerToken = memo(function VillagerToken({ villager, tile, hasErrand, isNearby, talkAction, onTalk }: VillagerTokenProps) {
   const size = tile * VILLAGER_SIZE;
   const { name } = CAST[villager.id];
   const feet = { x: villager.tile.x + 0.5, y: villager.tile.y + 0.85 };
@@ -72,7 +78,7 @@ const VillagerToken = memo(function VillagerToken({ villager, tile, hasErrand, i
     style={{ left: feet.x * tile - size / 2, top: feet.y * tile - size, width: size, height: size, transform: STAND_UP }}>
     <span className="village-villager absolute inset-0 block"><CharacterArt character={villager.id} mood={hasErrand ? "happy" : "calm"} /></span>
     {hasErrand && <span aria-hidden="true" className="village-marker absolute -top-[45%] left-1/2 -ml-[0.6em] flex size-[1.2em] items-center justify-center rounded-full border-2 border-[var(--village-ink)] bg-amber-300 text-sm font-black text-[var(--village-ink)]">!</span>}
-    {isNearby && <span aria-hidden="true" className="absolute -top-[40%] left-full ml-1 whitespace-nowrap rounded-lg border border-[var(--village-ink)] bg-white px-2 py-0.5 text-xs font-bold text-gray-900 shadow">Talk <kbd className="font-mono">E</kbd></span>}
+    {isNearby && <span aria-hidden="true" className="absolute -top-[40%] left-full ml-1 whitespace-nowrap rounded-lg border border-[var(--village-ink)] bg-white px-2 py-0.5 text-xs font-bold text-gray-900 shadow">{talkAction} <kbd className="font-mono">E</kbd></span>}
   </button></>;
 });
 
@@ -82,9 +88,14 @@ type VillageSceneProps = {
   /** Villagers shown with a "!" because they have something for the learner. */
   markedVillagerIds: readonly CharacterId[]; nearbyId: CharacterId | null;
   onTalk: (id: CharacterId) => void;
-  /** A door the traveller is standing at, shown with a prompt to go in (pressed, it calls `onEnterDoor`). */
-  nearbyDoor?: { tile: Vector; label: string } | null;
+  /** What the prompt over the villager in reach says pressing E does (such as "Fight" for a challenger). */
+  talkAction?: string;
+  /** A door the traveller is standing at, shown with a prompt to go in (pressed, it calls `onEnterDoor`). `action`
+   *  names what the prompt does when it isn't going in (such as "Leave" at the end of a wild path). */
+  nearbyDoor?: { tile: Vector; label: string; action?: string } | null;
   onEnterDoor?: () => void;
+  /** The island's look (cherry blossom, bamboo, festival); none for the village square. */
+  theme?: SceneTheme;
   /** How many tiles fit across a wide screen: more shows more of the village, smaller. */
   tilesAcross?: number;
   /** Overlays (the errand, inventory, conversation, controls), drawn over the village and not moved by the camera. */
@@ -93,24 +104,24 @@ type VillageSceneProps = {
 
 /** The village in 2.5D, seen from above at an angle in perspective and following the traveller. Everything standing
  *  is a 3D card, so the browser sorts it by depth: whoever walks behind a house is hidden by it. */
-export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, nearbyDoor, onEnterDoor, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
+export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, talkAction = "Talk", nearbyDoor, onEnterDoor, theme, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
   const { ref, size } = useSize();
   const { map } = village;
   const { tile, x, y } = camera(size, map, position, tilesAcross);
   const travellerHeight = tile * TRAVELLER_HEIGHT, travellerWidth = travellerHeight * (24 / 36);
   const travellerTurn = facing === "left" ? " scaleX(-1)" : "";
-  return <div ref={ref} className="village island-map relative size-full overflow-hidden" style={{ perspective: size.height * PERSPECTIVE_PER_HEIGHT, perspectiveOrigin: `50% ${FOCUS_FROM_TOP * 100}%` }}>
+  return <div ref={ref} className={`village island-map relative size-full overflow-hidden ${theme ? `village-theme-${theme}` : ""}`} style={{ perspective: size.height * PERSPECTIVE_PER_HEIGHT, perspectiveOrigin: `50% ${FOCUS_FROM_TOP * 100}%` }}>
     {size.width > 0 && <div className="village-3d absolute left-1/2" style={{ top: `${FOCUS_FROM_TOP * 100}%` }}>
       <div className="village-world village-3d absolute left-0 top-0" style={{ width: map.width * tile, height: map.height * tile, transformOrigin: "0 0", transform: `rotateX(${TILT_DEGREES}deg) translate3d(${-x}px, ${-y}px, 0)` }}>
         <div aria-hidden="true" className="village-surroundings absolute" style={{ inset: -SURROUNDINGS * tile }} />
         <VillageGround map={map} buildings={village.buildings} />
         <VillageScenery map={map} buildings={village.buildings} gates={village.gates} openGateIds={openGateIds} lanterns={village.lanterns} litLanterns={litLanterns} tile={tile} />
         {village.villagers.map(villager => <VillagerToken key={villager.id} villager={villager} tile={tile}
-          hasErrand={markedVillagerIds.includes(villager.id)} isNearby={nearbyId === villager.id} onTalk={onTalk} />)}
+          hasErrand={markedVillagerIds.includes(villager.id)} isNearby={nearbyId === villager.id} talkAction={talkAction} onTalk={onTalk} />)}
         {/* Stood just in front of the house's wall (not in it, where the wall would hide it), above the traveller's head. */}
         {nearbyDoor && <div className="village-upright" style={{ left: (nearbyDoor.tile.x - 0.5) * tile, top: (nearbyDoor.tile.y + 0.4 - DOOR_PROMPT_HEIGHT) * tile, width: 2 * tile, height: DOOR_PROMPT_HEIGHT * tile, transform: STAND_UP }}>
-          <button type="button" tabIndex={-1} onClick={onEnterDoor} aria-label={`Go into ${nearbyDoor.label.toLowerCase()}`}
-            className="pointer-events-auto absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-lg border border-[var(--village-ink)] bg-white px-2 py-0.5 text-xs font-bold text-gray-900 shadow">Enter <kbd className="font-mono">E</kbd></button>
+          <button type="button" tabIndex={-1} onClick={onEnterDoor} aria-label={nearbyDoor.action ? nearbyDoor.label : `Go into ${nearbyDoor.label.toLowerCase()}`}
+            className="pointer-events-auto absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-lg border border-[var(--village-ink)] bg-white px-2 py-0.5 text-xs font-bold text-gray-900 shadow">{nearbyDoor.action ?? "Enter"} <kbd className="font-mono">E</kbd></button>
         </div>}
         <FeetShadow feet={position} width={0.6} tile={tile} />
         <div aria-hidden="true" className={`village-upright village-person ${isRunning ? "village-running" : ""}`}
@@ -120,6 +131,9 @@ export function VillageScene({ village, position, facing, isWalking, isRunning, 
       </div>
     </div>}
     <div aria-hidden="true" className="village-haze pointer-events-none absolute inset-x-0 top-0 h-1/2" />
+    {theme === "sakura" && <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+      {FALLING_PETALS.map(petal => <div key={petal.left} className="scenery-petal" style={{ left: `${petal.left}%`, animationDuration: `${petal.duration}s`, animationDelay: `${petal.delay}s` }} />)}
+    </div>}
     {children}
   </div>;
 }

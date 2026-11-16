@@ -59,6 +59,9 @@ const ParticleDropPage = lazy(() => import("./pages/ParticleDropPage"));
 const KanaWildsPage = lazy(() => import("./pages/KanaWildsPage"));
 const IslandErrandsPage = lazy(() => import("./pages/IslandErrandsPage"));
 const VillagePage = lazy(() => import("./pages/VillagePage"));
+const WildRoutePage = lazy(() => import("./pages/WildRoutePage"));
+const IslandScenePage = lazy(() => import("./pages/IslandScenePage"));
+const WardrobePage = lazy(() => import("./pages/WardrobePage"));
 const SrsDeckPage = lazy(() => import("./pages/SrsDeckPage"));
 const SpeakingTestPage = lazy(() => import("./pages/SpeakingTestPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
@@ -136,6 +139,9 @@ function App() {
           <Route path="/games/kana-wilds" element={signedInLazy("Loading Kana Wilds…", <KanaWildsPage />)} />
           <Route path="/games/errands" element={signedInLazy("Loading Island Errands…", <IslandErrandsPage />)} />
           <Route path="/village" element={signedInLazy("Loading the village…", <VillagePage />)} />
+          <Route path="/wilds/:routeId" element={signedInLazy("Loading the wild path…", <WildRoutePage />)} />
+          <Route path="/islands/:islandId" element={signedInLazy("Loading the island…", <IslandScenePage />)} />
+          <Route path="/traveller" element={signedInLazy("Loading the wardrobe…", <WardrobePage />)} />
           <Route path="/games/english" element={signedIn(<EnglishArcadePage />)} />
           <Route path="/statistics" element={signedIn(<StatisticsPage />)} />
           <Route path="/statistics/japanese" element={signedIn(<StatisticsPage />)} />

@@ -7,6 +7,8 @@ const USER_ROLE_KEY = "user_role";
 const USER_HANDLE_KEY = "user_handle";
 // The signed-in learner's picture address; "" when they have none (missing: not looked up yet).
 const USER_AVATAR_KEY = "user_avatar";
+// The signed-in learner's traveller look (JSON); missing: not looked up yet.
+const TRAVELLER_LOOK_KEY = "traveller_look";
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
 export const getUserName = () => localStorage.getItem(USER_NAME_KEY);
@@ -15,6 +17,8 @@ export const getUserHandle = () => localStorage.getItem(USER_HANDLE_KEY);
 export const saveUserHandle = (username: string) => localStorage.setItem(USER_HANDLE_KEY, username);
 export const getStoredUserAvatar = () => localStorage.getItem(USER_AVATAR_KEY);
 export const storeUserAvatar = (avatar: string | null) => localStorage.setItem(USER_AVATAR_KEY, avatar ?? "");
+export const getStoredTravellerLook = () => localStorage.getItem(TRAVELLER_LOOK_KEY);
+export const storeTravellerLook = (look: string) => localStorage.setItem(TRAVELLER_LOOK_KEY, look);
 
 /** True when a usable token is stored; guards against values saved from a failed login response. */
 export function hasSession() {
@@ -28,6 +32,7 @@ export const isAdmin = () => localStorage.getItem(USER_ROLE_KEY) === "admin";
 export function saveSession(session: { token: string; userName: string; userEmail: string; userRole: string; userHandle?: string }) {
   if (session.userHandle) localStorage.setItem(USER_HANDLE_KEY, session.userHandle); else localStorage.removeItem(USER_HANDLE_KEY);
   localStorage.removeItem(USER_AVATAR_KEY);
+  localStorage.removeItem(TRAVELLER_LOOK_KEY);
   localStorage.setItem(TOKEN_KEY, session.token);
   localStorage.setItem(USER_NAME_KEY, session.userName);
   localStorage.setItem(USER_EMAIL_KEY, session.userEmail);
@@ -54,4 +59,5 @@ export function clearSession() {
   localStorage.removeItem(USER_ROLE_KEY);
   localStorage.removeItem(USER_HANDLE_KEY);
   localStorage.removeItem(USER_AVATAR_KEY);
+  localStorage.removeItem(TRAVELLER_LOOK_KEY);
 }

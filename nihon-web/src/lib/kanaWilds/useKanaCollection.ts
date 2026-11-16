@@ -1,15 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
 import { apiErrorMessage } from "../../api/errors";
-import { chooseStarterKana, fetchKanaCollection, saveCaughtKana } from "../../api/kanaWilds";
-import type { KanaCollection } from "../../api/kanaWilds";
+import { chooseStarterKana, fetchKanaCollection, saveCaughtKana, saveChallengerWin } from "../../api/kanaWilds";
+import type { CollectionChange, KanaCollection } from "../../api/kanaWilds";
 import type { Starter } from "./gojuon";
+
+const collectionAfter = ({ starter, kanaIds, answers, beatenChallengers }: CollectionChange): KanaCollection =>
+  ({ starter, kanaIds, answers, beatenChallengers });
 
 export type CollectionState =
   | { status: "loading" }
   | { status: "error"; message: string }
   | { status: "ready"; collection: KanaCollection };
 
-/** The learner's collection from the API, with the two changes a player can make: choose a starter, add a catch. */
+/** The learner's collection from the API, with the changes a player can make: choose a starter, add a catch, beat a
+ *  challenger. */
 export function useKanaCollection() {
   const [state, setState] = useState<CollectionState>({ status: "loading" });
   const [attempt, setAttempt] = useState(0);
@@ -35,8 +39,7 @@ export function useKanaCollection() {
   const addCatch = useCallback(async (kanaId: number) => {
     setActionError(null);
     try {
-      const { starter, kanaIds } = await saveCaughtKana(kanaId);
-      setState({ status: "ready", collection: { starter, kanaIds } });
+      setState({ status: "ready", collection: collectionAfter(await saveCaughtKana(kanaId)) });
       return true;
     } catch (failure) {
       setActionError(apiErrorMessage(failure, "The catch could not be saved. Catch it again in your next battle."));
@@ -44,5 +47,25 @@ export function useKanaCollection() {
     }
   }, []);
 
-  return { state, retry, chooseStarter, addCatch, actionError };
+  /** Saves a challenge won; resolves to whether it was saved (a win not saved doesn't open the next path). */
+  const addChallengerWin = useCallback(async (challengerId: string) => {
+    setActionError(null);
+    try {
+      setState({ status: "ready", collection: collectionAfter(await saveChallengerWin(challengerId)) });
+      return true;
+    } catch (failure) {
+      setActionError(apiErrorMessage(failure, "Your win could not be saved. Challenge them again to open the next path."));
+      return false;
+    }
+  }, []);
+
+  /** Loads the collection again without a loading screen, for the answer counts a battle changed. */
+  const refresh = useCallback(async () => {
+    try { setState({ status: "ready", collection: await fetchKanaCollection() }); }
+    catch {
+      // Deliberately quiet: the levels shown are one battle out of date at worst, and the next load corrects them.
+    }
+  }, []);
+
+  return { state, retry, chooseStarter, addCatch, addChallengerWin, refresh, actionError };
 }

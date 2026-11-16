@@ -4,7 +4,7 @@ import { TouchControls } from "../components/errands/TouchControls";
 import { VillageScene } from "../components/errands/VillageScene";
 import { DailyErrandsBoard } from "../components/village/DailyErrandsBoard";
 import { VillagerNewsPanel } from "../components/village/VillagerNewsPanel";
-import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_SQUARE } from "../data/village/villageSquare";
+import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_SQUARE, villageArrivalFrom } from "../data/village/villageSquare";
 import { getUserName } from "../lib/authStorage";
 import { withHomeSign } from "../lib/village/homeSign";
 import { CAST } from "../lib/cast";
@@ -16,6 +16,7 @@ import { useVillageLiveData } from "../lib/village/useVillageLiveData";
 import { useVillageWalk } from "../lib/village/useVillageWalk";
 import { useVillageShortcuts } from "../lib/village/useVillageShortcuts";
 import { nearbyThing } from "../lib/village/villageDoors";
+import { useArrival } from "../lib/world/useArrival";
 import { useNavigate } from "react-router-dom";
 
 const TALK_KEYS: ReadonlySet<string> = new Set(["KeyE", "Enter", "Space"]);
@@ -28,7 +29,9 @@ export default function VillagePage() {
   const square = useMemo(() => withHomeSign(VILLAGE_SQUARE, HOME_BUILDING_ID, userName), [userName]);
   const { data, isLoading } = useVillageLiveData();
   const errands = dailyErrands(data);
-  const walker = useVillageWalk(square, "village-square:place");
+  // Coming off a wild path, the traveller appears at the end of its road; otherwise where they were.
+  const arrival = useArrival(villageArrivalFrom);
+  const walker = useVillageWalk(square, "village-square:place", arrival);
   const [talkingTo, setTalkingTo] = useState<CharacterId | null>(null);
   const { held, isHolding, isRunning, press, release, setIsRunning } = useHeldDirections(talkingTo === null);
   useFrameLoop(isHolding, seconds => walker.walkBy(heldDirection(held.current), seconds, isRunning ? RUN_SPEED : WALK_SPEED));
@@ -72,11 +75,11 @@ export default function VillagePage() {
             <span className="block text-lg font-black" lang="ja">ひろば</span><span className="text-xs text-gray-600">Village square</span>
           </p>
         </div>
-        <p className="sr-only" aria-live="polite">{nearbyId ? `${CAST[nearbyId].name} is nearby. Press E to talk.` : nearbyDoor ? `${nearbyDoor.label}. Press E to go in.` : ""}</p>
+        <p className="sr-only" aria-live="polite">{nearbyId ? `${CAST[nearbyId].name} is nearby. Press E to talk.` : nearbyDoor ? `${nearbyDoor.label}. Press E to go${nearbyDoor.action ? "" : " in"}.` : ""}</p>
         {!talkingTo && <p className="pointer-events-none absolute bottom-3 left-1/2 z-[800] -translate-x-1/2 village-hint rounded-full px-3 py-1 text-xs font-semibold pointer-coarse:hidden">
-          Walk: WASD or arrow keys · Run: hold Shift · Talk: E · Dashboard: Tab · Map: M · A ! means news for you
+          Walk: WASD or arrow keys · Run: hold Shift · Talk: E · Dashboard: Tab · Map: M · A ! means news · Roads out lead to the islands
         </p>}
-        {!talkingTo && <TouchControls onPress={press} onRelease={release} onTalk={actOnNearby} canTalk={nearby !== null} talkLabel={nearbyDoor ? "Enter" : "Talk"} isRunning={isRunning} onRunningChange={setIsRunning} />}
+        {!talkingTo && <TouchControls onPress={press} onRelease={release} onTalk={actOnNearby} canTalk={nearby !== null} talkLabel={nearbyDoor ? nearbyDoor.action ?? "Enter" : "Talk"} isRunning={isRunning} onRunningChange={setIsRunning} />}
         {talkingTo && <VillagerNewsPanel villager={talkingTo} news={villagerNews(talkingTo, data, errands)} onClose={close} />}
       </VillageScene>
     </main>

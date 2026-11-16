@@ -80,7 +80,8 @@ turn, and the enemy's attack uses the same circle against it. So each word choic
    - A wrong reading makes the attack fizzle.
 3. **Bonus:** you can also pick its English meaning. If you get it right, the hit is a critical (×1.25).
 4. **Damage = word power × vowel multiplier × critical**, where **word power = the sum, over the word's kana, of
-   (`TILE_BASE_POWER` + that kana's level)**. Longer words and better-known kana hit harder.
+   that kana's tile power for its level** (`TILE_POWER_BY_LEVEL`, section 8). Longer words and better-known kana hit
+   harder.
 5. **Word fatigue:** playing the same word again in one battle halves its power each time. This pushes players to use
    their whole vocabulary instead of spamming one word.
 
@@ -149,10 +150,23 @@ and wrong answers the site already stores, across quizzes, reviews and battles:
 
 So studying kana anywhere on the site makes your team stronger, and getting a kana wrong in a battle really costs it.
 
+Each level gives the kana's tiles more power (`TILE_POWER_BY_LEVEL` in `lib/kanaWilds/mastery.ts`):
+
+| Level | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| Tile power | 3 | 3.5 | 4 | 4.5 | 5 |
+
+- The counts are the hiragana progress the site already keeps (`correct_count`, `wrong_count`); the collection API
+  returns them for each collected kana (`answers`), and the browser turns them into levels.
+- A battle uses the levels it began with. The kana read in defence are graded by the kana quiz API, so they count;
+  the collection is fetched again after each battle, and the next battle uses the new levels.
+- The collection shows each caught kana's level as a small number, its cell a deeper green as the level rises.
+
 ## 9. Challengers: the island cast
 
-Each challenger owns a few kana and tests one real difficulty. Beating one opens the next area of the island and
-sometimes an **evolution**.
+Each challenger owns a few kana and tests one real difficulty, and waits on their own island at the end of a wild
+path (docs/WORLD.md). Every path is open from the start; a win is saved, pays XP once, and later may give an
+**evolution**.
 
 | Order | Challenger | Their kana | Signature defence | Beating them gives |
 |---|---|---|---|---|
@@ -162,6 +176,11 @@ sometimes an **evolution**.
 | 4 | Sensei (Teahouse) | voiced forms | word attacks (level 5) | **evolution**: dakuten (か → が, は → ば → ぱ) |
 | 5 | Zen (Review) | your weakest kana | recall (level 6) | **evolution**: small kana (き + ゃ → きゃ) |
 | 6 | Kurama (Fuji) | everything | brush style (level 7) + mixed | the katakana wilds (milestone 4) |
+
+Chun, Tama and Pon are in the game (docs/WORLD.md section 4), each on their island: Chun (Kana) with あ, こ, お;
+Tama (Practice) with さ, ち, つ; Pon (Games) with ぬ, ね, は. Their signature defences and the rewards in the table
+are still to come. The hint after a loss names the challenger's team; the per-kana hint below ("You read ね as れ
+twice") is still to come too.
 
 **Evolution adds new tiles** (が, ば, きゃ…), which open new words such as えいが (film), しごと (work) and きょう (today). The base
 tile stays in your collection.

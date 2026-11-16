@@ -14,8 +14,9 @@ import { isStrokeCountShown, revealedStrokeCount, STROKE_COUNT_HP_SHARE } from "
 import { attackWordsOf, MAX_ATTACK_WORD_LENGTH, movesetOf, pickEnemyAttack, WORD_ATTACK_SHARE, wordAttackShare } from "../src/lib/kanaWilds/enemyAttacks.ts";
 import {
   attemptCatch, BRACED_DAMAGE_FACTOR, canCatch, catchChance, CATCH_HP_SHARE, CATCH_TOLERANCE, catchTolerance, COUNTER_DAMAGE, defend, MIN_CATCH_CHANCE, ENEMY_ATTACK_POWER, ENEMY_MAX_HP, MAX_CATCH_TRIES,
-  PLAYER_MAX_HP, playWord, previewAttack, redraw, runAway, startBattle, TILE_POWER,
+  PLAYER_MAX_HP, playWord, previewAttack, redraw, runAway, startBattle, canFinish, finishBattle,
 } from "../src/lib/kanaWilds/battle.ts";
+import { kanaLevelsOf, masteryLevel, MASTERY_STEPS, NO_LEVELS, TILE_POWER_BY_LEVEL, wordPower } from "../src/lib/kanaWilds/mastery.ts";
 import { gradeTrace, resample, strokeDistance, TRACE_SCALE_RANGE } from "../src/lib/kanaWilds/tracing.ts";
 
 const seeded = (seed = 1) => () => (seed = (seed * 16807) % 2147483647) / 2147483647;
@@ -105,45 +106,76 @@ test("defending against a kana offers its look-alikes", () => {
 
 // ---- encounters
 
+const ALL_ROWS = ["vowels", "k", "s", "t", "n", "h", "m", "y", "r", "w", "final-n"];
+
 test("wild kana come from the earliest incomplete rows and are never already caught", () => {
   const owned = new Set([1, 2, 3, 4, 5, 6]);
   for (let seed = 1; seed < 40; seed++) {
-    const { kana: wild, isCatchable } = pickEncounter(owned, seeded(seed));
+    const { kana: wild, isCatchable } = pickEncounter(owned, ALL_ROWS, seeded(seed));
     assert.ok(isCatchable && !owned.has(wild.id));
     assert.ok(["k", "s"].includes(wild.row), `${wild.kana} is from the k or s row`);
   }
 });
 
 test("once every kana is caught, owned kana still appear for practice but can't be caught", () => {
-  const encounter = pickEncounter(new Set(BASIC_HIRAGANA.map(item => item.id)), seeded(2));
+  const encounter = pickEncounter(new Set(BASIC_HIRAGANA.map(item => item.id)), ALL_ROWS, seeded(2));
   assert.equal(encounter.isCatchable, false);
+});
+
+test("a path's wild kana come only from its own rows", () => {
+  for (let seed = 1; seed < 40; seed++) assert.ok(["s", "t"].includes(pickEncounter(new Set(VOWEL_IDS), ["s", "t"], seeded(seed)).kana.row));
+});
+
+test("once a path's rows are all caught, its own kana appear for practice", () => {
+  const vowelsAndK = new Set(BASIC_HIRAGANA.filter(item => ["vowels", "k"].includes(item.row)).map(item => item.id));
+  for (let seed = 1; seed < 20; seed++) {
+    const encounter = pickEncounter(vowelsAndK, ["vowels", "k"], seeded(seed));
+    assert.equal(encounter.isCatchable, false);
+    assert.ok(vowelsAndK.has(encounter.kana.id), "not a kana from another path");
+  }
+});
+
+test("wild kana need a row to come from", () => {
+  assert.throws(() => pickEncounter(new Set(), [], seeded(1)));
 });
 
 // ---- battle
 
 // ね is in the e column: u beats it (u → e) and it beats o (e → o).
 const ne = kana("ね");
+const LEVEL_1_TILE = TILE_POWER_BY_LEVEL[1];
+/** A battle against ね where `japanese` has already been played `timesPlayed` times. */
+const againstNe = (japanese = "", timesPlayed = 0, kanaLevels = NO_LEVELS) => ({ ...startBattle(ne, { isCatchable: true, kanaLevels }), timesPlayed: { [japanese]: timesPlayed } });
 
-test("a word's damage is its length times the tile power", () => {
-  assert.equal(previewAttack(word("いか"), "e", 0).damage, 2 * TILE_POWER);
-  assert.equal(previewAttack(word("あいか"), "e", 0).damage, 3 * TILE_POWER);
+test("with every kana at level 1, a word's damage is its length times the level-1 tile power", () => {
+  assert.equal(previewAttack(againstNe(), word("いか")).damage, 2 * LEVEL_1_TILE);
+  assert.equal(previewAttack(againstNe(), word("あいか")).damage, 3 * LEVEL_1_TILE);
 });
 
 test("strong, neutral and weak words hit for ×1.5, ×1 and ×0.5", () => {
-  const enemyVowel = "e";
-  assert.deepEqual(previewAttack(word("いく"), enemyVowel, 0), { damage: 9, matchup: "strong" });
-  assert.deepEqual(previewAttack(word("いか"), enemyVowel, 0), { damage: 6, matchup: "neutral" });
-  assert.deepEqual(previewAttack(word("かお"), enemyVowel, 0), { damage: 3, matchup: "weak" });
+  assert.deepEqual(previewAttack(againstNe(), word("いく")), { damage: 9, matchup: "strong" });
+  assert.deepEqual(previewAttack(againstNe(), word("いか")), { damage: 6, matchup: "neutral" });
+  assert.deepEqual(previewAttack(againstNe(), word("かお")), { damage: 3, matchup: "weak" });
 });
 
 test("playing the same word again halves its power each time, and a right meaning makes it critical", () => {
-  assert.equal(previewAttack(word("いか"), "e", 1).damage, 3);
-  assert.equal(previewAttack(word("いか"), "e", 2).damage, 2);
-  assert.equal(previewAttack(word("いか"), "e", 0, true).damage, 8);
+  assert.equal(previewAttack(againstNe("いか", 1), word("いか")).damage, 3);
+  assert.equal(previewAttack(againstNe("いか", 2), word("いか")).damage, 2);
+  assert.equal(previewAttack(againstNe(), word("いか"), true).damage, 8);
+});
+
+test("a word hits harder when its kana are at higher levels", () => {
+  const levels = new Map([["い", 5], ["か", 3]]);
+  assert.equal(previewAttack(againstNe("", 0, levels), word("いか")).damage, TILE_POWER_BY_LEVEL[5] + TILE_POWER_BY_LEVEL[3]);
+});
+
+test("a battle keeps the levels it began with, and its hits use them", () => {
+  const after = playWord(startBattle(ne, { isCatchable: true, kanaLevels: new Map([["い", 5], ["く", 5]]) }), { word: word("いく"), isReadingCorrect: true, isMeaningCorrect: false });
+  assert.equal(after.enemyHp, ENEMY_MAX_HP - Math.round(2 * TILE_POWER_BY_LEVEL[5] * 1.5));
 });
 
 test("a word read right hits, sets the stance and hands the turn to the enemy", () => {
-  const after = playWord(startBattle(ne, true), { word: word("いく"), isReadingCorrect: true, isMeaningCorrect: false });
+  const after = playWord(startBattle(ne, { isCatchable: true }), { word: word("いく"), isReadingCorrect: true, isMeaningCorrect: false });
   assert.equal(after.enemyHp, ENEMY_MAX_HP - 9);
   assert.equal(after.stance, "u");
   assert.equal(after.phase, "defend");
@@ -151,7 +183,7 @@ test("a word read right hits, sets the stance and hands the turn to the enemy", 
 });
 
 test("a word read wrong fizzles: no damage, but it still counts as played", () => {
-  const after = playWord(startBattle(ne, true), { word: word("いく"), isReadingCorrect: false, isMeaningCorrect: true });
+  const after = playWord(startBattle(ne, { isCatchable: true }), { word: word("いく"), isReadingCorrect: false, isMeaningCorrect: true });
   assert.equal(after.enemyHp, ENEMY_MAX_HP);
   assert.equal(after.lastEvent.kind, "fizzle");
   assert.equal(after.timesPlayed["いく"], 1);
@@ -159,17 +191,17 @@ test("a word read wrong fizzles: no damage, but it still counts as played", () =
 });
 
 test("reading the enemy right blocks its attack; reading it wrong costs HP judged against the stance", () => {
-  const attacked = playWord(startBattle(ne, true), { word: word("いく"), isReadingCorrect: true, isMeaningCorrect: false });
+  const attacked = playWord(startBattle(ne, { isCatchable: true }), { word: word("いく"), isReadingCorrect: true, isMeaningCorrect: false });
   assert.equal(defend(attacked, "blocked").playerHp, PLAYER_MAX_HP);
   // The stance is u (from いく) and the enemy is e: u beats e, so the enemy's attack is weak.
   assert.equal(defend(attacked, "missed").playerHp, PLAYER_MAX_HP - ENEMY_ATTACK_POWER * 0.5);
-  const fromO = playWord(startBattle(ne, true), { word: word("かお"), isReadingCorrect: true, isMeaningCorrect: false });
+  const fromO = playWord(startBattle(ne, { isCatchable: true }), { word: word("かお"), isReadingCorrect: true, isMeaningCorrect: false });
   assert.equal(defend(fromO, "missed").playerHp, PLAYER_MAX_HP - ENEMY_ATTACK_POWER * 1.5, "e beats an o stance");
   assert.equal(defend(attacked, "blocked").phase, "attack");
 });
 
 test("a perfect block hits back for COUNTER_DAMAGE; a plain block does no damage", () => {
-  const attacked = playWord(startBattle(ne, true), { word: word("いく"), isReadingCorrect: true, isMeaningCorrect: false });
+  const attacked = playWord(startBattle(ne, { isCatchable: true }), { word: word("いく"), isReadingCorrect: true, isMeaningCorrect: false });
   const perfect = defend(attacked, "perfect");
   assert.equal(perfect.enemyHp, attacked.enemyHp - COUNTER_DAMAGE);
   assert.deepEqual(perfect.lastEvent, { kind: "blocked", counterDamage: COUNTER_DAMAGE });
@@ -177,19 +209,19 @@ test("a perfect block hits back for COUNTER_DAMAGE; a plain block does no damage
 });
 
 test("a perfect block never takes the enemy below 0 HP", () => {
-  const nearlyOut = { ...startBattle(ne, true), enemyHp: 1, phase: "defend" };
+  const nearlyOut = { ...startBattle(ne, { isCatchable: true }), enemyHp: 1, phase: "defend" };
   assert.equal(defend(nearlyOut, "perfect").enemyHp, 0);
 });
 
 test("running out of HP loses the battle", () => {
-  let state = { ...startBattle(ne, true), playerHp: 1, phase: "defend" };
+  let state = { ...startBattle(ne, { isCatchable: true }), playerHp: 1, phase: "defend" };
   state = defend(state, "missed");
   assert.equal(state.outcome, "lost");
   assert.equal(state.phase, "over");
 });
 
 test("catching opens at 60% HP, and an exhausted enemy no longer attacks", () => {
-  const start = startBattle(ne, true);
+  const start = startBattle(ne, { isCatchable: true });
   assert.equal(canCatch(start), false);
   assert.equal(canCatch({ ...start, enemyHp: ENEMY_MAX_HP * CATCH_HP_SHARE + 1 }), false);
   assert.equal(canCatch({ ...start, enemyHp: ENEMY_MAX_HP * CATCH_HP_SHARE }), true);
@@ -199,32 +231,32 @@ test("catching opens at 60% HP, and an exhausted enemy no longer attacks", () =>
 });
 
 test("the weaker the enemy, the more forgiving the trace", () => {
-  const start = startBattle(ne, true);
+  const start = startBattle(ne, { isCatchable: true });
   assert.equal(catchTolerance({ ...start, enemyHp: ENEMY_MAX_HP * CATCH_HP_SHARE }), CATCH_TOLERANCE.strictest);
   assert.equal(catchTolerance({ ...start, enemyHp: 0 }), CATCH_TOLERANCE.loosest);
 });
 
 test("the catch chance starts at MIN_CATCH_CHANCE as catching opens and is certain at 0 HP", () => {
-  const start = startBattle(ne, true);
+  const start = startBattle(ne, { isCatchable: true });
   assert.equal(catchChance({ ...start, enemyHp: ENEMY_MAX_HP * CATCH_HP_SHARE }), MIN_CATCH_CHANCE);
   assert.equal(catchChance({ ...start, enemyHp: 0 }), 1);
   assert.ok(catchChance({ ...start, enemyHp: 6 }) > catchChance({ ...start, enemyHp: 9 }), "rises as it weakens");
 });
 
 test("a good trace catches when the roll is under the catch chance", () => {
-  const weak = { ...startBattle(ne, true), enemyHp: 3 };
+  const weak = { ...startBattle(ne, { isCatchable: true }), enemyHp: 3 };
   assert.equal(attemptCatch(weak, true, catchChance(weak) - 0.01).outcome, "caught");
 });
 
 test("a good trace with a roll over the chance breaks out, and it strikes back", () => {
-  const opening = { ...startBattle(ne, true), enemyHp: ENEMY_MAX_HP * CATCH_HP_SHARE };
+  const opening = { ...startBattle(ne, { isCatchable: true }), enemyHp: ENEMY_MAX_HP * CATCH_HP_SHARE };
   const state = attemptCatch(opening, true, MIN_CATCH_CHANCE);
   assert.equal(state.phase, "defend");
   assert.deepEqual(state.lastEvent, { kind: "catch-failed", triesLeft: MAX_CATCH_TRIES - 1, reason: "broke-out" });
 });
 
 test("a failed trace never catches, whatever the roll, and the last try makes it flee", () => {
-  const exhausted = { ...startBattle(ne, true), enemyHp: 0 };
+  const exhausted = { ...startBattle(ne, { isCatchable: true }), enemyHp: 0 };
   let state = attemptCatch(exhausted, false, 0);
   assert.deepEqual(state.lastEvent, { kind: "catch-failed", triesLeft: MAX_CATCH_TRIES - 1, reason: "trace" });
   for (let tries = 1; tries < MAX_CATCH_TRIES; tries++) state = attemptCatch({ ...state, phase: "attack" }, false, 0);
@@ -232,8 +264,8 @@ test("a failed trace never catches, whatever the roll, and the last try makes it
 });
 
 test("a kana you already own can't be caught, and running away ends the battle", () => {
-  assert.equal(canCatch({ ...startBattle(ne, false), enemyHp: 0 }), false);
-  assert.equal(runAway(startBattle(ne, true)).outcome, "ran");
+  assert.equal(canCatch({ ...startBattle(ne, { isCatchable: false }), enemyHp: 0 }), false);
+  assert.equal(runAway(startBattle(ne, { isCatchable: true })).outcome, "ran");
 });
 
 // ---- tracing
@@ -345,15 +377,15 @@ test("the new words are those using the latest catches; the starter set never co
 // ---- redrawing
 
 test("redrawing gives up the attack: no damage, no reading, and the enemy's turn comes braced", () => {
-  const after = redraw(startBattle(ne, true));
+  const after = redraw(startBattle(ne, { isCatchable: true }));
   assert.deepEqual([after.phase, after.isBraced, after.enemyHp, after.readings.answered, after.lastEvent.kind], ["defend", true, ENEMY_MAX_HP, 0, "redrew"]);
   assert.equal(redraw(after), after, "only on the player's own turn");
-  const exhausted = { ...startBattle(ne, true), enemyHp: 0 };
+  const exhausted = { ...startBattle(ne, { isCatchable: true }), enemyHp: 0 };
   assert.equal(redraw(exhausted), exhausted, "not against a worn-out kana: catch it or finish instead");
 });
 
 test("braced, a missed block hurts half as much, and the brace lasts one attack", () => {
-  const braced = redraw(startBattle(ne, true));
+  const braced = redraw(startBattle(ne, { isCatchable: true }));
   const hurt = defend(braced, "missed");
   assert.equal(hurt.playerHp, PLAYER_MAX_HP - Math.round(ENEMY_ATTACK_POWER * BRACED_DAMAGE_FACTOR));
   assert.deepEqual([hurt.isBraced, hurt.lastEvent.wasBraced], [false, true]);
@@ -449,4 +481,59 @@ test("the keyboard catch still has four choices for ん, with no look-alike row"
   const choices = catchChoices(kana("ん"), seeded(5));
   assert.equal(new Set(choices).size, CHOICE_COUNT);
   assert.ok(choices.includes("ん"));
+});
+
+// ---- mastery levels (docs/KANA-BATTLE.md section 8)
+
+test("a kana with no answers, or too few, is level 1", () => {
+  assert.equal(masteryLevel(0, 0), 1);
+  assert.equal(masteryLevel(4, 0), 1);
+});
+
+test("each level needs both its answer count and its accuracy", () => {
+  for (const { level, minAnswers, minAccuracy } of MASTERY_STEPS) {
+    const correct = Math.ceil(minAnswers * minAccuracy);
+    assert.equal(masteryLevel(correct, minAnswers - correct), level, `exactly at level ${level}`);
+  }
+});
+
+test("enough answers but too many wrong holds a kana back", () => {
+  assert.equal(masteryLevel(30, 20), 2, "60% right over 50 answers is level 2, not 5");
+  assert.equal(masteryLevel(2, 8), 1);
+});
+
+test("getting a kana wrong can lower its level", () => {
+  assert.equal(masteryLevel(14, 1), 3);
+  assert.equal(masteryLevel(14, 6), 2);
+});
+
+test("levels are keyed by character, skipping ids that aren't basic hiragana", () => {
+  const levels = kanaLevelsOf([{ kanaId: 1, correct: 50, wrong: 0 }, { kanaId: 6, correct: 0, wrong: 0 }, { kanaId: 999, correct: 50, wrong: 0 }]);
+  assert.deepEqual([...levels], [["あ", 5], ["か", 1]]);
+});
+
+test("a word's power adds each kana's tile power, a repeated kana each time", () => {
+  const levels = new Map([["こ", 4]]);
+  assert.equal(wordPower("ここ", levels), 2 * TILE_POWER_BY_LEVEL[4]);
+  assert.equal(wordPower("こい", levels), TILE_POWER_BY_LEVEL[4] + TILE_POWER_BY_LEVEL[1]);
+});
+
+// ---- winning against a kana that can't be caught
+
+test("a kana that can't be caught, worn out, is won", () => {
+  const exhausted = { ...startBattle(ne, { isCatchable: false }), enemyHp: 0 };
+  assert.equal(canFinish(exhausted), true);
+  assert.equal(finishBattle(exhausted).outcome, "won");
+});
+
+test("a kana still standing, or one that can be caught, can't be claimed as won", () => {
+  assert.equal(finishBattle(startBattle(ne, { isCatchable: false })).phase, "attack");
+  assert.equal(canFinish({ ...startBattle(ne, { isCatchable: true }), enemyHp: 0 }), false);
+});
+
+test("a battle starts hidden at full HP unless set up otherwise", () => {
+  const wild = startBattle(ne, { isCatchable: true });
+  assert.deepEqual([wild.isHidden, wild.playerHp], [true, PLAYER_MAX_HP]);
+  const round = startBattle(ne, { isCatchable: false, isHidden: false, playerHp: 12 });
+  assert.deepEqual([round.isHidden, round.playerHp], [false, 12]);
 });

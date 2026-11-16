@@ -20,6 +20,9 @@ import type { IslandId } from "../lib/islandMap";
 // Pages that are a starting point, so they show no Back bar: the home page (the island map), and the dashboard, village
 // square and profile, which the menu always links to.
 const PATHS_WITHOUT_BACK_BUTTON = ["/", "/dashboard", "/village", "/profile"];
+/** Walking scenes (a wild path, an island) have their own ways out on foot, and need the room. */
+const WALKING_PATH_PREFIXES = ["/wilds/", "/islands/"];
+const hasBackButton = (pathname: string) => !PATHS_WITHOUT_BACK_BUTTON.includes(pathname) && !WALKING_PATH_PREFIXES.some(prefix => pathname.startsWith(prefix));
 
 /** `back` gives the Back button a fixed destination instead of the previous page in history. `island` shows that
  *  island's strip on a page that has none of its own, such as the start screen before a practice session. */
@@ -157,7 +160,7 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
           <button onClick={logout} className="mt-6 w-full rounded-xl border border-gray-200 px-3 py-2.5 text-left text-sm font-semibold text-gray-600 hover:bg-red-50 hover:text-red-600 transition cursor-pointer sm:hidden">Log out</button>
         </div>
       </aside>}
-      {!PATHS_WITHOUT_BACK_BUTTON.includes(location.pathname) && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton target={back} className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}
+      {hasBackButton(location.pathname) && <nav aria-label="Page navigation" className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8"><BackButton target={back} className="inline-flex min-h-10 items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-emerald-600" /></nav>}
     </>
   );
 }

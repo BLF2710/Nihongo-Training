@@ -34,6 +34,13 @@
   --village-chalkboard: #2f4a3a;
   --village-stall-inside: #3b2a1d;
   --village-steam: rgb(255 255 255 / 0.85);
+  --village-blossom: #f5b6c4;
+  --village-blossom-light: #fde0e6;
+  --village-blossom-deep: #d9849a;
+  --village-bark: #5b4034;
+  --village-bamboo: #7da34a;
+  --village-bamboo-light: #a5c76a;
+  --village-goldfish: #f07a32;
   background: linear-gradient(var(--village-sky-top), var(--village-sky-horizon) 55%, var(--village-forest) 56%);
 }
 .dark .village {
@@ -71,7 +78,22 @@
   --village-chalkboard: #1f3328;
   --village-stall-inside: #24190f;
   --village-steam: rgb(220 225 235 / 0.6);
+  --village-blossom: #b98591;
+  --village-blossom-light: #d4a8b2;
+  --village-blossom-deep: #8f5a68;
+  --village-bark: #3d2b23;
+  --village-bamboo: #557335;
+  --village-bamboo-light: #6f8f48;
+  --village-goldfish: #c8622a;
 }
+/* Each island (and the wild path to it) has its own look, after its art on the island map: cherry blossom for Kana,
+   bamboo for Practice, an evening festival for Games. */
+.village-theme-sakura { --village-forest: #c993a0; --village-grass: #a9c985; }
+.village-theme-bamboo { --village-forest: #6f9a45; --village-grass: #93bf72; }
+.village-theme-festival { --village-sky-top: #f2a46b; --village-sky-horizon: #fbe2b8; --village-forest: #5b7f43; }
+.dark .village-theme-sakura { --village-forest: #6e4b55; --village-grass: #4f6c3f; }
+.dark .village-theme-bamboo { --village-forest: #2c4a22; }
+.dark .village-theme-festival { --village-sky-top: #2a1d3a; --village-sky-horizon: #6b3f4a; }
 
 /* The 2.5D scene (see scene3d.ts): the ground plane and everything standing on it share one 3D space. */
 .village-3d { transform-style: preserve-3d; }

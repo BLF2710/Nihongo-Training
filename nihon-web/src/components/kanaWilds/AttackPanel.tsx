@@ -29,8 +29,8 @@ export function AttackPanel({ state, hand, pool, random, onPlay, onRedraw }: Pro
   const [step, setStep] = useState<Step>({ kind: "pick" });
   // Strongest first within the hand, so the choice is still tactical.
   const ranked = useMemo(() => hand
-    .map(word => ({ word, ...previewAttack(word, state.enemy.vowel, state.timesPlayed[word.japanese] ?? 0) }))
-    .sort((a, b) => b.damage - a.damage), [hand, state.enemy.vowel, state.timesPlayed]);
+    .map(word => ({ word, ...previewAttack(state, word) }))
+    .sort((a, b) => b.damage - a.damage), [hand, state]);
 
   const pick = (word: BattleWord) => setStep({ kind: "reading", word, choices: readingChoices(word, pool, random) });
   const finish = (play: WordPlay) => { setStep({ kind: "pick" }); onPlay(play); };

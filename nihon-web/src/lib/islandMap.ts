@@ -62,11 +62,13 @@ export const ISLANDS: readonly Island[] = [
     { label: "Listening", href: "/listening", description: "Words, sentences and dialogues." },
     { label: "Speaking", href: "/speaking", description: "Say it aloud and get checked." },
     { label: "Reading", href: "/reading", description: "Short passages with questions." },
+    { label: "The riverside path (かわべ)", href: "/wilds/home-practice?from=home", description: "Walk here from Home: wild kana by the river, and Tama's challenge." },
   ] },
   { id: "games", isBridged: true, name: "Games", mark: "遊", tagline: "Play in Japanese.", destinations: [
     { label: "Island Errands", href: "/games/errands", description: "Walk the village and run errands in Japanese." },
     { label: "Particle Drop", href: "/games/particles", description: "Fill in は, を, に… against the clock." },
     { label: "Kana speed quiz", href: "/practice?type=hiragana", description: "Read kana as fast as you can." },
+    { label: "The forest path (もり)", href: "/wilds/home-games?from=home", description: "Walk here from Home: wild kana in the woods, and Pon's challenge." },
   ] },
   { id: "review", isBridged: true, name: "Review", mark: "復", tagline: "Keep what you have learned.", destinations: [
     { label: "Daily review", href: "/srs", description: "Spaced repetition for your words and kanji." },
@@ -82,7 +84,8 @@ export const ISLANDS: readonly Island[] = [
     { label: "Hiragana", href: "/learn/hiragana", description: "Flashcards, stroke order and writing." },
     { label: "Katakana", href: "/learn/katakana", description: "Flashcards, stroke order and writing." },
     { label: "Kana review", href: "/review/hiragana", description: "Characters you still find hard." },
-    { label: "Kana Wilds", href: "/games/kana-wilds", description: "Battle wild kana and catch them." },
+    { label: "The meadow path (のはら)", href: "/wilds/home-kana?from=home", description: "Walk here from Home: wild kana in the grass, and Chun's challenge." },
+    { label: "Kana Wilds", href: "/games/kana-wilds", description: "Your kana collection, and quick battles." },
   ] },
   { id: "fuji", isBridged: false, name: "Progress", mark: "進", tagline: "Your climb from N5 to N1.", destinations: [
     { label: "Choose your level", href: "/levels", description: "Move up when you are ready." },

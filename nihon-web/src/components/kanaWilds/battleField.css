@@ -92,29 +92,18 @@
 .dark .kw-attack-card { border-color: #8a97ab; background: #f4f1ff; }
 .kw-attack-card path { animation: kw-stroke-in 0.35s ease-out both; }
 
-.kw-player-avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: clamp(4.5rem, 13dvh, 6.5rem);
-  aspect-ratio: 1;
-  border: 4px solid #fff;
-  border-radius: 9999px;
-  overflow: hidden;
-  font-size: clamp(2rem, 6dvh, 3rem);
-  font-weight: 900;
-  color: #fff;
-  background: linear-gradient(135deg, #10b981, #4f46e5);
-  box-shadow: 0 6px 14px -6px rgb(0 0 0 / 0.45);
-}
+/* The traveller stands on its platform, as tall as the enemy card is, so the two read as a pair. */
+.kw-player-traveller { height: 100%; filter: drop-shadow(0 6px 6px rgb(0 0 0 / 0.25)); }
 /* Braced after a redraw: a steady blue guard until the enemy's attack. */
-.kw-player-avatar[data-braced="true"] { box-shadow: 0 0 0 4px #93c5fd, 0 0 18px #60a5fa; }
-.kw-player-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.kw-player-traveller[data-braced="true"] { filter: drop-shadow(0 0 6px #60a5fa) drop-shadow(0 0 12px #93c5fd); }
+/* The compact field (catching) is short: a slightly smaller traveller, a little lower, so the enemy's HP box doesn't cover its hat. */
+.kw-field[data-compact="true"] .kw-sprite--player { bottom: 6%; }
+.kw-field[data-compact="true"] .kw-player-traveller { height: 80%; }
 
 /* The cue wrapper fills its sprite. */
 .kw-cue { position: relative; display: flex; align-items: center; justify-content: center; }
-/* The enemy card is sized by the sprite box, so its wrapper takes the box's full height. */
-.kw-sprite--enemy > .kw-cue { height: 100%; align-items: flex-end; }
+/* The enemy card and the traveller are sized by the sprite box, so their wrappers take the box's full height. */
+.kw-sprite--enemy > .kw-cue, .kw-sprite--player > .kw-cue { height: 100%; align-items: flex-end; }
 .kw-enter-enemy { animation: kw-enter 0.6s ease-out both; }
 .kw-enter-player { animation: kw-enter-player 0.5s ease-out both; }
 
@@ -259,7 +248,6 @@
   .kw-sprite--enemy { right: 4%; width: 34%; }
   .kw-platform--enemy { right: 2%; width: 40%; }
   .kw-enemy-card { border-radius: 0.75rem; }
-  .kw-player-avatar { width: clamp(3.5rem, 9dvh, 4.5rem); font-size: 1.75rem; border-width: 3px; }
   .kw-sprite--player { left: 4%; }
 }
 

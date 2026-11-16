@@ -1,16 +1,22 @@
 // The village's ground, in tiles: what each tile is and which ones the traveller can walk on.
 // Pure (no React, no browser), so it runs under node's test runner.
 
-export type Terrain = "grass" | "path" | "gravel" | "water" | "bridge" | "tree" | "fence" | "flowers";
+/** `tallgrass` grows on the wild paths: walking into it can start a wild kana battle (see lib/world/grassEncounters).
+ *  `sakura` (cherry trees) and `bamboo` stand like trees; `petals` is grass strewn with fallen blossom; `goldfish` is
+ *  a festival pond. */
+export type Terrain =
+  | "grass" | "path" | "gravel" | "water" | "bridge" | "tree" | "fence" | "flowers" | "tallgrass"
+  | "sakura" | "bamboo" | "petals" | "goldfish";
 export type TileKey = `${number},${number}`;
 export type Rect = { x: number; y: number; width: number; height: number };
 export type TownMap = { width: number; height: number; terrain: readonly (readonly Terrain[])[] };
 
 /** One character per tile in a map's rows. */
 export const TERRAIN_LEGEND: Readonly<Record<string, Terrain>> = {
-  ".": "grass", "=": "path", ",": "gravel", "~": "water", b: "bridge", T: "tree", f: "fence", "*": "flowers",
+  ".": "grass", "=": "path", ",": "gravel", "~": "water", b: "bridge", T: "tree", f: "fence", "*": "flowers", w: "tallgrass",
+  S: "sakura", B: "bamboo", p: "petals", g: "goldfish",
 };
-const BLOCKING_TERRAIN: ReadonlySet<Terrain> = new Set(["water", "tree", "fence"]);
+const BLOCKING_TERRAIN: ReadonlySet<Terrain> = new Set(["water", "tree", "fence", "sakura", "bamboo", "goldfish"]);
 
 export class TownMapError extends Error {
   constructor(message: string) { super(message); this.name = "TownMapError"; }
@@ -47,10 +53,21 @@ export function blockedTiles(map: TownMap, obstacles: readonly Rect[]): Readonly
   return blocked;
 }
 
+/** The terrain at a tile, or null outside the map. */
+export function terrainAt(map: TownMap, x: number, y: number): Terrain | null {
+  return map.terrain[y]?.[x] ?? null;
+}
+
 /** Whether a tile is blocked; everything outside the map counts as blocked. */
 export function isBlocked(map: TownMap, blocked: ReadonlySet<TileKey>, x: number, y: number): boolean {
   if (x < 0 || y < 0 || x >= map.width || y >= map.height) return true;
   return blocked.has(tileKey(x, y));
+}
+
+/** The same map with some tiles changed to `terrain` (such as a gap cut through a row of trees). */
+export function withTerrain(map: TownMap, tiles: readonly { x: number; y: number }[], terrain: Terrain): TownMap {
+  const changed = new Set(tiles.map(({ x, y }) => tileKey(x, y)));
+  return { ...map, terrain: map.terrain.map((row, y) => row.map((tile, x) => (changed.has(tileKey(x, y)) ? terrain : tile))) };
 }
 
 /** The unbroken runs of one terrain along each row, left to right (a row of trees is drawn as one piece). */

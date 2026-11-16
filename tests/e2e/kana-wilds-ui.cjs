@@ -18,24 +18,28 @@ const MAX_TURNS = 60;
       const context = await browser.newContext({ viewport });
       await context.addInitScript(t => { localStorage.setItem('token', t); localStorage.setItem('app_language', 'japanese'); localStorage.setItem('user_role', 'learner'); localStorage.setItem('user_handle', 'kai'); }, token);
       const sent = { starter: [], catches: [], practice: [], answers: [] };
-      const state = { collection: { ...collection, kanaIds: [...collection.kanaIds] }, romajiById: {} };
+      // Answers so far, by kana id (あ well practised, い a little); /quiz/answer adds to them, as the server would.
+      const state = { collection: { ...collection, kanaIds: [...collection.kanaIds] }, romajiById: {}, counts: { 1: { correct: 50, wrong: 0 }, 2: { correct: 5, wrong: 0 } } };
+      const withAnswers = data => ({ ...data, beatenChallengers: [], answers: data.kanaIds.map(kanaId => ({ kanaId, ...(state.counts[kanaId] ?? { correct: 0, wrong: 0 }) })) });
       await context.route('http://localhost:5000/api/**', async route => {
         const request = route.request(), p = new URL(request.url()).pathname.replace('/api', ''), json = (data, status = 200) => route.fulfill({ status, json: data });
         if (p === '/site') return json({ registration_enabled: true, announcement: '', disabled: [] });
-        if (p === '/kana-wilds/collection') return failCollection ? json({ message: 'Server error' }, 500) : json(state.collection);
+        if (p === '/kana-wilds/collection') return failCollection ? json({ message: 'Server error' }, 500) : json(withAnswers(state.collection));
         if (p === '/kana-wilds/starter') {
           const { starter } = request.postDataJSON(); sent.starter.push(starter);
-          state.collection = { starter, kanaIds: [...VOWELS, STARTER_IDS[starter]] }; return json(state.collection, 201);
+          state.collection = { starter, kanaIds: [...VOWELS, STARTER_IDS[starter]] }; return json(withAnswers(state.collection), 201);
         }
         if (p === '/kana-wilds/catches') {
           const { kanaId } = request.postDataJSON(); sent.catches.push(kanaId);
           const isNew = !state.collection.kanaIds.includes(kanaId);
           if (isNew) state.collection = { ...state.collection, kanaIds: [...state.collection.kanaIds, kanaId] };
-          return json({ ...state.collection, isNew, reward: null });
+          return json({ ...withAnswers(state.collection), isNew, reward: null });
         }
         if (p === '/quiz/answer') {
           const body = request.postDataJSON(); sent.answers.push(body);
           const correctAnswer = state.romajiById[body.kanaId];
+          const count = state.counts[body.kanaId] ?? { correct: 0, wrong: 0 };
+          state.counts[body.kanaId] = body.answer === correctAnswer ? { ...count, correct: count.correct + 1 } : { ...count, wrong: count.wrong + 1 };
           return json({ correct: body.answer === correctAnswer, correctAnswer, type: 'hiragana' });
         }
         if (p === '/activity/practice') { sent.practice.push(request.postDataJSON()); return json({ recorded: true, currentStreak: 1, reward: null }); }
@@ -193,7 +197,9 @@ const MAX_TURNS = 60;
     await page.getByRole('button', { name: /^か \(ka\)/ }).click();
     await page.getByText('6 / 46').waitFor();
     assert.deepEqual(sent.starter, ['ka']);
-    assert.equal(await page.getByRole('cell', { name: 'か caught' }).count(), 1);
+    assert.equal(await page.getByRole('cell', { name: 'か caught, level 1 of 5' }).count(), 1, 'a new kana is level 1');
+    assert.equal(await page.getByRole('cell', { name: 'あ caught, level 5 of 5' }).count(), 1, 'levels come from the answers');
+    assert.equal(await page.getByRole('cell', { name: 'い caught, level 2 of 5' }).count(), 1);
     assert.equal(await page.getByRole('cell', { name: 'ki not caught yet' }).count(), 1);
     const wordCount = Number((await page.getByText(/Your kana spell/).innerText()).match(/\d+/)[0]);
     assert.ok(wordCount >= 5, 'the vowels and か spell some course words: ' + wordCount);
@@ -202,7 +208,7 @@ const MAX_TURNS = 60;
 
     // ---- a battle won by tracing (one sloppy trace first: drawn backwards, it breaks free)
     const answers = await loadAnswers(page, state);
-    await page.getByRole('button', { name: 'Explore the tall grass →' }).click();
+    await page.getByRole('button', { name: 'Quick battle' }).click();
     let attackShot = false;
     const first = await fight(page, answers, { catchBy: 'trace', sloppyFirstTrace: true, redrawFirst: true, onAttack: async () => {
       if (attackShot) return; attackShot = true;
@@ -232,7 +238,7 @@ const MAX_TURNS = 60;
     await page.getByRole('cell', { name: `${first.enemy.kana} caught` }).waitFor();
 
     // ---- a second battle, caught with the keyboard alternative (no drawing)
-    await page.getByRole('button', { name: 'Explore the tall grass →' }).click();
+    await page.getByRole('button', { name: 'Quick battle' }).click();
     const second = await fight(page, answers, { catchBy: 'keyboard' });
     assert.notEqual(second.enemy.id, first.enemy.id, 'a caught kana is no longer wild while others are');
     await page.getByRole('heading', { name: `You caught ${second.enemy.kana}!` }).waitFor();
@@ -264,7 +270,7 @@ const MAX_TURNS = 60;
     assert.ok(await fitsScreen(page), 'the collection fits a phone');
     await page.screenshot({ path: path.join(shots, 'kana-wilds-phone-hub.png') });
     const phoneAnswers = await loadAnswers(page, state);
-    await page.getByRole('button', { name: 'Explore the tall grass →' }).click();
+    await page.getByRole('button', { name: 'Quick battle' }).click();
     let phoneShot = false;
     await fight(page, phoneAnswers, { catchBy: 'trace', onAttack: async () => {
       if (phoneShot) return; phoneShot = true;
@@ -274,6 +280,6 @@ const MAX_TURNS = 60;
     assert.equal(sent.catches.length, 1);
     assert.deepEqual(errors, []); await context.close();
 
-    console.log('PASS: Kana Wilds — load error with retry; starter choice (か/さ/た with their word counts) gives the vowels plus the starter; the collection table; wild kana from the first rows still incomplete, hidden at first and shown stroke by stroke; attacks with course words read right (and meaning for criticals); its moveset kana and words blocked by reading, kana graded by the server with fresh submission ids; catching opens at a lower chance; a backwards trace breaks free, a good trace catches; picking the kana catches without drawing; catches saved and filled in; battles saved as N5 practice (not when run from at once); rematch; one screen at 1366×768 and 390×844; no page errors.');
+    console.log('PASS: Kana Wilds — load error with retry; starter choice (か/さ/た with their word counts) gives the vowels plus the starter; the collection table with mastery levels from the answers; wild kana from the first rows still incomplete, hidden at first and shown stroke by stroke; attacks with course words read right (and meaning for criticals); its moveset kana and words blocked by reading, kana graded by the server with fresh submission ids; catching opens at a lower chance; a backwards trace breaks free, a good trace catches; picking the kana catches without drawing; catches saved and filled in; battles saved as N5 practice (not when run from at once); rematch; one screen at 1366×768 and 390×844; no page errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 2000)); process.exitCode = 1; });

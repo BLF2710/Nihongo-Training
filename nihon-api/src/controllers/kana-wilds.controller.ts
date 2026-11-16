@@ -10,3 +10,6 @@ export const chooseStarter = action(async (req, res) => res.status(201).json(awa
 
 export const catchKana = action(async (req, res) => res.json(await kanaWildsService.catchKana(getUserId(req), req.body?.kanaId)),
   { label: "Kana Wilds catch", message: "Could not save the catch. You can safely retry." });
+
+export const recordChallengerWin = action(async (req, res) => res.json(await kanaWildsService.recordChallengerWin(getUserId(req), req.params.challengerId)),
+  { label: "Kana Wilds challenger win", message: "Could not save your win. You can safely retry." });

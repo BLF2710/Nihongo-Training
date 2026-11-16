@@ -1,14 +1,14 @@
 // One battle against a wild kana (docs/KANA-BATTLE.md sections 4–7). Pure state transitions: the screen asks the
 // questions, then hands each result to these functions.
 import type { Vowel, WildKana } from "./gojuon.ts";
+import { NO_LEVELS, wordPower } from "./mastery.ts";
+import type { KanaLevels } from "./mastery.ts";
 import { MATCHUP_MULTIPLIER, matchup, vowelOfWord } from "./vowelCircle.ts";
 import type { Matchup } from "./vowelCircle.ts";
 import type { BattleWord } from "./words.ts";
 
 export const PLAYER_MAX_HP = 30;
 export const ENEMY_MAX_HP = 20;
-/** Each kana in a word adds this much power. */
-export const TILE_POWER = 3;
 export const CRITICAL_MULTIPLIER = 1.25;
 /** Playing the same word again in one battle multiplies its power by this each time. */
 export const FATIGUE_FACTOR = 0.5;
@@ -26,7 +26,8 @@ export const CATCH_TOLERANCE = { strictest: 15, loosest: 27 } as const;
 export const BRACED_DAMAGE_FACTOR = 0.5;
 
 export type Phase = "attack" | "defend" | "over";
-export type Outcome = "caught" | "fled" | "lost" | "ran";
+/** "won": a kana that can't be caught (already collected, or a challenger's) worn out to 0 HP. */
+export type Outcome = "caught" | "fled" | "lost" | "ran" | "won";
 /** How the player met an enemy attack: read right before it finished drawing, read right after, or read wrong. */
 export type DefenceResult = "perfect" | "blocked" | "missed";
 export type BattleEvent =
@@ -40,7 +41,11 @@ export type BattleEvent =
 
 export type BattleState = {
   readonly enemy: WildKana;
+  /** The player's kana levels as the battle began; a word's power comes from its kana's levels. */
+  readonly kanaLevels: KanaLevels;
   readonly isCatchable: boolean;
+  /** A wild kana hides until its strokes show; a challenger's kana is in the open from the start. */
+  readonly isHidden: boolean;
   readonly enemyHp: number;
   readonly playerHp: number;
   /** The vowel of the word last played; the enemy's attacks are judged against it. */
@@ -55,9 +60,17 @@ export type BattleState = {
   readonly lastEvent: BattleEvent | null;
 };
 
-export function startBattle(enemy: WildKana, isCatchable: boolean): BattleState {
+export type BattleSetup = {
+  isCatchable: boolean;
+  isHidden?: boolean;
+  kanaLevels?: KanaLevels;
+  /** A challenge's later rounds start with the HP the player has left. */
+  playerHp?: number;
+};
+
+export function startBattle(enemy: WildKana, { isCatchable, isHidden = true, kanaLevels = NO_LEVELS, playerHp = PLAYER_MAX_HP }: BattleSetup): BattleState {
   return {
-    enemy, isCatchable, enemyHp: ENEMY_MAX_HP, playerHp: PLAYER_MAX_HP, stance: null, isBraced: false, timesPlayed: {}, catchTries: 0,
+    enemy, kanaLevels, isCatchable, isHidden, enemyHp: ENEMY_MAX_HP, playerHp, stance: null, isBraced: false, timesPlayed: {}, catchTries: 0,
     phase: "attack", outcome: null, readings: { answered: 0, correct: 0 }, lastEvent: null,
   };
 }
@@ -69,10 +82,11 @@ const counted = (state: BattleState, isCorrect: boolean) =>
 export const isExhausted = (state: BattleState) => state.enemyHp === 0;
 const turnAfterPlayer = (state: BattleState): Phase => (isExhausted(state) ? "attack" : "defend");
 
-/** What a word would do to this enemy: its damage and the matchup, for showing the choices before playing one. */
-export function previewAttack(word: BattleWord, enemyVowel: Vowel | null, timesPlayed: number, isCritical = false) {
-  const wordMatchup = matchup(vowelOfWord(word.japanese), enemyVowel);
-  const power = [...word.japanese].length * TILE_POWER * MATCHUP_MULTIPLIER[wordMatchup] * FATIGUE_FACTOR ** timesPlayed;
+/** What a word would do to this enemy now: its damage and the matchup, for showing the choices before playing one. */
+export function previewAttack(state: BattleState, word: BattleWord, isCritical = false) {
+  const wordMatchup = matchup(vowelOfWord(word.japanese), state.enemy.vowel);
+  const timesPlayed = state.timesPlayed[word.japanese] ?? 0;
+  const power = wordPower(word.japanese, state.kanaLevels) * MATCHUP_MULTIPLIER[wordMatchup] * FATIGUE_FACTOR ** timesPlayed;
   return { damage: Math.max(1, Math.round(power * (isCritical ? CRITICAL_MULTIPLIER : 1))), matchup: wordMatchup };
 }
 
@@ -83,7 +97,7 @@ export function playWord(state: BattleState, play: { word: BattleWord; isReading
   const timesPlayed = { ...state.timesPlayed, [word.japanese]: (state.timesPlayed[word.japanese] ?? 0) + 1 };
   const base = { ...state, timesPlayed, stance: vowelOfWord(word.japanese), readings: counted(state, isReadingCorrect) };
   if (!isReadingCorrect) return { ...base, phase: turnAfterPlayer(state), lastEvent: { kind: "fizzle", word: word.japanese } };
-  const { damage, matchup: wordMatchup } = previewAttack(word, state.enemy.vowel, state.timesPlayed[word.japanese] ?? 0, isMeaningCorrect);
+  const { damage, matchup: wordMatchup } = previewAttack(state, word, isMeaningCorrect);
   const hit = { ...base, enemyHp: Math.max(0, state.enemyHp - damage) };
   return { ...hit, phase: turnAfterPlayer(hit), lastEvent: { kind: "hit", word: word.japanese, damage, matchup: wordMatchup, isCritical: isMeaningCorrect } };
 }
@@ -151,6 +165,11 @@ export function attemptCatch(state: BattleState, isTraceAccepted: boolean, roll:
 }
 
 export const runAway = (state: BattleState): BattleState => (state.phase === "over" ? state : end(state, "ran"));
+
+/** Whether the player has worn out a kana they can't catch, and only has to claim the win. */
+export const canFinish = (state: BattleState) => state.phase === "attack" && isExhausted(state) && !state.isCatchable;
+
+export const finishBattle = (state: BattleState): BattleState => (canFinish(state) ? end(state, "won") : state);
 
 function end(state: BattleState, outcome: Outcome): BattleState {
   return { ...state, phase: "over", outcome, lastEvent: { kind: "ended", outcome } };

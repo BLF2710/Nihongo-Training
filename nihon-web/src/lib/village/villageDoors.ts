@@ -4,8 +4,9 @@ import { TALK_DISTANCE, nearestWithin } from "../errands/movement.ts";
 import type { Vector } from "../errands/movement.ts";
 import type { CharacterId } from "../cast.ts";
 
-/** `tile` is the tile in front of the door, where the traveller stands to go in. */
-export type Door = { id: string; tile: Vector; href: string; label: string };
+/** `tile` is the tile in front of the door, where the traveller stands to go in; `action` names going through it
+ *  ("Enter" when not given). */
+export type Door = { id: string; tile: Vector; href: string; label: string; action?: string };
 
 export type NearbyThing =
   | { kind: "villager"; id: CharacterId }

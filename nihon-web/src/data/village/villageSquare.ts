@@ -1,15 +1,30 @@
 // The village square (ひろば): the whole island cast, each in front of their building, as a way into the site. It's
-// laid out on Island Errands' village, with nothing closed off: the square has no story, so no gates.
+// laid out on Island Errands' village, with nothing closed off: the square has no story, so no gates. Three of its
+// roads run on out of the village (a gap in the trees), each onto a wild path to an island.
 // What they say comes from lib/village/villageNews; this is only where everything stands.
 import { MATSURI_LANTERNS, MATSURI_MAP } from "../errands/matsuriVillage.ts";
+import type { Vector } from "../../lib/errands/movement.ts";
+import { withTerrain } from "../../lib/errands/townMap.ts";
 import type { VillageLayout } from "../../lib/errands/village.ts";
 import type { Door } from "../../lib/village/villageDoors.ts";
+import { routeHref } from "../../lib/world/routes.ts";
+import type { RouteId } from "../../lib/world/routes.ts";
+
+/** A road out of the square: where it leaves the map (cut through the trees), the gate tile at its end, where the
+ *  traveller appears coming back off the path, and what the gate says. */
+type RoadOut = { route: RouteId; gap: readonly Vector[]; gate: Vector; arrival: Vector; label: string };
+
+const ROADS_OUT: readonly RoadOut[] = [
+  { route: "home-kana", gap: [{ x: 35, y: 15 }, { x: 35, y: 16 }], gate: { x: 34, y: 15 }, arrival: { x: 32, y: 15 }, label: "The meadow path (のはら), east to the Kana island" },
+  { route: "home-practice", gap: [{ x: 26, y: 0 }, { x: 27, y: 0 }], gate: { x: 26, y: 1 }, arrival: { x: 26, y: 3 }, label: "The riverside path (かわべ), north to the Practice island" },
+  { route: "home-games", gap: [{ x: 8, y: 23 }, { x: 9, y: 23 }], gate: { x: 8, y: 22 }, arrival: { x: 8, y: 20 }, label: "The forest path (もり), south to the Games island" },
+];
 
 /** The learner's own house: its sign shows their name (see lib/village/homeSign). */
 export const HOME_BUILDING_ID = "home";
 
 export const VILLAGE_SQUARE: VillageLayout = {
-  map: MATSURI_MAP,
+  map: withTerrain(MATSURI_MAP, ROADS_OUT.flatMap(road => road.gap), "path"),
   start: { x: 18, y: 16 },
   buildings: [
     { id: "teahouse", x: 11, y: 2, width: 5, height: 3, sign: "茶", label: "The tea house: the study assistant", roof: "moss", look: "teahouse" },
@@ -43,6 +58,13 @@ export const VILLAGE_SQUARE: VillageLayout = {
   ],
 };
 
+/** The end of a road out of the square, where a wild path begins. */
+const pathGate = ({ route, gate, label }: RoadOut): Door => ({ id: `path-${route}`, tile: gate, href: routeHref(route, "home"), label, action: "Go" });
+
 export const VILLAGE_DOORS: readonly Door[] = [
   { id: "home", tile: { x: 22, y: 12 }, href: "/profile", label: "Your house" },
+  ...ROADS_OUT.map(pathGate),
 ];
+
+/** Where the traveller appears coming back off a wild path: just inside the end of its road (null for no such path). */
+export const villageArrivalFrom = (routeId: string): Vector | null => ROADS_OUT.find(road => road.route === routeId)?.arrival ?? null;

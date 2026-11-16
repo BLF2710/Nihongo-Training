@@ -24,16 +24,20 @@ function rememberPlace(key: string, place: Place) {
   try { sessionStorage.setItem(key, JSON.stringify(place)); } catch { /* only a convenience */ }
 }
 
-/** Walking around a village with every gate open: where the traveller stands and faces. */
-export function useVillageWalk(layout: VillageLayout, rememberKey: string) {
+/** Walking around a village with every gate open: where the traveller stands and faces. With a `rememberKey` the spot
+ *  is kept for this tab, so coming back to the page puts them where they were; without one they start at
+ *  `layout.start` each time. An `arrival` (coming in by a road, say) overrides the remembered spot. */
+export function useVillageWalk(layout: VillageLayout, rememberKey: string | null, arrival: Vector | null = null) {
   const blocked = useMemo(() => blockedTilesWithOpenGates(layout, layout.gates.map(gate => gate.id)), [layout]);
   const [place, setPlace] = useState<Place>(() => {
-    const recalled = recallPlace(rememberKey);
+    if (arrival) return { position: arrival, facing: "down" };
+    const recalled = rememberKey ? recallPlace(rememberKey) : null;
     // A spot remembered from before the village changed can be inside a building now.
     const isStandable = recalled && !isBlocked(layout.map, blocked, Math.floor(recalled.position.x), Math.floor(recalled.position.y));
     return recalled && isStandable ? recalled : { position: layout.start, facing: "down" };
   });
   useEffect(() => {
+    if (!rememberKey) return;
     const timer = setTimeout(() => rememberPlace(rememberKey, place), REMEMBER_DELAY_MS);
     return () => clearTimeout(timer);
   }, [place, rememberKey]);

@@ -1,12 +1,12 @@
 import { ENEMY_MAX_HP, PLAYER_MAX_HP, isExhausted } from "../../lib/kanaWilds/battle";
 import type { BattleEvent, BattleState } from "../../lib/kanaWilds/battle";
 import { beatenBy, beats } from "../../lib/kanaWilds/vowelCircle";
-import { avatarUrl } from "../../lib/avatar";
 import { getUserName } from "../../lib/authStorage";
-import { useUserAvatar } from "../../lib/userAvatar";
+import { TravellerArt } from "../islandMap/Traveller";
 import { ENEMY_IMPACT_MS, PLAYER_IMPACT_MS, useDelayedValue } from "./motion";
 import { StrokeKana } from "./StrokeKana";
 import type { EnemyReveal } from "./enemyReveal";
+import "../islandMap/IslandMap.css";
 import "./battleField.css";
 
 /** HP at or below this share shows red, as a warning. */
@@ -35,12 +35,9 @@ function HpBox({ side, name, tag, hp, maxHp, detail, impactMs }: HpBoxProps) {
   </div>;
 }
 
-function PlayerAvatar({ isBraced }: { isBraced: boolean }) {
-  const avatar = useUserAvatar();
-  const name = getUserName() ?? "";
-  return <div className="kw-player-avatar" data-braced={isBraced} aria-hidden="true">
-    {avatar ? <img src={avatarUrl(avatar)} alt="" /> : [...(name.trim() || "?")][0]?.toUpperCase()}
-  </div>;
+/** The learner's traveller from the island map, facing the wild kana; braced, it glows behind a guard. */
+function PlayerTraveller({ isBraced }: { isBraced: boolean }) {
+  return <div className="island-map kw-player-traveller" data-braced={isBraced} aria-hidden="true"><TravellerArt /></div>;
 }
 
 /** What the scene plays for a turn: which side moves, which is struck, and the effects. */
@@ -62,27 +59,28 @@ function Projectile({ event }: { event: BattleEvent | null }) {
 /** The wild kana as a card: blank with a question mark at first, then its strokes as it weakens. */
 const strokesText = (count: number) => `${count} ${count === 1 ? "stroke" : "strokes"}`;
 
-function describeEnemyCard(state: BattleState, { shown, total, isRevealed, isCountShown }: EnemyReveal): string {
-  if (isRevealed) return `Wild ${state.enemy.kana}`;
+function describeEnemyCard(enemyName: string, { shown, total, isRevealed, isCountShown }: EnemyReveal): string {
+  if (isRevealed) return enemyName;
   // The total is a clue of its own, so it is only told once the card shows it.
   return isCountShown ? `Hidden kana, ${shown} of ${strokesText(total)} shown` : "Hidden kana, no strokes shown";
 }
 
 /** The wild kana as a card: blank with a question mark at first, then its stroke count, then its strokes as it weakens. */
-function EnemyCard({ state, reveal }: { state: BattleState; reveal: EnemyReveal }) {
-  return <div className="kw-enemy-card" data-exhausted={isExhausted(state)} role="img" aria-label={describeEnemyCard(state, reveal)}>
+function EnemyCard({ state, reveal, enemyName }: { state: BattleState; reveal: EnemyReveal; enemyName: string }) {
+  return <div className="kw-enemy-card" data-exhausted={isExhausted(state)} role="img" aria-label={describeEnemyCard(enemyName, reveal)}>
     {reveal.shown === 0 ? <span className="kw-enemy-mystery" aria-hidden="true">？</span> : <StrokeKana kana={state.enemy.kana} shown={reveal.shown} className="kw-enemy-strokes" />}
     {reveal.isCountShown && !reveal.isRevealed && <span className="kw-stroke-count" aria-hidden="true">{strokesText(reveal.total)}</span>}
   </div>;
 }
 
-type Props = { state: BattleState; reveal: EnemyReveal; cue: BattleEvent | null; turn: number; isCompact: boolean };
+/** `enemyName` is what the kana is called once it shows itself ("Wild あ", or "Chun's あ"). */
+type Props = { state: BattleState; reveal: EnemyReveal; enemyName: string; cue: BattleEvent | null; turn: number; isCompact: boolean };
 
 /**
  * The battle scene: the wild kana top right, the learner bottom left, an HP box for each. Each turn plays out on it:
  * a word flies and bursts on the kana, or the kana lunges and the blow lands on the learner or a shield.
  */
-export function BattleField({ state, reveal, cue: lastEvent, turn, isCompact }: Props) {
+export function BattleField({ state, reveal, enemyName, cue: lastEvent, turn, isCompact }: Props) {
   const { enemy } = state;
   const cues = cuesOf(lastEvent);
   const enemyDetail = enemy.vowel ? `weak to -${beatenBy(enemy.vowel)}, resists -${beats(enemy.vowel)}` : "no weakness";
@@ -92,7 +90,7 @@ export function BattleField({ state, reveal, cue: lastEvent, turn, isCompact }: 
     {/* The sprites slide in once; everything keyed by the turn replays for each new turn. */}
     <div className="kw-sprite kw-sprite--enemy kw-enter-enemy">
       <div key={turn} className={`kw-cue ${cues.enemy}`}>
-        <EnemyCard state={state} reveal={reveal} />
+        <EnemyCard state={state} reveal={reveal} enemyName={enemyName} />
         {lastEvent?.kind === "blocked" && lastEvent.counterDamage > 0 && <span className="kw-damage" aria-hidden="true">−{lastEvent.counterDamage}</span>}
         {lastEvent?.kind === "hit" && <>
           <span className="kw-burst" data-variant={cues.burst} aria-hidden="true" />
@@ -102,7 +100,7 @@ export function BattleField({ state, reveal, cue: lastEvent, turn, isCompact }: 
     </div>
     <div className="kw-sprite kw-sprite--player kw-enter-player">
       <div key={turn} className={`kw-cue kw-cue--player ${cues.player}`}>
-        <PlayerAvatar isBraced={state.isBraced} />
+        <PlayerTraveller isBraced={state.isBraced} />
         {lastEvent?.kind === "hurt" && <>
           <span className="kw-burst" data-variant="hurt" aria-hidden="true" />
           <span className="kw-damage" aria-hidden="true">−{lastEvent.damage}</span>
@@ -115,7 +113,7 @@ export function BattleField({ state, reveal, cue: lastEvent, turn, isCompact }: 
     </div>
     <Projectile key={`projectile-${turn}`} event={lastEvent} />
     {lastEvent?.kind === "hurt" && <span key={`flash-${turn}`} className="kw-hurt-flash" aria-hidden="true" />}
-    <HpBox side="enemy" name={reveal.isRevealed ? `Wild ${enemy.kana}` : "Wild ？"} tag={enemy.vowel ? `-${enemy.vowel}` : null} hp={state.enemyHp} maxHp={ENEMY_MAX_HP} detail={enemyDetail} impactMs={ENEMY_IMPACT_MS} />
+    <HpBox side="enemy" name={reveal.isRevealed ? enemyName : "Wild ？"} tag={enemy.vowel ? `-${enemy.vowel}` : null} hp={state.enemyHp} maxHp={ENEMY_MAX_HP} detail={enemyDetail} impactMs={ENEMY_IMPACT_MS} />
     <HpBox side="player" name={getUserName() || "You"} tag={state.stance ? `-${state.stance}` : null} hp={state.playerHp} maxHp={PLAYER_MAX_HP} detail={state.isBraced ? "braced" : state.stance ? "stance" : ""} impactMs={PLAYER_IMPACT_MS} />
   </div>;
 }

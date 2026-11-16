@@ -1,7 +1,7 @@
 import { useVillageShortcuts } from "../lib/village/useVillageShortcuts";
 import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { IslandLand, IslandWater } from "../components/islandMap/IslandArt";
 import { HomeSummary, IslandPanel, ISLAND_PANEL_ID } from "../components/islandMap/IslandPanel";
@@ -12,6 +12,7 @@ import { AskSensei, FujiClimb, HarbourFriends, OnsenBadges, TimeChooser } from "
 import { FishingBoat, FloatingLantern, SailingBoat, SceneryAbove, SceneryBelow } from "../components/islandMap/Scenery";
 import { Sea } from "../components/islandMap/Sea";
 import { MapTraveller } from "../components/islandMap/Traveller";
+import { WildPathMarkers } from "../components/islandMap/WildPathMarkers";
 import { useIslandMapData } from "../components/islandMap/useIslandMapData";
 import { useMapTimeOfDay } from "../components/islandMap/useMapTimeOfDay";
 import { TIMES_OF_DAY } from "../lib/timeOfDay";
@@ -23,7 +24,7 @@ import { IslandLabel, Placed } from "../components/islandMap/MapStage";
 import { islandLayer, MAP_LAYER, stageSize, useElementSize } from "../components/islandMap/stageLayout";
 import { COURSE_LEVELS, inLevel, levelOfId, useCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
-import { backdropCamera, BRIDGED_ISLANDS, bridgeDirections, cameraTransform, climbProgress, homeIsletDirection, courseProgress, islandState, ISLANDS, isBehindHome, layoutFor, nextCourseStep } from "../lib/islandMap";
+import { backdropCamera, BRIDGED_ISLANDS, bridgeDirections, cameraTransform, climbProgress, homeIsletDirection, courseProgress, islandState, ISLANDS, isBehindHome, isIslandId, layoutFor, nextCourseStep } from "../lib/islandMap";
 import type { IslandId, IslandPlacement, MapLayout, Point, Size } from "../lib/islandMap";
 import { useEmailReminder } from "../lib/emailReminder";
 import { pagodaFinialTop } from "../lib/pagoda";
@@ -36,13 +37,21 @@ const CAMERA_TARGET_LANDSCAPE = { x: 0.33, y: 0.5 };
 const CAMERA_TARGET_PORTRAIT = { x: 0.5, y: 0.27 };
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--vermilion)]";
 
+/** The island to open the map on: the one a wild path was left towards (router state `{ island }`), if any. */
+function arrivalIsland(state: unknown): IslandId | null {
+  if (typeof state !== "object" || state === null || !("island" in state)) return null;
+  const { island } = state;
+  return typeof island === "string" && isIslandId(island) ? island : null;
+}
+
 export default function IslandMapPage() {
   useVillageShortcuts("map");
   const level = useCourseLevel();
   const { units, profile, srs, friends, overview, kanaStatistics } = useIslandMapData();
   const mapTime = useMapTimeOfDay();
   const inbox = useInboxSummary();
-  const [selectedId, setSelectedId] = useState<IslandId | null>(null);
+  const location = useLocation();
+  const [selectedId, setSelectedId] = useState<IslandId | null>(() => arrivalIsland(location.state));
   const [isLetterOpen, setIsLetterOpen] = useState(false);
   const emailReminder = useEmailReminder();
   const pigeonRef = useRef<HTMLButtonElement>(null);
@@ -184,6 +193,7 @@ export default function IslandMapPage() {
               </Placed>;
             })}
           </ul>
+          <WildPathMarkers layout={layout} />
           <div className="pointer-events-none absolute inset-0" style={{ zIndex: MAP_LAYER.traveller }}><MapTraveller layout={layout} stage={stage} destination={selectedId} /></div>
           <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ zIndex: MAP_LAYER.labels }}>
             {ISLANDS.map(island => <IslandLabel key={island.id} layout={layout} id={island.id} isFogged={!isOpen(island.id)} badge={badgeOf(island.id)} />)}

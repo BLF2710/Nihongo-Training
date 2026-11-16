@@ -38,6 +38,7 @@ function ProfileView() {
       <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-gray-100 pt-4 text-sm">
         <Link to={`/u/${encodeURIComponent(profile.username)}`} className={profileButton}>See your public profile →</Link>
         <Link to="/friends" className={profileButton}>Friends →</Link>
+        <Link to="/traveller" className={profileButton}>Dress your traveller →</Link>
         <Link to="/settings/privacy" className="text-gray-600 hover:underline">{VISIBILITY_SUMMARY[profile.profile_visibility]}</Link>
       </div>
     </section><section className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">{[[`Level ${profile.level}`, `${profile.xp} XP`], ["Rank", profile.rank], ["Streak", `${profile.current_streak} ${profile.current_streak === 1 ? "day" : "days"}${profile.longest_streak ? ` · best ${profile.longest_streak}` : ""}`], ["Lessons", `${profile.lessons_completed} completed`]].map(([label, value]) => <div key={label} className="room-panel p-5"><p className="text-xs font-bold uppercase text-gray-400">{label}</p><p className="mt-2 text-xl font-black">{value}</p></div>)}</section><ProgressCards profile={profile} /></></main></div></div>;
