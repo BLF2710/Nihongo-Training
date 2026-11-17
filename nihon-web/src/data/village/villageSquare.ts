@@ -1,5 +1,5 @@
 // The village square (ひろば): the whole island cast, each in front of their building, as a way into the site. It's
-// laid out on Island Errands' village, with nothing closed off: the square has no story, so no gates. Four of its
+// laid out on Island Errands' village, with nothing closed off: the square has no story, so no gates. Five of its
 // roads run on out of the village (a gap in the trees), each onto a wild path to an island, on the side of the village
 // the island lies on the map (the path's heading).
 // What they say comes from lib/village/villageNews; this is only where everything stands.
@@ -17,7 +17,9 @@ type RoadOut = { route: RouteId; gap: readonly Vector[]; gate: Vector; arrival: 
 
 const ROADS_OUT: readonly RoadOut[] = [
   { route: "home-kana", gap: [{ x: 35, y: 15 }, { x: 35, y: 16 }], gate: { x: 34, y: 15 }, arrival: { x: 32, y: 15 }, label: "The meadow path (のはら), east to the Kana island" },
-  { route: "home-practice", gap: [{ x: 0, y: 15 }, { x: 0, y: 16 }], gate: { x: 1, y: 15 }, arrival: { x: 3, y: 15 }, label: "The riverside path (かわべ), west to the Practice island" },
+  // Two roads leave westward: the Practice island lies north-west of Home on the map, the Review island south-west.
+  { route: "home-practice", gap: [{ x: 0, y: 5 }, { x: 0, y: 6 }], gate: { x: 1, y: 5 }, arrival: { x: 4, y: 6 }, label: "The riverside path (かわべ), west to the Practice island" },
+  { route: "home-review", gap: [{ x: 0, y: 15 }, { x: 0, y: 16 }], gate: { x: 1, y: 15 }, arrival: { x: 3, y: 15 }, label: "The pine path (まつみち), west to the Review island" },
   { route: "home-games", gap: [{ x: 8, y: 23 }, { x: 9, y: 23 }], gate: { x: 8, y: 22 }, arrival: { x: 8, y: 20 }, label: "The forest path (もり), south to the Games island" },
   { route: "home-lessons", gap: [{ x: 26, y: 0 }, { x: 27, y: 0 }], gate: { x: 26, y: 1 }, arrival: { x: 27, y: 4 }, label: "The stone path (いしみち), north to the Lessons island" },
 ];

@@ -4,12 +4,19 @@
 import type { VillageLayout } from "../errands/village.ts";
 import type { IslandId } from "../islandMap.ts";
 import type { Door } from "../village/villageDoors.ts";
+import type { Vector } from "../errands/movement.ts";
 import type { ChallengerId } from "./challenges.ts";
-import type { SceneTheme } from "./sceneTheme.ts";
+import type { RouteId } from "./routes.ts";
+import type { SceneTheme, Surroundings } from "./sceneTheme.ts";
 
-/** `layout.villagers` holds the challenger, standing where they can be walked up to; `doors` include the way back.
- *  `theme` is the island's look. */
+/** `layout.villagers` holds the challenger, standing where they can be walked up to; `doors` include the way back
+ *  and any path on. `arrivals` says where the traveller appears coming off each path (by its bridge). `theme` is the
+ *  island's look, and `surroundings` what lies round it (water, or for Fuji clouds). */
 export type IslandScene = {
-  island: IslandId; name: string; japaneseName: string; theme: SceneTheme;
-  layout: VillageLayout; doors: readonly Door[]; challenger: ChallengerId;
+  island: IslandId; name: string; japaneseName: string; theme: SceneTheme; surroundings: Surroundings;
+  layout: VillageLayout; doors: readonly Door[]; challenger: ChallengerId; arrivals: readonly { route: RouteId; tile: Vector }[];
 };
+
+/** Where the traveller appears coming off the path `routeId`: by its bridge, or at the island's start for any other. */
+export const islandArrivalFrom = (scene: IslandScene, routeId: string): Vector =>
+  scene.arrivals.find(arrival => arrival.route === routeId)?.tile ?? scene.layout.start;

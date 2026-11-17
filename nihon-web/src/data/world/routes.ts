@@ -40,6 +40,8 @@ const HOME_KANA: WildRoute = {
     { tile: { x: 1, y: 6 }, arrival: { x: 4, y: 7 }, island: "home", label: "Back to the village" },
     { tile: { x: 34, y: 6 }, arrival: { x: 32, y: 7 }, island: "kana", label: "On to the Kana island" },
   ],
+  travel: "foot",
+  grass: "own-rows",
   wildRows: ["vowels", "k"],
 };
 
@@ -79,6 +81,8 @@ const HOME_PRACTICE: WildRoute = {
     { tile: { x: 1, y: 6 }, arrival: { x: 4, y: 7 }, island: "practice", label: "On to the Practice island" },
   ],
   // Quiet until Chun is beaten: then the さ and た rows come.
+  travel: "foot",
+  grass: "own-rows",
   wildRows: [],
   rewardRows: { rows: ["s", "t"], until: "chun" },
 };
@@ -142,6 +146,8 @@ const HOME_GAMES: WildRoute = {
     { tile: { x: 7, y: 1 }, arrival: { x: 8, y: 4 }, island: "home", label: "Back to the village" },
     { tile: { x: 7, y: 34 }, arrival: { x: 8, y: 31 }, island: "games", label: "On to the Games island" },
   ],
+  travel: "foot",
+  grass: "own-rows",
   wildRows: ["n", "h"],
 };
 
@@ -205,10 +211,93 @@ const HOME_LESSONS: WildRoute = {
     { tile: { x: 7, y: 1 }, arrival: { x: 8, y: 4 }, island: "lessons", label: "On to the Lessons island" },
   ],
   // Quiet until Tama is beaten: then the rest of the table comes.
+  travel: "foot",
+  grass: "own-rows",
   wildRows: [],
   rewardRows: { rows: ["m", "y", "r", "w", "final-n"], until: "tama" },
 };
 
-export const WILD_ROUTES: readonly WildRoute[] = [HOME_KANA, HOME_PRACTICE, HOME_GAMES, HOME_LESSONS];
+/** まつみち, the pine path west from Home to the Review island: a garden walk between pines, past raked gravel, mossy
+ *  rocks and a pond with stepping stones. Its band of tall grass (columns 14–15) holds only kana already caught, from
+ *  every path's rows: a review on the way to review. */
+const HOME_REVIEW: WildRoute = {
+  id: "home-review",
+  theme: "zen",
+  name: "The pine path",
+  japaneseName: "まつみち",
+  between: ["home", "review"],
+  heading: "west",
+  layout: {
+    map: parseTownMap([
+      "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+      "PPPP...zzzzzzzwwPP...zzzzzzzzz..PPPP",
+      "PPP...zzkzzzzzww.....zzzzkzzzz...PPP",
+      "PPP...zzzzzkzzww.P...zzzzzzzzz...PPP",
+      "~~~...zzzzzzzzww.....zzkzzzzzz...~~~",
+      "~~~...........ww.k...............~~~",
+      "bbb===========ww=================bbb",
+      "bbb===========ww=================bbb",
+      "~~~.....oo....ww...........oo....~~~",
+      "~~~..~~~~~oo..wwzzzzzzzz..oo.....~~~",
+      "PPP.~~~~~~~o..wwkzzzzkzz..o..P...PPP",
+      "PPP..~~~~k..oowwzzzzzzzzzoo...P..PPP",
+      "PPPP..P.......wwzzzzzzzz.......PPPPP",
+      "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+    ]),
+    start: { x: 32, y: 7 },
+    lanterns: [{ x: 15, y: 5 }, { x: 22, y: 8 }],
+    ...NOTHING_STANDING,
+  },
+  exits: [
+    { tile: { x: 34, y: 6 }, arrival: { x: 32, y: 7 }, island: "home", label: "Back to the village" },
+    { tile: { x: 1, y: 6 }, arrival: { x: 4, y: 7 }, island: "review", label: "On to the Review island" },
+  ],
+  travel: "foot",
+  grass: "review",
+  wildRows: [],
+};
+
+/** わたしぶね, the ferry west from the Practice island to Fuji, the furthest out. Fuji has no bridge on the island map,
+ *  so the way is by boat: rowed from the Practice island's pier, past rocks, to Fuji's snowy shore. Its rough water (a
+ *  band across at columns 16–19, and a patch to the south-east) holds every row open on the other paths, caught or
+ *  not: everything, as Kurama's team is. */
+const PRACTICE_FUJI: WildRoute = {
+  id: "practice-fuji",
+  theme: "mountain",
+  name: "The ferry",
+  japaneseName: "わたしぶね",
+  between: ["practice", "fuji"],
+  heading: "west",
+  travel: "boat",
+  layout: {
+    map: parseTownMap([
+      "nPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkBB",
+      "nPksskkssssssssssvvsssssssssssssskBB",
+      "nPkssssssssssssssvvsssssssssssssskBB",
+      "nPkssssssskkssssvvvsssssssssssssskBB",
+      "nPksssssssksssssvvvsssssskksssssskBB",
+      "nPksssssssssssssvvvsssssssssssssskBB",
+      "jjjjsssssssssssssvvsssssssssssssjjjj",
+      "jjjjsssssssssssssvvsssssssssssssjjjj",
+      "nPkssssssssssssssvvvssssssssssssskBB",
+      "nPkssssssssssssssvvvsssvvvvsssssskBB",
+      "nPkssssskksssssssvvvsssvvvvsssssskBB",
+      "nPkssssssssssssssvvssssvvvvsssssskBB",
+      "nPkssssssssssksssvvssssssssskkssskBB",
+      "nPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkBB",
+    ]),
+    start: { x: 28, y: 7 },
+    lanterns: [],
+    ...NOTHING_STANDING,
+  },
+  exits: [
+    { tile: { x: 31, y: 6 }, arrival: { x: 28, y: 7 }, island: "practice", label: "Step ashore on the Practice island" },
+    { tile: { x: 4, y: 6 }, arrival: { x: 7, y: 7 }, island: "fuji", label: "Step ashore on Fuji" },
+  ],
+  grass: "every-open-row",
+  wildRows: [],
+};
+
+export const WILD_ROUTES: readonly WildRoute[] = [HOME_KANA, HOME_PRACTICE, HOME_GAMES, HOME_LESSONS, HOME_REVIEW, PRACTICE_FUJI];
 
 export const routeById = (id: string): WildRoute | null => WILD_ROUTES.find(route => route.id === id) ?? null;

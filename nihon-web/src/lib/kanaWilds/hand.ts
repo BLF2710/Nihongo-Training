@@ -1,6 +1,7 @@
 // The hand of words dealt for each attack turn (instead of always offering the strongest words). Slots make sure
 // every hand has words worth having for different reasons; any slot with no candidates is filled at random.
 import { shuffle } from "../random.ts";
+import { tilesOf } from "./gojuon.ts";
 import type { Vowel } from "./gojuon.ts";
 import { matchup, vowelOfWord } from "./vowelCircle.ts";
 import type { BattleWord } from "./words.ts";
@@ -28,7 +29,7 @@ const SLOTS: readonly Slot[] = [
   { count: 2, fits: (word, { enemyVowel }) => matchup(vowelOfWord(word.japanese), enemyVowel) === "strong" },
   { count: 1, fits: (word, { newWords }) => newWords.has(word.japanese) },
   { count: 1, fits: (word, { missedWords }) => missedWords.has(word.japanese) },
-  { count: 1, fits: word => [...word.japanese].length <= SHORT_WORD_LENGTH },
+  { count: 1, fits: word => tilesOf(word.japanese).length <= SHORT_WORD_LENGTH },
 ];
 
 export function dealHand(source: HandSource, random: () => number): BattleWord[] {

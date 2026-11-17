@@ -14,6 +14,8 @@ for (const needle of ['routes/kana-wilds.routes.ts', 'routes/activity.routes.ts'
 
 const tail = String.raw`    const L = 'learner';
     const VOWELS = [1, 2, 3, 4, 5], KA = 6, SA = 11, KI = 7, N = 46, GA = 47, GI = 48, DA = 57, ZA = 52;
+    // The small-kana combinations き and ぎ evolve into: きゃ きゅ きょ (72–74), ぎゃ ぎゅ ぎょ (93–95).
+    const KYA = [72, 73, 74], GYA = [93, 94, 95];
     const collection = (as = L) => call('GET', '/kana-wilds/collection', { as });
     const starter = (body, as = L) => call('POST', '/kana-wilds/starter', { as, body });
     const caught = (kanaId, as = L) => call('POST', '/kana-wilds/catches', { as, body: { kanaId } });
@@ -52,7 +54,7 @@ const tail = String.raw`    const L = 'learner';
     assert.deepEqual(answered.find(row => row.kanaId === KA), { kanaId: KA, correct: 3, wrong: 1 }, 'か: three right, one wrong');
     assert.deepEqual(answered.find(row => row.kanaId === KI), { kanaId: KI, correct: 1, wrong: 0 });
     assert.deepEqual(answered.find(row => row.kanaId === GA), { kanaId: GA, correct: 1, wrong: 0 }, 'an evolution of a collected kana has its answers, for its own level');
-    assert.deepEqual(answered.map(row => row.kanaId).sort((a, b) => a - b), [...VOWELS, KA, KI, GA, GI], 'only collected kana and what they evolve into (not だ)');
+    assert.deepEqual(answered.map(row => row.kanaId).sort((a, b) => a - b), [...VOWELS, KA, KI, GA, GI, ...KYA, ...GYA], 'only collected kana and what they evolve into, small kana too, by way of ぎ (not だ)');
     assert.deepEqual((await collection('ben')).data.answers, fresh([...VOWELS, SA, ZA]), 'answers are per learner');
     assert.deepEqual((await caught(KI)).data.answers.find(row => row.kanaId === KA), { kanaId: KA, correct: 3, wrong: 1 }, 'a catch returns the answers too');
     // Challengers: a win is recorded once (XP the first time), per learner, and only for a known challenger.
@@ -73,12 +75,14 @@ const tail = String.raw`    const L = 'learner';
     assert.equal(ponWin.data.isNew, true, 'pon is a real challenger');
     assert.ok(!ponWin.data.reward.achievements.includes('sharp_eyes'), 'Sharp Eyes is a skill in the game, not an achievement');
     assert.equal((await won('sensei')).data.isNew, true, 'sensei is a real challenger');
-    assert.deepEqual([...(await collection()).data.beatenChallengers].sort(), ['chun', 'pon', 'sensei', 'tama']);
+    assert.equal((await won('zen')).data.isNew, true, 'zen is a real challenger');
+    assert.equal((await won('kurama')).data.isNew, true, 'kurama is a real challenger');
+    assert.deepEqual([...(await collection()).data.beatenChallengers].sort(), ['chun', 'kurama', 'pon', 'sensei', 'tama', 'zen']);
     // A finished battle is recorded as practice (graded in the browser, like the other games).
     const battle = await call('POST', '/activity/practice', { as: L, body: { kind: 'battle', scope: 'N5', answered: 6, correct: 5 } });
     assert.equal(battle.status, 201, JSON.stringify(battle.data));
     assert.equal((await call('POST', '/activity/practice', { as: L, body: { kind: 'battle', scope: 'N5', answered: 2, correct: 2 } })).status, 400, 'too short to count');
-    console.log('PASS: sign-in required; empty collection; no catch before a starter; bad starters refused; starter gives the vowels plus its kana; one starter only; only basic hiragana catchable; the さ/た rows held back until Chun is beaten and the rest (ん too) until Tama; a new catch pays XP, a repeat changes nothing; per-learner collections; each collected kana’s right and wrong answers (from the quiz), only for collected kana and what they evolve into, per learner; challenger wins (Sensei too) recorded once with XP, no Sharp Eyes achievement, per learner, known challengers only, after a starter; battles recorded as practice. Rolled back.');
+    console.log('PASS: sign-in required; empty collection; no catch before a starter; bad starters refused; starter gives the vowels plus its kana; one starter only; only basic hiragana catchable; the さ/た rows held back until Chun is beaten and the rest (ん too) until Tama; a new catch pays XP, a repeat changes nothing; per-learner collections; each collected kana’s right and wrong answers (from the quiz), only for collected kana and what they evolve into (voiced and small kana), per learner; challenger wins (Sensei, Zen and Kurama too) recorded once with XP, no Sharp Eyes achievement, per learner, known challengers only, after a starter; battles recorded as practice. Rolled back.');
   } finally { await queue.catch(() => {}); await client.query('ROLLBACK').catch(() => {}); client.release(); await new Promise(r => server ? server.close(r) : r()); await pool.end(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1500)); process.exitCode = 1; });
 `;

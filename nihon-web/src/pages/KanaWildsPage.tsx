@@ -4,6 +4,7 @@ import { GuideNote } from "../components/cast/GuideNote";
 import { IslandBoard } from "../components/theme/IslandBoard";
 import { CollectionBoard } from "../components/kanaWilds/CollectionBoard";
 import { StarterChoice } from "../components/kanaWilds/StarterChoice";
+import { EvolutionMoment } from "../components/kanaWilds/EvolutionMoment";
 import { WildBattleScreen } from "../components/kanaWilds/WildBattleScreen";
 import { primaryButton, secondaryButton, sheet } from "../components/kanaWilds/styles";
 import { COURSE_BATTLE_WORDS } from "../lib/kanaWilds/courseWords";
@@ -19,8 +20,8 @@ const [FIRST_ROUTE] = WILD_ROUTES;
 /** Kana Wilds: your collection, and battles against wild hiragana (on a wild path, or a quick battle from here). */
 export default function KanaWildsPage() {
   const battles = useWildBattles(random);
-  const { collection: { state, retry, chooseStarter, actionError }, ownedIds, kanaLevels, words, screen, explore, close, canEvolve, evolved, ownedCharacters } = battles;
-  const evolutions = { canEvolve, evolved, pending: canEvolve ? pendingEvolutions(ownedCharacters, kanaLevels) : [] };
+  const { collection: { state, retry, chooseStarter, actionError }, ownedIds, kanaLevels, words, screen, explore, close, evolutionKinds, evolved, ownedCharacters } = battles;
+  const evolutions = { kinds: evolutionKinds, evolved, pending: pendingEvolutions(ownedCharacters, kanaLevels, evolutionKinds) };
   const quickBattle = () => explore(allWildRows(WILD_ROUTES, battles.beatenChallengers));
   const isInBattle = screen.kind === "battle";
   return <div className="min-h-screen bg-gray-50 text-gray-900"><Navbar island={isInBattle ? undefined : "kana"} /><main className="mx-auto w-full max-w-5xl px-4 py-2 sm:px-6 sm:py-3">
@@ -32,6 +33,7 @@ export default function KanaWildsPage() {
       {!state.collection.starter && <StarterChoice words={COURSE_BATTLE_WORDS} onChoose={chooseStarter} />}
       {state.collection.starter && screen.kind === "none" && <section className={`${sheet} grid gap-3 md:gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] md:items-center`} aria-labelledby="hub-heading">
         <h2 id="hub-heading" className="sr-only">Your kana</h2>
+        <EvolutionMoment moment={battles.evolutionMoment.moment} onShown={battles.evolutionMoment.markShown} onDismiss={battles.evolutionMoment.dismiss} className="md:col-span-2" />
         <div>
           <GuideNote character="chun" mood="happy"><p>Spell words with your kana to attack. Read a wild kana to block it, then trace it to catch it!</p></GuideNote>
           <p className="mt-2 text-sm text-gray-600">Your kana spell <b>{words.length}</b> course words. Each catch opens more.</p>

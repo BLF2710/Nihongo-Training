@@ -75,6 +75,7 @@ export const ISLANDS: readonly Island[] = [
     { label: "Daily review", href: "/srs", description: "Spaced repetition for your words and kanji." },
     { label: "Mistake notebook", href: "/mistakes", description: "Practise the questions you got wrong." },
     { label: "Unit review", href: "/review", description: "Mixed questions per unit or level." },
+    { label: "The pine path (まつみち)", href: "/wilds/home-review?from=home", description: "Walk here from Home: a quiet garden path, and Zen's challenge." },
   ] },
   { id: "kanji", isBridged: true, name: "Kanji", mark: "漢", tagline: "Meanings, readings and strokes.", destinations: [
     { label: "Kanji list", href: "/learn/kanji", description: "Your level's kanji and their mastery." },
@@ -89,6 +90,7 @@ export const ISLANDS: readonly Island[] = [
     { label: "Kana Wilds", href: "/games/kana-wilds", description: "Your kana collection, and quick battles." },
   ] },
   { id: "fuji", isBridged: false, name: "Progress", mark: "進", tagline: "Your climb from N5 to N1.", destinations: [
+    { label: "The ferry (わたしぶね)", href: "/wilds/practice-fuji?from=practice", description: "Row over from the Practice island's pier: wild kana from every path in the rough water, and Kurama's challenge on Fuji." },
     { label: "Choose your level", href: "/levels", description: "Move up when you are ready." },
     { label: "Mock exam", href: "/mock-exam", description: "A timed end-of-level exam." },
     { label: "Your statistics", href: "/statistics/japanese", description: "Accuracy, time studied and test results." },

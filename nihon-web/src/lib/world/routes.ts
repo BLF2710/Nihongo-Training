@@ -1,4 +1,5 @@
-// A wild path: a walkable route from the home village to an island, with tall grass where wild kana live.
+// A wild path: a way from the home village (or an island) to an island, walked through tall grass or rowed over rough
+// water, where wild kana live.
 // Types and pure lookups; each path's map is content in data/world/routes.
 import type { IslandId } from "../islandMap.ts";
 import type { Vector } from "../errands/movement.ts";
@@ -8,7 +9,7 @@ import { HIRAGANA_ROWS } from "../kanaWilds/gojuon.ts";
 import type { ChallengerId } from "./challenges.ts";
 import type { SceneTheme } from "./sceneTheme.ts";
 
-export type RouteId = "home-kana" | "home-practice" | "home-games" | "home-lessons";
+export type RouteId = "home-kana" | "home-practice" | "home-games" | "home-lessons" | "home-review" | "practice-fuji";
 
 /** A compass direction on the island map (north is up). */
 export type Heading = "north" | "south" | "east" | "west";
@@ -22,14 +23,25 @@ export const OPPOSITE_HEADING: Readonly<Record<Heading, Heading>> = { north: "so
 export type RouteExit = { tile: Vector; arrival: Vector; island: IslandId; label: string };
 
 /**
- * `between` names the islands at its two ends: Home, then the island it leads to (its bridge on the map runs between
- * them). `heading` is the way the island lies from Home on the island map, which is the way the path runs: Home's end
- * on the opposite side. `wildRows` are the hiragana rows living in its grass from the start; `rewardRows` join them
- * once the player beats a challenger (docs/KANA-BATTLE.md section 9). `theme` is the look of the island it leads to.
+ * What lives in a path's tall grass: its own rows (`wildRows`, joined by `rewardRows` once won); every row open on
+ * those paths, to catch from anywhere (the ferry to Fuji); or the same rows, but only kana already caught, for review
+ * (the pine path).
+ */
+export type GrassKind = "own-rows" | "every-open-row" | "review";
+
+/** How the way is travelled: walked, through tall grass; or rowed in a boat over the sea, through rough water. */
+export type Travel = "foot" | "boat";
+
+/**
+ * `between` names the islands at its two ends: where it starts (Home, or for a path further out the island before
+ * it), then the island it leads to. `heading` is the way that island lies from the start on the island map, which is
+ * the way the path runs: the start's end on the opposite side. `wildRows` are the hiragana rows living in its grass
+ * from the start; `rewardRows` join them once the player beats a challenger (docs/KANA-BATTLE.md section 9). `theme` is
+ * the look of the island it leads to.
  */
 export type WildRoute = {
   id: RouteId; name: string; japaneseName: string; between: readonly [IslandId, IslandId]; heading: Heading; theme: SceneTheme;
-  layout: VillageLayout; exits: readonly RouteExit[]; wildRows: readonly string[]; rewardRows?: RewardRows;
+  travel: Travel; layout: VillageLayout; exits: readonly RouteExit[]; grass: GrassKind; wildRows: readonly string[]; rewardRows?: RewardRows;
 };
 
 /** Rows held back from a path's grass until the player beats `until`. The API holds the same kana back from catches
@@ -79,6 +91,10 @@ export function openRowsOf(route: WildRoute, beaten: ReadonlySet<ChallengerId>):
 export function allWildRows(routes: readonly WildRoute[], beaten: ReadonlySet<ChallengerId>): string[] {
   return inTableOrder(routes.flatMap(route => openRowsOf(route, beaten)));
 }
+
+/** The rows a path's grass draws from now: its own, or (for every-open-row and review grass) every path's. */
+export const grassRowsOf = (route: WildRoute, routes: readonly WildRoute[], beaten: ReadonlySet<ChallengerId>): string[] =>
+  route.grass === "own-rows" ? openRowsOf(route, beaten) : allWildRows(routes, beaten);
 
 /** The path whose grass beating this challenger fills, if any. */
 export const routeRewardedBy = (routes: readonly WildRoute[], challenger: ChallengerId): (WildRoute & { rewardRows: RewardRows }) | undefined =>

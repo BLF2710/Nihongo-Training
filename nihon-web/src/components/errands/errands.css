@@ -7,6 +7,8 @@
   --village-gravel: #ece5d4;
   --village-gravel-dot: #cfc4ab;
   --village-water: #6fb3cf;
+  --village-sea-deep: #4f93b4;
+  --village-foam: #f4fbff;
   --village-water-light: #b7e0ee;
   --village-wood: #8a6a4a;
   --village-wood-light: #b08a62;
@@ -39,6 +41,22 @@
   --village-blossom-light: #fde0e6;
   --village-blossom-deep: #d9849a;
   --village-bark: #5b4034;
+  --village-pine: #2f5a3a;
+  --village-pine-light: #5f8a55;
+  --village-snow: #f4f7fa;
+  --village-snow-shade: #d3dde8;
+  /* The backdrop beyond a scene's far edge (components/errands/backdrops): far hills, nearer ones, the nearest; clouds;
+     mountain peaks; a cliff where ground drops to clouds. Each look sets its own. */
+  --backdrop-far: #9fb8cf;
+  --backdrop-mid: #8aa7bf;
+  --backdrop-near: #79a85c;
+  --backdrop-sun: #fbf3dc;
+  --village-cloud: #e4ecf3;
+  --village-cloud-light: #f8fbfd;
+  --village-cliff: #7d8794;
+  --village-peak: #5a7390;
+  --village-peak-shade: #445a73;
+  --village-peak-far: #93a9bf;
   --village-bamboo: #7da34a;
   --village-bamboo-light: #a5c76a;
   --village-goldfish: #f07a32;
@@ -55,6 +73,8 @@
   --village-gravel: #77715f;
   --village-gravel-dot: #625c4c;
   --village-water: #2d5466;
+  --village-sea-deep: #22445a;
+  --village-foam: #9fb9c8;
   --village-water-light: #4e7f94;
   --village-wood: #6b5139;
   --village-wood-light: #85674a;
@@ -87,6 +107,20 @@
   --village-blossom-light: #d4a8b2;
   --village-blossom-deep: #8f5a68;
   --village-bark: #3d2b23;
+  --village-pine: #1f3a27;
+  --village-pine-light: #3d5c37;
+  --village-snow: #b9c2cc;
+  --village-snow-shade: #96a1ae;
+  --backdrop-far: #2c3a4c;
+  --backdrop-mid: #263444;
+  --backdrop-near: #2f4627;
+  --backdrop-sun: #c9c4ae;
+  --village-cloud: #46525e;
+  --village-cloud-light: #56636f;
+  --village-cliff: #2a3038;
+  --village-peak: #2e3a47;
+  --village-peak-shade: #232d38;
+  --village-peak-far: #3c4855;
   --village-bamboo: #557335;
   --village-bamboo-light: #6f8f48;
   --village-goldfish: #c8622a;
@@ -96,21 +130,48 @@
 }
 /* Each island (and the wild path to it) has its own look, after its art on the island map: cherry blossom for Kana,
    bamboo for Practice, an evening festival for Games. */
-.village-theme-sakura { --village-forest: #c993a0; --village-grass: #a9c985; }
-.village-theme-bamboo { --village-forest: #6f9a45; --village-grass: #93bf72; }
-.village-theme-festival { --village-sky-top: #f2a46b; --village-sky-horizon: #fbe2b8; --village-forest: #5b7f43; }
+.village-theme-sakura { --village-forest: #c993a0; --village-grass: #a9c985; --backdrop-far: #cdb6cf; --backdrop-mid: #a98aa8; --backdrop-near: #94b878; }
+.village-theme-bamboo { --village-forest: #6f9a45; --village-grass: #93bf72; --backdrop-far: #a4c3a0; --backdrop-near: #3f6a2c; }
+.village-theme-festival { --village-sky-top: #f2a46b; --village-sky-horizon: #fbe2b8; --village-forest: #5b7f43; --backdrop-far: #9a6a86; --backdrop-near: #4d4a6a; }
 /* The Lessons island: a temple school in an autumn maple garden, under a clear, cool sky. */
-.village-theme-maple { --village-sky-top: #a9cbe0; --village-sky-horizon: #f3e6cf; --village-forest: #b5562f; --village-grass: #b7b56e; --village-grass-tuft: #8f8a4c; }
+.village-theme-maple { --village-sky-top: #a9cbe0; --village-sky-horizon: #f3e6cf; --village-forest: #b5562f; --village-grass: #b7b56e; --village-grass-tuft: #8f8a4c; --backdrop-far: #c9a37e; --backdrop-mid: #8f5a3c; --backdrop-near: #a8673a; }
+/* The Review island: a zen garden of raked gravel among pines, under a pale, still sky. */
+.village-theme-zen { --village-sky-top: #c6d3d6; --village-sky-horizon: #eef0e6; --village-forest: #3f5e46; --village-grass: #8fae7c; --village-grass-tuft: #6d8b5c; --backdrop-far: #d3dbd6; --backdrop-mid: #aebbb2; --backdrop-near: #84998a; }
+/* Fuji and the ferry to it: snow lying everywhere (the ground itself is snow), rocks, a high cold sky, snow falling. */
+.village-theme-mountain, .village-theme-summit { --village-sky-top: #9fc0dc; --village-sky-horizon: #e9f0f5; --village-forest: #56636e; --village-grass: var(--village-snow); --village-grass-tuft: var(--village-snow-shade); }
+.village-theme-mountain { --backdrop-far: #8fa5b8; }
+/* Fuji itself is high on the mountain, above a sea of clouds (its surroundings), the summit behind. */
+.village-theme-summit { --village-sky-horizon: #f2f6fa; }
+.village-theme-mountain .scenery-petal, .village-theme-summit .scenery-petal { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: #fff; box-shadow: 0 0 2px rgba(120, 140, 160, 0.6); }
 .village-theme-maple .scenery-petal { background: var(--village-maple-light); border-radius: 50% 0 50% 0; box-shadow: inset -1px -1px 0 rgba(150, 50, 30, 0.4); }
-.dark .village-theme-sakura { --village-forest: #6e4b55; --village-grass: #4f6c3f; }
-.dark .village-theme-bamboo { --village-forest: #2c4a22; }
-.dark .village-theme-festival { --village-sky-top: #2a1d3a; --village-sky-horizon: #6b3f4a; }
-.dark .village-theme-maple { --village-sky-top: #1f2a3a; --village-sky-horizon: #4a3a30; --village-forest: #5a2c1c; --village-grass: #5c5a35; --village-grass-tuft: #44422a; }
+.dark .village-theme-sakura { --village-forest: #6e4b55; --village-grass: #4f6c3f; --backdrop-far: #4a3d4f; --backdrop-mid: #3a2f3f; --backdrop-near: #364d2e; }
+.dark .village-theme-bamboo { --village-forest: #2c4a22; --backdrop-far: #2f4430; --backdrop-near: #1c3018; }
+.dark .village-theme-festival { --village-sky-top: #2a1d3a; --village-sky-horizon: #6b3f4a; --backdrop-far: #3a2840; --backdrop-near: #221c30; }
+.dark .village-theme-zen { --village-sky-top: #1c2629; --village-sky-horizon: #3a4440; --village-forest: #1f3326; --village-grass: #44573c; --village-grass-tuft: #34452e; --backdrop-far: #39443f; --backdrop-mid: #2e3833; --backdrop-near: #253029; }
+.dark .village-theme-mountain, .dark .village-theme-summit { --village-sky-top: #18222c; --village-sky-horizon: #3a4550; --village-forest: #2a323a; --village-grass: var(--village-snow); --village-grass-tuft: var(--village-snow-shade); }
+.dark .village-theme-mountain { --backdrop-far: #2f3a45; }
+.dark .village-theme-maple { --village-sky-top: #1f2a3a; --village-sky-horizon: #4a3a30; --village-forest: #5a2c1c; --village-grass: #5c5a35; --village-grass-tuft: #44422a; --backdrop-far: #3f3226; --backdrop-mid: #2f241b; --backdrop-near: #4a2a1a; }
 
 /* The 2.5D scene (see scene3d.ts): the ground plane and everything standing on it share one 3D space. */
 .village-3d { transform-style: preserve-3d; }
 .village-world { will-change: transform; pointer-events: none; }
-.village-surroundings { background: var(--village-forest); transform: translateZ(-1px); }
+.village-surroundings { transform: translateZ(-1px); }
+/* Beyond the map: the woods carrying on (crowns of trees seen from above, in the look's forest colour), open water
+   round an island, or the sea of clouds below Fuji. */
+.village-surroundings-woods {
+  background:
+    radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--village-forest) 78%, white) 0 20%, transparent 21%) 0 0 / 2.4rem 2.4rem,
+    radial-gradient(circle at 75% 70%, color-mix(in srgb, var(--village-forest) 82%, black) 0 24%, transparent 25%) 0 0 / 2.4rem 2.4rem,
+    radial-gradient(circle at 20% 80%, color-mix(in srgb, var(--village-forest) 90%, white) 0 16%, transparent 17%) 1.2rem 0.6rem / 2.4rem 2.4rem,
+    var(--village-forest);
+}
+.village-surroundings-water {
+  background: radial-gradient(ellipse 34% 7% at 50% 50%, var(--village-water-light) 0 55%, transparent 60%) 0 0 / 4.5rem 2.6rem,
+    radial-gradient(ellipse 30% 6% at 50% 50%, var(--village-water-light) 0 55%, transparent 60%) 2.25rem 1.3rem / 4.5rem 2.6rem, var(--village-water);
+}
+.village-surroundings-clouds {
+  background: radial-gradient(ellipse 50% 32% at 30% 55%, var(--village-cloud-light) 60%, transparent 62%) 0 0 / 7rem 3.5rem, var(--village-cloud);
+}
 .village-haze { background: linear-gradient(var(--village-sky-horizon) 15%, transparent); opacity: 0.6; }
 .village-upright { position: absolute; transform-origin: 50% 100%; }
 

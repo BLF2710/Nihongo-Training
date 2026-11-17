@@ -1,5 +1,6 @@
 // The words a player has read wrong in battle, most recent first, so the hand can deal them again for practice.
 // Pure list updates here; where the list is kept is up to the caller.
+import { tilesOf } from "./gojuon.ts";
 
 /** The most missed words remembered; older ones drop off. */
 export const MAX_MISSED_WORDS = 40;
@@ -12,5 +13,5 @@ export function noteReading(missed: readonly string[], word: string, isCorrect: 
 
 /** The newest words: those that use a kana from the player's latest catches. */
 export function wordsUsingKana(words: readonly { japanese: string }[], kana: ReadonlySet<string>): Set<string> {
-  return new Set(words.filter(word => [...word.japanese].some(character => kana.has(character))).map(word => word.japanese));
+  return new Set(words.filter(word => tilesOf(word.japanese).some(tile => kana.has(tile))).map(word => word.japanese));
 }

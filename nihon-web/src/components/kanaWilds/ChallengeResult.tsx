@@ -29,18 +29,22 @@ const DEFENCE_TIP: Readonly<Record<DefenceStyle, string>> = {
   shout: "Listen to the whole sound, the vowel too, before you pick.",
   "stroke-reveal": "Watch the first strokes: they tell look-alikes apart early.",
   "word-attack": "Read every kana of the word, the voiced ones too: が is ga, not ka.",
+  recall: "These are your weakest kana: practise them in the grass, then say each reading to yourself before you type.",
+  brush: "A brush joins and thickens strokes: look for each kana's shape, not its printed lines.",
 };
 
 /** What a challenger's own reward does, said after a win. */
 const REWARD_TEXT: Readonly<Record<ChallengerReward, string>> = {
   "sharp-eyes": "You learned Sharp Eyes: wild kana show how many strokes they have from the start.",
-  evolution: `Your kana can evolve now: か becomes が, た becomes だ, は becomes ば (then ぱ) once you reach level ${EVOLVE_AT_LEVEL} with them.`,
+  "voiced-evolution": `Your kana can evolve now: か becomes が, た becomes だ, は becomes ば (then ぱ) once you reach level ${EVOLVE_AT_LEVEL} with them.`,
+  "katakana-wilds": "You beat the whole island cast! Your win is kept: when the katakana wilds open, you go in first.",
+  "small-kana-evolution": `Your kana can take small kana now: き becomes きゃ, きゅ and きょ, し becomes しゃ, しゅ and しょ, once you reach level ${EVOLVE_AT_LEVEL} with them.`,
 };
 
 /** What the challenger says: well done, or which kana to look at before trying again. */
-function challengerNote(challenger: Challenger, outcome: ChallengeOutcome): string {
+function challengerNote(challenger: Challenger, { outcome, team: kana }: ChallengeSummary): string {
   if (outcome === "won") return "Well read! Come back for a rematch whenever you like: the grass on the way keeps your kana sharp.";
-  const team = challenger.team.map(kana => kana.kana).join(", ");
+  const team = kana.map(item => item.kana).join(", ");
   return `My team is ${team}. ${DEFENCE_TIP[challenger.defence]} Challenge me again whenever you like.`;
 }
 
@@ -70,7 +74,7 @@ export function ChallengeResult({ challenger, summary, winSave, backLabel, onRet
     {winSave === "saving" && <p role="status" className="mt-2 text-sm text-gray-500">Saving your win…</p>}
     {winSave === "saved" && rewardText(challenger) && <p className="mt-2 font-bold text-emerald-800">{rewardText(challenger)}</p>}
     {winSave === "failed" && <p role="alert" className="mt-2 text-sm text-amber-900">Your win could not be saved. Challenge {name} again to claim it.</p>}
-    <GuideNote character={challenger.character} mood={MOOD[outcome]} className="mt-4"><p>{challengerNote(challenger, outcome)}</p><ChallengerHints summary={summary} /></GuideNote>
+    <GuideNote character={challenger.character} mood={MOOD[outcome]} className="mt-4"><p>{challengerNote(challenger, summary)}</p><ChallengerHints summary={summary} /></GuideNote>
     <div className="mt-5 flex flex-wrap gap-2">
       <button type="button" className={primaryButton} onClick={onBack}>{backLabel}</button>
       <button type="button" className={secondaryButton} onClick={onRetry}>Challenge {name} again</button>

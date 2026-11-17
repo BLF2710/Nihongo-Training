@@ -1,7 +1,7 @@
 import { HIRAGANA_ROWS } from "../../lib/kanaWilds/gojuon";
 import type { Vowel, WildKana } from "../../lib/kanaWilds/gojuon";
 import { EVOLVE_AT_LEVEL } from "../../lib/kanaWilds/evolution";
-import type { PendingEvolution } from "../../lib/kanaWilds/evolution";
+import type { EvolutionKinds, PendingEvolution } from "../../lib/kanaWilds/evolution";
 import { MASTERY_STEPS, levelOf } from "../../lib/kanaWilds/mastery";
 import type { KanaLevels, MasteryLevel } from "../../lib/kanaWilds/mastery";
 import { VOWEL_CIRCLE } from "../../lib/kanaWilds/vowelCircle";
@@ -15,22 +15,25 @@ const LEVEL_CLASS: Readonly<Record<MasteryLevel, string>> = {
   4: "bg-emerald-300 text-emerald-950", 5: "bg-emerald-400 text-emerald-950",
 };
 
-/** Evolution (docs/KANA-BATTLE.md section 9): whether it is open (Sensei beaten), the kana evolved, and those still to. */
-export type Evolutions = { canEvolve: boolean; evolved: readonly WildKana[]; pending: readonly PendingEvolution[] };
+/** Evolution (docs/KANA-BATTLE.md section 9): the kinds open (Sensei, Zen beaten), the kana evolved, and those still
+ *  to. */
+export type Evolutions = { kinds: EvolutionKinds; evolved: readonly WildKana[]; pending: readonly PendingEvolution[] };
 /** How many evolutions still to come are named. */
 const SHOWN_PENDING = 3;
 
 type Props = { ownedIds: ReadonlySet<number>; kanaLevels: KanaLevels; evolutions: Evolutions };
 
 /** The evolved kana (each with its level), and the next ones to come; or how evolution opens. */
-function EvolutionLine({ kanaLevels, evolutions: { canEvolve, evolved, pending } }: Pick<Props, "kanaLevels" | "evolutions">) {
-  if (!canEvolve) return <p className="mt-1 truncate text-xs text-gray-600" title={`Beat Sensei on the Lessons island, and each kana evolves (か → が) once it reaches level ${EVOLVE_AT_LEVEL}.`}>
+function EvolutionLine({ kanaLevels, evolutions: { kinds, evolved, pending } }: Pick<Props, "kanaLevels" | "evolutions">) {
+  if (!kinds.size) return <p className="mt-1 truncate text-xs text-gray-600" title={`Beat Sensei on the Lessons island, and each kana evolves (か → が) once it reaches level ${EVOLVE_AT_LEVEL}.`}>
     Evolution: beat Sensei on the Lessons island.</p>;
   return <div className="mt-1 flex flex-wrap items-center gap-1 text-xs text-gray-700" aria-label="Evolved kana">
     <span className="font-bold">Evolved:</span>
     {evolved.length ? evolved.map(kana => <span key={kana.id} lang="ja" className={`rounded px-1 text-sm leading-4 font-bold ${LEVEL_CLASS[levelOf(kanaLevels, kana.kana)]}`}
       title={`${kana.romaji}, level ${levelOf(kanaLevels, kana.kana)}`}>{kana.kana}</span>) : <span>none yet</span>}
-    {pending.slice(0, SHOWN_PENDING).map(({ from, to, level }) => <span key={from} className="text-gray-500"><span lang="ja">{from} → {to}</span> at level {EVOLVE_AT_LEVEL} (now {level})</span>)}
+    {pending.slice(0, SHOWN_PENDING).map(({ from, to, level }) => <span key={from} className="text-gray-500"><span lang="ja">{from} → {to.join(" ")}</span> at level {EVOLVE_AT_LEVEL} (now {level})</span>)}
+    {!kinds.has("small-kana") && <span className="text-gray-500" title={`Beat Zen on the Review island, and き, し, ち… take small kana (き → きゃ) once they reach level ${EVOLVE_AT_LEVEL}.`}>
+      Small kana (<span lang="ja">き → きゃ</span>): beat Zen on the Review island.</span>}
   </div>;
 }
 

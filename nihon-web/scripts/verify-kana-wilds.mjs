@@ -10,10 +10,10 @@ import {
   BRACED_CHOICE_COUNT, bracedDefenceChoices, bracedReadingChoices, bracedSoundChoices, catchChoices, CHOICE_COUNT, defenceChoices, LOOK_ALIKES, lookAlikeChoices, lookAlikesOf,
   meaningChoices, readingChoices, soundAlikeChoices,
 } from "../src/lib/kanaWilds/choices.ts";
-import { drawnBlock, heardBlock, pickAttack, revealBlock } from "../src/lib/kanaWilds/defenceStyles.ts";
+import { drawnBlock, heardBlock, pickAttack, revealBlock, typedReading } from "../src/lib/kanaWilds/defenceStyles.ts";
 import { MAX_HINTS, mistakeHints } from "../src/lib/kanaWilds/mistakes.ts";
-import { EVOLVE_AT_LEVEL, evolutionOf, evolvedKana, pendingEvolutions } from "../src/lib/kanaWilds/evolution.ts";
-import { isTileKana, tileKanaByCharacter, tileKanaById, VOICED_HIRAGANA } from "../src/lib/kanaWilds/gojuon.ts";
+import { EVOLVE_AT_LEVEL, evolutionsMade, evolutionsOf, evolvedKana, pendingEvolutions, unannouncedEvolutions } from "../src/lib/kanaWilds/evolution.ts";
+import { isTileKana, tilesOf, tileKanaByCharacter, tileKanaById, VOICED_HIRAGANA, YOON_HIRAGANA } from "../src/lib/kanaWilds/gojuon.ts";
 import { dealHand, HAND_SIZE, latestCatches, NEW_CATCH_COUNT, SHORT_WORD_LENGTH } from "../src/lib/kanaWilds/hand.ts";
 import { MAX_MISSED_WORDS, noteReading, wordsUsingKana } from "../src/lib/kanaWilds/missedWords.ts";
 import { pickEncounter } from "../src/lib/kanaWilds/encounters.ts";
@@ -590,6 +590,12 @@ test("a shout is always a single kana, never a word", () => {
   for (let i = 0; i < 40; i++) assert.equal(pickAttack("shout", kana("つ"), COURSE_WORDS, random).kind, "kana");
 });
 
+test("Kurama's brush attacks as a wild kana would: with the kana and with words that use it", () => {
+  const random = seeded(5);
+  const kinds = new Set(Array.from({ length: 60 }, () => pickAttack("brush", kana("か"), COURSE_WORDS, random).kind));
+  assert.deepEqual([...kinds].sort(), ["kana", "word"]);
+});
+
 test("look-alike choices are the answer and three kana that learners mix up, its own look-alikes first", () => {
   const mixedUp = new Set(LOOK_ALIKES.join(""));
   for (let seed = 1; seed < 20; seed++) {
@@ -633,34 +639,86 @@ test("hints stop at MAX_HINTS and say nothing without mistakes", () => {
 // ---- evolution (docs/KANA-BATTLE.md section 9)
 
 const levels = entries => new Map(entries);
+const VOICED = new Set(["voiced"]);
+const SMALL_KANA = new Set(["small-kana"]);
+const BOTH_KINDS = new Set(["voiced", "small-kana"]);
 
 test("the voiced kana have the catalog's ids (が = 47 … ぽ = 71), their readings and vowels", () => {
   assert.equal(VOICED_HIRAGANA.length, 25);
   assert.deepEqual([tileKanaById(47).kana, tileKanaById(62).kana, tileKanaById(71).kana], ["が", "ば", "ぽ"]);
   assert.deepEqual([tileKanaByCharacter("だ").romaji, tileKanaByCharacter("ぴ").vowel], ["da", "i"]);
-  assert.deepEqual([isTileKana("が"), isTileKana("あ"), isTileKana("きゃ"), isTileKana("ア")], [true, true, false, false]);
+  assert.deepEqual([isTileKana("が"), isTileKana("あ"), isTileKana("ア")], [true, true, false]);
+});
+
+test("the small-kana combinations have the catalog's ids (きゃ = 72 … ぴょ = 104), their readings and vowels", () => {
+  assert.equal(YOON_HIRAGANA.length, 33);
+  assert.deepEqual([tileKanaById(72), tileKanaById(76), tileKanaById(96), tileKanaById(104)].map(kana => [kana.kana, kana.romaji, kana.vowel]),
+    [["きゃ", "kya", "a"], ["しゅ", "shu", "u"], ["じゃ", "ja", "a"], ["ぴょ", "pyo", "o"]]);
+  assert.deepEqual([isTileKana("きゃ"), isTileKana("ゃ"), isTileKana("ぢゃ")], [true, false, false]);
+});
+
+test("a word's tiles join a small ゃ, ゅ or ょ to the kana before it", () => {
+  assert.deepEqual(tilesOf("きゃく"), ["きゃ", "く"]);
+  assert.deepEqual(tilesOf("としょかん"), ["と", "しょ", "か", "ん"]);
+  assert.deepEqual(tilesOf("ねこ"), ["ね", "こ"]);
+  assert.deepEqual(tilesOf("ゃ"), ["ゃ"], "a small kana with nothing before it stays alone");
 });
 
 test("each evolving kana becomes its voiced form, and ば becomes ぱ", () => {
-  assert.deepEqual(["か", "し", "と", "ふ", "ば", "あ", "な"].map(kana => evolutionOf(kana)?.kana ?? null), ["が", "じ", "ど", "ぶ", "ぱ", null, null]);
+  const formOf = kana => evolutionsOf(kana, VOICED).map(evolution => evolution.to.kana);
+  assert.deepEqual(["か", "し", "と", "ふ", "ば", "あ", "な"].map(formOf), [["が"], ["じ"], ["ど"], ["ぶ"], ["ぱ"], [], []]);
+});
+
+test("small-kana evolution turns き into きゃ, きゅ and きょ, and only once it is open", () => {
+  const formsOf = (kana, kinds) => evolutionsOf(kana, kinds).map(evolution => evolution.to.kana);
+  assert.deepEqual(formsOf("き", SMALL_KANA), ["きゃ", "きゅ", "きょ"]);
+  assert.deepEqual(formsOf("じ", SMALL_KANA), ["じゃ", "じゅ", "じょ"]);
+  assert.deepEqual([formsOf("き", VOICED), formsOf("か", SMALL_KANA), formsOf("ぢ", SMALL_KANA)], [["ぎ"], [], []]);
+});
+
+test("each evolution happens only in the kinds open", () => {
+  const owned = owning("かき");
+  const at = levels([["か", 3], ["き", 3]]);
+  assert.deepEqual(evolvedKana(owned, at, new Set()).map(kana => kana.kana), []);
+  assert.deepEqual(evolvedKana(owned, at, VOICED).map(kana => kana.kana), ["が", "ぎ"]);
+  assert.deepEqual(evolvedKana(owned, at, SMALL_KANA).map(kana => kana.kana), ["きゃ", "きゅ", "きょ"]);
+});
+
+test("a voiced kana takes small kana once it has evolved and reached the level itself: き → ぎ → ぎゃ", () => {
+  const owned = owning("き");
+  assert.deepEqual(evolvedKana(owned, levels([["き", 3]]), BOTH_KINDS).map(kana => kana.kana), ["ぎ", "きゃ", "きゅ", "きょ"]);
+  assert.deepEqual(evolvedKana(owned, levels([["き", 3], ["ぎ", 3]]), BOTH_KINDS).map(kana => kana.kana), ["ぎ", "きゃ", "きゅ", "きょ", "ぎゃ", "ぎゅ", "ぎょ"]);
+});
+
+test("each evolution made names the kana it came from", () => {
+  const made = evolutionsMade(owning("は"), levels([["は", 3], ["ば", 3]]), VOICED);
+  assert.deepEqual(made.map(({ from, to, kind }) => [from, to.kana, kind]), [["は", "ば", "voiced"], ["ば", "ぱ", "voiced"]]);
+});
+
+test("the evolution moment announces only the evolutions not announced before", () => {
+  const made = evolutionsMade(owning("かた"), levels([["か", 3], ["た", 3]]), VOICED);
+  assert.deepEqual(unannouncedEvolutions(made, new Set()).map(evolution => evolution.to.kana), ["が", "だ"]);
+  assert.deepEqual(unannouncedEvolutions(made, new Set(["が"])).map(evolution => evolution.to.kana), ["だ"]);
+  assert.deepEqual(unannouncedEvolutions(made, new Set(["が", "だ"])), []);
 });
 
 test("a kana evolves once it reaches the evolution level, and not before", () => {
   const owned = owning("かきた");
-  const evolved = evolvedKana(owned, levels([["か", EVOLVE_AT_LEVEL], ["き", EVOLVE_AT_LEVEL - 1], ["た", 5]]));
+  const evolved = evolvedKana(owned, levels([["か", EVOLVE_AT_LEVEL], ["き", EVOLVE_AT_LEVEL - 1], ["た", 5]]), VOICED);
   assert.deepEqual(evolved.map(kana => kana.kana), ["が", "だ"]);
 });
 
 test("an evolved ば goes on to ぱ once ば itself reaches the level; the base kana are kept", () => {
   const owned = owning("は");
-  assert.deepEqual(evolvedKana(owned, levels([["は", 3]])).map(kana => kana.kana), ["ば"]);
-  assert.deepEqual(evolvedKana(owned, levels([["は", 3], ["ば", 3]])).map(kana => kana.kana), ["ば", "ぱ"]);
+  assert.deepEqual(evolvedKana(owned, levels([["は", 3]]), VOICED).map(kana => kana.kana), ["ば"]);
+  assert.deepEqual(evolvedKana(owned, levels([["は", 3], ["ば", 3]]), VOICED).map(kana => kana.kana), ["ば", "ぱ"]);
   assert.ok(owned.has("は"), "the base kana stays");
 });
 
 test("evolutions still to come are listed, the closest first", () => {
-  const pending = pendingEvolutions(owning("かたあ"), levels([["か", 2], ["た", 1]]));
-  assert.deepEqual(pending, [{ from: "か", to: "が", level: 2 }, { from: "た", to: "だ", level: 1 }]);
+  const pending = pendingEvolutions(owning("かたあ"), levels([["か", 2], ["た", 1]]), VOICED);
+  assert.deepEqual(pending, [{ from: "か", to: ["が"], level: 2 }, { from: "た", to: ["だ"], level: 1 }]);
+  assert.deepEqual(pendingEvolutions(owning("し"), levels([["し", 2]]), SMALL_KANA), [{ from: "し", to: ["しゃ", "しゅ", "しょ"], level: 2 }]);
 });
 
 test("an evolved kana has its own level, from its own answers", () => {
@@ -669,8 +727,8 @@ test("an evolved kana has its own level, from its own answers", () => {
 });
 
 test("evolved kana open course words with voiced kana; a word ending in a voiced kana takes its vowel", () => {
-  const tileWords = collectBattleWords([{ japanese: "えいが", romaji: "eiga", meaning: "film" }, { japanese: "きゃく", romaji: "kyaku", meaning: "guest" }], isTileKana);
-  assert.deepEqual(tileWords.map(entry => entry.japanese), ["えいが"]);
+  const tileWords = collectBattleWords([{ japanese: "えいが", romaji: "eiga", meaning: "film" }, { japanese: "きっぷ", romaji: "kippu", meaning: "ticket" }], isTileKana);
+  assert.deepEqual(tileWords.map(entry => entry.japanese), ["えいが"], "a small っ is not a tile");
   assert.deepEqual(collectBattleWords([{ japanese: "えいが", romaji: "eiga", meaning: "film" }]), [], "basic words leave voiced ones out");
   assert.deepEqual(playableWords(tileWords, owning("えい")), []);
   assert.deepEqual(playableWords(tileWords, owning("えいが")).length, 1);
@@ -687,4 +745,21 @@ test("Sensei's word attacks are words with the kana in them, from words with voi
       assert.ok(attack.word.japanese.includes(character), attack.word.japanese);
     }
   }
+});
+
+test("small-kana tiles open words like きゃく, worth one tile each, ending in the combination's vowel", () => {
+  const tileWords = collectBattleWords([{ japanese: "きゃく", romaji: "kyaku", meaning: "guest" }, { japanese: "おちゃ", romaji: "ocha", meaning: "tea" }], isTileKana);
+  assert.deepEqual(tileWords.map(entry => entry.japanese), ["きゃく", "おちゃ"]);
+  assert.deepEqual(playableWords(tileWords, owning("きく")), [], "き alone doesn't spell きゃ");
+  assert.deepEqual(playableWords(tileWords, new Set(["きゃ", "く"])).map(entry => entry.japanese), ["きゃく"]);
+  assert.equal(wordPower("きゃく", NO_LEVELS), TILE_POWER_BY_LEVEL[1] * 2);
+  assert.equal(vowelOfWord("おちゃ"), "a");
+  assert.deepEqual([...wordsUsingKana(tileWords, new Set(["ちゃ"]))], ["おちゃ"]);
+});
+
+test("Zen's recall attacks with the kana itself, and a typed reading is compared trimmed, in lower case, composed", () => {
+  const attack = pickAttack("recall", tileKanaByCharacter("しゃ"), [], () => 0.5);
+  assert.deepEqual([attack.kind, attack.kana.kana], ["kana", "しゃ"]);
+  assert.equal(typedReading("  ShA "), "sha");
+  assert.equal(typedReading("ka\u0301"), "k\u00e1");
 });

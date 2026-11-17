@@ -18,7 +18,7 @@ export const STARTER_KANA_IDS = { ka: 6, sa: 11, ta: 16 } as const;
 export type Starter = keyof typeof STARTER_KANA_IDS;
 
 /** The island cast who challenge the learner on their islands (docs/WORLD.md); the web app holds their teams. */
-export const CHALLENGER_IDS: readonly string[] = ["chun", "tama", "pon", "sensei"];
+export const CHALLENGER_IDS: readonly string[] = ["chun", "tama", "pon", "sensei", "zen", "kurama"];
 
 /**
  * Kana held back from the wilds until the learner beats a challenger (docs/KANA-BATTLE.md section 9): Chun brings the
@@ -44,28 +44,40 @@ function starterOf(collection: readonly CollectedKana[]): Starter | null {
   return STARTERS.find(starter => starterIds.has(STARTER_KANA_IDS[starter])) ?? null;
 }
 
+/** The small-kana combinations (yōon), three to a row (ゃ, ゅ, ょ) from きゃ = 72, and the kana each row evolves from:
+ *  き し ち に ひ み り, then the voiced ぎ じ び ぴ. */
+const FIRST_YOON_ID = 72;
+const YOON_PER_ROW = 3;
+const YOON_SOURCE_IDS: readonly number[] = [7, 12, 17, 22, 27, 32, 40, 48, 53, 63, 68];
+const LAST_YOON_ID = FIRST_YOON_ID + YOON_SOURCE_IDS.length * YOON_PER_ROW - 1;
+
 /**
- * The basic kana a voiced kana evolves from (docs/KANA-BATTLE.md section 9), by catalog id: が–ど (47–61) from
- * か–と, ば–ぼ (62–66) from は–ほ, ぱ–ぽ (67–71) from は–ほ too (by way of ば). Null for any other id.
+ * The kana another evolves from (docs/KANA-BATTLE.md section 9), by catalog id: が–ど (47–61) from か–と, ば–ぼ
+ * (62–66) from は–ほ, ぱ–ぽ (67–71) from は–ほ too (by way of ば); a small-kana combination (72–104) from its first
+ * kana, which may itself have evolved (ぎゃ from ぎ). Null for any other id.
  */
 export function evolvedFromId(kanaId: number): number | null {
   if (kanaId >= 47 && kanaId <= 61) return kanaId - 41;
   if (kanaId >= 62 && kanaId <= 66) return kanaId - 36;
   if (kanaId >= 67 && kanaId <= 71) return kanaId - 41;
+  if (kanaId >= FIRST_YOON_ID && kanaId <= LAST_YOON_ID) return YOON_SOURCE_IDS[Math.floor((kanaId - FIRST_YOON_ID) / YOON_PER_ROW)] ?? null;
   return null;
 }
 
+/** The basic kana at the start of a kana's evolutions (ぎゃ → ぎ → き), or the kana itself. */
+export function rootKanaId(kanaId: number): number {
+  const from = evolvedFromId(kanaId);
+  return from === null ? kanaId : rootKanaId(from);
+}
+
 /**
- * The right and wrong answers the learner has given for each collected kana, and for the voiced forms they can evolve
- * into, anywhere on the site: the web game turns them into mastery levels (docs/KANA-BATTLE.md section 8) and decides
- * which have evolved.
+ * The right and wrong answers the learner has given for each collected kana, and for every form they can evolve into
+ * (voiced, small-kana), anywhere on the site: the web game turns them into mastery levels (docs/KANA-BATTLE.md
+ * section 8) and decides which have evolved.
  */
 async function answersFor(userId: number, collection: readonly CollectedKana[]) {
   const collectedIds = new Set(collection.map(item => item.kanaId));
-  const isTracked = (id: number) => {
-    const base = evolvedFromId(id);
-    return collectedIds.has(id) || (base !== null && collectedIds.has(base));
-  };
+  const isTracked = (id: number) => collectedIds.has(id) || collectedIds.has(rootKanaId(id));
   const progress = await listKanaWithProgress("hiragana", userId);
   return progress.filter(row => isTracked(row.id)).map(row => ({ kanaId: row.id, correct: row.correctCount, wrong: row.wrongCount }));
 }

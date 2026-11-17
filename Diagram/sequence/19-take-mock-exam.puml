@@ -1,0 +1,84 @@
+' 19. Take a mock exam (JLPT-style, N5 / N4 …)
+' Use case: Take mock exam (Practice) · Actor: Learner
+'
+' Design patterns:
+'   - Unit of work: the result, its practice session, its mistakes and the streak day are saved together
+'     (services/mock-exam.service.ts submitMockExam → withTransaction)
+'   - Facade: rewardActivities() pays the finishing XP and, once per level, the pass bonus
+'   - Repository: mock-exam-result.repository.ts, mistake.repository.ts, practice-session.repository.ts
+'   - The grading rule (learning/mockExamGrading.ts gradeMockExam) is a pure domain function shared by the score shown
+'     at once in the browser and the one the server saves; the server's grade is the one kept.
+' Lifelines use BCE stereotypes: «boundary» screens, «control» use-case logic, «entity» stored data; the database
+' keeps its own symbol.
+@startuml 19 Take a mock exam
+title 19. Take a mock exam
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app\n(mock exam)" as Web
+control "Mock exam controller" as Ctrl
+control "Mock exam service" as Svc
+control "Grading rule\n(gradeMockExam)" as Grade
+control "Gamification\nservice" as Gam
+entity "Repository" as Repo
+database "Database" as DB
+
+note over Web, Ctrl : «Chain of responsibility»: headers → CORS → authenticate → controller\n«Decorator»: action() wraps every controller (error handling)
+
+Learner -> Web : Open Mock exam
+par
+  Web -> Ctrl : GET /api/units
+  Ctrl --> Web : units reached
+else
+  Web -> Ctrl : GET /api/mock-exam/:level/results
+  Ctrl -> Svc : getMockHistory()
+  Svc -> Repo : listMockResults() + getMockBest()
+  Repo -> DB : SELECT
+  Ctrl --> Web : last results, best, attempts
+end
+alt not every unit of the level reached
+  Web -> Web : show "locked" and what to finish first
+else level reached
+  Web -> Web : show sections, number of questions, time, past results
+end
+
+Learner -> Web : Start
+Web -> Web : start the clock, show the Fuji trail
+loop each question
+  Learner -> Web : Choose an option
+  Web -> Web : light the next station on the trail
+end
+alt Learner finishes
+  Learner -> Web : Finish
+else time runs out
+  Web -> Web : finish with timedOut = true
+end
+Web -> Grade : gradeMockExam(exam, answers)
+Grade --> Web : score per section, passed?
+Web -> Web : show the result at once
+
+Web -> Ctrl : POST /api/mock-exam/:level/results { answers, timedOut }
+Ctrl -> Svc : submitMockExam()
+Svc -> Svc : known level? (404) answers valid? (400)
+Svc -> Repo : every unit of the level reached? (403) fewer than 20 exams this hour? (429)
+Svc -> Grade : gradeMockExam(exam, answers)
+Grade --> Svc : result
+group «Unit of work» withTransaction()
+  Svc -> Repo : insertMockResult()
+  Svc -> Repo : insertPracticeSession("mock-exam")
+  Svc -> Repo : recordAnswerOutcomes() (wrong answers → mistake notebook)
+  Svc -> Repo : recordActivity() (streak day)
+  Repo -> DB : INSERT / UPDATE
+end
+Svc -> Gam : rewardActivities(mock_exam [, mock_exam_pass once per level])
+note right of Gam : «Facade»
+Gam --> Svc : reward
+Ctrl --> Web : 201 saved result + streak + reward
+alt saved
+  Web -> Web : show "Saved" and "+XP"
+else saving failed
+  Web -> Web : show the error + Save again (the result stays on screen)
+end
+@enduml

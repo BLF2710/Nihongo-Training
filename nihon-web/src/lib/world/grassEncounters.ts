@@ -13,9 +13,13 @@ export type GrassWalk = { safeSteps: number };
 export const FRESH_GRASS_WALK: GrassWalk = { safeSteps: 0 };
 export const AFTER_BATTLE: GrassWalk = { safeSteps: SAFE_GRASS_STEPS };
 
-/** A step onto a new tile: only tall grass can start a battle, and not while safe steps are left. */
+/** Where wild kana live: tall grass on foot, rough water by boat. */
+const WILD_TERRAIN: ReadonlySet<Terrain> = new Set(["tallgrass", "waves"]);
+export const isWildTerrain = (terrain: Terrain | null): boolean => terrain !== null && WILD_TERRAIN.has(terrain);
+
+/** A step onto a new tile: only tall grass (or rough water) can start a battle, and not while safe steps are left. */
 export function stepOnto(walk: GrassWalk, terrain: Terrain | null, roll: number): { walk: GrassWalk; isEncounter: boolean } {
-  if (terrain !== "tallgrass") return { walk, isEncounter: false };
+  if (!isWildTerrain(terrain)) return { walk, isEncounter: false };
   if (walk.safeSteps > 0) return { walk: { safeSteps: walk.safeSteps - 1 }, isEncounter: false };
   return { walk, isEncounter: roll < ENCOUNTER_CHANCE };
 }

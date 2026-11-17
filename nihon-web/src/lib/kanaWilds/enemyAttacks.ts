@@ -1,6 +1,6 @@
 // What a hidden wild kana attacks with: kana from its moveset (its look-alikes and row-mates) or course words that
 // contain it. Never itself, so its attacks are clues to what it is rather than giving it away.
-import { BASIC_HIRAGANA, HIRAGANA_ROWS } from "./gojuon.ts";
+import { BASIC_HIRAGANA, HIRAGANA_ROWS, tilesOf } from "./gojuon.ts";
 import type { WildKana } from "./gojuon.ts";
 import { LOOK_ALIKES } from "./choices.ts";
 import type { BattleWord } from "./words.ts";
@@ -22,8 +22,10 @@ export function movesetOf(enemy: WildKana): WildKana[] {
   return moves.length ? moves : [...HIRAGANA_ROWS[0].kana];
 }
 
-export const attackWordsOf = (enemy: WildKana, words: readonly BattleWord[]) =>
-  words.filter(word => word.japanese.includes(enemy.kana) && [...word.japanese].length <= MAX_ATTACK_WORD_LENGTH);
+export const attackWordsOf = (enemy: WildKana, words: readonly BattleWord[]) => words.filter(word => {
+  const tiles = tilesOf(word.japanese);
+  return tiles.includes(enemy.kana) && tiles.length <= MAX_ATTACK_WORD_LENGTH;
+});
 
 export function wordAttackShare(enemy: WildKana): number {
   const rowIndex = HIRAGANA_ROWS.findIndex(({ row }) => row === enemy.row);

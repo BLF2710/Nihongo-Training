@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { submitKanaAnswer } from "../../api/quiz";
 import type { DefenceResult } from "../../lib/kanaWilds/battle";
 import { bracedDefenceChoices, bracedReadingChoices, bracedSoundChoices, defenceChoices, lookAlikeChoices, readingChoices, soundAlikeChoices } from "../../lib/kanaWilds/choices";
-import { drawnBlock, heardBlock, revealBlock } from "../../lib/kanaWilds/defenceStyles";
+import { drawnBlock, heardBlock, revealBlock, typedReading } from "../../lib/kanaWilds/defenceStyles";
 import type { DefenceStyle } from "../../lib/kanaWilds/defenceStyles";
 import type { EnemyAttack } from "../../lib/kanaWilds/enemyAttacks";
 import { kanaByCharacter, kanaByRomaji } from "../../lib/kanaWilds/gojuon";
@@ -11,11 +11,14 @@ import type { KanaMistake } from "../../lib/kanaWilds/mistakes";
 import type { BattleWord } from "../../lib/kanaWilds/words";
 import { speakJapanese, supportsJapaneseSpeech } from "../../services/japaneseSpeech";
 import { StrokeWord } from "./StrokeKana";
+import type { InkLook } from "./StrokeKana";
 import { STROKE_DRAW_MS, strokeTotalOf, useStrokeDrawing } from "./strokeDrawing";
 import { choiceButton, secondaryButton } from "./styles";
 
 /** Pon's stroke reveal draws slowly, so reading it early is a real choice. */
 const STROKE_REVEAL_MS = 900;
+/** Zen's recall draws slowly too, so there's time to type the reading before it's all drawn. */
+const RECALL_STROKE_MS = 1200;
 
 /**
  * Graded by the server, so a kana attack counts toward that kana's progress and the mistake notebook like any kana
@@ -32,9 +35,12 @@ async function gradeKana(kana: WildKana, answer: string): Promise<boolean> {
 
 type Defend = (result: DefenceResult, mistake?: KanaMistake) => void;
 
-/** How an attack drawn on screen is read: its choices, how fast it draws, how an answer is judged and what to say. */
+/** How an attack drawn on screen is read: its choices (or typing the reading), how fast it draws, how an answer is
+ *  judged and what to say. */
 type DrawnRules = {
   prompt: string;
+  answerBy: "choosing" | "typing";
+  look?: InkLook;
   strokeMs: number;
   kanaChoices: (kana: WildKana, random: () => number) => string[];
   judge: (isCorrect: boolean, drawn: number, total: number) => DefenceResult;
@@ -44,14 +50,22 @@ type DrawnRules = {
 const quickNote = (drawn: number, total: number) => (drawn < total ? "Answer before it's drawn for a perfect block!" : "Drawn. Read it to block.");
 
 const DRAWN_RULES: Readonly<Record<Exclude<DefenceStyle, "shout">, DrawnRules>> = {
-  reading: { prompt: "The wild kana attacks! Read it to block.", strokeMs: STROKE_DRAW_MS, kanaChoices: defenceChoices, judge: drawnBlock, progressNote: quickNote },
-  "look-alikes": { prompt: "A look-alike attack! Read it carefully to block.", strokeMs: STROKE_DRAW_MS, kanaChoices: lookAlikeChoices, judge: drawnBlock, progressNote: quickNote },
+  reading: { prompt: "The wild kana attacks! Read it to block.", answerBy: "choosing", strokeMs: STROKE_DRAW_MS, kanaChoices: defenceChoices, judge: drawnBlock, progressNote: quickNote },
+  "look-alikes": { prompt: "A look-alike attack! Read it carefully to block.", answerBy: "choosing", strokeMs: STROKE_DRAW_MS, kanaChoices: lookAlikeChoices, judge: drawnBlock, progressNote: quickNote },
   "stroke-reveal": {
-    prompt: "A stroke reveal! The earlier you read it, the better the block.", strokeMs: STROKE_REVEAL_MS, kanaChoices: defenceChoices, judge: revealBlock,
+    prompt: "A stroke reveal! The earlier you read it, the better the block.", answerBy: "choosing", strokeMs: STROKE_REVEAL_MS, kanaChoices: defenceChoices, judge: revealBlock,
     progressNote: (drawn, total) => drawn < total / 2 ? "Read it now for a perfect block!"
       : drawn < total ? "A good block now: a quarter of the hit gets through." : "All drawn: reading it now still lets half the hit through.",
   },
-  "word-attack": { prompt: "A word attack! Read the whole word to block.", strokeMs: STROKE_DRAW_MS, kanaChoices: defenceChoices, judge: drawnBlock, progressNote: quickNote },
+  "word-attack": { prompt: "A word attack! Read the whole word to block.", answerBy: "choosing", strokeMs: STROKE_DRAW_MS, kanaChoices: defenceChoices, judge: drawnBlock, progressNote: quickNote },
+  recall: {
+    prompt: "Recall! Type what it reads to block.", answerBy: "typing", strokeMs: RECALL_STROKE_MS, kanaChoices: defenceChoices, judge: drawnBlock,
+    progressNote: (drawn, total) => drawn < total ? "Type it before it's drawn for a perfect block!" : "Drawn. Type it to block.",
+  },
+  brush: {
+    prompt: "Brush style! Read it as the brush wrote it.", answerBy: "choosing", look: "brush", strokeMs: STROKE_DRAW_MS, kanaChoices: lookAlikeChoices,
+    judge: drawnBlock, progressNote: quickNote,
+  },
 };
 
 type DrawnProps = { attack: EnemyAttack; rules: DrawnRules; isBraced: boolean; pool: readonly BattleWord[]; random: () => number; onDefend: Defend; onWordReading: (word: string, isCorrect: boolean) => void };
@@ -86,13 +100,29 @@ function DrawnDefence({ attack, rules, isBraced, pool, random, onDefend, onWordR
     <div className="mt-2 flex items-center gap-3">
       {/* Screen readers get the characters at once: the drawing is a sighted player's clue, not a puzzle for them. */}
       <div role="img" aria-label={characters.join("")} lang="ja" className="kw-attack-card flex h-16 shrink-0 items-center gap-0.5 px-2">
-        <StrokeWord characters={characters} drawn={drawn} className="h-12 w-12" />
+        <StrokeWord characters={characters} drawn={drawn} look={rules.look} className="h-12 w-12" />
       </div>
       <p className="text-xs text-gray-600">{rules.progressNote(drawn, total)}</p>
     </div>
-    <div className="mt-2 grid grid-cols-2 gap-2 md:grid-cols-4">{choices.map(choice =>
-      <button key={choice} type="button" disabled={isGrading} className={`${choiceButton} py-2 text-lg`} onClick={() => void choose(choice)}>{choice}</button>)}</div>
+    {rules.answerBy === "typing" && !isBraced
+      ? <TypedReading isGrading={isGrading} onAnswer={answer => void choose(answer)} />
+      : <div className="mt-2 grid grid-cols-2 gap-2 md:grid-cols-4">{choices.map(choice =>
+        <button key={choice} type="button" disabled={isGrading} className={`${choiceButton} py-2 text-lg`} onClick={() => void choose(choice)}>{choice}</button>)}</div>}
   </div>;
+}
+
+/** Recall: the reading typed in romaji, no choices to lean on. */
+function TypedReading({ isGrading, onAnswer }: { isGrading: boolean; onAnswer: (answer: string) => void }) {
+  const [typed, setTyped] = useState("");
+  const answer = typedReading(typed);
+  return <form className="mt-2 flex gap-2" onSubmit={event => { event.preventDefault(); if (answer) onAnswer(answer); }}>
+    <label htmlFor="recall-reading" className="sr-only">The reading, in romaji</label>
+    {/* The attack is the only thing to do, so the field takes the keys at once. */}
+    <input id="recall-reading" autoFocus autoComplete="off" autoCapitalize="off" spellCheck={false} inputMode="text" placeholder="romaji, e.g. ka"
+      value={typed} onChange={event => setTyped(event.target.value)} disabled={isGrading}
+      className="min-w-0 flex-1 rounded-xl border border-gray-300 bg-white px-3 py-2 text-lg font-bold" />
+    <button type="submit" disabled={isGrading || !answer} className={`${choiceButton} px-5 py-2 text-lg`}>Block</button>
+  </form>;
 }
 
 const BracedTag = () => <span className="ml-1 rounded-md bg-sky-100 px-1.5 text-sm text-sky-900">Braced: easier, softer</span>;

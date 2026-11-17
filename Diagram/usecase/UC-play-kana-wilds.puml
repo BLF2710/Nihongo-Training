@@ -1,0 +1,44 @@
+' Use case diagram: Play Kana Wilds (Learner)
+' The kana battle-and-catch game in the walkable world (docs/WORLD.md, docs/KANA-BATTLE.md).
+' Sources: nihon-web/src/pages/KanaWildsPage.tsx, VillagePage.tsx, WildRoutePage.tsx, IslandScenePage.tsx;
+' nihon-api/src/routes/kana-wilds.routes.ts.
+' Sequence diagrams: 16 (battle and catch), 17 (challenge a challenger).
+' On the Overall diagram, draw one use case "Play Kana Wilds" for the Learner.
+@startuml UC Play Kana Wilds
+title Play Kana Wilds (Learner)
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+
+actor Learner
+
+rectangle "Play Kana Wilds" {
+  usecase "Choose a starter kana" as Starter
+  usecase "Walk the world\n(village, wild paths, islands)" as Walk
+  usecase "Battle a wild kana" as Battle
+  usecase "Defend against an attack\n(read the kana)" as Defend
+  usecase "Catch a kana\n(trace its strokes)" as Catch
+  usecase "Quick battle" as Quick
+  usecase "View kana collection" as Collection
+  usecase "Evolve a kana\n(か → が, き → きゃ)" as Evolve
+  usecase "Challenge an island challenger" as Challenge
+  usecase "Get a tip after a loss" as Tip
+}
+
+Learner --> Starter
+Learner --> Walk
+Learner --> Quick
+Learner --> Collection
+Learner --> Challenge
+
+Walk <.. Battle : <<extend>>\n(step onto tall grass\nor rough water)
+Battle ..> Defend : <<include>>
+Catch ..> Battle : <<extend>>\n(enemy at or below 60% HP)
+Quick ..> Battle : <<include>>
+Challenge ..> Defend : <<include>>
+Tip ..> Challenge : <<extend>>\n(lost or gave up)
+Evolve ..> Collection : <<extend>>\n(level 3 + Sensei / Zen beaten)
+
+note right of Starter : once, before anything else:\nか, さ or た plus the five vowels
+note bottom of Challenge : Chun, Tama, Pon, Sensei, Zen, Kurama;\nthe first win pays XP and brings a reward
+@enduml

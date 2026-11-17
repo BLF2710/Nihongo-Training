@@ -4,7 +4,7 @@
 to, the participants (left to right), and the main messages taken from the actual code. Tick them off as you draw.
 
 **PlantUML versions:** every diagram below has a ready file in [`sequence/`](sequence/) (`01-register-account.puml` …
-`12-edit-and-publish-lesson.puml`, plus the extras `13`–`15`). Each file lists its design patterns at the top and marks them in the diagram
+`12-edit-and-publish-lesson.puml`, plus the extras `13`–`19`). Each file lists its design patterns at the top and marks them in the diagram
 (`«Unit of work»`, `«Observer»`, `«Adapter»` …). Preview them with the PlantUML extension in VS Code, then redraw in
 Visual Paradigm.
 
@@ -58,7 +58,7 @@ password (strategy mailer + unit of work).
 
 ---
 
-## 1. [ ] Register account (+ confirm email)
+## 1. [x] Register account (+ confirm email)
 **Use case:** Register account (Authenticate account) · **Actor:** Guest
 **Participants:** Guest *(actor)*, Web app *(boundary)*, Middleware chain *(control)*, Auth controller *(control)*, Auth service *(control)*, Account security service *(control)*, «interface» Mailer *(control)*, Repository *(entity)*, Database *(database)*, Email service *(boundary)*
 **File:** [`01-register-account.puml`](sequence/01-register-account.puml)
@@ -72,7 +72,7 @@ password (strategy mailer + unit of work).
 7. Account created → Web app opens sign in with "Your account is ready" (the learner signs in next, diagram 2)
 8. *Later:* Guest opens the link → `POST /api/auth/email/verify` → token checked and used once → address marked confirmed
 
-## 2. [ ] Log in (password or Google)
+## 2. [x] Log in (password or Google)
 **Use case:** Log in, «extend» Log in with Google · **Actor:** Guest
 **Participants:** Guest *(actor)*, Web app *(boundary)*, Middleware chain *(control)*, «interface» RateLimitStore / NonceStore *(entity)*, Auth controller *(control)*, Auth service *(control)*, «interface» GoogleTokenVerifier *(control)*, Repository *(entity)*, Database *(database)*, Google *(boundary)*
 **File:** [`02-log-in.puml`](sequence/02-log-in.puml)
@@ -91,7 +91,7 @@ password (strategy mailer + unit of work).
 4. `alt` linked account → sign in; `alt` new email → registration open? → create account (no password)
 5. Return session token (as above)
 
-## 3. [ ] Forgot / reset password
+## 3. [x] Forgot / reset password
 **Use case:** Forgot password · **Actors:** Guest (or Admin, who can send the same link from Users & roles)
 **Participants:** Guest *(actor)*, Web app *(boundary)*, Auth controller *(control)*, Account security service *(control)*, «interface» Mailer *(control)*, Repository *(entity)*, Database *(database)*, Email service *(boundary)*
 **File:** [`03-reset-password.puml`](sequence/03-reset-password.puml)
@@ -103,7 +103,7 @@ password (strategy mailer + unit of work).
 5. Token checked (valid, not used, not expired) → hash and save the password → **every session ends** (token version +1) → address counts as confirmed
 6. Web app sends them to sign in
 
-## 4. [ ] Take a lesson
+## 4. [x] Take a lesson
 **Use case:** Take a lesson (Learn Japanese) · **Actor:** Learner
 **Participants:** Learner *(actor)*, Web app *(boundary)*, Lesson controller *(control)*, Lesson-completion service *(control)*, XP service *(control)*, Gamification service *(control)*, Repository *(entity)*, Database *(database)*, Notification (realtime) *(control)*
 **File:** [`04-take-a-lesson.puml`](sequence/04-take-a-lesson.puml)
@@ -117,7 +117,7 @@ password (strategy mailer + unit of work).
 7. Notifications are **published** to the learner's open tabs (Observer: the bell updates)
 8. Web app shows the "+XP" pop-up, level up / achievement; wrong challenge answers go to the mistake notebook
 
-## 5. [ ] Take unit assessment
+## 5. [x] Take unit assessment
 **Use case:** Take unit assessment (Practice) · **Actor:** Learner
 **Participants:** Learner *(actor)*, Web app *(boundary)*, Unit controller *(control)*, Assessment service *(control)*, Gamification service *(control)*, Repository *(entity)*, Database *(database)*
 **File:** [`05-take-unit-assessment.puml`](sequence/05-take-unit-assessment.puml)
@@ -131,7 +131,7 @@ password (strategy mailer + unit of work).
 7. `opt` passed → reward: 100 XP once per unit (**Unit of work** `awardXP()`) → achievements checked (e.g. Japanese Beginner)
 8. `alt` passed → next unit unlocks, "+XP"; `alt` failed → shows what to review
 
-## 6. [ ] Daily review (spaced repetition)
+## 6. [x] Daily review (spaced repetition)
 **Use case:** Daily review (Practice) · **Actor:** Learner
 **Participants:** Learner *(actor)*, Web app *(boundary)*, SRS controller *(control)*, SRS service *(control)*, SRS scheduler (SM-2) *(control)*, Gamification service *(control)*, Repository *(entity)*, Database *(database)*, Notification (realtime) *(control)*
 **File:** [`06-daily-review.puml`](sequence/06-daily-review.puml)
@@ -150,7 +150,7 @@ password (strategy mailer + unit of work).
 
 Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (step 4.4, level-up notification), the scheduler as a pure domain function (no database or clock inside it). Too wide? Split it: (a) session and grading, (b) the reward chain (XP → achievements → notification).
 
-## 7. [ ] Take speaking test
+## 7. [x] Take speaking test
 **Use case:** Take speaking test (Practice) · **Actor:** Learner · **Secondary:** Azure Speech, AI service
 **Participants:** Learner *(actor)*, Web app *(boundary)*, Speaking controller *(control)*, Speaking test service *(control)*, «interface» PronunciationAssessor *(control)*, «interface» SpeakingContentGrader *(control)*, Repository *(entity)*, Database *(database)*, Azure Speech *(boundary)*, AI service (Claude) *(boundary)*
 **File:** [`07-take-speaking-test.puml`](sequence/07-take-speaking-test.puml)
@@ -163,7 +163,7 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
 6. Combine into a score and band → **Unit of work**: save the attempt (transcript and scores only, **never the recording**) + streak day
 7. Reward: speaking test XP → Web app shows the result, feedback and "+XP"
 
-## 8. [ ] Chat with the study assistant
+## 8. [x] Chat with the study assistant
 **Use case:** Chat with the study assistant (Communicate) · **Actor:** Learner · **Secondary:** AI service
 **Participants:** Learner *(actor)*, Web app *(boundary)*, Communication controller *(control)*, Assistant service *(control)*, «interface» AssistantProvider *(control)*, Repository *(entity)*, Database *(database)*, AI service (Claude) *(boundary)*
 **File:** [`08-chat-with-assistant.puml`](sequence/08-chat-with-assistant.puml)
@@ -174,7 +174,7 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
 4. Save the question and the answer in one transaction (new conversation if none yet)
 5. Web app shows the answer
 
-## 9. [ ] Add friend (request → accept)
+## 9. [x] Add friend (request → accept)
 **Use case:** Add friend (Communicate) · **Actors:** Learner A, Learner B
 **Participants:** Learner A *(actor)*, Web app A *(boundary)*, Friend controller *(control)*, Friend service *(control)*, Repository *(entity)*, Database *(database)*, Live updates (RealtimeBus) *(control)*, Web app B *(boundary)*, Learner B *(actor)*
 **File:** [`09-add-friend.puml`](sequence/09-add-friend.puml)
@@ -187,7 +187,7 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
 6. B's web app gets "accepted" → A appears in B's friends list
 7. `alt` B declines → B's web app gets "declined"; live update removes the request from A's list (A isn't told)
 
-## 10. [ ] Send a message to a learner
+## 10. [x] Send a message to a learner
 **Use case:** View conversations, «extend» Message a learner (Communicate) · **Actors:** Learner A, Learner B
 **Participants:** Learner A *(actor)*, Web app A *(boundary)*, Communication controller *(control)*, Direct-message service *(control)*, Repository *(entity)*, Database *(database)*, Live updates (RealtimeBus) *(control)*, Web app B *(boundary)*, Learner B *(actor)*
 **File:** [`10-send-message.puml`](sequence/10-send-message.puml)
@@ -198,7 +198,7 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
 4. Save the message → Live updates → B's inbox shows it (unread count)
 5. `opt` B reports the message → support request for the admins (see 11)
 
-## 11. [ ] Report a learner → admin resolves
+## 11. [x] Report a learner → admin resolves
 **Use case:** Report learner (Communicate) + Review reports (Manage users) · **Actors:** Learner, Admin
 **Participants:** Learner *(actor)*, Web app *(boundary)*, Friend controller *(control)*, Moderation service *(control)*, Repository *(entity)*, Database *(database)*, Live updates (RealtimeBus) *(control)*, Admin web app *(boundary)*, Admin *(actor)*
 **File:** [`11-report-and-resolve.puml`](sequence/11-report-and-resolve.puml)
@@ -210,7 +210,7 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
    - `alt` dismiss · `alt` warn (the warning goes to B as a support message) · `alt` suspend (B's account suspended)
 5. Every reporter gets a reply and their request closes → audit log entry
 
-## 12. [ ] Edit and publish a lesson (admin)
+## 12. [x] Edit and publish a lesson (admin)
 **Use case:** Edit lessons (Manage content) · **Actor:** Admin
 **Participants:** Admin *(actor)*, Admin web app *(boundary)*, Moderation controller *(control)*, Lesson-edit service *(control)*, Repository *(entity)*, Database *(database)*, Learner's web app *(boundary)*, Learner *(actor)*
 **File:** [`12-edit-and-publish-lesson.puml`](sequence/12-edit-and-publish-lesson.puml)
@@ -226,7 +226,7 @@ Patterns to show: **Repository**, **Unit of work** (step 4.3), **Observer** (ste
 ### Optional extras (drafted)
 These cover the Manage users, Manage system and View statistics use cases, which no diagram above reaches.
 
-## 13. [ ] Admin manages a user (edit role / suspend, audit log)
+## 13. [x] Admin manages a user (edit role / suspend, audit log)
 **Use case:** Edit user accounts, Manage user roles, Suspend user accounts, View audit log (Manage users) · **Actors:** Admin, Learner
 **Participants:** Admin *(actor)*, Admin web app *(boundary)*, Middleware chain *(control)*, Admin controller *(control)*, Admin service *(control)*, Repository *(entity)*, Database *(database)*, Web app *(boundary)*, Learner *(actor)*
 **File:** [`13-admin-manage-user.puml`](sequence/13-admin-manage-user.puml)
@@ -238,7 +238,7 @@ These cover the Manage users, Manage system and View statistics use cases, which
 5. `opt` suspended learner's next request → 403 "This account is inactive"
 6. Admin opens Audit log → `GET /api/admin/audit-log`
 
-## 14. [ ] Admin turns a feature off → learner sees "temporarily unavailable"
+## 14. [x] Admin turns a feature off → learner sees "temporarily unavailable"
 **Use case:** Toggle features (Manage system) · **Actors:** Admin, Learner
 **Participants:** Admin *(actor)*, Admin web app *(boundary)*, Middleware chain *(control)*, Admin controller *(control)*, Admin service *(control)*, Site controller *(control)*, Repository *(entity)*, Database *(database)*, Web app (SiteGate) *(boundary)*, Learner *(actor)*
 **File:** [`14-switch-off-feature.puml`](sequence/14-switch-off-feature.puml)
@@ -247,7 +247,7 @@ These cover the Manage users, Manage system and View statistics use cases, which
 2. Learner navigates → `GET /api/site` → disabled list with paths → `alt` the page is off → "Temporarily unavailable"
 3. An open tab or direct call → `enforceContentAvailability` → 403 "This activity is temporarily unavailable."
 
-## 15. [ ] Learner views statistics
+## 15. [x] Learner views statistics
 **Use case:** View statistics / Track learning progress · **Actor:** Learner
 **Participants:** Learner *(actor)*, Web app (Statistics page) *(boundary)*, Statistics controller *(control)*, Learning statistics service *(control)*, Kana statistics service *(control)*, Repository *(entity)*, Database *(database)*
 **File:** [`15-view-statistics.puml`](sequence/15-view-statistics.puml)
@@ -255,3 +255,57 @@ These cover the Manage users, Manage system and View statistics use cases, which
 1. Open Statistics → `par` `GET /api/statistics/overview` («Facade»: a dozen repository queries in parallel) and `GET /api/statistics` (kana)
 2. `alt` failure → "Your learning statistics could not be loaded." + Try again
 3. Tabs (Overview / Tests / Practice / Kana) redraw from the loaded data, no new requests
+
+---
+
+### Added 2026-11-17: Kana Wilds, the traveller and the mock exam
+1–15 are drawn in DATN.vpp. These four cover what was built since: the game in the walkable world (use case diagram
+[`usecase/UC-play-kana-wilds.puml`](usecase/UC-play-kana-wilds.puml)), the traveller wardrobe and the mock exam.
+
+## 16. [ ] Battle and catch a wild kana
+**Use case:** Battle a wild kana, «extend» Catch a kana (Play Kana Wilds) · **Actor:** Learner
+**Participants:** Learner *(actor)*, Web app (wild path) *(boundary)*, Battle rules (defence style) *(control)*, Quiz controller *(control)*, Activity controller *(control)*, Kana Wilds controller + service *(control)*, Gamification service *(control)*, Repository *(entity)*, Database *(database)*, Notification (realtime) *(control)*
+**File:** [`16-battle-and-catch-kana.puml`](sequence/16-battle-and-catch-kana.puml)
+**Patterns:** Strategy (defence styles), Facade (`rewardActivity()`), Unit of work, Observer, Repository
+
+1. Open a wild path → `GET /api/kana-wilds/collection` → each kana's level (1–5) worked out from its answers
+2. Walk; `opt` a step onto tall grass (1 in 8) → a wild kana from the path's rows (uncaught first) → battle
+3. `loop` play a word (damage from its kana levels) → enemy attacks (`pickAttack`, «Strategy») → choose the reading →
+   `POST /api/quiz/answer` (graded and saved on the server, so battles raise mastery) → block or hit
+4. `opt` enemy at or below 60% HP → trace the strokes → `alt` caught → `POST /api/kana-wilds/catches` → 409 if the
+   row isn't open yet (さ/た need Chun, ま… need Tama) → saved → first catch pays game XP (Facade, Observer)
+5. `opt` 3+ readings → `POST /api/activity/practice { kind: "battle" }` → session + streak day (Unit of work) → game XP
+
+## 17. [ ] Challenge an island challenger
+**Use case:** Challenge an island challenger (Play Kana Wilds) · **Actor:** Learner
+**Participants:** Learner *(actor)*, Web app (island) *(boundary)*, Challenge rules (team + defence style) *(control)*, Kana Wilds controller + service *(control)*, Gamification service *(control)*, Repository *(entity)*, Database *(database)*, Notification (realtime) *(control)*
+**File:** [`17-challenge-island-challenger.puml`](sequence/17-challenge-island-challenger.puml)
+**Patterns:** Strategy (signature defence), Facade, Observer, Repository
+
+1. Open an island → collection → challenger marked "!" until beaten
+2. Walk up, press E → `teamFor()` (fixed team, or Zen's three weakest / Kurama's three mixed) + defence style
+3. `loop` each kana of the team, HP carried over; readings graded as in 16, no catching
+4. `alt` won → `POST /api/kana-wilds/challengers/:id/wins` → first win pays XP → reward shown (rows, Sharp Eyes,
+   evolutions); `else` lost → team, a tip and the kana mixed up → rematch at once
+
+## 18. [ ] Customize the traveller
+**Use case:** Customize traveller (Manage account) · **Actor:** Learner
+**Participants:** Learner *(actor)*, Web app (wardrobe) *(boundary)*, Traveller look store (browser) *(entity)*, Traveller controller *(control)*, Traveller service *(control)*, Repository *(entity)*, Database *(database)*
+**File:** [`18-customize-traveller.puml`](sequence/18-customize-traveller.puml)
+**Patterns:** Repository, Observer (web store), validation at the boundary
+
+1. Open the wardrobe → stored look, or `GET /api/traveller/look` (the default when none is saved)
+2. `loop` choose each part → the preview redraws at once (draft only)
+3. Save → `PUT /api/traveller/look` → every part one of its choices? `alt` 400 → error, draft kept; `else` upsert →
+   the store updates → every traveller on screen redraws («Observer») → "Saved."
+
+## 19. [ ] Take a mock exam
+**Use case:** Take mock exam (Practice) · **Actor:** Learner
+**Participants:** Learner *(actor)*, Web app (mock exam) *(boundary)*, Mock exam controller *(control)*, Mock exam service *(control)*, Grading rule *(control)*, Gamification service *(control)*, Repository *(entity)*, Database *(database)*
+**File:** [`19-take-mock-exam.puml`](sequence/19-take-mock-exam.puml)
+**Patterns:** Unit of work, Facade (`rewardActivities()`), Repository; the grading rule is a pure function shared by browser and server
+
+1. Open → `par` units reached + `GET /api/mock-exam/:level/results` → locked, or ready with past results
+2. Start → clock and Fuji trail → answer → Finish (or time runs out) → score shown at once
+3. `POST /api/mock-exam/:level/results` → 404 / 400 / 403 not reached / 429 → graded on the server → result,
+   practice session, mistakes and streak day in one transaction → XP (+ pass bonus once per level)

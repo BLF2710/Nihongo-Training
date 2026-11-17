@@ -3,7 +3,11 @@
 // (three open kana in a row, HP carried over, the win saved, a rematch offered); each challenger's signature defence
 // (Chun: look-alikes; Tama: the kana shouts, with a caption; Pon: the stroke reveal) and the hints after a loss
 // ("You read ね as れ twice"); rewards (the riverside grass quiet until Chun is beaten, the stone path's rows held
-// for Tama, Pon's skill Sharp Eyes, Sensei's word attacks and evolution); the challenge on one screen at 1366×768 and 390×844. Against a fixture API that grades
+// for Tama, Pon's skill Sharp Eyes, Sensei's word attacks and evolution); Zen on the Review island (the player's weakest
+// kana, typed recall, small-kana evolution); Kurama on Fuji, rowed to on the ferry from the Practice island (a mixed
+// team, brush-style attacks); the evolution moment ("か evolved into が!", once, and not for evolutions a learner already
+// had when this browser first saw them); the challenge on one
+// screen at 1366×768 and 390×844. Against a fixture API that grades
 // kana answers like the server; speech is stubbed so the test knows what was shouted.
 //   node challenger-ui.cjs <baseUrl> <shotsDir>
 const assert = require('node:assert/strict');
@@ -21,16 +25,19 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
 (async () => {
   const browser = await chromium.launch({ headless: true, executablePath: process.env.BROWSER_EXECUTABLE });
   try {
-    const run = async ({ viewport = { width: 1366, height: 768 }, beatenChallengers = [], isTouch = false } = {}) => {
+    // `storage`: localStorage items the page starts with (kept as the page then changes them, across reloads).
+    const run = async ({ viewport = { width: 1366, height: 768 }, beatenChallengers = [], isTouch = false, answers = {}, storage = {} } = {}) => {
       const context = await browser.newContext({ viewport, hasTouch: isTouch, isMobile: isTouch });
       await context.addInitScript(t => {
         localStorage.setItem('token', t); localStorage.setItem('app_language', 'japanese'); localStorage.setItem('course_level', 'N5'); localStorage.setItem('user_handle', 'aki');
         window.__shouts = [];
         window.speechSynthesis.speak = utterance => { window.__shouts.push(utterance.text); setTimeout(() => utterance.onend?.(), 0); };
       }, token);
+      await context.addInitScript(items => { for (const [key, value] of Object.entries(items)) if (localStorage.getItem(key) === null) localStorage.setItem(key, value); }, storage);
       const state = { collection: { starter: 'ka', kanaIds: [1, 2, 3, 4, 5, 6], beatenChallengers: [...beatenChallengers] }, romajiById: {} };
       const sent = { wins: [], practice: [] };
-      const respond = () => ({ ...state.collection, answers: state.collection.kanaIds.map(kanaId => ({ kanaId, correct: 0, wrong: 0 })) });
+      // `answers`: right and wrong counts by kana id, for kana that should have a level above 1.
+      const respond = () => ({ ...state.collection, answers: state.collection.kanaIds.map(kanaId => ({ kanaId, correct: 0, wrong: 0, ...answers[kanaId] })) });
       await context.route('http://localhost:5000/api/**', route => {
         const request = route.request(), p = new URL(request.url()).pathname.replace('/api', ''), json = (data, status = 200) => route.fulfill({ status, json: data });
         if (p === '/site') return json({ registration_enabled: true, announcement: '', disabled: [] });
@@ -104,7 +111,7 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
         if (await page.getByRole('heading', { name: over }).count()) return seen;
         const status = await arena(page, name).getByRole('status').first().innerText().catch(() => '');
         seen.statuses.add(status);
-        const opening = status.match(new RegExp(`^${name} sends out (\\S)! \\(kana (\\d) of 3\\)$`));
+        const opening = status.match(new RegExp(`^${name} sends out (\\S+)! \\(kana (\\d) of 3\\)$`));
         if (opening && !seen.rounds.includes(opening[1])) {
           seen.rounds.push(opening[1]);
           seen.hpAtRoundStart.push(Number((await page.locator('.kw-info--player').getByText(/^\d+ \/ 30$/).innerText()).split(' ')[0]));
@@ -135,6 +142,8 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
           if (attackKana) seen.choices.push(...(await group.getByRole('button').allInnerTexts()).map(text => text.trim()));
           if (onDefence) await onDefence(group, seen);
           seen.notes.add(await group.locator('p.text-xs').innerText());
+          const typed = group.getByRole('textbox', { name: 'The reading, in romaji' });
+          if (await typed.count()) { await typed.fill(isRight ? reading.toUpperCase() + ' ' : 'xx'); await typed.press('Enter'); continue; }
           await (isRight ? group.getByRole('button', { name: reading, exact: true }) : await wrongChoice(group, reading)).click();
         } else if (prompt.startsWith('Your turn')) {
           await group.getByRole('listitem').first().getByRole('button').click();
@@ -315,6 +324,102 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     assert.deepEqual(sent.wins, ['sensei']);
     assert.deepEqual(errors, []); await context.close();
 
+    // ---- Zen on the Review island, over the pine path: the player's three weakest kana, read by typing them; the win
+    // opens small-kana evolution
+    const STRONG = { correct: 50, wrong: 0 };
+    ({ context, page, errors, state, sent } = await run({ beatenChallengers: ['chun', 'tama', 'pon', 'sensei'], answers: { 1: STRONG, 2: STRONG, 3: STRONG } }));
+    await page.goto(base + '/wilds/home-review?from=home');
+    await page.getByRole('heading', { name: 'The pine path (まつみち), a wild path' }).waitFor({ state: 'attached' });
+    await page.getByText('kana you have caught, from every path, in the tall grass: a review').waitFor();
+    await page.screenshot({ path: path.join(shots, 'path-pine.png') });
+    await page.goto(base + '/islands/review');
+    const reviewAnswers = await loadAnswers(page, state);
+    await page.getByRole('heading', { name: 'The Review island (ふくしゅうのしま)' }).waitFor({ state: 'attached' });
+    await page.screenshot({ path: path.join(shots, 'island-review.png') });
+    // In over the east bridge: west along the road, round the rocks onto the gravel, then on west to Zen by the pond.
+    assert.ok(await holdUntil(page, 'ArrowLeft', async () => (await travellerAt(page)).x <= 15.5), 'walked in off the bridge');
+    assert.ok(await holdUntil(page, 'ArrowDown', async () => (await travellerAt(page)).y >= 8.6), 'down onto the gravel');
+    assert.ok(await holdUntil(page, 'ArrowLeft', async () => Boolean(await page.getByText('Zen is here. Press E to challenge them.').count())), 'walked up to Zen');
+    await page.keyboard.press('KeyE');
+    await arena(page, 'Zen').waitFor();
+    let isRecallShot = false;
+    const beatZen = await playChallenge(page, reviewAnswers, { isRight: true, name: 'Zen', onDefence: async () => {
+      if (isRecallShot) return;
+      isRecallShot = true;
+      await page.screenshot({ path: path.join(shots, 'challenge-zen-recall.png') });
+    } });
+    assert.deepEqual([...beatZen.rounds].sort(), ['え', 'お', 'か'], 'the three weakest kana (あ, い, う are strong): ' + beatZen.rounds);
+    assert.ok(beatZen.prompts.has('Recall! Type what it reads to block.'), 'recall: ' + [...beatZen.prompts]);
+    assert.ok(beatZen.choices.length > 0 && beatZen.choices.every(choice => choice === 'Block'), 'no choices to pick from, only Block: ' + beatZen.choices);
+    await page.getByRole('heading', { name: 'You beat Zen!' }).waitFor();
+    await page.getByText(/^Your kana can take small kana now/).waitFor();
+    assert.ok(await fitsScreen(page), 'the result fits one screen');
+    await page.screenshot({ path: path.join(shots, 'challenge-zen-won.png') });
+    assert.deepEqual(sent.wins, ['zen']);
+    assert.deepEqual(errors, []); await context.close();
+
+    // ---- Kurama on Fuji, rowed to on the ferry from the Practice island's west pier: a mixed team and brush-style
+    // attacks; the win is kept for the katakana wilds
+    ({ context, page, errors, state, sent } = await run({ beatenChallengers: ['chun', 'tama', 'pon', 'sensei', 'zen'] }));
+    await page.goto(base + '/wilds/practice-fuji?from=practice');
+    await page.getByRole('heading', { name: 'The ferry (わたしぶね), a wild path' }).waitFor({ state: 'attached' });
+    await page.getByText('wild kana from every path in the rough water').waitFor();
+    await page.getByText(/^Row: WASD or arrow keys/).waitFor();
+    await page.getByText(/East: the Practice island, west: Fuji/).waitFor();
+    await page.screenshot({ path: path.join(shots, 'path-ferry.png') });
+    await page.goto(base + '/islands/practice?from=practice-fuji');
+    await page.getByRole('heading', { name: 'The Practice island (れんしゅうのしま)' }).waitFor({ state: 'attached' });
+    await page.waitForTimeout(300);
+    assert.ok((await travellerAt(page)).x < 8, 'off the ferry, the traveller is by the west pier: ' + JSON.stringify(await travellerAt(page)));
+    await page.goto(base + '/islands/fuji');
+    const fujiAnswers = await loadAnswers(page, state);
+    await page.getByRole('heading', { name: 'Fuji (ふじ)' }).waitFor({ state: 'attached' });
+    await page.screenshot({ path: path.join(shots, 'island-fuji.png') });
+    // In over the east bridge: west along the road toward the dojo, then down to Kurama beside the stepping stones.
+    assert.ok(await holdUntil(page, 'ArrowLeft', async () => (await travellerAt(page)).x <= 18.5), 'walked in off the bridge');
+    assert.ok(await holdUntil(page, 'ArrowDown', async () => Boolean(await page.getByText('Kurama is here. Press E to challenge them.').count())), 'walked up to Kurama');
+    await page.keyboard.press('KeyE');
+    await arena(page, 'Kurama').waitFor();
+    let brushStrokes = 0;
+    const beatKurama = await playChallenge(page, fujiAnswers, { isRight: true, name: 'Kurama', onDefence: async group => {
+      brushStrokes += await group.locator('.kw-attack-card svg filter').count();
+      if (brushStrokes === 1) { await page.waitForTimeout(1500); await page.screenshot({ path: path.join(shots, 'challenge-kurama-brush.png') }); }
+    } });
+    assert.equal(new Set(beatKurama.rounds).size, 3, 'three kana: ' + beatKurama.rounds);
+    assert.ok(beatKurama.rounds.every(kana => 'あいうえおか'.includes(kana)), 'from the player\'s own kana: ' + beatKurama.rounds);
+    assert.ok(beatKurama.prompts.has('Brush style! Read it as the brush wrote it.'), 'brush: ' + [...beatKurama.prompts]);
+    assert.ok(brushStrokes > 0, 'the attacks are inked with a brush');
+    await page.getByRole('heading', { name: 'You beat Kurama!' }).waitFor();
+    await page.getByText(/^You beat the whole island cast!/).waitFor();
+    assert.ok(await fitsScreen(page), 'the result fits one screen');
+    await page.screenshot({ path: path.join(shots, 'challenge-kurama-won.png') });
+    assert.deepEqual(sent.wins, ['kurama']);
+    assert.deepEqual(errors, []); await context.close();
+
+    // ---- the evolution moment: か at level 3 with Sensei beaten evolves into が, announced once. A learner this
+    // browser has never kept evolutions for isn't told about those they already have.
+    const LEVEL_3_KA = { 6: { correct: 20, wrong: 0 } };
+    ({ context, page, errors, state, sent } = await run({ beatenChallengers: ['sensei'], answers: LEVEL_3_KA }));
+    await page.goto(base + '/games/kana-wilds');
+    await page.getByText('Evolved:').waitFor();
+    await page.waitForTimeout(300);
+    assert.equal(await page.getByRole('status').filter({ hasText: 'evolved into' }).count(), 0, 'not for an evolution already had');
+    assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('kana-wilds-evolutions-announced:aki'))), ['が'], 'counted as told');
+    await context.close();
+    ({ context, page, errors, state, sent } = await run({ beatenChallengers: ['sensei'], answers: LEVEL_3_KA, storage: { 'kana-wilds-evolutions-announced:aki': '[]' } }));
+    await page.goto(base + '/games/kana-wilds');
+    const moment = page.getByRole('status').filter({ hasText: 'evolved into' });
+    await moment.waitFor();
+    assert.equal((await moment.getByRole('listitem').allInnerTexts()).join(' | '), 'か evolved into が (ga)!');
+    assert.ok(await fitsScreen(page), 'the hub with the moment fits one screen');
+    await page.screenshot({ path: path.join(shots, 'evolution-moment.png') });
+    await moment.getByRole('button', { name: 'Nice!' }).click();
+    assert.equal(await moment.count(), 0, 'dismissed');
+    await page.reload();
+    await page.getByText('Evolved:').waitFor();
+    assert.equal(await page.getByRole('status').filter({ hasText: 'evolved into' }).count(), 0, 'announced only once');
+    assert.deepEqual(errors, []); await context.close();
+
     // ---- a phone: the challenge fits one screen, and the touch button says Fight next to Chun
     ({ context, page, errors, state, sent } = await run({ viewport: { width: 390, height: 844 }, beatenChallengers: ['chun'], isTouch: true }));
     await page.goto(base + '/islands/kana');
@@ -325,6 +430,6 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.screenshot({ path: path.join(shots, 'challenge-phone.png') });
     assert.deepEqual(errors, []); await context.close();
 
-    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; signature defences (Chun’s look-alike attacks and choices, Tama’s shout with caption and hearing again, Pon’s slow stroke reveal with a graze when read late); hints after a loss name each mix-up and how often, none after a win; the riverside grass quiet (no battle) until Chun is beaten and the stone path’s rows waiting on Tama, each win naming its reward (rows, Pon’s skill Sharp Eyes); Sensei walked up to on the Lessons island, attacking with words holding が, だ and ば, the win opening evolution; one screen at 1366×768 and 390×844; no page errors.');
+    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; signature defences (Chun’s look-alike attacks and choices, Tama’s shout with caption and hearing again, Pon’s slow stroke reveal with a graze when read late); hints after a loss name each mix-up and how often, none after a win; the riverside grass quiet (no battle) until Chun is beaten and the stone path’s rows waiting on Tama, each win naming its reward (rows, Pon’s skill Sharp Eyes); Sensei walked up to on the Lessons island, attacking with words holding が, だ and ば, the win opening evolution; the pine path’s review grass; Zen on the Review island with the player’s three weakest kana, typed recall (no choices), the win opening small-kana evolution; the ferry from the Practice island’s west pier, rowed through rough water, and Kurama on Fuji with a mixed team and brush-style attacks; the evolution moment shown once, and not for evolutions already had; one screen at 1366×768 and 390×844; no page errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 2000)); process.exitCode = 1; });

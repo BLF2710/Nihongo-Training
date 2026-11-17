@@ -19,3 +19,12 @@ export function pickEncounter(ownedIds: ReadonlySet<number>, wildRows: readonly 
   if (wild.length) return { kana: pickOne(wild, random), isCatchable: true };
   return { kana: pickOne(rows.flatMap(({ kana }) => kana), random), isCatchable: false };
 }
+
+/** A kana for review from `wildRows`: one the player has caught (so nothing to catch), or any of the rows' kana when
+ *  they have caught none of them. */
+export function pickReviewEncounter(ownedIds: ReadonlySet<number>, wildRows: readonly string[], random: () => number): Encounter {
+  const kana = HIRAGANA_ROWS.filter(({ row }) => wildRows.includes(row)).flatMap(row => row.kana);
+  if (!kana.length) throw new Error("Wild kana need at least one row to come from.");
+  const caught = kana.filter(item => ownedIds.has(item.id));
+  return { kana: pickOne(caught.length ? caught : kana, random), isCatchable: false };
+}

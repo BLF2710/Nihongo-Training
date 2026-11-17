@@ -1,0 +1,104 @@
+' E6. Entity classes: Kana Wilds and the traveller
+' Source: nihon-api/migrations (033, 034, 035, 036), src/services/kana-wilds.service.ts, src/services/traveller.service.ts,
+' nihon-web/src/lib/world/challenges.ts, nihon-web/src/lib/travellerLook.ts
+@startuml E6 Kana Wilds and traveller
+title E6. Entity classes: Kana Wilds and the traveller
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty methods
+hide <<enumeration>> circle
+
+class User <<entity>> {
+  id : Integer {PK}
+  username : String
+}
+note left of User : see E1
+
+class Hiragana <<entity>> {
+  id : Integer {PK}
+  kana : String
+  romaji : String
+}
+note left of Hiragana : see E3
+
+class HiraganaProgress <<entity>> {
+  correctCount : Integer
+  wrongCount : Integer
+}
+note bottom of HiraganaProgress : see E3; a collected kana's\nmastery level (1–5) is derived\nfrom these answers in the web game
+
+class CollectedKana <<entity>> {
+  origin : KanaOrigin
+  caughtAt : DateTime
+}
+note right of CollectedKana : table moji_collection;\none per learner and kana:\nthe same kana is never caught twice
+
+class ChallengerWin <<entity>> {
+  wonAt : DateTime
+}
+note right of ChallengerWin : table wild_challenger_wins;\none per learner and challenger:\nthe first win pays XP once
+
+class Challenger <<rule>> {
+  id : ChallengerId {PK}
+  team : ChallengerTeam
+  defence : DefenceStyle
+  reward : ChallengerReward [0..1]
+}
+note right of Challenger : fixed in code\n(data/world/challengers.ts),\nnot a table
+
+class TravellerLook <<entity>> {
+  outfit : String
+  sash : String
+  skin : String
+  hair : String
+  hat : String
+  accessory : String
+  cheeks : String
+  updatedAt : DateTime
+}
+note right of TravellerLook : table traveller_looks; no row means\nthe default look; every value must be one\nof its choices (traveller.service.ts)
+
+enum KanaOrigin <<enumeration>> {
+  starter
+  caught
+}
+
+enum ChallengerId <<enumeration>> {
+  chun
+  tama
+  pon
+  sensei
+  zen
+  kurama
+}
+
+enum DefenceStyle <<enumeration>> {
+  reading
+  look-alikes
+  shout
+  stroke-reveal
+  word-attack
+  recall
+  brush
+}
+
+enum ChallengerReward <<enumeration>> {
+  sharp-eyes
+  voiced-evolution
+  small-kana-evolution
+  katakana-wilds
+}
+
+User "1" -- "0..*" CollectedKana : collects >
+CollectedKana "0..*" --> "1" Hiragana
+User "1" -- "0..*" HiraganaProgress
+HiraganaProgress "0..*" --> "1" Hiragana
+User "1" -- "0..6" ChallengerWin : has beaten >
+ChallengerWin "0..*" --> "1" Challenger
+User "1" *-- "0..1" TravellerLook : wears >
+
+legend bottom left
+  A finished battle is a PracticeSession with kind "battle" (E3); its XP and the first-catch and first-win XP
+  are XpEvents with source "game" (E4).
+endlegend
+@enduml

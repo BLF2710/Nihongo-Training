@@ -1,6 +1,6 @@
 // A kana's level is the learner's real mastery of it (docs/KANA-BATTLE.md section 8): the right and wrong answers the
 // site stores for that kana, from quizzes, reviews and battles alike. Pure; the API supplies the counts.
-import { tileKanaById } from "./gojuon.ts";
+import { tileKanaById, tilesOf } from "./gojuon.ts";
 
 export type MasteryLevel = 1 | 2 | 3 | 4 | 5;
 /** The answers given for one hiragana (its catalog id), as the API reports them. */
@@ -28,7 +28,7 @@ export function masteryLevel(correct: number, wrong: number): MasteryLevel {
     (level, step) => answered >= step.minAnswers && accuracy >= step.minAccuracy ? step.level : level, FIRST_LEVEL);
 }
 
-/** The levels of the kana the answers are for, by character: basic and voiced kana (other ids are skipped). */
+/** The levels of the kana the answers are for, by character: the tile kana (other ids are skipped). */
 export function kanaLevelsOf(answers: readonly KanaAnswers[]): KanaLevels {
   return new Map(answers.flatMap(({ kanaId, correct, wrong }) => {
     const kana = tileKanaById(kanaId);
@@ -38,6 +38,6 @@ export function kanaLevelsOf(answers: readonly KanaAnswers[]): KanaLevels {
 
 export const levelOf = (levels: KanaLevels, character: string): MasteryLevel => levels.get(character) ?? FIRST_LEVEL;
 
-/** A word's power before matchups: each of its kana adds its level's tile power (a repeated kana counts each time). */
+/** A word's power before matchups: each of its tiles adds its level's tile power (a repeated kana counts each time). */
 export const wordPower = (japanese: string, levels: KanaLevels) =>
-  [...japanese].reduce((power, character) => power + TILE_POWER_BY_LEVEL[levelOf(levels, character)], 0);
+  tilesOf(japanese).reduce((power, tile) => power + TILE_POWER_BY_LEVEL[levelOf(levels, tile)], 0);

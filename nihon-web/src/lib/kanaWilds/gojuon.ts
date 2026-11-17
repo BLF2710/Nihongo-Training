@@ -55,8 +55,40 @@ export const VOICED_HIRAGANA: readonly WildKana[] = VOICED_ROWS.flatMap(({ row, 
 export const VOICED_ROWS_OF_KANA: readonly { row: string; kana: readonly WildKana[] }[] =
   VOICED_ROWS.map(({ row }) => ({ row, kana: VOICED_HIRAGANA.filter(item => item.row === row) }));
 
-/** Every kana that can be a tile: the basic ones, caught, and the voiced ones, evolved. */
-export const TILE_KANA: readonly WildKana[] = [...BASIC_HIRAGANA, ...VOICED_HIRAGANA];
+/** The small-kana combinations (yōon) that kana evolve into once Zen is beaten (docs/KANA-BATTLE.md section 9): き with
+ *  a small ゃ, ゅ or ょ becomes one sound, きゃ. The catalog's ids, きゃ = 72 … ぴょ = 104. Never caught in the wild. */
+const YOON_ROWS: readonly { row: string; kana: string; romaji: string }[] = [
+  { row: "ky", kana: "きゃ きゅ きょ", romaji: "kya kyu kyo" },
+  { row: "sh", kana: "しゃ しゅ しょ", romaji: "sha shu sho" },
+  { row: "ch", kana: "ちゃ ちゅ ちょ", romaji: "cha chu cho" },
+  { row: "ny", kana: "にゃ にゅ にょ", romaji: "nya nyu nyo" },
+  { row: "hy", kana: "ひゃ ひゅ ひょ", romaji: "hya hyu hyo" },
+  { row: "my", kana: "みゃ みゅ みょ", romaji: "mya myu myo" },
+  { row: "ry", kana: "りゃ りゅ りょ", romaji: "rya ryu ryo" },
+  { row: "gy", kana: "ぎゃ ぎゅ ぎょ", romaji: "gya gyu gyo" },
+  { row: "j", kana: "じゃ じゅ じょ", romaji: "ja ju jo" },
+  { row: "by", kana: "びゃ びゅ びょ", romaji: "bya byu byo" },
+  { row: "py", kana: "ぴゃ ぴゅ ぴょ", romaji: "pya pyu pyo" },
+];
+const FIRST_YOON_ID = 72;
+
+export const YOON_HIRAGANA: readonly WildKana[] = YOON_ROWS.flatMap(({ row, kana, romaji }) => {
+  const readings = romaji.split(" ");
+  return kana.split(" ").map((sound, index) => ({ row, kana: sound, romaji: readings[index] }));
+}).map((item, index) => ({ ...item, id: FIRST_YOON_ID + index, vowel: vowelOfRomaji(item.romaji) }));
+
+/** Every kana that can be a tile: the basic ones, caught, and the voiced and small-kana ones, evolved. */
+export const TILE_KANA: readonly WildKana[] = [...BASIC_HIRAGANA, ...VOICED_HIRAGANA, ...YOON_HIRAGANA];
+
+const SMALL_YOON_KANA = "ゃゅょ";
+
+/** A word's tiles: one per kana, except that a small ゃ, ゅ or ょ joins the kana before it (きゃく is きゃ + く). */
+export function tilesOf(japanese: string): string[] {
+  return [...japanese].reduce<string[]>((tiles, character) => {
+    const previous = tiles.at(-1);
+    return SMALL_YOON_KANA.includes(character) && previous ? [...tiles.slice(0, -1), previous + character] : [...tiles, character];
+  }, []);
+}
 const TILE_BY_CHARACTER = new Map(TILE_KANA.map(item => [item.kana, item]));
 const TILE_BY_ID = new Map(TILE_KANA.map(item => [item.id, item]));
 export const tileKanaByCharacter = (character: string): WildKana | undefined => TILE_BY_CHARACTER.get(character);

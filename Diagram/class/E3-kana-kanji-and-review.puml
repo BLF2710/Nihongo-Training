@@ -1,5 +1,5 @@
 ' E3. Entity classes: kana, kanji, spaced repetition and practice records
-' Source: nihon-api/migrations (000, 004, 013, 020, 022, 028, 030)
+' Source: nihon-api/migrations (000, 004, 013, 020, 022, 028, 030, 032, 033)
 @startuml E3 Kana kanji and review
 title E3. Entity classes: kana, kanji, spaced repetition and practice records
 skinparam classAttributeIconSize 0
@@ -136,6 +136,7 @@ enum PracticeKind <<enumeration>> {
   mock-exam
   particles
   errands
+  battle
 }
 
 User "1" -- "0..*" HiraganaProgress

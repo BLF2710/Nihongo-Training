@@ -13,6 +13,14 @@ const TAMA: Challenger = { id: "tama", character: "tama", team: teamOf("さち�
 const PON: Challenger = { id: "pon", character: "pon", team: teamOf("ぬねは"), defence: "stroke-reveal", reward: "sharp-eyes" };
 /** Sensei, on the Lessons island: が, だ, ば, the voiced forms. Word attacks: read the whole word. Beating Sensei lets
  *  the player's kana evolve. */
-const SENSEI: Challenger = { id: "sensei", character: "sensei", team: teamOf("がだば"), defence: "word-attack", reward: "evolution" };
+const SENSEI: Challenger = { id: "sensei", character: "sensei", team: teamOf("がだば"), defence: "word-attack", reward: "voiced-evolution" };
 
-export const CHALLENGERS: Readonly<Record<ChallengerId, Challenger>> = { chun: CHUN, tama: TAMA, pon: PON, sensei: SENSEI };
+/** Zen, on the Review island: the player's own three weakest kana, whatever they are. Recall: no choices, type what
+ *  the kana reads. Beating Zen opens the small-kana evolution (き → きゃ). */
+const ZEN: Challenger = { id: "zen", character: "zen", team: { kind: "weakest", size: 3 }, defence: "recall", reward: "small-kana-evolution" };
+
+/** Kurama, the tengu of the dojo on Fuji: three of all the player's kana, mixed (voiced and small kana too). Brush
+ *  style: kana and words written with a brush, not printed. The last of the cast. */
+const KURAMA: Challenger = { id: "kurama", character: "kurama", team: { kind: "mixed", size: 3 }, defence: "brush", reward: "katakana-wilds" };
+
+export const CHALLENGERS: Readonly<Record<ChallengerId, Challenger>> = { chun: CHUN, tama: TAMA, pon: PON, sensei: SENSEI, zen: ZEN, kurama: KURAMA };

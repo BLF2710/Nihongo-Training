@@ -6,9 +6,10 @@ import { CAST } from "../../lib/cast";
 import type { CharacterId } from "../../lib/cast";
 import type { Direction, Vector } from "../../lib/errands/movement";
 import type { Resident, VillageLayout } from "../../lib/errands/village";
-import type { SceneTheme } from "../../lib/world/sceneTheme";
+import type { SceneTheme, Surroundings } from "../../lib/world/sceneTheme";
 import { VillageGround } from "./VillageGround";
 import { VillageScenery } from "./VillageScenery";
+import { Backdrop } from "./backdrops/landscapes";
 import { FOCUS_FROM_TOP, PERSPECTIVE_PER_HEIGHT, STAND_UP, TILT_DEGREES, groundDistance } from "./scene3d";
 import "../islandMap/IslandMap.css";
 import "./errands.css";
@@ -23,11 +24,20 @@ const VILLAGER_SIZE = 1.15;
 const SURROUNDINGS = 40;
 const DOOR_PROMPT_HEIGHT = 2;
 const TRAVELLER_HEIGHT = 1.5;
-/** Blossom (or, in the maple garden, leaves) drifting down over the scene (across the screen, in %; seconds). */
+/** Blossom (or, in the maple garden, leaves; on the mountain, snow) drifting down over the scene (across the screen,
+ *  in %; seconds). */
 const FALLING_PETALS = [
   { left: 12, duration: 11, delay: 0 }, { left: 34, duration: 14, delay: -5 }, { left: 58, duration: 12, delay: -9 },
   { left: 76, duration: 15, delay: -2 }, { left: 93, duration: 13, delay: -7 },
 ] as const;
+
+const FALLING_THEMES: ReadonlySet<SceneTheme> = new Set(["sakura", "maple", "mountain", "summit"]);
+// The rowing boat the traveller sits in at sea, lying on the water, turned the way they face: its width in tiles; its
+// drawing (wake included) is three times as long, with the middle of the hull this far along it.
+const BOAT_WIDTH = 0.8;
+const BOAT_DRAWING_LENGTH = BOAT_WIDTH * 3;
+const BOAT_MIDDLE = 70 / 120;
+const BOAT_TURN: Readonly<Record<Direction, number>> = { right: 0, down: 90, left: 180, up: 270 };
 
 type Size = { width: number; height: number };
 
@@ -64,6 +74,18 @@ function FeetShadow({ feet, width, tile }: { feet: Vector; width: number; tile: 
     style={{ left: (feet.x - width / 2) * tile, top: feet.y * tile - width * tile * 0.18, width: width * tile, height: width * tile * 0.36 }} />;
 }
 
+/** A small wooden rowing boat seen from above, bow first, with a wake behind it while it moves. */
+function RowingBoat({ at, facing, isMoving, tile }: { at: Vector; facing: Direction; isMoving: boolean; tile: number }) {
+  return <svg aria-hidden="true" viewBox="-20 0 120 40" className="pointer-events-none absolute overflow-visible"
+    style={{ left: (at.x - BOAT_DRAWING_LENGTH * BOAT_MIDDLE) * tile, top: (at.y - BOAT_WIDTH / 2) * tile, width: BOAT_DRAWING_LENGTH * tile,
+      height: BOAT_WIDTH * tile, transform: `rotate(${BOAT_TURN[facing]}deg)`, transformOrigin: `${BOAT_MIDDLE * 100}% 50%` }}>
+    {isMoving && <path d="M-4,10 q-8,10 0,20 M-14,6 q-10,14 0,28" fill="none" stroke="var(--village-foam)" strokeWidth={2.5} strokeLinecap="round" />}
+    <path d="M2,20 Q4,4 40,3 L76,5 Q94,10 99,20 Q94,30 76,35 L40,37 Q4,36 2,20 Z" fill="var(--village-wood-light)" stroke="var(--village-wood)" strokeWidth={3} />
+    <path d="M10,20 Q12,10 40,9 L74,11 Q88,15 91,20 Q88,25 74,29 L40,31 Q12,30 10,20 Z" fill="var(--village-wood)" opacity={0.35} />
+    <path d="M30,9 v22 M62,10 v20" stroke="var(--village-wood)" strokeWidth={3} />
+  </svg>;
+}
+
 type VillagerTokenProps = { villager: Resident; tile: number; hasErrand: boolean; isNearby: boolean; talkAction: string; onTalk: (id: CharacterId) => void };
 
 // Memoised: while the traveller walks, the villagers' props stay the same, so they aren't redrawn every frame.
@@ -96,6 +118,10 @@ type VillageSceneProps = {
   onEnterDoor?: () => void;
   /** The island's look (cherry blossom, bamboo, festival); none for the village square. */
   theme?: SceneTheme;
+  /** What lies beyond the map's edges: woods (the default), open water round an island, or clouds below Fuji. */
+  surroundings?: Surroundings;
+  /** Whether the traveller is in a boat (on the ferry to Fuji): drawn sitting in it, the boat turning as they row. */
+  isAboard?: boolean;
   /** How many tiles fit across a wide screen: more shows more of the village, smaller. */
   tilesAcross?: number;
   /** Overlays (the errand, inventory, conversation, controls), drawn over the village and not moved by the camera. */
@@ -104,7 +130,7 @@ type VillageSceneProps = {
 
 /** The village in 2.5D, seen from above at an angle in perspective and following the traveller. Everything standing
  *  is a 3D card, so the browser sorts it by depth: whoever walks behind a house is hidden by it. */
-export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, talkAction = "Talk", nearbyDoor, onEnterDoor, theme, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
+export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, talkAction = "Talk", nearbyDoor, onEnterDoor, theme, surroundings = "woods", isAboard = false, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
   const { ref, size } = useSize();
   const { map } = village;
   const { tile, x, y } = camera(size, map, position, tilesAcross);
@@ -113,7 +139,8 @@ export function VillageScene({ village, position, facing, isWalking, isRunning, 
   return <div ref={ref} className={`village island-map relative size-full overflow-hidden ${theme ? `village-theme-${theme}` : ""}`} style={{ perspective: size.height * PERSPECTIVE_PER_HEIGHT, perspectiveOrigin: `50% ${FOCUS_FROM_TOP * 100}%` }}>
     {size.width > 0 && <div className="village-3d absolute left-1/2" style={{ top: `${FOCUS_FROM_TOP * 100}%` }}>
       <div className="village-world village-3d absolute left-0 top-0" style={{ width: map.width * tile, height: map.height * tile, transformOrigin: "0 0", transform: `rotateX(${TILT_DEGREES}deg) translate3d(${-x}px, ${-y}px, 0)` }}>
-        <div aria-hidden="true" className="village-surroundings absolute" style={{ inset: -SURROUNDINGS * tile }} />
+        <div aria-hidden="true" className={`village-surroundings village-surroundings-${surroundings} absolute`} style={{ inset: -SURROUNDINGS * tile }} />
+        <Backdrop look={theme ?? "home"} map={map} tile={tile} />
         <VillageGround map={map} buildings={village.buildings} />
         <VillageScenery map={map} buildings={village.buildings} gates={village.gates} openGateIds={openGateIds} lanterns={village.lanterns} litLanterns={litLanterns} tile={tile} />
         {village.villagers.map(villager => <VillagerToken key={villager.id} villager={villager} tile={tile}
@@ -123,7 +150,7 @@ export function VillageScene({ village, position, facing, isWalking, isRunning, 
           <button type="button" tabIndex={-1} onClick={onEnterDoor} aria-label={nearbyDoor.action ? nearbyDoor.label : `Go into ${nearbyDoor.label.toLowerCase()}`}
             className="pointer-events-auto absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-lg border border-[var(--village-ink)] bg-white px-2 py-0.5 text-xs font-bold text-gray-900 shadow">{nearbyDoor.action ?? "Enter"} <kbd className="font-mono">E</kbd></button>
         </div>}
-        <FeetShadow feet={position} width={0.6} tile={tile} />
+        {isAboard ? <RowingBoat at={position} facing={facing} isMoving={isWalking} tile={tile} /> : <FeetShadow feet={position} width={0.6} tile={tile} />}
         <div aria-hidden="true" className={`village-upright village-person ${isRunning ? "village-running" : ""}`}
           style={{ left: position.x * tile - travellerWidth / 2, top: position.y * tile - travellerHeight, height: travellerHeight, width: travellerWidth, transform: STAND_UP + travellerTurn }}>
           <TravellerArt isWalking={isWalking} />
@@ -131,7 +158,7 @@ export function VillageScene({ village, position, facing, isWalking, isRunning, 
       </div>
     </div>}
     <div aria-hidden="true" className="village-haze pointer-events-none absolute inset-x-0 top-0 h-1/2" />
-    {(theme === "sakura" || theme === "maple") && <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    {theme && FALLING_THEMES.has(theme) && <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       {FALLING_PETALS.map(petal => <div key={petal.left} className="scenery-petal" style={{ left: `${petal.left}%`, animationDuration: `${petal.duration}s`, animationDelay: `${petal.delay}s` }} />)}
     </div>}
     {children}

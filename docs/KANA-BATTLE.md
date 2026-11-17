@@ -129,8 +129,16 @@ Wild kana use levels 1–2. Each challenger has a signature defence (section 9).
   quarter of the hit before the last ("glanced"), half once drawn ("grazed"), the full hit when wrong.
 - **Word attack** (Sensei): every attack is a whole course word holding the kana (with voiced kana, such as えいが),
   drawn like a reading attack; read the word right to block.
+- **Recall** (Zen): every attack is the kana itself, drawn slowly (1200 ms a stroke). There are no choices: type the
+  reading in romaji and press Block. It is compared trimmed, in lower case and composed (NFC, `typedReading`), and
+  graded by the server like any kana answer (which accepts the usual spellings, si for し). Typed before it is drawn
+  is a perfect block, after a block.
+- **Brush style** (Kurama): kana and words, as wild kana attack, but inked with a brush: thick, ragged strokes
+  (an SVG turbulence filter) leaning like handwriting (`InkLook` "brush" in `StrokeKana.tsx`). Choices are
+  look-alikes; read right before it is drawn for a perfect block, after for a block.
 
-Braced (after a redraw), every style offers two choices that are easy to tell apart.
+Braced (after a redraw), every style offers two choices that are easy to tell apart (recall too: the two choices
+replace the typing).
 
 ## 7. Catching
 
@@ -191,9 +199,12 @@ path (docs/WORLD.md). Every path is open from the start; a win is saved, pays XP
 | 5 | Zen (Review) | your weakest kana | recall (level 6) | **evolution**: small kana (き + ゃ → きゃ) |
 | 6 | Kurama (Fuji) | everything | brush style (level 7) + mixed | the katakana wilds (milestone 4) |
 
-Chun, Tama, Pon and Sensei are in the game (docs/WORLD.md section 4), each on their island with their signature
-defence (section 6): Chun (Kana) with あ, こ, お and look-alikes; Tama (Practice) with さ, ち, つ and the shout; Pon
-(Games) with ぬ, ね, は and the stroke reveal; Sensei (Lessons) with が, だ, ば and word attacks.
+The whole cast is in the game (docs/WORLD.md section 4), each on their island with their
+signature defence (section 6): Chun (Kana) with あ, こ, お and look-alikes; Tama (Practice) with さ, ち, つ and the
+shout; Pon (Games) with ぬ, ね, は and the stroke reveal; Sensei (Lessons) with が, だ, ば and word attacks; Zen
+(Review) with recall; Kurama (Fuji) with the brush. Zen's and Kurama's teams are not fixed: as the challenge starts
+Zen's is the learner's own three weakest tile kana, the lowest levels, ties at random, so the challenge is a review;
+Kurama's is three of all the learner's tiles, mixed, evolved ones included (`teamFor` in `lib/world/challenges.ts`).
 
 **Rewards** (each named on the result screen once the win is saved):
 - **Chun** brings the さ and た rows into the riverside path's grass, which is quiet until then.
@@ -202,7 +213,10 @@ defence (section 6): Chun (Kana) with あ, こ, お and look-alikes; Tama (Pract
 - **Pon** teaches the skill **Sharp Eyes**: a hidden wild kana shows its stroke count from the start of the battle,
   instead of once its HP is low (`useEnemyReveal` in `components/kanaWilds/enemyReveal.ts`). It is a skill in the
   game, not an achievement: migration 038 removes the achievement an earlier build added.
-- **Sensei** opens **evolution** (below).
+- **Sensei** opens **voiced evolution** (below).
+- **Zen** opens **small-kana evolution** (below).
+- **Kurama** is the last of the cast: the win is kept for the **katakana wilds** (milestone 4), so a learner who has
+  beaten Kurama goes in first when they open. Nothing opens yet.
 
 The rows are held back in both places: the web app's paths (`rewardRows` in `data/world/routes.ts`) and the API's
 catches (`HELD_KANA` in `kana-wilds.service.ts`, refused with 409). A starter kana from a held row (さ or た) is still
@@ -217,15 +231,27 @@ the mistake notebook, so the hints are about single kana.
 **Evolution adds new tiles** (が, ば, きゃ…), which open new words such as えいが (film), しごと (work) and きょう (today). The base
 tile stays in your collection.
 
-Dakuten evolution is in the game (`lib/kanaWilds/evolution.ts`). Once Sensei is beaten:
-- a kana of the か, さ, た and は rows **evolves** when it reaches **level 3** (`EVOLVE_AT_LEVEL`): か → が, し → じ,
-  と → ど, は → ば. An evolved ば goes on to ぱ when ば itself reaches level 3. Nothing is caught again, and the base
-  kana stays.
+Both kinds of evolution are in the game (`lib/kanaWilds/evolution.ts`), each opened by its challenger:
+- **Voiced** (Sensei): a kana of the か, さ, た and は rows **evolves** when it reaches **level 3**
+  (`EVOLVE_AT_LEVEL`): か → が, し → じ, と → ど, は → ば. An evolved ば goes on to ぱ when ば itself reaches level 3.
+- **Small kana** (Zen): き, し, ち, に, ひ, み and り, at level 3, each become their three small-kana combinations
+  (き → きゃ, きゅ, きょ), and so do the voiced ぎ, じ, び and ぴ once they have evolved and reached level 3 themselves
+  (き → ぎ → ぎゃ). The combinations are the catalog's ids 72–104 (`YOON_HIRAGANA`).
+- Nothing is caught again, and the base kana stays.
 - an evolved kana is a tile with its own level, from its own answers: the collection API returns the answers for
-  every collected kana and for the voiced forms they evolve into (`evolvedFromId`, catalog ids 47–71).
-- evolved tiles open course words with voiced kana (`EVERY_TILE_WORD`, `isTileKana`).
+  every collected kana and for every form it evolves into (`evolvedFromId` and `rootKanaId`, catalog ids 47–104).
+- a small-kana combination is **one tile**: words are split into tiles, not characters (`tilesOf`: きゃく is
+  きゃ + く), for spelling, power, the word's vowel (おちゃ ends in a) and word attacks. A small っ is not a tile, so
+  words with one stay out.
+- evolved tiles open course words with voiced and small kana (`EVERY_TILE_WORD`, `isTileKana`).
 - the collection shows the evolved tiles, and the next evolutions to come with their current level ("か → が at
-  level 3 (now 2)"). Before Sensei it names Sensei instead.
+  level 3 (now 2)", "し → しゃ しゅ しょ…"). Before Sensei it names Sensei instead, and until Zen is beaten it
+  says small kana come from beating Zen.
+- **The evolution moment**: when a kana evolves (its level reaches 3 after a battle, or anywhere on the site), the
+  next battle result, or the Kana Wilds page, says so: "か evolved into が (ga)!", in a status message until it is
+  dismissed. Each evolution is announced once: those told are kept in this browser, per learner
+  (`useEvolutionMoments`). The first time a browser sees a learner, the evolutions they already have are counted as
+  told, so a new device or a returning player isn't shown a banner for each old one.
 
 Losing a challenger battle costs nothing. You can try again at once, and the challenger offers a hint about what
 beat you ("You read ね as れ twice").

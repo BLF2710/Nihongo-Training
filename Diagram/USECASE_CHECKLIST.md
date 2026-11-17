@@ -1,6 +1,6 @@
 # Use case diagram checklist (DATN.vpp)
 
-Compared on 2026-10-28 with what the Lingora app actually does, updated 2026-10-29 (achievements page, mistake notebook for kana and kanji, Particle Drop, daily review deck). Tick items off as you update the diagrams in Visual Paradigm.
+Compared on 2026-10-28 with what the Lingora app actually does, updated 2026-10-29 (achievements page, mistake notebook for kana and kanji, Particle Drop, daily review deck) and 2026-11-17 (checked against DATN.vpp; Kana Wilds and the walkable world, traveller wardrobe, Island Errands, guest practice). Tick items off as you update the diagrams in Visual Paradigm.
 
 - **Add**: the app has it, the diagram doesn't.
 - **Remove / rename**: the diagram has it, the app doesn't (or calls it something else).
@@ -14,12 +14,14 @@ Has: Authenticate account, Manage account, Learn Japanese, Learn English, Practi
 - [✅] Replace **Manage community** (Admin) with **Friends & communicate** (Learner), see section 12
 - [✅] Fix wording: "Manage user" → **Manage users** (matches its diagram's name)
 - [ ] Add the secondary actors from section 13 (or only on the detailed diagrams, if the overview gets crowded)
+- [ ] Add **Play Kana Wilds** (Learner), detailed in section 15
+- [ ] Add **Try practice as a guest** (Guest: a kana quiz at `/guest/practice` without an account; nothing is saved)
 
 ## 2. Authenticate account (Learner)
 
 Has: Register account, Log in, Log out, Change password.
 
-- [ ] Add **Forgot password** (reset by an emailed link)
+- [ ] Add **Forgot password** (reset by an emailed link). **Do this first:** the "Reset password" sequence diagram already exists but no use case is behind it
 - [ ] Add **Confirm email address** (link sent after registering or changing email)
 - [✅] Add **Sign in with Google** as its own use case that «extend»s **Log in** and **Register account** (optional alternative; the first Google sign-in creates the account). Connect the secondary actor **Google**. Not «include»: logging in doesn't always go through Google. (Alternative some teachers prefer: generalization, "Log in" as parent of "Log in with password" and "Log in with Google".)
 - [✅] Add **Sign out on all devices**
@@ -32,6 +34,7 @@ Has: Change avatar, Change bio, Change language, Change name, View profile.
 - [✅ ] Add **Set daily goal and learning goal**
 - [✅] Add **Choose course level** (N5 / N4)
 - [✅] Add **Link / unlink Google account** (Settings → Account & security; connect **Google**)
+- [ ] Add **Customize traveller** (`/traveller`, linked from the profile: kimono, skin, sash, hair, hat, what they carry, cheeks; seen on the island map, the village, the wild paths and in battles). Sequence diagram 18
 
 ## 4. Learn Japanese (Learner)
 
@@ -49,14 +52,15 @@ Has: Play Hiragana / Katakana speed quiz, Review Hiragana / Katakana, Practice K
 
 - [✅] Add **Daily review** (spaced repetition: rate cards Again / Hard / Good / Easy)
   - [ ] «extend» **Review ahead** (cards due within the next day, offered when nothing is due)
-  - [ ] «extend» **Hide a card** (left out of reviews, keeps its progress; also possible from the deck)
+  - [✅] «extend» **Hide a card** (left out of reviews, keeps its progress; also possible from the deck). Drawn as "Suspend card"; consider renaming it to **Hide a card**, the word the app uses
   - [ ] Add **Manage review deck** (`/srs/deck`: browse cards, search, hide / show again)
 - [✅] Add **Review mistakes** (mistake notebook)
   - [ ] Widen it: kana quizzes and kanji practice now add mistakes too
   - [ ] «extend» **Practise weak characters** (kana and kanji under 85% accuracy, even mastered ones)
 - [ ] Add **Play Particle Drop** (fill in the missing particle against the clock; wrong answers go to the mistake notebook). Put it next to the Hiragana / Katakana speed quiz
 - [ ] Add **Take level review**
-- [ ] Add **Take mock exam** (N5 / N4, results saved)
+- [ ] Add **Take mock exam** (N5 / N4, results saved). Sequence diagram 19
+- [ ] Add **Play Island Errands** (walk the festival village and run errands for the islanders; each finished errand is saved as practice and pays game XP)
 - [✅] Add **Take speaking test** (N3 and above; graded)
 
 ## 6. Track learning progress (Learner)
@@ -135,6 +139,28 @@ Draw these on the right of the use cases that use them.
 - [ ] **Azure Speech** — Take speaking test (pronunciation and fluency)
 - [ ] **Anthropic (Claude)** — Chat with the study assistant, Take speaking test (content grading)
 
+Kana Wilds (section 15) has no secondary actor: everything runs in the browser and the Lingora API.
+
 ## 14. Housekeeping
 
 - [✅] Delete the 10 unused actors **Actor**, **Actor2**–**Actor10** (in the model, on no diagram) from the Model Explorer
+- [ ] Fix spelling in two sequence diagram names: "Leaner view statistics" → **Learner views statistics**, "Take unit  assesment" → **Take unit assessment**
+- [ ] Optional: "Login with Google" / "Register with Google" → **Log in with Google** / **Register with Google** ("log in" is the verb, "login" the noun)
+
+## 15. Play Kana Wilds (Learner) — new diagram
+
+The kana battle-and-catch game in the walkable world (docs/WORLD.md, docs/KANA-BATTLE.md). Ready in PlantUML:
+[`usecase/UC-play-kana-wilds.puml`](usecase/UC-play-kana-wilds.puml). Sequence diagrams 16 and 17.
+
+- [ ] Create the diagram **Play Kana Wilds (Learner)** with the actor **Learner**
+- [ ] **Choose a starter kana** (once: か, さ or た, plus the five vowels)
+- [ ] **Walk the world** (village square, wild paths, islands; each island's buildings open its pages)
+- [ ] **Battle a wild kana** «extend» **Walk the world** (stepping onto tall grass or rough water)
+  - [ ] «include» **Defend against an attack** (read the kana or word the enemy attacks with)
+  - [ ] **Catch a kana** «extend» **Battle a wild kana** (trace its strokes once it is at or below 60% HP)
+- [ ] **Quick battle** «include» **Battle a wild kana** (from the Kana Wilds page, without walking)
+- [ ] **View kana collection** (each kana's level 1–5 from real answers)
+  - [ ] **Evolve a kana** «extend» **View kana collection** (か → が after Sensei, き → きゃ after Zen, at level 3)
+- [ ] **Challenge an island challenger** «include» **Defend against an attack** (Chun, Tama, Pon, Sensei, Zen, Kurama)
+  - [ ] **Get a tip after a loss** «extend» **Challenge an island challenger**
+

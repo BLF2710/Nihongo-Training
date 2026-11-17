@@ -1,5 +1,5 @@
-// The vowel circle a → i → u → e → o → a: each vowel beats the next one. A word's vowel is its last kana's.
-import { tileKanaByCharacter } from "./gojuon.ts";
+// The vowel circle a → i → u → e → o → a: each vowel beats the next one. A word's vowel is its last tile's (きゃ's is a).
+import { tileKanaByCharacter, tilesOf } from "./gojuon.ts";
 import type { Vowel } from "./gojuon.ts";
 
 export const VOWEL_CIRCLE: readonly Vowel[] = ["a", "i", "u", "e", "o"];
@@ -18,7 +18,7 @@ export function matchup(attacker: Vowel | null, defender: Vowel | null): Matchup
 
 /** The vowel the word counts as: its last kana's, or null for a word ending in ん. */
 export function vowelOfWord(word: string): Vowel | null {
-  const last = [...word].at(-1);
+  const last = tilesOf(word).at(-1);
   return last ? tileKanaByCharacter(last)?.vowel ?? null : null;
 }
 

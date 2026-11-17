@@ -1,0 +1,71 @@
+' 18. Customize the traveller (wardrobe)
+' Use case: Customize traveller (Manage account) · Actor: Learner
+'
+' Design patterns:
+'   - Repository: traveller-look.repository.ts (one row per learner, saved with an upsert)
+'   - Observer (web): the look is a useSyncExternalStore store (nihon-web/src/lib/useTravellerLook.ts), so every
+'     traveller on screen (island map, village, wild paths, battles) redraws when it changes
+'   - Validation at the boundary: every part must be one of its choices (traveller.service.ts parseLook → 400)
+' Lifelines use BCE stereotypes: «boundary» screens, «control» use-case logic, «entity» stored data; the database
+' keeps its own symbol.
+@startuml 18 Customize the traveller
+title 18. Customize the traveller (wardrobe)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app\n(wardrobe)" as Web
+entity "Traveller look store\n(browser)" as Store
+control "Traveller controller" as Ctrl
+control "Traveller service" as Svc
+entity "Repository" as Repo
+database "Database" as DB
+
+note over Web, Ctrl : «Chain of responsibility»: headers → CORS → authenticate → controller\n«Decorator»: action() wraps every controller (error handling)
+
+Learner -> Web : Open "Dress your traveller" (from the profile)
+Web -> Store : read the saved look
+alt not kept in this browser yet
+  Web -> Ctrl : GET /api/traveller/look
+  Ctrl -> Svc : getTravellerLook()
+  Svc -> Repo : findTravellerLook()
+  Repo -> DB : SELECT … FROM traveller_looks
+  Svc --> Ctrl : the look, or the default one
+  Ctrl --> Web : look
+  Web -> Store : remember the look
+end
+Web -> Web : show the preview and a choice for each part
+
+loop trying things on
+  Learner -> Web : Choose kimono / skin / sash / hair / hat / carrying / cheeks
+  Web -> Web : redraw the preview at once (draft only, nothing sent)
+end
+opt see it move
+  Learner -> Web : Walk
+  Web -> Web : preview walks
+end
+
+alt Save
+  Learner -> Web : Save
+  Web -> Ctrl : PUT /api/traveller/look { outfit, sash, skin, hair, hat, accessory, cheeks }
+  Ctrl -> Svc : saveTravellerLook(body)
+  Svc -> Svc : parseLook(): every part one of its choices?
+  alt a part is missing or unknown
+    Svc --> Web : 400 "Choose one of the … options."
+    Web -> Web : show "Could not save your traveller. Please try again.", keep the draft
+  else valid
+    Svc -> Repo : saveTravellerLook()
+    Repo -> DB : INSERT … ON CONFLICT (user_id) DO UPDATE
+    Svc --> Ctrl : look
+    Ctrl --> Web : look
+    Web -> Store : remember the look
+    Store -> Web : every traveller on screen redraws
+    note right of Store : «Observer»\nsubscribed components\nupdate together
+    Web -> Web : show "Saved. Your traveller wears it everywhere now."
+  end
+else Back to the first look
+  Learner -> Web : Back to the first look
+  Web -> Web : draft = default look (Save still needed)
+end
+@enduml

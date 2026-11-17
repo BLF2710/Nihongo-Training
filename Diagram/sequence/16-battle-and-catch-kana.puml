@@ -1,0 +1,117 @@
+' 16. Battle and catch a wild kana (Kana Wilds)
+' Use case: Battle a wild kana, «extend» Catch a kana (Play Kana Wilds) · Actor: Learner
+'
+' Design patterns:
+'   - Strategy: how an enemy attacks and how a defence is judged is picked per defence style from a map
+'     (nihon-web/src/lib/kanaWilds/defenceStyles.ts ATTACK_PICKERS; wild kana use "reading")
+'   - Facade: rewardActivity() hides XP, daily limits, achievements and level-up behind one call
+'     (services/gamification.service.ts)
+'   - Unit of work: a practice session and its streak day are saved together (practice-activity.service.ts)
+'   - Observer: achievement / level-up notifications are published to every open tab (realtime.service.ts)
+'   - Repository
+' Where grading happens: each reading of an enemy attack is graded on the server (POST /api/quiz/answer, the same
+' call kana quizzes use, so battles raise kana mastery). Damage, HP and the catch trace are worked out in the
+' browser; the server only checks that a catch is allowed and saves it (docs/KANA-BATTLE.md section 11).
+' Lifelines use BCE stereotypes: «boundary» screens, «control» use-case logic, «entity» stored data; the database
+' keeps its own symbol.
+@startuml 16 Battle and catch a wild kana
+title 16. Battle and catch a wild kana (Kana Wilds)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app\n(wild path)" as Web
+control "Battle rules\n(defence style)" as Rules
+control "Quiz controller" as Quiz
+control "Activity controller" as Act
+control "Kana Wilds controller\n+ service" as Wilds
+control "Gamification\nservice" as Gam
+entity "Repository" as Repo
+database "Database" as DB
+control "Notification\n(realtime)" as Notif
+
+note over Web, Quiz : «Chain of responsibility»: headers → CORS → authenticate → controller\n«Decorator»: action() wraps every controller (error handling)
+note over Repo : «Repository»\nall SQL lives here
+
+Learner -> Web : Open a wild path
+Web -> Wilds : GET /api/kana-wilds/collection
+Wilds -> Repo : listCollection(), answers per kana, challenger wins
+Repo -> DB : SELECT
+Wilds --> Web : kana owned, answers, beaten challengers
+Web -> Web : work out each kana's level (1–5) from its answers
+Web -> Web : show the path, traveller at the arrival spot
+
+loop each step
+  Learner -> Web : Walk (arrow keys / WASD / touch)
+  Web -> Web : move the traveller
+  opt step onto tall grass (1 in 8, not in the 3 steps after a battle)
+    Web -> Web : pick a wild kana from the path's rows\n(an uncaught one if any is left; otherwise an owned one, for practice, not catchable)
+    Web -> Web : show the battle over the path
+  end
+end
+
+loop until one side is worn out, or the learner runs
+  Learner -> Web : Play a word from the hand
+  Web -> Web : word's power from its kana levels → damage, show the hit
+
+  Web -> Rules : pickAttack("reading", enemy, words)
+  note right of Rules : «Strategy»\none picker per defence style\n(reading, look-alikes, shout, …)
+  Rules --> Web : the kana or word it attacks with
+  Web -> Web : draw the attack stroke by stroke, show the choices
+  Learner -> Web : Choose the reading
+  Web -> Quiz : POST /api/quiz/answer (kana, answer, submissionId)
+  Quiz -> Repo : grade + save the answer (same submissionId never counts twice)
+  Repo -> DB : UPDATE kana progress
+  Quiz --> Web : correct? + right answer
+  Web -> Web : block / perfect block / hit, show the result
+
+  opt enemy at or below 60% HP
+    Learner -> Web : Catch it! (chance shown)
+    Learner -> Web : Trace the kana's strokes
+    Web -> Web : check stroke order, direction and shape, roll the chance
+
+    alt caught
+      Web -> Wilds : POST /api/kana-wilds/catches { kanaId }
+      Wilds -> Repo : starter chosen? row open? (さ/た rows need Chun, ま… need Tama)
+      alt not allowed
+        Wilds --> Web : 409 with the reason
+        Web -> Web : show the reason
+      else allowed
+        Wilds -> Repo : addCaughtKana()
+        Repo -> DB : INSERT … ON CONFLICT DO NOTHING
+        opt first catch of this kana
+          Wilds -> Gam : rewardActivity("game", "kana-wilds-catch:<id>")
+          note right of Gam : «Facade»\nXP (daily game limit) +\nachievements + level
+          Gam -> Repo : award XP, check achievements
+          opt new achievement / level up
+            Gam -> Notif : notify
+            Notif -> DB : save notification
+            Notif -> Web : publish → bell updates (all open tabs)
+            note right of Notif : «Observer»
+          end
+          Gam --> Wilds : reward
+        end
+        Wilds --> Web : collection + isNew + reward
+        Web -> Web : show "Caught!" and "+XP", the kana joins the collection
+      end
+    else trace missed or it broke out
+      Web -> Web : the kana attacks; after 3 failures it runs away
+    end
+  end
+end
+
+opt at least 3 readings answered
+  Web -> Act : POST /api/activity/practice { kind: "battle", answered, correct }
+  Act -> Act : validate (kind, numbers, 60 sessions an hour)
+  group «Unit of work» withTransaction()
+    Act -> Repo : insertPracticeSession() + recordActivity() (streak day)
+    Repo -> DB : INSERT / UPDATE
+  end
+  Act -> Gam : rewardActivity("game", "session:<id>")
+  Gam --> Act : reward (daily game limit)
+  Act --> Web : recorded, streak, reward
+  Web -> Web : show "+XP"
+end
+Web -> Web : close the battle, traveller back on the same tile
+@enduml

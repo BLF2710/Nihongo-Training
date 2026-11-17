@@ -1,6 +1,7 @@
 // How an enemy's attack is met (docs/KANA-BATTLE.md section 6). Wild kana are read as they are drawn; each challenger
 // has a signature defence (section 9): Chun's attacks are all look-alikes, Tama shouts, Pon's draw slowly for a
-// stroke reveal, Sensei casts whole words. Pure: what the enemy attacks with and how an answer is judged; the screen asks the question.
+// stroke reveal, Sensei casts whole words, Zen asks for recall (type the reading, no choices), Kurama writes with a
+// brush. Pure: what the enemy attacks with and how an answer is judged; the screen asks the question.
 import type { DefenceResult } from "./battle.ts";
 import { lookAlikesOf } from "./choices.ts";
 import { attackWordsOf, movesetOf, pickEnemyAttack, pickOne } from "./enemyAttacks.ts";
@@ -8,7 +9,7 @@ import type { EnemyAttack } from "./enemyAttacks.ts";
 import type { WildKana } from "./gojuon.ts";
 import type { BattleWord } from "./words.ts";
 
-export type DefenceStyle = "reading" | "look-alikes" | "shout" | "stroke-reveal" | "word-attack";
+export type DefenceStyle = "reading" | "look-alikes" | "shout" | "stroke-reveal" | "word-attack" | "recall" | "brush";
 
 type AttackPicker = (enemy: WildKana, words: readonly BattleWord[], random: () => number) => EnemyAttack;
 
@@ -29,6 +30,10 @@ const ATTACK_PICKERS: Readonly<Record<DefenceStyle, AttackPicker>> = {
     const attackWords = attackWordsOf(enemy, words);
     return attackWords.length ? { kind: "word", word: pickOne(attackWords, random) } : pickEnemyAttack(enemy, words, random);
   },
+  // Always the kana itself: Zen's team is the player's weakest kana, and recalling them is the point.
+  recall: enemy => kanaAttack(enemy),
+  // Kana and words alike, as wild kana attack: the difficulty is the brush, not what is written.
+  brush: pickEnemyAttack,
 };
 
 /** What the enemy attacks with on its turn, for this defence. */
@@ -50,6 +55,9 @@ export function revealBlock(isCorrect: boolean, drawn: number, total: number): D
   if (drawn < total / 2) return "perfect";
   return drawn < total ? "glanced" : "grazed";
 }
+
+/** A typed reading as it is compared: composed (NFC), without spaces around it, in lower case. */
+export const typedReading = (typed: string): string => typed.normalize("NFC").trim().toLowerCase();
 
 /** A shouted kana: picked right on the first hearing is a perfect block; after hearing it again, a block. */
 export function heardBlock(isCorrect: boolean, timesHeard: number): DefenceResult {

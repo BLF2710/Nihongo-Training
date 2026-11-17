@@ -1,0 +1,83 @@
+' 17. Challenge an island challenger (Kana Wilds)
+' Use case: Challenge an island challenger (Play Kana Wilds) · Actor: Learner
+'
+' Design patterns:
+'   - Strategy: each challenger's signature defence is a defence style picked from a map
+'     (nihon-web/src/lib/kanaWilds/defenceStyles.ts): Chun look-alikes, Tama shout, Pon stroke reveal, Sensei word
+'     attacks, Zen recall (type the reading), Kurama brush
+'   - Facade: rewardActivity() for the first win's XP (services/gamification.service.ts)
+'   - Observer: achievement / level-up notifications published to every open tab
+'   - Repository
+' The challenge is played in the browser like a battle (readings graded by POST /api/quiz/answer, see diagram 16);
+' the server saves the win once and pays XP the first time. Nothing is locked behind a win except the rewards below.
+' Lifelines use BCE stereotypes: «boundary» screens, «control» use-case logic, «entity» stored data; the database
+' keeps its own symbol.
+@startuml 17 Challenge an island challenger
+title 17. Challenge an island challenger (Kana Wilds)
+autonumber
+skinparam sequenceMessageAlign left
+skinparam responseMessageBelowArrow true
+
+actor Learner
+boundary "Web app\n(island)" as Web
+control "Challenge rules\n(team + defence style)" as Rules
+control "Kana Wilds controller\n+ service" as Wilds
+control "Gamification\nservice" as Gam
+entity "Repository" as Repo
+database "Database" as DB
+control "Notification\n(realtime)" as Notif
+
+note over Web, Wilds : «Chain of responsibility»: headers → CORS → authenticate → controller\n«Decorator»: action() wraps every controller (error handling)
+
+Learner -> Web : Open an island
+Web -> Wilds : GET /api/kana-wilds/collection
+Wilds -> Repo : collection, answers per kana, challenger wins
+Repo -> DB : SELECT
+Wilds --> Web : collection + beatenChallengers
+Web -> Web : show the island; challenger marked "!" until beaten
+
+Learner -> Web : Walk up to the challenger, press E (or tap Fight)
+Web -> Rules : teamFor(challenger, collection)
+note right of Rules : fixed team (Chun あこお …)\nor chosen from the learner's kana:\nZen the 3 weakest, Kurama 3 mixed
+Rules --> Web : team + defence style
+Web -> Web : show the challenger's lines and their team
+
+loop each kana of the team, HP carried over
+  Learner -> Web : Play words, defend their attacks
+  Web -> Rules : pickAttack(style, enemy, words)
+  note right of Rules : «Strategy»\nthe challenger's\nsignature defence
+  Rules --> Web : attack
+  note over Learner, Web : Same turns as diagram 16, without catching:\neach reading graded by POST /api/quiz/answer
+end
+
+alt won
+  Web -> Wilds : POST /api/kana-wilds/challengers/:id/wins
+  Wilds -> Wilds : known challenger? (404) starter chosen? (409)
+  Wilds -> Repo : addChallengerWin()
+  Repo -> DB : INSERT … ON CONFLICT DO NOTHING
+  opt first win against this challenger
+    Wilds -> Gam : rewardActivity("game", "kana-wilds-challenger:<id>")
+    note right of Gam : «Facade»
+    Gam -> Repo : award XP, check achievements
+    opt new achievement / level up
+      Gam -> Notif : notify
+      Notif -> DB : save notification
+      Notif -> Web : publish → bell updates (all open tabs)
+      note right of Notif : «Observer»
+    end
+    Gam --> Wilds : reward
+  end
+  Wilds --> Web : collection + isNew + reward
+  Web -> Web : show the win, "+XP" and the reward
+  note right of Web : Chun, Tama: new rows in a path's grass\nPon: Sharp Eyes (stroke count shown)\nSensei: voiced evolution (か → が)\nZen: small-kana evolution (き → きゃ)\nKurama: kept for the katakana wilds
+  alt saving failed
+    Web -> Web : show "Could not save your win" + Try again
+  end
+else lost or gave up
+  Web -> Web : show the team, a tip and the kana mixed up ("You read ね as れ twice")
+  opt try again
+    Learner -> Web : Rematch
+    note over Learner, Web : the loop starts again at once; a loss costs nothing
+  end
+end
+@enduml

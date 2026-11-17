@@ -104,8 +104,31 @@ function jagged(cx: number, cy: number, r: number, points: number): string {
   return `M${corners.join(" L")} Z`;
 }
 
+/** A pine's clouds of needles (x, y, radius), as a garden pine is pruned: broad, overlapping tiers on a leaning trunk,
+ *  wider at the bottom, so the crown reads as one tree. */
+const PINE_CLOUDS = [[0.24, 1.08, 0.26], [0.74, 1.0, 0.25], [0.5, 0.88, 0.28], [0.32, 0.62, 0.22], [0.68, 0.56, 0.21], [0.5, 0.34, 0.2]] as const;
+
+/** A cloud of needles: a flat-bottomed lump with a bumpy top. */
+function needleCloud(cx: number, cy: number, r: number): string {
+  const bottom = cy + r * 0.45, left = cx - r, right = cx + r;
+  const bump = r / 1.5;
+  return `M${left},${bottom} Q${left - 0.04},${cy - r * 0.15} ${left + bump * 0.6},${cy - r * 0.35}`
+    + ` Q${cx - bump * 0.4},${cy - r * 0.95} ${cx + bump * 0.2},${cy - r * 0.55}`
+    + ` Q${right - bump * 0.2},${cy - r * 0.75} ${right},${cy - r * 0.05} Q${right + 0.03},${bottom} ${right - 0.05},${bottom} Z`;
+}
+
+/** A garden pine: a dark, twisting trunk under broad, dark green clouds of needles, lit along their tops. Every other
+ *  one leans the other way. */
+const PINE_TREE: TreeDrawing = index => <g transform={index % 2 ? "translate(1 0) scale(-1 1)" : undefined}>
+  <path d="M0.46,1.9 C0.4,1.6 0.62,1.42 0.52,1.12 C0.44,0.9 0.56,0.62 0.5,0.36" fill="none" stroke="var(--village-bark)" strokeWidth={0.13} strokeLinecap="round" />
+  <path d="M0.52,1.12 L0.26,1.06 M0.5,1.0 L0.74,0.98 M0.48,0.7 L0.32,0.62 M0.5,0.62 L0.68,0.56" stroke="var(--village-bark)" strokeWidth={0.06} strokeLinecap="round" />
+  {PINE_CLOUDS.map(([cx, cy, r]) => <path key={`${cx},${cy}`} d={needleCloud(cx, cy, r)} fill="var(--village-pine)" stroke="var(--village-ink)" strokeWidth={0.025} strokeLinejoin="round" />)}
+  {PINE_CLOUDS.map(([cx, cy, r]) => <path key={`light-${cx},${cy}`} d={`M${cx - r * 0.6},${cy - r * 0.2} Q${cx - r * 0.2},${cy - r * 0.75} ${cx + r * 0.3},${cy - r * 0.45}`}
+    fill="none" stroke="var(--village-pine-light)" strokeWidth={0.045} strokeLinecap="round" />)}
+</g>;
+
 /** How each kind of standing tree is drawn. */
-const TREE_DRAWINGS = { tree: LEAFY_TREE, sakura: CHERRY_TREE, bamboo: BAMBOO_CLUMP, maple: MAPLE_TREE } as const satisfies Partial<Record<Terrain, TreeDrawing>>;
+const TREE_DRAWINGS = { tree: LEAFY_TREE, sakura: CHERRY_TREE, bamboo: BAMBOO_CLUMP, maple: MAPLE_TREE, pine: PINE_TREE } as const satisfies Partial<Record<Terrain, TreeDrawing>>;
 type TreeTerrain = keyof typeof TREE_DRAWINGS;
 const TREE_TERRAINS = Object.keys(TREE_DRAWINGS) as TreeTerrain[]; // the keys of a literal object: a safe cast
 
@@ -198,10 +221,14 @@ function Lantern({ at, isLit, tile }: { at: Vector; isLit: boolean; tile: number
   </Upright>;
 }
 
-/** A row of trees with nothing but water from it to the near edge is the one nearest the viewer: drawn as bushes. */
+/** What can lie between the row of trees nearest the viewer and the near edge: water, or the clouds below a mountain. */
+const OPEN_GROUND: ReadonlySet<Terrain> = new Set(["water", "cloud"]);
+
+/** A row of trees with nothing but water (or cloud) from it to the near edge is the one nearest the viewer: drawn as
+ *  bushes. */
 function isFrontRow(map: TownMap, run: Rect): boolean {
   for (let y = run.y + 1; y < map.height; y++) {
-    for (let x = run.x; x < run.x + run.width; x++) if (terrainAt(map, x, y) !== "water") return false;
+    for (let x = run.x; x < run.x + run.width; x++) if (!OPEN_GROUND.has(terrainAt(map, x, y) ?? "grass")) return false;
   }
   return true;
 }

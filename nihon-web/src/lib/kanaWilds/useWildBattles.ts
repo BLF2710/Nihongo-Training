@@ -2,16 +2,18 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { recordPractice } from "../../api/activity";
 import type { BattleState } from "./battle";
 import { EVERY_TILE_WORD } from "./courseWords";
-import { evolvedKana } from "./evolution";
-import { pickEncounter } from "./encounters";
+import { evolutionsMade } from "./evolution";
+import type { EvolutionKind } from "./evolution";
+import { pickEncounter, pickReviewEncounter } from "./encounters";
 import { isChallengerId } from "../world/challenges";
-import type { Challenger, ChallengeSummary } from "../world/challenges";
+import type { Challenger, ChallengerId, ChallengeSummary } from "../world/challenges";
 import type { Encounter } from "./encounters";
-import { STARTERS, VOWEL_IDS, kanaById } from "./gojuon";
+import { STARTERS, VOWEL_IDS, kanaById, tileKanaByCharacter } from "./gojuon";
 import { latestCatches } from "./hand";
 import { NO_LEVELS, kanaLevelsOf } from "./mastery";
 import { wordsUsingKana } from "./missedWords";
 import { useKanaCollection } from "./useKanaCollection";
+import { useEvolutionMoments } from "./useEvolutionMoments";
 import { useMissedWords } from "./useMissedWords";
 import { playableWords } from "./words";
 
@@ -29,6 +31,10 @@ type Readings = { answered: number; correct: number };
 function recordReadings(readings: Readings) {
   if (readings.answered >= MIN_RECORDED_READINGS) recordPractice("battle", BATTLE_SCOPE, readings.answered, readings.correct);
 }
+
+/** Who opens each kind of evolution (docs/KANA-BATTLE.md section 9). */
+const EVOLUTION_OPENED_BY: Readonly<Record<EvolutionKind, ChallengerId>> = { voiced: "sensei", "small-kana": "zen" };
+const EVOLUTION_KINDS: readonly EvolutionKind[] = ["voiced", "small-kana"];
 
 export type BattleScreen =
   | { kind: "none" }
@@ -50,11 +56,14 @@ export function useWildBattles(random: () => number) {
   // Only the challengers this app knows: an id the API adds later means nothing here yet.
   const beatenChallengers = useMemo(() => new Set(state.status === "ready" ? state.collection.beatenChallengers.filter(isChallengerId) : []), [state]);
   const kanaLevels = useMemo(() => state.status === "ready" ? kanaLevelsOf(state.collection.answers) : NO_LEVELS, [state]);
-  // Beating Sensei lets kana evolve (docs/KANA-BATTLE.md section 9); beating Pon teaches Sharp Eyes.
-  const canEvolve = beatenChallengers.has("sensei");
+  // Beating Sensei or Zen opens a kind of evolution; beating Pon teaches Sharp Eyes.
+  const evolutionKinds = useMemo(() => new Set(EVOLUTION_KINDS.filter(kind => beatenChallengers.has(EVOLUTION_OPENED_BY[kind]))), [beatenChallengers]);
   const hasSharpEyes = beatenChallengers.has("pon");
-  const evolved = useMemo(() => canEvolve ? evolvedKana(ownedCharacters, kanaLevels) : [], [canEvolve, ownedCharacters, kanaLevels]);
+  const evolutions = useMemo(() => evolutionsMade(ownedCharacters, kanaLevels, evolutionKinds), [ownedCharacters, kanaLevels, evolutionKinds]);
+  const evolved = useMemo(() => evolutions.map(evolution => evolution.to), [evolutions]);
+  const evolutionMoment = useEvolutionMoments(state.status === "ready" ? evolutions : null);
   const tiles = useMemo(() => new Set([...ownedCharacters, ...evolved.map(kana => kana.kana)]), [ownedCharacters, evolved]);
+  const tileKana = useMemo(() => [...tiles].flatMap(kana => tileKanaByCharacter(kana) ?? []), [tiles]);
   const words = useMemo(() => playableWords(EVERY_TILE_WORD, tiles), [tiles]);
   const { missed, noteWordReading } = useMissedWords();
   const starter = state.status === "ready" ? state.collection.starter : null;
@@ -72,6 +81,8 @@ export function useWildBattles(random: () => number) {
   }, []);
   /** A wild kana from `wildRows`: the path's rows, or for a quick battle the rows of every path open. */
   const explore = useCallback((wildRows: readonly string[]) => start(pickEncounter(ownedIds, wildRows, random)), [start, ownedIds, random]);
+  /** A kana the player has caught, from `wildRows`, for review (the pine path's grass). */
+  const review = useCallback((wildRows: readonly string[]) => start(pickReviewEncounter(ownedIds, wildRows, random)), [start, ownedIds, random]);
   const challenge = useCallback((challenger: Challenger) => {
     rounds.current += 1;
     setScreen({ kind: "challenge", challenger, round: rounds.current });
@@ -97,7 +108,7 @@ export function useWildBattles(random: () => number) {
     setScreen({ kind: "challenge-result", challenger, summary, winSave: isSaved ? "saved" : "failed" });
   }, [addChallengerWin, refresh]);
 
-  return { collection, ownedIds, kanaLevels, beatenChallengers, canEvolve, evolved, ownedCharacters, hasSharpEyes, words, practice, screen, explore, challenge, rematch, finish, finishChallenge, close };
+  return { collection, ownedIds, kanaLevels, beatenChallengers, evolutionKinds, evolved, evolutionMoment, tileKana, ownedCharacters, hasSharpEyes, words, practice, screen, explore, review, challenge, rematch, finish, finishChallenge, close };
 }
 
 export type WildBattles = ReturnType<typeof useWildBattles>;

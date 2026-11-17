@@ -1,13 +1,15 @@
 // The islands at the far end of the wild paths, on foot (docs/WORLD.md section 3). Content only.
 // Each island has its own ground and look, after its art on the island map: the Kana island a temple garden under
 // cherry trees, the Practice island a courtyard in a bamboo grove, the Games island a festival ground, the Lessons
-// island a temple school in an autumn maple garden. Each island's bridge is on the side facing Home, where its path
-// arrives: west for Kana, east for Practice, north for Games, south for Lessons.
+// island a temple school in an autumn maple garden, the Review island a zen garden among pines, Fuji high on a snowy
+// mountain above the clouds. Each island's bridge is on the side facing Home, where its path arrives: west for Kana, east for Practice
+// and Review, north for Games, south for Lessons; Fuji's pier faces east, where the ferry comes in from Practice.
 import { parseTownMap } from "../../lib/errands/townMap.ts";
 import type { Building, BuildingLook, RoofColour } from "../../lib/errands/village.ts";
 import type { Vector } from "../../lib/errands/movement.ts";
 import type { Door } from "../../lib/village/villageDoors.ts";
 import type { IslandScene } from "../../lib/world/islandScenes.ts";
+import type { Surroundings } from "../../lib/world/sceneTheme.ts";
 import { CHALLENGERS } from "./challengers.ts";
 import { routeHref } from "../../lib/world/routes.ts";
 import type { RouteId } from "../../lib/world/routes.ts";
@@ -30,20 +32,30 @@ type Stop = { id: string; sign: string; label: string; href: string; look: Build
 const buildingOf = ({ id, sign, label, look, roof, at, size }: Stop): Building => ({ id, sign, label, look, roof, ...at, ...size });
 const doorOf = ({ id, label, href, at, size }: Stop): Door => ({ id, label, href, tile: { x: at.x + size.width / 2, y: at.y + size.height } });
 
-type IslandContent = Omit<IslandScene, "layout" | "doors"> & {
+/** A path on from the island, further out, over its own bridge: where it goes, said on the bridge. */
+type Onward = { route: RouteId; bridge: Bridge; label: string };
+
+/** `route` and `bridge`: the path the island is reached by, and its bridge (`backTo` names where that path leads back
+ *  to; `backLabel`, said at the bridge, is "Back along <pathName> to <backTo>" unless given); `onward`, any path on from
+ *  the island. */
+type IslandContent = Omit<IslandScene, "layout" | "doors" | "arrivals" | "surroundings"> & {
+  surroundings?: Surroundings;
   rows: readonly string[]; stops: readonly Stop[]; challengerTile: Vector; lanterns?: readonly Vector[];
-  route: RouteId; pathName: string; bridge: Bridge;
+  route: RouteId; pathName: string; bridge: Bridge; backTo?: string; backLabel?: string; onward?: readonly Onward[];
 };
 
-function islandScene({ rows, stops, challengerTile, lanterns = [], route, pathName, bridge, ...scene }: IslandContent): IslandScene {
-  const backToPath: Door = { id: "path-back", label: `Back along ${pathName} to the village`, href: routeHref(route, scene.island), tile: bridge.end, action: "Go" };
+function islandScene({ rows, stops, challengerTile, lanterns = [], route, pathName, bridge, backTo = "the village", backLabel, onward = [], surroundings = "water", ...scene }: IslandContent): IslandScene {
+  const backToPath: Door = { id: "path-back", label: backLabel ?? `Back along ${pathName} to ${backTo}`, href: routeHref(route, scene.island), tile: bridge.end, action: "Go" };
+  const pathsOn = onward.map((path): Door => ({ id: `path-${path.route}`, label: path.label, href: routeHref(path.route, scene.island), tile: path.bridge.end, action: "Go" }));
   return {
     ...scene,
+    surroundings,
     layout: {
       map: parseTownMap(rows), start: bridge.arrival, buildings: stops.map(buildingOf), gates: [], lanterns,
       villagers: [{ id: CHALLENGERS[scene.challenger].character, tile: challengerTile }],
     },
-    doors: [...stops.map(doorOf), backToPath],
+    doors: [...stops.map(doorOf), backToPath, ...pathsOn],
+    arrivals: [{ route, tile: bridge.arrival }, ...onward.map(path => ({ route: path.route, tile: path.bridge.arrival }))],
   };
 }
 
@@ -80,7 +92,9 @@ const KANA = islandScene({
 const PRACTICE = islandScene({
   island: "practice", name: "The Practice island", japaneseName: "れんしゅうのしま", challenger: "tama", route: "home-practice", pathName: "the riverside path",
   theme: "bamboo", bridge: EAST_BRIDGE,
-  // A gravel courtyard inside a bamboo grove: two halls at the back, one at the front, and Tama by the pond.
+  // A gravel courtyard inside a bamboo grove: two halls at the back, one at the front, and Tama by the pond. A second
+  // bridge, on the west, is the pier where the ferry leaves for Fuji.
+  onward: [{ route: "practice-fuji", bridge: WEST_BRIDGE, label: "The ferry (わたしぶね) from the west pier to Fuji" }],
   rows: [
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
     "~BBBBBBBBBBBBBBBBBBBBBBBBBBBB~",
@@ -88,8 +102,8 @@ const PRACTICE = islandScene({
     "~BB........................BB~",
     "~B..........................B~",
     "~B.,,,,,,,,,,,,,,,,,,.......B~",
-    "~B.,,,,,,,,,,,,,,,,,,======bbb",
-    "~B.,,,,,,,,,,,,,,,,,,======bbb",
+    "bbb,,,,,,,,,,,,,,,,,,======bbb",
+    "bbb,,,,,,,,,,,,,,,,,,======bbb",
     "~B.,,,,,*~~~~,,,,,,,,.......B~",
     "~B.,,,,,,~~~~*,,,,,,,....*..B~",
     "~BB,,,,,,,,,,,,,,,,,,......BB~",
@@ -167,6 +181,67 @@ const LESSONS = islandScene({
   ],
 });
 
-export const ISLAND_SCENES: readonly IslandScene[] = [KANA, PRACTICE, GAMES, LESSONS];
+const REVIEW = islandScene({
+  island: "review", name: "The Review island", japaneseName: "ふくしゅうのしま", challenger: "zen", route: "home-review", pathName: "the pine path",
+  theme: "zen", bridge: EAST_BRIDGE,
+  // A zen garden among pines: raked gravel with its rocks in the middle, two halls at the back, one at the front by the
+  // gap in the pines, and Zen by the pond.
+  rows: [
+    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+    "~PPPPPPPPPPPPPPPPPPPPPPPPPPPP~",
+    "~PPP......................PPP~",
+    "~PP........................PP~",
+    "~P..........................P~",
+    "~P..zzzzzzzzzzzzz...........P~",
+    "~P..zzkzzzzzzzkzz...=======bbb",
+    "~P..zzzzzzzkzzzzz...=======bbb",
+    "~P..zzzzzzzzzzzzz...........P~",
+    "~P..~~~~~o..................P~",
+    "~P..~~~~~.o.................P~",
+    "~PP..~~k...o...............PP~",
+    "~PPPPPPPPPPPP......PPPPPPPPPP~",
+    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  ],
+  challengerTile: { x: 11, y: 9 },
+  lanterns: [{ x: 19, y: 5 }, { x: 19, y: 8 }],
+  stops: [
+    { id: "daily-review", sign: "まいにち", label: "Daily review: spaced repetition for your words and kanji", href: "/srs", look: "teahouse", roof: "moss", at: { x: 22, y: 2 }, size: HALL_SIZE },
+    { id: "mistakes", sign: "まちがい", label: "Mistake notebook: practise the questions you got wrong", href: "/mistakes", look: "calligraphy", roof: "indigo", at: { x: 6, y: 2 }, size: HALL_SIZE },
+    { id: "unit-review", sign: "ふくしゅう", label: "Unit review: mixed questions per unit or level", href: "/review", look: "shrine", roof: "wood", at: { x: 14, y: 9 }, size: HALL_SIZE },
+  ],
+});
+
+const FUJI = islandScene({
+  island: "fuji", name: "Fuji", japaneseName: "ふじ", challenger: "kurama", route: "practice-fuji", pathName: "the ferry",
+  backTo: "the Practice island", backLabel: "The ferry (わたしぶね) back to the Practice island", theme: "summit", surroundings: "clouds", bridge: EAST_BRIDGE,
+  // High on the snowy mountain (the ground itself is snow, deeper in drifts), ringed by rocks, with the sea of clouds
+  // below its edge and the summit rising behind (SummitBackdrop): Kurama's dojo in the middle at the head of the road up
+  // from the pier, a shrine and a hall either side of it, pines below.
+  rows: [
+    "cccccccccccccccccccccccccccccc",
+    "ckkkkkkkkkkkkkkkkkkkkkkkkkkkkc",
+    "cknn....nnnnn....nn....nnnnnkc",
+    "ckn.....nnnn.....nn.....nnnnkc",
+    "ckn.......................nnkc",
+    "ck.......k..,,,,,,,......k..kc",
+    "ck............=============bbb",
+    "ck.........k..=============bbb",
+    "cknnn.........o.............kc",
+    "cknn.....k.....o............kc",
+    "ckn...........o.......k...PPkc",
+    "ckPPP......P.............PPPkc",
+    "cPPPPPPPPPPPPPPPPPPPPPPPPPPPPc",
+    "cccccccccccccccccccccccccccccc",
+  ],
+  challengerTile: { x: 17, y: 9 },
+  lanterns: [{ x: 12, y: 6 }, { x: 19, y: 8 }],
+  stops: [
+    { id: "levels", sign: "のぼる", label: "Choose your level: move up when you are ready", href: "/levels", look: "shrine", roof: "vermilion", at: { x: 4, y: 2 }, size: HALL_SIZE },
+    { id: "dojo-exam", sign: "もぎしけん", label: "Mock exam: a timed end-of-level exam", href: "/mock-exam", look: "dojo", roof: "wood", at: { x: 13, y: 2 }, size: HALL_SIZE },
+    { id: "statistics", sign: "きろく", label: "Your statistics: accuracy, time studied and test results", href: "/statistics/japanese", look: "practice-hall", roof: "indigo", at: { x: 19, y: 2 }, size: HALL_SIZE },
+  ],
+});
+
+export const ISLAND_SCENES: readonly IslandScene[] = [KANA, PRACTICE, GAMES, LESSONS, REVIEW, FUJI];
 
 export const islandSceneOf = (island: string): IslandScene | null => ISLAND_SCENES.find(scene => scene.island === island) ?? null;
