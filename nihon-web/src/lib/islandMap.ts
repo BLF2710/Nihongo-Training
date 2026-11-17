@@ -57,6 +57,7 @@ export const ISLANDS: readonly Island[] = [
     { label: "Grammar", href: "/grammar", description: "Patterns with clear examples." },
     { label: "Unit assessments", href: "/quizzes", description: "Score 80% to complete a unit." },
     { label: "Mock exam", href: "/mock-exam", description: "A timed end-of-level exam." },
+    { label: "The stone path (いしみち)", href: "/wilds/home-lessons?from=home", description: "Walk here from Home: wild kana among the maples, and Sensei's challenge." },
   ] },
   { id: "practice", isBridged: true, name: "Practice", mark: "練", tagline: "Listen, speak and read.", destinations: [
     { label: "Listening", href: "/listening", description: "Words, sentences and dialogues." },

@@ -2,11 +2,12 @@
 // Pure (no React, no browser), so it runs under node's test runner.
 
 /** `tallgrass` grows on the wild paths: walking into it can start a wild kana battle (see lib/world/grassEncounters).
- *  `sakura` (cherry trees) and `bamboo` stand like trees; `petals` is grass strewn with fallen blossom; `goldfish` is
- *  a festival pond. */
+ *  `sakura` (cherry trees), `bamboo` and `maple` (autumn maples) stand like trees; `petals` is grass strewn with
+ *  fallen blossom and `leaves` with fallen maple leaves; `goldfish` is a festival pond; `stones` is a stepping-stone
+ *  path. */
 export type Terrain =
   | "grass" | "path" | "gravel" | "water" | "bridge" | "tree" | "fence" | "flowers" | "tallgrass"
-  | "sakura" | "bamboo" | "petals" | "goldfish";
+  | "sakura" | "bamboo" | "petals" | "goldfish" | "maple" | "leaves" | "stones";
 export type TileKey = `${number},${number}`;
 export type Rect = { x: number; y: number; width: number; height: number };
 export type TownMap = { width: number; height: number; terrain: readonly (readonly Terrain[])[] };
@@ -14,9 +15,9 @@ export type TownMap = { width: number; height: number; terrain: readonly (readon
 /** One character per tile in a map's rows. */
 export const TERRAIN_LEGEND: Readonly<Record<string, Terrain>> = {
   ".": "grass", "=": "path", ",": "gravel", "~": "water", b: "bridge", T: "tree", f: "fence", "*": "flowers", w: "tallgrass",
-  S: "sakura", B: "bamboo", p: "petals", g: "goldfish",
+  S: "sakura", B: "bamboo", p: "petals", g: "goldfish", M: "maple", l: "leaves", o: "stones",
 };
-const BLOCKING_TERRAIN: ReadonlySet<Terrain> = new Set(["water", "tree", "fence", "sakura", "bamboo", "goldfish"]);
+const BLOCKING_TERRAIN: ReadonlySet<Terrain> = new Set(["water", "tree", "fence", "sakura", "bamboo", "goldfish", "maple"]);
 
 export class TownMapError extends Error {
   constructor(message: string) { super(message); this.name = "TownMapError"; }

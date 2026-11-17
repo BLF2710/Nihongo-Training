@@ -11,7 +11,7 @@ import { terrainAt } from "../lib/errands/townMap";
 import { useWildBattles } from "../lib/kanaWilds/useWildBattles";
 import { AFTER_BATTLE, FRESH_GRASS_WALK, stepOnto } from "../lib/world/grassEncounters";
 import type { GrassWalk } from "../lib/world/grassEncounters";
-import { arrivalOn, exitHref, isHeldBack, nearbyExit, openRowsOf, rowNames } from "../lib/world/routes";
+import { arrivalOn, exitHref, isHeldBack, nearbyExit, OPPOSITE_HEADING, openRowsOf, rowNames } from "../lib/world/routes";
 import type { ChallengerId } from "../lib/world/challenges";
 import type { RouteExit, WildRoute } from "../lib/world/routes";
 import { useActionKey, useWorldWalk } from "../lib/world/useWorldWalk";
@@ -50,6 +50,11 @@ function useGrassEncounters(route: WildRoute, tile: { x: number; y: number }, ca
   }, [route, tile.x, tile.y, canMeet, onMeet]);
   return useCallback(() => { grassWalk.current = AFTER_BATTLE; }, []);
 }
+
+const capitalised = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+
+/** Which way each end lies: "South: the village, north: the island". */
+const waysOut = (route: WildRoute) => `${capitalised(OPPOSITE_HEADING[route.heading])}: the village, ${route.heading}: the island`;
 
 /** What lives in the path's grass, and who holds back the rest: "Beat Chun to bring the さ and た rows here". */
 function grassNote(route: WildRoute, beaten: ReadonlySet<ChallengerId>, openRows: readonly string[]): string {
@@ -92,7 +97,7 @@ function WildPath({ route, from }: { route: WildRoute; from: string | null }) {
         </div>
         <p className="sr-only" aria-live="polite">{exit ? `${exit.label}. Press E to go.` : ""}</p>
         {isWalking && <p className="pointer-events-none absolute bottom-3 left-1/2 z-[800] -translate-x-1/2 village-hint rounded-full px-3 py-1 text-xs font-semibold pointer-coarse:hidden">
-          Walk: WASD or arrow keys · Run: hold Shift · Wild kana hide in the tall grass · West: the village, east: the island (E)
+          Walk: WASD or arrow keys · Run: hold Shift · Wild kana hide in the tall grass · {waysOut(route)} (E)
         </p>}
         {isWalking && <TouchControls onPress={press} onRelease={release} onTalk={() => act?.()} canTalk={act !== null} talkLabel="Go"
           isRunning={isRunning} onRunningChange={setIsRunning} />}

@@ -9,8 +9,8 @@ type Props = { battles: WildBattles; random: () => number; exploreLabel: string;
 
 /** The battle or challenge under way, or its result; nothing between battles. */
 export function WildBattleScreen({ battles, random, exploreLabel, onExplore, onHome }: Props) {
-  const { screen, kanaLevels, words, practice, finish, rematch, challenge, finishChallenge } = battles;
-  if (screen.kind === "battle") return <BattleArena key={screen.round} encounter={screen.encounter} kanaLevels={kanaLevels} words={words} pool={COURSE_BATTLE_WORDS}
+  const { screen, kanaLevels, words, practice, finish, rematch, challenge, finishChallenge, hasSharpEyes } = battles;
+  if (screen.kind === "battle") return <BattleArena key={screen.round} encounter={screen.encounter} kanaLevels={kanaLevels} words={words} pool={COURSE_BATTLE_WORDS} hasSharpEyes={hasSharpEyes}
     practice={practice} random={random} onEnd={ended => void finish(screen.encounter, ended)} />;
   if (screen.kind === "result") return <BattleResult state={screen.state} catchSave={screen.catchSave} exploreLabel={exploreLabel}
     onRematch={() => rematch(screen.encounter)} onExplore={onExplore} onHome={onHome} />;

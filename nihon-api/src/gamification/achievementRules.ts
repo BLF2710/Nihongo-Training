@@ -3,8 +3,6 @@ export type AchievementFacts = {
   lessons: number; perfectChallenges: number; unitsPassed: number; wordsLearned: number; reviews: number; matureCards: number;
   mistakesCleared: number; kanjiMastered: number; longestStreak: number; goalDays: number; practiceSessions: number;
   mockExamsPassed: number; speakingTestsMet: number; friends: number; level: number;
-  /** Wins over Pon in Kana Wilds (0 or 1): beating Pon earns the title "Sharp Eyes". */
-  ponWins: number;
 };
 
 export type AchievementRule = { id: string; fact: keyof AchievementFacts; goal: number };
@@ -41,7 +39,6 @@ export const ACHIEVEMENT_RULES: readonly AchievementRule[] = [
   { id: "level_5", fact: "level", goal: 5 },
   { id: "level_10", fact: "level", goal: 10 },
   { id: "level_20", fact: "level", goal: 20 },
-  { id: "sharp_eyes", fact: "ponWins", goal: 1 },
 ];
 
 export type AchievementProgress = { id: string; goal: number; progress: number; isComplete: boolean };

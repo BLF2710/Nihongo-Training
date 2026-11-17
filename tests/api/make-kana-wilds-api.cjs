@@ -13,7 +13,7 @@ head = head.replace("// Unit review + question bank API", "// Kana Wilds collect
 for (const needle of ['routes/kana-wilds.routes.ts', 'routes/activity.routes.ts', 'routes/quiz.routes.ts', "'ben']", 'pg_temp.hiraganas SELECT']) if (!head.includes(needle)) throw new Error('harness changed: ' + needle);
 
 const tail = String.raw`    const L = 'learner';
-    const VOWELS = [1, 2, 3, 4, 5], KA = 6, SA = 11, KI = 7, N = 46, GA = 47;
+    const VOWELS = [1, 2, 3, 4, 5], KA = 6, SA = 11, KI = 7, N = 46, GA = 47, GI = 48, DA = 57, ZA = 52;
     const collection = (as = L) => call('GET', '/kana-wilds/collection', { as });
     const starter = (body, as = L) => call('POST', '/kana-wilds/starter', { as, body });
     const caught = (kanaId, as = L) => call('POST', '/kana-wilds/catches', { as, body: { kanaId } });
@@ -26,9 +26,9 @@ const tail = String.raw`    const L = 'learner';
     const early = await caught(KI); assert.equal(early.status, 409, 'no catching before a starter'); assert.match(early.data.message, /starter/);
     for (const bad of [{ starter: 'na' }, { starter: 'KA' }, {}, { starter: ['ka'] }]) assert.equal((await starter(bad)).status, 400, JSON.stringify(bad));
     const chosen = await starter({ starter: 'ka' });
-    assert.equal(chosen.status, 201); assert.deepEqual(chosen.data, { starter: 'ka', kanaIds: [...VOWELS, KA], answers: fresh([...VOWELS, KA]), beatenChallengers: [] }, 'the vowels and the starter, not yet answered');
+    assert.equal(chosen.status, 201); assert.deepEqual(chosen.data, { starter: 'ka', kanaIds: [...VOWELS, KA], answers: fresh([...VOWELS, KA, GA]), beatenChallengers: [] }, 'the vowels, the starter and what it evolves into, not yet answered');
     const twice = await starter({ starter: 'sa' }); assert.equal(twice.status, 409, 'one starter only');
-    assert.deepEqual((await collection()).data, { starter: 'ka', kanaIds: [...VOWELS, KA], answers: fresh([...VOWELS, KA]), beatenChallengers: [] });
+    assert.deepEqual((await collection()).data, { starter: 'ka', kanaIds: [...VOWELS, KA], answers: fresh([...VOWELS, KA, GA]), beatenChallengers: [] });
     for (const bad of [0, GA, 1.5, '7', null]) assert.equal((await caught(bad)).status, 400, 'only the 46 basic hiragana: ' + bad);
     const first = await caught(KI);
     assert.equal(first.status, 200); assert.equal(first.data.isNew, true); assert.deepEqual(first.data.kanaIds, [...VOWELS, KA, KI]);
@@ -41,17 +41,19 @@ const tail = String.raw`    const L = 'learner';
     assert.deepEqual((await collection()).data.kanaIds, [...VOWELS, KA, KI], 'a held-back kana is not added');
     // Collections are per learner.
     assert.deepEqual((await collection('ben')).data, { starter: null, kanaIds: [], answers: [], beatenChallengers: [] });
-    assert.deepEqual((await starter({ starter: 'sa' }, 'ben')).data, { starter: 'sa', kanaIds: [...VOWELS, SA], answers: fresh([...VOWELS, SA]), beatenChallengers: [] });
+    assert.deepEqual((await starter({ starter: 'sa' }, 'ben')).data, { starter: 'sa', kanaIds: [...VOWELS, SA], answers: fresh([...VOWELS, SA, ZA]), beatenChallengers: [] });
     assert.deepEqual((await collection()).data.kanaIds, [...VOWELS, KA, KI]);
     // Each collected kana's answers, from anywhere on the site (here the kana quiz, as a battle's defence sends them).
     for (const answer of ['ka', 'ka', 'ka', 'ki']) assert.equal((await answerKana(KA, answer)).status, 200, 'answered ' + answer);
     assert.equal((await answerKana(KI, 'ki')).status, 200);
-    assert.equal((await answerKana(GA, 'ga')).status, 200, 'が is answered but is not in the collection');
+    assert.equal((await answerKana(GA, 'ga')).status, 200, 'が is answered: it is what か evolves into');
+    assert.equal((await answerKana(DA, 'da')).status, 200, 'だ is answered, but た is not collected');
     const answered = (await collection()).data.answers;
     assert.deepEqual(answered.find(row => row.kanaId === KA), { kanaId: KA, correct: 3, wrong: 1 }, 'か: three right, one wrong');
     assert.deepEqual(answered.find(row => row.kanaId === KI), { kanaId: KI, correct: 1, wrong: 0 });
-    assert.deepEqual(answered.map(row => row.kanaId).sort((a, b) => a - b), [...VOWELS, KA, KI], 'only collected kana');
-    assert.deepEqual((await collection('ben')).data.answers, fresh([...VOWELS, SA]), 'answers are per learner');
+    assert.deepEqual(answered.find(row => row.kanaId === GA), { kanaId: GA, correct: 1, wrong: 0 }, 'an evolution of a collected kana has its answers, for its own level');
+    assert.deepEqual(answered.map(row => row.kanaId).sort((a, b) => a - b), [...VOWELS, KA, KI, GA, GI], 'only collected kana and what they evolve into (not だ)');
+    assert.deepEqual((await collection('ben')).data.answers, fresh([...VOWELS, SA, ZA]), 'answers are per learner');
     assert.deepEqual((await caught(KI)).data.answers.find(row => row.kanaId === KA), { kanaId: KA, correct: 3, wrong: 1 }, 'a catch returns the answers too');
     // Challengers: a win is recorded once (XP the first time), per learner, and only for a known challenger.
     assert.equal((await won('chun', 'admin')).status, 409, 'no challenge before a starter');
@@ -69,14 +71,14 @@ const tail = String.raw`    const L = 'learner';
     assert.equal((await caught(N)).data.isNew, true, 'beating Tama brings ん into the wilds');
     const ponWin = await won('pon');
     assert.equal(ponWin.data.isNew, true, 'pon is a real challenger');
-    assert.ok(ponWin.data.reward.achievements.includes('sharp_eyes'), 'beating Pon earns Sharp Eyes: ' + JSON.stringify(ponWin.data.reward.achievements));
-    assert.ok(!beat.data.reward.achievements.includes('sharp_eyes'), 'Chun gives no title');
-    assert.deepEqual([...(await collection()).data.beatenChallengers].sort(), ['chun', 'pon', 'tama']);
+    assert.ok(!ponWin.data.reward.achievements.includes('sharp_eyes'), 'Sharp Eyes is a skill in the game, not an achievement');
+    assert.equal((await won('sensei')).data.isNew, true, 'sensei is a real challenger');
+    assert.deepEqual([...(await collection()).data.beatenChallengers].sort(), ['chun', 'pon', 'sensei', 'tama']);
     // A finished battle is recorded as practice (graded in the browser, like the other games).
     const battle = await call('POST', '/activity/practice', { as: L, body: { kind: 'battle', scope: 'N5', answered: 6, correct: 5 } });
     assert.equal(battle.status, 201, JSON.stringify(battle.data));
     assert.equal((await call('POST', '/activity/practice', { as: L, body: { kind: 'battle', scope: 'N5', answered: 2, correct: 2 } })).status, 400, 'too short to count');
-    console.log('PASS: sign-in required; empty collection; no catch before a starter; bad starters refused; starter gives the vowels plus its kana; one starter only; only basic hiragana catchable; the さ/た rows held back until Chun is beaten and the rest (ん too) until Tama; a new catch pays XP, a repeat changes nothing; per-learner collections; each collected kana’s right and wrong answers (from the quiz), only for collected kana and per learner; challenger wins recorded once with XP, Pon’s earning Sharp Eyes, per learner, known challengers only, after a starter; battles recorded as practice. Rolled back.');
+    console.log('PASS: sign-in required; empty collection; no catch before a starter; bad starters refused; starter gives the vowels plus its kana; one starter only; only basic hiragana catchable; the さ/た rows held back until Chun is beaten and the rest (ん too) until Tama; a new catch pays XP, a repeat changes nothing; per-learner collections; each collected kana’s right and wrong answers (from the quiz), only for collected kana and what they evolve into, per learner; challenger wins (Sensei too) recorded once with XP, no Sharp Eyes achievement, per learner, known challengers only, after a starter; battles recorded as practice. Rolled back.');
   } finally { await queue.catch(() => {}); await client.query('ROLLBACK').catch(() => {}); client.release(); await new Promise(r => server ? server.close(r) : r()); await pool.end(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 1500)); process.exitCode = 1; });
 `;

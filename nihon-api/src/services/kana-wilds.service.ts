@@ -4,7 +4,7 @@ import * as collectionRepository from "../repositories/moji-collection.repositor
 import * as challengerRepository from "../repositories/wild-challenger.repository";
 import type { CollectedKana } from "../repositories/moji-collection.repository";
 import { HttpError } from "../utils/http-error";
-import { rewardAchievingActivity, rewardActivity } from "./gamification.service";
+import { rewardActivity } from "./gamification.service";
 
 // Kana Wilds (docs/KANA-BATTLE.md). Battles are graded in the browser and reported as practice sessions; this
 // service keeps the collection: the starter set, and each wild kana caught.
@@ -18,7 +18,7 @@ export const STARTER_KANA_IDS = { ka: 6, sa: 11, ta: 16 } as const;
 export type Starter = keyof typeof STARTER_KANA_IDS;
 
 /** The island cast who challenge the learner on their islands (docs/WORLD.md); the web app holds their teams. */
-export const CHALLENGER_IDS: readonly string[] = ["chun", "tama", "pon"];
+export const CHALLENGER_IDS: readonly string[] = ["chun", "tama", "pon", "sensei"];
 
 /**
  * Kana held back from the wilds until the learner beats a challenger (docs/KANA-BATTLE.md section 9): Chun brings the
@@ -44,12 +44,30 @@ function starterOf(collection: readonly CollectedKana[]): Starter | null {
   return STARTERS.find(starter => starterIds.has(STARTER_KANA_IDS[starter])) ?? null;
 }
 
-/** The right and wrong answers the learner has given for each collected kana, anywhere on the site: the web game
- *  turns them into mastery levels (docs/KANA-BATTLE.md section 8). */
+/**
+ * The basic kana a voiced kana evolves from (docs/KANA-BATTLE.md section 9), by catalog id: が–ど (47–61) from
+ * か–と, ば–ぼ (62–66) from は–ほ, ぱ–ぽ (67–71) from は–ほ too (by way of ば). Null for any other id.
+ */
+export function evolvedFromId(kanaId: number): number | null {
+  if (kanaId >= 47 && kanaId <= 61) return kanaId - 41;
+  if (kanaId >= 62 && kanaId <= 66) return kanaId - 36;
+  if (kanaId >= 67 && kanaId <= 71) return kanaId - 41;
+  return null;
+}
+
+/**
+ * The right and wrong answers the learner has given for each collected kana, and for the voiced forms they can evolve
+ * into, anywhere on the site: the web game turns them into mastery levels (docs/KANA-BATTLE.md section 8) and decides
+ * which have evolved.
+ */
 async function answersFor(userId: number, collection: readonly CollectedKana[]) {
   const collectedIds = new Set(collection.map(item => item.kanaId));
+  const isTracked = (id: number) => {
+    const base = evolvedFromId(id);
+    return collectedIds.has(id) || (base !== null && collectedIds.has(base));
+  };
   const progress = await listKanaWithProgress("hiragana", userId);
-  return progress.filter(row => collectedIds.has(row.id)).map(row => ({ kanaId: row.id, correct: row.correctCount, wrong: row.wrongCount }));
+  return progress.filter(row => isTracked(row.id)).map(row => ({ kanaId: row.id, correct: row.correctCount, wrong: row.wrongCount }));
 }
 
 async function toResponse(userId: number, collection: readonly CollectedKana[]) {
@@ -97,7 +115,6 @@ export async function recordChallengerWin(userId: number, challengerId: unknown)
   if (!isChallengerId(challengerId)) throw new HttpError(404, "There is no such challenger.");
   if (!(await collectionRepository.listCollection(userId)).length) throw new HttpError(409, "Choose your starter kana first.");
   const isNew = await challengerRepository.addChallengerWin(userId, challengerId);
-  // A win can earn an achievement (Pon: "Sharp Eyes"), checked even once today's game XP is used up.
-  const reward = isNew ? await rewardAchievingActivity(userId, "game", `kana-wilds-challenger:${challengerId}`) : null;
+  const reward = isNew ? await rewardActivity(userId, "game", `kana-wilds-challenger:${challengerId}`) : null;
   return { ...(await getCollection(userId)), isNew, reward };
 }

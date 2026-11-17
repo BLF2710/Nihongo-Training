@@ -1,6 +1,6 @@
 // A kana's level is the learner's real mastery of it (docs/KANA-BATTLE.md section 8): the right and wrong answers the
 // site stores for that kana, from quizzes, reviews and battles alike. Pure; the API supplies the counts.
-import { kanaById } from "./gojuon.ts";
+import { tileKanaById } from "./gojuon.ts";
 
 export type MasteryLevel = 1 | 2 | 3 | 4 | 5;
 /** The answers given for one hiragana (its catalog id), as the API reports them. */
@@ -28,10 +28,10 @@ export function masteryLevel(correct: number, wrong: number): MasteryLevel {
     (level, step) => answered >= step.minAnswers && accuracy >= step.minAccuracy ? step.level : level, FIRST_LEVEL);
 }
 
-/** The levels of the kana the answers are for, by character (ids that aren't basic hiragana are skipped). */
+/** The levels of the kana the answers are for, by character: basic and voiced kana (other ids are skipped). */
 export function kanaLevelsOf(answers: readonly KanaAnswers[]): KanaLevels {
   return new Map(answers.flatMap(({ kanaId, correct, wrong }) => {
-    const kana = kanaById(kanaId);
+    const kana = tileKanaById(kanaId);
     return kana ? [[kana.kana, masteryLevel(correct, wrong)] as const] : [];
   }));
 }

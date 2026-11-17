@@ -2,8 +2,8 @@
 // Kana island, walked up to and challenged with E; a lost challenge (nothing saved, try again at once); a won challenge
 // (three open kana in a row, HP carried over, the win saved, a rematch offered); each challenger's signature defence
 // (Chun: look-alikes; Tama: the kana shouts, with a caption; Pon: the stroke reveal) and the hints after a loss
-// ("You read ね as れ twice"); rewards (the riverside grass quiet until Chun is beaten, the forest's last rows held
-// for Tama, Pon's title "Sharp Eyes"); the challenge on one screen at 1366×768 and 390×844. Against a fixture API that grades
+// ("You read ね as れ twice"); rewards (the riverside grass quiet until Chun is beaten, the stone path's rows held
+// for Tama, Pon's skill Sharp Eyes, Sensei's word attacks and evolution); the challenge on one screen at 1366×768 and 390×844. Against a fixture API that grades
 // kana answers like the server; speech is stubbed so the test knows what was shouted.
 //   node challenger-ui.cjs <baseUrl> <shotsDir>
 const assert = require('node:assert/strict');
@@ -63,8 +63,8 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     const fitsScreen = page => page.evaluate(() => document.scrollingElement.scrollHeight <= innerHeight + 1 && document.scrollingElement.scrollWidth <= innerWidth);
     const loadAnswers = async (page, state) => {
       const { words, kana } = await page.evaluate(async () => {
-        const [{ COURSE_BATTLE_WORDS }, { BASIC_HIRAGANA }] = await Promise.all([import('/src/lib/kanaWilds/courseWords.ts'), import('/src/lib/kanaWilds/gojuon.ts')]);
-        return { words: COURSE_BATTLE_WORDS, kana: BASIC_HIRAGANA };
+        const [{ EVERY_TILE_WORD }, { TILE_KANA }] = await Promise.all([import('/src/lib/kanaWilds/courseWords.ts'), import('/src/lib/kanaWilds/gojuon.ts')]);
+        return { words: EVERY_TILE_WORD, kana: TILE_KANA };
       });
       for (const item of kana) state.romajiById[item.id] = item.romaji;
       return { wordByJapanese: new Map(words.map(word => [word.japanese, word])), kanaByCharacter: new Map(kana.map(item => [item.kana, item])) };
@@ -146,19 +146,24 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     // ---- no path waits on a challenger: all three are open on the map from the start
     let { context, page, errors, state, sent } = await run();
     await page.goto(base + '/');
-    for (const name of ['The meadow path (のはら): a wild path to the Kana island', 'The riverside path (かわべ): a wild path to the Practice island', 'The forest path (もり): a wild path to the Games island']) {
+    for (const name of ['The meadow path (のはら): a wild path to the Kana island', 'The riverside path (かわべ): a wild path to the Practice island', 'The forest path (もり): a wild path to the Games island', 'The stone path (いしみち): a wild path to the Lessons island']) {
       await page.getByRole('link', { name, exact: true }).waitFor();
     }
 
     // ---- rows held back: the riverside grass is quiet until Chun is beaten (walking through it starts no battle), and
-    // the forest's last rows wait on Tama
+    // the stone path's rows wait on Tama while the forest keeps its own
     await page.goto(base + '/wilds/home-practice');
     await page.getByText('The riverside path: the grass is quiet. Beat Chun to bring the さ and た rows here.').waitFor();
-    assert.ok(await holdUntil(page, 'ArrowRight', async () => (await travellerAt(page, 36)).x >= 27), 'walked across the riverside grass');
+    await page.getByText(/^Walk: WASD or arrow keys/).waitFor(); // the path takes keys once the collection is in
+    // The riverside path runs west from the village: from its east end across the grass band (columns 9–10).
+    assert.ok(await holdUntil(page, 'ArrowLeft', async () => (await travellerAt(page, 36)).x <= 8), 'walked across the riverside grass');
     assert.equal(await page.getByRole('region', { name: 'Battle against a wild kana' }).count(), 0, 'quiet grass starts no battle');
     await page.screenshot({ path: path.join(shots, 'riverside-quiet.png') });
     await page.goto(base + '/wilds/home-games');
-    await page.getByText('The forest path: wild kana in the tall grass. Beat Tama to bring the ま, や, ら, わ and ん rows here.').waitFor();
+    await page.getByText('The forest path: wild kana in the tall grass', { exact: true }).waitFor();
+    await page.goto(base + '/wilds/home-lessons');
+    await page.getByText('The stone path: the grass is quiet. Beat Tama to bring the ま, や, ら, わ and ん rows here.').waitFor();
+    await page.screenshot({ path: path.join(shots, 'stone-path-quiet.png') });
 
     // ---- Chun waits on the Kana island; E challenges; answering wrong loses, nothing is saved, and Chun can be challenged again
     await page.goto(base + '/islands/kana');
@@ -221,8 +226,8 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.goto(base + '/islands/practice');
     const practiceAnswers = await loadAnswers(page, state);
     await page.getByRole('heading', { name: 'The Practice island (れんしゅうのしま)' }).waitFor({ state: 'attached' });
-    // East along the road to Tama's column, then down beside her.
-    assert.ok(await holdUntil(page, 'ArrowRight', async () => (await travellerAt(page)).x >= 22.2), 'walked east toward Tama');
+    // In over the east bridge, west along the road to Tama's column, then down beside her.
+    assert.ok(await holdUntil(page, 'ArrowLeft', async () => (await travellerAt(page)).x <= 7.8), 'walked west toward Tama');
     assert.ok(await holdUntil(page, 'ArrowDown', async () => Boolean(await page.getByText('Tama is here. Press E to challenge them.').count())), 'walked up to Tama');
     await page.keyboard.press('KeyE');
     await arena(page, 'Tama').waitFor();
@@ -253,7 +258,8 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.goto(base + '/islands/games');
     const gamesAnswers = await loadAnswers(page, state);
     await page.getByRole('heading', { name: 'The Games island (あそびのしま)' }).waitFor({ state: 'attached' });
-    // Down past the goldfish pond to Pon's row, then east to Pon.
+    // In over the north bridge: west of the goldfish pond, down to Pon's row, then east to Pon.
+    assert.ok(await holdUntil(page, 'ArrowLeft', async () => (await travellerAt(page)).x <= 11.5), 'walked west of the pond');
     assert.ok(await holdUntil(page, 'ArrowDown', async () => (await travellerAt(page)).y >= 9.4), 'walked down to Pon\'s row');
     assert.ok(await holdUntil(page, 'ArrowRight', async () => Boolean(await page.getByText('Pon is here. Press E to challenge them.').count())), 'walked up to Pon');
     await page.keyboard.press('KeyE');
@@ -262,7 +268,8 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     const lostToPon = await playChallenge(page, gamesAnswers, { isRight: false, name: 'Pon', onDefence: async group => {
       if (waited) return;
       waited = true;
-      await group.getByText('Read it now for a perfect block!').waitFor();
+      // A two-stroke kana is past half after one stroke (900 ms), so the test may first see the second note.
+      await group.getByText(/^(Read it now for a perfect block!|A good block now: a quarter of the hit gets through\.)$/).waitFor();
       await page.screenshot({ path: path.join(shots, 'challenge-pon-reveal.png') });
       await group.getByText('All drawn: reading it now still lets half the hit through.').waitFor({ timeout: 8000 });
     } });
@@ -277,8 +284,35 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
       await group.getByText('All drawn: reading it now still lets half the hit through.').waitFor({ timeout: 8000 });
     } }).then(seenPon => assert.ok([...seenPon.statuses].some(text => text.includes('Read once it was drawn, it grazed you.')), 'a graze: ' + [...seenPon.statuses]));
     await page.getByRole('heading', { name: 'You beat Pon!' }).waitFor();
-    await page.getByText('You earned the title “Sharp Eyes”.').waitFor();
+    await page.getByText('You learned Sharp Eyes: wild kana show how many strokes they have from the start.').waitFor();
     await page.screenshot({ path: path.join(shots, 'challenge-pon-won.png') });
+    assert.deepEqual(errors, []); await context.close();
+
+    // ---- Sensei on the Lessons island: word attacks with voiced kana; the win opens evolution
+    ({ context, page, errors, state, sent } = await run({ beatenChallengers: ['chun', 'tama', 'pon'] }));
+    await page.goto(base + '/islands/lessons');
+    const lessonsAnswers = await loadAnswers(page, state);
+    await page.getByRole('heading', { name: 'The Lessons island (まなびのしま)' }).waitFor({ state: 'attached' });
+    await page.screenshot({ path: path.join(shots, 'island-lessons.png') });
+    // In over the south bridge: up the stepping stones toward the pagoda, then east to Sensei beside them.
+    assert.ok(await holdUntil(page, 'ArrowUp', async () => (await travellerAt(page)).y <= 8.6), 'walked up the approach');
+    assert.ok(await holdUntil(page, 'ArrowRight', async () => Boolean(await page.getByText('Sensei is here. Press E to challenge them.').count())), 'walked up to Sensei');
+    await page.keyboard.press('KeyE');
+    await arena(page, 'Sensei').waitFor();
+    let isWordShot = false;
+    const beatSensei = await playChallenge(page, lessonsAnswers, { isRight: true, name: 'Sensei', onDefence: async () => {
+      if (isWordShot) return;
+      isWordShot = true;
+      await page.screenshot({ path: path.join(shots, 'challenge-sensei-word.png') });
+    } });
+    assert.deepEqual(beatSensei.rounds, ['が', 'だ', 'ば']);
+    assert.ok(beatSensei.prompts.has('A word attack! Read the whole word to block.'), 'word attacks: ' + [...beatSensei.prompts]);
+    assert.ok(beatSensei.attacks.every(attack => [...attack].length > 1 && /[がだば]/.test(attack)), 'each attack a word with the kana in it: ' + beatSensei.attacks);
+    await page.getByRole('heading', { name: 'You beat Sensei!' }).waitFor();
+    await page.getByText(/^Your kana can evolve now/).waitFor();
+    assert.ok(await fitsScreen(page), 'the result fits one screen');
+    await page.screenshot({ path: path.join(shots, 'challenge-sensei-won.png') });
+    assert.deepEqual(sent.wins, ['sensei']);
     assert.deepEqual(errors, []); await context.close();
 
     // ---- a phone: the challenge fits one screen, and the touch button says Fight next to Chun
@@ -291,6 +325,6 @@ const profile = { username: 'aki', display_name: 'Aki', email: 'aki@example.test
     await page.screenshot({ path: path.join(shots, 'challenge-phone.png') });
     assert.deepEqual(errors, []); await context.close();
 
-    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; signature defences (Chun’s look-alike attacks and choices, Tama’s shout with caption and hearing again, Pon’s slow stroke reveal with a graze when read late); hints after a loss name each mix-up and how often, none after a win; the riverside grass quiet (no battle) until Chun is beaten and the forest’s last rows waiting on Tama, each win naming its reward (rows, or Pon’s title Sharp Eyes); one screen at 1366×768 and 390×844; no page errors.');
+    console.log('PASS: challengers — every path open on the map; Chun walked up to on the Kana island and challenged with E; a lost challenge saves nothing and can be retried; Chun\'s three open kana in order with HP carried over; the win saved once, counted as practice, a rematch offered; Tama and Pon on their islands; signature defences (Chun’s look-alike attacks and choices, Tama’s shout with caption and hearing again, Pon’s slow stroke reveal with a graze when read late); hints after a loss name each mix-up and how often, none after a win; the riverside grass quiet (no battle) until Chun is beaten and the stone path’s rows waiting on Tama, each win naming its reward (rows, Pon’s skill Sharp Eyes); Sensei walked up to on the Lessons island, attacking with words holding が, だ and ば, the win opening evolution; one screen at 1366×768 and 390×844; no page errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(String(error.stack || error).slice(0, 2000)); process.exitCode = 1; });

@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import type { Building, BuildingLook } from "../../lib/errands/village";
+import type { BoxBuilding, BoxLook } from "../../lib/errands/village";
 import type { LookShape } from "./buildingLooks";
 import { UPRIGHT_STRETCH } from "./scene3d";
 import { Upright } from "./Upright";
@@ -14,9 +14,9 @@ const Window = ({ at, className, children }: { at: CSSProperties; className?: st
 const LEFT: CSSProperties = { left: "12%" }, RIGHT: CSSProperties = { right: "12%" };
 const SidesWindows = ({ className }: { className?: string }) => <><Window at={LEFT} className={className} /><Window at={RIGHT} className={className} /></>;
 
-type FrontProps = { building: Building };
+type FrontProps = { building: BoxBuilding };
 
-const FRONTS: Readonly<Record<BuildingLook, (props: FrontProps) => ReactNode>> = {
+const FRONTS: Readonly<Record<BoxLook, (props: FrontProps) => ReactNode>> = {
   house: ({ building }) => <><Sign text={building.sign} /><Door />{building.width >= 4 && <SidesWindows />}</>,
   home: ({ building }) => <><Sign text={building.sign} /><Door className="village-door-home" /><SidesWindows className="village-window-flowers" /></>,
   bakery: ({ building }) => <><Sign text={building.sign} /><span className="village-awning" /><Door />
@@ -129,9 +129,9 @@ function Steam({ building, tile, shape }: PropsProps) {
   </Upright>;
 }
 
-type PropsProps = { building: Building; tile: number; shape: LookShape };
+type PropsProps = { building: BoxBuilding; tile: number; shape: LookShape };
 
-const PROPS: Partial<Record<BuildingLook, (props: PropsProps) => ReactNode>> = {
+const PROPS: Partial<Record<BoxLook, (props: PropsProps) => ReactNode>> = {
   shrine: Torii, "post-office": Postbox, teahouse: StoneLantern, "practice-hall": TaikoAndFlags, onsen: Steam,
 };
 

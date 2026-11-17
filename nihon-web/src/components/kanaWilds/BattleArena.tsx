@@ -29,6 +29,8 @@ type Props = {
   onEnd: (state: BattleState) => void;
   /** Set when this battle is a round of a challenge rather than a wild kana in the grass. */
   round?: ChallengeRound;
+  /** Pon's reward: a hidden wild kana shows its stroke count from the start. */
+  hasSharpEyes?: boolean;
 };
 
 const MATCHUP_NOTE = { strong: " It's strong against it!", neutral: "", weak: " It's weak against it…" } as const;
@@ -69,7 +71,7 @@ function cueOf(before: BattleState, after: BattleState): BattleEvent | null {
 }
 
 /** One battle: the scene on top, then the text box (with catch and run) beside the current turn's menu. */
-export function BattleArena({ encounter, kanaLevels, words, pool, practice, random, onEnd, round }: Props) {
+export function BattleArena({ encounter, kanaLevels, words, pool, practice, random, onEnd, round, hasSharpEyes = false }: Props) {
   const [state, setState] = useState(() => startBattle(encounter.kana, { isCatchable: encounter.isCatchable, isHidden: !round, kanaLevels, playerHp: round?.playerHp }));
   /** Leaves out `skipped` words when it can: those played this battle, and on a redraw the hand being swapped. */
   const deal = (skipped: Iterable<string>) => dealHand({
@@ -112,7 +114,7 @@ export function BattleArena({ encounter, kanaLevels, words, pool, practice, rand
 
   // Bumped each turn, so the scene replays a hit or a block once.
   const turn = state.readings.answered + state.catchTries;
-  const reveal = useEnemyReveal(state);
+  const reveal = useEnemyReveal(state, hasSharpEyes);
   const enemyName = reveal.isRevealed ? enemy.kana : "the wild kana";
   const fullName = round ? `${round.challengerName}'s ${enemy.kana}` : `Wild ${enemy.kana}`;
   const opening = round ? `${round.challengerName} sends out ${enemy.kana}! (kana ${round.number} of ${round.of})` : "A wild kana jumps out of the tall grass!";

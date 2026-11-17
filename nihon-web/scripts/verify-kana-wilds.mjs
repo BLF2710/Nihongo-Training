@@ -12,6 +12,8 @@ import {
 } from "../src/lib/kanaWilds/choices.ts";
 import { drawnBlock, heardBlock, pickAttack, revealBlock } from "../src/lib/kanaWilds/defenceStyles.ts";
 import { MAX_HINTS, mistakeHints } from "../src/lib/kanaWilds/mistakes.ts";
+import { EVOLVE_AT_LEVEL, evolutionOf, evolvedKana, pendingEvolutions } from "../src/lib/kanaWilds/evolution.ts";
+import { isTileKana, tileKanaByCharacter, tileKanaById, VOICED_HIRAGANA } from "../src/lib/kanaWilds/gojuon.ts";
 import { dealHand, HAND_SIZE, latestCatches, NEW_CATCH_COUNT, SHORT_WORD_LENGTH } from "../src/lib/kanaWilds/hand.ts";
 import { MAX_MISSED_WORDS, noteReading, wordsUsingKana } from "../src/lib/kanaWilds/missedWords.ts";
 import { pickEncounter } from "../src/lib/kanaWilds/encounters.ts";
@@ -626,4 +628,63 @@ test("hints stop at MAX_HINTS and say nothing without mistakes", () => {
   assert.equal(mistakeHints(many).length, MAX_HINTS);
   assert.deepEqual(mistakeHints([]), []);
   assert.deepEqual(mistakeHints(Array(3).fill({ kana: "は", mistakenFor: "ほ", way: "read" })), ["You read は as ほ 3 times."]);
+});
+
+// ---- evolution (docs/KANA-BATTLE.md section 9)
+
+const levels = entries => new Map(entries);
+
+test("the voiced kana have the catalog's ids (が = 47 … ぽ = 71), their readings and vowels", () => {
+  assert.equal(VOICED_HIRAGANA.length, 25);
+  assert.deepEqual([tileKanaById(47).kana, tileKanaById(62).kana, tileKanaById(71).kana], ["が", "ば", "ぽ"]);
+  assert.deepEqual([tileKanaByCharacter("だ").romaji, tileKanaByCharacter("ぴ").vowel], ["da", "i"]);
+  assert.deepEqual([isTileKana("が"), isTileKana("あ"), isTileKana("きゃ"), isTileKana("ア")], [true, true, false, false]);
+});
+
+test("each evolving kana becomes its voiced form, and ば becomes ぱ", () => {
+  assert.deepEqual(["か", "し", "と", "ふ", "ば", "あ", "な"].map(kana => evolutionOf(kana)?.kana ?? null), ["が", "じ", "ど", "ぶ", "ぱ", null, null]);
+});
+
+test("a kana evolves once it reaches the evolution level, and not before", () => {
+  const owned = owning("かきた");
+  const evolved = evolvedKana(owned, levels([["か", EVOLVE_AT_LEVEL], ["き", EVOLVE_AT_LEVEL - 1], ["た", 5]]));
+  assert.deepEqual(evolved.map(kana => kana.kana), ["が", "だ"]);
+});
+
+test("an evolved ば goes on to ぱ once ば itself reaches the level; the base kana are kept", () => {
+  const owned = owning("は");
+  assert.deepEqual(evolvedKana(owned, levels([["は", 3]])).map(kana => kana.kana), ["ば"]);
+  assert.deepEqual(evolvedKana(owned, levels([["は", 3], ["ば", 3]])).map(kana => kana.kana), ["ば", "ぱ"]);
+  assert.ok(owned.has("は"), "the base kana stays");
+});
+
+test("evolutions still to come are listed, the closest first", () => {
+  const pending = pendingEvolutions(owning("かたあ"), levels([["か", 2], ["た", 1]]));
+  assert.deepEqual(pending, [{ from: "か", to: "が", level: 2 }, { from: "た", to: "だ", level: 1 }]);
+});
+
+test("an evolved kana has its own level, from its own answers", () => {
+  const evolvedLevels = kanaLevelsOf([{ kanaId: 47, correct: 20, wrong: 1 }]);
+  assert.equal(evolvedLevels.get("が"), 3);
+});
+
+test("evolved kana open course words with voiced kana; a word ending in a voiced kana takes its vowel", () => {
+  const tileWords = collectBattleWords([{ japanese: "えいが", romaji: "eiga", meaning: "film" }, { japanese: "きゃく", romaji: "kyaku", meaning: "guest" }], isTileKana);
+  assert.deepEqual(tileWords.map(entry => entry.japanese), ["えいが"]);
+  assert.deepEqual(collectBattleWords([{ japanese: "えいが", romaji: "eiga", meaning: "film" }]), [], "basic words leave voiced ones out");
+  assert.deepEqual(playableWords(tileWords, owning("えい")), []);
+  assert.deepEqual(playableWords(tileWords, owning("えいが")).length, 1);
+  assert.equal(vowelOfWord("えいが"), "a");
+});
+
+test("Sensei's word attacks are words with the kana in them, from words with voiced kana", () => {
+  const tileWords = collectBattleWords(course.flatMap(lesson => (lesson.vocabulary ?? []).map(([japanese, romaji, meaning]) => ({ japanese, romaji, meaning }))), isTileKana);
+  const random = seeded(11);
+  for (const character of ["が", "だ", "ば"]) {
+    for (let i = 0; i < 10; i++) {
+      const attack = pickAttack("word-attack", tileKanaByCharacter(character), tileWords, random);
+      assert.equal(attack.kind, "word", character);
+      assert.ok(attack.word.japanese.includes(character), attack.word.japanese);
+    }
+  }
 });

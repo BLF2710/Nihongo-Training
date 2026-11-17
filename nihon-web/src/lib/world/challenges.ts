@@ -4,16 +4,19 @@ import type { CharacterId } from "../cast.ts";
 import { PLAYER_MAX_HP } from "../kanaWilds/battle.ts";
 import type { BattleState } from "../kanaWilds/battle.ts";
 import type { DefenceStyle } from "../kanaWilds/defenceStyles.ts";
-import { kanaByCharacter } from "../kanaWilds/gojuon.ts";
+import { tileKanaByCharacter } from "../kanaWilds/gojuon.ts";
 import type { WildKana } from "../kanaWilds/gojuon.ts";
 import type { KanaMistake } from "../kanaWilds/mistakes.ts";
 
-export const CHALLENGER_IDS = ["chun", "tama", "pon"] as const;
+export const CHALLENGER_IDS = ["chun", "tama", "pon", "sensei"] as const;
 export type ChallengerId = (typeof CHALLENGER_IDS)[number];
 export const isChallengerId = (value: string): value is ChallengerId => CHALLENGER_IDS.some(id => id === value);
-/** `defence`: the challenger's signature way of attacking (docs/KANA-BATTLE.md section 9). `title`: the title a win
- *  earns, for a challenger whose reward is one (the API grants it as an achievement). */
-export type Challenger = { id: ChallengerId; character: CharacterId; team: readonly WildKana[]; defence: DefenceStyle; title?: string };
+/** What beating a challenger gives besides rows in a path's grass (lib/world/routes): a skill for wild battles, or
+ *  evolution for the player's kana. */
+export type ChallengerReward = "sharp-eyes" | "evolution";
+
+/** `defence`: the challenger's signature way of attacking (docs/KANA-BATTLE.md section 9). */
+export type Challenger = { id: ChallengerId; character: CharacterId; team: readonly WildKana[]; defence: DefenceStyle; reward?: ChallengerReward };
 
 type Readings = { readonly answered: number; readonly correct: number };
 export type Challenge = {
@@ -28,11 +31,12 @@ export type ChallengeStep =
   | { kind: "next"; challenge: Challenge }
   | { kind: "over"; summary: ChallengeSummary };
 
-/** A challenger's team, from its kana; fails loudly on a kana that isn't basic hiragana (a content mistake). */
+/** A challenger's team, from its kana; fails loudly on a kana that can't be a tile (basic or voiced hiragana): a
+ *  content mistake. */
 export function teamOf(characters: string): WildKana[] {
   return [...characters].map(character => {
-    const kana = kanaByCharacter(character);
-    if (!kana) throw new Error(`${character} is not a basic hiragana, so it can't be on a challenger's team.`);
+    const kana = tileKanaByCharacter(character);
+    if (!kana) throw new Error(`${character} is not a basic or voiced hiragana, so it can't be on a challenger's team.`);
     return kana;
   });
 }

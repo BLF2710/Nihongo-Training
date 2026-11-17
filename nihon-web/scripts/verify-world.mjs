@@ -6,17 +6,17 @@ import { isBlocked, parseTownMap, terrainAt, withTerrain } from "../src/lib/erra
 import { blockedTilesWithOpenGates } from "../src/lib/errands/village.ts";
 import { AFTER_BATTLE, ENCOUNTER_CHANCE, FRESH_GRASS_WALK, SAFE_GRASS_STEPS, stepOnto } from "../src/lib/world/grassEncounters.ts";
 import { allWildRows, arrivalOn, exitHref, isHeldBack, nearbyExit, openRowsOf, routeHref, routeRewardedBy, rowNames } from "../src/lib/world/routes.ts";
-import { TALK_DISTANCE } from "../src/lib/errands/movement.ts";
+import { fitsAt, TALK_DISTANCE } from "../src/lib/errands/movement.ts";
 import { islandSceneOf, ISLAND_SCENES } from "../src/data/world/islandScenes.ts";
 import { VILLAGE_DOORS, VILLAGE_SQUARE, villageArrivalFrom } from "../src/data/village/villageSquare.ts";
 import { afterRound, kanaInPlay, startChallenge, teamOf } from "../src/lib/world/challenges.ts";
 import { CHALLENGERS } from "../src/data/world/challengers.ts";
 import { ENEMY_MAX_HP, PLAYER_MAX_HP, startBattle } from "../src/lib/kanaWilds/battle.ts";
 import { BASIC_HIRAGANA, HIRAGANA_ROWS } from "../src/lib/kanaWilds/gojuon.ts";
-import { isIslandId } from "../src/lib/islandMap.ts";
+import { isIslandId, LANDSCAPE_LAYOUT } from "../src/lib/islandMap.ts";
 import { routeById, WILD_ROUTES } from "../src/data/world/routes.ts";
 
-const NONE_BEATEN = new Set(), ALL_BEATEN = new Set(["chun", "tama", "pon"]);
+const NONE_BEATEN = new Set(), ALL_BEATEN = new Set(["chun", "tama", "pon", "sensei"]);
 
 // ---- tall grass
 
@@ -105,8 +105,8 @@ for (const route of WILD_ROUTES) {
 
   test(`${route.id}: arriving at an end doesn't put the traveller in reach of leaving again`, () => {
     for (const exit of route.exits) {
-      const arrivedAt = { x: exit.arrival.x + 0.5, y: exit.arrival.y + 0.5 };
-      assert.equal(nearbyExit(arrivedAt, route.exits), null, exit.label);
+      // The traveller stands at the arrival point itself (positions are in tiles; a tile's centre is at +0.5).
+      assert.equal(nearbyExit(exit.arrival, route.exits), null, exit.label);
     }
   });
 
@@ -183,20 +183,108 @@ test("the riverside grass is quiet until Chun is beaten, then holds the さ and 
   assert.equal(isHeldBack(riverside, new Set(["chun"])), false);
 });
 
-test("the forest holds the な and は rows from the start, and the rest of the table once Tama is beaten", () => {
-  assert.deepEqual(openRowsOf(forest, new Set(["chun", "pon"])), ["n", "h"]);
-  assert.deepEqual(openRowsOf(forest, new Set(["tama"])), ["n", "h", "m", "y", "r", "w", "final-n"]);
+test("the forest holds the な and は rows; the stone path is quiet until Tama is beaten, then holds the rest of the table", () => {
+  assert.deepEqual(openRowsOf(forest, ALL_BEATEN), ["n", "h"]);
+  const stonePath = routeById("home-lessons");
+  assert.deepEqual(openRowsOf(stonePath, new Set(["chun", "pon"])), []);
+  assert.deepEqual(openRowsOf(stonePath, new Set(["tama"])), ["m", "y", "r", "w", "final-n"]);
 });
 
 test("the meadow's rows are never held back", () => {
   assert.deepEqual(openRowsOf(routeById("home-kana"), NONE_BEATEN), ["vowels", "k"]);
 });
 
-test("Chun and Tama each fill one path's grass; Pon gives a title instead", () => {
+test("Chun and Tama each fill one path's grass; Pon teaches Sharp Eyes and Sensei opens evolution instead", () => {
   assert.equal(routeRewardedBy(WILD_ROUTES, "chun").id, "home-practice");
-  assert.equal(routeRewardedBy(WILD_ROUTES, "tama").id, "home-games");
-  assert.equal(routeRewardedBy(WILD_ROUTES, "pon"), undefined);
-  assert.equal(CHALLENGERS.pon.title, "Sharp Eyes");
+  assert.equal(routeRewardedBy(WILD_ROUTES, "tama").id, "home-lessons");
+  assert.deepEqual([routeRewardedBy(WILD_ROUTES, "pon"), routeRewardedBy(WILD_ROUTES, "sensei")], [undefined, undefined]);
+  assert.deepEqual([CHALLENGERS.pon.reward, CHALLENGERS.sensei.reward], ["sharp-eyes", "evolution"]);
+});
+
+test("every island with a challenger has a wild path to it, its own theme, and every challenger stands on one", () => {
+  assert.deepEqual(ISLAND_SCENES.map(scene => scene.island).sort(), ["games", "kana", "lessons", "practice"]);
+  assert.equal(new Set(ISLAND_SCENES.map(scene => scene.theme)).size, ISLAND_SCENES.length, "each island looks its own");
+  assert.equal(islandSceneOf("lessons").theme, "maple");
+  for (const scene of ISLAND_SCENES) assert.ok(WILD_ROUTES.some(route => route.between[1] === scene.island), scene.island + " has a path");
+});
+
+// ---- the traveller can move off every spot they arrive at: their feet (wider than a tile's edge) touch nothing
+// solid there, so they aren't stuck, or hidden, inside a wall
+
+const feetFit = (layout, at) => {
+  const blocked = blockedTilesWithOpenGates(layout, []);
+  return fitsAt(at, (x, y) => isBlocked(layout.map, blocked, x, y));
+};
+
+test("coming back off each path, the traveller's feet fit where they appear in the village", () => {
+  for (const route of WILD_ROUTES) assert.ok(feetFit(VILLAGE_SQUARE, villageArrivalFrom(route.id)), route.id);
+});
+
+test("arriving on an island, the traveller's feet fit by its bridge", () => {
+  for (const scene of ISLAND_SCENES) assert.ok(feetFit(scene.layout, scene.layout.start), scene.island);
+});
+
+test("arriving at either end of a path, the traveller's feet fit there", () => {
+  for (const route of WILD_ROUTES) for (const exit of route.exits) assert.ok(feetFit(route.layout, exit.arrival), `${route.id}: ${exit.label}`);
+});
+
+// ---- each path runs the way its island lies from Home on the island map
+
+/** The side of a w × h map a tile is on, by its larger offset from the centre. */
+const sideOf = ({ x, y }, width, height) => {
+  const dx = (x + 0.5) / width - 0.5, dy = (y + 0.5) / height - 0.5;
+  return Math.abs(dx) >= Math.abs(dy) ? (dx < 0 ? "west" : "east") : (dy < 0 ? "north" : "south");
+};
+const OPPOSITE = { north: "south", south: "north", east: "west", west: "east" };
+
+test("each path heads the way its island lies from Home on the (landscape) island map", () => {
+  const { placements, aspect } = LANDSCAPE_LAYOUT;
+  for (const route of WILD_ROUTES) {
+    const home = placements.home, island = placements[route.between[1]];
+    const dx = (island.x - home.x) * aspect, dy = island.y - home.y;
+    const expected = Math.abs(dx) >= Math.abs(dy) ? (dx < 0 ? "west" : "east") : (dy < 0 ? "north" : "south");
+    assert.equal(route.heading, expected, route.id);
+  }
+  assert.deepEqual(Object.fromEntries(WILD_ROUTES.map(route => [route.id, route.heading])),
+    { "home-kana": "east", "home-practice": "west", "home-games": "south", "home-lessons": "north" });
+});
+
+test("a path's Home end is on the side it comes from, and its island end on the side it heads to", () => {
+  for (const { id, heading, exits, layout: { map } } of WILD_ROUTES) {
+    const sides = Object.fromEntries(exits.map(exit => [exit.island === "home" ? "home" : "island", sideOf(exit.tile, map.width, map.height)]));
+    assert.deepEqual(sides, { home: OPPOSITE[heading], island: heading }, id);
+  }
+});
+
+test("a path heading north or south is a tall map, east or west a wide one", () => {
+  for (const { id, heading, layout: { map } } of WILD_ROUTES) {
+    assert.equal(map.height > map.width, heading === "north" || heading === "south", id);
+  }
+});
+
+test("each road out of the village leaves on the side its island lies", () => {
+  const { map } = VILLAGE_SQUARE;
+  for (const route of WILD_ROUTES) {
+    const gate = VILLAGE_DOORS.find(door => door.id === `path-${route.id}`);
+    assert.equal(sideOf(gate.tile, map.width, map.height), route.heading, route.id);
+  }
+});
+
+test("each island's bridge is on the side facing Home", () => {
+  for (const scene of ISLAND_SCENES) {
+    const route = WILD_ROUTES.find(candidate => candidate.between[1] === scene.island);
+    const bridge = scene.doors.find(door => door.id === "path-back");
+    assert.equal(terrainAt(scene.layout.map, bridge.tile.x, bridge.tile.y), "bridge", scene.island);
+    assert.equal(sideOf(bridge.tile, scene.layout.map.width, scene.layout.map.height), OPPOSITE[route.heading], scene.island);
+  }
+});
+
+test("the Lessons island's pagoda stands at the head of the stepping stones from the bridge, and is the mock exam", () => {
+  const lessons = islandSceneOf("lessons");
+  const pagoda = lessons.layout.buildings.find(building => building.look === "pagoda");
+  const bridge = lessons.doors.find(door => door.id === "path-back");
+  assert.equal(pagoda?.id, "mock-exam");
+  assert.ok(Math.abs(pagoda.x + pagoda.width / 2 - (bridge.tile.x + 1)) <= 1, "on the bridge's line");
 });
 
 test("the held-back kana are the ones the API holds back from catches (ids 11–20 for Chun, 31–46 for Tama)", () => {
@@ -244,8 +332,8 @@ for (const scene of ISLAND_SCENES) {
   });
 
   test(`${scene.island} island: arriving doesn't put the traveller in reach of a door`, () => {
-    const arrivedAt = { x: scene.layout.start.x + 0.5, y: scene.layout.start.y + 0.5 };
-    for (const door of scene.doors) assert.ok(centreDistance(arrivedAt, { x: door.tile.x + 0.5, y: door.tile.y + 0.5 }) > TALK_DISTANCE, door.label);
+    // The traveller stands at the start point itself (positions are in tiles; a door tile's centre is at +0.5).
+    for (const door of scene.doors) assert.ok(centreDistance(scene.layout.start, { x: door.tile.x + 0.5, y: door.tile.y + 0.5 }) > TALK_DISTANCE, door.label);
   });
 }
 
@@ -301,7 +389,8 @@ test("a challenger's team is real hiragana, and a typo fails loudly", () => {
   assert.deepEqual(chun.team.map(kana => kana.kana), ["あ", "こ", "お"]);
   assert.deepEqual(CHALLENGERS.tama.team.map(kana => kana.kana), ["さ", "ち", "つ"]);
   assert.deepEqual(CHALLENGERS.pon.team.map(kana => kana.kana), ["ぬ", "ね", "は"]);
-  assert.throws(() => teamOf("あx"), /not a basic hiragana/);
+  assert.deepEqual(CHALLENGERS.sensei.team.map(kana => [kana.kana, kana.romaji, kana.vowel]), [["が", "ga", "a"], ["だ", "da", "a"], ["ば", "ba", "a"]]);
+  assert.throws(() => teamOf("あx"), /not a basic or voiced hiragana/);
 });
 
 test("winning a round sends out the challenger's next kana, with the HP the player has left", () => {
@@ -338,5 +427,5 @@ test("the kana mixed up in every round reach the end of the challenge, in order"
 });
 
 test("each challenger has their own signature defence", () => {
-  assert.deepEqual(Object.fromEntries(Object.values(CHALLENGERS).map(({ id, defence }) => [id, defence])), { chun: "look-alikes", tama: "shout", pon: "stroke-reveal" });
+  assert.deepEqual(Object.fromEntries(Object.values(CHALLENGERS).map(({ id, defence }) => [id, defence])), { chun: "look-alikes", tama: "shout", pon: "stroke-reveal", sensei: "word-attack" });
 });

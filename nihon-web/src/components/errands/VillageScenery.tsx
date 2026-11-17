@@ -3,9 +3,11 @@ import type { CSSProperties, ReactElement } from "react";
 import { rowRuns, terrainAt } from "../../lib/errands/townMap";
 import type { Rect, Terrain, TownMap } from "../../lib/errands/townMap";
 import type { Vector } from "../../lib/errands/movement";
-import type { Building, Gate, RoofColour } from "../../lib/errands/village";
+import { isBoxBuilding } from "../../lib/errands/village";
+import type { BoxBuilding, Building, Gate, RoofColour } from "../../lib/errands/village";
 import { BuildingFront, BuildingProps } from "./BuildingDetails";
 import { LOOK_SHAPES } from "./buildingLooks";
+import { Pagoda } from "./Pagoda";
 import { STAND_UP, STAND_UP_ALONG_Y } from "./scene3d";
 import { Upright } from "./Upright";
 
@@ -75,8 +77,35 @@ const BAMBOO_CLUMP: TreeDrawing = index => <>
   })}
 </>;
 
+/** Where a maple's clusters of leaves sit (x, y, radius): a broad crown in tiers, wider at the bottom. */
+const MAPLE_CLUSTERS = [[0.22, 0.98, 0.22], [0.78, 0.94, 0.22], [0.5, 0.84, 0.26], [0.32, 0.6, 0.2], [0.68, 0.58, 0.2], [0.5, 0.36, 0.2]] as const;
+/** Autumn colours, varied from tree to tree so a row reads as a wood, not a stamp. */
+const MAPLE_COLOURS = ["var(--village-maple)", "var(--village-maple-light)", "var(--village-maple-deep)"] as const;
+
+/** A maple in autumn: a dark trunk under a jagged crown of red, orange or crimson leaves (the edge of each cluster
+ *  pointed, like the leaves themselves), with lighter leaves catching the light. */
+const MAPLE_TREE: TreeDrawing = index => {
+  const colour = MAPLE_COLOURS[index % MAPLE_COLOURS.length];
+  return <g transform={index % 2 ? "translate(1 0) scale(-1 1)" : undefined}>
+    <path d="M0.5,1.9 C0.47,1.6 0.54,1.4 0.5,1.15 M0.5,1.2 C0.38,1.1 0.3,1.04 0.22,0.98 M0.5,1.18 C0.62,1.08 0.72,1.0 0.78,0.94" fill="none" stroke="var(--village-bark)" strokeWidth={0.07} strokeLinecap="round" />
+    <path d="M0.5,1.9 C0.47,1.6 0.54,1.4 0.5,1.15" fill="none" stroke="var(--village-bark)" strokeWidth={0.13} strokeLinecap="round" />
+    {MAPLE_CLUSTERS.map(([cx, cy, r]) => <path key={`${cx},${cy}`} d={jagged(cx, cy, r, 9)} fill={colour} stroke="var(--village-maple-deep)" strokeWidth={0.025} strokeLinejoin="round" />)}
+    {MAPLE_CLUSTERS.map(([cx, cy, r]) => <path key={`light-${cx},${cy}`} d={jagged(cx - r * 0.25, cy - r * 0.3, r * 0.45, 6)} fill="var(--village-maple-light)" opacity={0.85} />)}
+  </g>;
+};
+
+/** A ring of points around a circle: the edge of a cluster of maple leaves. */
+function jagged(cx: number, cy: number, r: number, points: number): string {
+  const corners = Array.from({ length: points * 2 }, (_, index) => {
+    const angle = (index / (points * 2)) * Math.PI * 2;
+    const reach = index % 2 ? r * 0.78 : r;
+    return `${(cx + reach * Math.cos(angle)).toFixed(3)},${(cy + reach * Math.sin(angle)).toFixed(3)}`;
+  });
+  return `M${corners.join(" L")} Z`;
+}
+
 /** How each kind of standing tree is drawn. */
-const TREE_DRAWINGS = { tree: LEAFY_TREE, sakura: CHERRY_TREE, bamboo: BAMBOO_CLUMP } as const satisfies Partial<Record<Terrain, TreeDrawing>>;
+const TREE_DRAWINGS = { tree: LEAFY_TREE, sakura: CHERRY_TREE, bamboo: BAMBOO_CLUMP, maple: MAPLE_TREE } as const satisfies Partial<Record<Terrain, TreeDrawing>>;
 type TreeTerrain = keyof typeof TREE_DRAWINGS;
 const TREE_TERRAINS = Object.keys(TREE_DRAWINGS) as TreeTerrain[]; // the keys of a literal object: a safe cast
 
@@ -113,7 +142,7 @@ function FencePost({ x, y, tile }: { x: number; y: number; tile: number }) {
 
 /** A building as a box: walls (the front one with its sign, door and windows), gable ends at the sides and a
  *  two-sided roof, shaped and dressed by what the building is (see buildingLooks and BuildingDetails). */
-function House({ building, tile }: { building: Building; tile: number }) {
+function House({ building, tile }: { building: BoxBuilding; tile: number }) {
   const { x, y, width, height, roof } = building;
   const shape = LOOK_SHAPES[building.look];
   const wide = width * tile, deep = height * tile, wall = shape.wallHeight * tile, ridge = shape.ridgeHeight * tile, eave = EAVE_OVERHANG * tile;
@@ -185,7 +214,7 @@ const StaticScenery = memo(function StaticScenery({ map, buildings, tile }: { ma
       height={isFrontRow(map, run) ? BUSH_HEIGHT : TREE_HEIGHT} tile={tile} draw={TREE_DRAWINGS[terrain]} />))}
     {rowRuns(map, "tallgrass").map(run => <TallGrassRow key={`grass-${run.x},${run.y}`} run={run} tile={tile} />)}
     {fences.map(({ x, y }) => <FencePost key={`${x},${y}`} x={x} y={y} tile={tile} />)}
-    {buildings.map(building => <House key={building.id} building={building} tile={tile} />)}
+    {buildings.map(building => isBoxBuilding(building) ? <House key={building.id} building={building} tile={tile} /> : <Pagoda key={building.id} building={building} tile={tile} />)}
   </>;
 });
 

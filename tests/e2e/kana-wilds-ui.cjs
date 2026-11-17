@@ -223,7 +223,8 @@ const MAX_TURNS = 60;
     assert.ok(first.seen.strokeCountTag, 'the card told its stroke count before it was fully shown');
     assert.ok(first.seen.partialChance, 'catching opened before the kana was worn out, at a lower chance');
     assert.notDeepEqual([...first.seen.handAfter].sort(), [...first.seen.handBefore].sort(), 'a redraw deals a different hand');
-    assert.ok(['k', 's'].includes(first.enemy.row), 'wild kana come from the first rows not yet caught: ' + first.enemy.kana);
+    // The さ row waits on Chun, so the first open rows not yet caught are か and な.
+    assert.ok(['k', 'n'].includes(first.enemy.row), 'wild kana come from the first open rows not yet caught: ' + first.enemy.kana);
     await page.getByRole('heading', { name: `You caught ${first.enemy.kana}!` }).waitFor();
     await page.getByText('Added to your collection.').waitFor();
     assert.deepEqual(sent.catches, [first.enemy.id]);

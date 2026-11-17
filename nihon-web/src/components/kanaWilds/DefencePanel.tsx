@@ -51,6 +51,7 @@ const DRAWN_RULES: Readonly<Record<Exclude<DefenceStyle, "shout">, DrawnRules>> 
     progressNote: (drawn, total) => drawn < total / 2 ? "Read it now for a perfect block!"
       : drawn < total ? "A good block now: a quarter of the hit gets through." : "All drawn: reading it now still lets half the hit through.",
   },
+  "word-attack": { prompt: "A word attack! Read the whole word to block.", strokeMs: STROKE_DRAW_MS, kanaChoices: defenceChoices, judge: drawnBlock, progressNote: quickNote },
 };
 
 type DrawnProps = { attack: EnemyAttack; rules: DrawnRules; isBraced: boolean; pool: readonly BattleWord[]; random: () => number; onDefend: Defend; onWordReading: (word: string, isCorrect: boolean) => void };

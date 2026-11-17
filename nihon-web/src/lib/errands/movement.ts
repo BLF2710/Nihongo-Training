@@ -31,7 +31,8 @@ export function heldDirection(held: ReadonlySet<Direction>): Vector {
   return length === 0 ? { x: 0, y: 0 } : { x: x / length, y: y / length };
 }
 
-const fitsAt = ({ x, y }: Vector, isBlocked: IsBlocked) => {
+/** Whether the traveller's feet, centred on a position, touch no blocked tile there. */
+export const fitsAt = ({ x, y }: Vector, isBlocked: IsBlocked): boolean => {
   const left = Math.floor(x - FEET_HALF_WIDTH), right = Math.floor(x + FEET_HALF_WIDTH - 1e-6);
   const top = Math.floor(y - FEET_HALF_DEPTH), bottom = Math.floor(y + FEET_HALF_DEPTH - 1e-6);
   for (let row = top; row <= bottom; row++) for (let column = left; column <= right; column++) if (isBlocked(column, row)) return false;

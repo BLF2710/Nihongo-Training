@@ -8,12 +8,21 @@ import { blockedTiles } from "./townMap.ts";
 import type { Rect, TileKey, TownMap } from "./townMap.ts";
 
 export type RoofColour = "vermilion" | "indigo" | "moss" | "wood";
-/** What a building is, which decides how it's drawn (a shrine has a torii in front, the post office a postbox…). */
-export type BuildingLook =
+/** What a building is, which decides how it's drawn (a shrine has a torii in front, the post office a postbox…). Most
+ *  are built as a box of walls under a two-sided roof; a pagoda is a tower of storeys, drawn whole. */
+export type BoxLook =
   | "house" | "home" | "bakery" | "school" | "kana-school" | "shrine" | "dojo" | "calligraphy"
   | "post-office" | "stall" | "teahouse" | "practice-hall" | "onsen";
+export type TowerLook = "pagoda";
+export type BuildingLook = BoxLook | TowerLook;
 /** A building's sign is Japanese (its kanji or kana is part of what the learner reads); `label` says it in English. */
 export type Building = Rect & { id: string; sign: string; label: string; roof: RoofColour; look: BuildingLook };
+export type BoxBuilding = Building & { look: BoxLook };
+
+const TOWER_LOOKS: ReadonlySet<BuildingLook> = new Set<TowerLook>(["pagoda"]);
+
+/** Whether the building is built as a box of walls under a roof (not a tower). */
+export const isBoxBuilding = (building: Building): building is BoxBuilding => !TOWER_LOOKS.has(building.look);
 export type Gate = Rect & { id: string; label: string; opensWhen: readonly Condition[] };
 export type Item = { id: ItemId; japanese: string; english: string; icon: string };
 /** Someone standing on a tile of the village. */

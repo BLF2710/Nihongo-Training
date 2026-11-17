@@ -127,6 +127,8 @@ Wild kana use levels 1–2. Each challenger has a signature defence (section 9).
   block. **Caption** shows the sound in romaji, and is on from the start where the browser can't speak.
 - **Stroke reveal** (Pon): drawn slowly (900 ms a stroke), judged as above: perfect before half the strokes, a
   quarter of the hit before the last ("glanced"), half once drawn ("grazed"), the full hit when wrong.
+- **Word attack** (Sensei): every attack is a whole course word holding the kana (with voiced kana, such as えいが),
+  drawn like a reading attack; read the word right to block.
 
 Braced (after a redraw), every style offers two choices that are easy to tell apart.
 
@@ -184,21 +186,23 @@ path (docs/WORLD.md). Every path is open from the start; a win is saved, pays XP
 |---|---|---|---|---|
 | 1 | Chun (Kana island) | vowels, か row | look-alikes (level 2) | the さ and た rows appear in the wild |
 | 2 | Tama (Practice) | な, は rows | the enemy shouts (level 3) | the ま, や, ら, わ rows |
-| 3 | Pon (Games) | ぬ, め, ね, れ, わ, る, ろ | stroke reveal (level 4) | the title "Sharp eyes" |
-| 4 | Sensei (Teahouse) | voiced forms | word attacks (level 5) | **evolution**: dakuten (か → が, は → ば → ぱ) |
+| 3 | Pon (Games) | ぬ, め, ね, れ, わ, る, ろ | stroke reveal (level 4) | the skill **Sharp Eyes** |
+| 4 | Sensei (Lessons) | voiced forms | word attacks (level 5) | **evolution**: dakuten (か → が, は → ば → ぱ) |
 | 5 | Zen (Review) | your weakest kana | recall (level 6) | **evolution**: small kana (き + ゃ → きゃ) |
 | 6 | Kurama (Fuji) | everything | brush style (level 7) + mixed | the katakana wilds (milestone 4) |
 
-Chun, Tama and Pon are in the game (docs/WORLD.md section 4), each on their island with their signature defence
-(section 6): Chun (Kana) with あ, こ, お and look-alikes; Tama (Practice) with さ, ち, つ and the shout; Pon (Games)
-with ぬ, ね, は and the stroke reveal.
+Chun, Tama, Pon and Sensei are in the game (docs/WORLD.md section 4), each on their island with their signature
+defence (section 6): Chun (Kana) with あ, こ, お and look-alikes; Tama (Practice) with さ, ち, つ and the shout; Pon
+(Games) with ぬ, ね, は and the stroke reveal; Sensei (Lessons) with が, だ, ば and word attacks.
 
 **Rewards** (each named on the result screen once the win is saved):
 - **Chun** brings the さ and た rows into the riverside path's grass, which is quiet until then.
-- **Tama** brings the ま, や, ら, わ rows and ん into the forest path's grass (the な and は rows live there from the
-  start).
-- **Pon** gives the title **Sharp Eyes**, an achievement (games category, migration 037). The achievement check runs
-  even when today's game XP cap is reached, so the title is never put off.
+- **Tama** brings the ま, や, ら, わ rows and ん into the stone path's grass (to the Lessons island), which is quiet
+  until then. The forest path keeps the な and は rows from the start.
+- **Pon** teaches the skill **Sharp Eyes**: a hidden wild kana shows its stroke count from the start of the battle,
+  instead of once its HP is low (`useEnemyReveal` in `components/kanaWilds/enemyReveal.ts`). It is a skill in the
+  game, not an achievement: migration 038 removes the achievement an earlier build added.
+- **Sensei** opens **evolution** (below).
 
 The rows are held back in both places: the web app's paths (`rewardRows` in `data/world/routes.ts`) and the API's
 catches (`HELD_KANA` in `kana-wilds.service.ts`, refused with 409). A starter kana from a held row (さ or た) is still
@@ -212,6 +216,16 @@ the mistake notebook, so the hints are about single kana.
 
 **Evolution adds new tiles** (が, ば, きゃ…), which open new words such as えいが (film), しごと (work) and きょう (today). The base
 tile stays in your collection.
+
+Dakuten evolution is in the game (`lib/kanaWilds/evolution.ts`). Once Sensei is beaten:
+- a kana of the か, さ, た and は rows **evolves** when it reaches **level 3** (`EVOLVE_AT_LEVEL`): か → が, し → じ,
+  と → ど, は → ば. An evolved ば goes on to ぱ when ば itself reaches level 3. Nothing is caught again, and the base
+  kana stays.
+- an evolved kana is a tile with its own level, from its own answers: the collection API returns the answers for
+  every collected kana and for the voiced forms they evolve into (`evolvedFromId`, catalog ids 47–71).
+- evolved tiles open course words with voiced kana (`EVERY_TILE_WORD`, `isTileKana`).
+- the collection shows the evolved tiles, and the next evolutions to come with their current level ("か → が at
+  level 3 (now 2)"). Before Sensei it names Sensei instead.
 
 Losing a challenger battle costs nothing. You can try again at once, and the challenger offers a hint about what
 beat you ("You read ね as れ twice").

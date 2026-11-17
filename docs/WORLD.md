@@ -16,7 +16,19 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   its challenger waits among them, and its bridge leads back onto the path.
 - **Each island looks like its art on the map, and so does the path to it:** cherry trees and fallen petals for Kana
   (a temple garden), bamboo for Practice (a gravel courtyard with a pond), an evening festival for Games (stalls,
-  lanterns and a goldfish pool; lanterns line the forest path too).
+  lanterns and a goldfish pool; lanterns line the forest path too), autumn maples for Lessons (a temple school with
+  the island map's five-storey pagoda at the head of stepping stones from the bridge, two ponds and stone lanterns;
+  falling leaves; maples and lanterns along the stone path).
+- **Each path runs the way its island lies from Home on the island map** (`heading`, from the landscape layout):
+  the meadow path east to Kana, the riverside path west to Practice, the forest path south (down) to Games and the
+  stone path north (up) to Lessons. North–south paths are tall maps walked up or down, east–west ones wide. The
+  village's road out to each leaves on that side of the square, and each island's bridge is on the side facing Home.
+  The walking hint says which way each end lies ("South: the village, north: the island").
+- **Each path has its own shape:** the meadow winds round a pond through flower beds under cherry trees; the
+  riverside path follows a river's north bank and crosses a stream; the forest path zigzags down switchbacks through
+  a dark wood; the stone path climbs zigzag stepping stones and crosses a stream on a little bridge. Each has one band
+  of tall grass right across, so reaching the island means meeting the grass. Bridges are drawn with their planks
+  across the way they run.
 - **The island cast challenge you on their islands** (milestones 3–4). A win is saved and pays XP the first time;
   nothing is locked behind it.
 - **Grinding is real study.** Battle answers already go to the server, so time in the grass raises each kana's
@@ -35,10 +47,12 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
 3. **The first challenger (done):** Chun, with a challenge of three open kana; the win saved by the API.
 4. **Paths lead to islands (done):**
    - The village square's roads end at path gates; every path is open, in any order.
-   - Three paths: the meadow path (Home to Kana: vowels, か row), the riverside path (Home to Practice: さ, た rows)
-     and the forest path (Home to Games: な, は rows).
+   - Four paths: the meadow path (Home to Kana: vowels, か row), the riverside path (Home to Practice: さ, た rows),
+     the forest path (Home to Games: な, は rows) and the stone path (Home to Lessons: ま, や, ら, わ rows and ん).
    - The far end of a path is a walkable island (`/islands/:islandId`): buildings for its pages, its challenger
-     (Chun on Kana, Tama on Practice, Pon on Games), and a bridge back onto the path at the island end.
+     (Chun on Kana, Tama on Practice, Pon on Games, Sensei on Lessons), and a bridge back onto the path at the island
+     end. The Lessons island's halls open all units (がっこう), vocabulary (ことば), grammar (ぶんぽう) and unit
+     assessments (しけん); its pagoda opens the mock exam (もぎしけん).
    - The path's Home end returns to the village square. The map stays the lobby; its markers open a path at Home.
 5. **Next:** more rows on more paths, then katakana as its own region.
 
@@ -49,8 +63,8 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   out of the grass.
 - **Which kana:** each path has its own rows (`wildRows`), and some are held back until a challenger is beaten
   (`rewardRows`, docs/KANA-BATTLE.md section 9): the meadow path has the vowels and the か row; the riverside path is
-  quiet (no battles) until Chun is beaten, then has the さ and た rows; the forest path has the な and は rows, and the
-  ま, や, ら, わ rows and ん once Tama is beaten. The path's sign says who holds rows back. The API refuses catches of
+  quiet (no battles) until Chun is beaten, then has the さ and た rows; the forest path has the な and は rows; the
+  stone path is quiet until Tama is beaten, then has the ま, や, ら, わ rows and ん. The path's sign says who holds rows back. The API refuses catches of
   held-back kana the same way. Kana not yet caught come from the first two open rows still incomplete; once a path's
   rows are all caught, its kana still appear for practice. The quick battle draws from every row open now.
 - **Before a starter is chosen,** the path asks you to choose one first (and an island does, before a challenge).
@@ -75,7 +89,10 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   The collection's `beatenChallengers` marks who is beaten; a rematch is always on offer. The challenge's readings
   count as battle practice.
 - Teams and signature defences (`data/world/challengers.ts`, docs/KANA-BATTLE.md section 6): Chun あ, こ, お with
-  look-alikes; Tama さ, ち, つ, whose kana shout; Pon ぬ, ね, は with the stroke reveal.
+  look-alikes; Tama さ, ち, つ, whose kana shout; Pon ぬ, ね, は with the stroke reveal; Sensei が, だ, ば with word
+  attacks.
+- Rewards (docs/KANA-BATTLE.md section 9): Chun and Tama bring rows into a path's grass; Pon teaches the skill Sharp
+  Eyes (wild kana show their stroke count from the start); Sensei opens evolution (か → が at level 3).
 
 ## 5. Code
 

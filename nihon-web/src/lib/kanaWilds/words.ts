@@ -1,17 +1,20 @@
-// The words a player can attack with: course vocabulary written only in basic hiragana, spelled from kana they own.
+// The words a player can attack with: course vocabulary written in kana they can have as tiles (basic hiragana, and
+// voiced kana once evolved), spelled from kana they own.
 import { isBasicHiragana } from "./gojuon.ts";
 
 export type VocabularyEntry = { japanese: string; romaji: string; meaning: string };
 export type BattleWord = { japanese: string; romaji: string; meaning: string };
 
-const isSpelledInBasicHiragana = (japanese: string) => japanese.length > 0 && [...japanese].every(isBasicHiragana);
-
-/** Every distinct word of the course that basic hiragana tiles can spell (voiced and small kana come with evolutions). */
-export function collectBattleWords(entries: readonly VocabularyEntry[]): BattleWord[] {
+/**
+ * Every distinct word of the course whose every kana `isTile` accepts: by default basic hiragana (the wild battles'
+ * words); with isTileKana, voiced kana too (the words evolutions open).
+ */
+export function collectBattleWords(entries: readonly VocabularyEntry[], isTile: (character: string) => boolean = isBasicHiragana): BattleWord[] {
   const words = new Map<string, BattleWord>();
   for (const { japanese, romaji, meaning } of entries) {
     const word = japanese.trim();
-    if (!isSpelledInBasicHiragana(word) || words.has(word) || !romaji.trim() || !meaning.trim()) continue;
+    const isSpelledInTiles = word.length > 0 && [...word].every(isTile);
+    if (!isSpelledInTiles || words.has(word) || !romaji.trim() || !meaning.trim()) continue;
     words.set(word, { japanese: word, romaji: romaji.trim().toLowerCase(), meaning: meaning.trim() });
   }
   return [...words.values()];

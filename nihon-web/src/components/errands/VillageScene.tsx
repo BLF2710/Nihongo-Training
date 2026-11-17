@@ -23,7 +23,7 @@ const VILLAGER_SIZE = 1.15;
 const SURROUNDINGS = 40;
 const DOOR_PROMPT_HEIGHT = 2;
 const TRAVELLER_HEIGHT = 1.5;
-/** Blossom drifting down over a cherry-blossom scene (across the screen, in %; seconds). */
+/** Blossom (or, in the maple garden, leaves) drifting down over the scene (across the screen, in %; seconds). */
 const FALLING_PETALS = [
   { left: 12, duration: 11, delay: 0 }, { left: 34, duration: 14, delay: -5 }, { left: 58, duration: 12, delay: -9 },
   { left: 76, duration: 15, delay: -2 }, { left: 93, duration: 13, delay: -7 },
@@ -131,7 +131,7 @@ export function VillageScene({ village, position, facing, isWalking, isRunning, 
       </div>
     </div>}
     <div aria-hidden="true" className="village-haze pointer-events-none absolute inset-x-0 top-0 h-1/2" />
-    {theme === "sakura" && <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    {(theme === "sakura" || theme === "maple") && <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       {FALLING_PETALS.map(petal => <div key={petal.left} className="scenery-petal" style={{ left: `${petal.left}%`, animationDuration: `${petal.duration}s`, animationDelay: `${petal.delay}s` }} />)}
     </div>}
     {children}

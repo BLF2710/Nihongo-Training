@@ -8,7 +8,12 @@ import { HIRAGANA_ROWS } from "../kanaWilds/gojuon.ts";
 import type { ChallengerId } from "./challenges.ts";
 import type { SceneTheme } from "./sceneTheme.ts";
 
-export type RouteId = "home-kana" | "home-practice" | "home-games";
+export type RouteId = "home-kana" | "home-practice" | "home-games" | "home-lessons";
+
+/** A compass direction on the island map (north is up). */
+export type Heading = "north" | "south" | "east" | "west";
+
+export const OPPOSITE_HEADING: Readonly<Record<Heading, Heading>> = { north: "south", south: "north", east: "west", west: "east" };
 
 /**
  * One end of the path. Standing at `tile`, the traveller can leave for `island` (Home is the village square, any
@@ -18,11 +23,12 @@ export type RouteExit = { tile: Vector; arrival: Vector; island: IslandId; label
 
 /**
  * `between` names the islands at its two ends: Home, then the island it leads to (its bridge on the map runs between
- * them). `wildRows` are the hiragana rows living in its grass from the start; `rewardRows` join them once the
- * player beats a challenger (docs/KANA-BATTLE.md section 9). `theme` is the look of the island it leads to.
+ * them). `heading` is the way the island lies from Home on the island map, which is the way the path runs: Home's end
+ * on the opposite side. `wildRows` are the hiragana rows living in its grass from the start; `rewardRows` join them
+ * once the player beats a challenger (docs/KANA-BATTLE.md section 9). `theme` is the look of the island it leads to.
  */
 export type WildRoute = {
-  id: RouteId; name: string; japaneseName: string; between: readonly [IslandId, IslandId]; theme: SceneTheme;
+  id: RouteId; name: string; japaneseName: string; between: readonly [IslandId, IslandId]; heading: Heading; theme: SceneTheme;
   layout: VillageLayout; exits: readonly RouteExit[]; wildRows: readonly string[]; rewardRows?: RewardRows;
 };
 

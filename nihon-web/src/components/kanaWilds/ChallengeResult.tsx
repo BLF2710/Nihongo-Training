@@ -5,7 +5,8 @@ import type { Mood } from "../../lib/cast";
 import type { DefenceStyle } from "../../lib/kanaWilds/defenceStyles";
 import { mistakeHints } from "../../lib/kanaWilds/mistakes";
 import type { WinSave } from "../../lib/kanaWilds/useWildBattles";
-import type { Challenger, ChallengeOutcome, ChallengeSummary } from "../../lib/world/challenges";
+import { EVOLVE_AT_LEVEL } from "../../lib/kanaWilds/evolution";
+import type { Challenger, ChallengeOutcome, ChallengeSummary, ChallengerReward } from "../../lib/world/challenges";
 import { routeRewardedBy, rowNames } from "../../lib/world/routes";
 import { primaryButton, secondaryButton, sheet } from "./styles";
 
@@ -27,6 +28,13 @@ const DEFENCE_TIP: Readonly<Record<DefenceStyle, string>> = {
   "look-alikes": "Each has a look-alike, so read them slowly.",
   shout: "Listen to the whole sound, the vowel too, before you pick.",
   "stroke-reveal": "Watch the first strokes: they tell look-alikes apart early.",
+  "word-attack": "Read every kana of the word, the voiced ones too: が is ga, not ka.",
+};
+
+/** What a challenger's own reward does, said after a win. */
+const REWARD_TEXT: Readonly<Record<ChallengerReward, string>> = {
+  "sharp-eyes": "You learned Sharp Eyes: wild kana show how many strokes they have from the start.",
+  evolution: `Your kana can evolve now: か becomes が, た becomes だ, は becomes ば (then ぱ) once you reach level ${EVOLVE_AT_LEVEL} with them.`,
 };
 
 /** What the challenger says: well done, or which kana to look at before trying again. */
@@ -40,7 +48,7 @@ function challengerNote(challenger: Challenger, outcome: ChallengeOutcome): stri
 function rewardText(challenger: Challenger): string | null {
   const route = routeRewardedBy(WILD_ROUTES, challenger.id);
   if (route) return `The ${rowNames(route.rewardRows.rows)} rows now live in the tall grass of ${route.name.charAt(0).toLowerCase()}${route.name.slice(1)}.`;
-  return challenger.title ? `You earned the title “${challenger.title}”.` : null;
+  return challenger.reward ? REWARD_TEXT[challenger.reward] : null;
 }
 
 /** After a loss, the kana the player mixed up, most often first; none after a win. */

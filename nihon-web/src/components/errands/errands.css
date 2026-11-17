@@ -18,6 +18,7 @@
   --village-sign: #fffaf0;
   --village-vermilion: #c94f35;
   --village-indigo: #3d5a80;
+  --village-slate: #5c6670;
   --village-moss: #5c7d3e;
   --village-flower: #f2a7b8;
   --village-flower-centre: #f6d36b;
@@ -41,6 +42,9 @@
   --village-bamboo: #7da34a;
   --village-bamboo-light: #a5c76a;
   --village-goldfish: #f07a32;
+  --village-maple: #d4502e;
+  --village-maple-light: #f0954a;
+  --village-maple-deep: #9e2f24;
   background: linear-gradient(var(--village-sky-top), var(--village-sky-horizon) 55%, var(--village-forest) 56%);
 }
 .dark .village {
@@ -62,6 +66,7 @@
   --village-sign: #e8dfca;
   --village-vermilion: #a8432e;
   --village-indigo: #314a69;
+  --village-slate: #47505a;
   --village-moss: #4a6633;
   --village-flower: #c98595;
   --village-flower-centre: #cfae55;
@@ -85,15 +90,22 @@
   --village-bamboo: #557335;
   --village-bamboo-light: #6f8f48;
   --village-goldfish: #c8622a;
+  --village-maple: #9a3b25;
+  --village-maple-light: #b2683a;
+  --village-maple-deep: #6b2219;
 }
 /* Each island (and the wild path to it) has its own look, after its art on the island map: cherry blossom for Kana,
    bamboo for Practice, an evening festival for Games. */
 .village-theme-sakura { --village-forest: #c993a0; --village-grass: #a9c985; }
 .village-theme-bamboo { --village-forest: #6f9a45; --village-grass: #93bf72; }
 .village-theme-festival { --village-sky-top: #f2a46b; --village-sky-horizon: #fbe2b8; --village-forest: #5b7f43; }
+/* The Lessons island: a temple school in an autumn maple garden, under a clear, cool sky. */
+.village-theme-maple { --village-sky-top: #a9cbe0; --village-sky-horizon: #f3e6cf; --village-forest: #b5562f; --village-grass: #b7b56e; --village-grass-tuft: #8f8a4c; }
+.village-theme-maple .scenery-petal { background: var(--village-maple-light); border-radius: 50% 0 50% 0; box-shadow: inset -1px -1px 0 rgba(150, 50, 30, 0.4); }
 .dark .village-theme-sakura { --village-forest: #6e4b55; --village-grass: #4f6c3f; }
 .dark .village-theme-bamboo { --village-forest: #2c4a22; }
 .dark .village-theme-festival { --village-sky-top: #2a1d3a; --village-sky-horizon: #6b3f4a; }
+.dark .village-theme-maple { --village-sky-top: #1f2a3a; --village-sky-horizon: #4a3a30; --village-forest: #5a2c1c; --village-grass: #5c5a35; --village-grass-tuft: #44422a; }
 
 /* The 2.5D scene (see scene3d.ts): the ground plane and everything standing on it share one 3D space. */
 .village-3d { transform-style: preserve-3d; }
@@ -124,6 +136,7 @@
 .village-sign { position: absolute; top: 9%; left: 50%; z-index: 1; transform: translateX(-50%); padding: 0.02em 0.18em; border: 2px solid var(--village-ink); border-radius: 0.08em;
   background: var(--village-sign); color: var(--village-ink); font-size: 0.4em; font-weight: 800; line-height: 1.2; white-space: nowrap; }
 .village-sign-low { top: 34%; }
+.village-pagoda-sign { padding: 0 0.3em; white-space: nowrap; }
 .village-sign-on-noren { top: 30%; }
 .village-plaque { background: var(--village-wood); color: var(--village-sign); border-radius: 0.04em; }
 .village-door { position: absolute; bottom: 0; left: 50%; width: 0.7em; height: 0.62em; transform: translateX(-50%); border: 2px solid var(--village-ink); border-bottom: none;

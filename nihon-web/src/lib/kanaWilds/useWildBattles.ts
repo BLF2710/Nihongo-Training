@@ -1,7 +1,8 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { recordPractice } from "../../api/activity";
 import type { BattleState } from "./battle";
-import { COURSE_BATTLE_WORDS } from "./courseWords";
+import { EVERY_TILE_WORD } from "./courseWords";
+import { evolvedKana } from "./evolution";
 import { pickEncounter } from "./encounters";
 import { isChallengerId } from "../world/challenges";
 import type { Challenger, ChallengeSummary } from "../world/challenges";
@@ -46,10 +47,15 @@ export function useWildBattles(random: () => number) {
   const [screen, setScreen] = useState<BattleScreen>({ kind: "none" });
   const ownedIds = useMemo(() => new Set(state.status === "ready" ? state.collection.kanaIds : []), [state]);
   const ownedCharacters = useMemo(() => new Set([...ownedIds].flatMap(id => kanaById(id)?.kana ?? [])), [ownedIds]);
-  const words = useMemo(() => playableWords(COURSE_BATTLE_WORDS, ownedCharacters), [ownedCharacters]);
   // Only the challengers this app knows: an id the API adds later means nothing here yet.
   const beatenChallengers = useMemo(() => new Set(state.status === "ready" ? state.collection.beatenChallengers.filter(isChallengerId) : []), [state]);
   const kanaLevels = useMemo(() => state.status === "ready" ? kanaLevelsOf(state.collection.answers) : NO_LEVELS, [state]);
+  // Beating Sensei lets kana evolve (docs/KANA-BATTLE.md section 9); beating Pon teaches Sharp Eyes.
+  const canEvolve = beatenChallengers.has("sensei");
+  const hasSharpEyes = beatenChallengers.has("pon");
+  const evolved = useMemo(() => canEvolve ? evolvedKana(ownedCharacters, kanaLevels) : [], [canEvolve, ownedCharacters, kanaLevels]);
+  const tiles = useMemo(() => new Set([...ownedCharacters, ...evolved.map(kana => kana.kana)]), [ownedCharacters, evolved]);
+  const words = useMemo(() => playableWords(EVERY_TILE_WORD, tiles), [tiles]);
   const { missed, noteWordReading } = useMissedWords();
   const starter = state.status === "ready" ? state.collection.starter : null;
   const practice = useMemo(() => {
@@ -91,7 +97,7 @@ export function useWildBattles(random: () => number) {
     setScreen({ kind: "challenge-result", challenger, summary, winSave: isSaved ? "saved" : "failed" });
   }, [addChallengerWin, refresh]);
 
-  return { collection, ownedIds, kanaLevels, beatenChallengers, words, practice, screen, explore, challenge, rematch, finish, finishChallenge, close };
+  return { collection, ownedIds, kanaLevels, beatenChallengers, canEvolve, evolved, ownedCharacters, hasSharpEyes, words, practice, screen, explore, challenge, rematch, finish, finishChallenge, close };
 }
 
 export type WildBattles = ReturnType<typeof useWildBattles>;

@@ -1,6 +1,6 @@
 // The shape of each kind of building in the 2.5D village: how tall its walls and roof are (in tiles) and what they're
 // made of. What sits on the front wall and in front of the building is in BuildingDetails.
-import type { BuildingLook } from "../../lib/errands/village";
+import type { BoxLook } from "../../lib/errands/village";
 
 export type LookShape = {
   wallHeight: number; ridgeHeight: number;
@@ -12,7 +12,7 @@ export type LookShape = {
 
 const PLASTER = "village-wall-plaster", PLANKS = "village-wall-planks", TILES = "village-roof-tiles";
 
-export const LOOK_SHAPES: Readonly<Record<BuildingLook, LookShape>> = {
+export const LOOK_SHAPES: Readonly<Record<BoxLook, LookShape>> = {
   house: { wallHeight: 1.6, ridgeHeight: 0.9, wallClass: PLASTER, roofClass: TILES },
   home: { wallHeight: 1.5, ridgeHeight: 1.1, wallClass: "village-wall-warm", roofClass: TILES },
   bakery: { wallHeight: 1.6, ridgeHeight: 0.8, wallClass: "village-wall-warm", roofClass: TILES },

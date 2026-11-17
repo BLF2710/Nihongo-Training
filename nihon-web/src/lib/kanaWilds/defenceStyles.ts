@@ -1,14 +1,14 @@
 // How an enemy's attack is met (docs/KANA-BATTLE.md section 6). Wild kana are read as they are drawn; each challenger
 // has a signature defence (section 9): Chun's attacks are all look-alikes, Tama shouts, Pon's draw slowly for a
-// stroke reveal. Pure: what the enemy attacks with and how an answer is judged; the screen asks the question.
+// stroke reveal, Sensei casts whole words. Pure: what the enemy attacks with and how an answer is judged; the screen asks the question.
 import type { DefenceResult } from "./battle.ts";
 import { lookAlikesOf } from "./choices.ts";
-import { movesetOf, pickEnemyAttack, pickOne } from "./enemyAttacks.ts";
+import { attackWordsOf, movesetOf, pickEnemyAttack, pickOne } from "./enemyAttacks.ts";
 import type { EnemyAttack } from "./enemyAttacks.ts";
 import type { WildKana } from "./gojuon.ts";
 import type { BattleWord } from "./words.ts";
 
-export type DefenceStyle = "reading" | "look-alikes" | "shout" | "stroke-reveal";
+export type DefenceStyle = "reading" | "look-alikes" | "shout" | "stroke-reveal" | "word-attack";
 
 type AttackPicker = (enemy: WildKana, words: readonly BattleWord[], random: () => number) => EnemyAttack;
 
@@ -24,6 +24,11 @@ const ATTACK_PICKERS: Readonly<Record<DefenceStyle, AttackPicker>> = {
   // A single kana: itself or its moveset. Words are not shouted.
   shout: (enemy, _words, random) => kanaAttack(pickOne([enemy, ...movesetOf(enemy)], random)),
   "stroke-reveal": pickEnemyAttack,
+  // A word with the kana in it, whenever there is one.
+  "word-attack": (enemy, words, random) => {
+    const attackWords = attackWordsOf(enemy, words);
+    return attackWords.length ? { kind: "word", word: pickOne(attackWords, random) } : pickEnemyAttack(enemy, words, random);
+  },
 };
 
 /** What the enemy attacks with on its turn, for this defence. */
