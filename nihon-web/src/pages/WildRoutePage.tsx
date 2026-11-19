@@ -118,7 +118,7 @@ function WildPath({ route, from }: { route: WildRoute; from: string | null }) {
     <main className="relative min-h-0 flex-1">
       <h1 className="sr-only">{route.name} ({route.japaneseName}), a wild path</h1>
       <VillageScene village={route.layout} position={walker.position} facing={walker.facing} isWalking={isHolding && isWalking} isRunning={isRunning}
-        openGateIds={NO_GATES} litLanterns={route.layout.lanterns.length} markedVillagerIds={NO_ONE} nearbyId={null} onTalk={ignoreTalk} theme={route.theme} surroundings={SURROUNDINGS_BY_TRAVEL[route.travel]} isAboard={route.travel === "boat"}
+        openGateIds={NO_GATES} litLanterns={route.layout.lanterns.length} markedVillagerIds={NO_ONE} nearbyId={null} onTalk={ignoreTalk} theme={route.theme} surroundings={SURROUNDINGS_BY_TRAVEL[route.travel]} mountainside={route.mountainside} isAboard={route.travel === "boat"}
         nearbyDoor={exit ? { tile: exit.tile, label: exit.label, action: "Go" } : null} onEnterDoor={() => act?.()}>
         <div className="pointer-events-none absolute inset-x-2 top-2 z-[900] flex justify-end sm:inset-x-4 sm:top-4">
           <p className="rounded-xl border border-gray-200 bg-white/95 px-3 py-2 text-right shadow-sm">

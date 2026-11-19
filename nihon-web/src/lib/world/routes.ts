@@ -11,6 +11,10 @@ import type { SceneTheme } from "./sceneTheme.ts";
 
 export type RouteId = "home-kana" | "home-practice" | "home-games" | "home-lessons" | "home-review" | "practice-fuji";
 
+/** A mountain rising from a side of a path's map: from `inset` tiles in from that edge (the tiles it covers are drawn
+ *  under it, so they are kept blocking ground). */
+export type Mountainside = { side: Heading; inset: number };
+
 /** A compass direction on the island map (north is up). */
 export type Heading = "north" | "south" | "east" | "west";
 
@@ -37,11 +41,11 @@ export type Travel = "foot" | "boat";
  * it), then the island it leads to. `heading` is the way that island lies from the start on the island map, which is
  * the way the path runs: the start's end on the opposite side. `wildRows` are the hiragana rows living in its grass
  * from the start; `rewardRows` join them once the player beats a challenger (docs/KANA-BATTLE.md section 9). `theme` is
- * the look of the island it leads to.
+ * the look of the island it leads to; `mountainside`, where a mountain rises from the map (see `Mountainside`).
  */
 export type WildRoute = {
   id: RouteId; name: string; japaneseName: string; between: readonly [IslandId, IslandId]; heading: Heading; theme: SceneTheme;
-  travel: Travel; layout: VillageLayout; exits: readonly RouteExit[]; grass: GrassKind; wildRows: readonly string[]; rewardRows?: RewardRows;
+  travel: Travel; mountainside?: Mountainside; layout: VillageLayout; exits: readonly RouteExit[]; grass: GrassKind; wildRows: readonly string[]; rewardRows?: RewardRows;
 };
 
 /** Rows held back from a path's grass until the player beats `until`. The API holds the same kana back from catches

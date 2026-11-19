@@ -10,6 +10,8 @@ import type { SceneTheme, Surroundings } from "../../lib/world/sceneTheme";
 import { VillageGround } from "./VillageGround";
 import { VillageScenery } from "./VillageScenery";
 import { Backdrop } from "./backdrops/landscapes";
+import { Mountainside } from "./Elevation";
+import type { Mountainside as MountainsideShape } from "../../lib/world/routes";
 import { FOCUS_FROM_TOP, PERSPECTIVE_PER_HEIGHT, STAND_UP, TILT_DEGREES, groundDistance } from "./scene3d";
 import "../islandMap/IslandMap.css";
 import "./errands.css";
@@ -120,6 +122,8 @@ type VillageSceneProps = {
   theme?: SceneTheme;
   /** What lies beyond the map's edges: woods (the default), open water round an island, or clouds below Fuji. */
   surroundings?: Surroundings;
+  /** A mountain rising from a side of the map (on the ferry, Fuji's flank behind the western shore). */
+  mountainside?: MountainsideShape;
   /** Whether the traveller is in a boat (on the ferry to Fuji): drawn sitting in it, the boat turning as they row. */
   isAboard?: boolean;
   /** How many tiles fit across a wide screen: more shows more of the village, smaller. */
@@ -130,7 +134,7 @@ type VillageSceneProps = {
 
 /** The village in 2.5D, seen from above at an angle in perspective and following the traveller. Everything standing
  *  is a 3D card, so the browser sorts it by depth: whoever walks behind a house is hidden by it. */
-export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, talkAction = "Talk", nearbyDoor, onEnterDoor, theme, surroundings = "woods", isAboard = false, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
+export function VillageScene({ village, position, facing, isWalking, isRunning, openGateIds, litLanterns, markedVillagerIds, nearbyId, onTalk, talkAction = "Talk", nearbyDoor, onEnterDoor, theme, surroundings = "woods", mountainside, isAboard = false, tilesAcross = TILES_ACROSS, children }: VillageSceneProps) {
   const { ref, size } = useSize();
   const { map } = village;
   const { tile, x, y } = camera(size, map, position, tilesAcross);
@@ -140,6 +144,7 @@ export function VillageScene({ village, position, facing, isWalking, isRunning, 
     {size.width > 0 && <div className="village-3d absolute left-1/2" style={{ top: `${FOCUS_FROM_TOP * 100}%` }}>
       <div className="village-world village-3d absolute left-0 top-0" style={{ width: map.width * tile, height: map.height * tile, transformOrigin: "0 0", transform: `rotateX(${TILT_DEGREES}deg) translate3d(${-x}px, ${-y}px, 0)` }}>
         <div aria-hidden="true" className={`village-surroundings village-surroundings-${surroundings} absolute`} style={{ inset: -SURROUNDINGS * tile }} />
+        {mountainside && <Mountainside map={map} tile={tile} side={mountainside.side} inset={mountainside.inset} />}
         <Backdrop look={theme ?? "home"} map={map} tile={tile} />
         <VillageGround map={map} buildings={village.buildings} />
         <VillageScenery map={map} buildings={village.buildings} gates={village.gates} openGateIds={openGateIds} lanterns={village.lanterns} litLanterns={litLanterns} tile={tile} />

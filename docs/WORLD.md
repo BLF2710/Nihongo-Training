@@ -21,8 +21,8 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   falling leaves; maples and lanterns along the stone path), a zen garden for Review (raked gravel with rings round
   mossy rocks, a pond, garden pines; pines along the pine path too), high on a snowy mountain for Fuji (the ground is
   snow, with deeper drifts, rocks, stone lanterns and snow falling; the island's edge drops to a sea of clouds lying all
-  round, and the summit and far peaks rise out of it behind, under the sky; the ferry rows there from the Practice
-  island).
+  round, and the summit and far peaks rise out of it behind, under the sky; the road goes down a stone stairway over
+  the eastern edge to the pier, where the ferry rows in from the Practice island).
 - **Each path runs the way its island lies from Home on the island map** (`heading`, from the landscape layout):
   the meadow path east to Kana, the riverside path west to Practice, the forest path south (down) to Games and the
   stone path north (up) to Lessons and the pine path west to Review. The ferry starts on an island: west from the
@@ -126,8 +126,9 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
 - Islands on foot are data in `data/world/islandScenes.ts` (`IslandScene`: its own ground, buildings with their
   doors, the challenger, lanterns, the bridge door back, and its `theme`).
 - Looks: terrains `sakura` (S), `bamboo` (B), `petals` (p), `goldfish` (g), `pine` (P), `raked` (z), `rock` (k)
-  `snow` (n), `sea` (s), `waves` (v), `pier` (j) and `cloud` (c, the sea of clouds below Fuji's edge: blocking, with a
-  strip of cliff where the ground drops to it) in `lib/errands/townMap.ts`, drawn in
+  `snow` (n), `sea` (s), `waves` (v), `pier` (j), `cloud` (c, the sea of clouds below Fuji's edge: blocking, with a
+  strip of cliff where the ground drops to it) and `steps` (^, a stone stairway going down eastward, each tile deeper
+  in shade, clouds over its last steps at the map's edge) in `lib/errands/townMap.ts`, drawn in
   `VillageGround`/`VillageScenery`; `VillageScene`'s `theme` (`lib/world/sceneTheme.ts`) tints the sky and ground
   (on the mountain the ground itself is snow) and lets blossom fall on cherry-tree scenes, leaves in the maples and
   snow on the mountain. Fuji's theme is `summit` (the ferry's stays `mountain`).
@@ -135,6 +136,9 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   - Its `surroundings` (`lib/world/sceneTheme.ts`), the ground past every edge: `woods` (the paths and the village
     square: crowns of trees from above, in the look's forest colour), `water` (round every island, `surroundings` on
     `IslandScene`, and the sea the ferry crosses) or `clouds` (the sea of clouds below Fuji).
+  - Trees past its west and east edges: on every row a tree lines, four more of the same trees beyond the edge
+    (`WoodsPastEdges` in `VillageScenery`), so the woods stand as tall past the sides as along them. The far edge
+    has the backdrop instead, and the camera never shows past the near one.
   - A backdrop past its far (north) edge under the sky (`components/errands/backdrops`): one card per look, drawn from
     shared pieces (hills, far trees, silhouettes). Home (the village square): blue mountains and green hills under
     clouds. Sakura: spring hills with a pagoda, thick with cherry blossom. Bamboo: misty hills behind a bamboo grove.
@@ -144,6 +148,10 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
     The camera looks steeply down, so only the top of the screen shows past the map: the card stands just past the
     edge and nothing on it is taller than about 3.5 tiles, or only its foot would show. Colours come from the look
     (`--backdrop-far`, `--backdrop-mid`, `--backdrop-near` and the scene's own), each with a dark-mode value. The page is `/islands/:islandId` (`pages/IslandScenePage.tsx`).
+  - On the ferry, Fuji's flank rising past the west edge (`mountainside` on `WildRoute`, drawn by
+    `components/errands/Elevation.tsx`): a snowy slope with drifts, a few rocks, snowy firs and a path zigzagging up
+    from the pier. It is hinged a tile inside the edge, behind the shore's pines: the camera is always over the map, so
+    a slope rising from the edge itself would lie mostly off screen.
 - The village's path gates are doors with an `action` ("Go") in `data/village/villageSquare.ts`.
 - Walking (held keys, the frame loop, the E key) is shared by the path and the islands through
   `lib/world/useWorldWalk.ts`; the battle overlay through `components/kanaWilds/BattleOverlay.tsx`.

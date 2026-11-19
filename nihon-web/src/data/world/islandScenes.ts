@@ -215,8 +215,8 @@ const FUJI = islandScene({
   island: "fuji", name: "Fuji", japaneseName: "ふじ", challenger: "kurama", route: "practice-fuji", pathName: "the ferry",
   backTo: "the Practice island", backLabel: "The ferry (わたしぶね) back to the Practice island", theme: "summit", surroundings: "clouds", bridge: EAST_BRIDGE,
   // High on the snowy mountain (the ground itself is snow, deeper in drifts), ringed by rocks, with the sea of clouds
-  // below its edge and the summit rising behind (SummitBackdrop): Kurama's dojo in the middle at the head of the road up
-  // from the pier, a shrine and a hall either side of it, pines below.
+  // below its edge and the summit rising behind (SummitBackdrop): Kurama's dojo in the middle at the head of the road, which
+  // goes down a stone stairway over the eastern edge to the pier, a shrine and a hall either side of it, pines below.
   rows: [
     "cccccccccccccccccccccccccccccc",
     "ckkkkkkkkkkkkkkkkkkkkkkkkkkkkc",
@@ -224,8 +224,8 @@ const FUJI = islandScene({
     "ckn.....nnnn.....nn.....nnnnkc",
     "ckn.......................nnkc",
     "ck.......k..,,,,,,,......k..kc",
-    "ck............=============bbb",
-    "ck.........k..=============bbb",
+    "ck............=============^^^",
+    "ck.........k..=============^^^",
     "cknnn.........o.............kc",
     "cknn.....k.....o............kc",
     "ckn...........o.......k...PPkc",

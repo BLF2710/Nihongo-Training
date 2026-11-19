@@ -123,12 +123,41 @@ function BridgeTile({ map, x, y }: { map: TownMap; x: number; y: number }) {
     <path d={rails.filter(Boolean).join(" ")} stroke="var(--village-wood)" strokeWidth={0.1} /></g>;
 }
 
+/** Where the risers of a stone stairway fall across each tile, and how much darker each step further down is. */
+const STEP_RISERS = [0.33, 0.66, 0.99] as const;
+const SHADE_PER_TILE_DOWN = 0.3;
+const KERB_DEPTH = 0.12;
+
+/** How many tiles of stairway lie unbroken to the west of (x, y): how far down the stairway it is. */
+const stepsWestOf = (map: TownMap, x: number, y: number): number =>
+  map.terrain[y]?.[x - 1] === "steps" ? 1 + stepsWestOf(map, x - 1, y) : 0;
+
+/**
+ * A tile of a stone stairway going down eastward over a mountain's edge: treads with a riser across every third of a
+ * tile, each tile further down (more steps west of it) in deeper shade, kerbs of rock along its sides, and at the map's
+ * edge clouds drifting over the last steps, which go on down out of sight.
+ */
+function StepsTile({ map, x, y }: { map: TownMap; x: number; y: number }) {
+  const isSteps = (dx: number, dy: number) => map.terrain[y + dy]?.[x + dx] === "steps";
+  const stepsAbove = stepsWestOf(map, x, y);
+  const isAtEdge = x === map.width - 1;
+  return <g>
+    <rect x={x} y={y} width={1.01} height={1.01} fill="var(--village-stone)" />
+    <path d={STEP_RISERS.map(step => `M${x + step},${y} v1`).join(" ")} stroke="var(--village-gravel-dot)" strokeWidth={0.06} />
+    <rect x={x} y={y} width={1.01} height={1.01} fill="var(--village-shadow)" opacity={stepsAbove * SHADE_PER_TILE_DOWN} />
+    {!isSteps(0, -1) && <rect x={x} y={y} width={1.01} height={KERB_DEPTH} fill="var(--village-cliff)" />}
+    {!isSteps(0, 1) && <rect x={x} y={y + 1 - KERB_DEPTH} width={1.01} height={KERB_DEPTH} fill="var(--village-cliff)" />}
+    {isAtEdge && <ellipse cx={x + 0.9} cy={y + 0.5} rx={0.45} ry={0.6} fill="var(--village-cloud-light)" opacity={0.85} />}
+  </g>;
+}
+
 function Ground({ map }: { map: TownMap }) {
   return <>
     <rect width={map.width} height={map.height} fill="var(--village-grass)" />
     {map.terrain.flatMap((row, y) => row.map((tile, x) => {
       if (PLANKED.has(tile)) return <BridgeTile key={`${x},${y}`} map={map} x={x} y={y} />;
       if (tile === "rock") return <RockTile key={`${x},${y}`} map={map} x={x} y={y} />;
+      if (tile === "steps") return <StepsTile key={`${x},${y}`} map={map} x={x} y={y} />;
       const art = TILE_ART[tile];
       // Water lies lower than the bank above it, which shows as a strip of earth (none under a rock out at sea).
       const above = map.terrain[y - 1]?.[x];

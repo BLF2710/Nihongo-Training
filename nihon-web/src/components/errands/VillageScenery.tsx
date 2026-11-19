@@ -18,6 +18,8 @@ const TREE_HEIGHT = 1.9;
 // The row of trees nearest the viewer is squashed into bushes, so it doesn't hide the people on the street behind it.
 const BUSH_HEIGHT = 0.9;
 const TREE_FEET = 0.62;
+/** How many tiles of trees go on past a map's west and east edges, where trees line them. */
+const WOODS_PAST_EDGE = 4;
 const FENCE_HEIGHT = 0.7;
 /** Tall grass stands about knee high, so the traveller wades through it. */
 const TALL_GRASS_HEIGHT = 0.5;
@@ -233,12 +235,29 @@ function isFrontRow(map: TownMap, run: Rect): boolean {
   return true;
 }
 
+/** Whether `terrain` is a kind of standing tree. */
+const isTreeTerrain = (terrain: Terrain | null): terrain is TreeTerrain => terrain !== null && terrain in TREE_DRAWINGS;
+
+/** The woods going on past the map's west and east edges: on every row a tree lines, more of the same trees beyond it,
+ *  so the woods stand as tall past the edge as along it (past the far edge is the backdrop, past the near one nothing
+ *  shows). */
+function WoodsPastEdges({ map, tile }: { map: TownMap; tile: number }) {
+  return <>
+    {map.terrain.flatMap((_, y) => [{ x: -WOODS_PAST_EDGE, edge: 0 }, { x: map.width, edge: map.width - 1 }].flatMap(({ x, edge }) => {
+      const terrain = terrainAt(map, edge, y);
+      if (!isTreeTerrain(terrain)) return [];
+      return [<TreeRow key={`past-${x},${y}`} run={{ x, y, width: WOODS_PAST_EDGE, height: 1 }} height={TREE_HEIGHT} tile={tile} draw={TREE_DRAWINGS[terrain]} />];
+    }))}
+  </>;
+}
+
 // Memoised: none of it changes while the traveller walks.
 const StaticScenery = memo(function StaticScenery({ map, buildings, tile }: { map: TownMap; buildings: readonly Building[]; tile: number }) {
   const fences = map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => terrain === "fence" ? [{ x, y }] : []));
   return <>
     {TREE_TERRAINS.flatMap(terrain => rowRuns(map, terrain).map(run => <TreeRow key={`${terrain}-${run.x},${run.y}`} run={run}
       height={isFrontRow(map, run) ? BUSH_HEIGHT : TREE_HEIGHT} tile={tile} draw={TREE_DRAWINGS[terrain]} />))}
+    <WoodsPastEdges map={map} tile={tile} />
     {rowRuns(map, "tallgrass").map(run => <TallGrassRow key={`grass-${run.x},${run.y}`} run={run} tile={tile} />)}
     {fences.map(({ x, y }) => <FencePost key={`${x},${y}`} x={x} y={y} tile={tile} />)}
     {buildings.map(building => isBoxBuilding(building) ? <House key={building.id} building={building} tile={tile} /> : <Pagoda key={building.id} building={building} tile={tile} />)}

@@ -6,11 +6,12 @@
  *  fallen blossom and `leaves` with fallen maple leaves; `goldfish` is a festival pond; `stones` is a stepping-stone
  *  path. `sea` is open water a boat can row on, and `waves` rough water where, as in tall grass, wild kana can leap
  *  out; `pier` is a landing stage running out into the sea (a boat moors beside it). `cloud` is the sea of clouds below
- *  a mountain's edge, where the ground falls away. */
+ *  a mountain's edge, where the ground falls away, and
+ *  `steps` a stone stairway going down over it (east, the way it runs). */
 export type Terrain =
   | "grass" | "path" | "gravel" | "water" | "bridge" | "tree" | "fence" | "flowers" | "tallgrass"
   | "sakura" | "bamboo" | "petals" | "goldfish" | "maple" | "leaves" | "stones" | "pine" | "raked" | "rock" | "snow"
-  | "sea" | "waves" | "pier" | "cloud";
+  | "sea" | "waves" | "pier" | "cloud" | "steps";
 export type TileKey = `${number},${number}`;
 export type Rect = { x: number; y: number; width: number; height: number };
 export type TownMap = { width: number; height: number; terrain: readonly (readonly Terrain[])[] };
@@ -19,7 +20,7 @@ export type TownMap = { width: number; height: number; terrain: readonly (readon
 export const TERRAIN_LEGEND: Readonly<Record<string, Terrain>> = {
   ".": "grass", "=": "path", ",": "gravel", "~": "water", b: "bridge", T: "tree", f: "fence", "*": "flowers", w: "tallgrass",
   S: "sakura", B: "bamboo", p: "petals", g: "goldfish", M: "maple", l: "leaves", o: "stones",
-  P: "pine", z: "raked", k: "rock", n: "snow", s: "sea", v: "waves", j: "pier", c: "cloud",
+  P: "pine", z: "raked", k: "rock", n: "snow", s: "sea", v: "waves", j: "pier", c: "cloud", "^": "steps",
 };
 const BLOCKING_TERRAIN: ReadonlySet<Terrain> = new Set(["water", "tree", "fence", "sakura", "bamboo", "goldfish", "maple", "pine", "rock", "pier", "cloud"]);
 

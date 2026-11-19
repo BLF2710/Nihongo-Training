@@ -264,6 +264,8 @@ const HOME_REVIEW: WildRoute = {
 const PRACTICE_FUJI: WildRoute = {
   id: "practice-fuji",
   theme: "mountain",
+  // Fuji's flank rises behind the western shore, up to the island high above, a path zigzagging up it from the pier.
+  mountainside: { side: "west", inset: 1 },
   name: "The ferry",
   japaneseName: "わたしぶね",
   between: ["practice", "fuji"],

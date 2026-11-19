@@ -258,10 +258,10 @@ test("every island lies in open water, but Fuji, which stands above the clouds",
   for (const scene of ISLAND_SCENES) assert.equal(scene.surroundings, scene.island === "fuji" ? "clouds" : "water", scene.island);
 });
 
-test("Fuji stands above the clouds: its edge is cloud all round, but for the bridge down to the pier, and none can walk on it", () => {
+test("Fuji stands above the clouds: its edge is cloud all round, but for the stairway down to the pier, and none can walk on it", () => {
   const { map } = islandSceneOf("fuji").layout;
   const edge = map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => x === 0 || y === 0 || x === map.width - 1 || y === map.height - 1 ? [terrain] : []));
-  assert.deepEqual([...new Set(edge)].sort(), ["bridge", "cloud"]);
+  assert.deepEqual([...new Set(edge)].sort(), ["cloud", "steps"]);
   const cloud = parseTownMap(["c."]);
   const blocked = blockedTilesWithOpenGates({ map: cloud, start: { x: 1, y: 0 }, buildings: [], gates: [], lanterns: [], villagers: [] }, []);
   assert.deepEqual([0, 1].map(x => isBlocked(cloud, blocked, x, 0)), [true, false]);
@@ -329,12 +329,15 @@ test("each road out of the village leaves on the side its island lies", () => {
   }
 });
 
-test("each island's bridge back is on the side its path comes from, and a bridge on is on the side its path heads", () => {
+// The way back off an island is its bridge, but on Fuji, high above the clouds, a stairway down to the pier.
+const WAY_BACK_TERRAIN = { fuji: "steps" };
+
+test("each island's way back is on the side its path comes from, and a bridge on is on the side its path heads", () => {
   for (const scene of ISLAND_SCENES) {
     const { width, height } = scene.layout.map;
     const route = WILD_ROUTES.find(candidate => candidate.between[1] === scene.island);
     const bridge = scene.doors.find(door => door.id === "path-back");
-    assert.equal(terrainAt(scene.layout.map, bridge.tile.x, bridge.tile.y), "bridge", scene.island);
+    assert.equal(terrainAt(scene.layout.map, bridge.tile.x, bridge.tile.y), WAY_BACK_TERRAIN[scene.island] ?? "bridge", scene.island);
     assert.equal(sideOf(bridge.tile, width, height), OPPOSITE[route.heading], scene.island);
     for (const onward of WILD_ROUTES.filter(candidate => candidate.between[0] === scene.island)) {
       const door = scene.doors.find(candidate => candidate.id === `path-${onward.id}`);

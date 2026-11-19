@@ -169,6 +169,8 @@
   background: radial-gradient(ellipse 34% 7% at 50% 50%, var(--village-water-light) 0 55%, transparent 60%) 0 0 / 4.5rem 2.6rem,
     radial-gradient(ellipse 30% 6% at 50% 50%, var(--village-water-light) 0 55%, transparent 60%) 2.25rem 1.3rem / 4.5rem 2.6rem, var(--village-water);
 }
+/* A mountainside rising past a map's edge (Elevation.tsx), drawn in SVG. */
+.village-slope { transform-style: preserve-3d; }
 .village-surroundings-clouds {
   background: radial-gradient(ellipse 50% 32% at 30% 55%, var(--village-cloud-light) 60%, transparent 62%) 0 0 / 7rem 3.5rem, var(--village-cloud);
 }
