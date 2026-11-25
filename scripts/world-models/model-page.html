@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Loaded by prepare-models.ts in headless Chrome: measures each model as three.js sees it, and gathers the people's
+     animation clips into one small file. -->
+<meta charset="utf-8">
+<script type="importmap">{ "imports": { "three": "/three/build/three.module.js", "three/addons/": "/three/examples/jsm/" } }</script>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
+
+  const loader = new GLTFLoader();
+
+  /** The model's size in its own units: across (x), front to back (z) and up (y). */
+  window.measureModel = async url => {
+    const model = (await loader.loadAsync(url)).scene;
+    model.updateMatrixWorld(true);
+    const size = new THREE.Box3().setFromObject(model, true).getSize(new THREE.Vector3());
+    return { width: size.x, depth: size.z, height: size.y };
+  };
+
+  /** One binary glTF holding only the skeleton of the first file and the named clips (each renamed to its key), so the
+   *  site loads three clips, not every animation and the mannequin they were made on. Returns it as base64. */
+  window.gatherClips = async clips => {
+    const files = new Map();
+    const load = async url => { if (!files.has(url)) files.set(url, await loader.loadAsync(url)); return files.get(url); };
+    const gathered = [];
+    for (const [name, { url, clip }] of Object.entries(clips)) {
+      const found = (await load(url)).animations.find(candidate => candidate.name === clip);
+      if (!found) throw new Error(`No clip called ${clip} in ${url}`);
+      gathered.push(Object.assign(found.clone(), { name }));
+    }
+    const skeleton = (await load(Object.values(clips)[0].url)).scene;
+    const meshes = [];
+    skeleton.traverse(part => { if (part.isMesh) meshes.push(part); });
+    for (const mesh of meshes) mesh.removeFromParent();
+    const binary = await new GLTFExporter().parseAsync(skeleton, { binary: true, animations: gathered });
+    let text = "";
+    for (const byte of new Uint8Array(binary)) text += String.fromCharCode(byte);
+    return btoa(text);
+  };
+  window.pageReady = true;
+</script>

@@ -43,6 +43,10 @@ function LearnerHome() {
           </p>
 
           <p className="text-sm text-gray-400">Choose a language or game from the navigation menu.</p>
+          <button type="button" onClick={() => navigate("/english/island")}
+            className="mt-4 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">
+            🏰 Walk the English Isle <span className="font-semibold text-emerald-100">(preview)</span>
+          </button>
         </div>
 
         {/* Dynamic Content based on Active Track */}

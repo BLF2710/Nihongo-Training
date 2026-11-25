@@ -81,6 +81,40 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
   4. Food & Shopping
   5. Plans & the Future
   6. Health & Advice
+- **Phase 4, prototype:** the English Isle on foot, at `/english/island` (`pages/EnglishIslandPage.tsx`, data in
+  `data/world/englishIsland.ts`), linked from the English home page as a preview. Its doors open the level picker
+  (castle), English statistics (watchtower), lessons (church school) and the arcade (tavern). It is not yet the
+  English home page.
+  - **Look:** real 3D with three.js, not the 2.5D CSS engine. A camera looks down at the 2.5D scenes' angle (40°
+    above the ground) and follows the traveller, at the same tile size as `VillageScene`. The land is raised tiles
+    over a water plane, and the models stand in sunlight with real shadows
+    (`components/world3d/`: `islandRenderer.ts` draws, `ground.ts` builds the land, `models.ts` loads models and
+    animates people, and `IslandScene3D.tsx` is the React side, with the door prompt). The placement and camera
+    maths are pure, in `lib/world/islandModels.ts`. Each model in `data/world/englishIsland.ts` is `place`d on the
+    ground it covers (its footprint at one common scale, `TILES_PER_MODEL_UNIT` in `data/world/islandModelArt.ts`,
+    with a `scale` for exceptions such as the castle). That ground becomes the layout's `obstacles`, so walking
+    (`useWorldWalk`) is unchanged. Dark mode dims the sun and sky. If the browser can't draw WebGL, or the models
+    fail to load, the page lists the doors as links instead.
+  - **People:** the traveller is the KayKit Rogue, and other adventurers stand around the island as villagers, each
+    blocking their tile. They share one set of animation clips (idle, walk, run, in `animations.glb`), played on
+    each person's skeleton with three.js's `AnimationMixer`, and turn smoothly to face where they're going.
+  - **Models:** all CC0 by Kay Lousberg (kaylousberg.com), free versions; no credit is required.
+    - [KayKit Medieval Hexagon Pack](https://kaylousberg.itch.io/kaykit-medieval-hexagon): buildings, walls,
+      fences, props, pointed trees.
+    - [KayKit Forest Nature Pack](https://kaylousberg.itch.io/kaykit-forest): round trees, bushes, grass.
+    - [KayKit Character Pack: Adventurers](https://kaylousberg.itch.io/kaykit-adventurers) and
+      [KayKit Character Animations](https://kaylousberg.itch.io/kaykit-character-animations): the people.
+  - **Committed:** the prepared models in `nihon-web/public/world/models/` (glTF with their textures, about
+    4.4 MB), with their measured sizes in `data/world/modelSizes.json`.
+  - **Adding models:** unpack each pack's zip into `.asset-sources/<pack>/extracted/` (git-ignored). For example,
+    the medieval pack goes in `.asset-sources/kaykit-medieval-hexagon/extracted/`. List the model in
+    `scripts/world-models/catalogue.ts`, then run at the repository root (it uses `three`, a root dev dependency, in
+    headless Chrome to measure the models and gather the animation clips):
+    `BROWSER_EXECUTABLE="C:/Program Files/Google/Chrome/Application/chrome.exe" node --experimental-strip-types scripts/world-models/prepare-models.ts`
+  - Tests: `scripts/verify-english-island.mjs` checks the placement, turning and camera maths, and on the island:
+    - no two models or people stand on the same ground, and no model stands in water or on a bridge;
+    - every door can be walked to;
+    - every model and person has been prepared.
 
 ## Writing a unit
 

@@ -150,3 +150,6 @@ SPACED_REPETITION.md
 
 # Database backups (npm run db:backup) hold learners' data: never commit them.
 backups/
+
+# Third-party asset packs (sources for rendered sprites; only the rendered images are committed)
+.asset-sources/

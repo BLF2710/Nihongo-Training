@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "node --experimental-strip-types --test scripts/verify-lesson-split.mjs scripts/verify-xp-rewards.mjs scripts/verify-particle-drop.mjs scripts/verify-kana-wilds.mjs scripts/verify-island-map.mjs scripts/verify-island-cast.mjs scripts/verify-traveller.mjs scripts/verify-fuji-trail.mjs scripts/verify-island-errands.mjs scripts/verify-village.mjs scripts/verify-world.mjs scripts/verify-traveller-look.mjs scripts/verify-guest-lesson.mjs scripts/verify-english-course.mjs && node scripts/verify-kana-review.mjs && node scripts/verify-katakana-learning.mjs && node scripts/verify-unit1-reference.mjs"
+    "test": "node --experimental-strip-types --test scripts/verify-lesson-split.mjs scripts/verify-xp-rewards.mjs scripts/verify-particle-drop.mjs scripts/verify-kana-wilds.mjs scripts/verify-island-map.mjs scripts/verify-island-cast.mjs scripts/verify-traveller.mjs scripts/verify-fuji-trail.mjs scripts/verify-island-errands.mjs scripts/verify-village.mjs scripts/verify-world.mjs scripts/verify-traveller-look.mjs scripts/verify-guest-lesson.mjs scripts/verify-english-course.mjs scripts/verify-english-island.mjs && node scripts/verify-kana-review.mjs && node scripts/verify-katakana-learning.mjs && node scripts/verify-unit1-reference.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
@@ -18,7 +18,8 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.17.0",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "three": "^0.187.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -27,6 +28,7 @@
     "@types/qrcode": "1.5.5",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.187.0",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",

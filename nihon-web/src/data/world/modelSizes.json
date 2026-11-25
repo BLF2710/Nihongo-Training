@@ -1,0 +1,257 @@
+{
+  "animations": "animations.glb",
+  "models": {
+    "castle": {
+      "file": "castle.gltf",
+      "width": 1.975,
+      "depth": 2.256,
+      "height": 3.979
+    },
+    "church": {
+      "file": "church.gltf",
+      "width": 1.029,
+      "depth": 1.155,
+      "height": 1.645
+    },
+    "tavern": {
+      "file": "tavern.gltf",
+      "width": 1.172,
+      "depth": 1.332,
+      "height": 1.397
+    },
+    "market": {
+      "file": "market.gltf",
+      "width": 1.799,
+      "depth": 1.316,
+      "height": 0.982
+    },
+    "home_A": {
+      "file": "home_A.gltf",
+      "width": 0.792,
+      "depth": 0.854,
+      "height": 0.93
+    },
+    "home_B": {
+      "file": "home_B.gltf",
+      "width": 0.875,
+      "depth": 1.099,
+      "height": 1.28
+    },
+    "blacksmith": {
+      "file": "blacksmith.gltf",
+      "width": 1.288,
+      "depth": 1.245,
+      "height": 0.985
+    },
+    "windmill": {
+      "file": "windmill.gltf",
+      "width": 1.126,
+      "depth": 0.817,
+      "height": 1.458
+    },
+    "well": {
+      "file": "well.gltf",
+      "width": 0.652,
+      "depth": 0.751,
+      "height": 0.826
+    },
+    "tower_A": {
+      "file": "tower_A.gltf",
+      "width": 0.993,
+      "depth": 1.153,
+      "height": 2.192
+    },
+    "fence_stone": {
+      "file": "fence_stone.gltf",
+      "width": 0.2,
+      "depth": 1.155,
+      "height": 0.269
+    },
+    "grain": {
+      "file": "grain.gltf",
+      "width": 1.874,
+      "depth": 2.094,
+      "height": 0.394
+    },
+    "tree_single_A": {
+      "file": "tree_single_A.gltf",
+      "width": 0.574,
+      "depth": 0.547,
+      "height": 1.196
+    },
+    "tree_single_B": {
+      "file": "tree_single_B.gltf",
+      "width": 0.685,
+      "depth": 0.72,
+      "height": 1.213
+    },
+    "trees_A_small": {
+      "file": "trees_A_small.gltf",
+      "width": 1.426,
+      "depth": 1.435,
+      "height": 1.109
+    },
+    "trees_A_medium": {
+      "file": "trees_A_medium.gltf",
+      "width": 1.751,
+      "depth": 1.814,
+      "height": 1.295
+    },
+    "trees_B_medium": {
+      "file": "trees_B_medium.gltf",
+      "width": 1.864,
+      "depth": 1.833,
+      "height": 1.174
+    },
+    "rock_single_C": {
+      "file": "rock_single_C.gltf",
+      "width": 0.344,
+      "depth": 0.344,
+      "height": 0.195
+    },
+    "mountain_A_grass_trees": {
+      "file": "mountain_A_grass_trees.gltf",
+      "width": 1.855,
+      "depth": 1.876,
+      "height": 2.176
+    },
+    "mountain_B_grass_trees": {
+      "file": "mountain_B_grass_trees.gltf",
+      "width": 1.801,
+      "depth": 1.876,
+      "height": 2.505
+    },
+    "mountain_C_grass": {
+      "file": "mountain_C_grass.gltf",
+      "width": 1.759,
+      "depth": 2.023,
+      "height": 1.554
+    },
+    "hills_A_trees": {
+      "file": "hills_A_trees.gltf",
+      "width": 1.755,
+      "depth": 1.737,
+      "height": 1.332
+    },
+    "hills_B_trees": {
+      "file": "hills_B_trees.gltf",
+      "width": 1.474,
+      "depth": 1.624,
+      "height": 1.369
+    },
+    "cloud_big": {
+      "file": "cloud_big.gltf",
+      "width": 3.607,
+      "depth": 2.242,
+      "height": 1.946
+    },
+    "cloud_small": {
+      "file": "cloud_small.gltf",
+      "width": 2.338,
+      "depth": 1.792,
+      "height": 1.84
+    },
+    "barrel": {
+      "file": "barrel.gltf",
+      "width": 0.201,
+      "depth": 0.201,
+      "height": 0.212
+    },
+    "crate_open": {
+      "file": "crate_open.gltf",
+      "width": 0.332,
+      "depth": 0.2,
+      "height": 0.206
+    },
+    "sack": {
+      "file": "sack.gltf",
+      "width": 0.107,
+      "depth": 0.16,
+      "height": 0.065
+    },
+    "wheelbarrow": {
+      "file": "wheelbarrow.gltf",
+      "width": 0.238,
+      "depth": 0.506,
+      "height": 0.188
+    },
+    "flag_blue": {
+      "file": "flag_blue.gltf",
+      "width": 0.055,
+      "depth": 0.264,
+      "height": 0.277
+    },
+    "resource_lumber": {
+      "file": "resource_lumber.gltf",
+      "width": 0.686,
+      "depth": 0.33,
+      "height": 0.21
+    },
+    "forest_tree_1_a": {
+      "file": "forest_tree_1_a.gltf",
+      "width": 3.181,
+      "depth": 3.251,
+      "height": 4.161
+    },
+    "forest_tree_2_a": {
+      "file": "forest_tree_2_a.gltf",
+      "width": 2.6,
+      "depth": 2,
+      "height": 4.675
+    },
+    "forest_tree_3_a": {
+      "file": "forest_tree_3_a.gltf",
+      "width": 3.093,
+      "depth": 3.093,
+      "height": 3.507
+    },
+    "forest_bush_3_a": {
+      "file": "forest_bush_3_a.gltf",
+      "width": 1.033,
+      "depth": 1.033,
+      "height": 0.485
+    },
+    "forest_grass_1_a": {
+      "file": "forest_grass_1_a.gltf",
+      "width": 0.339,
+      "depth": 0.152,
+      "height": 0.559
+    },
+    "rogue": {
+      "file": "rogue.glb",
+      "width": 1.945,
+      "depth": 1.144,
+      "height": 2.18
+    },
+    "knight": {
+      "file": "knight.glb",
+      "width": 1.943,
+      "depth": 1.308,
+      "height": 2.543
+    },
+    "barbarian": {
+      "file": "barbarian.glb",
+      "width": 1.943,
+      "depth": 1.264,
+      "height": 2.398
+    },
+    "mage": {
+      "file": "mage.glb",
+      "width": 1.943,
+      "depth": 1.966,
+      "height": 2.655
+    },
+    "ranger": {
+      "file": "ranger.glb",
+      "width": 1.943,
+      "depth": 1.049,
+      "height": 2.275
+    },
+    "rogue_hooded": {
+      "file": "rogue_hooded.glb",
+      "width": 1.945,
+      "depth": 1.099,
+      "height": 2.173
+    }
+  }
+}

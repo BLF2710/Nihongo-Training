@@ -29,11 +29,13 @@ export type Item = { id: ItemId; japanese: string; english: string; icon: string
 export type Resident = { id: CharacterId; tile: Vector };
 
 /** What a village looks like and where people stand: enough to walk around it. `lanterns` are paper lanterns along the
- *  streets, lit as the learner gets things done. */
+ *  streets, lit as the learner gets things done. `obstacles` is ground taken by things a scene draws itself (the
+ *  English island's 3D models and people). */
 export type VillageLayout = {
   map: TownMap; start: Vector;
   buildings: readonly Building[]; gates: readonly Gate[]; lanterns: readonly Vector[];
   villagers: readonly Resident[];
+  obstacles?: readonly Rect[];
 };
 
 /** A story village: a layout whose villagers talk, with errands to run. Its lanterns light once every errand is done. */
@@ -47,11 +49,12 @@ export const isGateOpen = (gate: Gate, state: ErrandsState) => meetsAll(state, g
 
 export const openGateIds = (village: Village, state: ErrandsState) => village.gates.filter(gate => isGateOpen(gate, state)).map(gate => gate.id);
 
-/** The tiles that can't be walked through with these gates open: blocking ground, buildings, closed gates and villagers. */
+/** The tiles that can't be walked through with these gates open: blocking ground, buildings, obstacles, closed gates
+ *  and villagers. */
 export function blockedTilesWithOpenGates(village: VillageLayout, openIds: readonly string[]): ReadonlySet<TileKey> {
   const closedGates = village.gates.filter(gate => !openIds.includes(gate.id));
   const villagers = village.villagers.map(({ tile }) => ({ ...tile, width: 1, height: 1 }));
-  return blockedTiles(village.map, [...village.buildings, ...closedGates, ...villagers]);
+  return blockedTiles(village.map, [...village.buildings, ...(village.obstacles ?? []), ...closedGates, ...villagers]);
 }
 
 export const villageBlockedTiles = (village: Village, state: ErrandsState) => blockedTilesWithOpenGates(village, openGateIds(village, state));
