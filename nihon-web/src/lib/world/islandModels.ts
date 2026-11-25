@@ -4,20 +4,41 @@
 import type { Direction, Vector } from "../errands/movement.ts";
 import type { Rect, TownMap } from "../errands/townMap.ts";
 import type { Door } from "../village/villageDoors.ts";
+import type { RoofColour } from "../errands/village.ts";
 
 /** A model standing on the island. `at` is the ground it takes up (nobody walks there unless `isWalkable`); the model
  *  stands centred on it, drawn `scale` tiles to a model unit. `isMirrored` flips it east to west, so a row of the same
- *  house doesn't look stamped. */
-export type ModelPlacement = { model: string; at: Rect; scale: number; isWalkable?: boolean; isMirrored?: boolean };
+ *  house doesn't look stamped. A building made for the islands takes its `roof` colour and the Japanese `sign` over its
+ *  door from the island's content. */
+export type ModelPlacement = {
+  model: string; at: Rect; scale: number; isWalkable?: boolean; isMirrored?: boolean; roof?: RoofColour; sign?: string;
+};
 
 /** A villager standing on a tile, facing one way. */
 export type IslandPerson = { id: string; model: string; tile: Vector; facing: Direction };
 
-/** Everything the 3D scene draws: the ground, what stands on it, the people, and the scenery beyond the shore. */
+/** A rounded hill: its middle (in tiles), how far it spreads and how high it stands. */
+export type Hill = { x: number; y: number; radius: number; height: number };
+
+/** The land across the water from an island, so it doesn't sit in an empty sea: its ground, the decks carrying the
+ *  island's bridges over to it and the paths they lead on to, and hills further out. */
+export type FarShore = { land: readonly Rect[]; decks: readonly Rect[]; paths: readonly Rect[]; hills: readonly Hill[] };
+
+/** What falls through the air (cherry petals, on a sakura island). */
+export type Weather = "petals";
+
+/** Everything the 3D scene draws: the ground, what stands on it, the people, and the scenery beyond the shore
+ *  (`backdrop` models, and a far `shore`). */
 export type Island3D = {
   map: TownMap; models: readonly ModelPlacement[]; people: readonly IslandPerson[]; backdrop: readonly ModelPlacement[];
-  traveller: string; doors: readonly Door[];
+  traveller: string; doors: readonly Door[]; shore?: FarShore; weather?: Weather;
 };
+
+/** A steady number in [-1, 1) for a point, the same every time: for variety that doesn't change between visits. */
+export function steadyNoise(x: number, y: number): number {
+  const value = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+  return (value - Math.floor(value)) * 2 - 1;
+}
 
 /** The ground the models take up, where nobody can walk. */
 export const groundTakenBy = (models: readonly ModelPlacement[]): Rect[] => models.filter(model => !model.isWalkable).map(model => model.at);

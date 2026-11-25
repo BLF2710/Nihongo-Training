@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { TouchControls } from "../components/errands/TouchControls";
 import { IslandScene3D } from "../components/world3d/IslandScene3D";
+import { GltfModelMaker } from "../components/world3d/models";
+import { doorPrompt } from "../components/world3d/scenePrompts";
 import { ENGLISH_ISLAND as island } from "../data/world/englishIsland";
 import { nearbyThing } from "../lib/village/villageDoors";
 import { useActionKey, useWorldWalk } from "../lib/world/useWorldWalk";
@@ -17,12 +19,14 @@ export default function EnglishIslandPage() {
   const door = nearby?.kind === "door" ? nearby.door : null;
   const act = useMemo(() => door ? () => navigate(door.href) : null, [door, navigate]);
   useActionKey(act);
+  const maker = useMemo(() => new GltfModelMaker(), []);
+  const prompt = useMemo(() => door ? doorPrompt(door) : null, [door]);
 
   return <div className="flex h-dvh flex-col bg-gray-50 text-gray-900"><Navbar />
     <main className="relative min-h-0 flex-1">
       <h1 className="sr-only">{island.name} ({island.localName})</h1>
-      <IslandScene3D island={island.scene} position={walker.position} facing={walker.facing} isWalking={isHolding} isRunning={isRunning}
-        nearbyDoor={door} onEnterDoor={() => act?.()}>
+      <IslandScene3D island={island.scene} maker={maker} position={walker.position} facing={walker.facing} isWalking={isHolding} isRunning={isRunning}
+        prompt={prompt} onPrompt={() => act?.()}>
         <div className="pointer-events-none absolute inset-x-2 top-2 z-[900] flex justify-end sm:inset-x-4 sm:top-4">
           <p className="rounded-xl border border-gray-200 bg-white/95 px-3 py-2 text-right shadow-sm">
             <span className="block text-lg font-black" lang="en-GB">{island.name}</span><span className="text-xs text-gray-600" lang="vi">{island.localName}</span>

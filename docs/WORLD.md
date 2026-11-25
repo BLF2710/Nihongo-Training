@@ -152,6 +152,36 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
     `components/errands/Elevation.tsx`): a snowy slope with drifts, a few rocks, snowy firs and a path zigzagging up
     from the pier. It is hinged a tile inside the edge, behind the shore's pines: the camera is always over the map, so
     a slope rising from the edge itself would lie mostly off screen.
+- **Islands in real 3D:** islands listed in `ISLANDS_IN_3D` (`data/world/islandScenes.ts`, so far only Kana) are
+  drawn with three.js, like the English island (see `docs/ENGLISH.md`), instead of `VillageScene`.
+  `lib/world/japaneseIsland3D.ts` reads the island's own `IslandScene` as a 3D one, so its layout, doors, challenger
+  and battles are unchanged:
+  - each building becomes a model of its `look`, keeping its roof colour and sign;
+  - every tree tile grows a tree of its kind;
+  - a block of two by two tree tiles grows one great tree (Kana's great cherry at the head of the petal square);
+  - the challenger stands as themselves;
+  - a far shore (`lib/world/farShore.ts`) lies a few tiles across the water all round. It is flat land near the water
+    with hills behind, none on the near side, where they'd block the camera. The island's bridges are carried on
+    over the water to it, and a path continues from each.
+  - The island's theme gives the far shore its trees and landmark (sakura: cherry trees and a pagoda) and what falls
+    through the air: petals on a sakura island, falling round the camera (`components/world3d/fallingPetals.ts`),
+    none when the system asks for reduced motion.
+  - The water on every 3D island moves (`components/world3d/water.ts`): waves roll across it and catch the light,
+    with glints on their crests. It turns turquoise in the shallows, and foam laps along every shore. It knows how
+    near land it is from a blurred picture of the land (`lib/world/shallows.ts`). A sharp blur places the foam, so a
+    river one tile wide foams only along its banks; a broad blur places the shallows. It stands still under reduced
+    motion.
+  The models are our own designs, built in code in `components/world3d/japanese/`:
+  - `buildings.ts`: halls with curved roofs, a stall, and signboards that paint the Japanese sign;
+  - `trees.ts`: a cherry tree is a gnarled trunk and branches under soft round clumps of blossom, with fallen petals,
+    merged into one mesh per tree so groves draw quickly;
+  - `people.ts`: the traveller, dressed in the learner's wardrobe look, and Chun, as rigs whose limbs swing to idle,
+    walk and run.
+  `japaneseModelMaker.ts` puts them together. To move another island to 3D:
+  1. Build its looks, tree kinds and challenger, and register them in those maps.
+  2. Add the island to `ISLANDS_IN_3D`.
+  `scripts/verify-japanese-island-3d.mjs` checks that every model on a 3D island can be built and that each building
+  fits its ground.
 - The village's path gates are doors with an `action` ("Go") in `data/village/villageSquare.ts`.
 - Walking (held keys, the frame loop, the E key) is shared by the path and the islands through
   `lib/world/useWorldWalk.ts`; the battle overlay through `components/kanaWilds/BattleOverlay.tsx`.

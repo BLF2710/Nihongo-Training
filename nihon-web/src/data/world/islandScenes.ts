@@ -9,6 +9,7 @@ import type { Building, BuildingLook, RoofColour } from "../../lib/errands/villa
 import type { Vector } from "../../lib/errands/movement.ts";
 import type { Door } from "../../lib/village/villageDoors.ts";
 import type { IslandScene } from "../../lib/world/islandScenes.ts";
+import type { IslandId } from "../../lib/islandMap.ts";
 import type { Surroundings } from "../../lib/world/sceneTheme.ts";
 import { CHALLENGERS } from "./challengers.ts";
 import { routeHref } from "../../lib/world/routes.ts";
@@ -63,14 +64,14 @@ const KANA = islandScene({
   island: "kana", name: "The Kana island", japaneseName: "かなのしま", challenger: "chun", route: "home-kana", pathName: "the meadow path",
   theme: "sakura", bridge: WEST_BRIDGE,
   // A temple garden: a building at each corner (the front two a row back from the road, so they don't hide whoever
-  // walks it), and Chun in the petal-strewn square under a ring of cherry trees.
+  // walks it), and Chun in the petal-strewn square under a ring of cherry trees, a great one at its head.
   rows: [
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
     "~~~S....SSSSSSSSSSSSSS....S~~~",
     "~S.......S..........S.......S~",
     "~S.S.......SSS.SS.S.......S.S~",
-    "~S...===...pppppppp....===.pS~",
-    "~S...===...pppppppp....===..S~",
+    "~S...===...pppSSppp....===.pS~",
+    "~S...===...pppSSppp....===..S~",
     "bbb=========================S~",
     "bbb=========================S~",
     "~S......=..pppppppp..=......S~",
@@ -243,5 +244,8 @@ const FUJI = islandScene({
 });
 
 export const ISLAND_SCENES: readonly IslandScene[] = [KANA, PRACTICE, GAMES, LESSONS, REVIEW, FUJI];
+
+/** The islands walked in real 3D (components/world3d/japanese builds their models); the rest are still 2.5D. */
+export const ISLANDS_IN_3D: ReadonlySet<IslandId> = new Set<IslandId>(["kana"]);
 
 export const islandSceneOf = (island: string): IslandScene | null => ISLAND_SCENES.find(scene => scene.island === island) ?? null;

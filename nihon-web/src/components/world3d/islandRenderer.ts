@@ -4,10 +4,11 @@ import * as THREE from "three";
 import type { Direction, Vector } from "../../lib/errands/movement";
 import { cameraDistance, personPosition } from "../../lib/world/islandModels";
 import type { Island3D } from "../../lib/world/islandModels";
-import { modelUrl } from "../../data/world/islandModelArt";
 import { buildGround } from "./ground";
-import { ModelLibrary, Person, loadMotions, standModel } from "./models";
-import type { Motion } from "./models";
+import { FallingPetals } from "./fallingPetals";
+import { LivelyWater } from "./water";
+import type { ModelMaker } from "./models";
+import type { IslandWalker, Motion } from "./walkers";
 
 /** The camera looks down at the scenes' angle (their ground is tipped 50° back, so seen from 40° above), through a
  *  narrow lens, so things far off aren't much smaller than things near. */
@@ -25,6 +26,7 @@ const SHADOW_REACH = 20;
 const SHADOW_MAP_SIZE = 2048;
 /** No sharper than this many device pixels to a CSS pixel, so phones with dense screens stay smooth. */
 const MAX_PIXEL_RATIO = 2;
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
 /** The longest step one frame may take, in seconds, so a tab coming back doesn't jump everyone along. */
 const MAX_FRAME_SECONDS = 0.1;
 
@@ -76,18 +78,25 @@ export class IslandRenderer {
   private readonly camera = new THREE.PerspectiveCamera(FIELD_OF_VIEW_DEGREES, 1, 0.5, 400);
   private readonly sun = new THREE.DirectionalLight();
   private readonly skyLight = new THREE.HemisphereLight();
-  private readonly library = new ModelLibrary();
   private readonly timer = new THREE.Timer();
-  private readonly people: Person[] = [];
-  private traveller: Person | null = null;
+  private readonly people: IslandWalker[] = [];
+  private traveller: IslandWalker | null = null;
   private state: TravellerState;
   private readonly focus = new THREE.Vector3();
   private viewport = { width: 1, height: 1 };
   private frame = 0;
+  private isDisposed = false;
+  private petals: FallingPetals | null = null;
+  private readonly water: LivelyWater;
+  /** Whether the water and petals move (not when the learner has asked for less motion). */
+  private readonly isMoving = !window.matchMedia(REDUCED_MOTION).matches;
   private readonly island: Island3D;
+  private readonly maker: ModelMaker;
 
-  constructor(host: HTMLElement, island: Island3D, start: TravellerState) {
+  /** `maker` makes the island's models and people, however they're made. */
+  constructor(host: HTMLElement, island: Island3D, maker: ModelMaker, start: TravellerState) {
     this.island = island;
+    this.maker = maker;
     this.state = start;
     this.renderer.domElement.setAttribute("aria-hidden", "true");
     this.renderer.domElement.className = "block size-full";
@@ -97,26 +106,35 @@ export class IslandRenderer {
     Object.assign(this.sun.shadow.camera, { left: -SHADOW_REACH, right: SHADOW_REACH, top: SHADOW_REACH, bottom: -SHADOW_REACH, near: 1, far: 80 });
     this.sun.shadow.bias = -0.0005;
     this.sun.shadow.normalBias = 0.03;
-    this.scene.add(this.sun, this.sun.target, this.skyLight, buildGround(island.map));
+    this.water = new LivelyWater(island.map, island.shore);
+    this.scene.add(this.sun, this.sun.target, this.skyLight, this.water.mesh, buildGround(island.map, island.shore));
+    // Petals fall where it's their season.
+    if (island.weather === "petals" && this.isMoving) {
+      this.petals = new FallingPetals(Math.random);
+      this.scene.add(this.petals.mesh);
+    }
     this.setDark(false);
     this.focus.set(start.position.x, 0, start.position.y);
   }
 
   /** Loads and stands every model and person, then starts drawing. */
   async load(): Promise<void> {
-    const motions = await loadMotions(this.library);
-    const standing = await Promise.all([...this.island.models, ...this.island.backdrop].map(placement => standModel(this.library, placement)));
-    this.scene.add(...standing);
-    for (const resident of this.island.people) {
-      const person = new Person(await this.library.load(modelUrl(resident.model)), motions);
-      person.standAt(personPosition(resident), resident.facing);
-      person.faceAtOnce(resident.facing);
-      this.people.push(person);
-      this.scene.add(person.root);
-    }
-    this.traveller = new Person(await this.library.load(modelUrl(this.island.traveller)), motions);
-    this.traveller.faceAtOnce(this.state.facing);
-    this.scene.add(this.traveller.root);
+    const [standing, people, traveller] = await Promise.all([
+      Promise.all([...this.island.models, ...this.island.backdrop].map(placement => this.maker.standModel(placement))),
+      Promise.all(this.island.people.map(async resident => {
+        const person = await this.maker.makePerson(resident.model);
+        person.standAt(personPosition(resident), resident.facing);
+        person.faceAtOnce(resident.facing);
+        return person;
+      })),
+      this.maker.makePerson(this.island.traveller),
+    ]);
+    // Left before it finished loading: nothing more to draw.
+    if (this.isDisposed) return;
+    this.scene.add(...standing, ...people.map(person => person.root), traveller.root);
+    this.people.push(...people);
+    traveller.faceAtOnce(this.state.facing);
+    this.traveller = traveller;
     this.timer.connect(document);
     this.frame = requestAnimationFrame(this.draw);
   }
@@ -153,12 +171,17 @@ export class IslandRenderer {
   }
 
   dispose(): void {
+    this.isDisposed = true;
     cancelAnimationFrame(this.frame);
     this.timer.dispose();
+    this.water.dispose();
     this.scene.traverse(object => {
       if (!(object instanceof THREE.Mesh)) return;
       object.geometry.dispose();
-      for (const material of [object.material].flat()) material.dispose();
+      for (const material of [object.material].flat()) {
+        if (material instanceof THREE.MeshStandardMaterial) material.map?.dispose();
+        material.dispose();
+      }
     });
     this.renderer.dispose();
     this.renderer.domElement.remove();
@@ -170,6 +193,8 @@ export class IslandRenderer {
     this.moveTraveller(seconds);
     for (const person of this.people) person.update(seconds);
     this.followWithCamera(seconds);
+    this.petals?.update(seconds, this.focus);
+    if (this.isMoving) this.water.update(seconds);
     this.renderer.render(this.scene, this.camera);
     this.onFrame?.();
     this.frame = requestAnimationFrame(this.draw);

@@ -1,0 +1,173 @@
+// The Japanese islands in real 3D: a 2.5D island read as a 3D one, the buildings, trees and people built in code for
+// it, and how those people move. Run with --experimental-strip-types (see package.json).
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import * as THREE from "three";
+import { ISLANDS_IN_3D, ISLAND_SCENES, islandSceneOf } from "../src/data/world/islandScenes.ts";
+import { TRAVELLER_MODEL, buildingModel, castModel, japaneseIsland3D, treeModel } from "../src/lib/world/japaneseIsland3D.ts";
+import { canBuild } from "../src/components/world3d/japanese/japaneseModelMaker.ts";
+import { BUILDING_BUILDERS } from "../src/components/world3d/japanese/buildings.ts";
+import { BuiltPerson, chunRig, travellerRig } from "../src/components/world3d/japanese/people.ts";
+import { Palette } from "../src/components/world3d/japanese/shapes.ts";
+import { DEFAULT_TRAVELLER_LOOK } from "../src/lib/travellerLook.ts";
+import { parseTownMap, tilesOf } from "../src/lib/errands/townMap.ts";
+import { WATER_GAP, farShoreAround } from "../src/lib/world/farShore.ts";
+import { TREE_BUILDERS } from "../src/components/world3d/japanese/trees.ts";
+import { FallingPetals } from "../src/components/world3d/fallingPetals.ts";
+
+const kana = islandSceneOf("kana");
+const kana3D = japaneseIsland3D(kana);
+const isTree = ({ model }) => model.startsWith("tree:");
+
+test("each building stands as a model of its look on its own ground, with its roof and sign", () => {
+  const [hiragana] = kana.layout.buildings;
+  const placed = kana3D.models.find(({ at }) => at.x === hiragana.x && at.y === hiragana.y);
+  assert.deepEqual(placed, { model: buildingModel(hiragana.look), at: { x: hiragana.x, y: hiragana.y, width: hiragana.width, height: hiragana.height }, scale: 1, roof: hiragana.roof, sign: hiragana.sign });
+});
+
+test("the trees cover every tree tile, each of that tile's kind", () => {
+  const covered = kana3D.models.filter(isTree).flatMap(({ model, at }) => tilesOf(at).map(key => `${key} ${model}`)).sort();
+  const sakura = kana.layout.map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => terrain === "sakura" ? [`${x},${y} ${treeModel("sakura")}`] : [])).sort();
+  assert.deepEqual(covered, sakura);
+});
+
+test("a block of two by two tree tiles grows one great tree", () => {
+  const scene = { ...kana, layout: { ...kana.layout, map: parseTownMap(["SS.", "SS.", "..."]), buildings: [], villagers: [] } };
+  assert.deepEqual(japaneseIsland3D(scene).models.filter(isTree).map(({ at }) => at), [{ x: 0, y: 0, width: 2, height: 2 }]);
+});
+
+test("the Kana island has its great cherry tree at the head of the petal square", () => {
+  assert.ok(kana3D.models.some(({ model, at }) => model === treeModel("sakura") && at.width === 2 && at.x === 14 && at.y === 4));
+});
+
+test("cherry petals fall on a sakura island", () => {
+  assert.equal(kana3D.weather, "petals");
+});
+
+test("trees take no ground of their own (their tiles are already blocked)", () => {
+  assert.ok(kana3D.models.filter(isTree).every(({ isWalkable }) => isWalkable));
+});
+
+test("the island's challenger stands where they wait, as themselves", () => {
+  const [chun] = kana.layout.villagers;
+  assert.deepEqual(kana3D.people, [{ id: chun.id, model: castModel(chun.id), tile: chun.tile, facing: "down" }]);
+});
+
+test("the traveller is the learner's own, and the doors are the island's", () => {
+  assert.deepEqual([kana3D.traveller, kana3D.doors], [TRAVELLER_MODEL, kana.doors]);
+});
+
+test("every model and person on the islands walked in 3D (and their far shores) can be built", () => {
+  const scenes = ISLAND_SCENES.filter(scene => ISLANDS_IN_3D.has(scene.island)).map(japaneseIsland3D);
+  const models = scenes.flatMap(scene => [...scene.models.map(({ model }) => model), ...scene.backdrop.map(({ model }) => model), ...scene.people.map(({ model }) => model), scene.traveller]);
+  assert.deepEqual([...new Set(models)].filter(model => !canBuild(model)), []);
+});
+
+test("every building fits on its ground, roof and all", () => {
+  const palette = new Palette();
+  const overhanging = kana.layout.buildings.flatMap(({ id, look, width, height: depth, roof, sign }) => {
+    const build = BUILDING_BUILDERS.get(look);
+    if (!build) return [`${id}: no builder`];
+    const model = build(palette, { width, depth, roof, sign });
+    model.updateMatrixWorld(true);
+    const size = new THREE.Box3().setFromObject(model).getSize(new THREE.Vector3());
+    return size.x <= width + 0.01 && size.z <= depth + 0.01 ? [] : [`${id}: ${size.x.toFixed(2)} × ${size.z.toFixed(2)}`];
+  });
+  assert.deepEqual(overhanging, []);
+});
+
+test("the traveller stands about a tile and a half tall, like the English island's people", () => {
+  const { root } = travellerRig(new Palette(), DEFAULT_TRAVELLER_LOOK);
+  const height = new THREE.Box3().setFromObject(root).getSize(new THREE.Vector3()).y;
+  assert.ok(height > 1.3 && height < 1.8, `${height}`);
+});
+
+/** A person after `seconds` of a motion, in small steps as frames would come. */
+function after(person, motion, seconds) {
+  person.play(motion);
+  for (let elapsed = 0; elapsed < seconds; elapsed += 1 / 60) person.update(1 / 60);
+  return person;
+}
+
+test("walking swings the legs opposite ways", () => {
+  const rig = chunRig(new Palette());
+  after(new BuiltPerson(rig), "walk", 0.4);
+  assert.ok(Math.sign(rig.leftLeg.rotation.x) === -Math.sign(rig.rightLeg.rotation.x) && rig.leftLeg.rotation.x !== 0);
+});
+
+test("stopping lets the legs come to rest", () => {
+  const rig = travellerRig(new Palette(), DEFAULT_TRAVELLER_LOOK);
+  after(after(new BuiltPerson(rig), "walk", 1), "idle", 1.5);
+  assert.ok(Math.abs(rig.leftLeg.rotation.x) < 0.01, `${rig.leftLeg.rotation.x}`);
+});
+
+const shore = kana3D.shore;
+
+test("the bridge off the island is carried on over the water to the far shore, and a path goes on from it", () => {
+  const westBridgeRows = kana.layout.map.terrain.flatMap((row, y) => row[0] === "bridge" ? [y] : []);
+  assert.deepEqual([shore.decks.map(({ x, y, width }) => [x, y, width]), shore.paths.map(({ y, width }) => [y, width > 0])],
+    [westBridgeRows.map(y => [-WATER_GAP, y, WATER_GAP]), westBridgeRows.map(y => [y, true])]);
+});
+
+test("no hill rises on the near side of the island, between it and the camera", () => {
+  assert.deepEqual(shore.hills.filter(({ y }) => y > kana.layout.map.height), []);
+});
+
+test("no hill stands on the path leaving the island", () => {
+  const onPath = shore.hills.filter(hill => shore.paths.some(path => Math.abs(hill.y - path.y) < hill.radius && hill.x - hill.radius < path.x + path.width && hill.x + hill.radius > path.x));
+  assert.deepEqual(onPath, []);
+});
+
+test("an island with no bridge at its edge has no deck to the far shore", () => {
+  assert.deepEqual(farShoreAround(parseTownMap(["~~~", "~.~", "~~~"])).decks, []);
+});
+
+test("the far shore's trees keep off the paths", () => {
+  const onPath = kana3D.backdrop.filter(isTree).filter(({ at }) => shore.paths.some(path => tilesOf(path).includes(`${at.x},${at.y}`)));
+  assert.deepEqual(onPath, []);
+});
+
+test("a pagoda stands on the far shore of a sakura island", () => {
+  assert.ok(kana3D.backdrop.some(({ model }) => model === buildingModel("pagoda")));
+});
+
+test("a great cherry tree stands taller than a small one", () => {
+  const heightOf = at => new THREE.Box3().setFromObject(TREE_BUILDERS.get("sakura")(new Palette(), at)).getSize(new THREE.Vector3()).y;
+  assert.ok(heightOf({ x: 0, y: 0, width: 2, height: 2 }) > 1.5 * heightOf({ x: 0, y: 0, width: 1, height: 1 }));
+});
+
+test("falling petals stay in the air round what the camera looks at, wherever it goes", () => {
+  let seed = 1;
+  const petals = new FallingPetals(() => (seed = (seed * 16807) % 2147483647) / 2147483647);
+  const focus = new THREE.Vector3(100, 0, -50);
+  for (let frame = 0; frame < 120; frame += 1) petals.update(1 / 30, focus);
+  const point = new THREE.Vector3(), matrix = new THREE.Matrix4();
+  const strays = Array.from({ length: petals.mesh.count }, (_, index) => point.setFromMatrixPosition((petals.mesh.getMatrixAt(index, matrix), matrix)).clone())
+    .filter(({ x, y, z }) => Math.abs(x - focus.x) > 13 || Math.abs(z - focus.z) > 10 || y < 0 || y > 6);
+  assert.deepEqual(strays, []);
+});
+
+const { shallowsMask, nearnessToLand } = await import("../src/lib/world/shallows.ts");
+const pond = parseTownMap(["~~~~~~~~~~~~~~~", "~~~~~~~~~~~~~~~", "~~~~~.....~~~~~", "~~~~~.....~~~~~", "~~~~~~~~~~~~~~~", "~~~~~~~~~~~~~~~"]);
+const pondMask = shallowsMask(pond);
+
+test("the water is nearest land over the land itself, and less near the further out it lies", () => {
+  const nearness = [3, 1.6, 0.4].map(y => nearnessToLand(pondMask, { x: 7.5, y }));
+  assert.ok(nearness[0] > nearness[1] && nearness[1] > nearness[2], nearness.join(" > "));
+});
+
+test("open water far from any land is not near land at all", () => {
+  assert.equal(nearnessToLand(pondMask, { x: -6, y: -6 }), 0);
+});
+
+test("a bridge is water to the waves beneath it, not land", () => {
+  const bridged = shallowsMask(parseTownMap(["~~~~~~~~~", "~~~~b~~~~", "~~~~~~~~~"]));
+  assert.ok(nearnessToLand(bridged, { x: 4.5, y: 1.5 }) < 0.05);
+});
+
+test("a river one tile wide is clear of foam in its middle, yet turquoise as shallow water", () => {
+  const river = shallowsMask(parseTownMap(Array(8).fill("..........").map((row, y) => y === 4 ? "~~~~~~~~~~" : row)));
+  const middle = { x: 5.5, y: 4.5 };
+  assert.ok(nearnessToLand(river, middle, "edge") < 0.22 && nearnessToLand(river, middle, "shallows") > 0.3,
+    `${nearnessToLand(river, middle, "edge")} / ${nearnessToLand(river, middle, "shallows")}`);
+});

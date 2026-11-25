@@ -1,6 +1,6 @@
-// An island in real 3D, as a React component: it hands the traveller's walk to the renderer, shows a prompt over the
-// door they're standing at, and if the browser can't draw 3D (or the models won't load) lists the doors instead.
-import { useEffect, useRef, useState } from "react";
+// An island in real 3D, as a React component: it hands the traveller's walk to the renderer, pins a prompt (and any
+// marks) to places in the scene, and if the browser can't draw 3D (or the models won't load) lists the doors instead.
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { Direction, Vector } from "../../lib/errands/movement";
@@ -9,29 +9,36 @@ import type { Door } from "../../lib/village/villageDoors";
 import { useDarkActive } from "../../lib/theme";
 import { IslandRenderer } from "./islandRenderer";
 import type { TravellerState } from "./islandRenderer";
-
-/** How high above the door's tile the prompt floats, in tiles (about a door's height). */
-const DOOR_PROMPT_HEIGHT = 1.6;
+import type { ModelMaker } from "./models";
+import type { SceneMarker, ScenePrompt } from "./scenePrompts";
 
 type LoadState = "loading" | "ready" | "failed";
+/** Something drawn over the scene at a place in it, moved there every frame. */
+type Pinned = { at: Vector; height: number };
+
+const PROMPT_KEY = "prompt";
+const NO_MARKERS: readonly SceneMarker[] = [];
 
 type IslandScene3DProps = {
   island: Island3D;
+  /** Makes the island's models and people. Keep it the same object between renders: a new one rebuilds the scene. */
+  maker: ModelMaker;
   position: Vector;
   facing: Direction;
   isWalking: boolean;
   isRunning: boolean;
-  nearbyDoor: Door | null;
-  onEnterDoor: () => void;
+  prompt: ScenePrompt | null;
+  onPrompt: () => void;
+  markers?: readonly SceneMarker[];
   children?: ReactNode;
 };
 
-export function IslandScene3D({ island, position, facing, isWalking, isRunning, nearbyDoor, onEnterDoor, children }: IslandScene3DProps) {
+export function IslandScene3D({ island, maker, position, facing, isWalking, isRunning, prompt, onPrompt, markers = NO_MARKERS, children }: IslandScene3DProps) {
   const hostRef = useRef<HTMLDivElement>(null);
-  const promptRef = useRef<HTMLButtonElement>(null);
   const rendererRef = useRef<IslandRenderer | null>(null);
   // Where the traveller starts; after that, every move is handed to the renderer as it happens.
   const startRef = useRef<TravellerState>({ position, facing, isWalking, isRunning });
+  const pinnedElements = useRef(new Map<string, HTMLElement>());
   const [loadState, setLoadState] = useState<LoadState>("loading");
   const isDark = useDarkActive();
 
@@ -41,7 +48,7 @@ export function IslandScene3D({ island, position, facing, isWalking, isRunning, 
     const observer = new ResizeObserver(([entry]) => rendererRef.current?.resize(entry.contentRect.width, entry.contentRect.height));
     let isCurrent = true;
     const start = async () => {
-      const renderer = new IslandRenderer(host, island, startRef.current);
+      const renderer = new IslandRenderer(host, island, maker, startRef.current);
       rendererRef.current = renderer;
       observer.observe(host);
       await renderer.load();
@@ -56,7 +63,7 @@ export function IslandScene3D({ island, position, facing, isWalking, isRunning, 
       rendererRef.current?.dispose();
       rendererRef.current = null;
     };
-  }, [island]);
+  }, [island, maker]);
 
   useEffect(() => { rendererRef.current?.setTraveller({ position, facing, isWalking, isRunning }); }, [position, facing, isWalking, isRunning]);
   useEffect(() => { rendererRef.current?.setDark(isDark); }, [isDark, loadState]);
@@ -64,25 +71,36 @@ export function IslandScene3D({ island, position, facing, isWalking, isRunning, 
   useEffect(() => {
     const renderer = rendererRef.current;
     if (!renderer) return;
+    const pinned = new Map<string, Pinned>(markers.map(marker => [marker.id, marker]));
+    if (prompt) pinned.set(PROMPT_KEY, prompt);
     renderer.onFrame = () => {
-      const prompt = promptRef.current;
-      if (!prompt || !nearbyDoor) return;
-      const point = renderer.screenPoint({ x: nearbyDoor.tile.x + 0.5, y: nearbyDoor.tile.y + 0.5 }, DOOR_PROMPT_HEIGHT);
-      prompt.style.visibility = point ? "visible" : "hidden";
-      if (point) prompt.style.transform = `translate(${point.x}px, ${point.y}px) translate(-50%, -100%)`;
+      for (const [key, { at, height }] of pinned) {
+        const element = pinnedElements.current.get(key);
+        if (!element) continue;
+        const point = renderer.screenPoint(at, height);
+        element.style.visibility = point ? "visible" : "hidden";
+        if (point) element.style.transform = `translate(${point.x}px, ${point.y}px) translate(-50%, -100%)`;
+      }
     };
     return () => { renderer.onFrame = null; };
-  }, [nearbyDoor, loadState]);
+  }, [prompt, markers, loadState]);
+
+  const pin = useCallback((key: string) => (element: HTMLElement | null) => {
+    if (element) pinnedElements.current.set(key, element);
+    else pinnedElements.current.delete(key);
+  }, []);
 
   if (loadState === "failed") return <DoorList doors={island.doors}>{children}</DoorList>;
 
+  // Pinned things start hidden, until the first frame puts them in place.
   return <div className="relative size-full overflow-hidden bg-sky-200 dark:bg-slate-900">
     <div ref={hostRef} className="absolute inset-0" />
     {loadState === "loading" && <p role="status" className="absolute inset-0 grid place-items-center text-sm font-semibold text-gray-700 dark:text-gray-200">Loading the island…</p>}
-    {loadState === "ready" && nearbyDoor && <button ref={promptRef} type="button" tabIndex={-1} onClick={onEnterDoor}
-      aria-label={nearbyDoor.action ? nearbyDoor.label : `Go into ${nearbyDoor.label.toLowerCase()}`}
+    {loadState === "ready" && markers.map(marker => <span key={marker.id} ref={pin(marker.id)} aria-hidden="true" style={{ visibility: "hidden" }}
+      className="pointer-events-none absolute left-0 top-0 z-[650] grid size-6 place-items-center rounded-full border-2 border-gray-800 bg-amber-300 text-sm font-black text-gray-900 shadow">!</span>)}
+    {loadState === "ready" && prompt && <button ref={pin(PROMPT_KEY)} type="button" tabIndex={-1} onClick={onPrompt} aria-label={prompt.label} style={{ visibility: "hidden" }}
       className="absolute left-0 top-0 z-[700] whitespace-nowrap rounded-lg border border-gray-800 bg-white px-2 py-0.5 text-xs font-bold text-gray-900 shadow">
-      {nearbyDoor.action ?? "Enter"} <kbd className="font-mono">E</kbd></button>}
+      {prompt.action} <kbd className="font-mono">E</kbd></button>}
     {children}
   </div>;
 }
