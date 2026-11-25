@@ -8,13 +8,16 @@ import type { Vector } from "../errands/movement.ts";
 import type { ChallengerId } from "./challenges.ts";
 import type { RouteId } from "./routes.ts";
 import type { SceneTheme, Surroundings } from "./sceneTheme.ts";
+import type { IslandProp } from "./islandProps.ts";
 
 /** `layout.villagers` holds the challenger, standing where they can be walked up to; `doors` include the way back
  *  and any path on. `arrivals` says where the traveller appears coming off each path (by its bridge). `theme` is the
- *  island's look, and `surroundings` what lies round it (water, or for Fuji clouds). */
+ *  island's look, and `surroundings` what lies round it (water, or for Fuji clouds). `props` are the shrine pieces
+ *  standing about it, drawn only in 3D (the ground they block is among `layout.obstacles`). */
 export type IslandScene = {
   island: IslandId; name: string; japaneseName: string; theme: SceneTheme; surroundings: Surroundings;
   layout: VillageLayout; doors: readonly Door[]; challenger: ChallengerId; arrivals: readonly { route: RouteId; tile: Vector }[];
+  props: readonly IslandProp[];
 };
 
 /** Where the traveller appears coming off the path `routeId`: by its bridge, or at the island's start for any other. */

@@ -14,6 +14,8 @@ import type { Surroundings } from "../../lib/world/sceneTheme.ts";
 import { CHALLENGERS } from "./challengers.ts";
 import { routeHref } from "../../lib/world/routes.ts";
 import type { RouteId } from "../../lib/world/routes.ts";
+import { groundBlockedBy } from "../../lib/world/islandProps.ts";
+import type { IslandProp } from "../../lib/world/islandProps.ts";
 
 /** The island's bridge to its path: the tile at its end (the way back) and where the traveller arrives off the path,
  *  on the road just past it. */
@@ -38,22 +40,25 @@ type Onward = { route: RouteId; bridge: Bridge; label: string };
 
 /** `route` and `bridge`: the path the island is reached by, and its bridge (`backTo` names where that path leads back
  *  to; `backLabel`, said at the bridge, is "Back along <pathName> to <backTo>" unless given); `onward`, any path on from
- *  the island. */
-type IslandContent = Omit<IslandScene, "layout" | "doors" | "arrivals" | "surroundings"> & {
+ *  the island. `props`, the shrine pieces standing about it in 3D. */
+type IslandContent = Omit<IslandScene, "layout" | "doors" | "arrivals" | "surroundings" | "props"> & {
   surroundings?: Surroundings;
   rows: readonly string[]; stops: readonly Stop[]; challengerTile: Vector; lanterns?: readonly Vector[];
   route: RouteId; pathName: string; bridge: Bridge; backTo?: string; backLabel?: string; onward?: readonly Onward[];
+  props?: readonly IslandProp[];
 };
 
-function islandScene({ rows, stops, challengerTile, lanterns = [], route, pathName, bridge, backTo = "the village", backLabel, onward = [], surroundings = "water", ...scene }: IslandContent): IslandScene {
+function islandScene({ rows, stops, challengerTile, lanterns = [], route, pathName, bridge, backTo = "the village", backLabel, onward = [], surroundings = "water", props = [], ...scene }: IslandContent): IslandScene {
   const backToPath: Door = { id: "path-back", label: backLabel ?? `Back along ${pathName} to ${backTo}`, href: routeHref(route, scene.island), tile: bridge.end, action: "Go" };
   const pathsOn = onward.map((path): Door => ({ id: `path-${path.route}`, label: path.label, href: routeHref(path.route, scene.island), tile: path.bridge.end, action: "Go" }));
   return {
     ...scene,
     surroundings,
+    props,
     layout: {
       map: parseTownMap(rows), start: bridge.arrival, buildings: stops.map(buildingOf), gates: [], lanterns,
       villagers: [{ id: CHALLENGERS[scene.challenger].character, tile: challengerTile }],
+      obstacles: props.flatMap(groundBlockedBy),
     },
     doors: [...stops.map(doorOf), backToPath, ...pathsOn],
     arrivals: [{ route, tile: bridge.arrival }, ...onward.map(path => ({ route: path.route, tile: path.bridge.arrival }))],
@@ -93,8 +98,10 @@ const KANA = islandScene({
 const PRACTICE = islandScene({
   island: "practice", name: "The Practice island", japaneseName: "れんしゅうのしま", challenger: "tama", route: "home-practice", pathName: "the riverside path",
   theme: "bamboo", bridge: EAST_BRIDGE,
-  // A gravel courtyard inside a bamboo grove: two halls at the back, one at the front, and Tama by the pond. A second
-  // bridge, on the west, is the pier where the ferry leaves for Fuji.
+  // A gravel courtyard inside a bamboo grove, kept like a shrine's: two halls at the back, one at the front, and Tama by
+  // the pond. The road in from the east passes under a great torii between guardian lions; a roofed gate stands over
+  // the way to the west pier, where the ferry leaves for Fuji. Lanterns flank the halls, a taiko drum stands by the
+  // dojo, a water basin by the pond, a rack of prayer boards by the reading house, and a little shrine in a corner.
   onward: [{ route: "practice-fuji", bridge: WEST_BRIDGE, label: "The ferry (わたしぶね) from the west pier to Fuji" }],
   rows: [
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
@@ -113,6 +120,21 @@ const PRACTICE = islandScene({
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   ],
   challengerTile: { x: 7, y: 9 },
+  props: [
+    { kind: "torii", at: { x: 25, y: 5, width: 1, height: 4 }, facing: "right" },
+    { kind: "komainu", at: { x: 26, y: 5, width: 1, height: 1 } },
+    { kind: "komainu", at: { x: 26, y: 8, width: 1, height: 1 }, facing: "up" },
+    { kind: "gate", at: { x: 3, y: 5, width: 1, height: 4 }, facing: "left" },
+    { kind: "stone-lantern", at: { x: 5, y: 4, width: 1, height: 1 } },
+    { kind: "stone-lantern", at: { x: 10, y: 4, width: 1, height: 1 } },
+    { kind: "stone-lantern", at: { x: 21, y: 4, width: 1, height: 1 } },
+    { kind: "stone-lantern", at: { x: 26, y: 4, width: 1, height: 1 } },
+    { kind: "taiko", at: { x: 11, y: 3, width: 1, height: 1 } },
+    { kind: "temizuya", at: { x: 13, y: 8, width: 2, height: 1 } },
+    { kind: "ema-rack", at: { x: 20, y: 10, width: 1, height: 1 } },
+    { kind: "hokora", at: { x: 25, y: 10, width: 1, height: 1 } },
+    { kind: "torii", at: { x: 25, y: 11, width: 1, height: 1 } },
+  ],
   stops: [
     { id: "listening", sign: "きく", label: "Listening: words, sentences and dialogues", href: "/listening", look: "practice-hall", roof: "wood", at: { x: 22, y: 2 }, size: HALL_SIZE },
     { id: "speaking", sign: "はなす", label: "Speaking: say it aloud and get checked", href: "/speaking", look: "dojo", roof: "vermilion", at: { x: 6, y: 2 }, size: HALL_SIZE },
@@ -246,6 +268,6 @@ const FUJI = islandScene({
 export const ISLAND_SCENES: readonly IslandScene[] = [KANA, PRACTICE, GAMES, LESSONS, REVIEW, FUJI];
 
 /** The islands walked in real 3D (components/world3d/japanese builds their models); the rest are still 2.5D. */
-export const ISLANDS_IN_3D: ReadonlySet<IslandId> = new Set<IslandId>(["kana"]);
+export const ISLANDS_IN_3D: ReadonlySet<IslandId> = new Set<IslandId>(["kana", "practice"]);
 
 export const islandSceneOf = (island: string): IslandScene | null => ISLAND_SCENES.find(scene => scene.island === island) ?? null;

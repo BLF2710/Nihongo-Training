@@ -1,6 +1,6 @@
 // The islands' Japanese buildings, built in code (our own designs, in the chunky low-poly style of the English island's
-// models): halls of white plaster and dark timber on a stone base under a curved tiled roof, and an open market stall
-// under a cloth awning. Each fills the ground it stands on, its door in the middle of its front (south) side, and
+// models): halls on a stone base under a curved tiled roof (white plaster and dark timber, dark planks for a dojo,
+// vermilion framing for a shrine-like practice hall), a pagoda, and an open market stall under a cloth awning. Each fills the ground it stands on, its door in the middle of its front (south) side, and
 // hangs its Japanese sign from the front of its roof, where nothing hides it from the camera above.
 import * as THREE from "three";
 import type { BuildingLook, RoofColour } from "../../../lib/errands/village.ts";
@@ -18,6 +18,7 @@ const AWNING_COLOURS: Readonly<Record<RoofColour, string>> = { ...ROOF_COLOURS, 
 const COLOUR = {
   plaster: "#f1ebdd", timber: "#5a3b28", stone: "#a8a49b", step: "#c3beb2", shoji: "#f7f0dc", lattice: "#6b4a33",
   deck: "#9b7350", window: "#3a2a20", lanternStone: "#b9b4a8", lanternLight: "#ffd98a", cord: "#3b2a1e",
+  planks: "#7a5236", vermilion: "#c8452f", gold: "#d4a64a",
 } as const;
 
 /** How far a hall's walls stand in from the edges of its ground (its roof reaches out over them). */
@@ -86,23 +87,29 @@ function stoneLantern(palette: Palette, x: number, z: number): THREE.Group {
   );
 }
 
-type HallFront = (palette: Palette, plan: BuildingPlan, front: number, bodyWidth: number) => THREE.Object3D[];
+/** Where a hall's front is: how far south its front wall stands, how wide its walls are, the height of its eaves and
+ *  of the top of its ridge. */
+type HallFrame = { front: number; bodyWidth: number; eaves: number; ridgeTop: number };
+type HallFront = (palette: Palette, plan: BuildingPlan, frame: HallFrame) => THREE.Object3D[];
+/** How a hall is built: how tall its walls stand, how high its roof rises over them, the colours of its walls and of
+ *  the timber framing them, and its front. */
+type HallStyle = { wallHeight: number; rise: number; walls: string; timber: string; front: HallFront };
 
-/** A hall: stone base, white walls framed in timber, a curved roof with gabled ends, and its front as `front` makes it. */
-function hall(palette: Palette, plan: BuildingPlan, wallHeight: number, rise: number, front: HallFront): THREE.Group {
+/** A hall: stone base, walls framed in timber, a curved roof with gabled ends, and its front as its style makes it. */
+function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, timber: timberColour, front }: HallStyle): THREE.Group {
   const bodyWidth = plan.width - 2 * WALL_INSET, bodyDepth = plan.depth - 2 * WALL_INSET;
   const eaves = PLINTH_HEIGHT + wallHeight;
   const roofShape: RoofShape = { span: plan.depth - 2 * ROOF_OVERHANG_INSET, length: plan.width - 2 * ROOF_OVERHANG_INSET, rise, base: eaves, thickness: 0.14 };
-  const timber = palette.of(COLOUR.timber), plaster = palette.of(COLOUR.plaster);
+  const timber = palette.of(timberColour), wall = palette.of(walls);
   const group = new THREE.Group().add(
     box(palette.of(COLOUR.stone), { width: bodyWidth + 0.3, height: PLINTH_HEIGHT, depth: bodyDepth + 0.3 }),
-    box(plaster, { width: bodyWidth, height: wallHeight, depth: bodyDepth }, { y: PLINTH_HEIGHT }),
+    box(wall, { width: bodyWidth, height: wallHeight, depth: bodyDepth }, { y: PLINTH_HEIGHT }),
     box(timber, { width: bodyWidth + 0.04, height: 0.12, depth: bodyDepth + 0.04 }, { y: eaves - 0.12 }),
     box(timber, { width: bodyWidth + 0.04, height: 0.1, depth: bodyDepth + 0.04 }, { y: PLINTH_HEIGHT }),
     curvedRoof(palette.of(roofColour(plan.roof)), roofShape),
     ridge(palette, plan.roof, roofShape),
-    ...[-1, 1].map(side => gable(plaster, roofShape, side * (bodyWidth / 2 - 0.02), 0.04)),
-    ...front(palette, plan, bodyDepth / 2, bodyWidth),
+    ...[-1, 1].map(side => gable(palette.of(COLOUR.plaster), roofShape, side * (bodyWidth / 2 - 0.02), 0.04)),
+    ...front(palette, plan, { front: bodyDepth / 2, bodyWidth, eaves, ridgeTop: eaves + rise }),
   );
   for (const x of [-bodyWidth / 2, -bodyWidth / 6, bodyWidth / 6, bodyWidth / 2]) {
     for (const z of [-bodyDepth / 2, bodyDepth / 2]) group.add(post(timber, TIMBER, wallHeight, { x, z, y: PLINTH_HEIGHT }));
@@ -112,24 +119,104 @@ function hall(palette: Palette, plan: BuildingPlan, wallHeight: number, rise: nu
 }
 
 /** The kana school: a tall hall with a paper door, slatted windows, a veranda along its front and stone lanterns. */
-const kanaSchool: BuildingBuilder = (palette, plan) => hall(palette, plan, 1.5, 1.05, (palette, { width }, front, bodyWidth) => [
-  shojiDoor(palette, front + 0.01),
-  latticeWindow(palette, -bodyWidth / 2 + 0.55, front + 0.01),
-  latticeWindow(palette, bodyWidth / 2 - 0.55, front + 0.01),
-  box(palette.of(COLOUR.deck), { width: bodyWidth + 0.3, height: 0.06, depth: 0.26 }, { y: PLINTH_HEIGHT - 0.06, z: front + 0.15 }),
-  box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.2 }, { z: front + 0.38 }),
-  stoneLantern(palette, -width / 2 + 0.2, front + 0.33),
-  stoneLantern(palette, width / 2 - 0.2, front + 0.33),
-]);
+const kanaSchool: BuildingBuilder = (palette, plan) => hall(palette, plan, {
+  wallHeight: 1.5, rise: 1.05, walls: COLOUR.plaster, timber: COLOUR.timber,
+  front: (palette, { width }, { front, bodyWidth }) => [
+    shojiDoor(palette, front + 0.01),
+    latticeWindow(palette, -bodyWidth / 2 + 0.55, front + 0.01),
+    latticeWindow(palette, bodyWidth / 2 - 0.55, front + 0.01),
+    box(palette.of(COLOUR.deck), { width: bodyWidth + 0.3, height: 0.06, depth: 0.26 }, { y: PLINTH_HEIGHT - 0.06, z: front + 0.15 }),
+    box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.2 }, { z: front + 0.38 }),
+    stoneLantern(palette, -width / 2 + 0.2, front + 0.33),
+    stoneLantern(palette, width / 2 - 0.2, front + 0.33),
+  ],
+});
 
 /** The calligraphy house: a low townhouse with a curtain over its door and a wide slatted window. */
-const calligraphyHouse: BuildingBuilder = (palette, plan) => hall(palette, plan, 1.3, 0.85, (palette, { roof }, front, bodyWidth) => [
-  shojiDoor(palette, front + 0.01),
-  noren(palette, roof, front),
-  latticeWindow(palette, -bodyWidth / 2 + 0.5, front + 0.01),
-  latticeWindow(palette, bodyWidth / 2 - 0.5, front + 0.01),
-  box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.3 }, { z: front + 0.3 }),
-]);
+const calligraphyHouse: BuildingBuilder = (palette, plan) => hall(palette, plan, {
+  wallHeight: 1.3, rise: 0.85, walls: COLOUR.plaster, timber: COLOUR.timber,
+  front: (palette, { roof }, { front, bodyWidth }) => [
+    shojiDoor(palette, front + 0.01),
+    noren(palette, roof, front),
+    latticeWindow(palette, -bodyWidth / 2 + 0.5, front + 0.01),
+    latticeWindow(palette, bodyWidth / 2 - 0.5, front + 0.01),
+    box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.3 }, { z: front + 0.3 }),
+  ],
+});
+
+/** How deep a veranda is, how high its railing stands, and how wide the steps up the middle of it are. */
+const VERANDA = { depth: 0.32, railHeight: 0.26, stepsWidth: 1.0 } as const;
+
+/** A veranda along a hall's front, with a railing along its edge either side of the steps up to it. */
+function veranda(palette: Palette, { front, bodyWidth }: HallFrame, colours: { deck: string; rail: string }): THREE.Object3D[] {
+  const deck = palette.of(colours.deck), rail = palette.of(colours.rail);
+  const edge = front + VERANDA.depth;
+  const railLength = (bodyWidth + 0.3 - VERANDA.stepsWidth) / 2;
+  const parts: THREE.Object3D[] = [
+    box(deck, { width: bodyWidth + 0.3, height: 0.06, depth: VERANDA.depth }, { y: PLINTH_HEIGHT - 0.06, z: front + VERANDA.depth / 2 }),
+    box(palette.of(COLOUR.step), { width: VERANDA.stepsWidth, height: 0.09, depth: 0.14 }, { z: edge + 0.04 }),
+  ];
+  for (const side of [-1, 1]) {
+    const middle = side * (VERANDA.stepsWidth / 2 + railLength / 2);
+    parts.push(box(rail, { width: railLength, height: 0.04, depth: 0.04 }, { x: middle, y: PLINTH_HEIGHT + VERANDA.railHeight, z: edge - 0.03 }));
+    for (const x of [middle - railLength / 2, middle, middle + railLength / 2]) parts.push(post(rail, 0.025, VERANDA.railHeight, { x, z: edge - 0.03, y: PLINTH_HEIGHT }));
+  }
+  return parts;
+}
+
+/** Wide wooden doors slid open to either side, showing the dark hall inside. */
+function openDoors(palette: Palette, front: number, width: number): THREE.Object3D[] {
+  const panel = palette.of(COLOUR.deck);
+  return [
+    box(palette.of(COLOUR.window), { width, height: DOOR.height + 0.1, depth: 0.03 }, { y: PLINTH_HEIGHT, z: front + 0.01 }),
+    ...[-1, 1].map(side => box(panel, { width: width / 2, height: DOOR.height + 0.1, depth: 0.04 }, { x: side * width * 0.75, y: PLINTH_HEIGHT, z: front + 0.03 })),
+  ];
+}
+
+/** The seams between the upright planks of a wooden front wall, leaving a gap for its doors. */
+function plankSeams(palette: Palette, { front, bodyWidth }: HallFrame, wallHeight: number, doorsWidth: number): THREE.Object3D[] {
+  const seam = palette.of(COLOUR.timber);
+  const seams: THREE.Object3D[] = [];
+  for (let x = -bodyWidth / 2 + 0.25; x < bodyWidth / 2 - 0.1; x += 0.25) {
+    if (Math.abs(x) < doorsWidth) continue;
+    seams.push(box(seam, { width: 0.025, height: wallHeight - 0.25, depth: 0.02 }, { x, y: PLINTH_HEIGHT + 0.1, z: front + 0.01 }));
+  }
+  return seams;
+}
+
+const DOJO_WALL_HEIGHT = 1.4;
+const DOJO_DOORS_WIDTH = 1.3;
+
+/** The dojo: a hall of dark wooden planks under a heavy roof, its wide doors slid open onto a railed veranda, and a
+ *  white band of plaster under its eaves. */
+const dojo: BuildingBuilder = (palette, plan) => hall(palette, plan, {
+  wallHeight: DOJO_WALL_HEIGHT, rise: 1.1, walls: COLOUR.planks, timber: COLOUR.timber,
+  front: (palette, _plan, frame) => [
+    ...openDoors(palette, frame.front, DOJO_DOORS_WIDTH),
+    ...plankSeams(palette, frame, DOJO_WALL_HEIGHT, DOJO_DOORS_WIDTH),
+    box(palette.of(COLOUR.plaster), { width: frame.bodyWidth, height: 0.2, depth: 0.02 }, { y: frame.eaves - 0.34, z: frame.front + 0.01 }),
+    ...veranda(palette, frame, { deck: COLOUR.deck, rail: COLOUR.timber }),
+  ],
+});
+
+/** Gold caps along the top of a shrine hall's ridge. */
+function ridgeCaps(palette: Palette, { ridgeTop }: HallFrame, length: number): THREE.Object3D[] {
+  const gold = palette.of(COLOUR.gold);
+  return [-0.3, -0.1, 0.1, 0.3].map(share => post(gold, 0.05, 0.12, { x: share * length, z: 0, y: ridgeTop + 0.04 }));
+}
+
+/** The practice hall: a shrine hall of white walls framed in vermilion, its lattice doors up steps between vermilion
+ *  railings, gold caps along its ridge. */
+const practiceHall: BuildingBuilder = (palette, plan) => hall(palette, plan, {
+  wallHeight: 1.45, rise: 1.0, walls: COLOUR.plaster, timber: COLOUR.vermilion,
+  front: (palette, { width }, frame) => [
+    shojiDoor(palette, frame.front + 0.01),
+    latticeWindow(palette, -frame.bodyWidth / 2 + 0.55, frame.front + 0.01),
+    latticeWindow(palette, frame.bodyWidth / 2 - 0.55, frame.front + 0.01),
+    ...veranda(palette, frame, { deck: COLOUR.deck, rail: COLOUR.vermilion }),
+    ...ridgeCaps(palette, frame, width),
+  ],
+});
 
 /** A market stall: a counter of goods under a cloth awning on four posts, and a banner on a pole. */
 const stall: BuildingBuilder = (palette, plan) => {
@@ -184,4 +271,5 @@ const pagoda: BuildingBuilder = (palette, plan) => {
 
 export const BUILDING_BUILDERS: ReadonlyMap<BuildingLook, BuildingBuilder> = new Map<BuildingLook, BuildingBuilder>([
   ["kana-school", kanaSchool], ["calligraphy", calligraphyHouse], ["stall", stall], ["pagoda", pagoda],
+  ["dojo", dojo], ["practice-hall", practiceHall],
 ]);

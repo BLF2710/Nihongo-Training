@@ -14,6 +14,10 @@ import { parseTownMap, tilesOf } from "../src/lib/errands/townMap.ts";
 import { WATER_GAP, farShoreAround } from "../src/lib/world/farShore.ts";
 import { TREE_BUILDERS } from "../src/components/world3d/japanese/trees.ts";
 import { FallingPetals } from "../src/components/world3d/fallingPetals.ts";
+import { PROP_BUILDERS } from "../src/components/world3d/japanese/shrineProps.ts";
+import { tamaRig } from "../src/components/world3d/japanese/people.ts";
+import { groundBlockedBy, propModel } from "../src/lib/world/islandProps.ts";
+import { blockedTiles, tileKey } from "../src/lib/errands/townMap.ts";
 
 const kana = islandSceneOf("kana");
 const kana3D = japaneseIsland3D(kana);
@@ -65,7 +69,8 @@ test("every model and person on the islands walked in 3D (and their far shores) 
 
 test("every building fits on its ground, roof and all", () => {
   const palette = new Palette();
-  const overhanging = kana.layout.buildings.flatMap(({ id, look, width, height: depth, roof, sign }) => {
+  const buildings = ISLAND_SCENES.filter(scene => ISLANDS_IN_3D.has(scene.island)).flatMap(scene => scene.layout.buildings);
+  const overhanging = buildings.flatMap(({ id, look, width, height: depth, roof, sign }) => {
     const build = BUILDING_BUILDERS.get(look);
     if (!build) return [`${id}: no builder`];
     const model = build(palette, { width, depth, roof, sign });
@@ -170,4 +175,65 @@ test("a river one tile wide is clear of foam in its middle, yet turquoise as sha
   const middle = { x: 5.5, y: 4.5 };
   assert.ok(nearnessToLand(river, middle, "edge") < 0.22 && nearnessToLand(river, middle, "shallows") > 0.3,
     `${nearnessToLand(river, middle, "edge")} / ${nearnessToLand(river, middle, "shallows")}`);
+});
+
+const practice = islandSceneOf("practice");
+const practice3D = japaneseIsland3D(practice);
+
+test("the Practice island is walked in 3D", () => {
+  assert.ok(ISLANDS_IN_3D.has("practice"));
+});
+
+test("each shrine piece stands as its model on its own ground, turned the way it faces", () => {
+  const [torii] = practice.props;
+  assert.deepEqual(practice3D.models.find(({ model }) => model === propModel("torii")), { model: propModel("torii"), at: torii.at, scale: 1, isWalkable: true, facing: torii.facing });
+});
+
+test("a gate is walked through between its pillars, which stand on the end tiles of its ground", () => {
+  assert.deepEqual(groundBlockedBy({ kind: "torii", at: { x: 25, y: 5, width: 1, height: 4 } }), [{ x: 25, y: 5, width: 1, height: 1 }, { x: 25, y: 8, width: 1, height: 1 }]);
+});
+
+test("any other piece blocks all its ground", () => {
+  const at = { x: 13, y: 8, width: 2, height: 1 };
+  assert.deepEqual(groundBlockedBy({ kind: "temizuya", at }), [at]);
+});
+
+test("the shrine pieces block their ground for walking", () => {
+  const blocked = blockedTiles(practice.layout.map, practice.layout.obstacles ?? []);
+  assert.ok(practice.props.flatMap(groundBlockedBy).every(({ x, y }) => blocked.has(tileKey(x, y))));
+});
+
+test("no shrine piece stands on a door or where the traveller arrives", () => {
+  const blocked = new Set((practice.layout.obstacles ?? []).flatMap(tilesOf));
+  const kept = [...practice.doors.map(({ tile }) => tile), ...practice.arrivals.map(({ tile }) => tile)].map(({ x, y }) => `${Math.floor(x)},${Math.floor(y)}`);
+  assert.deepEqual(kept.filter(key => blocked.has(key)), []);
+});
+
+test("every shrine piece fits on its ground", () => {
+  const grounds = { torii: { width: 4, depth: 1 }, gate: { width: 4, depth: 1 }, temizuya: { width: 2, depth: 1 }, "bell-tower": { width: 3, depth: 3 } };
+  const overhanging = [...PROP_BUILDERS].flatMap(([kind, build]) => {
+    const ground = grounds[kind] ?? { width: 1, depth: 1 };
+    const size = new THREE.Box3().setFromObject(build(new Palette(), ground)).getSize(new THREE.Vector3());
+    return size.x <= ground.width + 0.01 && size.z <= ground.depth + 0.01 ? [] : [`${kind}: ${size.x.toFixed(2)} × ${size.z.toFixed(2)}`];
+  });
+  assert.deepEqual(overhanging, []);
+});
+
+test("a torii over a road stands tall enough to walk under", () => {
+  const height = new THREE.Box3().setFromObject(PROP_BUILDERS.get("torii")(new Palette(), { width: 4, depth: 1 })).getSize(new THREE.Vector3()).y;
+  assert.ok(height > 1.9, `${height}`);
+});
+
+test("Tama stands about a tile tall", () => {
+  const height = new THREE.Box3().setFromObject(tamaRig(new Palette()).root).getSize(new THREE.Vector3()).y;
+  assert.ok(height > 0.9 && height < 1.4, `${height}`);
+});
+
+test("bamboo leaves drift down in a bamboo grove, and a bell tower stands on its far shore", () => {
+  assert.deepEqual([practice3D.weather, practice3D.backdrop.some(({ model }) => model === propModel("bell-tower"))], ["leaves", true]);
+});
+
+test("trees on the island's near edge grow smaller, so they don't hide the island", () => {
+  const scaleOfRow = row => practice3D.models.filter(isTree).filter(({ at }) => at.y === row).map(({ scale }) => scale);
+  assert.ok(Math.max(...scaleOfRow(practice.layout.map.height - 2)) < Math.min(...scaleOfRow(1)));
 });

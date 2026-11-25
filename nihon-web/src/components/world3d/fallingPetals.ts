@@ -1,10 +1,16 @@
-// Cherry petals drifting down through the air over a sakura island: small pink petals falling, swaying and turning,
-// in a box of air that moves with the camera, so there are always some in view however far the traveller walks.
+// Petals drifting down through the air: cherry petals over a sakura island, or slim leaves in a bamboo grove, falling,
+// swaying and turning, in a box of air that moves with the camera, so there are always some in view however far the
+// traveller walks.
 import * as THREE from "three";
+import type { Weather } from "../../lib/world/islandModels.ts";
 
-const PETAL_COUNT = 260;
-const PETAL_COLOUR = "#f7c3d2";
-const PETAL_SIZE = { width: 0.09, height: 0.06 } as const;
+/** How many fall, their colour and size (in tiles). */
+type PetalLook = { count: number; colour: string; width: number; height: number };
+export const PETAL_LOOKS: Readonly<Record<Weather, PetalLook>> = {
+  petals: { count: 260, colour: "#f7c3d2", width: 0.09, height: 0.06 },
+  // Fewer, as a bamboo grove drops its leaves now and then rather than in a shower.
+  leaves: { count: 90, colour: "#9cc45a", width: 0.05, height: 0.16 },
+};
 /** The air the petals fall through round what the camera looks at, in tiles: across, along, and from how high. */
 const AIR = { width: 26, depth: 20, height: 6 } as const;
 /** How fast petals fall (tiles a second) and how far and fast they sway and turn. */
@@ -27,11 +33,11 @@ export class FallingPetals {
   private time = 0;
 
   /** `random` scatters the petals (Math.random in the browser; a steady one in tests). */
-  constructor(random: () => number) {
-    const material = new THREE.MeshStandardMaterial({ color: PETAL_COLOUR, side: THREE.DoubleSide, roughness: 0.8 });
-    this.mesh = new THREE.InstancedMesh(new THREE.PlaneGeometry(PETAL_SIZE.width, PETAL_SIZE.height), material, PETAL_COUNT);
+  constructor(random: () => number, look: PetalLook = PETAL_LOOKS.petals) {
+    const material = new THREE.MeshStandardMaterial({ color: look.colour, side: THREE.DoubleSide, roughness: 0.8 });
+    this.mesh = new THREE.InstancedMesh(new THREE.PlaneGeometry(look.width, look.height), material, look.count);
     this.mesh.frustumCulled = false;
-    this.petals = Array.from({ length: PETAL_COUNT }, () => ({
+    this.petals = Array.from({ length: look.count }, () => ({
       x: random() * AIR.width, y: random() * AIR.height, z: random() * AIR.depth,
       fall: FALL.slowest + random() * (FALL.fastest - FALL.slowest), phase: random() * Math.PI * 2,
       spin: new THREE.Euler(random() * Math.PI, random() * Math.PI, random() * Math.PI),

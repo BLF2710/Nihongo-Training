@@ -6,7 +6,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import type { GLTF } from "three/addons/loaders/GLTFLoader.js";
 import { clone as cloneSkinned } from "three/addons/utils/SkeletonUtils.js";
 import { ANIMATIONS_URL, PERSON_TILES_PER_UNIT, modelUrl } from "../../data/world/islandModelArt.ts";
-import { centreOf } from "../../lib/world/islandModels.ts";
+import { centreOf, facingAngle } from "../../lib/world/islandModels.ts";
 import type { ModelPlacement } from "../../lib/world/islandModels.ts";
 import type { Direction, Vector } from "../../lib/errands/movement.ts";
 import { Turning } from "./walkers.ts";
@@ -32,8 +32,10 @@ export function castsShadows(object: THREE.Object3D): void {
   });
 }
 
-/** Stands a model (drawn facing south, at the scale it should stand) centred on its ground, its base on the land. */
+/** Stands a model (drawn facing south, at the scale it should stand) centred on its ground, its base on the land,
+ *  turned the way its placement faces. */
 export function standOnGround(model: THREE.Object3D, placement: ModelPlacement): THREE.Object3D {
+  model.rotation.y = facingAngle(placement.facing ?? "down");
   model.updateMatrixWorld(true);
   const box = new THREE.Box3().setFromObject(model);
   const centre = centreOf(placement);

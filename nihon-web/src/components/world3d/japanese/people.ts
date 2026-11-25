@@ -236,3 +236,57 @@ export function chunRig(palette: Palette): Rig {
   const root = new THREE.Group().add(body, leftLeg, rightLeg);
   return { root, body, leftLeg, rightLeg, leftArm, rightArm, armSwing: "outward" };
 }
+
+const CALICO = { fur: "#fbf7ef", ginger: "#e0904a", dark: "#3d332d", nose: "#f2a0a8", collar: "#c8452f", bell: "#e6b94a", inner: "#f6c4c4" } as const;
+
+/** Tama, the practice cat: a round white calico, a ginger patch over one ear and a dark one over the other, a red
+ *  collar with a gold bell, and a tail curling up behind; about a tile tall, walking on her hind legs. */
+export function tamaRig(palette: Palette): Rig {
+  const headY = 0.86, headRadius = 0.34;
+  const fur = palette.of(CALICO.fur);
+  const torso = sphere(fur, 0.27, { y: 0.45 });
+  torso.scale.set(1, 1.1, 0.9);
+  const head = sphere(fur, headRadius, { y: headY });
+  head.scale.set(1.08, 0.92, 1);
+  // The patches lie on the head's crown, one each side towards the back, like a calico's, clear of the eyes. (A
+  // sphere's segments start at its west side and go round by the front, so the east-back quarter starts at 0.9π.)
+  const patch = (colour: string, side: number) => {
+    const shape = new THREE.Mesh(new THREE.SphereGeometry(headRadius * 1.03, 14, 8, side > 0 ? Math.PI * 0.9 : Math.PI * 1.4, Math.PI * 0.7, 0, Math.PI * 0.38), palette.of(colour));
+    shape.position.set(0, headY + 0.01, -0.01);
+    shape.scale.set(1.08, 0.92, 1);
+    return shape;
+  };
+  const ear = (colour: string, side: number) => {
+    const outer = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.2, 4), palette.of(colour));
+    outer.position.set(side * 0.2, headY + 0.3, -0.02);
+    outer.rotation.z = -side * 0.35;
+    const inner = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.12, 4), palette.of(CALICO.inner));
+    inner.position.set(side * 0.19, headY + 0.28, 0.03);
+    inner.rotation.z = -side * 0.35;
+    return [outer, inner];
+  };
+  const muzzle = sphere(fur, 0.12, { y: headY - 0.1, z: headRadius * 0.82 });
+  muzzle.scale.set(1.3, 0.75, 0.6);
+  const nose = sphere(palette.of(CALICO.nose), 0.035, { y: headY - 0.06, z: headRadius * 0.98 }, 0);
+  const whiskers = [-1, 1].flatMap(side => [-0.03, 0.02].map(dy => {
+    const whisker = box(palette.of(CALICO.dark), { width: 0.2, height: 0.008, depth: 0.008 }, { x: side * 0.26, y: headY - 0.1 + dy, z: headRadius * 0.7 });
+    whisker.rotation.z = side * dy * 4;
+    return whisker;
+  }));
+  const collar = new THREE.Mesh(new THREE.TorusGeometry(0.2, 0.035, 5, 14).rotateX(Math.PI / 2), palette.of(CALICO.collar));
+  collar.position.y = 0.66;
+  const bell = sphere(palette.of(CALICO.bell), 0.055, { y: 0.6, z: 0.21 }, 1);
+  const tail = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.045, 5, 10, Math.PI * 1.2), palette.of(CALICO.ginger));
+  tail.position.set(0.05, 0.42, -0.3);
+  tail.rotation.set(0, Math.PI / 2, -0.4);
+  const body = new THREE.Group().add(torso, head, patch(CALICO.ginger, -1), patch(CALICO.dark, 1), ...ear(CALICO.ginger, -1), ...ear(CALICO.dark, 1),
+    muzzle, nose, ...whiskers, collar, bell, tail, ...eyes(palette, headY + 0.02, headRadius));
+  const paw = (side: number) => limb({ x: side * 0.24, y: 0.55 }, post(fur, 0.06, 0.2, { x: 0, z: 0.02, y: -0.2 }), sphere(fur, 0.07, { y: -0.22, z: 0.03 }, 0));
+  const leftArm = paw(-1), rightArm = paw(1);
+  body.add(leftArm, rightArm);
+  const leg = () => [post(fur, 0.07, 0.16, { x: 0, z: 0, y: -0.18 }), sphere(fur, 0.085, { y: -0.19, z: 0.04 }, 0)];
+  const leftLeg = limb({ x: -0.12, y: 0.2 }, ...leg());
+  const rightLeg = limb({ x: 0.12, y: 0.2 }, ...leg());
+  const root = new THREE.Group().add(body, leftLeg, rightLeg);
+  return { root, body, leftLeg, rightLeg, leftArm, rightArm, armSwing: "forward" };
+}

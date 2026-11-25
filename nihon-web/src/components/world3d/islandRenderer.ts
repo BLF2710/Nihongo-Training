@@ -5,7 +5,7 @@ import type { Direction, Vector } from "../../lib/errands/movement";
 import { cameraDistance, personPosition } from "../../lib/world/islandModels";
 import type { Island3D } from "../../lib/world/islandModels";
 import { buildGround } from "./ground";
-import { FallingPetals } from "./fallingPetals";
+import { FallingPetals, PETAL_LOOKS } from "./fallingPetals";
 import { LivelyWater } from "./water";
 import type { ModelMaker } from "./models";
 import type { IslandWalker, Motion } from "./walkers";
@@ -108,9 +108,9 @@ export class IslandRenderer {
     this.sun.shadow.normalBias = 0.03;
     this.water = new LivelyWater(island.map, island.shore);
     this.scene.add(this.sun, this.sun.target, this.skyLight, this.water.mesh, buildGround(island.map, island.shore));
-    // Petals fall where it's their season.
-    if (island.weather === "petals" && this.isMoving) {
-      this.petals = new FallingPetals(Math.random);
+    // Petals (or leaves) fall where it's their season.
+    if (island.weather && this.isMoving) {
+      this.petals = new FallingPetals(Math.random, PETAL_LOOKS[island.weather]);
       this.scene.add(this.petals.mesh);
     }
     this.setDark(false);

@@ -1,21 +1,24 @@
 // Makes the Japanese islands' models and people from the builders in this folder: buildings by their look, trees by
-// their kind, the cast by who they are, and the traveller as the learner dressed them.
+// their kind, shrine pieces by theirs, the cast by who they are, and the traveller as the learner dressed them.
 import type * as THREE from "three";
 import type { CharacterId } from "../../../lib/cast.ts";
 import type { TravellerLook } from "../../../lib/travellerLook.ts";
 import type { ModelPlacement } from "../../../lib/world/islandModels.ts";
+import { propModel } from "../../../lib/world/islandProps.ts";
 import { TRAVELLER_MODEL, buildingModel, castModel, treeModel } from "../../../lib/world/japaneseIsland3D.ts";
 import { standOnGround, castsShadows } from "../models.ts";
 import type { ModelMaker } from "../models.ts";
 import type { IslandWalker } from "../walkers.ts";
 import { BUILDING_BUILDERS } from "./buildings.ts";
-import { BuiltPerson, chunRig, travellerRig } from "./people.ts";
+import { BuiltPerson, chunRig, tamaRig, travellerRig } from "./people.ts";
 import type { Rig } from "./people.ts";
 import { Palette } from "./shapes.ts";
 import { TREE_BUILDERS } from "./trees.ts";
+import { PROP_BUILDERS } from "./shrineProps.ts";
+import type { PropGround } from "./shrineProps.ts";
 
 type CastRig = (palette: Palette) => Rig;
-const CAST_RIGS: ReadonlyMap<CharacterId, CastRig> = new Map<CharacterId, CastRig>([["chun", chunRig]]);
+const CAST_RIGS: ReadonlyMap<CharacterId, CastRig> = new Map<CharacterId, CastRig>([["chun", chunRig], ["tama", tamaRig]]);
 /** A building without a roof colour of its own gets the plain wooden one. */
 const DEFAULT_ROOF = "wood";
 
@@ -25,10 +28,15 @@ export class UnbuiltModelError extends Error {
 
 type StandBuilder = (palette: Palette, placement: ModelPlacement) => THREE.Object3D;
 
+/** A piece's ground as it faces: turned east or west, what's across its front runs north to south. */
+const groundAsFacing = ({ at, facing }: ModelPlacement): PropGround =>
+  facing === "left" || facing === "right" ? { width: at.height, depth: at.width } : { width: at.width, depth: at.height };
+
 const STAND_BUILDERS: ReadonlyMap<string, StandBuilder> = new Map<string, StandBuilder>([
   ...[...BUILDING_BUILDERS].map(([look, build]): [string, StandBuilder] => [buildingModel(look),
     (palette, { at, roof = DEFAULT_ROOF, sign }) => build(palette, { width: at.width, depth: at.height, roof, sign })]),
   ...[...TREE_BUILDERS].map(([terrain, build]): [string, StandBuilder] => [treeModel(terrain), (palette, { at }) => build(palette, at)]),
+  ...[...PROP_BUILDERS].map(([kind, build]): [string, StandBuilder] => [propModel(kind), (palette, placement) => build(palette, groundAsFacing(placement))]),
 ]);
 const PERSON_RIGS: ReadonlyMap<string, CastRig> = new Map([...CAST_RIGS].map(([character, rig]) => [castModel(character), rig]));
 
@@ -49,7 +57,9 @@ export class JapaneseModelMaker implements ModelMaker {
   standModel(placement: ModelPlacement): Promise<THREE.Object3D> {
     const build = STAND_BUILDERS.get(placement.model);
     if (!build) return Promise.reject(new UnbuiltModelError(placement.model));
-    return Promise.resolve(standOnGround(build(this.palette, placement), placement));
+    const model = build(this.palette, placement);
+    model.scale.multiplyScalar(placement.scale);
+    return Promise.resolve(standOnGround(model, placement));
   }
 
   makePerson(model: string): Promise<IslandWalker> {

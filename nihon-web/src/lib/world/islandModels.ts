@@ -9,9 +9,9 @@ import type { RoofColour } from "../errands/village.ts";
 /** A model standing on the island. `at` is the ground it takes up (nobody walks there unless `isWalkable`); the model
  *  stands centred on it, drawn `scale` tiles to a model unit. `isMirrored` flips it east to west, so a row of the same
  *  house doesn't look stamped. A building made for the islands takes its `roof` colour and the Japanese `sign` over its
- *  door from the island's content. */
+ *  door from the island's content. `facing` turns a model to face that way (it faces south, the viewer, unless said). */
 export type ModelPlacement = {
-  model: string; at: Rect; scale: number; isWalkable?: boolean; isMirrored?: boolean; roof?: RoofColour; sign?: string;
+  model: string; at: Rect; scale: number; isWalkable?: boolean; isMirrored?: boolean; roof?: RoofColour; sign?: string; facing?: Direction;
 };
 
 /** A villager standing on a tile, facing one way. */
@@ -24,8 +24,8 @@ export type Hill = { x: number; y: number; radius: number; height: number };
  *  island's bridges over to it and the paths they lead on to, and hills further out. */
 export type FarShore = { land: readonly Rect[]; decks: readonly Rect[]; paths: readonly Rect[]; hills: readonly Hill[] };
 
-/** What falls through the air (cherry petals, on a sakura island). */
-export type Weather = "petals";
+/** What falls through the air: cherry petals on a sakura island, leaves in a bamboo grove. */
+export type Weather = "petals" | "leaves";
 
 /** Everything the 3D scene draws: the ground, what stands on it, the people, and the scenery beyond the shore
  *  (`backdrop` models, and a far `shore`). */

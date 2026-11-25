@@ -1,6 +1,7 @@
 // The islands' trees, built in code: one on each tree tile of the ground (a great one on a block of two by two). A
 // cherry tree is a gnarled trunk splitting into branches under a soft crown of round pink clumps, lighter where the
-// sun falls on them, with fallen petals round its foot. Each is different (its lean, branches and clumps follow from
+// sun falls on them, with fallen petals round its foot. A clump of bamboo is a few tall jointed canes, leaning a
+// little apart, with sprays of slim leaves near their tops. Each is different (its lean, branches and clumps follow from
 // its tile, so it's the same tree every visit), and each is one mesh of coloured parts, so a grove draws quickly.
 import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
@@ -119,4 +120,64 @@ const sakura: TreeBuilder = (palette, at) => {
   return new THREE.Mesh(geometry, palette.coloured());
 };
 
-export const TREE_BUILDERS: ReadonlyMap<Terrain, TreeBuilder> = new Map<Terrain, TreeBuilder>([["sakura", sakura]]);
+const CANE = { base: "#5c8f37", top: "#93c25a", joint: "#456f28" } as const;
+const BAMBOO_LEAF = { shade: "#5a9636", light: "#86c04f" } as const;
+/** A clump of bamboo on one tile, in tiles: how many canes (more on a bigger block, for its ground), how tall and
+ *  thick, how far apart its joints are, how far it leans, and how many sprays of leaves each cane holds. */
+const BAMBOO = {
+  canesPerTile: 4, shortest: 1.9, tallest: 2.7, caneRadius: 0.045, jointEvery: 0.38, lean: 0.12,
+  spraysPerCane: 7, leavesPerSpray: 5, leafLength: 0.34, leafWidth: 0.08,
+} as const;
+
+/** Round edges of a cane and its joints: few, as there are many canes in a grove. */
+const CANE_SIDES = 6;
+
+/** A cane from the ground to `top`, a little thinner at the top, ringed by a joint every so often. */
+function cane(top: THREE.Vector3, radius: number): THREE.BufferGeometry[] {
+  const length = top.length();
+  const upright = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), top.clone().normalize());
+  const stem = new THREE.CylinderGeometry(radius * 0.75, radius, length, CANE_SIDES, 1).translate(0, length / 2, 0).applyQuaternion(upright);
+  const parts = [painted(stem, CANE.base, CANE.top)];
+  for (let along = BAMBOO.jointEvery; along < length - 0.1; along += BAMBOO.jointEvery) {
+    const joint = new THREE.CylinderGeometry(radius * 1.15, radius * 1.15, 0.03, CANE_SIDES, 1, true)
+      .translate(0, along, 0).applyQuaternion(upright);
+    parts.push(painted(joint, CANE.joint));
+  }
+  return parts;
+}
+
+/** A spray of slim leaves off a cane at `at`, fanning out `towards` a side and drooping. */
+function leafSpray(at: THREE.Vector3, towards: number, random: () => number): THREE.BufferGeometry[] {
+  return Array.from({ length: BAMBOO.leavesPerSpray }, (_, leaf) => {
+    const blade = new THREE.SphereGeometry(1, 4, 2).scale(BAMBOO.leafLength / 2, 0.006, BAMBOO.leafWidth / 2);
+    const fan = (leaf - (BAMBOO.leavesPerSpray - 1) / 2) * 0.35;
+    blade.translate(BAMBOO.leafLength / 2, 0, 0).rotateZ(-0.5 - random() * 0.4).rotateY(towards + fan);
+    return painted(blade.translate(at.x, at.y, at.z), random() > 0.5 ? BAMBOO_LEAF.light : BAMBOO_LEAF.shade);
+  });
+}
+
+/** A clump of bamboo filling its ground: canes rising from all over it, each leaning a little its own way. */
+const bamboo: TreeBuilder = (palette, at) => {
+  const random = steadyRandom(at);
+  const parts: THREE.BufferGeometry[] = [];
+  const canes = BAMBOO.canesPerTile * at.width * at.height;
+  for (let index = 0; index < canes; index += 1) {
+    const foot = new THREE.Vector3((random() - 0.5) * at.width * 0.8, 0, (random() - 0.5) * at.height * 0.8);
+    const height = BAMBOO.shortest + random() * (BAMBOO.tallest - BAMBOO.shortest);
+    // Canes lean out from the clump's middle, as bamboo does, so the clump fans open towards the top.
+    const lean = foot.clone().setY(0).multiplyScalar(BAMBOO.lean * 2).add(new THREE.Vector3((random() - 0.5) * BAMBOO.lean, 0, (random() - 0.5) * BAMBOO.lean));
+    const top = new THREE.Vector3(lean.x * height, height, lean.z * height);
+    const radius = BAMBOO.caneRadius * (0.8 + random() * 0.4);
+    parts.push(...cane(top, radius).map(part => part.translate(foot.x, 0, foot.z)));
+    for (let spray = 0; spray < BAMBOO.spraysPerCane; spray += 1) {
+      const share = 0.5 + (spray / BAMBOO.spraysPerCane) * 0.5;
+      const sprayAt = top.clone().multiplyScalar(share).add(foot);
+      parts.push(...leafSpray(sprayAt, random() * Math.PI * 2, random));
+    }
+  }
+  const geometry = mergeGeometries(parts.map(part => part.index ? part.toNonIndexed() : part));
+  for (const part of parts) part.dispose();
+  return new THREE.Mesh(geometry, palette.coloured());
+};
+
+export const TREE_BUILDERS: ReadonlyMap<Terrain, TreeBuilder> = new Map<Terrain, TreeBuilder>([["sakura", sakura], ["bamboo", bamboo]]);
