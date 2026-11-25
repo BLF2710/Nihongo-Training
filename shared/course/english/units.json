@@ -1,0 +1,116 @@
+[
+  {
+    "id": "english-a2-unit-1",
+    "level": "A2",
+    "number": 1,
+    "sequence": 1,
+    "title": "People & Everyday Life",
+    "titleVi": "Con người và cuộc sống hằng ngày",
+    "description": "Introduce yourself and others, talk about routines, likes and family, and describe people, getting the -s endings right.",
+    "lessonIds": [
+      "english-a2-unit-1-introductions",
+      "english-a2-unit-1-daily-routines",
+      "english-a2-unit-1-likes-and-dislikes",
+      "english-a2-unit-1-family",
+      "english-a2-unit-1-describing-people",
+      "english-a2-unit-1-review"
+    ],
+    "assessmentId": "english-a2-unit-1-assessment",
+    "published": true
+  },
+  {
+    "id": "english-a2-unit-2",
+    "level": "A2",
+    "number": 2,
+    "sequence": 2,
+    "title": "Past Experiences",
+    "titleVi": "Những trải nghiệm đã qua",
+    "description": "Tell stories about the past with regular and irregular verbs, say when things happened, and pronounce -ed endings.",
+    "lessonIds": [
+      "english-a2-unit-2-last-weekend",
+      "english-a2-unit-2-irregular-verbs",
+      "english-a2-unit-2-time-expressions",
+      "english-a2-unit-2-past-continuous",
+      "english-a2-unit-2-telling-a-story",
+      "english-a2-unit-2-review"
+    ],
+    "assessmentId": "english-a2-unit-2-assessment",
+    "published": true
+  },
+  {
+    "id": "english-a2-unit-3",
+    "level": "A2",
+    "number": 3,
+    "sequence": 3,
+    "title": "Places & Directions",
+    "titleVi": "Địa điểm và chỉ đường",
+    "description": "Describe your town, say where things are, ask for and give directions, and compare places.",
+    "lessonIds": [
+      "english-a2-unit-3-my-town",
+      "english-a2-unit-3-prepositions-of-place",
+      "english-a2-unit-3-directions",
+      "english-a2-unit-3-comparing-places",
+      "english-a2-unit-3-the-best-places",
+      "english-a2-unit-3-review"
+    ],
+    "assessmentId": "english-a2-unit-3-assessment",
+    "published": true
+  },
+  {
+    "id": "english-a2-unit-4",
+    "level": "A2",
+    "number": 4,
+    "sequence": 4,
+    "title": "Food & Shopping",
+    "titleVi": "Đồ ăn và mua sắm",
+    "description": "Count what can and cannot be counted, order politely in a café, and shop for what you need.",
+    "lessonIds": [
+      "english-a2-unit-4-countable-and-uncountable",
+      "english-a2-unit-4-how-much-how-many",
+      "english-a2-unit-4-in-a-cafe",
+      "english-a2-unit-4-at-the-shops",
+      "english-a2-unit-4-recipes",
+      "english-a2-unit-4-review"
+    ],
+    "assessmentId": "english-a2-unit-4-assessment",
+    "published": true
+  },
+  {
+    "id": "english-a2-unit-5",
+    "level": "A2",
+    "number": 5,
+    "sequence": 5,
+    "title": "Plans & the Future",
+    "titleVi": "Kế hoạch và tương lai",
+    "description": "Talk about plans, arrangements and quick decisions, and make and answer invitations.",
+    "lessonIds": [
+      "english-a2-unit-5-going-to",
+      "english-a2-unit-5-arrangements",
+      "english-a2-unit-5-will-for-decisions",
+      "english-a2-unit-5-invitations",
+      "english-a2-unit-5-making-plans",
+      "english-a2-unit-5-review"
+    ],
+    "assessmentId": "english-a2-unit-5-assessment",
+    "published": true
+  },
+  {
+    "id": "english-a2-unit-6",
+    "level": "A2",
+    "number": 6,
+    "sequence": 6,
+    "title": "Health & Advice",
+    "titleVi": "Sức khoẻ và lời khuyên",
+    "description": "Say how you feel, see a doctor, and give and ask for advice with should and have to.",
+    "lessonIds": [
+      "english-a2-unit-6-how-do-you-feel",
+      "english-a2-unit-6-at-the-doctors",
+      "english-a2-unit-6-should",
+      "english-a2-unit-6-have-to",
+      "english-a2-unit-6-healthy-habits",
+      "english-a2-unit-6-review"
+    ],
+    "assessmentId": "english-a2-unit-6-assessment",
+    "published": true
+  }
+]

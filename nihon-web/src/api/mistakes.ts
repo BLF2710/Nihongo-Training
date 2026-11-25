@@ -40,18 +40,18 @@ export async function recordLessonAnswers(lessonId: string, answers: LessonAnswe
   await api.post(`/mistakes/lessons/${encodeURIComponent(lessonId)}`, { answers });
 }
 
-type ChallengeQuestion = { prompt: string; options: string[]; correct: string; explanation?: string };
+type ChallengeQuestion = { prompt: string; options: readonly string[]; correct: string; explanation?: string };
 
 /**
  * Sends a finished lesson's challenge answers to the mistake notebook (wrong ones are noted, right ones count
  * toward clearing earlier mistakes). Failure is not shown: the lesson itself is already saved.
  */
-export function recordLessonChallenge(lessonId: string, questions: ChallengeQuestion[], answers: Record<number, string>) {
+export function recordLessonChallenge(lessonId: string, questions: readonly ChallengeQuestion[], answers: Record<number, string>) {
   const answered = questions.flatMap((question, index) => {
     const given = answers[index];
     if (given === undefined) return [];
     const { prompt, options, correct, explanation } = question;
-    return [{ prompt, options, answer: correct, given, correct: given === correct, ...(explanation ? { explanation } : {}) }];
+    return [{ prompt, options: [...options], answer: correct, given, correct: given === correct, ...(explanation ? { explanation } : {}) }];
   });
   if (answered.length) void recordLessonAnswers(lessonId, answered).catch(() => { /* see above */ });
 }

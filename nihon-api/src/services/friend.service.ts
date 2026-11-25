@@ -18,6 +18,7 @@ import { getLevelFromXP, getRankFromXP } from "./progression.service";
 import { publish } from "./realtime.service";
 import type { RealtimeEvent } from "./realtime.service";
 import { celebrateSavedWork } from "./gamification.service";
+import { courseLevelOf } from "../learning/courseLevel";
 
 const REQUESTS_PER_HOUR = 20;
 const MAX_PENDING_SENT = 50;
@@ -244,7 +245,7 @@ export async function getPublicProfile(viewerId: number, username: unknown) {
       xp, level: getLevelFromXP(xp), rank: getRankFromXP(xp),
       currentStreak: Number(details?.current_streak ?? 0), longestStreak: Number(details?.longest_streak ?? 0), activeToday: Boolean(details?.active_today),
       lessonsCompleted: Number(details?.lessons_completed ?? 0), unitsPassed: passedUnits.length,
-      latestUnit: latest ? { level: /^japanese-(n[1-5])-/.exec(latest.id)?.[1].toUpperCase() ?? "", number: latest.number, title: latest.title } : null,
+      latestUnit: latest ? { level: courseLevelOf(latest.id), number: latest.number, title: latest.title } : null,
       achievements: achievements.map(item => ({ id: item.id, title: item.title, description: item.description, earnedAt: item.earned_at })),
       friends,
       friendStreak: extras?.streaks.get(owner.id) ?? null,

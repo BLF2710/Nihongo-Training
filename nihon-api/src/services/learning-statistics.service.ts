@@ -9,19 +9,19 @@ import { getDailyGoalMinutes, listDailySeconds } from "../repositories/study-tim
 import { characterProgress } from "./character-progress";
 import { catalog } from "./kanji.service";
 import { getSummary as getSrsSummary } from "./srs.service";
+import { courseLevelOf } from "../learning/courseLevel";
 
 const STUDY_DAYS = 14;
 const LESSON_WEEKS = 8;
 const RECENT_MOCK_EXAMS = 10;
 const SECONDS_PER_MINUTE = 60;
 
-const levelOfUnit = (unitId: string) => /^japanese-(n[1-5])-/.exec(unitId)?.[1].toUpperCase() ?? "";
 
 async function getAssessmentResults(userId: number) {
   const progress = new Map((await listAssessmentProgress(userId)).map(row => [row.assessment_id, row]));
   return UNITS.filter(unit => unit.assessmentId && progress.has(unit.assessmentId)).map(unit => {
     const row = progress.get(unit.assessmentId ?? "");
-    return { unitId: unit.id, level: levelOfUnit(unit.id), number: unit.number, title: unit.title, bestScore: Number(row?.best_score ?? 0), isPassed: Boolean(row?.passed_at) };
+    return { unitId: unit.id, level: courseLevelOf(unit.id), number: unit.number, title: unit.title, bestScore: Number(row?.best_score ?? 0), isPassed: Boolean(row?.passed_at) };
   });
 }
 

@@ -9,7 +9,7 @@ import { useUserAvatar } from "../lib/userAvatar";
 import { avatarUrl } from "../lib/avatar";
 import NotificationBell from "./NotificationBell";
 import LiveNotifications from "./LiveNotifications";
-import { useCourseLevel } from "../lib/courseLevel";
+import { useCourseLevel, useEnglishCourseLevel } from "../lib/courseLevel";
 import { useInboxSummary } from "../lib/inbox";
 import { syncTimeZone } from "../lib/timeZone";
 import { ThemeButton } from "./ThemeToggle";
@@ -31,6 +31,7 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
   const location = useLocation();
   const { language, supportedLanguages } = useLanguage();
   const courseLevel = useCourseLevel();
+  const englishLevel = useEnglishCourseLevel();
   const currentLanguage = supportedLanguages.find(item => item.id === language);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -148,9 +149,15 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
               {link("/srs", "🗂️", "Daily review", location.pathname === "/srs")}
               {link("/mistakes", "📒", "Mistake notebook", location.pathname === "/mistakes")}
             </div>}</div>
-          </> : <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
-            {link("/arcade", "🧩", "English Arcade", location.pathname.startsWith("/arcade"))}
-          </div>}</div>}
+          </> : <>
+            <div className="mb-4">{sectionButton("Learn", "learn")}{sectionsOpen.learn && <div className="mt-1 space-y-1">
+              <button onClick={() => go("/levels")} className={`${navItem} ${active(location.pathname === "/levels")}`}><span aria-hidden="true">🏰</span> Level <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">{englishLevel} · Change</span></button>
+              {link("/lessons", "📖", "Lessons", location.pathname.startsWith("/lessons"))}
+            </div>}</div>
+            <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
+              {link("/arcade", "🧩", "English Arcade", location.pathname.startsWith("/arcade"))}
+            </div>}</div>
+          </>}
           <div className="mt-4">{sectionButton("Community", "community")}{sectionsOpen.community && <div className="mt-1 space-y-1">
             {[["/support", "🛟", "Help & support", inbox?.support ?? 0]].map(([path, icon, label, unread]) =>
               <button key={path as string} onClick={() => go(path as string)} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith(path as string))}`}>

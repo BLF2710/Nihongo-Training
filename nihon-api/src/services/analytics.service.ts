@@ -3,9 +3,9 @@ import {
   assessmentResults, countActiveLearners, countLessonCompletions, countUnitProgress, dailyActiveLearners, practiceVolume,
 } from "../repositories/analytics.repository";
 import { findLesson } from "./lesson.service";
+import { courseLevelOf } from "../learning/courseLevel";
 
 const DAILY_WINDOW = 14;
-const levelOf = (unitId: string) => /^japanese-(n[1-5])-/.exec(unitId)?.[1].toUpperCase() ?? "";
 
 /**
  * The admin overview's learning analytics: who is active, how far learners get through each unit,
@@ -22,7 +22,7 @@ export async function getLearningAnalytics() {
     const progress = unitProgress.get(unit.id) ?? { started: 0, finishedLessons: 0 };
     const results = (unit.assessmentId && assessments.get(unit.assessmentId)) || { attempted: 0, passed: 0, averageBest: 0 };
     return {
-      unitId: unit.id, level: levelOf(unit.id), number: unit.number, title: unit.title,
+      unitId: unit.id, level: courseLevelOf(unit.id), number: unit.number, title: unit.title,
       started: progress.started, finishedLessons: progress.finishedLessons,
       assessment: { ...results, passRate: results.attempted ? Math.round(results.passed * 100 / results.attempted) : null },
     };
@@ -33,7 +33,7 @@ export async function getLearningAnalytics() {
     const previousId = unit.lessonIds[index];
     const before = completions.get(previousId) ?? 0, after = completions.get(lessonId) ?? 0;
     return {
-      unitId: unit.id, level: levelOf(unit.id), unitNumber: unit.number,
+      unitId: unit.id, level: courseLevelOf(unit.id), unitNumber: unit.number,
       from: { id: previousId, title: findLesson(previousId)?.title ?? previousId, completed: before },
       to: { id: lessonId, title: findLesson(lessonId)?.title ?? lessonId, completed: after },
       lost: Math.max(0, before - after),

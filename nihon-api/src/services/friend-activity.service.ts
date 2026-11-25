@@ -7,6 +7,7 @@ import type { LearnerRow } from "../repositories/friendship.repository";
 import { HttpError } from "../utils/http-error";
 import { bell, findOther, person, requireLearner } from "./friend.service";
 import { publish } from "./realtime.service";
+import { courseLevelOf } from "../learning/courseLevel";
 
 const FEED_DAYS = 14;
 const FEED_LIMIT = 50;
@@ -15,7 +16,7 @@ const NUDGE_COOL_DOWN_HOURS = 20;
 
 const unitOfAssessment = (assessmentId: string) => {
   const unit = UNITS.find(item => item.assessmentId === assessmentId);
-  return unit ? { level: /^japanese-(n[1-5])-/.exec(unit.id)?.[1].toUpperCase() ?? "", number: unit.number, title: unit.title } : null;
+  return unit ? { level: courseLevelOf(unit.id), number: unit.number, title: unit.title } : null;
 };
 
 function toFeedItem(row: FeedRow) {

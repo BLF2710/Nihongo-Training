@@ -1,6 +1,8 @@
 {
+  "type": "module",
   "scripts": {
     "course:import": "node scripts/import-course.mjs",
+    "course:import-english": "node --experimental-strip-types scripts/import-english-course.ts",
     "test": "sh tests/run.sh all",
     "test:unit": "sh tests/run.sh unit",
     "test:db": "sh tests/run.sh db",

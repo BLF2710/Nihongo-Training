@@ -1,0 +1,1118 @@
+[
+  {
+    "id": "english-a2-unit-1-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "job-article",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "My mother is teacher.",
+          "My mother is a teacher.",
+          "My mother teacher.",
+          "My mother is an teacher."
+        ],
+        "correctIndex": 1,
+        "explanation": "One job after be needs a or an."
+      },
+      {
+        "id": "an-engineer",
+        "prompt": "Complete: He's ___ engineer.",
+        "options": [
+          "a",
+          "the",
+          "an",
+          "—"
+        ],
+        "correctIndex": 2,
+        "explanation": "Engineer starts with a vowel sound, so an."
+      },
+      {
+        "id": "be-plural",
+        "prompt": "Complete: Lan and Huy ___ my colleagues.",
+        "options": [
+          "are",
+          "is",
+          "be",
+          "am"
+        ],
+        "correctIndex": 0,
+        "explanation": "Two people: are."
+      },
+      {
+        "id": "third-person-s",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "She live near the river.",
+          "She is live near the river.",
+          "She living near the river.",
+          "She lives near the river."
+        ],
+        "correctIndex": 3,
+        "explanation": "Add -s after he / she / it."
+      },
+      {
+        "id": "es-ending",
+        "prompt": "Complete: My son ___ TV after school.",
+        "options": [
+          "watches",
+          "watch",
+          "watching",
+          "watchs"
+        ],
+        "correctIndex": 0,
+        "explanation": "Watch ends in -ch, so it takes -es."
+      },
+      {
+        "id": "does-question",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "Does he commutes by train?",
+          "Do he commute by train?",
+          "Does he commute by train?",
+          "Is he commute by train?"
+        ],
+        "correctIndex": 2,
+        "explanation": "Does + verb without -s."
+      },
+      {
+        "id": "frequency-position",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I have breakfast rarely always.",
+          "I rarely have breakfast.",
+          "Rarely I have breakfast rarely.",
+          "I have rarely breakfast."
+        ],
+        "correctIndex": 1,
+        "explanation": "How-often words go before the main verb."
+      },
+      {
+        "id": "like-ing",
+        "prompt": "Complete: They love ___ karaoke.",
+        "options": [
+          "singing",
+          "to singing",
+          "sing",
+          "sings"
+        ],
+        "correctIndex": 0,
+        "explanation": "Love + verb-ing."
+      },
+      {
+        "id": "prefer-to",
+        "prompt": "Complete: I prefer swimming ___ running.",
+        "options": [
+          "to",
+          "with",
+          "than",
+          "from"
+        ],
+        "correctIndex": 0,
+        "explanation": "Prefer A to B."
+      },
+      {
+        "id": "short-answer",
+        "prompt": "“Do you like shopping?” Choose the best answer.",
+        "options": [
+          "No, don't.",
+          "No, I not.",
+          "No, I don't.",
+          "No, I'm not like."
+        ],
+        "correctIndex": 2,
+        "explanation": "Short answers to Do you …? use do / don't."
+      },
+      {
+        "id": "have-got-question",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "Do you got any siblings?",
+          "Got you any siblings?",
+          "Have you got any siblings?",
+          "Are you got any siblings?"
+        ],
+        "correctIndex": 2,
+        "explanation": "Have got questions start with Have / Has."
+      },
+      {
+        "id": "possessive",
+        "prompt": "Choose the natural English.",
+        "options": [
+          "my cousin's car",
+          "car my cousin's",
+          "the car of my cousin",
+          "my cousin car"
+        ],
+        "correctIndex": 0,
+        "explanation": "Owner first with 's."
+      },
+      {
+        "id": "plural-possessive",
+        "prompt": "Complete: Both my ___ jobs are in Hanoi. (I have two sisters.)",
+        "options": [
+          "sisters'",
+          "sisters's",
+          "sisters",
+          "sister's"
+        ],
+        "correctIndex": 0,
+        "explanation": "A plural owner ending in -s takes only the apostrophe."
+      },
+      {
+        "id": "be-adjective",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "My grandmother very kind.",
+          "My grandmother is very kind.",
+          "My grandmother does very kind.",
+          "My grandmother kind very."
+        ],
+        "correctIndex": 1,
+        "explanation": "Be before an adjective."
+      },
+      {
+        "id": "look-like",
+        "prompt": "“What does your brother look like?” Choose the best answer.",
+        "options": [
+          "He's very hard-working.",
+          "He's tall and slim.",
+          "He's an engineer.",
+          "He enjoys football."
+        ],
+        "correctIndex": 1,
+        "explanation": "Look like asks about appearance."
+      }
+    ]
+  },
+  {
+    "id": "english-a2-unit-2-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "past-regular",
+        "prompt": "Complete: Yesterday I ___ my grandparents.",
+        "options": [
+          "visits",
+          "visiting",
+          "visited",
+          "visit"
+        ],
+        "correctIndex": 2,
+        "explanation": "A finished time needs the past simple."
+      },
+      {
+        "id": "ied-spelling",
+        "prompt": "Complete: He ___ English at university.",
+        "options": [
+          "studies",
+          "studied",
+          "studyied",
+          "studyed"
+        ],
+        "correctIndex": 1,
+        "explanation": "Consonant + y becomes -ied."
+      },
+      {
+        "id": "did-question",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "Did you go out last night?",
+          "Did you went out last night?",
+          "Went you out last night?",
+          "Do you went out last night?"
+        ],
+        "correctIndex": 0,
+        "explanation": "Did + base verb."
+      },
+      {
+        "id": "didnt-base",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "She not ate breakfast.",
+          "She doesn't ate breakfast.",
+          "She didn't eat breakfast.",
+          "She didn't ate breakfast."
+        ],
+        "correctIndex": 2,
+        "explanation": "Didn't + base verb."
+      },
+      {
+        "id": "irregular-buy",
+        "prompt": "Complete: I ___ a new laptop last month.",
+        "options": [
+          "buyed",
+          "brought",
+          "bought",
+          "buy"
+        ],
+        "correctIndex": 2,
+        "explanation": "Buy – bought."
+      },
+      {
+        "id": "irregular-take",
+        "prompt": "Complete: We ___ a taxi to the airport.",
+        "options": [
+          "took",
+          "taked",
+          "take",
+          "taken"
+        ],
+        "correctIndex": 0,
+        "explanation": "Take – took."
+      },
+      {
+        "id": "ed-sound",
+        "prompt": "In which word does -ed sound like /ɪd/?",
+        "options": [
+          "played",
+          "cleaned",
+          "watched",
+          "wanted"
+        ],
+        "correctIndex": 3,
+        "explanation": "After t, -ed is /ɪd/."
+      },
+      {
+        "id": "ago",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I met him ago six months.",
+          "I met him before six months.",
+          "I met him six months ago.",
+          "I meet him six months ago."
+        ],
+        "correctIndex": 2,
+        "explanation": "Time + ago, with the past simple."
+      },
+      {
+        "id": "no-prep-last",
+        "prompt": "Complete: They got married ___ year.",
+        "options": [
+          "in last",
+          "the last",
+          "on last",
+          "last"
+        ],
+        "correctIndex": 3,
+        "explanation": "No preposition before last."
+      },
+      {
+        "id": "last-night",
+        "prompt": "Choose the natural English.",
+        "options": [
+          "I slept badly in last night.",
+          "I slept badly last night.",
+          "I slept badly yesterday night.",
+          "I slept badly the last night."
+        ],
+        "correctIndex": 1,
+        "explanation": "Last night, not yesterday night."
+      },
+      {
+        "id": "past-continuous-form",
+        "prompt": "Complete: At midnight they ___ a film.",
+        "options": [
+          "were watch",
+          "watching",
+          "were watching",
+          "was watching"
+        ],
+        "correctIndex": 2,
+        "explanation": "They + were + -ing."
+      },
+      {
+        "id": "when-interrupt",
+        "prompt": "Choose the best sentence.",
+        "options": [
+          "I have a shower when the doorbell rang.",
+          "I was having a shower when the doorbell rang.",
+          "I was having a shower when the doorbell was ring.",
+          "I had a shower when the doorbell was ringing."
+        ],
+        "correctIndex": 1,
+        "explanation": "Long action: past continuous; short action: past simple."
+      },
+      {
+        "id": "while-long",
+        "prompt": "Complete: ___ she was driving, she listened to the radio.",
+        "options": [
+          "While",
+          "During",
+          "Ago",
+          "In the end"
+        ],
+        "correctIndex": 0,
+        "explanation": "While + the longer action."
+      },
+      {
+        "id": "in-the-end",
+        "prompt": "Complete: We looked everywhere. ___, we found the keys in the car.",
+        "options": [
+          "At the end",
+          "First of all",
+          "In the end",
+          "In the end of"
+        ],
+        "correctIndex": 2,
+        "explanation": "In the end = finally, after everything."
+      },
+      {
+        "id": "embarrassed",
+        "prompt": "Complete: I called my teacher “Mum”. I was so ___!",
+        "options": [
+          "relaxing",
+          "embarrassed",
+          "lucky",
+          "embarrassing"
+        ],
+        "correctIndex": 1,
+        "explanation": "-ed adjectives say how a person feels."
+      }
+    ]
+  },
+  {
+    "id": "english-a2-unit-3-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "there-is",
+        "prompt": "Complete: There ___ a big park in my town.",
+        "options": [
+          "are",
+          "is",
+          "has",
+          "have"
+        ],
+        "correctIndex": 1,
+        "explanation": "One thing: there is."
+      },
+      {
+        "id": "there-are",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Have some good shops here.",
+          "There is some good shops here.",
+          "There are any good shops here.",
+          "There are some good shops here."
+        ],
+        "correctIndex": 3,
+        "explanation": "Plural: there are; some in positive sentences."
+      },
+      {
+        "id": "is-there",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "Have a bank near here?",
+          "There is a bank near here?",
+          "Is there a bank near here?",
+          "Has it a bank near here?"
+        ],
+        "correctIndex": 2,
+        "explanation": "Is there + one thing?"
+      },
+      {
+        "id": "any-negative",
+        "prompt": "Complete: There aren't ___ cinemas in my village.",
+        "options": [
+          "a",
+          "some",
+          "any",
+          "no"
+        ],
+        "correctIndex": 2,
+        "explanation": "Any in negatives."
+      },
+      {
+        "id": "between",
+        "prompt": "Complete: The café is between the bank ___ the post office.",
+        "options": [
+          "and",
+          "to",
+          "or",
+          "with"
+        ],
+        "correctIndex": 0,
+        "explanation": "Between A and B."
+      },
+      {
+        "id": "opposite-no-of",
+        "prompt": "Choose the correct phrase.",
+        "options": [
+          "opposite the school",
+          "opposite of the school",
+          "opposite to of the school",
+          "in opposite the school"
+        ],
+        "correctIndex": 0,
+        "explanation": "Opposite needs no of."
+      },
+      {
+        "id": "on-street",
+        "prompt": "Complete: I live ___ Nguyen Hue Street.",
+        "options": [
+          "of",
+          "to",
+          "on",
+          "at"
+        ],
+        "correctIndex": 2,
+        "explanation": "On with street names."
+      },
+      {
+        "id": "at-address",
+        "prompt": "Complete: The shop is ___ 45 Hang Bac Street.",
+        "options": [
+          "in",
+          "to",
+          "at",
+          "on"
+        ],
+        "correctIndex": 2,
+        "explanation": "At with an exact address."
+      },
+      {
+        "id": "imperative",
+        "prompt": "Choose the correct direction.",
+        "options": [
+          "Turns left at the roundabout.",
+          "You turning left at the roundabout.",
+          "Turn left at the roundabout.",
+          "To turn left at the roundabout."
+        ],
+        "correctIndex": 2,
+        "explanation": "Directions use the base verb."
+      },
+      {
+        "id": "polite-question",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "Could you tell me where is the museum?",
+          "Could you tell me the museum where is?",
+          "Could you tell me where the museum is?",
+          "Could you tell me where does the museum?"
+        ],
+        "correctIndex": 2,
+        "explanation": "After where, subject then verb."
+      },
+      {
+        "id": "comparative-er",
+        "prompt": "Complete: My village is ___ than Hanoi.",
+        "options": [
+          "more small",
+          "smallest",
+          "smaller",
+          "more smaller"
+        ],
+        "correctIndex": 2,
+        "explanation": "Short adjective + -er."
+      },
+      {
+        "id": "comparative-more",
+        "prompt": "Complete: Taxis are ___ than buses.",
+        "options": [
+          "more expensive",
+          "expensiver",
+          "most expensive",
+          "more expensiver"
+        ],
+        "correctIndex": 0,
+        "explanation": "Long adjective: more."
+      },
+      {
+        "id": "than",
+        "prompt": "Complete: Today is hotter ___ yesterday.",
+        "options": [
+          "as",
+          "that",
+          "than",
+          "from"
+        ],
+        "correctIndex": 2,
+        "explanation": "Comparisons use than."
+      },
+      {
+        "id": "superlative-irregular",
+        "prompt": "Complete: It's the ___ film I've ever seen. (good)",
+        "options": [
+          "goodest",
+          "most good",
+          "best",
+          "better"
+        ],
+        "correctIndex": 2,
+        "explanation": "Good – better – the best."
+      },
+      {
+        "id": "superlative-in",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "It's the most busiest market in the city.",
+          "It's the busiest market of the city.",
+          "It's busiest market in the city.",
+          "It's the busiest market in the city."
+        ],
+        "correctIndex": 3,
+        "explanation": "The + -iest, in + place."
+      }
+    ]
+  },
+  {
+    "id": "english-a2-unit-4-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "uncountable-a",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Would you like an rice?",
+          "Would you like a rice?",
+          "Would you like some rice?",
+          "Would you like some rices?"
+        ],
+        "correctIndex": 2,
+        "explanation": "Rice is uncountable."
+      },
+      {
+        "id": "loaf",
+        "prompt": "Complete: Could I have two ___ of bread?",
+        "options": [
+          "loaves",
+          "loafs",
+          "pieces bread",
+          "breads"
+        ],
+        "correctIndex": 0,
+        "explanation": "Loaf – loaves."
+      },
+      {
+        "id": "bottle-of",
+        "prompt": "Choose the correct phrase.",
+        "options": [
+          "a waters",
+          "a bottle of water",
+          "a water bottle of",
+          "one bottle water of"
+        ],
+        "correctIndex": 1,
+        "explanation": "Container + of + uncountable noun."
+      },
+      {
+        "id": "how-much-money",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "How much money have you got?",
+          "How much moneys have you got?",
+          "How many money have you got?",
+          "How many moneys have you got?"
+        ],
+        "correctIndex": 0,
+        "explanation": "Money is uncountable."
+      },
+      {
+        "id": "how-many",
+        "prompt": "Complete: How ___ brothers have you got?",
+        "options": [
+          "few",
+          "lot",
+          "many",
+          "much"
+        ],
+        "correctIndex": 2,
+        "explanation": "Countable plural: how many."
+      },
+      {
+        "id": "a-few",
+        "prompt": "Complete: I bought ___ oranges at the market.",
+        "options": [
+          "a few",
+          "a little",
+          "an",
+          "much"
+        ],
+        "correctIndex": 0,
+        "explanation": "Countable: a few."
+      },
+      {
+        "id": "a-little",
+        "prompt": "Complete: Just ___ milk in my tea, please.",
+        "options": [
+          "many",
+          "a few",
+          "a",
+          "a little"
+        ],
+        "correctIndex": 3,
+        "explanation": "Uncountable: a little."
+      },
+      {
+        "id": "polite-order",
+        "prompt": "Choose the most polite order.",
+        "options": [
+          "Lemonade, quickly.",
+          "I want a lemonade.",
+          "Give me a lemonade.",
+          "Could I have a lemonade, please?"
+        ],
+        "correctIndex": 3,
+        "explanation": "Could I have …, please?"
+      },
+      {
+        "id": "offer-answer",
+        "prompt": "“Would you like some dessert?” Choose the best answer.",
+        "options": [
+          "Yes, I like.",
+          "Yes, I would like.",
+          "Yes, I do.",
+          "Yes, please."
+        ],
+        "correctIndex": 3,
+        "explanation": "Answer an offer with Yes, please."
+      },
+      {
+        "id": "how-much-are",
+        "prompt": "Complete: How much ___ these trousers?",
+        "options": [
+          "does",
+          "do",
+          "is",
+          "are"
+        ],
+        "correctIndex": 3,
+        "explanation": "Trousers is plural."
+      },
+      {
+        "id": "too-problem",
+        "prompt": "Complete: I can't buy it. It's ___ expensive.",
+        "options": [
+          "so much",
+          "very much",
+          "enough",
+          "too"
+        ],
+        "correctIndex": 3,
+        "explanation": "Too = more than you want, a problem."
+      },
+      {
+        "id": "enough-position",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "The bag isn't big too.",
+          "The bag isn't enough big.",
+          "The bag isn't big enough.",
+          "The bag is enough not big."
+        ],
+        "correctIndex": 2,
+        "explanation": "Adjective + enough."
+      },
+      {
+        "id": "try-on",
+        "prompt": "Complete: Can I ___ these shoes on?",
+        "options": [
+          "wear",
+          "try",
+          "test",
+          "fit"
+        ],
+        "correctIndex": 1,
+        "explanation": "Try something on."
+      },
+      {
+        "id": "imperative-recipe",
+        "prompt": "Choose the correct instruction.",
+        "options": [
+          "To chop onions you.",
+          "Chopping the onions.",
+          "You chops the onions.",
+          "Chop the onions."
+        ],
+        "correctIndex": 3,
+        "explanation": "Instructions use the base verb."
+      },
+      {
+        "id": "for-time",
+        "prompt": "Complete: Boil the eggs ___ eight minutes.",
+        "options": [
+          "since",
+          "until",
+          "during",
+          "for"
+        ],
+        "correctIndex": 3,
+        "explanation": "For + a length of time."
+      }
+    ]
+  },
+  {
+    "id": "english-a2-unit-5-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "going-to-be",
+        "prompt": "Complete: They ___ going to buy a new car.",
+        "options": [
+          "is",
+          "—",
+          "do",
+          "are"
+        ],
+        "correctIndex": 3,
+        "explanation": "They + are + going to."
+      },
+      {
+        "id": "going-to-form",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I'm going start a new course.",
+          "I'm going to starting a new course.",
+          "I'm going to start a new course.",
+          "I going to start a new course."
+        ],
+        "correctIndex": 2,
+        "explanation": "Am + going to + base verb."
+      },
+      {
+        "id": "going-to-evidence",
+        "prompt": "Look at the sky! It ___.",
+        "options": [
+          "'s rain",
+          "rained",
+          "rain",
+          "'s going to rain"
+        ],
+        "correctIndex": 3,
+        "explanation": "You can see it coming: going to."
+      },
+      {
+        "id": "arrangement",
+        "prompt": "Complete: We ___ dinner with Lan's parents on Sunday. It's all arranged.",
+        "options": [
+          "'re have",
+          "have",
+          "had",
+          "'re having"
+        ],
+        "correctIndex": 3,
+        "explanation": "An arrangement: present continuous."
+      },
+      {
+        "id": "what-are-you-doing",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "What do you doing tonight?",
+          "What are you do tonight?",
+          "What are you doing tonight?",
+          "What you are doing tonight?"
+        ],
+        "correctIndex": 2,
+        "explanation": "What + are + you + -ing?"
+      },
+      {
+        "id": "ill-decision",
+        "prompt": "“There's no milk.” “Oh, I ___ some.”",
+        "options": [
+          "bought",
+          "'ll buy",
+          "'m buying last week",
+          "buy yesterday"
+        ],
+        "correctIndex": 1,
+        "explanation": "A decision made now: I'll."
+      },
+      {
+        "id": "will-vs-going-to",
+        "prompt": "You booked the hotel last week. Say…",
+        "options": [
+          "I stayed in Da Lat next week.",
+          "I'll stay in Da Lat, I decide now.",
+          "I going to stay in Da Lat.",
+          "I'm going to stay in Da Lat for three nights."
+        ],
+        "correctIndex": 3,
+        "explanation": "A plan made before: going to."
+      },
+      {
+        "id": "promise-wont",
+        "prompt": "Complete: I promise I ___ forget.",
+        "options": [
+          "am not",
+          "don't",
+          "not will",
+          "won't"
+        ],
+        "correctIndex": 3,
+        "explanation": "Won't for a promise."
+      },
+      {
+        "id": "shall-offer",
+        "prompt": "Choose the polite offer.",
+        "options": [
+          "Shall I help you with that?",
+          "I shall helped you.",
+          "Shall you help me?",
+          "Do I shall help you?"
+        ],
+        "correctIndex": 0,
+        "explanation": "Shall I + verb?"
+      },
+      {
+        "id": "lend-borrow",
+        "prompt": "Complete: Could you ___ me your dictionary?",
+        "options": [
+          "lend",
+          "borrow",
+          "offer",
+          "carry"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lend to someone."
+      },
+      {
+        "id": "would-you-like-to",
+        "prompt": "Choose the correct invitation.",
+        "options": [
+          "Do you like come to the party?",
+          "Would you like come to the party?",
+          "Would you like coming to the party?",
+          "Would you like to come to the party?"
+        ],
+        "correctIndex": 3,
+        "explanation": "Would you like to + verb."
+      },
+      {
+        "id": "fancy-ing",
+        "prompt": "Complete: Do you fancy ___ for a pizza?",
+        "options": [
+          "went",
+          "going",
+          "go",
+          "to go"
+        ],
+        "correctIndex": 1,
+        "explanation": "Fancy + -ing."
+      },
+      {
+        "id": "polite-refusal",
+        "prompt": "Choose the most polite refusal.",
+        "options": [
+          "No.",
+          "I don't want to come.",
+          "I'm afraid I can't. I'm visiting my aunt.",
+          "No, busy."
+        ],
+        "correctIndex": 2,
+        "explanation": "I'm afraid + a reason."
+      },
+      {
+        "id": "lets-base",
+        "prompt": "Choose the correct suggestion.",
+        "options": [
+          "Let's going to the market.",
+          "Let's we go to the market.",
+          "Let's to go to the market.",
+          "Let's go to the market."
+        ],
+        "correctIndex": 3,
+        "explanation": "Let's + base verb."
+      },
+      {
+        "id": "how-about-ing",
+        "prompt": "Complete: How about ___ the bus?",
+        "options": [
+          "took",
+          "taking",
+          "to take",
+          "take"
+        ],
+        "correctIndex": 1,
+        "explanation": "How about + -ing."
+      }
+    ]
+  },
+  {
+    "id": "english-a2-unit-6-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "a-illness",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I'm sore throat.",
+          "I have sore throats.",
+          "I've got sore throat.",
+          "I've got a sore throat."
+        ],
+        "correctIndex": 3,
+        "explanation": "A + illness."
+      },
+      {
+        "id": "hurts",
+        "prompt": "Complete: My head ___.",
+        "options": [
+          "hurt me is",
+          "hurting",
+          "hurts",
+          "is hurt"
+        ],
+        "correctIndex": 2,
+        "explanation": "Body part + hurts."
+      },
+      {
+        "id": "feel",
+        "prompt": "Complete: I ___ sick after the boat trip.",
+        "options": [
+          "had",
+          "felt",
+          "got a",
+          "hurt"
+        ],
+        "correctIndex": 1,
+        "explanation": "Feel sick; past: felt."
+      },
+      {
+        "id": "for-duration",
+        "prompt": "Complete: I've had this cough ___ ten days.",
+        "options": [
+          "since",
+          "for",
+          "from",
+          "ago"
+        ],
+        "correctIndex": 1,
+        "explanation": "For + a length of time."
+      },
+      {
+        "id": "since-start",
+        "prompt": "Complete: He's had a temperature ___ Monday.",
+        "options": [
+          "for",
+          "during",
+          "since",
+          "ago"
+        ],
+        "correctIndex": 2,
+        "explanation": "Since + a starting point."
+      },
+      {
+        "id": "have-had",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I've had a headache since this morning.",
+          "I have a headache since this morning.",
+          "I had a headache since this morning.",
+          "I'm having a headache since this morning."
+        ],
+        "correctIndex": 0,
+        "explanation": "Started in the past, still true: have had."
+      },
+      {
+        "id": "take-medicine",
+        "prompt": "Complete: Don't forget to ___ your medicine.",
+        "options": [
+          "take",
+          "make",
+          "drink",
+          "eat"
+        ],
+        "correctIndex": 0,
+        "explanation": "Take medicine."
+      },
+      {
+        "id": "should-base",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "You should sees a dentist.",
+          "You should seeing a dentist.",
+          "You should to see a dentist.",
+          "You should see a dentist."
+        ],
+        "correctIndex": 3,
+        "explanation": "Should + base verb."
+      },
+      {
+        "id": "should-question",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "What do I should do?",
+          "What I should do?",
+          "What should I do?",
+          "What should I to do?"
+        ],
+        "correctIndex": 2,
+        "explanation": "Question word + should + I + verb."
+      },
+      {
+        "id": "advice-uncountable",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "She gave me some good advice.",
+          "She gave me a good advice.",
+          "She gave me some good advices.",
+          "She gave me good advise."
+        ],
+        "correctIndex": 0,
+        "explanation": "Advice is uncountable."
+      },
+      {
+        "id": "has-to",
+        "prompt": "Complete: My mother ___ take tablets every day.",
+        "options": [
+          "has to",
+          "must to",
+          "have to",
+          "has"
+        ],
+        "correctIndex": 0,
+        "explanation": "She + has to."
+      },
+      {
+        "id": "dont-have-to",
+        "prompt": "Complete: The bus is free. You ___ buy a ticket.",
+        "options": [
+          "has to",
+          "mustn't",
+          "have to",
+          "don't have to"
+        ],
+        "correctIndex": 3,
+        "explanation": "Not necessary: don't have to."
+      },
+      {
+        "id": "mustnt",
+        "prompt": "Complete: You ___ park here. It's for ambulances.",
+        "options": [
+          "have to",
+          "don't have to",
+          "should to",
+          "mustn't"
+        ],
+        "correctIndex": 3,
+        "explanation": "Not allowed: mustn't."
+      },
+      {
+        "id": "ing-subject",
+        "prompt": "Complete: ___ is my favourite exercise.",
+        "options": [
+          "Cycle",
+          "Cycling",
+          "To cycling",
+          "Cycles"
+        ],
+        "correctIndex": 1,
+        "explanation": "An activity as the subject: -ing."
+      },
+      {
+        "id": "because-so",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Because I was ill, so I stayed at home.",
+          "So I was ill, because I stayed at home.",
+          "I was ill, because so I stayed at home.",
+          "I was ill, so I stayed at home."
+        ],
+        "correctIndex": 3,
+        "explanation": "Because or so, not both."
+      }
+    ]
+  }
+]

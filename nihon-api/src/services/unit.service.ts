@@ -6,6 +6,7 @@ import { listCompletedLessonIds } from "../repositories/lesson-progress.reposito
 import { hasAllLessonsUnlocked } from "../repositories/user.repository";
 import { getLevelFromXP } from "./progression.service";
 import { LessonDefinition, canUserAccessLesson, findLesson, getLessonAccess } from "./lesson.service";
+import { courseLevelOf } from "../learning/courseLevel";
 
 type Access = { allowed: boolean; reasons: string[] };
 const OPEN: Access = { allowed: true, reasons: [] };
@@ -25,8 +26,7 @@ export function getUnitAccess(unit: UnitDefinition, level: number, completedUnit
   if (unit.previousUnitId && !completedUnitIds.has(unit.previousUnitId)) {
     const previous = definitions.find(item => item.id === unit.previousUnitId);
     // Unit numbers restart at each level, so a previous unit in another level is named with its level.
-    const levelOf = (id: string) => /^japanese-(n[1-5])-/.exec(id)?.[1].toUpperCase();
-    const name = previous && (levelOf(previous.id) === levelOf(unit.id) ? `Unit ${previous.number}` : `${levelOf(previous.id)} Unit ${previous.number}`);
+    const name = previous && (courseLevelOf(previous.id) === courseLevelOf(unit.id) ? `Unit ${previous.number}` : `${courseLevelOf(previous.id)} Unit ${previous.number}`);
     reasons.push(name ? `Complete ${name} first` : "Complete the previous unit first");
   }
   return { allowed: reasons.length === 0, reasons };
@@ -84,7 +84,6 @@ export async function canAccessCourseLesson(userId: number, lesson: LessonDefini
 }
 
 const LEVEL_ORDER = ["N5", "N4", "N3", "N2", "N1"] as const;
-const levelOfUnit = (unitId: string) => /^japanese-(n[1-5])-/.exec(unitId)?.[1].toUpperCase();
 
 /**
  * A learner has reached a course level when every unit of the levels before it is completed, or when an
@@ -94,6 +93,6 @@ export async function hasReachedCourseLevel(userId: number, level: (typeof LEVEL
   const earlier = LEVEL_ORDER.slice(0, LEVEL_ORDER.indexOf(level)) as readonly string[];
   if (!earlier.length || await hasAllLessonsUnlocked(userId)) return true;
   const units = await getUserUnits(userId);
-  const required = units.filter(unit => earlier.includes(levelOfUnit(unit.id) ?? ""));
+  const required = units.filter(unit => earlier.includes(courseLevelOf(unit.id)));
   return required.length > 0 && required.every(unit => unit.completed);
 }

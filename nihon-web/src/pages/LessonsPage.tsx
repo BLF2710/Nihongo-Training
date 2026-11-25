@@ -7,19 +7,30 @@ import UnitAssessmentCard from "../components/UnitAssessmentCard";
 import { fetchUnits } from "../api/units";
 import type { CourseUnit } from "../api/units";
 import LevelWrapUp from "../components/LevelWrapUp";
-import { COURSE_LEVELS, levelOfId, useCourseLevel } from "../lib/courseLevel";
+import { isCourseLanguage, isEnglishCourseLevel, levelsOf, studyLevelOfId, useStudyLevel } from "../lib/courseLevel";
+import { useLanguage } from "../context/LanguageContext";
 import { IslandBoard, SHEET } from "../components/theme/IslandBoard";
+
+const COURSE_HEADINGS = {
+  japanese: { badge: "🇯🇵 Japanese", intro: "Build practical Japanese step by step." },
+  english: { badge: "🇬🇧 English", intro: "Make your English accurate and natural, with every word and rule explained in Vietnamese too." },
+} as const;
+
+/** Lesson pages live under their course: /lessons/japanese/…, /lessons/english/…. */
+const courseOfLesson = (lessonId: string) => lessonId.startsWith("english-") ? "english" : "japanese";
 
 export default function LessonsPage() {
   const navigate = useNavigate(); const [allUnits, setUnits] = useState<CourseUnit[]>([]);
   // Unit numbers restart at each level, so one level is shown at a time.
-  const chosenLevel = useCourseLevel();
+  const { language: chosenLanguage } = useLanguage();
+  const language = isCourseLanguage(chosenLanguage) ? chosenLanguage : "japanese";
+  const chosenLevel = useStudyLevel(language);
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedId = searchParams.get("unit");
   // A unit named in the address decides the level, so links to a unit always open it.
-  const level = (selectedId && levelOfId(selectedId)) || chosenLevel;
-  const levelTitle = COURSE_LEVELS.find(item => item.id === level)!.title;
-  const units = allUnits.filter(unit => levelOfId(unit.id) === level);
+  const level = (selectedId && studyLevelOfId(selectedId)) || chosenLevel;
+  const levelTitle = levelsOf(isEnglishCourseLevel(level) ? "english" : "japanese").find(item => item.id === level)?.title ?? level;
+  const units = allUnits.filter(unit => studyLevelOfId(unit.id) === level);
   const selectUnit = (id: string) => setSearchParams({ unit: id });
   const [error, setError] = useState("");
   useEffect(() => {
@@ -29,7 +40,7 @@ export default function LessonsPage() {
   }, []);
   const unit = units.find(item => item.id === selectedId);
   const lessons = unit?.lessons ?? [];
-  return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><div className="mt-6 mb-8"><div className="flex flex-wrap items-center gap-3"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">🇯🇵 Japanese • {level} {levelTitle}</span><Link to="/levels?next=/lessons" className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-bold text-gray-700 hover:border-emerald-400 focus-visible:outline-2 focus-visible:outline-emerald-600">Change level</Link></div><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">Build practical Japanese step by step.</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
+  return <div className="min-h-screen bg-gray-50 flex flex-col"><Navbar /><main className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 flex-1"><div className="mt-6 mb-8"><div className="flex flex-wrap items-center gap-3"><span className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">{COURSE_HEADINGS[language].badge} • {level} {levelTitle}</span><Link to="/levels?next=/lessons" className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-bold text-gray-700 hover:border-emerald-400 focus-visible:outline-2 focus-visible:outline-emerald-600">Change level</Link></div><h1 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">Lessons</h1><p className="mt-2 text-gray-600">{COURSE_HEADINGS[language].intro}</p></div>{error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p>}
     <IslandBoard island="lessons">
     {!allUnits.length && !error && <p role="status" className="board-label">Loading units…</p>}
     {allUnits.length > 0 && !units.length && <section className={SHEET}><h2 className="text-2xl font-black text-gray-900">{level} lessons are coming soon</h2><GuideNote character="hakase" mood="worried" className="mt-4"><p className="text-gray-600">This level has no units yet. Your other levels and their progress are unchanged.</p></GuideNote><Link to="/levels?next=/lessons" className="mt-5 inline-block rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Choose another level →</Link></section>}
@@ -44,7 +55,7 @@ export default function LessonsPage() {
         {!item.isPlaceholder && <p className="mt-3 text-sm text-gray-600">{item.completedLessons} / {item.totalLessons} lessons completed</p>}
         <p className="mt-4 font-bold text-emerald-700">{!item.allowed ? `🔒 ${item.reasons.join(" + ")}` : item.completed ? "✓ Complete · View unit →" : "View unit →"}</p>
       </button>)}</div>
-      <LevelWrapUp level={level} units={units} />
+      {!isEnglishCourseLevel(level) && <LevelWrapUp level={level} units={units} />}
     </section>}
     {unit && <section className={`${SHEET} mb-6`}>
       <button onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold text-emerald-700 hover:text-emerald-900 focus-visible:outline-2 focus-visible:outline-emerald-600">Choose another unit</button>
@@ -60,5 +71,5 @@ export default function LessonsPage() {
       </>}
       {!unit.allowed && <p className="mt-2 text-sm text-gray-600">🔒 {unit.reasons.join(" + ")}</p>}
     </section>}
-    <div className="space-y-4">{lessons.map((lesson, index) => <button key={lesson.id} disabled={lesson.isPlaceholder || !lesson.allowed} onClick={() => !lesson.isPlaceholder && lesson.allowed && navigate(`/lessons/japanese/${lesson.slug}`)} className={`notice-sheet w-full text-left transition p-6 pt-7 sm:p-8 ${lesson.allowed ? "hover:-translate-y-0.5 hover:ring-2 hover:ring-emerald-400 cursor-pointer" : "opacity-75 cursor-not-allowed"}`}><div className="flex flex-col sm:flex-row sm:items-center gap-5"><div className="w-14 h-14 shrink-0 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-3xl font-bold">{index + 1}</div><div className="flex-1"><p className="text-xs font-bold tracking-wider uppercase text-emerald-700">Unit {unit?.number} • Lesson {index + 1}{!lesson.isPlaceholder && " • 5–10 min"}</p><h2 className="mt-1 text-2xl font-black text-gray-900">{lesson.title}</h2><p className="mt-1 text-sm text-gray-600">{lesson.isPlaceholder ? lesson.description : lesson.allowed ? "Ready to continue your Japanese foundations." : `🔒 Requires: ${lesson.reasons.join(" • ")}`}</p></div><span className="text-emerald-700 font-bold">{lesson.isPlaceholder ? "Coming Soon" : lesson.allowed ? "Start lesson →" : "Locked"}</span></div></button>)}</div>{unit && <div className="mt-10"><UnitAssessmentCard unit={unit} /></div>}</IslandBoard></main></div>;
+    <div className="space-y-4">{lessons.map((lesson, index) => <button key={lesson.id} disabled={lesson.isPlaceholder || !lesson.allowed} onClick={() => !lesson.isPlaceholder && lesson.allowed && navigate(`/lessons/${courseOfLesson(lesson.id)}/${lesson.slug}`)} className={`notice-sheet w-full text-left transition p-6 pt-7 sm:p-8 ${lesson.allowed ? "hover:-translate-y-0.5 hover:ring-2 hover:ring-emerald-400 cursor-pointer" : "opacity-75 cursor-not-allowed"}`}><div className="flex flex-col sm:flex-row sm:items-center gap-5"><div className="w-14 h-14 shrink-0 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-3xl font-bold">{index + 1}</div><div className="flex-1"><p className="text-xs font-bold tracking-wider uppercase text-emerald-700">Unit {unit?.number} • Lesson {index + 1}{!lesson.isPlaceholder && " • 5–10 min"}</p><h2 className="mt-1 text-2xl font-black text-gray-900">{lesson.title}</h2><p className="mt-1 text-sm text-gray-600">{lesson.isPlaceholder ? lesson.description : lesson.allowed ? "Ready to continue your Japanese foundations." : `🔒 Requires: ${lesson.reasons.join(" • ")}`}</p></div><span className="text-emerald-700 font-bold">{lesson.isPlaceholder ? "Coming Soon" : lesson.allowed ? "Start lesson →" : "Locked"}</span></div></button>)}</div>{unit && <div className="mt-10"><UnitAssessmentCard unit={unit} /></div>}</IslandBoard></main></div>;
 }
