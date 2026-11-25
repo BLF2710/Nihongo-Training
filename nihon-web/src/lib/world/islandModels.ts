@@ -2,7 +2,7 @@
 // follows the traveller. Pure (no three.js, no React, no browser), so it runs under node's test runner. Tiles are the
 // world's units: x runs east, z (a tile's y) runs south, towards the viewer.
 import type { Direction, Vector } from "../errands/movement.ts";
-import type { Rect, TownMap } from "../errands/townMap.ts";
+import type { Rect, Terrain, TownMap } from "../errands/townMap.ts";
 import type { Door } from "../village/villageDoors.ts";
 import type { RoofColour } from "../errands/village.ts";
 
@@ -24,14 +24,20 @@ export type Hill = { x: number; y: number; radius: number; height: number };
  *  island's bridges over to it and the paths they lead on to, and hills further out. */
 export type FarShore = { land: readonly Rect[]; decks: readonly Rect[]; paths: readonly Rect[]; hills: readonly Hill[] };
 
-/** What falls through the air: cherry petals on a sakura island, leaves in a bamboo grove. */
-export type Weather = "petals" | "leaves";
+/** What falls through the air: cherry petals on a sakura island, bamboo leaves in a grove, maple leaves in autumn,
+ *  snow on the summit. */
+export type Weather = "petals" | "leaves" | "maple" | "snow";
 
-/** Everything the 3D scene draws: the ground, what stands on it, the people, and the scenery beyond the shore
- *  (`backdrop` models, and a far `shore`). */
+/** What lies round the island: water, or (high on the mountain) a sea of clouds. */
+export type Sea = "water" | "clouds";
+
+/** Everything the 3D scene draws: the ground (its land coloured by `landColours` where its look recolours it), what
+ *  stands on it, the people, the scenery beyond the shore (`backdrop` models, and a far `shore`), the `sea` round it,
+ *  and its `ponds` (each the water tiles of one pond, where koi swim). */
 export type Island3D = {
   map: TownMap; models: readonly ModelPlacement[]; people: readonly IslandPerson[]; backdrop: readonly ModelPlacement[];
-  traveller: string; doors: readonly Door[]; shore?: FarShore; weather?: Weather;
+  traveller: string; doors: readonly Door[]; shore?: FarShore; weather?: Weather; sea?: Sea;
+  ponds?: readonly (readonly Vector[])[]; landColours?: Partial<Readonly<Record<Terrain, string>>>;
 };
 
 /** A steady number in [-1, 1) for a point, the same every time: for variety that doesn't change between visits. */

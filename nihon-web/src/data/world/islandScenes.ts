@@ -24,7 +24,7 @@ const WEST_BRIDGE: Bridge = { end: { x: 1, y: 6 }, arrival: { x: 5, y: 7 } };
 const EAST_BRIDGE: Bridge = { end: { x: 28, y: 6 }, arrival: { x: 23, y: 7 } };
 const NORTH_BRIDGE: Bridge = { end: { x: 14, y: 1 }, arrival: { x: 15, y: 5 } };
 const SOUTH_BRIDGE: Bridge = { end: { x: 14, y: 12 }, arrival: { x: 15, y: 10 } };
-const PAGODA_SIZE = { width: 4, height: 3 };
+const PAGODA_SIZE = { width: 4, height: 4 };
 const HALL_SIZE = { width: 4, height: 3 };
 const STALL_SIZE = { width: 4, height: 2 };
 
@@ -58,7 +58,7 @@ function islandScene({ rows, stops, challengerTile, lanterns = [], route, pathNa
     layout: {
       map: parseTownMap(rows), start: bridge.arrival, buildings: stops.map(buildingOf), gates: [], lanterns,
       villagers: [{ id: CHALLENGERS[scene.challenger].character, tile: challengerTile }],
-      obstacles: props.flatMap(groundBlockedBy),
+      obstacles: [...props.flatMap(groundBlockedBy), ...lanterns.map(at => ({ ...at, width: 1, height: 1 }))],
     },
     doors: [...stops.map(doorOf), backToPath, ...pathsOn],
     arrivals: [{ route, tile: bridge.arrival }, ...onward.map(path => ({ route: path.route, tile: path.bridge.arrival }))],
@@ -145,11 +145,16 @@ const PRACTICE = islandScene({
 const GAMES = islandScene({
   island: "games", name: "The Games island", japaneseName: "あそびのしま", challenger: "pon", route: "home-games", pathName: "the forest path",
   theme: "festival", bridge: NORTH_BRIDGE,
-  // A festival ground: stalls round a square of beaten earth hung with lanterns, and Pon by the goldfish pool.
+  // A festival ground: stalls round a square of beaten earth hung with lanterns, and Pon by the goldfish pool. A torii
+  // stands where the bridge comes in, between festival banners; strings of lanterns hang either side of the pool. The
+  // festival tower stands on the grass in the north-east corner, a great drum against the east edge, and dumpling
+  // carts with their stools in the open on either side of the square, each with room to walk all round it. Tea
+  // benches wait under red parasols by tea banners, and a rickshaw, a wayside shrine and a rack of prayer boards stand
+  // on the grass.
   rows: [
     "~~~~~~~~~~~~~~bb~~~~~~~~~~~~~~",
     "~~~TTTTTTTTTT~bb~TTTTTTTTTT~~~",
-    "~T..TT........==........TT..T~",
+    "~T..TT........==........T...T~",
     "~T....*.......==............T~",
     "~T......==================..T~",
     "~T......==================.TT~",
@@ -163,11 +168,32 @@ const GAMES = islandScene({
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   ],
   challengerTile: { x: 15, y: 9 },
-  lanterns: [{ x: 7, y: 4 }, { x: 26, y: 4 }, { x: 12, y: 6 }, { x: 18, y: 6 }, { x: 12, y: 9 }, { x: 18, y: 9 }, { x: 8, y: 11 }, { x: 25, y: 11 }],
+  props: [
+    { kind: "torii", at: { x: 13, y: 3, width: 4, height: 1 } },
+    { kind: "lantern-string", at: { x: 12, y: 6, width: 7, height: 1 } },
+    { kind: "lantern-string", at: { x: 12, y: 9, width: 7, height: 1 } },
+    { kind: "watchtower", at: { x: 25, y: 2, width: 3, height: 3 } },
+    { kind: "taiko", at: { x: 26, y: 6, width: 2, height: 2 } },
+    { kind: "yatai", at: { x: 9, y: 8, width: 2, height: 2 } },
+    { kind: "yatai", at: { x: 4, y: 4, width: 2, height: 2 } },
+    { kind: "yatai", at: { x: 22, y: 6, width: 2, height: 2 } },
+    { kind: "nobori", at: { x: 12, y: 3, width: 1, height: 1 } },
+    { kind: "nobori", at: { x: 21, y: 3, width: 1, height: 1 } },
+    { kind: "nobori-dango", at: { x: 7, y: 3, width: 1, height: 1 } },
+    { kind: "nobori-dango", at: { x: 8, y: 8, width: 1, height: 1 } },
+    { kind: "nobori-tea", at: { x: 3, y: 9, width: 1, height: 1 } },
+    { kind: "nobori-tea", at: { x: 27, y: 9, width: 1, height: 1 } },
+    { kind: "tea-bench", at: { x: 5, y: 10, width: 2, height: 2 } },
+    { kind: "tea-bench", at: { x: 26, y: 10, width: 2, height: 2 } },
+    { kind: "rickshaw", at: { x: 2, y: 3, width: 2, height: 1 }, facing: "right" },
+    { kind: "hokora", at: { x: 6, y: 2, width: 1, height: 1 } },
+    { kind: "ema-rack", at: { x: 24, y: 3, width: 1, height: 1 } },
+  ],
+  lanterns: [{ x: 7, y: 4 }, { x: 12, y: 6 }, { x: 18, y: 6 }, { x: 12, y: 9 }, { x: 18, y: 9 }, { x: 8, y: 11 }, { x: 25, y: 11 }],
   stops: [
     { id: "errands", sign: "おつかい", label: "Island Errands: walk the village and run errands in Japanese", href: "/games/errands", look: "stall", roof: "vermilion", at: { x: 8, y: 2 }, size: STALL_SIZE },
     { id: "particles", sign: "じょし", label: "Particle Drop: fill in は, を, に against the clock", href: "/games/particles", look: "stall", roof: "indigo", at: { x: 17, y: 2 }, size: STALL_SIZE },
-    { id: "kana-speed", sign: "はやよみ", label: "Kana speed quiz: read kana as fast as you can", href: "/practice?type=hiragana", look: "stall", roof: "moss", at: { x: 19, y: 9 }, size: STALL_SIZE },
+    { id: "kana-speed", sign: "はやよみ", label: "Kana speed quiz: read kana as fast as you can", href: "/practice?type=hiragana", look: "stall", roof: "moss", at: { x: 20, y: 9 }, size: STALL_SIZE },
   ],
 });
 
@@ -176,7 +202,8 @@ const LESSONS = islandScene({
   theme: "maple", bridge: SOUTH_BRIDGE,
   // A temple school in a maple garden: stepping stones lead straight from the bridge, between two ponds and past
   // stone lanterns, to the five-storey pagoda; two halls flank it along the top and two stand at the bottom corners.
-  // Sensei waits beside the approach.
+  // Sensei waits beside the approach, which passes under a torii between guardian lion-dogs; prayer boards hang by
+  // the grammar hall.
   rows: [
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
     "~~~M......MM......MM......M~~~",
@@ -194,6 +221,12 @@ const LESSONS = islandScene({
     "~~~~~~~~~~~~~~bb~~~~~~~~~~~~~~",
   ],
   challengerTile: { x: 17, y: 8 },
+  props: [
+    { kind: "torii", at: { x: 13, y: 8, width: 4, height: 1 } },
+    { kind: "komainu", at: { x: 13, y: 10, width: 1, height: 1 }, facing: "right" },
+    { kind: "komainu", at: { x: 16, y: 10, width: 1, height: 1 }, facing: "left" },
+    { kind: "ema-rack", at: { x: 27, y: 4, width: 1, height: 1 } },
+  ],
   lanterns: [{ x: 13, y: 11 }, { x: 16, y: 11 }, { x: 12, y: 5 }, { x: 17, y: 5 }],
   stops: [
     { id: "units", sign: "がっこう", label: "All units: every unit of your level and what is open", href: "/lessons", look: "school", roof: "indigo", at: { x: 4, y: 1 }, size: HALL_SIZE },
@@ -208,7 +241,8 @@ const REVIEW = islandScene({
   island: "review", name: "The Review island", japaneseName: "ふくしゅうのしま", challenger: "zen", route: "home-review", pathName: "the pine path",
   theme: "zen", bridge: EAST_BRIDGE,
   // A zen garden among pines: raked gravel with its rocks in the middle, two halls at the back, one at the front by the
-  // gap in the pines, and Zen by the pond.
+  // gap in the pines, and Zen by the pond, with a snow-viewing lantern at its edge. Azaleas grow by the pines and a
+  // water basin stands by the shrine.
   rows: [
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
     "~PPPPPPPPPPPPPPPPPPPPPPPPPPPP~",
@@ -226,6 +260,13 @@ const REVIEW = islandScene({
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   ],
   challengerTile: { x: 11, y: 9 },
+  props: [
+    { kind: "yukimi-lantern", at: { x: 9, y: 11, width: 1, height: 1 } },
+    { kind: "temizuya", at: { x: 19, y: 10, width: 2, height: 1 } },
+    { kind: "bush", at: { x: 3, y: 4, width: 1, height: 1 } },
+    { kind: "bush", at: { x: 27, y: 9, width: 1, height: 1 } },
+    { kind: "bush", at: { x: 12, y: 11, width: 1, height: 1 } },
+  ],
   lanterns: [{ x: 19, y: 5 }, { x: 19, y: 8 }],
   stops: [
     { id: "daily-review", sign: "まいにち", label: "Daily review: spaced repetition for your words and kanji", href: "/srs", look: "teahouse", roof: "moss", at: { x: 22, y: 2 }, size: HALL_SIZE },
@@ -240,6 +281,7 @@ const FUJI = islandScene({
   // High on the snowy mountain (the ground itself is snow, deeper in drifts), ringed by rocks, with the sea of clouds
   // below its edge and the summit rising behind (SummitBackdrop): Kurama's dojo in the middle at the head of the road, which
   // goes down a stone stairway over the eastern edge to the pier, a shrine and a hall either side of it, pines below.
+  // A torii stands at the head of the stairway, lion-dogs guard the dojo, and a bell tower stands in the snow.
   rows: [
     "cccccccccccccccccccccccccccccc",
     "ckkkkkkkkkkkkkkkkkkkkkkkkkkkkc",
@@ -257,6 +299,12 @@ const FUJI = islandScene({
     "cccccccccccccccccccccccccccccc",
   ],
   challengerTile: { x: 17, y: 9 },
+  props: [
+    { kind: "torii", at: { x: 26, y: 5, width: 1, height: 4 }, facing: "right" },
+    { kind: "komainu", at: { x: 13, y: 5, width: 1, height: 1 }, facing: "right" },
+    { kind: "komainu", at: { x: 17, y: 5, width: 1, height: 1 }, facing: "left" },
+    { kind: "bell-tower", at: { x: 5, y: 8, width: 3, height: 3 } },
+  ],
   lanterns: [{ x: 12, y: 6 }, { x: 19, y: 8 }],
   stops: [
     { id: "levels", sign: "のぼる", label: "Choose your level: move up when you are ready", href: "/levels", look: "shrine", roof: "vermilion", at: { x: 4, y: 2 }, size: HALL_SIZE },
@@ -267,7 +315,7 @@ const FUJI = islandScene({
 
 export const ISLAND_SCENES: readonly IslandScene[] = [KANA, PRACTICE, GAMES, LESSONS, REVIEW, FUJI];
 
-/** The islands walked in real 3D (components/world3d/japanese builds their models); the rest are still 2.5D. */
-export const ISLANDS_IN_3D: ReadonlySet<IslandId> = new Set<IslandId>(["kana", "practice"]);
+/** The islands walked in real 3D (components/world3d/japanese builds their models): all of them. */
+export const ISLANDS_IN_3D: ReadonlySet<IslandId> = new Set<IslandId>(ISLAND_SCENES.map(scene => scene.island));
 
 export const islandSceneOf = (island: string): IslandScene | null => ISLAND_SCENES.find(scene => scene.island === island) ?? null;

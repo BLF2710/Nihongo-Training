@@ -25,6 +25,32 @@ export class Palette {
 
 export type Size = { width: number; height: number; depth: number };
 
+/** The ground a piece stands on, in tiles, as it faces: across its front, and from front to back. */
+export type PropGround = { width: number; depth: number };
+/** Builds a piece (a torii, a lantern, a tea bench…) facing south on its ground. */
+export type PropBuilder = (palette: Palette, ground: PropGround) => THREE.Group;
+
+/** A glowing material: lantern light, or a paper lantern lit from inside. */
+export const glowing = (colour: string, intensity: number): THREE.MeshStandardMaterial =>
+  new THREE.MeshStandardMaterial({ color: colour, emissive: colour, emissiveIntensity: intensity, flatShading: true });
+
+const LANTERN_CAPS = "#2b2624";
+
+/** A round paper lantern glowing from inside, with black caps top and bottom, hanging from `top`. */
+export function paperLantern(palette: Palette, colour: string, top: { x: number; y: number; z: number }, size = 0.12): THREE.Object3D[] {
+  const body = placed(new THREE.SphereGeometry(size, 10, 8), glowing(colour, 0.45), { x: top.x, y: top.y - size * 1.25, z: top.z });
+  body.scale.set(1, 1.3, 1);
+  const caps = [top.y - size * 0.1, top.y - size * 2.6].map(y => post(palette.of(LANTERN_CAPS), size * 0.55, size * 0.25, { x: top.x, z: top.z, y }));
+  return [body, ...caps];
+}
+
+/** A mesh of `geometry` at a point. */
+export function placed(geometry: THREE.BufferGeometry, material: THREE.Material, at: { x?: number; y?: number; z?: number }): THREE.Mesh {
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(at.x ?? 0, at.y ?? 0, at.z ?? 0);
+  return mesh;
+}
+
 /** A box of `size`, its base at `y`, centred on (x, z). */
 export function box(material: THREE.Material, size: Size, at: { x?: number; y?: number; z?: number } = {}): THREE.Mesh {
   const mesh = new THREE.Mesh(new THREE.BoxGeometry(size.width, size.height, size.depth), material);

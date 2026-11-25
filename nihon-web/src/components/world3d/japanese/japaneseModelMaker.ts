@@ -1,11 +1,12 @@
 // Makes the Japanese islands' models and people from the builders in this folder: buildings by their look, trees by
-// their kind, shrine pieces by theirs, the cast by who they are, and the traveller as the learner dressed them.
+// their kind, rocks and the summit, pieces (shrine, festival, garden) by theirs, the cast by who they are, and the
+// traveller as the learner dressed them.
 import type * as THREE from "three";
 import type { CharacterId } from "../../../lib/cast.ts";
 import type { TravellerLook } from "../../../lib/travellerLook.ts";
 import type { ModelPlacement } from "../../../lib/world/islandModels.ts";
 import { propModel } from "../../../lib/world/islandProps.ts";
-import { TRAVELLER_MODEL, buildingModel, castModel, treeModel } from "../../../lib/world/japaneseIsland3D.ts";
+import { MOUNTAIN_MODEL, ROCK_MODEL, TRAVELLER_MODEL, buildingModel, castModel, treeModel } from "../../../lib/world/japaneseIsland3D.ts";
 import { standOnGround, castsShadows } from "../models.ts";
 import type { ModelMaker } from "../models.ts";
 import type { IslandWalker } from "../walkers.ts";
@@ -13,12 +14,16 @@ import { BUILDING_BUILDERS } from "./buildings.ts";
 import { BuiltPerson, chunRig, tamaRig, travellerRig } from "./people.ts";
 import type { Rig } from "./people.ts";
 import { Palette } from "./shapes.ts";
+import type { PropGround } from "./shapes.ts";
 import { TREE_BUILDERS } from "./trees.ts";
-import { PROP_BUILDERS } from "./shrineProps.ts";
-import type { PropGround } from "./shrineProps.ts";
+import { PROP_BUILDERS } from "./props.ts";
+import { NATURE_BUILDERS } from "./nature.ts";
+import { kuramaRig, ponRig, senseiRig, zenRig } from "./castRigs.ts";
 
 type CastRig = (palette: Palette) => Rig;
-const CAST_RIGS: ReadonlyMap<CharacterId, CastRig> = new Map<CharacterId, CastRig>([["chun", chunRig], ["tama", tamaRig]]);
+const CAST_RIGS: ReadonlyMap<CharacterId, CastRig> = new Map<CharacterId, CastRig>([
+  ["chun", chunRig], ["tama", tamaRig], ["pon", ponRig], ["sensei", senseiRig], ["zen", zenRig], ["kurama", kuramaRig],
+]);
 /** A building without a roof colour of its own gets the plain wooden one. */
 const DEFAULT_ROOF = "wood";
 
@@ -37,6 +42,8 @@ const STAND_BUILDERS: ReadonlyMap<string, StandBuilder> = new Map<string, StandB
     (palette, { at, roof = DEFAULT_ROOF, sign }) => build(palette, { width: at.width, depth: at.height, roof, sign })]),
   ...[...TREE_BUILDERS].map(([terrain, build]): [string, StandBuilder] => [treeModel(terrain), (palette, { at }) => build(palette, at)]),
   ...[...PROP_BUILDERS].map(([kind, build]): [string, StandBuilder] => [propModel(kind), (palette, placement) => build(palette, groundAsFacing(placement))]),
+  [ROCK_MODEL, (palette, { at }) => NATURE_BUILDERS.rock(palette, at)],
+  [MOUNTAIN_MODEL, (palette, { at }) => NATURE_BUILDERS.mountain(palette, at)],
 ]);
 const PERSON_RIGS: ReadonlyMap<string, CastRig> = new Map([...CAST_RIGS].map(([character, rig]) => [castModel(character), rig]));
 

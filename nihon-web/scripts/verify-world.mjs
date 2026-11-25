@@ -17,6 +17,7 @@ import { isIslandId, LANDSCAPE_LAYOUT } from "../src/lib/islandMap.ts";
 import { routeById, WILD_ROUTES } from "../src/data/world/routes.ts";
 import { pickReviewEncounter } from "../src/lib/kanaWilds/encounters.ts";
 import { islandArrivalFrom } from "../src/lib/world/islandScenes.ts";
+import { groundBlockedBy } from "../src/lib/world/islandProps.ts";
 /** The paths that start at Home: each has a road out of the village. */
 const FROM_HOME = WILD_ROUTES.filter(route => route.between[0] === "home");
 
@@ -406,7 +407,9 @@ for (const scene of ISLAND_SCENES) {
   });
 
   test(`${scene.island} island: its lanterns stand on open ground`, () => {
-    for (const lantern of scene.layout.lanterns) assert.equal(isStandable(scene.layout, lantern), true, keyOf(lantern));
+    // Each lantern blocks its own tile, so the ground is judged with only the island's pieces blocking it.
+    const ground = { ...scene.layout, obstacles: scene.props.flatMap(groundBlockedBy) };
+    for (const lantern of scene.layout.lanterns) assert.equal(isStandable(ground, lantern), true, keyOf(lantern));
   });
 
   test(`${scene.island} island: arriving doesn't put the traveller in reach of a door`, () => {

@@ -5,8 +5,10 @@ import * as THREE from "three";
 import type { Rect, Terrain, TownMap } from "../../lib/errands/townMap.ts";
 import { steadyNoise } from "../../lib/world/islandModels.ts";
 import type { FarShore, Hill } from "../../lib/world/islandModels.ts";
+import { groundDetails } from "./groundDetails.ts";
 
-const WATERY: ReadonlySet<Terrain> = new Set(["water", "sea", "waves"]);
+/** Terrain with no land: water, a goldfish pool, and the sea of clouds below the summit. */
+const WATERY: ReadonlySet<Terrain> = new Set(["water", "sea", "waves", "goldfish", "cloud"]);
 const PLANKED: ReadonlySet<Terrain> = new Set(["bridge", "pier"]);
 /** How deep the land's blocks reach (under the water). */
 const LAND_DEPTH = 0.5;
@@ -20,9 +22,11 @@ const PATH_LIFT = 0.006;
 /** How much lighter or darker each tile is than its terrain's colour, so the grass isn't one flat sheet. */
 const SHADE_VARIATION = 0.015;
 
-const LAND_COLOURS: Partial<Readonly<Record<Terrain, string>>> = {
-  grass: "#86bf5e", flowers: "#86bf5e", tallgrass: "#7cb457", path: "#dccaa0", gravel: "#e2d9c5", stones: "#cfc6b4",
-  petals: "#ecc9cd",
+type LandColours = Partial<Readonly<Record<Terrain, string>>>;
+/** Stepping stones lie on grass (the stones themselves are `groundDetails`); fallen maple leaves on grass going gold. */
+const LAND_COLOURS: LandColours = {
+  grass: "#86bf5e", flowers: "#86bf5e", tallgrass: "#7cb457", path: "#dccaa0", gravel: "#e2d9c5", stones: "#86bf5e",
+  petals: "#ecc9cd", leaves: "#a8b65c", raked: "#e6dfcf", snow: "#f4f7fa", steps: "#b9b3a7", rock: "#8f8a80",
 };
 const DEFAULT_LAND_COLOUR = "#86bf5e";
 const EARTH_COLOUR = "#8a6b4a";
@@ -34,8 +38,8 @@ const HILL_SEGMENTS = { round: 12, up: 5 } as const;
 const landTiles = (map: TownMap) => map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => WATERY.has(terrain) || PLANKED.has(terrain) ? [] : [{ x, y, terrain }]));
 const deckTiles = (map: TownMap) => map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => PLANKED.has(terrain) ? [{ x, y }] : []));
 
-/** One block per tile of land: earth below, its terrain's colour on top. */
-function land(map: TownMap): THREE.Group {
+/** One block per tile of land: earth below, its terrain's colour on top (as `colours` has it, or as usual). */
+function land(map: TownMap, colours: LandColours): THREE.Group {
   const tiles = landTiles(map);
   const earth = new THREE.InstancedMesh(new THREE.BoxGeometry(1, LAND_DEPTH, 1), new THREE.MeshLambertMaterial({ color: EARTH_COLOUR }), tiles.length);
   const tops = new THREE.InstancedMesh(new THREE.BoxGeometry(1, TOP_DEPTH, 1), new THREE.MeshLambertMaterial(), tiles.length);
@@ -43,7 +47,7 @@ function land(map: TownMap): THREE.Group {
   tiles.forEach(({ x, y, terrain }, index) => {
     earth.setMatrixAt(index, place.makeTranslation(x + 0.5, -TOP_DEPTH - LAND_DEPTH / 2, y + 0.5));
     tops.setMatrixAt(index, place.makeTranslation(x + 0.5, -TOP_DEPTH / 2, y + 0.5));
-    colour.set(LAND_COLOURS[terrain] ?? DEFAULT_LAND_COLOUR).offsetHSL(0, 0, steadyNoise(x, y) * SHADE_VARIATION);
+    colour.set(colours[terrain] ?? LAND_COLOURS[terrain] ?? DEFAULT_LAND_COLOUR).offsetHSL(0, 0, steadyNoise(x, y) * SHADE_VARIATION);
     tops.setColorAt(index, colour);
   });
   earth.receiveShadow = true;
@@ -123,9 +127,10 @@ function farShore({ land: strips, paths, decks: carried, hills }: FarShore): THR
   );
 }
 
-/** The island's whole ground: land, bridges and the far shore, if it has one (the water is `LivelyWater`). */
-export function buildGround(map: TownMap, shore?: FarShore): THREE.Group {
-  const ground = new THREE.Group().add(land(map), decks(map));
+/** The island's whole ground: land (its terrain coloured as `landColours` has it, where it does), bridges, the
+ *  details lying on it, and the far shore, if it has one (the water is `LivelyWater`). */
+export function buildGround(map: TownMap, { shore, landColours = {} }: { shore?: FarShore; landColours?: LandColours }): THREE.Group {
+  const ground = new THREE.Group().add(land(map, landColours), decks(map), groundDetails(map));
   if (shore) ground.add(farShore(shore));
   return ground;
 }

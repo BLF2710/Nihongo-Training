@@ -4,29 +4,15 @@
 // it's given (as wide across its front as `width`), so a gate spans its ground from pillar to pillar.
 import * as THREE from "three";
 import type { ShrinePropKind } from "../../../lib/world/islandProps.ts";
-import { box, curvedRoof, post } from "./shapes.ts";
-import type { Palette, RoofShape } from "./shapes.ts";
-
-/** The ground a piece stands on, in tiles, as it faces: across its front, and from front to back. */
-export type PropGround = { width: number; depth: number };
-export type PropBuilder = (palette: Palette, ground: PropGround) => THREE.Group;
+import { box, curvedRoof, glowing, placed, post } from "./shapes.ts";
+import type { PropBuilder, RoofShape } from "./shapes.ts";
 
 const COLOUR = {
   vermilion: "#c8452f", black: "#2b2624", stone: "#bdb7aa", stoneDark: "#9e988b", wood: "#8a6440", darkWood: "#5a3b28",
   roof: "#474c55", copper: "#5d9b86", gold: "#d4a64a", water: "#7cc4d4", light: "#ffd98a", drum: "#9a4b2a",
   drumHead: "#efe3c6", boards: "#e6c891", paper: "#fbf8f0", rope: "#e2d6b4", bell: "#5f6e52", lantern: "#d8402f",
+  bib: "#d23a2a",
 } as const;
-
-/** A glowing material: lantern light, or a paper lantern lit from inside. */
-const glowing = (colour: string, intensity: number) =>
-  new THREE.MeshStandardMaterial({ color: colour, emissive: colour, emissiveIntensity: intensity, flatShading: true });
-
-/** A mesh of `geometry` at a point. */
-function placed(geometry: THREE.BufferGeometry, material: THREE.Material, at: { x?: number; y?: number; z?: number }): THREE.Mesh {
-  const mesh = new THREE.Mesh(geometry, material);
-  mesh.position.set(at.x ?? 0, at.y ?? 0, at.z ?? 0);
-  return mesh;
-}
 
 /** A great torii's height (a small one, on a single tile, stands at `small`) and how thick its parts are at that size. */
 const TORII = { height: 2.15, small: 0.95, pillar: 0.1, beam: 0.11 } as const;
@@ -77,7 +63,8 @@ const stoneLantern: PropBuilder = palette => {
   );
 };
 
-/** A guardian lion-dog sitting up on a stone plinth: haunches, chest, front legs, a curly-maned head and a curled tail. */
+/** A guardian lion-dog sitting up on a stone plinth: haunches, chest, front legs, a curly-maned head and a curled tail,
+ *  and a red cloth bib tied round its neck, as people dress them. */
 const komainu: PropBuilder = palette => {
   const stone = palette.of(COLOUR.stone), dark = palette.of(COLOUR.stoneDark);
   const top = 0.32;
@@ -89,18 +76,36 @@ const komainu: PropBuilder = palette => {
   const mane = [-1, -0.5, 0, 0.5, 1].map(share => placed(new THREE.DodecahedronGeometry(0.07), stone, { x: share * 0.13, y: top + 0.48 + (1 - Math.abs(share)) * 0.07, z: -0.03 }));
   const eyes = [-1, 1].map(side => placed(new THREE.IcosahedronGeometry(0.022, 0), palette.of(COLOUR.black), { x: side * 0.055, y: top + 0.49, z: 0.21 }));
   const legs = [-1, 1].map(side => post(stone, 0.04, 0.22, { x: side * 0.08, z: 0.12, y: top }));
+  // A three-cornered bib, point down, hanging over its chest.
+  const bib = placed(new THREE.CylinderGeometry(0.14, 0.14, 0.03, 3).rotateX(Math.PI / 2).rotateZ(-Math.PI / 2), palette.of(COLOUR.bib), { y: top + 0.31, z: 0.15 });
+  bib.rotation.x = -0.25;
   return new THREE.Group().add(
     box(dark, { width: 0.6, height: 0.1, depth: 0.6 }),
     box(stone, { width: 0.5, height: top - 0.1, depth: 0.5 }, { y: 0.1 }),
     sphere(0.16, { y: top + 0.12, z: -0.1 }),
-    chest, head, snout, ...mane, ...eyes, ...legs,
+    chest, head, snout, ...mane, ...eyes, ...legs, bib,
     sphere(0.08, { y: top + 0.3, z: -0.24 }),
   );
 };
 
+/** A drum's comma: how far its round head sits from the middle, how big the head is, and how far round its tail sweeps. */
+const TOMOE = { reach: 0.085, head: 0.05, sweep: 1.5 } as const;
+
+/** A comma's tail, as a flat shape: from the outside of its head (lying along +x) it sweeps round the middle,
+ *  narrowing to a point, and comes back along the inside to the middle of the head. */
+function tomoeTail(): THREE.Shape {
+  const outer = TOMOE.reach + TOMOE.head;
+  const tail = new THREE.Shape();
+  tail.moveTo(outer, 0);
+  tail.absarc(0, 0, outer, 0, TOMOE.sweep, false);
+  const bend = TOMOE.sweep * 0.45, along = outer * 0.88;
+  tail.quadraticCurveTo(Math.cos(bend) * along, Math.sin(bend) * along, TOMOE.reach, 0);
+  return tail;
+}
+
 /** A taiko drum on its stand, its face to the front: a bulging red-brown barrel, pale heads painted with three
- *  commas, and a ring of gold studs round each rim. */
-const taiko: PropBuilder = palette => {
+ *  commas, and a ring of gold studs round each rim. It grows with its ground: a great festival drum on two by two. */
+const taiko: PropBuilder = (palette, { width, depth }) => {
   const centre = 0.6, radius = 0.3, length = 0.38;
   const barrelProfile = [0, 0.25, 0.5, 0.75, 1].map(share => new THREE.Vector2(radius * (0.9 + 0.12 * Math.sin(share * Math.PI)), (share - 0.5) * length));
   const barrel = placed(new THREE.LatheGeometry(barrelProfile, 16).rotateX(Math.PI / 2), palette.of(COLOUR.drum), { y: centre });
@@ -116,18 +121,21 @@ const taiko: PropBuilder = palette => {
       group.add(placed(new THREE.IcosahedronGeometry(0.018, 0), gold, { x: Math.cos(angle) * radius * 0.95, y: centre + Math.sin(angle) * radius * 0.95, z }));
     }
   }
-  // Three commas swirling round the middle of the front head.
+  // Three commas swirling round the middle of the front head, inside a black ring.
+  const face = length / 2 + 0.006;
+  group.add(placed(new THREE.RingGeometry(radius * 0.72, radius * 0.8, 24), ink, { y: centre, z: face }));
   for (let comma = 0; comma < 3; comma += 1) {
-    const angle = (comma / 3) * Math.PI * 2;
-    const blob = placed(new THREE.CircleGeometry(0.06, 10), ink, { x: Math.cos(angle) * 0.08, y: centre + Math.sin(angle) * 0.08, z: length / 2 + 0.006 });
-    const tail = placed(new THREE.CircleGeometry(0.035, 8), ink, { x: Math.cos(angle + 0.7) * 0.13, y: centre + Math.sin(angle + 0.7) * 0.13, z: length / 2 + 0.006 });
-    group.add(blob, tail);
+    const turn = (comma / 3) * Math.PI * 2;
+    const head = placed(new THREE.CircleGeometry(TOMOE.head, 12), ink, { x: Math.cos(turn) * TOMOE.reach, y: centre + Math.sin(turn) * TOMOE.reach, z: face });
+    const tail = placed(new THREE.ShapeGeometry(tomoeTail(), 8).rotateZ(turn), ink, { y: centre, z: face });
+    group.add(head, tail);
   }
   const wood = palette.of(COLOUR.darkWood);
   group.add(box(wood, { width: 0.9, height: 0.08, depth: 0.4 }));
   for (const side of [-1, 1]) {
     group.add(box(wood, { width: 0.08, height: centre + 0.05, depth: 0.12 }, { x: side * (radius + 0.06), y: 0.08 }));
   }
+  group.scale.setScalar(Math.min(width, depth));
   return group;
 };
 
@@ -154,21 +162,17 @@ const temizuya: PropBuilder = (palette, { width, depth }) => {
   return group;
 };
 
-/** A rack of wooden prayer boards: two posts under a little gabled roof, boards hanging along two rails. */
+const EMA = { height: 1.05, width: 0.9, perRail: 7 } as const;
+
+/** A rack of wooden prayer boards: two posts under a little copper-green roof, boards hanging thick along three rails. */
 const emaRack: PropBuilder = palette => {
-  const wood = palette.of(COLOUR.darkWood), boards = palette.of(COLOUR.boards);
-  const height = 1.0;
-  const group = new THREE.Group();
-  for (const side of [-1, 1]) {
-    group.add(post(wood, 0.035, height, { x: side * 0.38, z: 0 }));
-    const slope = box(wood, { width: 0.95, height: 0.03, depth: 0.22 }, { y: height + 0.04, z: side * 0.08 });
-    slope.rotation.x = side * 0.55;
-    group.add(slope);
-  }
-  for (const [rail, y] of [0.55, 0.8].entries()) {
-    group.add(box(wood, { width: 0.82, height: 0.03, depth: 0.03 }, { y }));
-    for (let board = 0; board < 6; board += 1) {
-      const plaque = box(boards, { width: 0.1, height: 0.08, depth: 0.015 }, { x: -0.3 + board * 0.12, y: y - 0.1, z: 0.025 });
+  const wood = palette.of(COLOUR.darkWood), boards = palette.of(COLOUR.boards), copper = palette.of(COLOUR.copper);
+  const group = new THREE.Group().add(curvedRoof(copper, { span: 0.42, length: EMA.width + 0.1, rise: 0.16, base: EMA.height, thickness: 0.05 }));
+  for (const side of [-1, 1]) group.add(post(wood, 0.035, EMA.height + 0.05, { x: side * (EMA.width / 2 - 0.04), z: 0 }));
+  for (const [rail, y] of [0.42, 0.64, 0.86].entries()) {
+    group.add(box(wood, { width: EMA.width - 0.08, height: 0.03, depth: 0.03 }, { y }));
+    for (let board = 0; board < EMA.perRail; board += 1) {
+      const plaque = box(boards, { width: 0.09, height: 0.08, depth: 0.015 }, { x: -0.33 + board * 0.11, y: y - 0.1, z: 0.025 });
       plaque.rotation.z = ((board + rail) % 3 - 1) * 0.12;
       group.add(plaque);
     }
@@ -176,20 +180,27 @@ const emaRack: PropBuilder = palette => {
   return group;
 };
 
-/** A little wayside shrine: a wooden house on a stone base under a dark roof, a sacred rope with paper streamers
- *  across its doors. */
+/** How high a wayside shrine's red stand raises it, and where its eaves are. */
+const HOKORA = { stand: 0.32, eaves: 0.86 } as const;
+
+/** A little wayside shrine: a wooden house raised on a red stand under a copper-green roof, a sacred rope with paper
+ *  streamers across its doors. */
 const hokora: PropBuilder = palette => {
-  const eaves = 0.62;
-  const roofShape: RoofShape = { span: 0.72, length: 0.78, rise: 0.26, base: eaves, thickness: 0.06 };
+  const red = palette.of(COLOUR.vermilion);
+  const roofShape: RoofShape = { span: 0.72, length: 0.78, rise: 0.26, base: HOKORA.eaves, thickness: 0.06 };
+  const floor = HOKORA.stand + 0.05;
   const group = new THREE.Group().add(
-    box(palette.of(COLOUR.stoneDark), { width: 0.74, height: 0.1, depth: 0.66 }),
-    box(palette.of(COLOUR.stone), { width: 0.6, height: 0.08, depth: 0.52 }, { y: 0.1 }),
-    box(palette.of(COLOUR.wood), { width: 0.48, height: eaves - 0.18, depth: 0.4 }, { y: 0.18 }),
-    box(palette.of(COLOUR.vermilion), { width: 0.3, height: 0.3, depth: 0.02 }, { y: 0.22, z: 0.2 }),
-    curvedRoof(palette.of(COLOUR.roof), roofShape),
-    box(palette.of(COLOUR.rope), { width: 0.5, height: 0.04, depth: 0.04 }, { y: eaves - 0.1, z: 0.22 }),
+    box(palette.of(COLOUR.stoneDark), { width: 0.74, height: 0.06, depth: 0.66 }),
+    box(red, { width: 0.64, height: 0.05, depth: 0.56 }, { y: HOKORA.stand }),
+    box(palette.of(COLOUR.wood), { width: 0.48, height: HOKORA.eaves - floor, depth: 0.4 }, { y: floor }),
+    box(red, { width: 0.3, height: 0.26, depth: 0.02 }, { y: floor + 0.04, z: 0.2 }),
+    curvedRoof(palette.of(COLOUR.copper), roofShape),
+    box(palette.of(COLOUR.rope), { width: 0.5, height: 0.04, depth: 0.04 }, { y: HOKORA.eaves - 0.1, z: 0.22 }),
   );
-  for (const x of [-0.15, 0, 0.15]) group.add(box(palette.of(COLOUR.paper), { width: 0.04, height: 0.1, depth: 0.01 }, { x, y: eaves - 0.2, z: 0.235 }));
+  for (const x of [-1, 1]) {
+    for (const z of [-1, 1]) group.add(post(red, 0.03, HOKORA.stand, { x: x * 0.27, z: z * 0.23, y: 0.06 }));
+  }
+  for (const x of [-0.15, 0, 0.15]) group.add(box(palette.of(COLOUR.paper), { width: 0.04, height: 0.1, depth: 0.01 }, { x, y: HOKORA.eaves - 0.2, z: 0.235 }));
   return group;
 };
 
@@ -247,7 +258,7 @@ const gateway: PropBuilder = (palette, { width }) => {
   return group;
 };
 
-export const PROP_BUILDERS: ReadonlyMap<ShrinePropKind, PropBuilder> = new Map<ShrinePropKind, PropBuilder>([
+export const SHRINE_PROP_BUILDERS: ReadonlyMap<ShrinePropKind, PropBuilder> = new Map<ShrinePropKind, PropBuilder>([
   ["torii", torii], ["stone-lantern", stoneLantern], ["komainu", komainu], ["taiko", taiko], ["temizuya", temizuya],
   ["ema-rack", emaRack], ["hokora", hokora], ["bell-tower", bellTower], ["gate", gateway],
 ]);

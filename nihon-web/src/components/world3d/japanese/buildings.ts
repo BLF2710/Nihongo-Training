@@ -1,10 +1,13 @@
 // The islands' Japanese buildings, built in code (our own designs, in the chunky low-poly style of the English island's
-// models): halls on a stone base under a curved tiled roof (white plaster and dark timber, dark planks for a dojo,
-// vermilion framing for a shrine-like practice hall), a pagoda, and an open market stall under a cloth awning. Each fills the ground it stands on, its door in the middle of its front (south) side, and
-// hangs its Japanese sign from the front of its roof, where nothing hides it from the camera above.
+// models): halls on a stone base under a curved roof laid with rows of tiles (white plaster and dark timber, a
+// townhouse's dark slatted ground floor under a narrow roof, dark planks for a dojo, vermilion framing for a shrine),
+// a pagoda, and an open market stall under a cloth awning. Paper lanterns hang under their eaves, and benches, barrels
+// and potted bushes stand out front. Each fills the ground it stands on, its door in the middle of its front (south)
+// side, and hangs its Japanese sign from the front of its roof, where nothing hides it from the camera above.
 import * as THREE from "three";
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import type { BuildingLook, RoofColour } from "../../../lib/errands/village.ts";
-import { Palette, box, curvedRoof, gable, post } from "./shapes.ts";
+import { Palette, box, curvedRoof, gable, paperLantern, post } from "./shapes.ts";
 import type { RoofShape } from "./shapes.ts";
 import { signboard } from "./signboard.ts";
 
@@ -18,7 +21,8 @@ const AWNING_COLOURS: Readonly<Record<RoofColour, string>> = { ...ROOF_COLOURS, 
 const COLOUR = {
   plaster: "#f1ebdd", timber: "#5a3b28", stone: "#a8a49b", step: "#c3beb2", shoji: "#f7f0dc", lattice: "#6b4a33",
   deck: "#9b7350", window: "#3a2a20", lanternStone: "#b9b4a8", lanternLight: "#ffd98a", cord: "#3b2a1e",
-  planks: "#7a5236", vermilion: "#c8452f", gold: "#d4a64a",
+  planks: "#7a5236", vermilion: "#c8452f", gold: "#d4a64a", straw: "#d9c48c", paper: "#fbf8f0",
+  lanternRed: "#d8402c", lanternWhite: "#f7efe0", barrel: "#b98a52", bench: "#b53a2c", pot: "#6d5a4a", bush: "#5f9447",
 } as const;
 
 /** How far a hall's walls stand in from the edges of its ground (its roof reaches out over them). */
@@ -39,6 +43,22 @@ function hangingSign(palette: Palette, sign: string, eaves: number, front: numbe
   const group = new THREE.Group().add(board);
   for (const side of [-1, 1]) group.add(box(palette.of(COLOUR.cord), { width: 0.03, height: SIGN_DROP - 0.2, depth: 0.03 }, { x: side * 0.3, y: eaves - SIGN_DROP + 0.2, z: front }));
   return group;
+}
+
+/** How far apart the rows of round tiles down a roof are, and how wide and thick each row is. */
+const TILE_ROWS = { spacing: 0.2, width: 0.06, height: 0.05 } as const;
+
+/** Rows of round tiles running down a roof's slopes, in a darker shade of it, so it reads as tiled. One mesh. */
+function roofTiles(palette: Palette, roof: RoofColour, shape: RoofShape): THREE.Mesh {
+  const material = palette.of(ridgeColour(roof));
+  const row = curvedRoof(material, { ...shape, length: TILE_ROWS.width, base: 0, thickness: TILE_ROWS.height }).geometry;
+  const count = Math.floor((shape.length - 0.2) / TILE_ROWS.spacing) + 1;
+  const rows = Array.from({ length: count }, (_, index) => row.clone().translate((index - (count - 1) / 2) * TILE_ROWS.spacing, 0, 0));
+  const tiles = new THREE.Mesh(mergeGeometries(rows), material);
+  for (const geometry of [row, ...rows]) geometry.dispose();
+  // Each row sits a little proud of the roof, sunk into it at its foot.
+  tiles.position.y = shape.base + TILE_ROWS.height * 0.6;
+  return tiles;
 }
 
 /** A roof's ridge beam, with its end tiles standing up. */
@@ -75,6 +95,75 @@ function noren(palette: Palette, roof: RoofColour, front: number): THREE.Group {
   return group;
 }
 
+/** A curtain with a white emblem on its middle panel, as a shop hangs over its door. */
+function emblemNoren(palette: Palette, roof: RoofColour, front: number): THREE.Group {
+  const emblem = new THREE.Mesh(new THREE.CircleGeometry(0.08, 12), palette.of(COLOUR.paper));
+  emblem.position.set(0, PLINTH_HEIGHT + DOOR.height - 0.2, front + 0.06);
+  return noren(palette, roof, front).add(emblem);
+}
+
+/** How tall a townhouse's slatted front stands, and how thick its slats are and how far apart. */
+const KOSHI = { height: 0.78, slat: 0.035, spacing: 0.075 } as const;
+
+/** A townhouse's ground-floor front: fine upright slats over a dark opening, `width` wide with its middle at `x`. */
+function koshi(palette: Palette, { x, width, front }: { x: number; width: number; front: number }): THREE.Group {
+  const lattice = palette.of(COLOUR.lattice);
+  const group = new THREE.Group().add(box(palette.of(COLOUR.window), { width, height: KOSHI.height, depth: 0.03 }, { x, z: front }));
+  const gaps = Math.max(1, Math.floor(width / KOSHI.spacing));
+  for (let slat = 0; slat <= gaps; slat += 1) group.add(box(lattice, { width: KOSHI.slat, height: KOSHI.height, depth: 0.05 }, { x: x - width / 2 + slat * (width / gaps), z: front + 0.01 }));
+  group.add(box(lattice, { width: width + 0.04, height: 0.05, depth: 0.06 }, { x, y: KOSHI.height, z: front + 0.01 }));
+  group.position.y = PLINTH_HEIGHT + 0.08;
+  return group;
+}
+
+/** The stretch of front wall either side of the door, between it and the wall's end, as `x` and `width`. */
+function besideDoor(bodyWidth: number): { x: number; width: number }[] {
+  const inner = DOOR.width / 2 + 0.1, outer = bodyWidth / 2 - 0.1;
+  return [-1, 1].map(side => ({ x: side * (inner + outer) / 2, width: outer - inner }));
+}
+
+/** An upper-floor window of narrow dark slots in the plaster, framed in timber, `width` wide with its middle at `x`. */
+function slotWindow(palette: Palette, { x, y, width, front }: { x: number; y: number; width: number; front: number }): THREE.Group {
+  const dark = palette.of(COLOUR.window), timber = palette.of(COLOUR.timber);
+  const group = new THREE.Group();
+  const slots = Math.max(2, Math.floor(width / 0.11));
+  for (let slot = 0; slot < slots; slot += 1) group.add(box(dark, { width: 0.05, height: 0.22, depth: 0.02 }, { x: x - width / 2 + (slot + 0.5) * (width / slots), y: 0.04, z: front }));
+  for (const top of [0, 0.28]) group.add(box(timber, { width: width + 0.06, height: 0.04, depth: 0.04 }, { x, y: top, z: front }));
+  group.position.y = y;
+  return group;
+}
+
+/** Paper lanterns hanging under the front eaves, near either end of the front wall. */
+function eaveLanterns(palette: Palette, { front, bodyWidth, eaves }: HallFrame, colour: string): THREE.Object3D[] {
+  return [-1, 1].flatMap(side => paperLantern(palette, colour, { x: side * (bodyWidth / 2 - 0.22), y: eaves - 0.02, z: front + 0.22 }, 0.11));
+}
+
+/** Two sake barrels side by side by a wall, a third on top, each hooped in dark rope. */
+function barrels(palette: Palette, x: number, z: number): THREE.Object3D[] {
+  const wood = palette.of(COLOUR.barrel), hoop = palette.of(COLOUR.timber);
+  const stacked = [{ x: x - 0.12, y: 0 }, { x: x + 0.12, y: 0 }, { x, y: 0.2 }];
+  return stacked.flatMap(barrel => [
+    post(wood, 0.11, 0.2, { x: barrel.x, z, y: barrel.y }),
+    ...[0.04, 0.15].map(height => post(hoop, 0.115, 0.025, { x: barrel.x, z, y: barrel.y + height })),
+  ]);
+}
+
+/** A low red bench for passers-by, on four legs. */
+function bench(palette: Palette, x: number, z: number): THREE.Object3D[] {
+  const red = palette.of(COLOUR.bench), legs = palette.of(COLOUR.timber);
+  return [
+    box(red, { width: 0.62, height: 0.05, depth: 0.24 }, { x, y: 0.2, z }),
+    ...[-1, 1].flatMap(side => [-1, 1].map(end => box(legs, { width: 0.04, height: 0.2, depth: 0.04 }, { x: x + side * 0.27, z: z + end * 0.09 }))),
+  ];
+}
+
+/** A round bush in a clay pot. */
+function pottedBush(palette: Palette, x: number, z: number): THREE.Object3D[] {
+  const leaves = new THREE.Mesh(new THREE.IcosahedronGeometry(0.17, 0), palette.of(COLOUR.bush));
+  leaves.position.set(x, 0.3, z);
+  return [post(palette.of(COLOUR.pot), 0.1, 0.16, { x, z }), leaves];
+}
+
 /** A stone lantern: a post holding a lit firebox under a little roof. */
 function stoneLantern(palette: Palette, x: number, z: number): THREE.Group {
   const stone = palette.of(COLOUR.lanternStone);
@@ -92,11 +181,15 @@ function stoneLantern(palette: Palette, x: number, z: number): THREE.Group {
 type HallFrame = { front: number; bodyWidth: number; eaves: number; ridgeTop: number };
 type HallFront = (palette: Palette, plan: BuildingPlan, frame: HallFrame) => THREE.Object3D[];
 /** How a hall is built: how tall its walls stand, how high its roof rises over them, the colours of its walls and of
- *  the timber framing them, and its front. */
-type HallStyle = { wallHeight: number; rise: number; walls: string; timber: string; front: HallFront };
+ *  the timber framing them, and its front. A townhouse's ground floor is dark wood up to a beam (`lowerWalls`), with
+ *  the plaster above it. */
+type HallStyle = { wallHeight: number; rise: number; walls: string; lowerWalls?: string; timber: string; front: HallFront };
+
+/** How high a townhouse's ground floor reaches, where a beam runs round it. */
+const GROUND_FLOOR_HEIGHT = 1.08;
 
 /** A hall: stone base, walls framed in timber, a curved roof with gabled ends, and its front as its style makes it. */
-function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, timber: timberColour, front }: HallStyle): THREE.Group {
+function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, lowerWalls, timber: timberColour, front }: HallStyle): THREE.Group {
   const bodyWidth = plan.width - 2 * WALL_INSET, bodyDepth = plan.depth - 2 * WALL_INSET;
   const eaves = PLINTH_HEIGHT + wallHeight;
   const roofShape: RoofShape = { span: plan.depth - 2 * ROOF_OVERHANG_INSET, length: plan.width - 2 * ROOF_OVERHANG_INSET, rise, base: eaves, thickness: 0.14 };
@@ -107,12 +200,21 @@ function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, t
     box(timber, { width: bodyWidth + 0.04, height: 0.12, depth: bodyDepth + 0.04 }, { y: eaves - 0.12 }),
     box(timber, { width: bodyWidth + 0.04, height: 0.1, depth: bodyDepth + 0.04 }, { y: PLINTH_HEIGHT }),
     curvedRoof(palette.of(roofColour(plan.roof)), roofShape),
+    roofTiles(palette, plan.roof, roofShape),
     ridge(palette, plan.roof, roofShape),
     ...[-1, 1].map(side => gable(palette.of(COLOUR.plaster), roofShape, side * (bodyWidth / 2 - 0.02), 0.04)),
     ...front(palette, plan, { front: bodyDepth / 2, bodyWidth, eaves, ridgeTop: eaves + rise }),
   );
   for (const x of [-bodyWidth / 2, -bodyWidth / 6, bodyWidth / 6, bodyWidth / 2]) {
     for (const z of [-bodyDepth / 2, bodyDepth / 2]) group.add(post(timber, TIMBER, wallHeight, { x, z, y: PLINTH_HEIGHT }));
+  }
+  for (const side of [-1, 1]) group.add(post(timber, TIMBER, wallHeight, { x: side * bodyWidth / 2, z: 0, y: PLINTH_HEIGHT }));
+  if (lowerWalls) {
+    // Slightly proud of the plaster, so the two never flicker where they meet.
+    group.add(
+      box(palette.of(lowerWalls), { width: bodyWidth + 0.006, height: GROUND_FLOOR_HEIGHT, depth: bodyDepth + 0.006 }, { y: PLINTH_HEIGHT }),
+      box(timber, { width: bodyWidth + 0.05, height: 0.08, depth: bodyDepth + 0.05 }, { y: PLINTH_HEIGHT + GROUND_FLOOR_HEIGHT }),
+    );
   }
   if (plan.sign) group.add(hangingSign(palette, plan.sign, eaves, plan.depth / 2 - ROOF_OVERHANG_INSET - 0.05));
   return group;
@@ -121,26 +223,37 @@ function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, t
 /** The kana school: a tall hall with a paper door, slatted windows, a veranda along its front and stone lanterns. */
 const kanaSchool: BuildingBuilder = (palette, plan) => hall(palette, plan, {
   wallHeight: 1.5, rise: 1.05, walls: COLOUR.plaster, timber: COLOUR.timber,
-  front: (palette, { width }, { front, bodyWidth }) => [
-    shojiDoor(palette, front + 0.01),
-    latticeWindow(palette, -bodyWidth / 2 + 0.55, front + 0.01),
-    latticeWindow(palette, bodyWidth / 2 - 0.55, front + 0.01),
-    box(palette.of(COLOUR.deck), { width: bodyWidth + 0.3, height: 0.06, depth: 0.26 }, { y: PLINTH_HEIGHT - 0.06, z: front + 0.15 }),
-    box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.2 }, { z: front + 0.38 }),
-    stoneLantern(palette, -width / 2 + 0.2, front + 0.33),
-    stoneLantern(palette, width / 2 - 0.2, front + 0.33),
+  front: (palette, { width }, frame) => [
+    shojiDoor(palette, frame.front + 0.01),
+    latticeWindow(palette, -frame.bodyWidth / 2 + 0.55, frame.front + 0.01),
+    latticeWindow(palette, frame.bodyWidth / 2 - 0.55, frame.front + 0.01),
+    box(palette.of(COLOUR.deck), { width: frame.bodyWidth + 0.3, height: 0.06, depth: 0.26 }, { y: PLINTH_HEIGHT - 0.06, z: frame.front + 0.15 }),
+    box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.2 }, { z: frame.front + 0.38 }),
+    stoneLantern(palette, -width / 2 + 0.2, frame.front + 0.33),
+    stoneLantern(palette, width / 2 - 0.2, frame.front + 0.33),
+    ...eaveLanterns(palette, frame, COLOUR.lanternWhite),
   ],
 });
 
-/** The calligraphy house: a low townhouse with a curtain over its door and a wide slatted window. */
+const TOWNHOUSE_WALL_HEIGHT = 1.85;
+/** How high a townhouse's upper windows sit over its plinth. */
+const UPPER_WINDOWS = 1.33;
+
+/** The calligraphy house: a two-storey townhouse. Its ground floor is dark wood, slatted either side of a curtained
+ *  door, under a narrow roof; above, white plaster with slotted windows. Red lanterns hang under its eaves, and a
+ *  bench and a potted bush stand out front. */
 const calligraphyHouse: BuildingBuilder = (palette, plan) => hall(palette, plan, {
-  wallHeight: 1.3, rise: 0.85, walls: COLOUR.plaster, timber: COLOUR.timber,
-  front: (palette, { roof }, { front, bodyWidth }) => [
-    shojiDoor(palette, front + 0.01),
-    noren(palette, roof, front),
-    latticeWindow(palette, -bodyWidth / 2 + 0.5, front + 0.01),
-    latticeWindow(palette, bodyWidth / 2 - 0.5, front + 0.01),
-    box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.3 }, { z: front + 0.3 }),
+  wallHeight: TOWNHOUSE_WALL_HEIGHT, rise: 0.85, walls: COLOUR.plaster, lowerWalls: COLOUR.planks, timber: COLOUR.timber,
+  front: (palette, { roof }, frame) => [
+    shojiDoor(palette, frame.front + 0.01),
+    emblemNoren(palette, roof, frame.front),
+    ...besideDoor(frame.bodyWidth).map(({ x, width }) => koshi(palette, { x, width, front: frame.front + 0.01 })),
+    pentRoof(palette, roof, frame, GROUND_FLOOR_HEIGHT),
+    ...[-1, 1].map(side => slotWindow(palette, { x: side * frame.bodyWidth * 0.3, y: PLINTH_HEIGHT + UPPER_WINDOWS, width: 0.7, front: frame.front + 0.01 })),
+    ...eaveLanterns(palette, frame, COLOUR.lanternRed),
+    box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.3 }, { z: frame.front + 0.3 }),
+    ...bench(palette, -frame.bodyWidth / 2 + 0.5, frame.front + 0.3),
+    ...pottedBush(palette, frame.bodyWidth / 2 - 0.3, frame.front + 0.3),
   ],
 });
 
@@ -196,6 +309,8 @@ const dojo: BuildingBuilder = (palette, plan) => hall(palette, plan, {
     ...plankSeams(palette, frame, DOJO_WALL_HEIGHT, DOJO_DOORS_WIDTH),
     box(palette.of(COLOUR.plaster), { width: frame.bodyWidth, height: 0.2, depth: 0.02 }, { y: frame.eaves - 0.34, z: frame.front + 0.01 }),
     ...veranda(palette, frame, { deck: COLOUR.deck, rail: COLOUR.timber }),
+    ...eaveLanterns(palette, frame, COLOUR.lanternWhite),
+    ...barrels(palette, frame.bodyWidth / 2 + 0.2, frame.front + 0.3),
   ],
 });
 
@@ -214,6 +329,7 @@ const practiceHall: BuildingBuilder = (palette, plan) => hall(palette, plan, {
     latticeWindow(palette, -frame.bodyWidth / 2 + 0.55, frame.front + 0.01),
     latticeWindow(palette, frame.bodyWidth / 2 - 0.55, frame.front + 0.01),
     ...veranda(palette, frame, { deck: COLOUR.deck, rail: COLOUR.vermilion }),
+    ...eaveLanterns(palette, frame, COLOUR.lanternWhite),
     ...ridgeCaps(palette, frame, width),
   ],
 });
@@ -242,34 +358,170 @@ const stall: BuildingBuilder = (palette, plan) => {
   return group;
 };
 
-/** A pagoda's storeys: how wide the first is (as a share of its ground), how much narrower each one up, how tall. */
-const PAGODA = { storeys: 3, baseShare: 0.5, narrowing: 0.13, storeyHeight: 0.62, eaves: 0.38, roofHeight: 0.32, spire: 1.1 } as const;
-const PAGODA_ROOF = "#474c55";
-const PAGODA_GOLD = "#d4a64a";
+const SCHOOL_WALL_HEIGHT = 2.0;
+/** How high the school's upper floor starts, where a narrow roof runs along its front. */
+const SCHOOL_UPPER_FLOOR = 1.15;
 
-/** A pagoda: storeys of its roof colour, each under a wide dark roof, narrowing to a gold spire. */
+/** A narrow sloping roof along a front wall at `y`, sheltering the ground floor. */
+function pentRoof(palette: Palette, roof: RoofColour, { front, bodyWidth }: HallFrame, y: number): THREE.Object3D {
+  const pent = box(palette.of(roofColour(roof)), { width: bodyWidth + 0.2, height: 0.06, depth: 0.36 }, { y: PLINTH_HEIGHT + y, z: front + 0.16 });
+  pent.rotation.x = 0.35;
+  return pent;
+}
+
+/** The school: a tall two-storey hall, a paper door and slatted windows below, a row of windows above, and a narrow
+ *  roof along its front between the floors. */
+const school: BuildingBuilder = (palette, plan) => hall(palette, plan, {
+  wallHeight: SCHOOL_WALL_HEIGHT, rise: 0.95, walls: COLOUR.plaster, lowerWalls: COLOUR.planks, timber: COLOUR.timber,
+  front: (palette, { roof }, frame) => {
+    const upper = [-1, 0, 1].map(column => latticeWindow(palette, column * frame.bodyWidth * 0.32, frame.front + 0.01));
+    for (const window of upper) window.position.y += SCHOOL_UPPER_FLOOR;
+    return [
+      shojiDoor(palette, frame.front + 0.01),
+      ...besideDoor(frame.bodyWidth).map(({ x, width }) => koshi(palette, { x, width, front: frame.front + 0.01 })),
+      ...upper,
+      pentRoof(palette, roof, frame, SCHOOL_UPPER_FLOOR),
+      ...eaveLanterns(palette, frame, COLOUR.lanternRed),
+      box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.3 }, { z: frame.front + 0.3 }),
+      ...[-1, 1].flatMap(side => pottedBush(palette, side * (frame.bodyWidth / 2 - 0.3), frame.front + 0.3)),
+    ];
+  },
+});
+
+const THATCH = "#c8a865";
+const TEAHOUSE = { wallHeight: 1.05, roofHeight: 1.2 } as const;
+
+/** The teahouse: low wooden walls under a deep, steep roof of thatch capped along its ridge, a paper door with a
+ *  curtain, a round window and a stepping stone up to it. */
+const teahouse: BuildingBuilder = (palette, plan) => {
+  const bodyWidth = plan.width - 2 * WALL_INSET - 0.2, bodyDepth = plan.depth - 2 * WALL_INSET;
+  const eaves = PLINTH_HEIGHT + TEAHOUSE.wallHeight, front = bodyDepth / 2;
+  // A hipped roof is a four-sided cone cut short, stretched to the hall's length.
+  const roofSpan = Math.min(plan.width, plan.depth) - 0.1;
+  const thatch = new THREE.Mesh(new THREE.CylinderGeometry(roofSpan * 0.18, roofSpan * Math.SQRT1_2, TEAHOUSE.roofHeight, 4, 1).rotateY(Math.PI / 4), palette.of(THATCH));
+  thatch.scale.x = (plan.width - 0.1) / roofSpan;
+  thatch.position.y = eaves + TEAHOUSE.roofHeight / 2 - 0.05;
+  const round = new THREE.Mesh(new THREE.CircleGeometry(0.28, 14), palette.of(COLOUR.shoji));
+  round.position.set(-bodyWidth / 2 + 0.5, PLINTH_HEIGHT + 0.6, front + 0.015);
+  const group = new THREE.Group().add(
+    box(palette.of(COLOUR.stone), { width: bodyWidth + 0.2, height: PLINTH_HEIGHT, depth: bodyDepth + 0.2 }),
+    box(palette.of(COLOUR.planks), { width: bodyWidth, height: TEAHOUSE.wallHeight, depth: bodyDepth }, { y: PLINTH_HEIGHT }),
+    thatch,
+    box(palette.of(roofColour(plan.roof)), { width: plan.width * 0.4, height: 0.16, depth: 0.3 }, { y: eaves + TEAHOUSE.roofHeight - 0.12 }),
+    round,
+    new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.025, 4, 14), palette.of(COLOUR.lattice)).translateX(round.position.x).translateY(round.position.y).translateZ(front + 0.02),
+    shojiDoor(palette, front + 0.01),
+    noren(palette, plan.roof, front),
+    box(palette.of(COLOUR.step), { width: 0.6, height: 0.1, depth: 0.4 }, { z: front + 0.35 }),
+  );
+  if (plan.sign) group.add(hangingSign(palette, plan.sign, eaves + 0.15, plan.depth / 2 - 0.1));
+  return group;
+};
+
+/** A sacred rope hung across a shrine's porch at height `y`, with zigzag paper streamers hanging from it. */
+function shimenawa(palette: Palette, y: number, z: number, width: number): THREE.Object3D[] {
+  const rope = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, width, 8).rotateZ(Math.PI / 2), palette.of(COLOUR.straw));
+  rope.position.set(0, y, z);
+  const streamers = [-0.3, 0, 0.3].map(share => box(palette.of(COLOUR.paper), { width: 0.06, height: 0.16, depth: 0.01 }, { x: share * width, y: y - 0.2, z: z + 0.03 }));
+  return [rope, ...streamers];
+}
+
+/** The shrine: a hall framed in vermilion, a little roofed porch on two posts before its doors, a sacred rope across
+ *  it, an offering box and the bell rope, and gold caps along the ridge. */
+const shrine: BuildingBuilder = (palette, plan) => hall(palette, plan, {
+  wallHeight: 1.35, rise: 1.05, walls: COLOUR.plaster, timber: COLOUR.vermilion,
+  front: (palette, { roof, width }, frame) => {
+    const porchDepth = 0.42, porchWidth = 1.5, porchEaves = frame.eaves - 0.15;
+    const porch = curvedRoof(palette.of(roofColour(roof)), { span: porchDepth + 0.1, length: porchWidth + 0.2, rise: 0.22, base: porchEaves, thickness: 0.08 });
+    porch.position.z = frame.front + porchDepth / 2;
+    return [
+      shojiDoor(palette, frame.front + 0.01),
+      latticeWindow(palette, -frame.bodyWidth / 2 + 0.5, frame.front + 0.01),
+      latticeWindow(palette, frame.bodyWidth / 2 - 0.5, frame.front + 0.01),
+      porch,
+      ...[-1, 1].map(side => post(palette.of(COLOUR.vermilion), 0.05, porchEaves, { x: side * porchWidth / 2, z: frame.front + porchDepth })),
+      // The rope hangs just over the door, low enough that it doesn't cross the sign under the eaves.
+      ...shimenawa(palette, PLINTH_HEIGHT + DOOR.height + 0.12, frame.front + porchDepth, porchWidth),
+      box(palette.of(COLOUR.timber), { width: 0.5, height: 0.3, depth: 0.28 }, { z: frame.front + 0.25 }),
+      post(palette.of(COLOUR.straw), 0.025, porchEaves - 0.5, { x: 0.15, z: frame.front + 0.3, y: 0.35 }),
+      post(palette.of(COLOUR.gold), 0.06, 0.08, { x: 0.15, z: frame.front + 0.3, y: porchEaves - 0.2 }),
+      ...eaveLanterns(palette, frame, COLOUR.lanternWhite),
+      ...ridgeCaps(palette, frame, width),
+    ];
+  },
+});
+
+/** A pagoda's five storeys: how wide the first is (as a share of its ground), how much narrower each one up (also a
+ *  share), how tall the first and the rest stand, and its roofs: how far their eaves reach out, how thick they are,
+ *  how high each slopes up to the storey above, and how far their corners curl up. */
+const PAGODA = {
+  storeys: 5, baseShare: 0.72, narrowing: 0.06, firstHeight: 0.8, storeyHeight: 0.54,
+  eaves: 0.28, eaveThickness: 0.08, roofRise: 0.12, cornerLift: 0.14, spire: 1.3,
+} as const;
+/** The ground (in tiles across) a pagoda's measures are for. */
+const PAGODA_DESIGN_GROUND = 3;
+/** A pagoda's roofs are dark slate, unless its roof colour is itself a dark one. */
+const PAGODA_SLATE = "#474c55";
+const PAGODA_ROOFS: Readonly<Record<RoofColour, string>> = { vermilion: PAGODA_SLATE, wood: PAGODA_SLATE, indigo: ROOF_COLOURS.indigo, moss: ROOF_COLOURS.moss };
+const PAGODA_GOLD = "#d4a64a";
+const DIAGONALS = [[-1, -1], [-1, 1], [1, -1], [1, 1]] as const;
+
+/** One storey `width` wide and `height` tall from `floor`: white walls framed by vermilion posts and beams, a dark
+ *  doorway on its front, and a railing round its foot (but the first, which stands on the plinth). */
+function pagodaStorey(palette: Palette, { width, height, floor, hasRailing }: { width: number; height: number; floor: number; hasRailing: boolean }): THREE.Object3D[] {
+  const frame = palette.of(COLOUR.vermilion), half = width / 2;
+  const parts: THREE.Object3D[] = [
+    box(palette.of(COLOUR.plaster), { width, height, depth: width }, { y: floor }),
+    box(frame, { width: width + 0.03, height: 0.07, depth: width + 0.03 }, { y: floor + height - 0.07 }),
+    ...DIAGONALS.map(([x, z]) => post(frame, 0.04, height, { x: x * half, z: z * half, y: floor })),
+    box(palette.of(COLOUR.window), { width: width * 0.36, height: height * 0.62, depth: 0.02 }, { y: floor + height * 0.12, z: half + 0.01 }),
+    box(frame, { width: width * 0.46, height: 0.04, depth: 0.03 }, { y: floor + height * 0.74, z: half + 0.015 }),
+  ];
+  if (hasRailing) parts.push(box(frame, { width: width + 0.12, height: 0.05, depth: width + 0.12 }, { y: floor + 0.08 }));
+  return parts;
+}
+
+/** A storey's roof over `width` of wall at `base`: thin wide eaves sloping up to `topWidth`, their corners curling up. */
+function pagodaRoof(material: THREE.Material, { width, topWidth, base }: { width: number; topWidth: number; base: number }): THREE.Object3D[] {
+  const reach = width / 2 + PAGODA.eaves;
+  const slope = new THREE.Mesh(new THREE.CylinderGeometry(topWidth / Math.SQRT2, reach * Math.SQRT2, PAGODA.roofRise, 4).rotateY(Math.PI / 4), material);
+  slope.position.y = base + PAGODA.eaveThickness + PAGODA.roofRise / 2;
+  // Each corner's tip leans out along the diagonal and up, so the eaves look to flare.
+  const tips = DIAGONALS.map(([x, z]) => {
+    const tip = box(material, { width: 0.08, height: PAGODA.eaveThickness, depth: 0.26 });
+    tip.rotation.order = "YXZ";
+    tip.rotation.set(-Math.atan2(PAGODA.cornerLift, 0.26), Math.atan2(x, z), 0);
+    tip.position.set(x * (reach - 0.06), base + PAGODA.eaveThickness / 2 + PAGODA.cornerLift / 2, z * (reach - 0.06));
+    return tip;
+  });
+  return [box(material, { width: reach * 2, height: PAGODA.eaveThickness, depth: reach * 2 }, { y: base }), slope, ...tips];
+}
+
+/** A five-storey pagoda: white-walled, vermilion-framed storeys narrowing upwards, each under a thin flaring roof,
+ *  topped by a gold spire with rings. */
 const pagoda: BuildingBuilder = (palette, plan) => {
-  const ground = Math.min(plan.width, plan.depth);
-  const walls = palette.of(roofColour(plan.roof)), roofs = palette.of(PAGODA_ROOF);
-  const group = new THREE.Group().add(box(palette.of(COLOUR.stone), { width: ground * 0.62, height: PLINTH_HEIGHT, depth: ground * 0.62 }));
+  const ground = PAGODA_DESIGN_GROUND;
+  const roofs = palette.of(PAGODA_ROOFS[plan.roof]);
+  const widthOf = (storey: number) => ground * (PAGODA.baseShare - storey * PAGODA.narrowing);
+  const group = new THREE.Group().add(box(palette.of(COLOUR.stone), { width: widthOf(0) + 0.3, height: PLINTH_HEIGHT, depth: widthOf(0) + 0.3 }));
   let floor = PLINTH_HEIGHT;
   for (let storey = 0; storey < PAGODA.storeys; storey += 1) {
-    const width = ground * (PAGODA.baseShare - storey * PAGODA.narrowing);
-    group.add(box(walls, { width, height: PAGODA.storeyHeight, depth: width }, { y: floor }));
-    // A roof is a four-sided cone cut short, turned so its sides face the four ways.
-    const eaves = (width / 2 + PAGODA.eaves) * Math.SQRT2;
-    const roof = new THREE.Mesh(new THREE.CylinderGeometry(eaves * 0.35, eaves, PAGODA.roofHeight, 4).rotateY(Math.PI / 4), roofs);
-    roof.position.y = floor + PAGODA.storeyHeight + PAGODA.roofHeight / 2;
-    group.add(roof);
-    floor += PAGODA.storeyHeight + PAGODA.roofHeight;
+    const width = widthOf(storey), height = storey === 0 ? PAGODA.firstHeight : PAGODA.storeyHeight;
+    group.add(...pagodaStorey(palette, { width, height, floor, hasRailing: storey > 0 }));
+    group.add(...pagodaRoof(roofs, { width, topWidth: widthOf(storey + 1) * 0.9, base: floor + height }));
+    floor += height + PAGODA.eaveThickness + PAGODA.roofRise;
   }
   const gold = palette.of(PAGODA_GOLD);
-  group.add(post(gold, 0.04, PAGODA.spire, { x: 0, z: 0, y: floor }));
-  for (let ring = 1; ring <= 4; ring += 1) group.add(post(gold, 0.09, 0.04, { x: 0, z: 0, y: floor + ring * 0.18 }));
+  group.add(post(gold, 0.035, PAGODA.spire, { x: 0, z: 0, y: floor }));
+  for (let ring = 1; ring <= 5; ring += 1) group.add(post(gold, 0.08, 0.03, { x: 0, z: 0, y: floor + ring * 0.13 }));
+  // Its sign hangs from the lowest roof's eaves, over the door.
+  if (plan.sign) group.add(hangingSign(palette, plan.sign, PLINTH_HEIGHT + PAGODA.firstHeight, widthOf(0) / 2 + 0.16));
+  // Built on a ground of its design size, then grown (or shrunk) to its own, roofs, spire and sign alike.
+  group.scale.setScalar(Math.min(plan.width, plan.depth) / PAGODA_DESIGN_GROUND);
   return group;
 };
 
 export const BUILDING_BUILDERS: ReadonlyMap<BuildingLook, BuildingBuilder> = new Map<BuildingLook, BuildingBuilder>([
   ["kana-school", kanaSchool], ["calligraphy", calligraphyHouse], ["stall", stall], ["pagoda", pagoda],
-  ["dojo", dojo], ["practice-hall", practiceHall],
+  ["dojo", dojo], ["practice-hall", practiceHall], ["school", school], ["teahouse", teahouse], ["shrine", shrine],
 ]);

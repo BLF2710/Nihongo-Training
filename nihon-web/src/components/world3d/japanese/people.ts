@@ -84,13 +84,13 @@ export class BuiltPerson implements IslandWalker {
 }
 
 /** A limb hanging from a joint at `joint`: a pivot to swing, with the limb's parts hung below it. */
-function limb(joint: { x: number; y: number; z?: number }, ...parts: THREE.Object3D[]): THREE.Group {
+export function limb(joint: { x: number; y: number; z?: number }, ...parts: THREE.Object3D[]): THREE.Group {
   const pivot = new THREE.Group().add(...parts);
   pivot.position.set(joint.x, joint.y, joint.z ?? 0);
   return pivot;
 }
 
-function sphere(material: THREE.Material, radius: number, at: { x?: number; y?: number; z?: number }, detail = 1): THREE.Mesh {
+export function sphere(material: THREE.Material, radius: number, at: { x?: number; y?: number; z?: number }, detail = 1): THREE.Mesh {
   const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(radius, detail), material);
   mesh.position.set(at.x ?? 0, at.y ?? 0, at.z ?? 0);
   return mesh;
@@ -106,17 +106,17 @@ const FAN = "#f3e2c0";
 
 const EYE_SHINE = "#ffffff";
 /** Where on a head (as a direction from its middle) each eye sits, and the rosy cheeks below them. */
-const EYE_DIRECTION = { x: 0.36, y: -0.06, z: 0.93 } as const;
+export const EYE_DIRECTION = { x: 0.36, y: -0.06, z: 0.93 } as const;
 const CHEEK_DIRECTION = { x: 0.55, y: -0.32, z: 0.78 } as const;
 
 /** A point on the surface of a head of `radius` centred at height `y`, in a direction from its middle. */
-const onHead = (y: number, radius: number, direction: { x: number; y: number; z: number }, side: number) => {
+export const onHead = (y: number, radius: number, direction: { x: number; y: number; z: number }, side: number) => {
   const point = new THREE.Vector3(side * direction.x, direction.y, direction.z).normalize().multiplyScalar(radius);
   return { x: point.x, y: y + point.y, z: point.z };
 };
 
 /** Two oval eyes on the front of a head, each with a glint of light. */
-function eyes(palette: Palette, y: number, radius: number): THREE.Object3D[] {
+export function eyes(palette: Palette, y: number, radius: number): THREE.Object3D[] {
   return [-1, 1].flatMap(side => {
     const at = onHead(y, radius, EYE_DIRECTION, side);
     const eye = sphere(palette.of(INK), radius * 0.12, at, 1);
@@ -127,7 +127,7 @@ function eyes(palette: Palette, y: number, radius: number): THREE.Object3D[] {
 }
 
 /** Rosy cheeks below the eyes. */
-function rosyCheeks(palette: Palette, y: number, radius: number): THREE.Object3D[] {
+export function rosyCheeks(palette: Palette, y: number, radius: number): THREE.Object3D[] {
   return [-1, 1].map(side => {
     const cheek = sphere(palette.of(ROSY), radius * 0.13, onHead(y, radius, CHEEK_DIRECTION, side), 1);
     cheek.scale.set(1, 0.6, 0.35);

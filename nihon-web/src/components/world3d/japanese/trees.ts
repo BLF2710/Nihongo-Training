@@ -1,7 +1,9 @@
 // The islands' trees, built in code: one on each tree tile of the ground (a great one on a block of two by two). A
 // cherry tree is a gnarled trunk splitting into branches under a soft crown of round pink clumps, lighter where the
-// sun falls on them, with fallen petals round its foot. A clump of bamboo is a few tall jointed canes, leaning a
-// little apart, with sprays of slim leaves near their tops. Each is different (its lean, branches and clumps follow from
+// sun falls on them, with fallen petals round its foot; a garden tree is the same in green, and a maple in red,
+// orange and gold, its leaves fallen round it. A garden pine is a twisting trunk holding out flat pads of dark
+// needles. A clump of bamboo is a few tall jointed canes, leaning a little apart, with sprays of slim leaves near
+// their tops. Each is different (its lean, branches and clumps follow from
 // its tile, so it's the same tree every visit), and each is one mesh of coloured parts, so a grove draws quickly.
 import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
@@ -13,8 +15,17 @@ export type TreeBuilder = (palette: Palette, at: Rect) => THREE.Object3D;
 
 const BARK = "#5e3b2b";
 const BARK_DARK = "#4a2d21";
-const BLOSSOM = { shade: "#e07f9f", body: "#f3a9c0", light: "#fdd7e3" } as const;
-const PETAL = "#f6bccd";
+/** A crown's colours: darker underneath, its body, and lighter on top where the sun is. */
+type Crown = { shade: string; body: string; light: string };
+const BLOSSOM: readonly Crown[] = [{ shade: "#e07f9f", body: "#f3a9c0", light: "#fdd7e3" }];
+const LEAVES: readonly Crown[] = [{ shade: "#3f7a35", body: "#5c9c45", light: "#86c25a" }];
+const MAPLE: readonly Crown[] = [
+  { shade: "#9e2a1f", body: "#cf4228", light: "#ef7a45" },
+  { shade: "#b3541c", body: "#e07b2a", light: "#f6a849" },
+  { shade: "#b88a1e", body: "#e0b23a", light: "#f5d36a" },
+];
+const PETALS = ["#f6bccd"] as const;
+const MAPLE_LEAVES = ["#d2492f", "#e57b2f", "#efb23c"] as const;
 
 /** A cherry tree one tile across, in tiles: how tall its trunk stands before it splits, how far its branches reach
  *  out and up, how big its crown's clumps are, and how many there are on each branch. A great tree is all of this
@@ -64,24 +75,32 @@ function limb(from: THREE.Vector3, to: THREE.Vector3, radius: { from: number; to
   return [painted(geometry, BARK_DARK, BARK), painted(knot, BARK)];
 }
 
-/** A round clump of blossom: darker underneath, lighter on top where the sun is. */
-function clump(at: THREE.Vector3, radius: number, random: () => number): THREE.BufferGeometry {
+/** One of `choices` (the only one without drawing a random number, so a one-colour tree comes out as it always has). */
+const pickOf = <T,>(choices: readonly T[], random: () => number): T =>
+  choices.length === 1 ? choices[0] : choices[Math.floor(random() * choices.length) % choices.length];
+
+/** A round clump of the crown, in one of its colourings: darker underneath, lighter on top where the sun is. */
+function clump(at: THREE.Vector3, radius: number, crowns: readonly Crown[], random: () => number): THREE.BufferGeometry {
+  const crown = pickOf(crowns, random);
   const isBright = random() > 0.5;
   const geometry = new THREE.SphereGeometry(radius, 10, 7).translate(at.x, at.y, at.z);
-  return painted(geometry, BLOSSOM.shade, isBright ? BLOSSOM.light : BLOSSOM.body);
+  return painted(geometry, crown.shade, isBright ? crown.light : crown.body);
 }
 
-/** Petals fallen round the tree's foot, lying flat just above the ground. */
-function fallenPetals(count: number, spread: number, random: () => number): THREE.BufferGeometry[] {
+/** Petals or leaves fallen round the tree's foot, lying flat just above the ground. */
+function fallen(count: number, spread: number, colours: readonly string[], random: () => number): THREE.BufferGeometry[] {
   return Array.from({ length: count }, () => {
     const angle = random() * Math.PI * 2, distance = spread * Math.sqrt(random());
     const petal = new THREE.CircleGeometry(0.035, 5).rotateX(-Math.PI / 2).rotateY(random() * Math.PI);
-    return painted(petal.translate(Math.cos(angle) * distance, 0.004, Math.sin(angle) * distance), PETAL);
+    return painted(petal.translate(Math.cos(angle) * distance, 0.004, Math.sin(angle) * distance), pickOf(colours, random));
   });
 }
 
+/** How a broad-leaved tree grows: how many branches and clumps on each, and its crown's colourings. */
+type Growth = { branches: number; clumpsPerBranch: number; crowns: readonly Crown[] };
+
 /** The trunk, rising with a lean and a bend, its branches spreading round from its top, and the clumps on them. */
-function cherryParts(size: number, random: () => number, branchCount: number, clumpsPerBranch: number): THREE.BufferGeometry[] {
+function broadleafParts(size: number, random: () => number, { branches: branchCount, clumpsPerBranch, crowns }: Growth): THREE.BufferGeometry[] {
   const lean = new THREE.Vector3((random() - 0.5) * 0.25, 0, (random() - 0.5) * 0.25).multiplyScalar(size);
   const bend = new THREE.Vector3(0, TREE.trunkHeight * 0.5 * size, 0).add(lean.clone().multiplyScalar(0.6));
   const top = new THREE.Vector3(0, TREE.trunkHeight * size, 0).add(lean);
@@ -98,26 +117,63 @@ function cherryParts(size: number, random: () => number, branchCount: number, cl
     parts.push(...limb(top, end, { from: trunkRadius * 0.7, to: TREE.branchRadius * size }));
     for (let index = 0; index < clumpsPerBranch; index += 1) {
       const offset = new THREE.Vector3(random() - 0.5, (random() - 0.3) * 0.8, random() - 0.5).multiplyScalar(TREE.clumpRadius * size * 2.2);
-      parts.push(clump(end.clone().add(offset), TREE.clumpRadius * size * (0.7 + random() * 0.6), random));
+      parts.push(clump(end.clone().add(offset), TREE.clumpRadius * size * (0.7 + random() * 0.6), crowns, random));
     }
   }
   // A crown over the middle, so the tree is round from above rather than a ring of clumps.
-  parts.push(clump(top.clone().add(new THREE.Vector3(0, TREE.branchRise * size * 1.15, 0)), TREE.clumpRadius * size * 1.5, random));
+  parts.push(clump(top.clone().add(new THREE.Vector3(0, TREE.branchRise * size * 1.15, 0)), TREE.clumpRadius * size * 1.5, crowns, random));
   return parts;
 }
 
-/** A cherry tree in blossom, as big as its ground (one tile, or a great tree on two by two). */
-const sakura: TreeBuilder = (palette, at) => {
-  const size = Math.min(at.width, at.height);
-  const random = steadyRandom(at);
-  const isGreat = size > 1;
-  const parts = [
-    ...cherryParts(size, random, isGreat ? GREAT_TREE_BRANCHES : TREE.branches, isGreat ? GREAT_TREE_CLUMPS_PER_BRANCH : TREE.clumpsPerBranch),
-    ...fallenPetals(TREE.fallenPetals * size * size, TREE.petalSpread * size, random),
-  ];
+/** The parts of a tree as one mesh, coloured as each part is painted. */
+function mergedTree(palette: Palette, parts: readonly THREE.BufferGeometry[]): THREE.Mesh {
   const geometry = mergeGeometries(parts.map(part => part.index ? part.toNonIndexed() : part));
   for (const part of parts) part.dispose();
   return new THREE.Mesh(geometry, palette.coloured());
+}
+
+/** A broad-leaved tree with `crowns` for its colourings, as big as its ground (one tile, or a great tree on two by
+ *  two), and what has fallen round it, if anything. */
+function broadleaf(crowns: readonly Crown[], fallenColours: readonly string[]): TreeBuilder {
+  return (palette, at) => {
+    const size = Math.min(at.width, at.height);
+    const random = steadyRandom(at);
+    const isGreat = size > 1;
+    const growth = { crowns, branches: isGreat ? GREAT_TREE_BRANCHES : TREE.branches, clumpsPerBranch: isGreat ? GREAT_TREE_CLUMPS_PER_BRANCH : TREE.clumpsPerBranch };
+    const fallenCount = fallenColours.length > 0 ? TREE.fallenPetals * size * size : 0;
+    return mergedTree(palette, [...broadleafParts(size, random, growth), ...fallen(fallenCount, TREE.petalSpread * size, fallenColours, random)]);
+  };
+}
+
+const PINE = { bark: "#6b4a35", needles: { shade: "#2c5232", light: "#5f8f4b" }, height: 1.5, pads: 5, padRadius: 0.34 } as const;
+
+/** A garden pine: a trunk twisting up in three turns, holding out flat pads of needles on short branches, one on top. */
+const pine: TreeBuilder = (palette, at) => {
+  const size = Math.min(at.width, at.height);
+  const random = steadyRandom(at);
+  const parts: THREE.BufferGeometry[] = [];
+  const bends = [new THREE.Vector3()];
+  for (let turn = 1; turn <= 3; turn += 1) {
+    const side = turn % 2 === 0 ? -1 : 1;
+    bends.push(new THREE.Vector3(side * (0.1 + random() * 0.12) * size, (PINE.height * turn / 3) * size, (random() - 0.5) * 0.15 * size));
+  }
+  for (let index = 1; index < bends.length; index += 1) {
+    const radius = 0.09 * size * (1 - index * 0.2);
+    parts.push(...limb(bends[index - 1], bends[index], { from: radius * 1.2, to: radius }).map(part => painted(part, PINE.bark)));
+  }
+  const pads = PINE.pads + (size > 1 ? 3 : 0);
+  for (let pad = 0; pad < pads; pad += 1) {
+    const isTop = pad === pads - 1;
+    const share = isTop ? 1 : 0.35 + (pad / pads) * 0.6;
+    const from = bends[Math.min(3, Math.max(1, Math.round(share * 3)))].clone().setY(PINE.height * share * size);
+    const angle = random() * Math.PI * 2, reach = isTop ? 0 : (0.25 + random() * 0.25) * size;
+    const to = from.clone().add(new THREE.Vector3(Math.cos(angle) * reach, 0.08 * size, Math.sin(angle) * reach));
+    if (!isTop) parts.push(...limb(from, to, { from: 0.04 * size, to: 0.025 * size }).map(part => painted(part, PINE.bark)));
+    const radius = PINE.padRadius * size * (isTop ? 1.1 : 0.75 + random() * 0.4);
+    const needles = new THREE.SphereGeometry(radius, 9, 5).scale(1, 0.38, 1).translate(to.x, to.y + 0.05 * size, to.z);
+    parts.push(painted(needles, PINE.needles.shade, PINE.needles.light));
+  }
+  return mergedTree(palette, parts);
 };
 
 const CANE = { base: "#5c8f37", top: "#93c25a", joint: "#456f28" } as const;
@@ -175,9 +231,9 @@ const bamboo: TreeBuilder = (palette, at) => {
       parts.push(...leafSpray(sprayAt, random() * Math.PI * 2, random));
     }
   }
-  const geometry = mergeGeometries(parts.map(part => part.index ? part.toNonIndexed() : part));
-  for (const part of parts) part.dispose();
-  return new THREE.Mesh(geometry, palette.coloured());
+  return mergedTree(palette, parts);
 };
 
-export const TREE_BUILDERS: ReadonlyMap<Terrain, TreeBuilder> = new Map<Terrain, TreeBuilder>([["sakura", sakura], ["bamboo", bamboo]]);
+export const TREE_BUILDERS: ReadonlyMap<Terrain, TreeBuilder> = new Map<Terrain, TreeBuilder>([
+  ["sakura", broadleaf(BLOSSOM, PETALS)], ["tree", broadleaf(LEAVES, [])], ["maple", broadleaf(MAPLE, MAPLE_LEAVES)], ["pine", pine], ["bamboo", bamboo],
+]);

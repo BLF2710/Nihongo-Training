@@ -152,40 +152,57 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
     `components/errands/Elevation.tsx`): a snowy slope with drifts, a few rocks, snowy firs and a path zigzagging up
     from the pier. It is hinged a tile inside the edge, behind the shore's pines: the camera is always over the map, so
     a slope rising from the edge itself would lie mostly off screen.
-- **Islands in real 3D:** islands listed in `ISLANDS_IN_3D` (`data/world/islandScenes.ts`, so far Kana and Practice) are
+- **Islands in real 3D:** every Japanese island is listed in `ISLANDS_IN_3D` (`data/world/islandScenes.ts`) and is
   drawn with three.js, like the English island (see `docs/ENGLISH.md`), instead of `VillageScene`.
   `lib/world/japaneseIsland3D.ts` reads the island's own `IslandScene` as a 3D one, so its layout, doors, challenger
   and battles are unchanged:
   - each building becomes a model of its `look`, keeping its roof colour and sign;
   - every tree tile grows a tree of its kind;
   - a block of two by two tree tiles grows one great tree (Kana's great cherry at the head of the petal square);
+  - every rock tile has a mossy rock, and small things lie on the ground by its terrain
+    (`components/world3d/groundDetails.ts`): stepping stones, raked gravel lines, flower clumps, fallen maple
+    leaves, snow drifts and step edges;
+  - koi swim in the island's ponds (`lib/world/ponds.ts`: water cut off from the sea; `components/world3d/koi.ts`);
   - trees in the island's last rows of land, nearest the camera, grow smaller so they don't hide the island;
-  - the island's `props` (`lib/world/islandProps.ts`: torii, stone lanterns, komainu, a taiko drum, a temizuya water
-    basin, an ema rack, a hokora, a bell tower, a roofed gate) stand where its content sets them, turned by `facing`.
+  - the island's `props` (`lib/world/islandProps.ts`: torii, stone and snow-viewing lanterns, komainu, a taiko drum,
+    a temizuya water basin, an ema rack, a hokora, a bell tower, a roofed gate, festival nobori banners (まつり, おちゃ and
+    だんご) and lantern strings, tea benches, food carts selling dumplings, a rickshaw, a watchtower, bushes; a taiko grows
+    with its ground, so a great festival drum stands on two by two) stand where its content sets them, turned by `facing`.
     They're drawn only in 3D, and the ground they take is in the layout's `obstacles`. A torii or gate is walked
-    through: only its pillar tiles, at the ends of its long side, are blocked;
+    through: only its pillar tiles, at the ends of its long side, are blocked. A lantern string hangs between two of
+    the layout's lanterns and blocks nothing itself;
+  - the layout's lanterns stand as the theme's lantern piece (paper lanterns at the festival, snow-viewing lanterns
+    in the zen garden, stone lanterns elsewhere) and block their tiles;
   - the challenger stands as themselves;
-  - a far shore (`lib/world/farShore.ts`) lies a few tiles across the water all round. It is flat land near the water
+  - a far shore (`lib/world/farShore.ts`) lies a few tiles across the water all round, except on Fuji, which floats
+    on a sea of clouds (`components/world3d/clouds.ts`) with the snowy summit rising behind it. It is flat land near the water
     with hills behind, none on the near side, where they'd block the camera. The island's bridges are carried on
     over the water to it, and a path continues from each.
-  - The island's theme gives the far shore its trees and landmark (sakura: cherry trees and a pagoda; bamboo: bamboo
-    and a bell tower) and what falls through the air, round the camera (`components/world3d/fallingPetals.ts`):
-    petals on a sakura island, leaves in a bamboo grove, none when the system asks for reduced motion.
+  - The island's theme (`THEME_LOOKS`) gives the far shore its trees and landmark (sakura: cherry trees and a pagoda;
+    bamboo: bamboo and a bell tower; festival: garden trees and a watchtower; maple: maples and a great torii; zen:
+    pines and a wooden pagoda) and what falls through the air, round the camera
+    (`components/world3d/fallingPetals.ts`): petals, bamboo leaves, maple leaves or snow, none when the system asks
+    for reduced motion.
   - The water on every 3D island moves (`components/world3d/water.ts`): waves roll across it and catch the light,
     with glints on their crests. It turns turquoise in the shallows, and foam laps along every shore. It knows how
     near land it is from a blurred picture of the land (`lib/world/shallows.ts`). A sharp blur places the foam, so a
     river one tile wide foams only along its banks; a broad blur places the shallows. It stands still under reduced
     motion.
   The models are our own designs, built in code in `components/world3d/japanese/`:
-  - `buildings.ts`: halls with curved roofs (the kana school, the calligraphy house, a dojo of dark planks, a
-    practice hall framed in vermilion like a shrine), a pagoda, a stall, and signboards that paint the Japanese sign;
-  - `shrineProps.ts`: the shrine pieces above;
-  - `trees.ts`: a cherry tree is a gnarled trunk and branches under soft round clumps of blossom, with fallen petals;
-    a clump of bamboo is jointed canes leaning apart with sprays of slim leaves. Each is merged into one mesh so
+  - `buildings.ts`: halls with curved roofs laid with rows of tiles, paper lanterns under their eaves and benches,
+    barrels or potted bushes out front (the kana school, the calligraphy house as a two-storey townhouse with a
+    slatted ground floor under a narrow roof, a dojo of dark planks, a
+    practice hall framed in vermilion like a shrine, a two-storey school, a shrine with its porch and sacred rope), a
+    thatched teahouse, a five-storey pagoda (built for a ground three tiles across and scaled to its own), a stall, and signboards that paint the Japanese sign;
+  - `shrineProps.ts`, `festivalProps.ts` and `gardenProps.ts` (merged in `props.ts`): the pieces above;
+  - `nature.ts`: rocks and Fuji's summit;
+  - `trees.ts`: a cherry tree is a gnarled trunk and branches under soft round clumps of blossom, with fallen petals
+    (a garden tree is the same in green, a maple in red, orange and gold); a garden pine twists up holding flat pads
+    of needles; a clump of bamboo is jointed canes leaning apart with sprays of slim leaves. Each is merged into one mesh so
     groves draw quickly;
-  - `people.ts`: the traveller, dressed in the learner's wardrobe look, Chun and Tama, as rigs whose limbs swing to
-    idle, walk and run.
-  `japaneseModelMaker.ts` puts them together. To move another island to 3D:
+  - `people.ts` and `castRigs.ts`: the traveller, dressed in the learner's wardrobe look, and the challengers (Chun,
+    Tama, Pon, Sensei, Zen, Kurama), as rigs whose limbs swing to idle, walk and run.
+  `japaneseModelMaker.ts` puts them together. To add another island in 3D:
   1. Build its looks, tree kinds, shrine pieces and challenger, and register them in those maps. Set out its `props`.
   2. Add the island to `ISLANDS_IN_3D`.
   `scripts/verify-japanese-island-3d.mjs` checks that every model on a 3D island can be built, that each building and

@@ -7,6 +7,8 @@ import type { Island3D } from "../../lib/world/islandModels";
 import { buildGround } from "./ground";
 import { FallingPetals, PETAL_LOOKS } from "./fallingPetals";
 import { LivelyWater } from "./water";
+import { SwimmingKoi } from "./koi";
+import { cloudBanks } from "./clouds";
 import type { ModelMaker } from "./models";
 import type { IslandWalker, Motion } from "./walkers";
 
@@ -87,8 +89,9 @@ export class IslandRenderer {
   private frame = 0;
   private isDisposed = false;
   private petals: FallingPetals | null = null;
+  private readonly koi: SwimmingKoi;
   private readonly water: LivelyWater;
-  /** Whether the water and petals move (not when the learner has asked for less motion). */
+  /** Whether the water, koi and petals move (not when the learner has asked for less motion). */
   private readonly isMoving = !window.matchMedia(REDUCED_MOTION).matches;
   private readonly island: Island3D;
   private readonly maker: ModelMaker;
@@ -106,8 +109,11 @@ export class IslandRenderer {
     Object.assign(this.sun.shadow.camera, { left: -SHADOW_REACH, right: SHADOW_REACH, top: SHADOW_REACH, bottom: -SHADOW_REACH, near: 1, far: 80 });
     this.sun.shadow.bias = -0.0005;
     this.sun.shadow.normalBias = 0.03;
-    this.water = new LivelyWater(island.map, island.shore);
-    this.scene.add(this.sun, this.sun.target, this.skyLight, this.water.mesh, buildGround(island.map, island.shore));
+    this.water = new LivelyWater(island.map, { shore: island.shore, sea: island.sea });
+    this.koi = new SwimmingKoi(island.ponds ?? [], Math.random);
+    this.scene.add(this.sun, this.sun.target, this.skyLight, this.water.mesh, this.koi.group,
+      buildGround(island.map, { shore: island.shore, landColours: island.landColours }));
+    if (island.sea === "clouds") this.scene.add(cloudBanks(island.map));
     // Petals (or leaves) fall where it's their season.
     if (island.weather && this.isMoving) {
       this.petals = new FallingPetals(Math.random, PETAL_LOOKS[island.weather]);
@@ -194,7 +200,10 @@ export class IslandRenderer {
     for (const person of this.people) person.update(seconds);
     this.followWithCamera(seconds);
     this.petals?.update(seconds, this.focus);
-    if (this.isMoving) this.water.update(seconds);
+    if (this.isMoving) {
+      this.water.update(seconds);
+      this.koi.update(seconds);
+    }
     this.renderer.render(this.scene, this.camera);
     this.onFrame?.();
     this.frame = requestAnimationFrame(this.draw);

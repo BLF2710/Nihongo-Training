@@ -1,16 +1,22 @@
 // The water round an island drawn in 3D, alive: gentle overlapping waves roll across it (tilting how it catches the
 // light, their crests lighter, with a glint here and there), broad patches drift lighter and darker, it turns
 // turquoise in the shallows near land, and foam laps in and out along every shore. It's the scene's ordinary lit
-// material with these added to its shader, so the sun, shadows and fog fall on it as on everything else.
+// material with these added to its shader, so the sun, shadows and fog fall on it as on everything else. High on the
+// mountain the same surface, white and slow, is a sea of clouds rolling below the summit's edge.
 import * as THREE from "three";
 import type { TownMap } from "../../lib/errands/townMap.ts";
-import type { FarShore } from "../../lib/world/islandModels.ts";
+import type { FarShore, Sea } from "../../lib/world/islandModels.ts";
 import { shallowsMask } from "../../lib/world/shallows.ts";
 
 /** How far the water lies below the land. */
 export const WATER_LEVEL = -0.16;
 const SEA_SIZE = 600;
-const COLOURS = { deep: "#4f9fcf", shallow: "#7fd3d6", crest: "#d4eef7", foam: "#f7fcff" } as const;
+/** How the sea looks: its colours, how glossy it is, how fast it rolls (1 for water) and how brightly it glints. */
+type SeaLook = { deep: string; shallow: string; crest: string; foam: string; roughness: number; pace: number; glint: number };
+const SEA_LOOKS: Readonly<Record<Sea, SeaLook>> = {
+  water: { deep: "#4f9fcf", shallow: "#7fd3d6", crest: "#d4eef7", foam: "#f7fcff", roughness: 0.3, pace: 1, glint: 0.6 },
+  clouds: { deep: "#dfe6ef", shallow: "#f4f7fb", crest: "#ffffff", foam: "#ffffff", roughness: 1, pace: 0.3, glint: 0 },
+};
 
 const VERTEX_DECLARATIONS = /* glsl */ `varying vec3 vWaterPosition;\n`;
 const VERTEX_POSITION = /* glsl */ `#include <begin_vertex>
@@ -23,6 +29,7 @@ uniform vec2 uShallowsSize;
 uniform vec3 uShallow;
 uniform vec3 uCrest;
 uniform vec3 uFoam;
+uniform float uGlint;
 varying vec3 vWaterPosition;
 float waterHash(vec2 cell) { return fract(sin(dot(cell, vec2(127.1, 311.7))) * 43758.5453); }
 `;
@@ -50,7 +57,7 @@ foam = max(foam, smoothstep(0.1, 0.13, swell) * (1.0 - smoothstep(0.13, 0.17, sw
 diffuseColor.rgb = mix(diffuseColor.rgb, uFoam, foam);
 vec2 glintCell = floor(waterAt * 6.0);
 float glint = step(0.996, waterHash(glintCell + floor(uTime * 2.5))) * (0.4 + crest) * (1.0 - foam);
-diffuseColor.rgb += glint * 0.6;
+diffuseColor.rgb += glint * uGlint;
 `;
 
 // The waves tilt the surface, so the light catches it differently as they roll by (foam lies flat).
@@ -77,14 +84,20 @@ export class LivelyWater {
   private readonly time = { value: 0 };
   private readonly shallows: THREE.DataTexture;
 
-  constructor(map: TownMap, shore?: FarShore) {
+  private readonly pace: number;
+
+  /** `sea` is what it is: water, or clouds. */
+  constructor(map: TownMap, { shore, sea = "water" }: { shore?: FarShore; sea?: Sea }) {
     const shallows = shallowsTexture(map, shore);
+    const look = SEA_LOOKS[sea];
     this.shallows = shallows.texture;
-    const material = new THREE.MeshStandardMaterial({ color: COLOURS.deep, roughness: 0.3, metalness: 0 });
+    this.pace = look.pace;
+    const material = new THREE.MeshStandardMaterial({ color: look.deep, roughness: look.roughness, metalness: 0 });
     material.onBeforeCompile = shader => {
       Object.assign(shader.uniforms, {
         uTime: this.time, uShallows: { value: shallows.texture }, uShallowsOrigin: { value: shallows.origin }, uShallowsSize: { value: shallows.size },
-        uShallow: { value: new THREE.Color(COLOURS.shallow) }, uCrest: { value: new THREE.Color(COLOURS.crest) }, uFoam: { value: new THREE.Color(COLOURS.foam) },
+        uShallow: { value: new THREE.Color(look.shallow) }, uCrest: { value: new THREE.Color(look.crest) }, uFoam: { value: new THREE.Color(look.foam) },
+        uGlint: { value: look.glint },
       });
       shader.vertexShader = VERTEX_DECLARATIONS + shader.vertexShader.replace("#include <begin_vertex>", VERTEX_POSITION);
       shader.fragmentShader = FRAGMENT_DECLARATIONS + shader.fragmentShader
@@ -103,6 +116,6 @@ export class LivelyWater {
 
   /** Lets the waves roll on for `seconds`. */
   update(seconds: number): void {
-    this.time.value += seconds;
+    this.time.value += seconds * this.pace;
   }
 }

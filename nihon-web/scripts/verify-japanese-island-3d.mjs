@@ -14,10 +14,13 @@ import { parseTownMap, tilesOf } from "../src/lib/errands/townMap.ts";
 import { WATER_GAP, farShoreAround } from "../src/lib/world/farShore.ts";
 import { TREE_BUILDERS } from "../src/components/world3d/japanese/trees.ts";
 import { FallingPetals } from "../src/components/world3d/fallingPetals.ts";
-import { PROP_BUILDERS } from "../src/components/world3d/japanese/shrineProps.ts";
+import { PROP_BUILDERS } from "../src/components/world3d/japanese/props.ts";
 import { tamaRig } from "../src/components/world3d/japanese/people.ts";
 import { groundBlockedBy, propModel } from "../src/lib/world/islandProps.ts";
 import { blockedTiles, tileKey } from "../src/lib/errands/townMap.ts";
+import { pondsOf } from "../src/lib/world/ponds.ts";
+import { MOUNTAIN_MODEL, ROCK_MODEL } from "../src/lib/world/japaneseIsland3D.ts";
+import { kuramaRig, ponRig, senseiRig, zenRig } from "../src/components/world3d/japanese/castRigs.ts";
 
 const kana = islandSceneOf("kana");
 const kana3D = japaneseIsland3D(kana);
@@ -193,6 +196,10 @@ test("a gate is walked through between its pillars, which stand on the end tiles
   assert.deepEqual(groundBlockedBy({ kind: "torii", at: { x: 25, y: 5, width: 1, height: 4 } }), [{ x: 25, y: 5, width: 1, height: 1 }, { x: 25, y: 8, width: 1, height: 1 }]);
 });
 
+test("a string of lanterns blocks nothing itself, hanging from the island's lanterns", () => {
+  assert.deepEqual(groundBlockedBy({ kind: "lantern-string", at: { x: 12, y: 6, width: 7, height: 1 } }), []);
+});
+
 test("any other piece blocks all its ground", () => {
   const at = { x: 13, y: 8, width: 2, height: 1 };
   assert.deepEqual(groundBlockedBy({ kind: "temizuya", at }), [at]);
@@ -203,14 +210,39 @@ test("the shrine pieces block their ground for walking", () => {
   assert.ok(practice.props.flatMap(groundBlockedBy).every(({ x, y }) => blocked.has(tileKey(x, y))));
 });
 
-test("no shrine piece stands on a door or where the traveller arrives", () => {
-  const blocked = new Set((practice.layout.obstacles ?? []).flatMap(tilesOf));
-  const kept = [...practice.doors.map(({ tile }) => tile), ...practice.arrivals.map(({ tile }) => tile)].map(({ x, y }) => `${Math.floor(x)},${Math.floor(y)}`);
-  assert.deepEqual(kept.filter(key => blocked.has(key)), []);
+test("no piece on any island stands on a door or where the traveller arrives", () => {
+  const covered = ISLAND_SCENES.flatMap(scene => {
+    const blocked = new Set((scene.layout.obstacles ?? []).flatMap(tilesOf));
+    const kept = [...scene.doors.map(({ tile }) => tile), ...scene.arrivals.map(({ tile }) => tile)].map(({ x, y }) => `${Math.floor(x)},${Math.floor(y)}`);
+    return kept.filter(key => blocked.has(key)).map(key => `${scene.island} ${key}`);
+  });
+  assert.deepEqual(covered, []);
+});
+
+test("no two pieces on an island stand on the same ground, nor on a building or a tree", () => {
+  const clashes = ISLAND_SCENES.flatMap(scene => {
+    const taken = new Map(scene.layout.buildings.flatMap(({ x, y, width, height, id }) => tilesOf({ x, y, width, height }).map(key => [key, id])));
+    return scene.props.flatMap(({ kind, at }) => tilesOf(at).flatMap(key => {
+      const [x, y] = key.split(",").map(Number);
+      const terrain = scene.layout.map.terrain[y][x];
+      const clash = taken.get(key) ?? (["tree", "sakura", "bamboo", "maple", "pine", "water"].includes(terrain) ? terrain : null);
+      taken.set(key, kind);
+      return clash && kind !== "lantern-string" ? [`${scene.island} ${kind} at ${key} on ${clash}`] : [];
+    }));
+  });
+  assert.deepEqual(clashes, []);
+});
+
+test("a great festival drum stands twice as tall as a small one", () => {
+  const heightOn = ground => new THREE.Box3().setFromObject(PROP_BUILDERS.get("taiko")(new Palette(), ground)).getSize(new THREE.Vector3()).y;
+  assert.ok(Math.abs(heightOn({ width: 2, depth: 2 }) - 2 * heightOn({ width: 1, depth: 1 })) < 1e-6);
 });
 
 test("every shrine piece fits on its ground", () => {
-  const grounds = { torii: { width: 4, depth: 1 }, gate: { width: 4, depth: 1 }, temizuya: { width: 2, depth: 1 }, "bell-tower": { width: 3, depth: 3 } };
+  const grounds = {
+    torii: { width: 4, depth: 1 }, gate: { width: 4, depth: 1 }, temizuya: { width: 2, depth: 1 }, "bell-tower": { width: 3, depth: 3 },
+    watchtower: { width: 3, depth: 3 }, "tea-bench": { width: 2, depth: 2 }, yatai: { width: 2, depth: 2 }, rickshaw: { width: 1, depth: 2 }, "lantern-string": { width: 7, depth: 1 },
+  };
   const overhanging = [...PROP_BUILDERS].flatMap(([kind, build]) => {
     const ground = grounds[kind] ?? { width: 1, depth: 1 };
     const size = new THREE.Box3().setFromObject(build(new Palette(), ground)).getSize(new THREE.Vector3());
@@ -236,4 +268,44 @@ test("bamboo leaves drift down in a bamboo grove, and a bell tower stands on its
 test("trees on the island's near edge grow smaller, so they don't hide the island", () => {
   const scaleOfRow = row => practice3D.models.filter(isTree).filter(({ at }) => at.y === row).map(({ scale }) => scale);
   assert.ok(Math.max(...scaleOfRow(practice.layout.map.height - 2)) < Math.min(...scaleOfRow(1)));
+});
+
+test("a pond is the water cut off from the sea, and the sea is no pond", () => {
+  const map = parseTownMap(["~~~~~~", "~....~", "~.g~.~", "~....~", "~~~~~~"]);
+  assert.deepEqual(pondsOf(map).map(pond => pond.map(({ x, y }) => `${x},${y}`).sort()), [["2,2", "3,2"]]);
+});
+
+test("every island in 3D has its lanterns stand as lantern pieces on tiles blocked for walking", () => {
+  const unblocked = ISLAND_SCENES.flatMap(scene => {
+    const blocked = blockedTiles(scene.layout.map, scene.layout.obstacles ?? []);
+    const lanterns = japaneseIsland3D(scene).models.filter(({ model }) => model.includes("lantern") && !model.includes("string"));
+    const missing = lanterns.length < (scene.layout.lanterns ?? []).length ? [`${scene.island}: lanterns missing`] : [];
+    return [...missing, ...lanterns.filter(({ at }) => !blocked.has(tileKey(at.x, at.y))).map(({ at }) => `${scene.island} ${at.x},${at.y}`)];
+  });
+  assert.deepEqual(unblocked, []);
+});
+
+test("each island's theme brings its own weather", () => {
+  const weathers = Object.fromEntries(ISLAND_SCENES.map(scene => [scene.island, japaneseIsland3D(scene).weather ?? null]));
+  assert.deepEqual(weathers, { kana: "petals", practice: "leaves", games: null, lessons: "maple", review: null, fuji: "snow" });
+});
+
+test("Fuji floats on a sea of clouds, with no far shore and the summit behind it", () => {
+  const fuji3D = japaneseIsland3D(islandSceneOf("fuji"));
+  assert.deepEqual([fuji3D.sea, fuji3D.shore ?? null, fuji3D.backdrop.map(({ model }) => model)], ["clouds", null, [MOUNTAIN_MODEL]]);
+});
+
+test("a rock stands on every rock tile", () => {
+  const scene = { ...kana, layout: { ...kana.layout, map: parseTownMap(["k..", "..k", "..."]), buildings: [], villagers: [], lanterns: [] }, props: [] };
+  const rocks = japaneseIsland3D(scene).models.filter(({ model }) => model === ROCK_MODEL).map(({ at }) => `${at.x},${at.y}`);
+  assert.deepEqual(rocks, ["0,0", "2,1"]);
+});
+
+test("each challenger stands about a tile or a tile and a half tall", () => {
+  const heights = { pon: ponRig, sensei: senseiRig, zen: zenRig, kurama: kuramaRig };
+  const outOfRange = Object.entries(heights).flatMap(([name, rig]) => {
+    const height = new THREE.Box3().setFromObject(rig(new Palette()).root).getSize(new THREE.Vector3()).y;
+    return height > 0.9 && height < 1.7 ? [] : [`${name}: ${height.toFixed(2)}`];
+  });
+  assert.deepEqual(outOfRange, []);
 });

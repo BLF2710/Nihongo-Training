@@ -12,8 +12,9 @@ const MARGIN_TILES = 8;
 const BLUR_RADIUS = { edge: 2, shallows: 8 } as const;
 const BLUR_PASSES = 3;
 const LAND = 255;
-/** Terrain that's water, not land: the water shades it like the sea round the island. Decks over it stay water. */
-const WATERY: ReadonlySet<Terrain> = new Set<Terrain>(["water", "sea", "waves", "bridge", "pier"]);
+/** Terrain that's water, not land: the water shades it like the sea round the island (a goldfish pool too, and the
+ *  clouds round the summit). Decks over it stay water. */
+const WATERY: ReadonlySet<Terrain> = new Set<Terrain>(["water", "sea", "waves", "bridge", "pier", "goldfish", "cloud"]);
 
 /** The picture: two bytes a pixel (the sharp blur, then the broad one), `width` by `height`, its top-left corner at
  *  `origin` (in tiles), `size` tiles across. */
