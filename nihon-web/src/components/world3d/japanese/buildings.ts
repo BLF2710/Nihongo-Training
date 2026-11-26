@@ -7,7 +7,7 @@
 import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import type { BuildingLook, RoofColour } from "../../../lib/errands/village.ts";
-import { Palette, box, curvedRoof, gable, paperLantern, post } from "./shapes.ts";
+import { Palette, box, curvedRoof, gable, paperLantern, placed, post } from "./shapes.ts";
 import type { RoofShape } from "./shapes.ts";
 import { signboard } from "./signboard.ts";
 
@@ -18,7 +18,7 @@ export type BuildingBuilder = (palette: Palette, plan: BuildingPlan) => THREE.Gr
 const ROOF_COLOURS: Readonly<Record<RoofColour, string>> = { vermilion: "#c8452f", indigo: "#34557f", moss: "#5f7d3c", wood: "#8a6440" };
 /** An awning is cloth, so a "wood" stall gets straw-coloured cloth rather than brown. */
 const AWNING_COLOURS: Readonly<Record<RoofColour, string>> = { ...ROOF_COLOURS, wood: "#cfa868" };
-const COLOUR = {
+export const COLOUR = {
   plaster: "#f1ebdd", timber: "#5a3b28", stone: "#a8a49b", step: "#c3beb2", shoji: "#f7f0dc", lattice: "#6b4a33",
   deck: "#9b7350", window: "#3a2a20", lanternStone: "#b9b4a8", lanternLight: "#ffd98a", cord: "#3b2a1e",
   planks: "#7a5236", vermilion: "#c8452f", gold: "#d4a64a", straw: "#d9c48c", paper: "#fbf8f0",
@@ -26,18 +26,19 @@ const COLOUR = {
 } as const;
 
 /** How far a hall's walls stand in from the edges of its ground (its roof reaches out over them). */
-const WALL_INSET = 0.5;
+export const WALL_INSET = 0.5;
 const ROOF_OVERHANG_INSET = 0.05;
-const PLINTH_HEIGHT = 0.18;
-const TIMBER = 0.08;
-const DOOR = { width: 0.9, height: 0.95 };
+export const PLINTH_HEIGHT = 0.18;
+export const TIMBER = 0.08;
+export const DOOR = { width: 0.9, height: 0.95 };
 const SIGN_DROP = 0.3;
 
-const roofColour = (roof: RoofColour): string => ROOF_COLOURS[roof];
-const ridgeColour = (roof: RoofColour): string => `#${new THREE.Color(ROOF_COLOURS[roof]).multiplyScalar(0.7).getHexString()}`;
+export const roofColour = (roof: RoofColour): string => ROOF_COLOURS[roof];
+/** A roof's ridge and tile rows, a darker shade of the roof. */
+const ridgeColour = (roof: string): string => `#${new THREE.Color(roof).multiplyScalar(0.7).getHexString()}`;
 
 /** A sign hanging on cords just under the front edge of a roof whose eaves are at `eaves`, `front` tiles south. */
-function hangingSign(palette: Palette, sign: string, eaves: number, front: number): THREE.Group {
+export function hangingSign(palette: Palette, sign: string, eaves: number, front: number): THREE.Group {
   const board = signboard(palette, sign);
   board.position.set(0, eaves - SIGN_DROP, front);
   const group = new THREE.Group().add(board);
@@ -49,7 +50,7 @@ function hangingSign(palette: Palette, sign: string, eaves: number, front: numbe
 const TILE_ROWS = { spacing: 0.2, width: 0.06, height: 0.05 } as const;
 
 /** Rows of round tiles running down a roof's slopes, in a darker shade of it, so it reads as tiled. One mesh. */
-function roofTiles(palette: Palette, roof: RoofColour, shape: RoofShape): THREE.Mesh {
+function roofTiles(palette: Palette, roof: string, shape: RoofShape): THREE.Mesh {
   const material = palette.of(ridgeColour(roof));
   const row = curvedRoof(material, { ...shape, length: TILE_ROWS.width, base: 0, thickness: TILE_ROWS.height }).geometry;
   const count = Math.floor((shape.length - 0.2) / TILE_ROWS.spacing) + 1;
@@ -62,7 +63,7 @@ function roofTiles(palette: Palette, roof: RoofColour, shape: RoofShape): THREE.
 }
 
 /** A roof's ridge beam, with its end tiles standing up. */
-function ridge(palette: Palette, roof: RoofColour, { length, rise, base }: RoofShape): THREE.Group {
+function ridge(palette: Palette, roof: string, { length, rise, base }: RoofShape): THREE.Group {
   const material = palette.of(ridgeColour(roof));
   const top = base + rise - 0.04;
   const group = new THREE.Group().add(box(material, { width: length * 0.9, height: 0.14, depth: 0.18 }, { y: top }));
@@ -71,7 +72,7 @@ function ridge(palette: Palette, roof: RoofColour, { length, rise, base }: RoofS
 }
 
 /** A sliding paper door: pale panels in a timber lattice. */
-function shojiDoor(palette: Palette, front: number): THREE.Group {
+export function shojiDoor(palette: Palette, front: number): THREE.Group {
   const lattice = palette.of(COLOUR.lattice);
   const group = new THREE.Group().add(box(palette.of(COLOUR.shoji), { width: DOOR.width, height: DOOR.height, depth: 0.04 }, { z: front }));
   for (const x of [-DOOR.width / 2, 0, DOOR.width / 2]) group.add(box(lattice, { width: 0.05, height: DOOR.height, depth: 0.06 }, { x, z: front }));
@@ -81,7 +82,7 @@ function shojiDoor(palette: Palette, front: number): THREE.Group {
 }
 
 /** A window of upright timber slats, its middle at `x`. */
-function latticeWindow(palette: Palette, x: number, front: number): THREE.Group {
+export function latticeWindow(palette: Palette, x: number, front: number): THREE.Group {
   const group = new THREE.Group().add(box(palette.of(COLOUR.window), { width: 0.62, height: 0.5, depth: 0.03 }, { x, z: front }));
   for (let slat = 0; slat < 6; slat += 1) group.add(box(palette.of(COLOUR.lattice), { width: 0.045, height: 0.5, depth: 0.06 }, { x: x - 0.28 + slat * 0.112, z: front }));
   group.position.y = PLINTH_HEIGHT + 0.45;
@@ -89,24 +90,24 @@ function latticeWindow(palette: Palette, x: number, front: number): THREE.Group 
 }
 
 /** A short cloth curtain hung across the top of a doorway, split into panels. */
-function noren(palette: Palette, roof: RoofColour, front: number): THREE.Group {
+export function noren(palette: Palette, roof: RoofColour, front: number): THREE.Group {
   const group = new THREE.Group();
   for (const x of [-0.3, 0, 0.3]) group.add(box(palette.of(roofColour(roof)), { width: 0.28, height: 0.42, depth: 0.03 }, { x, y: PLINTH_HEIGHT + DOOR.height - 0.42, z: front + 0.04 }));
   return group;
 }
 
 /** A curtain with a white emblem on its middle panel, as a shop hangs over its door. */
-function emblemNoren(palette: Palette, roof: RoofColour, front: number): THREE.Group {
+export function emblemNoren(palette: Palette, roof: RoofColour, front: number): THREE.Group {
   const emblem = new THREE.Mesh(new THREE.CircleGeometry(0.08, 12), palette.of(COLOUR.paper));
   emblem.position.set(0, PLINTH_HEIGHT + DOOR.height - 0.2, front + 0.06);
   return noren(palette, roof, front).add(emblem);
 }
 
 /** How tall a townhouse's slatted front stands, and how thick its slats are and how far apart. */
-const KOSHI = { height: 0.78, slat: 0.035, spacing: 0.075 } as const;
+export const KOSHI = { height: 0.78, slat: 0.035, spacing: 0.075 } as const;
 
 /** A townhouse's ground-floor front: fine upright slats over a dark opening, `width` wide with its middle at `x`. */
-function koshi(palette: Palette, { x, width, front }: { x: number; width: number; front: number }): THREE.Group {
+export function koshi(palette: Palette, { x, width, front }: { x: number; width: number; front: number }): THREE.Group {
   const lattice = palette.of(COLOUR.lattice);
   const group = new THREE.Group().add(box(palette.of(COLOUR.window), { width, height: KOSHI.height, depth: 0.03 }, { x, z: front }));
   const gaps = Math.max(1, Math.floor(width / KOSHI.spacing));
@@ -117,13 +118,13 @@ function koshi(palette: Palette, { x, width, front }: { x: number; width: number
 }
 
 /** The stretch of front wall either side of the door, between it and the wall's end, as `x` and `width`. */
-function besideDoor(bodyWidth: number): { x: number; width: number }[] {
+export function besideDoor(bodyWidth: number): { x: number; width: number }[] {
   const inner = DOOR.width / 2 + 0.1, outer = bodyWidth / 2 - 0.1;
   return [-1, 1].map(side => ({ x: side * (inner + outer) / 2, width: outer - inner }));
 }
 
 /** An upper-floor window of narrow dark slots in the plaster, framed in timber, `width` wide with its middle at `x`. */
-function slotWindow(palette: Palette, { x, y, width, front }: { x: number; y: number; width: number; front: number }): THREE.Group {
+export function slotWindow(palette: Palette, { x, y, width, front }: { x: number; y: number; width: number; front: number }): THREE.Group {
   const dark = palette.of(COLOUR.window), timber = palette.of(COLOUR.timber);
   const group = new THREE.Group();
   const slots = Math.max(2, Math.floor(width / 0.11));
@@ -134,12 +135,12 @@ function slotWindow(palette: Palette, { x, y, width, front }: { x: number; y: nu
 }
 
 /** Paper lanterns hanging under the front eaves, near either end of the front wall. */
-function eaveLanterns(palette: Palette, { front, bodyWidth, eaves }: HallFrame, colour: string): THREE.Object3D[] {
+export function eaveLanterns(palette: Palette, { front, bodyWidth, eaves }: HallFrame, colour: string): THREE.Object3D[] {
   return [-1, 1].flatMap(side => paperLantern(palette, colour, { x: side * (bodyWidth / 2 - 0.22), y: eaves - 0.02, z: front + 0.22 }, 0.11));
 }
 
 /** Two sake barrels side by side by a wall, a third on top, each hooped in dark rope. */
-function barrels(palette: Palette, x: number, z: number): THREE.Object3D[] {
+export function barrels(palette: Palette, x: number, z: number): THREE.Object3D[] {
   const wood = palette.of(COLOUR.barrel), hoop = palette.of(COLOUR.timber);
   const stacked = [{ x: x - 0.12, y: 0 }, { x: x + 0.12, y: 0 }, { x, y: 0.2 }];
   return stacked.flatMap(barrel => [
@@ -149,7 +150,7 @@ function barrels(palette: Palette, x: number, z: number): THREE.Object3D[] {
 }
 
 /** A low red bench for passers-by, on four legs. */
-function bench(palette: Palette, x: number, z: number): THREE.Object3D[] {
+export function bench(palette: Palette, x: number, z: number): THREE.Object3D[] {
   const red = palette.of(COLOUR.bench), legs = palette.of(COLOUR.timber);
   return [
     box(red, { width: 0.62, height: 0.05, depth: 0.24 }, { x, y: 0.2, z }),
@@ -158,14 +159,14 @@ function bench(palette: Palette, x: number, z: number): THREE.Object3D[] {
 }
 
 /** A round bush in a clay pot. */
-function pottedBush(palette: Palette, x: number, z: number): THREE.Object3D[] {
+export function pottedBush(palette: Palette, x: number, z: number): THREE.Object3D[] {
   const leaves = new THREE.Mesh(new THREE.IcosahedronGeometry(0.17, 0), palette.of(COLOUR.bush));
   leaves.position.set(x, 0.3, z);
   return [post(palette.of(COLOUR.pot), 0.1, 0.16, { x, z }), leaves];
 }
 
 /** A stone lantern: a post holding a lit firebox under a little roof. */
-function stoneLantern(palette: Palette, x: number, z: number): THREE.Group {
+export function stoneLantern(palette: Palette, x: number, z: number): THREE.Group {
   const stone = palette.of(COLOUR.lanternStone);
   const light = new THREE.MeshStandardMaterial({ color: COLOUR.lanternLight, emissive: COLOUR.lanternLight, emissiveIntensity: 0.6, flatShading: true });
   return new THREE.Group().add(
@@ -178,18 +179,18 @@ function stoneLantern(palette: Palette, x: number, z: number): THREE.Group {
 
 /** Where a hall's front is: how far south its front wall stands, how wide its walls are, the height of its eaves and
  *  of the top of its ridge. */
-type HallFrame = { front: number; bodyWidth: number; eaves: number; ridgeTop: number };
+export type HallFrame = { front: number; bodyWidth: number; eaves: number; ridgeTop: number };
 type HallFront = (palette: Palette, plan: BuildingPlan, frame: HallFrame) => THREE.Object3D[];
 /** How a hall is built: how tall its walls stand, how high its roof rises over them, the colours of its walls and of
  *  the timber framing them, and its front. A townhouse's ground floor is dark wood up to a beam (`lowerWalls`), with
- *  the plaster above it. */
-type HallStyle = { wallHeight: number; rise: number; walls: string; lowerWalls?: string; timber: string; front: HallFront };
+ *  the plaster above it. Its roof is of its roof colour, unless it's tiled in a colour of its own (`roofs`). */
+type HallStyle = { wallHeight: number; rise: number; walls: string; lowerWalls?: string; timber: string; roofs?: string; front: HallFront };
 
 /** How high a townhouse's ground floor reaches, where a beam runs round it. */
-const GROUND_FLOOR_HEIGHT = 1.08;
+export const GROUND_FLOOR_HEIGHT = 1.08;
 
 /** A hall: stone base, walls framed in timber, a curved roof with gabled ends, and its front as its style makes it. */
-function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, lowerWalls, timber: timberColour, front }: HallStyle): THREE.Group {
+export function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, lowerWalls, timber: timberColour, roofs = roofColour(plan.roof), front }: HallStyle): THREE.Group {
   const bodyWidth = plan.width - 2 * WALL_INSET, bodyDepth = plan.depth - 2 * WALL_INSET;
   const eaves = PLINTH_HEIGHT + wallHeight;
   const roofShape: RoofShape = { span: plan.depth - 2 * ROOF_OVERHANG_INSET, length: plan.width - 2 * ROOF_OVERHANG_INSET, rise, base: eaves, thickness: 0.14 };
@@ -199,9 +200,9 @@ function hall(palette: Palette, plan: BuildingPlan, { wallHeight, rise, walls, l
     box(wall, { width: bodyWidth, height: wallHeight, depth: bodyDepth }, { y: PLINTH_HEIGHT }),
     box(timber, { width: bodyWidth + 0.04, height: 0.12, depth: bodyDepth + 0.04 }, { y: eaves - 0.12 }),
     box(timber, { width: bodyWidth + 0.04, height: 0.1, depth: bodyDepth + 0.04 }, { y: PLINTH_HEIGHT }),
-    curvedRoof(palette.of(roofColour(plan.roof)), roofShape),
-    roofTiles(palette, plan.roof, roofShape),
-    ridge(palette, plan.roof, roofShape),
+    curvedRoof(palette.of(roofs), roofShape),
+    roofTiles(palette, roofs, roofShape),
+    ridge(palette, roofs, roofShape),
     ...[-1, 1].map(side => gable(palette.of(COLOUR.plaster), roofShape, side * (bodyWidth / 2 - 0.02), 0.04)),
     ...front(palette, plan, { front: bodyDepth / 2, bodyWidth, eaves, ridgeTop: eaves + rise }),
   );
@@ -248,7 +249,7 @@ const calligraphyHouse: BuildingBuilder = (palette, plan) => hall(palette, plan,
     shojiDoor(palette, frame.front + 0.01),
     emblemNoren(palette, roof, frame.front),
     ...besideDoor(frame.bodyWidth).map(({ x, width }) => koshi(palette, { x, width, front: frame.front + 0.01 })),
-    pentRoof(palette, roof, frame, GROUND_FLOOR_HEIGHT),
+    pentRoof(palette, roofColour(roof), frame, GROUND_FLOOR_HEIGHT),
     ...[-1, 1].map(side => slotWindow(palette, { x: side * frame.bodyWidth * 0.3, y: PLINTH_HEIGHT + UPPER_WINDOWS, width: 0.7, front: frame.front + 0.01 })),
     ...eaveLanterns(palette, frame, COLOUR.lanternRed),
     box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.3 }, { z: frame.front + 0.3 }),
@@ -334,27 +335,79 @@ const practiceHall: BuildingBuilder = (palette, plan) => hall(palette, plan, {
   ],
 });
 
-/** A market stall: a counter of goods under a cloth awning on four posts, and a banner on a pole. */
+/** How a market stall is built: how high its counter, its back wall and its awning's eaves stand, and how deep its
+ *  back wall and counter are. */
+const STALL = { counter: 0.72, backWall: 1.2, awning: 1.55, wallDepth: 0.12, counterDepth: 0.5 } as const;
+/** The colours of the goods on a stall: jars, fruit and boxes of sweets. */
+const GOODS = ["#d9534f", "#f0ad4e", "#5cb85c", "#5bc0de", "#f7f0dc", "#9b59b6", "#e88aa8"] as const;
+const CRATE = "#b08a5a";
+
+/** A row of goods along a shelf or counter `width` wide at height `y`, `z` deep: a jar, a bowl of fruit and a box in
+ *  turn, each its own colour. */
+function goodsRow(palette: Palette, { width, y, z, count }: { width: number; y: number; z: number; count: number }): THREE.Object3D[] {
+  return Array.from({ length: count }, (_, index) => {
+    const x = -width / 2 + (index + 0.5) * (width / count);
+    const colour = palette.of(GOODS[(index * 3 + count) % GOODS.length]);
+    if (index % 3 === 0) return [post(colour, 0.07, 0.18, { x, z, y }), post(palette.of(COLOUR.timber), 0.05, 0.03, { x, z, y: y + 0.18 })];
+    if (index % 3 === 1) {
+      const fruit = [-0.05, 0.05, 0].map((offset, piece) => placed(new THREE.SphereGeometry(0.05, 8, 6), colour, { x: x + offset, y: y + 0.1 + (piece === 2 ? 0.06 : 0), z }));
+      return [post(palette.of(COLOUR.shoji), 0.11, 0.06, { x, z, y }), ...fruit];
+    }
+    return [box(colour, { width: 0.22, height: 0.1, depth: 0.16 }, { x, y, z }), box(palette.of(COLOUR.paper), { width: 0.23, height: 0.025, depth: 0.04 }, { x, y: y + 0.04, z: z + 0.07 })];
+  }).flat();
+}
+
+/** A fringe of cloth flaps along the front edge of an awning, `colour` and white in turn, `width` wide at (y, z). */
+function valance(palette: Palette, colour: string, { width, y, z }: { width: number; y: number; z: number }): THREE.Object3D[] {
+  const flaps = Math.round(width / 0.26);
+  return Array.from({ length: flaps }, (_, flap) => {
+    const x = -width / 2 + (flap + 0.5) * (width / flaps);
+    const cloth = box(palette.of(flap % 2 === 0 ? colour : COLOUR.paper), { width: width / flaps - 0.01, height: 0.2, depth: 0.02 }, { x, y: y - 0.2, z });
+    // A round hem at the foot of each flap, so the fringe scallops.
+    const hem = placed(new THREE.CircleGeometry(width / flaps / 2 - 0.005, 10, Math.PI, Math.PI), cloth.material instanceof THREE.Material ? cloth.material : palette.of(colour), { x, y: y - 0.2, z: z + 0.011 });
+    return [cloth, hem];
+  }).flat();
+}
+
+/** Two wooden crates stacked by a stall, the top one turned a little. */
+function crates(palette: Palette, x: number, z: number): THREE.Object3D[] {
+  const wood = palette.of(CRATE);
+  const top = box(wood, { width: 0.32, height: 0.24, depth: 0.3 }, { x, y: 0.26, z });
+  top.rotation.y = 0.3;
+  return [box(wood, { width: 0.36, height: 0.26, depth: 0.34 }, { x, z }), top, box(palette.of(GOODS[1]), { width: 0.24, height: 0.06, depth: 0.2 }, { x, y: 0.5, z })];
+}
+
+/** A market stall: a back wall with two shelves of goods, a counter laid with more under a cloth awning on four
+ *  posts, its front draped in the stall's colour with a white emblem, a scalloped fringe along the awning with paper
+ *  lanterns at its corners, crates stacked beside it and a banner on a pole. */
 const stall: BuildingBuilder = (palette, plan) => {
   const timber = palette.of(COLOUR.timber), deck = palette.of(COLOUR.deck);
-  const cloth = palette.of(AWNING_COLOURS[plan.roof]);
+  const clothColour = AWNING_COLOURS[plan.roof], cloth = palette.of(clothColour);
   const width = plan.width - 2 * WALL_INSET, depth = plan.depth - 2 * WALL_INSET - 0.2;
-  const awning = 1.55;
-  const awningShape: RoofShape = { span: depth + 0.6, length: width + 0.4, rise: 0.35, base: awning, thickness: 0.06 };
-  const goods = ["#d9534f", "#f0ad4e", "#5cb85c", "#5bc0de", "#f7f0dc", "#9b59b6"];
+  const back = -depth / 2, front = depth / 2;
+  const counterZ = front - STALL.counterDepth / 2;
+  const awningShape: RoofShape = { span: depth + 0.6, length: width + 0.4, rise: 0.35, base: STALL.awning, thickness: 0.06 };
+  const emblem = placed(new THREE.CircleGeometry(0.13, 14), palette.of(COLOUR.paper), { y: STALL.counter * 0.5, z: front + 0.02 });
   const group = new THREE.Group().add(
-    box(deck, { width: width - 0.2, height: 0.72, depth: 0.5 }, { z: depth / 2 - 0.25 }),
-    box(palette.of(COLOUR.shoji), { width: width - 0.1, height: 0.04, depth: 0.56 }, { y: 0.72, z: depth / 2 - 0.25 }),
-    box(deck, { width: width - 0.2, height: 1.2, depth: 0.3 }, { z: -depth / 2 + 0.15 }),
+    box(deck, { width: width - 0.2, height: STALL.backWall, depth: STALL.wallDepth }, { z: back + STALL.wallDepth / 2 }),
+    ...[0.55, 0.92].map(y => box(palette.of(COLOUR.planks), { width: width - 0.3, height: 0.04, depth: 0.24 }, { y, z: back + 0.22 })),
+    ...[0.59, 0.96].flatMap(y => goodsRow(palette, { width: width - 0.5, y, z: back + 0.22, count: 6 })),
+    box(deck, { width: width - 0.2, height: STALL.counter, depth: STALL.counterDepth }, { z: counterZ }),
+    box(cloth, { width: width - 0.16, height: STALL.counter * 0.8, depth: 0.02 }, { y: 0.06, z: front + 0.005 }),
+    emblem,
+    box(palette.of(COLOUR.shoji), { width: width - 0.1, height: 0.04, depth: STALL.counterDepth + 0.06 }, { y: STALL.counter, z: counterZ }),
+    ...goodsRow(palette, { width: width - 0.4, y: STALL.counter + 0.04, z: counterZ, count: 7 }),
     curvedRoof(cloth, awningShape),
-    post(timber, 0.04, 2.3, { x: width / 2 + 0.25, z: depth / 2 + 0.1 }),
-    box(cloth, { width: 0.03, height: 1.1, depth: 0.32 }, { x: width / 2 + 0.25, y: 1.05, z: depth / 2 - 0.08 }),
+    ...valance(palette, clothColour, { width: width + 0.4, y: STALL.awning + 0.08, z: front + 0.3 }),
+    post(timber, 0.04, 2.3, { x: width / 2 + 0.25, z: front + 0.1 }),
+    box(cloth, { width: 0.03, height: 1.1, depth: 0.32 }, { x: width / 2 + 0.25, y: 1.05, z: front - 0.08 }),
+    ...crates(palette, -width / 2 - 0.25, front - 0.15),
   );
-  goods.forEach((colour, index) => group.add(box(palette.of(colour), { width: 0.26, height: 0.12 + (index % 3) * 0.04, depth: 0.2 }, { x: -width / 2 + 0.35 + index * ((width - 0.7) / (goods.length - 1)), y: 0.76, z: depth / 2 - 0.25 })));
   for (const x of [-width / 2, width / 2]) {
-    for (const z of [-depth / 2, depth / 2]) group.add(post(timber, 0.06, awning + 0.12, { x, z }));
+    for (const z of [back, front]) group.add(post(timber, 0.06, STALL.awning + 0.12, { x, z }));
+    group.add(...paperLantern(palette, COLOUR.lanternRed, { x, y: STALL.awning - 0.15, z: front + 0.22 }, 0.1));
   }
-  if (plan.sign) group.add(hangingSign(palette, plan.sign, awning + 0.05, depth / 2 + 0.3));
+  if (plan.sign) group.add(hangingSign(palette, plan.sign, STALL.awning + 0.05, front + 0.36));
   return group;
 };
 
@@ -363,8 +416,8 @@ const SCHOOL_WALL_HEIGHT = 2.0;
 const SCHOOL_UPPER_FLOOR = 1.15;
 
 /** A narrow sloping roof along a front wall at `y`, sheltering the ground floor. */
-function pentRoof(palette: Palette, roof: RoofColour, { front, bodyWidth }: HallFrame, y: number): THREE.Object3D {
-  const pent = box(palette.of(roofColour(roof)), { width: bodyWidth + 0.2, height: 0.06, depth: 0.36 }, { y: PLINTH_HEIGHT + y, z: front + 0.16 });
+export function pentRoof(palette: Palette, roof: string, { front, bodyWidth }: HallFrame, y: number): THREE.Object3D {
+  const pent = box(palette.of(roof), { width: bodyWidth + 0.2, height: 0.06, depth: 0.36 }, { y: PLINTH_HEIGHT + y, z: front + 0.16 });
   pent.rotation.x = 0.35;
   return pent;
 }
@@ -380,7 +433,7 @@ const school: BuildingBuilder = (palette, plan) => hall(palette, plan, {
       shojiDoor(palette, frame.front + 0.01),
       ...besideDoor(frame.bodyWidth).map(({ x, width }) => koshi(palette, { x, width, front: frame.front + 0.01 })),
       ...upper,
-      pentRoof(palette, roof, frame, SCHOOL_UPPER_FLOOR),
+      pentRoof(palette, roofColour(roof), frame, SCHOOL_UPPER_FLOOR),
       ...eaveLanterns(palette, frame, COLOUR.lanternRed),
       box(palette.of(COLOUR.step), { width: 1.1, height: 0.09, depth: 0.3 }, { z: frame.front + 0.3 }),
       ...[-1, 1].flatMap(side => pottedBush(palette, side * (frame.bodyWidth / 2 - 0.3), frame.front + 0.3)),
@@ -389,31 +442,76 @@ const school: BuildingBuilder = (palette, plan) => hall(palette, plan, {
 });
 
 const THATCH = "#c8a865";
-const TEAHOUSE = { wallHeight: 1.05, roofHeight: 1.2 } as const;
+/** The thatch's cut edge along the eaves, darker for its thickness. */
+const THATCH_EDGE = "#a98b4f";
+const TEAHOUSE = { wallHeight: 1.05, roofHeight: 1.2, rim: 0.16 } as const;
 
-/** The teahouse: low wooden walls under a deep, steep roof of thatch capped along its ridge, a paper door with a
- *  curtain, a round window and a stepping stone up to it. */
+/** A hipped thatch roof: a four-sided cone cut short, `span` across at the eaves and stretched to `length`, with its
+ *  thick cut edge showing along the eaves. */
+function thatchRoof(palette: Palette, { span, length, eaves }: { span: number; length: number; eaves: number }): THREE.Object3D[] {
+  const hipped = (top: number, bottom: number, height: number, colour: string, y: number) => {
+    const mesh = new THREE.Mesh(new THREE.CylinderGeometry(top, bottom, height, 4, 1).rotateY(Math.PI / 4), palette.of(colour));
+    mesh.scale.x = length / span;
+    mesh.position.y = y;
+    return mesh;
+  };
+  const corner = span * Math.SQRT1_2;
+  return [
+    hipped(span * 0.18, corner, TEAHOUSE.roofHeight, THATCH, eaves + TEAHOUSE.roofHeight / 2 - 0.05),
+    hipped(corner * 0.95, corner * 1.02, TEAHOUSE.rim, THATCH_EDGE, eaves - 0.05 + TEAHOUSE.rim / 2),
+  ];
+}
+
+/** Along a thatch ridge at `top`: a cap, a little smoke vent under its own thatch, and pairs of logs crossed over it. */
+function thatchRidge(palette: Palette, roof: RoofColour, { top, length }: { top: number; length: number }): THREE.Object3D[] {
+  const timber = palette.of(COLOUR.timber);
+  const crossed = [-1, 1].flatMap(end => [-1, 1].map(lean => {
+    const log = box(timber, { width: 0.05, height: 0.5, depth: 0.05 }, { y: -0.25 });
+    const holder = new THREE.Group().add(log);
+    holder.rotation.z = lean * 0.55;
+    holder.position.set(end * length * 0.22, top + 0.3, 0);
+    return holder;
+  }));
+  return [
+    box(palette.of(roofColour(roof)), { width: length * 0.62, height: 0.16, depth: 0.3 }, { y: top - 0.07 }),
+    box(timber, { width: 0.46, height: 0.2, depth: 0.3 }, { y: top + 0.08 }),
+    box(palette.of(THATCH), { width: 0.6, height: 0.08, depth: 0.44 }, { y: top + 0.27 }),
+    ...crossed,
+  ];
+}
+
+/** The teahouse: white walls framed in dark timber under a deep, steep roof of thatch, with smoke vent and crossed
+ *  logs along its ridge; a paper door with a curtain, a round window and a slatted one, a veranda along its front with
+ *  a stepping stone up to it, white lanterns under its eaves, and a rain barrel and a potted bush either side. */
 const teahouse: BuildingBuilder = (palette, plan) => {
   const bodyWidth = plan.width - 2 * WALL_INSET - 0.2, bodyDepth = plan.depth - 2 * WALL_INSET;
   const eaves = PLINTH_HEIGHT + TEAHOUSE.wallHeight, front = bodyDepth / 2;
-  // A hipped roof is a four-sided cone cut short, stretched to the hall's length.
-  const roofSpan = Math.min(plan.width, plan.depth) - 0.1;
-  const thatch = new THREE.Mesh(new THREE.CylinderGeometry(roofSpan * 0.18, roofSpan * Math.SQRT1_2, TEAHOUSE.roofHeight, 4, 1).rotateY(Math.PI / 4), palette.of(THATCH));
-  thatch.scale.x = (plan.width - 0.1) / roofSpan;
-  thatch.position.y = eaves + TEAHOUSE.roofHeight / 2 - 0.05;
+  const span = Math.min(plan.width, plan.depth) - 0.1, length = plan.width - 0.1;
+  const timber = palette.of(COLOUR.timber);
   const round = new THREE.Mesh(new THREE.CircleGeometry(0.28, 14), palette.of(COLOUR.shoji));
   round.position.set(-bodyWidth / 2 + 0.5, PLINTH_HEIGHT + 0.6, front + 0.015);
+  const frame: HallFrame = { front, bodyWidth, eaves, ridgeTop: eaves + TEAHOUSE.roofHeight };
   const group = new THREE.Group().add(
     box(palette.of(COLOUR.stone), { width: bodyWidth + 0.2, height: PLINTH_HEIGHT, depth: bodyDepth + 0.2 }),
-    box(palette.of(COLOUR.planks), { width: bodyWidth, height: TEAHOUSE.wallHeight, depth: bodyDepth }, { y: PLINTH_HEIGHT }),
-    thatch,
-    box(palette.of(roofColour(plan.roof)), { width: plan.width * 0.4, height: 0.16, depth: 0.3 }, { y: eaves + TEAHOUSE.roofHeight - 0.12 }),
+    box(palette.of(COLOUR.plaster), { width: bodyWidth, height: TEAHOUSE.wallHeight, depth: bodyDepth }, { y: PLINTH_HEIGHT }),
+    ...[PLINTH_HEIGHT, eaves - 0.1].map(y => box(timber, { width: bodyWidth + 0.04, height: 0.1, depth: bodyDepth + 0.04 }, { y })),
+    ...thatchRoof(palette, { span, length, eaves }),
+    ...thatchRidge(palette, plan.roof, { top: eaves + TEAHOUSE.roofHeight - 0.05, length }),
     round,
     new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.025, 4, 14), palette.of(COLOUR.lattice)).translateX(round.position.x).translateY(round.position.y).translateZ(front + 0.02),
+    latticeWindow(palette, bodyWidth / 2 - 0.5, front + 0.01),
     shojiDoor(palette, front + 0.01),
     noren(palette, plan.roof, front),
-    box(palette.of(COLOUR.step), { width: 0.6, height: 0.1, depth: 0.4 }, { z: front + 0.35 }),
+    box(palette.of(COLOUR.deck), { width: bodyWidth + 0.1, height: 0.06, depth: 0.3 }, { y: PLINTH_HEIGHT - 0.06, z: front + 0.15 }),
+    box(palette.of(COLOUR.step), { width: 0.6, height: 0.1, depth: 0.22 }, { z: front + 0.39 }),
+    ...eaveLanterns(palette, frame, COLOUR.lanternWhite),
+    post(palette.of(COLOUR.barrel), 0.13, 0.34, { x: bodyWidth / 2 + 0.25, z: front - 0.25 }),
+    post(timber, 0.135, 0.03, { x: bodyWidth / 2 + 0.25, z: front - 0.25, y: 0.26 }),
+    ...pottedBush(palette, -bodyWidth / 2 - 0.25, front - 0.25),
   );
+  for (const x of [-bodyWidth / 2, -bodyWidth / 6, bodyWidth / 6, bodyWidth / 2]) {
+    for (const z of [-bodyDepth / 2, bodyDepth / 2]) group.add(post(timber, TIMBER, TEAHOUSE.wallHeight, { x, z, y: PLINTH_HEIGHT }));
+  }
   if (plan.sign) group.add(hangingSign(palette, plan.sign, eaves + 0.15, plan.depth / 2 - 0.1));
   return group;
 };

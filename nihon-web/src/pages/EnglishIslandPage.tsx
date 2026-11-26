@@ -10,6 +10,7 @@ import { nearbyThing } from "../lib/village/villageDoors";
 import { useActionKey, useWorldWalk } from "../lib/world/useWorldWalk";
 
 const WALK_MEMORY = { rememberKey: "island:english:place", arrival: null };
+const SCENE_KEY = "island:english";
 
 /** The English island on foot: walk up to the castle, the watchtower, the church school or the tavern to open its page. */
 export default function EnglishIslandPage() {
@@ -25,7 +26,7 @@ export default function EnglishIslandPage() {
   return <div className="flex h-dvh flex-col bg-gray-50 text-gray-900"><Navbar />
     <main className="relative min-h-0 flex-1">
       <h1 className="sr-only">{island.name} ({island.localName})</h1>
-      <IslandScene3D island={island.scene} maker={maker} position={walker.position} facing={walker.facing} isWalking={isHolding} isRunning={isRunning}
+      <IslandScene3D sceneKey={SCENE_KEY} island={island.scene} maker={maker} position={walker.position} facing={walker.facing} isWalking={isHolding} isRunning={isRunning}
         prompt={prompt} onPrompt={() => act?.()}>
         <div className="pointer-events-none absolute inset-x-2 top-2 z-[900] flex justify-end sm:inset-x-4 sm:top-4">
           <p className="rounded-xl border border-gray-200 bg-white/95 px-3 py-2 text-right shadow-sm">

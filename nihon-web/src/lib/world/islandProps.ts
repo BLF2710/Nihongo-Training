@@ -8,7 +8,7 @@ import type { Rect } from "../errands/townMap.ts";
 
 export type ShrinePropKind =
   | "torii" | "stone-lantern" | "komainu" | "taiko" | "temizuya" | "ema-rack" | "hokora" | "bell-tower" | "gate"
-  | "paper-lantern" | "lantern-string" | "nobori" | "nobori-tea" | "nobori-dango" | "tea-bench" | "yatai" | "rickshaw"
+  | "paper-lantern" | "paper-lantern-unlit" | "lantern-string" | "nobori" | "nobori-tea" | "nobori-dango" | "tea-bench" | "yatai" | "rickshaw"
   | "watchtower" | "yukimi-lantern" | "bush";
 
 /** A shrine piece on its ground, facing the way its front looks (south, towards the viewer, unless said). */

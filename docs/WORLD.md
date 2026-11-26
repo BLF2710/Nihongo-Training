@@ -195,20 +195,47 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
     barrels or potted bushes out front (the kana school, the calligraphy house as a two-storey townhouse with a
     slatted ground floor under a narrow roof, a dojo of dark planks, a
     practice hall framed in vermilion like a shrine, a two-storey school, a shrine with its porch and sacred rope), a
-    thatched teahouse, a five-storey pagoda (built for a ground three tiles across and scaled to its own), a stall, and signboards that paint the Japanese sign;
+    thatched teahouse (timber-framed white walls, a veranda, a smoke vent and crossed logs on its ridge, white lanterns, a rain barrel and a potted bush), a five-storey pagoda (built for a ground three tiles across and scaled to its own), a market stall (shelves and a counter of goods, a scalloped fringe on its awning, red lanterns, crates and a banner), and signboards that paint the Japanese sign;
   - `shrineProps.ts`, `festivalProps.ts` and `gardenProps.ts` (merged in `props.ts`): the pieces above;
   - `nature.ts`: rocks and Fuji's summit;
   - `trees.ts`: a cherry tree is a gnarled trunk and branches under soft round clumps of blossom, with fallen petals
     (a garden tree is the same in green, a maple in red, orange and gold); a garden pine twists up holding flat pads
     of needles; a clump of bamboo is jointed canes leaning apart with sprays of slim leaves. Each is merged into one mesh so
     groves draw quickly;
-  - `people.ts` and `castRigs.ts`: the traveller, dressed in the learner's wardrobe look, and the challengers (Chun,
-    Tama, Pon, Sensei, Zen, Kurama), as rigs whose limbs swing to idle, walk and run.
-  `japaneseModelMaker.ts` puts them together. To add another island in 3D:
+  - `townhouses.ts` (merged with `buildings.ts` in `buildingBuilders.ts`): the village's two-storey machiya under
+    slate roofs, a slatted ground floor behind bent-bamboo guards, a slotted window above, red lanterns by the door
+    (the learner's house with potted bushes, the post office with a balcony, a bench and a red postbox, the sake
+    brewer's with barrels and a cedar ball, a shop with a bench), and the ryokan, a grand two-storey hot-spring inn with
+    round windows, a curved porch, a railed balcony hung with white lanterns and steam rising behind;
+  - `people.ts`, `castRigs.ts` and `villageCastRigs.ts`: the traveller, dressed in the learner's wardrobe look, and
+    the whole cast (Chun, Tama, Pon, Sensei, Zen, Kurama, and in the village Kon the fox, Hakase the owl, Tsuru the
+    crane, Hato the pigeon and Momo the monkey), as rigs whose limbs swing to idle, walk and run (a bird's wings flap
+    out to the sides).
+  `japaneseModelMaker.ts` puts them together. Nothing built for the islands moves once it stands, so each model, and
+  the ground with its bridges, is merged into one mesh for each material it's drawn in
+  (`components/world3d/mergeStatic.ts`): a few draw calls each instead of hundreds (instanced meshes are kept as
+  they are). Tree crowns are coarse spheres, since a scene can hold a few hundred trees. The last scene built is kept
+  when its page closes (`lib/world/sceneKeeper.ts`, handed down by `KeptScenesProvider`): coming back from one of
+  the island's pages, or a link a villager gave, shows it again at once, the traveller where they were. It's let go
+  when another island's scene is built; each page names its scene with a `sceneKey` that changes whenever what it
+  would build does (another island, the traveller dressed anew). To add another island in 3D:
   1. Build its looks, tree kinds, shrine pieces and challenger, and register them in those maps. Set out its `props`.
   2. Add the island to `ISLANDS_IN_3D`.
   `scripts/verify-japanese-island-3d.mjs` checks that every model on a 3D island can be built, that each building and
   shrine piece fits its ground, and that no piece blocks a door or an arrival.
+- **The village square in real 3D** (`pages/VillagePage.tsx`, `components/village/VillageSquare3D.tsx`): Home is
+  drawn like the islands, by `villageSquare3D` in `lib/world/japaneseIsland3D.ts`, under the sakura look (cherry
+  trees and a pagoda on the far shore, falling petals). Its own map (`data/village/villageSquare.ts`) lays it out as
+  a town: a shrine in a gravel precinct behind a torii, with guardians, stone lanterns, a water basin, prayer boards
+  and a koi pond (Kon and Zen), in the north-west; the tea house, the ryokan and the school along the north lane; the
+  kana school, the stall, the practice hall, the learner's own townhouse and the post office facing the main road;
+  and a street of townhouses, the dojo, the calligraphy hall and a festival corner south of it. Every building stands
+  well back from the road behind it, so its roof never hides whoever walks there. Its `VILLAGE_PROPS` are drawn only
+  in 3D, their ground in the layout's `obstacles`. The five roads out leave over drum bridges at the edge. The
+  lanterns along the main road are lit (`paper-lantern`) as far as the day's errands are done, the rest dark
+  (`paper-lantern-unlit`): each stands both ways (`SwitchedLantern`) and the renderer shows one or the other, so the
+  scene stands while the errands are fetched and lights up when they're known, without being built again. Talking (E or the prompt) and the news mark
+  over villagers work as before.
 - The village's path gates are doors with an `action` ("Go") in `data/village/villageSquare.ts`.
 - Walking (held keys, the frame loop, the E key) is shared by the path and the islands through
   `lib/world/useWorldWalk.ts`; the battle overlay through `components/kanaWilds/BattleOverlay.tsx`.

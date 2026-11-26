@@ -4,7 +4,7 @@
 // built facing south on the ground it's given.
 import * as THREE from "three";
 import type { ShrinePropKind } from "../../../lib/world/islandProps.ts";
-import { box, curvedRoof, paperLantern, placed, post } from "./shapes.ts";
+import { box, curvedRoof, paperLantern, placed, post, unlitPaperLantern } from "./shapes.ts";
 import { signboard } from "./signboard.ts";
 import type { Palette, PropBuilder } from "./shapes.ts";
 
@@ -23,12 +23,12 @@ const STRING_HEIGHT = 1.68;
 /** A material seen from both sides (a parasol's or a hood's underside shows), its own so the shared ones stay one-sided. */
 const twoSided = (colour: string) => new THREE.MeshStandardMaterial({ color: colour, roughness: 0.85, flatShading: true, side: THREE.DoubleSide });
 
-/** A post with a red paper lantern hanging from its arm. */
-const paperLanternPost: PropBuilder = palette => new THREE.Group().add(
+/** A post with a red paper lantern hanging from its arm, made by `lantern` (lit, or not yet). */
+const lanternPost = (lantern: typeof paperLantern): PropBuilder => palette => new THREE.Group().add(
   box(palette.of(COLOUR.black), { width: 0.24, height: 0.08, depth: 0.24 }),
   post(palette.of(COLOUR.pole), 0.045, POST_HEIGHT, { x: 0, z: 0 }),
   box(palette.of(COLOUR.pole), { width: 0.32, height: 0.04, depth: 0.04 }, { x: 0.12, y: POST_HEIGHT - 0.12 }),
-  ...paperLantern(palette, LANTERN_COLOURS[0], { x: 0.24, y: POST_HEIGHT - 0.12, z: 0 }, 0.13),
+  ...lantern(palette, LANTERN_COLOURS[0], { x: 0.24, y: POST_HEIGHT - 0.12, z: 0 }, 0.13),
 );
 
 const STRING_SAG = 0.22;
@@ -256,7 +256,7 @@ const watchtower: PropBuilder = (palette, { width }) => {
 };
 
 export const FESTIVAL_PROP_BUILDERS: ReadonlyMap<ShrinePropKind, PropBuilder> = new Map<ShrinePropKind, PropBuilder>([
-  ["paper-lantern", paperLanternPost], ["lantern-string", lanternString], ["nobori", banner(FESTIVAL_BANNER)],
+  ["paper-lantern", lanternPost(paperLantern)], ["paper-lantern-unlit", lanternPost(unlitPaperLantern)], ["lantern-string", lanternString], ["nobori", banner(FESTIVAL_BANNER)],
   ["nobori-tea", banner(TEA_BANNER)], ["nobori-dango", banner(DANGO_BANNER)], ["tea-bench", teaBench], ["yatai", yatai],
   ["rickshaw", rickshaw], ["watchtower", watchtower],
 ]);

@@ -1,5 +1,6 @@
 // The world (docs/WORLD.md): tall grass, when it starts a battle, and the wild paths' maps (every exit reachable, and
 // the grass impossible to avoid entirely). Run with --experimental-strip-types (see package.json).
+import { SceneKeeper } from "../src/lib/world/sceneKeeper.ts";
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { isBlocked, parseTownMap, terrainAt, withTerrain } from "../src/lib/errands/townMap.ts";
@@ -439,11 +440,11 @@ test("coming back off each path, the traveller appears on open ground at the end
   assert.equal(villageArrivalFrom("nowhere"), null);
 });
 
-test("each road out of the village runs on through the trees at the edge", () => {
+test("each road out of the village runs on over a bridge through the trees at the edge", () => {
   const { map } = VILLAGE_SQUARE;
   const edge = ({ x, y }) => x === 0 || y === 0 || x === map.width - 1 || y === map.height - 1;
   for (const gate of VILLAGE_DOORS.filter(door => door.id.startsWith("path-"))) {
-    const opening = neighbours(gate.tile).find(tile => edge(tile) && terrainAt(map, tile.x, tile.y) === "path");
+    const opening = neighbours(gate.tile).find(tile => edge(tile) && terrainAt(map, tile.x, tile.y) === "bridge");
     assert.ok(opening, gate.label);
   }
 });
@@ -530,4 +531,42 @@ test("Kurama's team is three of all the player's kana, mixed, and beating Kurama
   }
   assert.equal(CHALLENGERS.kurama.reward, "katakana-wilds");
   assert.equal(islandSceneOf("fuji").challenger, "kurama");
+});
+
+// ---- keeping an island's scene between its pages
+
+const keptScene = () => {
+  const scene = { disposed: 0, dispose() { this.disposed += 1; } };
+  return { scene, loading: Promise.resolve() };
+};
+
+test("coming back to the island shows the scene kept for it instead of building another", () => {
+  const keeper = new SceneKeeper();
+  const first = keeper.claim("village", keptScene);
+  const again = keeper.claim("village", () => assert.fail("built again"));
+  assert.equal(again.scene, first.scene);
+});
+
+test("going on to another island lets the kept scene go", () => {
+  const keeper = new SceneKeeper();
+  const { scene } = keeper.claim("village", keptScene);
+  keeper.claim("island:kana", keptScene);
+  assert.equal(scene.disposed, 1);
+});
+
+test("a kept scene counts as loaded only once it has finished loading", async () => {
+  const keeper = new SceneKeeper();
+  const { loading } = keeper.claim("village", keptScene);
+  const before = keeper.hasLoaded("village");
+  await loading;
+  assert.deepEqual([before, keeper.hasLoaded("village"), keeper.hasLoaded("island:kana")], [false, true, false]);
+});
+
+test("a scene that fails to load isn't kept, so the next visit builds it again", async () => {
+  const keeper = new SceneKeeper();
+  const failing = { scene: { dispose() {} }, loading: Promise.reject(new Error("no models")) };
+  await keeper.claim("village", () => failing).loading.catch(() => undefined);
+  let isBuilt = false;
+  keeper.claim("village", () => { isBuilt = true; return keptScene(); });
+  assert.equal(isBuilt, true);
 });

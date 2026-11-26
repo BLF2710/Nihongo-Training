@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import * as THREE from "three";
 import { ISLANDS_IN_3D, ISLAND_SCENES, islandSceneOf } from "../src/data/world/islandScenes.ts";
-import { TRAVELLER_MODEL, buildingModel, castModel, japaneseIsland3D, treeModel } from "../src/lib/world/japaneseIsland3D.ts";
+import { TRAVELLER_MODEL, buildingModel, castModel, japaneseIsland3D, treeModel, villageSquare3D } from "../src/lib/world/japaneseIsland3D.ts";
 import { canBuild } from "../src/components/world3d/japanese/japaneseModelMaker.ts";
 import { BUILDING_BUILDERS } from "../src/components/world3d/japanese/buildings.ts";
 import { BuiltPerson, chunRig, travellerRig } from "../src/components/world3d/japanese/people.ts";
@@ -23,6 +23,14 @@ import { bridgeSpans } from "../src/lib/world/bridges.ts";
 import { deckHeightAt } from "../src/components/world3d/bridges.ts";
 import { MOUNTAIN_MODEL, ROCK_MODEL } from "../src/lib/world/japaneseIsland3D.ts";
 import { kuramaRig, ponRig, senseiRig, zenRig } from "../src/components/world3d/japanese/castRigs.ts";
+import { hakaseRig, hatoRig, konRig, momoRig, tsuruRig } from "../src/components/world3d/japanese/villageCastRigs.ts";
+import { JAPANESE_BUILDING_BUILDERS } from "../src/components/world3d/japanese/buildingBuilders.ts";
+import { mergedByMaterial } from "../src/components/world3d/mergeStatic.ts";
+import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_PROPS, VILLAGE_SQUARE, villageArrivalFrom } from "../src/data/village/villageSquare.ts";
+import { withHomeSign } from "../src/lib/village/homeSign.ts";
+import { WILD_ROUTES } from "../src/data/world/routes.ts";
+
+const FROM_HOME_ARRIVALS = WILD_ROUTES.filter(route => route.between[0] === "home").map(route => villageArrivalFrom(route.id));
 
 const kana = islandSceneOf("kana");
 const kana3D = japaneseIsland3D(kana);
@@ -335,4 +343,111 @@ test("a bridge lies flat where it's walked on the island and rises over the wate
 test("a bridge with nothing carrying it on stays flat", () => {
   const [span] = bridgeSpans(parseTownMap(["~~~", "~b~", "~b~"]), []);
   assert.deepEqual(span.arch, null);
+});
+
+// ---- the village square (Home) in 3D
+
+const VILLAGE_SCENE = { layout: VILLAGE_SQUARE, doors: VILLAGE_DOORS, props: VILLAGE_PROPS, theme: "sakura", surroundings: "water" };
+const village3D = villageSquare3D(VILLAGE_SCENE);
+const isVillageLantern = ({ model }) => model === propModel("paper-lantern") || model === propModel("paper-lantern-unlit");
+
+test("every model and person in the village square, and on its far shore, can be built", () => {
+  const lanterns = village3D.lanterns.flatMap(({ lit, unlit }) => [lit, unlit]);
+  const models = [...village3D.models, ...village3D.backdrop, ...village3D.people, ...lanterns].map(({ model }) => model);
+  assert.deepEqual([...new Set(models)].filter(model => !canBuild(model)), []);
+});
+
+test("every villager in the square stands as themselves", () => {
+  assert.deepEqual(village3D.people.map(({ id, model }) => [id, model]), VILLAGE_SQUARE.villagers.map(({ id }) => [id, castModel(id)]));
+});
+
+test("every building in the village fits on its ground, roof and all, even signed with the longest name", () => {
+  const palette = new Palette();
+  const signed = withHomeSign(VILLAGE_SQUARE, HOME_BUILDING_ID, "あいうえおかきくけこさしす");
+  const overhanging = signed.buildings.flatMap(({ id, look, width, height: depth, roof, sign }) => {
+    const build = JAPANESE_BUILDING_BUILDERS.get(look);
+    if (!build) return [`${id}: no builder`];
+    const size = new THREE.Box3().setFromObject(build(palette, { width, depth, roof, sign })).getSize(new THREE.Vector3());
+    return size.x <= width + 0.01 && size.z <= depth + 0.01 ? [] : [`${id}: ${size.x.toFixed(2)} × ${size.z.toFixed(2)}`];
+  });
+  assert.deepEqual(overhanging, []);
+});
+
+test("the ryokan stands taller than a townhouse, and a townhouse taller than a teahouse", () => {
+  const heightOf = (look, width, depth) => new THREE.Box3().setFromObject(JAPANESE_BUILDING_BUILDERS.get(look)(new Palette(), { width, depth, roof: "indigo" })).getSize(new THREE.Vector3()).y;
+  const [ryokan, machiya, teahouse] = [heightOf("onsen", 8, 4), heightOf("home", 5, 3), heightOf("teahouse", 5, 3)];
+  assert.ok(ryokan > machiya && machiya > teahouse, `${ryokan} ${machiya} ${teahouse}`);
+});
+
+test("each of the square's lanterns can be lit or left dark where it stands, so lighting one doesn't rebuild the square", () => {
+  const tiles = village3D.lanterns.map(({ lit, unlit }) => [lit.model, unlit.model, lit.at.x === unlit.at.x && lit.at.y === unlit.at.y]);
+  assert.deepEqual(tiles, VILLAGE_SQUARE.lanterns.map(() => [propModel("paper-lantern"), propModel("paper-lantern-unlit"), true]));
+});
+
+test("the square's lanterns stand only as switched lanterns, not also among its fixed models", () => {
+  assert.deepEqual(village3D.models.filter(isVillageLantern), []);
+});
+
+test("no piece in the village stands on a door or where the traveller arrives, nor on a building, a tree or water", () => {
+  const blocked = new Set(VILLAGE_SQUARE.obstacles.flatMap(tilesOf));
+  const kept = [...VILLAGE_DOORS.map(({ tile }) => tile), ...FROM_HOME_ARRIVALS].map(({ x, y }) => `${Math.floor(x)},${Math.floor(y)}`);
+  const buildings = new Set(VILLAGE_SQUARE.buildings.flatMap(tilesOf));
+  const onSolid = VILLAGE_SQUARE.obstacles.flatMap(tilesOf).filter(key => {
+    const [x, y] = key.split(",").map(Number);
+    return buildings.has(key) || ["tree", "sakura", "water"].includes(VILLAGE_SQUARE.map.terrain[y][x]);
+  });
+  assert.deepEqual([kept.filter(key => blocked.has(key)), onSolid], [[], []]);
+});
+
+test("each village building stands two rows back from any road behind it, so it doesn't hide whoever walks there", () => {
+  const isRoad = (x, y) => ["path", "bridge"].includes(VILLAGE_SQUARE.map.terrain[y]?.[x]);
+  const hiding = VILLAGE_SQUARE.buildings.filter(({ x, y, width }) => Array.from({ length: width }, (_, column) => x + column).some(column => isRoad(column, y - 1) || isRoad(column, y - 2)));
+  assert.deepEqual(hiding.map(({ id }) => id), []);
+});
+
+test("every road out of the village leaves over a bridge carried on over the water", () => {
+  const spans = bridgeSpans(VILLAGE_SQUARE.map, farShoreAround(VILLAGE_SQUARE.map).decks);
+  assert.deepEqual([spans.length, spans.every(({ arch }) => arch !== null)], [5, true]);
+});
+
+test("the rest of the cast stands about a tile or a tile and a half tall", () => {
+  const rigs = { kon: konRig, hakase: hakaseRig, tsuru: tsuruRig, hato: hatoRig, momo: momoRig };
+  const outOfRange = Object.entries(rigs).flatMap(([name, rig]) => {
+    const height = new THREE.Box3().setFromObject(rig(new Palette()).root).getSize(new THREE.Vector3()).y;
+    return height > 0.9 && height < 1.7 ? [] : [`${name}: ${height.toFixed(2)}`];
+  });
+  assert.deepEqual(outOfRange, []);
+});
+
+test("the birds of the cast flap their wings out to the sides as they walk", () => {
+  assert.deepEqual([hakaseRig, tsuruRig, hatoRig].map(rig => rig(new Palette()).armSwing), ["outward", "outward", "outward"]);
+});
+
+// ---- drawn quickly: a model that never moves is merged into one mesh for each of its materials
+
+test("a merged model is one mesh for each material it's drawn in, and stands exactly where its parts did", () => {
+  const plan = { width: 8, depth: 4, roof: "indigo", sign: "温泉" };
+  const parts = JAPANESE_BUILDING_BUILDERS.get("onsen")(new Palette(), plan);
+  const materials = new Set();
+  parts.traverse(part => { if (part.isMesh) materials.add(part.material); });
+  const before = new THREE.Box3().setFromObject(parts);
+  const merged = mergedByMaterial(parts);
+  const meshes = merged.children.filter(child => child.isMesh);
+  const after = new THREE.Box3().setFromObject(merged);
+  assert.deepEqual([meshes.length, after.min.distanceTo(before.min) < 1e-6, after.max.distanceTo(before.max) < 1e-6], [materials.size, true, true]);
+});
+
+test("a part baked through a mirror still faces outwards", () => {
+  const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial());
+  mesh.scale.x = -1;
+  const [merged] = mergedByMaterial(new THREE.Group().add(mesh)).children;
+  const [a, b, c] = [0, 1, 2].map(index => new THREE.Vector3().fromBufferAttribute(merged.geometry.attributes.position, index));
+  assert.ok(new THREE.Triangle(a, b, c).getNormal(new THREE.Vector3()).z > 0);
+});
+
+test("an instanced mesh is kept whole when its model is merged, every copy where it stood", () => {
+  const instanced = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial(), 2);
+  instanced.setMatrixAt(1, new THREE.Matrix4().makeTranslation(5, 0, 0));
+  const [kept] = mergedByMaterial(new THREE.Group().add(instanced)).children;
+  assert.deepEqual([kept === instanced, kept.count], [true, 2]);
 });

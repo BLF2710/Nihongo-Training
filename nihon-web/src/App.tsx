@@ -29,6 +29,7 @@ import XpToast from "./components/XpToast";
 import StudyTimeTracker from "./components/StudyTimeTracker";
 
 import { LanguageProvider } from "./context/LanguageProvider";
+import { KeptScenesProvider } from "./components/world3d/KeptScenesProvider";
 
 const QuizzesPage = lazy(() => import("./pages/QuizzesPage"));
 const KanjiPage = lazy(() => import("./pages/KanjiPage"));
@@ -87,6 +88,7 @@ function InviteRedirect() {
 function App() {
   return (
     <LanguageProvider>
+      <KeptScenesProvider>
       <BrowserRouter>
         <StudyTimeTracker />
         <XpToast />
@@ -164,6 +166,7 @@ function App() {
           <Route path="/" element={<LearnerRoute><HomePage /></LearnerRoute>} />
         </Routes></ActivitySessionBoundary></SiteGate>
       </BrowserRouter>
+      </KeptScenesProvider>
     </LanguageProvider>
   );
 }

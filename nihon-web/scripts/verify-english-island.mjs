@@ -2,7 +2,7 @@
 // back the camera stands, and that the island can be walked. Run with --experimental-strip-types (see package.json).
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { cameraDistance, centreOf, facingAngle, groundTakenBy, personPosition, tileSize, tilesOfPeople, turnTowards } from "../src/lib/world/islandModels.ts";
+import { cameraDistance, centreOf, drawnTowards, facingAngle, groundTakenBy, personPosition, tileSize, tilesOfPeople, turnTowards } from "../src/lib/world/islandModels.ts";
 import { hasModel, place } from "../src/data/world/islandModelArt.ts";
 import { ENGLISH_ISLAND } from "../src/data/world/englishIsland.ts";
 import { blockedTilesWithOpenGates } from "../src/lib/errands/village.ts";
@@ -103,4 +103,21 @@ test("nothing on the English island stands in the water or on a bridge", () => {
 test("every door on the English island can be walked to from where the traveller starts", () => {
   const reachable = reachableFrom(layout.start);
   assert.deepEqual(ENGLISH_ISLAND.doors.filter(({ tile }) => !reachable.has(`${tile.x},${tile.y}`)).map(door => door.id), []);
+});
+
+test("the traveller as drawn eases after their steps, so steps that arrive unevenly still draw evenly", () => {
+  // Steps of 0.1 tile reaching the scene two at a time, every other frame, drawn over eight frames at 60 a second.
+  const arrived = [0, 0.2, 0.2, 0.4, 0.4, 0.6, 0.6, 0.8, 0.8];
+  const drawn = [];
+  arrived.slice(1).reduce((at, x) => { const next = drawnTowards(at, { x, y: 0 }, 1 / 60); drawn.push(next.x - at.x); return next; }, { x: 0, y: 0 });
+  const [jerky, eased] = [0.2, Math.max(...drawn) - Math.min(...drawn)];
+  assert.ok(eased < jerky / 2, `${eased}`);
+});
+
+test("the traveller as drawn jumps straight to a new place far away", () => {
+  assert.deepEqual(drawnTowards({ x: 0, y: 0 }, { x: 10, y: 4 }, 1 / 60), { x: 10, y: 4 });
+});
+
+test("the traveller as drawn stays where they stand once caught up", () => {
+  assert.deepEqual(drawnTowards({ x: 3, y: 4 }, { x: 3, y: 4 }, 1 / 60), { x: 3, y: 4 });
 });

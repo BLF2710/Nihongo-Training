@@ -13,19 +13,19 @@ const SANDAL = "#c9a46a";
 type Limbs = { leftArm: THREE.Group; rightArm: THREE.Group; leftLeg: THREE.Group; rightLeg: THREE.Group };
 
 /** Legs of `colour` ending in `foot` (sandals unless said), hung from the hips `apart` wide at `hip` height. */
-function legs(palette: Palette, { colour, foot = SANDAL }: { colour: string; foot?: string }, { hip, apart }: { hip: number; apart: number }): Pick<Limbs, "leftLeg" | "rightLeg"> {
+export function legs(palette: Palette, { colour, foot = SANDAL }: { colour: string; foot?: string }, { hip, apart }: { hip: number; apart: number }): Pick<Limbs, "leftLeg" | "rightLeg"> {
   const leg = () => [post(palette.of(colour), 0.08, hip - 0.04, { x: 0, z: 0, y: -hip + 0.02 }), box(palette.of(foot), { width: 0.13, height: 0.05, depth: 0.2 }, { y: -hip, z: 0.03 })];
   return { leftLeg: limb({ x: -apart, y: hip }, ...leg()), rightLeg: limb({ x: apart, y: hip }, ...leg()) };
 }
 
 /** Arms in sleeves ending in hands, hung from the shoulders, `held` in the right hand. */
-function arms(palette: Palette, colours: { sleeve: string; hand: string }, shoulder: { y: number; apart: number }, held: THREE.Object3D[] = []): Pick<Limbs, "leftArm" | "rightArm"> {
+export function arms(palette: Palette, colours: { sleeve: string; hand: string }, shoulder: { y: number; apart: number }, held: THREE.Object3D[] = []): Pick<Limbs, "leftArm" | "rightArm"> {
   const arm = (extra: THREE.Object3D[]) => [post(palette.of(colours.sleeve), 0.08, 0.32, { x: 0, z: 0, y: -0.32 }), sphere(palette.of(colours.hand), 0.07, { y: -0.38 }, 0), ...extra];
   return { leftArm: limb({ x: -shoulder.apart, y: shoulder.y }, ...arm([])), rightArm: limb({ x: shoulder.apart, y: shoulder.y }, ...arm(held)) };
 }
 
 /** A rig from its body and limbs: the arms hang from the body (so they bob with it), the legs from the root. */
-function rig(body: THREE.Group, limbs: Limbs): Rig {
+export function rig(body: THREE.Group, limbs: Limbs): Rig {
   body.add(limbs.leftArm, limbs.rightArm);
   return { body, ...limbs, root: new THREE.Group().add(body, limbs.leftLeg, limbs.rightLeg), armSwing: "forward" };
 }

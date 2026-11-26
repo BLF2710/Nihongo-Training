@@ -71,7 +71,7 @@ function limb(from: THREE.Vector3, to: THREE.Vector3, radius: { from: number; to
   const geometry = new THREE.CylinderGeometry(radius.to, radius.from, length, 7, 1);
   geometry.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize()));
   geometry.translate((from.x + to.x) / 2, (from.y + to.y) / 2, (from.z + to.z) / 2);
-  const knot = new THREE.SphereGeometry(radius.to, 7, 5).translate(to.x, to.y, to.z);
+  const knot = new THREE.SphereGeometry(radius.to, 5, 3).translate(to.x, to.y, to.z);
   return [painted(geometry, BARK_DARK, BARK), painted(knot, BARK)];
 }
 
@@ -79,11 +79,15 @@ function limb(from: THREE.Vector3, to: THREE.Vector3, radius: { from: number; to
 const pickOf = <T,>(choices: readonly T[], random: () => number): T =>
   choices.length === 1 ? choices[0] : choices[Math.floor(random() * choices.length) % choices.length];
 
+/** How finely a clump is rounded: coarse enough that hundreds of trees draw quickly (the crown has many clumps, so it
+ *  still looks soft), fine enough not to look faceted from the camera. */
+const CLUMP_SEGMENTS = { around: 8, down: 5 } as const;
+
 /** A round clump of the crown, in one of its colourings: darker underneath, lighter on top where the sun is. */
 function clump(at: THREE.Vector3, radius: number, crowns: readonly Crown[], random: () => number): THREE.BufferGeometry {
   const crown = pickOf(crowns, random);
   const isBright = random() > 0.5;
-  const geometry = new THREE.SphereGeometry(radius, 10, 7).translate(at.x, at.y, at.z);
+  const geometry = new THREE.SphereGeometry(radius, CLUMP_SEGMENTS.around, CLUMP_SEGMENTS.down).translate(at.x, at.y, at.z);
   return painted(geometry, crown.shade, isBright ? crown.light : crown.body);
 }
 

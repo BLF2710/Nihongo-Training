@@ -33,12 +33,17 @@ export type Sea = "water" | "clouds";
 
 /** Everything the 3D scene draws: the ground (its land coloured by `landColours` where its look recolours it), what
  *  stands on it, the people, the scenery beyond the shore (`backdrop` models, and a far `shore`), the `sea` round it,
- *  and its `ponds` (each the water tiles of one pond, where koi swim). */
+ *  its `ponds` (each the water tiles of one pond, where koi swim), and any `lanterns` lit as the page says. */
 export type Island3D = {
   map: TownMap; models: readonly ModelPlacement[]; people: readonly IslandPerson[]; backdrop: readonly ModelPlacement[];
   traveller: string; doors: readonly Door[]; shore?: FarShore; weather?: Weather; sea?: Sea;
   ponds?: readonly (readonly Vector[])[]; landColours?: Partial<Readonly<Record<Terrain, string>>>;
+  lanterns?: readonly SwitchedLantern[];
 };
+
+/** A lantern that can be lit while the scene stands (as the village's are, as the day's errands get done): how it
+ *  looks lit, and how it looks dark. */
+export type SwitchedLantern = { lit: ModelPlacement; unlit: ModelPlacement };
 
 /** A steady number in [-1, 1) for a point, the same every time: for variety that doesn't change between visits. */
 export function steadyNoise(x: number, y: number): number {
@@ -62,6 +67,21 @@ export const personPosition = ({ tile }: IslandPerson): Vector => ({ x: tile.x +
  *  (positive turns it from facing south to facing east). */
 const FACING_ANGLE: Readonly<Record<Direction, number>> = { down: 0, right: Math.PI / 2, up: Math.PI, left: -Math.PI / 2 };
 export const facingAngle = (facing: Direction): number => FACING_ANGLE[facing];
+
+/** How quickly the traveller as drawn catches up with where they are (a share of the way each second), and how far
+ *  apart the two can be before the drawing jumps straight there (arriving somewhere new, say). */
+const DRAWN_FOLLOW_PER_SECOND = 20;
+const DRAWN_JUMP_DISTANCE = 2;
+
+/** Where to draw the traveller this frame, `seconds` after they were drawn at `drawn`, now that they're at `actual`.
+ *  Their steps reach the scene unevenly (two in one frame, none in the next), so the drawing eases after them rather
+ *  than jerking from one to the next; the camera follows the drawing, so the two move together. */
+export function drawnTowards(drawn: Vector, actual: Vector, seconds: number): Vector {
+  const gap = { x: actual.x - drawn.x, y: actual.y - drawn.y };
+  if (Math.hypot(gap.x, gap.y) > DRAWN_JUMP_DISTANCE) return actual;
+  const share = Math.min(1, seconds * DRAWN_FOLLOW_PER_SECOND);
+  return { x: drawn.x + gap.x * share, y: drawn.y + gap.y * share };
+}
 
 /** The angle `from` turns towards `to` by the share `amount` of the way, the short way round. */
 export function turnTowards(from: number, to: number, amount: number): number {

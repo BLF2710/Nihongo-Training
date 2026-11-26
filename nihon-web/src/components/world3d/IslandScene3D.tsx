@@ -1,5 +1,6 @@
 // An island in real 3D, as a React component: it hands the traveller's walk to the renderer, pins a prompt (and any
 // marks) to places in the scene, and if the browser can't draw 3D (or the models won't load) lists the doors instead.
+// The scene is kept when the page closes (see keptScenes), so coming back to the island shows it again at once.
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -9,6 +10,7 @@ import type { Door } from "../../lib/village/villageDoors";
 import { useDarkActive } from "../../lib/theme";
 import { IslandRenderer } from "./islandRenderer";
 import type { TravellerState } from "./islandRenderer";
+import { useKeptScenes } from "./keptScenes";
 import type { ModelMaker } from "./models";
 import type { SceneMarker, ScenePrompt } from "./scenePrompts";
 
@@ -20,9 +22,14 @@ const PROMPT_KEY = "prompt";
 const NO_MARKERS: readonly SceneMarker[] = [];
 
 type IslandScene3DProps = {
+  /** Names the scene built from `island` and `maker`: a scene kept under the same name is shown again instead of
+   *  being built, so it must change whenever what they'd build does (another island, the traveller dressed anew). */
+  sceneKey: string;
   island: Island3D;
   /** Makes the island's models and people. Keep it the same object between renders: a new one rebuilds the scene. */
   maker: ModelMaker;
+  /** How many of the island's switched lanterns are lit. */
+  litLanterns?: number;
   position: Vector;
   facing: Direction;
   isWalking: boolean;
@@ -33,13 +40,15 @@ type IslandScene3DProps = {
   children?: ReactNode;
 };
 
-export function IslandScene3D({ island, maker, position, facing, isWalking, isRunning, prompt, onPrompt, markers = NO_MARKERS, children }: IslandScene3DProps) {
+export function IslandScene3D({ sceneKey, island, maker, litLanterns = 0, position, facing, isWalking, isRunning, prompt, onPrompt, markers = NO_MARKERS, children }: IslandScene3DProps) {
+  const keptScenes = useKeptScenes();
   const hostRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<IslandRenderer | null>(null);
-  // Where the traveller starts; after that, every move is handed to the renderer as it happens.
-  const startRef = useRef<TravellerState>({ position, facing, isWalking, isRunning });
+  // Where the traveller is, for the scene to stand them there when it's attached; every move after that is handed
+  // to the renderer as it happens.
+  const travellerRef = useRef<TravellerState>({ position, facing, isWalking, isRunning });
   const pinnedElements = useRef(new Map<string, HTMLElement>());
-  const [loadState, setLoadState] = useState<LoadState>("loading");
+  const [loadState, setLoadState] = useState<LoadState>(() => keptScenes.hasLoaded(sceneKey) ? "ready" : "loading");
   const isDark = useDarkActive();
 
   useEffect(() => {
@@ -47,26 +56,36 @@ export function IslandScene3D({ island, maker, position, facing, isWalking, isRu
     if (!host) return;
     const observer = new ResizeObserver(([entry]) => rendererRef.current?.resize(entry.contentRect.width, entry.contentRect.height));
     let isCurrent = true;
-    const start = async () => {
-      const renderer = new IslandRenderer(host, island, maker, startRef.current);
-      rendererRef.current = renderer;
+    const attach = async () => {
+      const { scene, loading } = keptScenes.claim(sceneKey, () => {
+        const renderer = new IslandRenderer(island, maker, travellerRef.current);
+        return { scene: renderer, loading: renderer.load() };
+      });
+      rendererRef.current = scene;
+      scene.attachTo(host, travellerRef.current);
       observer.observe(host);
-      await renderer.load();
+      await loading;
     };
-    start().then(
+    attach().then(
       () => { if (isCurrent) setLoadState("ready"); },
       (error: unknown) => { console.error(error); if (isCurrent) setLoadState("failed"); },
     );
+    // Set aside, not thrown away: the keeper lets it go once another island is built.
     return () => {
       isCurrent = false;
       observer.disconnect();
-      rendererRef.current?.dispose();
+      rendererRef.current?.detach();
       rendererRef.current = null;
     };
-  }, [island, maker]);
+  }, [keptScenes, sceneKey, island, maker]);
 
-  useEffect(() => { rendererRef.current?.setTraveller({ position, facing, isWalking, isRunning }); }, [position, facing, isWalking, isRunning]);
+  useEffect(() => {
+    const traveller = { position, facing, isWalking, isRunning };
+    travellerRef.current = traveller;
+    rendererRef.current?.setTraveller(traveller);
+  }, [position, facing, isWalking, isRunning]);
   useEffect(() => { rendererRef.current?.setDark(isDark); }, [isDark, loadState]);
+  useEffect(() => { rendererRef.current?.setLitLanterns(litLanterns); }, [litLanterns, loadState]);
 
   useEffect(() => {
     const renderer = rendererRef.current;

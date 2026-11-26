@@ -112,10 +112,11 @@ function Island3D({ scene, position, facing, isWalking, isRunning, door, challen
   const look = useTravellerLook();
   const island = useMemo(() => japaneseIsland3D(scene), [scene]);
   const maker = useMemo(() => new JapaneseModelMaker(look), [look]);
+  const sceneKey = `island:${scene.island}:${JSON.stringify(look)}`;
   const prompt = useMemo(() => door ? doorPrompt(door)
     : challenger ? villagerPrompt(challenger.tile, FIGHT, `Challenge ${challenger.name}`) : null, [door, challenger]);
   const markers = useMemo(() => scene.layout.villagers.filter(({ id }) => markedIds.includes(id) && !challenger).map(({ id, tile }) => villagerMarker(id, tile)),
     [scene, markedIds, challenger]);
-  return <IslandScene3D island={island} maker={maker} position={position} facing={facing} isWalking={isWalking} isRunning={isRunning}
+  return <IslandScene3D sceneKey={sceneKey} island={island} maker={maker} position={position} facing={facing} isWalking={isWalking} isRunning={isRunning}
     prompt={prompt} onPrompt={onAct} markers={markers}>{children}</IslandScene3D>;
 }

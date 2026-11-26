@@ -116,13 +116,31 @@ const propAt = ({ kind, at, facing }: IslandProp): ModelPlacement => ({
 const lanternsOf = (lanterns: readonly Vector[], kind: ShrinePropKind): IslandProp[] =>
   lanterns.map(({ x, y }) => ({ kind, at: { x, y, width: 1, height: 1 } }));
 
-export function japaneseIsland3D(scene: IslandScene): Island3D {
-  const { map, buildings, villagers, lanterns } = scene.layout;
+/** What a Japanese scene is drawn from: an island's or the village square's ground, buildings, people, doors and
+ *  pieces, and its look. */
+export type JapaneseScene = Pick<IslandScene, "layout" | "doors" | "props" | "theme" | "surroundings">;
+
+/** An island in 3D, its lanterns of its theme's kind. */
+export const japaneseIsland3D = (scene: IslandScene): Island3D =>
+  japaneseScene3D(scene, lanternsOf(scene.layout.lanterns, THEME_LOOKS[scene.theme].lantern));
+
+/** The village square in 3D: its lanterns are paper lanterns on posts, lit as the page says (see `SwitchedLantern`). */
+export const villageSquare3D = (scene: JapaneseScene): Island3D => ({
+  ...japaneseScene3D(scene, []),
+  lanterns: scene.layout.lanterns.map(({ x, y }) => {
+    const at = { x, y, width: 1, height: 1 };
+    return { lit: propAt({ kind: "paper-lantern", at }), unlit: propAt({ kind: "paper-lantern-unlit", at }) };
+  }),
+});
+
+/** A scene in 3D, with its `lanterns` standing as the pieces given. */
+function japaneseScene3D(scene: JapaneseScene, lanterns: readonly IslandProp[]): Island3D {
+  const { map, buildings, villagers } = scene.layout;
   const look = THEME_LOOKS[scene.theme];
   const standing = buildings.map(({ look: buildingLook, roof, sign, x, y, width, height }): ModelPlacement => ({
     model: buildingModel(buildingLook), at: { x, y, width, height }, scale: BUILT_SCALE, roof, sign,
   }));
-  const pieces = [...scene.props, ...lanternsOf(lanterns, look.lantern)].map(propAt);
+  const pieces = [...scene.props, ...lanterns].map(propAt);
   const people = villagers.map(({ id, tile }): IslandPerson => ({ id, model: castModel(id), tile, facing: "down" }));
   const island = {
     map, models: [...standing, ...treesOf(map), ...rocksOf(map), ...pieces], people, traveller: TRAVELLER_MODEL, doors: scene.doors,

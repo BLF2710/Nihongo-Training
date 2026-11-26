@@ -2,13 +2,14 @@
 // and the traveller walking among them, seen from above at the 2.5D scenes' angle by a camera that follows them.
 import * as THREE from "three";
 import type { Direction, Vector } from "../../lib/errands/movement";
-import { cameraDistance, personPosition } from "../../lib/world/islandModels";
+import { cameraDistance, drawnTowards, personPosition } from "../../lib/world/islandModels";
 import type { Island3D } from "../../lib/world/islandModels";
 import { buildGround } from "./ground";
 import { FallingPetals, PETAL_LOOKS } from "./fallingPetals";
 import { LivelyWater } from "./water";
 import { SwimmingKoi } from "./koi";
 import { cloudBanks } from "./clouds";
+import { mergedByMaterial } from "./mergeStatic";
 import type { ModelMaker } from "./models";
 import type { IslandWalker, Motion } from "./walkers";
 
@@ -84,10 +85,18 @@ export class IslandRenderer {
   private readonly people: IslandWalker[] = [];
   private traveller: IslandWalker | null = null;
   private state: TravellerState;
+  /** Where the traveller is drawn: easing after where they are (see `drawnTowards`). */
+  private drawn: Vector;
   private readonly focus = new THREE.Vector3();
   private viewport = { width: 1, height: 1 };
+  /** The page element the scene is drawn into, while it's on a page (it's set aside, not drawn, in between). */
+  private host: HTMLElement | null = null;
+  private hasLoaded = false;
   private frame = 0;
   private isDisposed = false;
+  /** Each switched lantern as it looks lit and dark, and how many are lit (the first so many). */
+  private readonly lanterns: { lit: THREE.Object3D; unlit: THREE.Object3D }[] = [];
+  private litLanterns = 0;
   private petals: FallingPetals | null = null;
   private readonly koi: SwimmingKoi;
   private readonly water: LivelyWater;
@@ -97,13 +106,13 @@ export class IslandRenderer {
   private readonly maker: ModelMaker;
 
   /** `maker` makes the island's models and people, however they're made. */
-  constructor(host: HTMLElement, island: Island3D, maker: ModelMaker, start: TravellerState) {
+  constructor(island: Island3D, maker: ModelMaker, start: TravellerState) {
     this.island = island;
     this.maker = maker;
     this.state = start;
+    this.drawn = start.position;
     this.renderer.domElement.setAttribute("aria-hidden", "true");
     this.renderer.domElement.className = "block size-full";
-    host.append(this.renderer.domElement);
     this.sun.castShadow = true;
     this.sun.shadow.mapSize.set(SHADOW_MAP_SIZE, SHADOW_MAP_SIZE);
     Object.assign(this.sun.shadow.camera, { left: -SHADOW_REACH, right: SHADOW_REACH, top: SHADOW_REACH, bottom: -SHADOW_REACH, near: 1, far: 80 });
@@ -112,7 +121,7 @@ export class IslandRenderer {
     this.water = new LivelyWater(island.map, { shore: island.shore, sea: island.sea });
     this.koi = new SwimmingKoi(island.ponds ?? [], Math.random);
     this.scene.add(this.sun, this.sun.target, this.skyLight, this.water.mesh, this.koi.group,
-      buildGround(island.map, { shore: island.shore, landColours: island.landColours }));
+      mergedByMaterial(buildGround(island.map, { shore: island.shore, landColours: island.landColours })));
     if (island.sea === "clouds") this.scene.add(cloudBanks(island.map));
     // Petals (or leaves) fall where it's their season.
     if (island.weather && this.isMoving) {
@@ -123,9 +132,10 @@ export class IslandRenderer {
     this.focus.set(start.position.x, 0, start.position.y);
   }
 
-  /** Loads and stands every model and person, then starts drawing. */
+  /** Loads and stands every model and person, then starts drawing (once it's on a page). */
   async load(): Promise<void> {
-    const [standing, people, traveller] = await Promise.all([
+    const lanterns = this.island.lanterns ?? [];
+    const [standing, people, traveller, lit, unlit] = await Promise.all([
       Promise.all([...this.island.models, ...this.island.backdrop].map(placement => this.maker.standModel(placement))),
       Promise.all(this.island.people.map(async resident => {
         const person = await this.maker.makePerson(resident.model);
@@ -134,15 +144,46 @@ export class IslandRenderer {
         return person;
       })),
       this.maker.makePerson(this.island.traveller),
+      Promise.all(lanterns.map(({ lit: placement }) => this.maker.standModel(placement))),
+      Promise.all(lanterns.map(({ unlit: placement }) => this.maker.standModel(placement))),
     ]);
     // Left before it finished loading: nothing more to draw.
     if (this.isDisposed) return;
-    this.scene.add(...standing, ...people.map(person => person.root), traveller.root);
+    this.scene.add(...standing, ...people.map(person => person.root), traveller.root, ...lit, ...unlit);
     this.people.push(...people);
+    this.lanterns.push(...lit.map((model, index) => ({ lit: model, unlit: unlit[index] })));
+    this.setLitLanterns(this.litLanterns);
     traveller.faceAtOnce(this.state.facing);
     this.traveller = traveller;
     this.timer.connect(document);
-    this.frame = requestAnimationFrame(this.draw);
+    this.hasLoaded = true;
+    this.startDrawing();
+  }
+
+  /** Draws the scene into `host`, the traveller standing as `traveller` says (where they are on coming back). */
+  attachTo(host: HTMLElement, traveller: TravellerState): void {
+    host.append(this.renderer.domElement);
+    this.host = host;
+    this.placeTraveller(traveller);
+    this.startDrawing();
+  }
+
+  /** Takes the scene off its page and stops drawing it, keeping everything built for when it's attached again. */
+  detach(): void {
+    cancelAnimationFrame(this.frame);
+    this.frame = 0;
+    this.onFrame = null;
+    this.renderer.domElement.remove();
+    this.host = null;
+  }
+
+  /** Lights the first `count` switched lanterns, the rest dark. */
+  setLitLanterns(count: number): void {
+    this.litLanterns = count;
+    this.lanterns.forEach(({ lit, unlit }, index) => {
+      lit.visible = index < count;
+      unlit.visible = !lit.visible;
+    });
   }
 
   setTraveller(state: TravellerState): void {
@@ -178,7 +219,7 @@ export class IslandRenderer {
 
   dispose(): void {
     this.isDisposed = true;
-    cancelAnimationFrame(this.frame);
+    this.detach();
     this.timer.dispose();
     this.water.dispose();
     this.scene.traverse(object => {
@@ -190,7 +231,19 @@ export class IslandRenderer {
       }
     });
     this.renderer.dispose();
-    this.renderer.domElement.remove();
+  }
+
+  private startDrawing(): void {
+    if (!this.host || !this.hasLoaded || this.frame !== 0) return;
+    this.frame = requestAnimationFrame(this.draw);
+  }
+
+  /** Stands the traveller (and the camera over them) straight where they are, with no easing over from before. */
+  private placeTraveller(traveller: TravellerState): void {
+    this.state = traveller;
+    this.drawn = traveller.position;
+    this.traveller?.faceAtOnce(traveller.facing);
+    this.focus.set(traveller.position.x, 0, traveller.position.y).add(LOOK_AHEAD);
   }
 
   private readonly draw = (): void => {
@@ -214,12 +267,13 @@ export class IslandRenderer {
     const { position, facing, isWalking, isRunning } = this.state;
     const motion: Motion = !isWalking ? "idle" : isRunning ? "run" : "walk";
     this.traveller.play(motion);
-    this.traveller.standAt(position, facing);
+    this.drawn = drawnTowards(this.drawn, position, seconds);
+    this.traveller.standAt(this.drawn, facing);
     this.traveller.update(seconds);
   }
 
   private followWithCamera(seconds: number): void {
-    const target = new THREE.Vector3(this.state.position.x, 0, this.state.position.y).add(LOOK_AHEAD);
+    const target = new THREE.Vector3(this.drawn.x, 0, this.drawn.y).add(LOOK_AHEAD);
     this.focus.lerp(target, Math.min(1, seconds * CAMERA_FOLLOW_PER_SECOND));
     const distance = cameraDistance(this.viewport, FIELD_OF_VIEW_DEGREES);
     const elevation = THREE.MathUtils.degToRad(ELEVATION_DEGREES);

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import { TouchControls } from "../components/errands/TouchControls";
-import { VillageScene } from "../components/errands/VillageScene";
+import { VillageSquare3D } from "../components/village/VillageSquare3D";
 import { DailyErrandsBoard } from "../components/village/DailyErrandsBoard";
 import { VillagerNewsPanel } from "../components/village/VillagerNewsPanel";
 import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_SQUARE, villageArrivalFrom } from "../data/village/villageSquare";
@@ -20,7 +20,6 @@ import { useArrival } from "../lib/world/useArrival";
 import { useNavigate } from "react-router-dom";
 
 const TALK_KEYS: ReadonlySet<string> = new Set(["KeyE", "Enter", "Space"]);
-const NO_GATES: readonly string[] = [];
 
 /** The village square: walk up to a villager to hear their news (from the learner's own study) and go where they
  *  point; today's errands are the day's study plan, and each one done lights some of the lanterns. */
@@ -66,9 +65,9 @@ export default function VillagePage() {
   return <div className="flex h-dvh flex-col bg-gray-50 text-gray-900"><Navbar />
     <main className="relative min-h-0 flex-1">
       <h1 className="sr-only">Village square</h1>
-      <VillageScene village={square} position={walker.position} facing={walker.facing} isWalking={isHolding} isRunning={isRunning}
-        openGateIds={NO_GATES} litLanterns={litLanterns} markedVillagerIds={markedIds} nearbyId={nearbyId}
-        onTalk={id => { if (nearbyId === id) talk(id); }} nearbyDoor={nearbyDoor} onEnterDoor={actOnNearby}>
+      {/* The scene stands while the day's errands are fetched; its lanterns light up once they're known. */}
+      <VillageSquare3D square={square} litLanterns={litLanterns} position={walker.position} facing={walker.facing} isWalking={isHolding} isRunning={isRunning}
+        nearbyId={nearbyId} nearbyDoor={nearbyDoor} markedIds={markedIds} onAct={actOnNearby}>
         <div className="pointer-events-none absolute inset-x-2 top-2 z-[900] flex items-start justify-between gap-2 sm:inset-x-4 sm:top-4">
           <DailyErrandsBoard errands={errands} status={isLoading ? "loading" : data.today === null ? "unavailable" : "ready"} />
           <p className="rounded-xl border border-gray-200 bg-white/95 px-3 py-2 text-right shadow-sm max-sm:hidden">
@@ -81,7 +80,7 @@ export default function VillagePage() {
         </p>}
         {!talkingTo && <TouchControls onPress={press} onRelease={release} onTalk={actOnNearby} canTalk={nearby !== null} talkLabel={nearbyDoor ? nearbyDoor.action ?? "Enter" : "Talk"} isRunning={isRunning} onRunningChange={setIsRunning} />}
         {talkingTo && <VillagerNewsPanel villager={talkingTo} news={villagerNews(talkingTo, data, errands)} onClose={close} />}
-      </VillageScene>
+      </VillageSquare3D>
     </main>
   </div>;
 }
