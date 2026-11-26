@@ -6,7 +6,8 @@ import type { Rect, Terrain, TownMap } from "../../lib/errands/townMap.ts";
 import { bridgeSpans } from "../../lib/world/bridges.ts";
 import { steadyNoise } from "../../lib/world/islandModels.ts";
 import type { FarShore, Hill } from "../../lib/world/islandModels.ts";
-import { isBeyond } from "../../lib/world/wintrySide.ts";
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import { isAlongSnowline, isBeyond, liesUnderSnow } from "../../lib/world/wintrySide.ts";
 import type { WintrySide } from "../../lib/world/wintrySide.ts";
 import { buildBridges } from "./bridges.ts";
 import { groundDetails } from "./groundDetails.ts";
@@ -21,8 +22,10 @@ const TOP_DEPTH = 0.06;
 const DECK_DEPTH = 0.08;
 const RAIL_HEIGHT = 0.22;
 const RAIL_WIDTH = 0.08;
-/** A path lies this little above the land it crosses, so the two don't flicker into each other. */
+/** A path lies this little above the land it crosses, so the two don't flicker into each other; a patch of snow
+ *  half as high, under any path. */
 const PATH_LIFT = 0.006;
+const SNOW_PATCH_LIFT = PATH_LIFT / 2;
 /** How much lighter or darker each tile is than its terrain's colour, so the grass isn't one flat sheet. */
 const SHADE_VARIATION = 0.015;
 
@@ -103,6 +106,8 @@ function hill({ x, y, radius, height }: Hill, colour: string): THREE.Mesh {
   return mesh;
 }
 
+const middleOf = (rect: Rect) => ({ x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 });
+
 /** What covers the far shore's land at a point: its grass's colour, or the snow lying there (undefined for the
  *  shore's own green). */
 type ShoreCover = (point: { x: number; y: number }) => string | undefined;
@@ -111,7 +116,6 @@ type ShoreCover = (point: { x: number; y: number }) => string | undefined;
  *  the land where it lies (as the island's grass is, or white under snow). */
 function farShore({ land: strips, paths, hills }: FarShore, coverAt: ShoreCover): THREE.Group {
   const pathColour = LAND_COLOURS.path ?? DEFAULT_LAND_COLOUR;
-  const middleOf = (rect: Rect) => ({ x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 });
   return new THREE.Group().add(
     ...strips.map(strip => slab(strip, coverAt(middleOf(strip)) ?? DEFAULT_LAND_COLOUR)),
     ...paths.map(path => slab(path, pathColour, PATH_LIFT)),
@@ -122,10 +126,29 @@ function farShore({ land: strips, paths, hills }: FarShore, coverAt: ShoreCover)
 /** The island's whole ground: land (its terrain coloured as `landColours` has it, where it does), bridges carried on
  *  over the water to the far shore, piers, the details lying on it, and the far shore, if it has one (the water is
  *  `LivelyWater`). */
+/** Patches of snow lying on the far shore's land along the snowline, a tile each, so the snow thins out ragged. */
+function snowPatches(map: TownMap, strips: readonly Rect[], wintry: WintrySide): THREE.Mesh | null {
+  const patches = strips.flatMap(strip => tilesIn(strip).filter(tile => isAlongSnowline(map, wintry.side, tile) && liesUnderSnow(map, wintry.side, tile)))
+    .map(({ x, y }) => new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(x + 0.5, SNOW_PATCH_LIFT, y + 0.5));
+  const merged = patches.length ? mergeGeometries(patches) : null;
+  if (!merged) return null;
+  const mesh = new THREE.Mesh(merged, new THREE.MeshLambertMaterial({ color: wintry.snow }));
+  mesh.receiveShadow = true;
+  return mesh;
+}
+
+/** Every tile of a rect. */
+function tilesIn({ x, y, width, height }: Rect): { x: number; y: number }[] {
+  return Array.from({ length: width * height }, (_, index) => ({ x: x + (index % width), y: y + Math.floor(index / width) }));
+}
+
 export function buildGround(map: TownMap, { shore, landColours = {}, wintry }: { shore?: FarShore; landColours?: LandColours; wintry?: WintrySide }): THREE.Group {
   const bridges = buildBridges(bridgeSpans(map, shore?.decks ?? []));
   const ground = new THREE.Group().add(land(map, landColours), bridges, piers(map), groundDetails(map));
-  const coverAt: ShoreCover = point => wintry && isBeyond(map, wintry.side, point) ? wintry.snow : landColours.grass;
-  if (shore) ground.add(farShore(shore, coverAt));
+  const coverAt: ShoreCover = ({ x, y }) => wintry && liesUnderSnow(map, wintry.side, { x: Math.floor(x), y: Math.floor(y) }) ? wintry.snow : landColours.grass;
+  if (!shore) return ground;
+  ground.add(farShore(shore, coverAt));
+  const patches = wintry && snowPatches(map, shore.land.filter(strip => !isBeyond(map, wintry.side, middleOf(strip))), wintry);
+  if (patches) ground.add(patches);
   return ground;
 }

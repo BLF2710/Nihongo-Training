@@ -75,16 +75,26 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
     gives the same order and the assessment's answer indexes stay valid.
 - **Phase 3:** A2 is written and live: six units of five lessons and a review each, plus a 15-question unit test
   each. Unit 1 was reviewed first; Units 2–6 follow its style.
+  B1 ("Get Confident") is also written and live in the same shape (`docs/curriculum/english/b1/`):
+  1. Experiences & Achievements, 2. Work & Study, 3. Travel & Culture, 4. Possibilities & Wishes,
+  5. News & Media, 6. Society & the Environment.
+  B2 ("Speak Naturally") is written and live too (`docs/curriculum/english/b2/`): 1. People & Relationships,
+  2. Work & Careers, 3. Technology & Science, 4. Health & Lifestyle, 5. Stories & Experiences, 6. Ideas & Opinions.
+  C1 ("Master the Details") is written and live as well (`docs/curriculum/english/c1/`):
+  1. Language & Communication, 2. Work & the Economy, 3. Science & Ethics, 4. Culture & the Arts,
+  5. Society & Change, 6. Mastering Style. The whole course (A2–C1) is now 24 units and 144 lessons.
+  The A2 units are:
   1. People & Everyday Life
   2. Past Experiences
   3. Places & Directions
   4. Food & Shopping
   5. Plans & the Future
   6. Health & Advice
-- **Phase 4, prototype:** the English Isle on foot, at `/english/island` (`pages/EnglishIslandPage.tsx`, data in
-  `data/world/englishIsland.ts`), linked from the English home page as a preview. Its doors open the level picker
-  (castle), English statistics (watchtower), lessons (church school) and the arcade (tavern). It is not yet the
-  English home page.
+- **Phase 4, started:** the English Isle on foot is the English learner's home page (`/`, which `pages/HomePage.tsx`
+  sends to `pages/EnglishIslandPage.tsx`; also at `/english/island`; data in `data/world/englishIsland.ts`). Its doors
+  open the level picker (castle), English statistics (watchtower), lessons (church school) and the arcade (tavern),
+  everything the old English home page linked to. Still to come: the rest of the island's places (market town,
+  fields, abbey) and the Phase 5 tools they'll open.
   - **Look:** real 3D with three.js, not the 2.5D CSS engine. A camera looks down at the 2.5D scenes' angle (40°
     above the ground) and follows the traveller, at the same tile size as `VillageScene`. The land is raised tiles
     over a water plane, and the models stand in sunlight with real shadows

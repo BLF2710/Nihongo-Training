@@ -74,7 +74,6 @@ const DOORS: readonly Door[] = [
   { id: "watchtower", label: "The watchtower: your progress", href: "/statistics/english", tile: doorTile(watchtower) },
   { id: "church", label: "The church school: lessons", href: "/lessons", tile: doorTile(church) },
   { id: "tavern", label: "The tavern: word games", href: "/arcade", tile: doorTile(tavern) },
-  { id: "jetty", label: "Back to the start page", href: "/", tile: { x: 17, y: 28 }, action: "Go" },
 ];
 
 const MAP = parseTownMap([

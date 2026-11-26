@@ -1114,5 +1114,3353 @@
         "explanation": "Because or so, not both."
       }
     ]
+  },
+  {
+    "id": "english-b1-unit-1-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "ever-experience",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Have you ever been to Australia?",
+          "Did you ever go to Australia?",
+          "Have you ever went to Australia?",
+          "Are you ever been to Australia?"
+        ],
+        "correctIndex": 0,
+        "explanation": "Life experience, no time: present perfect."
+      },
+      {
+        "id": "never",
+        "prompt": "Complete: I've ___ ridden a motorbike. I'm scared of them.",
+        "options": [
+          "never",
+          "yet",
+          "already",
+          "ever"
+        ],
+        "correctIndex": 0,
+        "explanation": "Never = not at any time."
+      },
+      {
+        "id": "been-gone",
+        "prompt": "Mum isn't at home. She's ___ to the market.",
+        "options": [
+          "going",
+          "been",
+          "went",
+          "gone"
+        ],
+        "correctIndex": 3,
+        "explanation": "She is still there: gone to."
+      },
+      {
+        "id": "just",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "The train just has left.",
+          "The train has just left.",
+          "The train has yet left.",
+          "The train has left just."
+        ],
+        "correctIndex": 1,
+        "explanation": "Has + just + past participle."
+      },
+      {
+        "id": "not-yet",
+        "prompt": "“Tôi chưa gọi cho anh ấy.” in English is…",
+        "options": [
+          "I didn't call him yet.",
+          "I don't call him yet.",
+          "I haven't called him yet.",
+          "I haven't called him already."
+        ],
+        "correctIndex": 2,
+        "explanation": "“Chưa” = haven't … yet."
+      },
+      {
+        "id": "still",
+        "prompt": "Complete: It's 10 o'clock and Nam ___ hasn't got up.",
+        "options": [
+          "already",
+          "yet",
+          "still",
+          "ever"
+        ],
+        "correctIndex": 2,
+        "explanation": "Still haven't: longer than expected."
+      },
+      {
+        "id": "finished-time",
+        "prompt": "Complete: We ___ to Phu Quoc two years ago.",
+        "options": [
+          "have been",
+          "went",
+          "have gone",
+          "go"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ago: past simple."
+      },
+      {
+        "id": "when-question",
+        "prompt": "Complete: When ___ your degree?",
+        "options": [
+          "have you finished",
+          "do you finished",
+          "have you been finishing",
+          "did you finish"
+        ],
+        "correctIndex": 3,
+        "explanation": "When…? takes the past simple."
+      },
+      {
+        "id": "news-details",
+        "prompt": "Choose the best second sentence: “I've found a new flat! ___”",
+        "options": [
+          "I saw it online last week.",
+          "I've seen it online last week.",
+          "I see it online last week.",
+          "I've been seeing it last week."
+        ],
+        "correctIndex": 0,
+        "explanation": "Details with a finished time: past simple."
+      },
+      {
+        "id": "pp-continuous",
+        "prompt": "Complete: I ___ English for eight years.",
+        "options": [
+          "have been learning",
+          "am learning",
+          "was learning",
+          "learn"
+        ],
+        "correctIndex": 0,
+        "explanation": "From the past until now: have been + -ing."
+      },
+      {
+        "id": "since",
+        "prompt": "Complete: They've been married ___ 2015.",
+        "options": [
+          "from",
+          "for",
+          "since",
+          "ago"
+        ],
+        "correctIndex": 2,
+        "explanation": "Since + a starting point."
+      },
+      {
+        "id": "simple-count",
+        "prompt": "Complete: I ___ four cups of tea this morning.",
+        "options": [
+          "has had",
+          "have had",
+          "am having",
+          "have been having"
+        ],
+        "correctIndex": 1,
+        "explanation": "A number of finished things: present perfect simple."
+      },
+      {
+        "id": "stative",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I know Lan since 2010.",
+          "I'm knowing Lan since 2010.",
+          "I've been knowing Lan since 2010.",
+          "I've known Lan since 2010."
+        ],
+        "correctIndex": 3,
+        "explanation": "Know doesn't take -ing."
+      },
+      {
+        "id": "manage-to",
+        "prompt": "Complete: Did you manage ___ the report on time?",
+        "options": [
+          "finish",
+          "to finish",
+          "in finishing",
+          "finishing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Manage + to + base verb."
+      },
+      {
+        "id": "superlative-ever",
+        "prompt": "Complete: That was the worst film I've ___.",
+        "options": [
+          "never seen",
+          "seen ever",
+          "ever saw",
+          "ever seen"
+        ],
+        "correctIndex": 3,
+        "explanation": "Superlative + I've ever + past participle."
+      }
+    ]
+  },
+  {
+    "id": "english-b1-unit-2-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "used-to-habit",
+        "prompt": "Complete: When I was a student, I ___ work in a café.",
+        "options": [
+          "was used to",
+          "am used to",
+          "used to",
+          "use to"
+        ],
+        "correctIndex": 2,
+        "explanation": "Past habit: used to + base verb."
+      },
+      {
+        "id": "didnt-use-to",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "He didn't used to like sport.",
+          "He wasn't used to like sport.",
+          "He didn't use to like sport.",
+          "He used not liking sport."
+        ],
+        "correctIndex": 2,
+        "explanation": "Didn't + use to."
+      },
+      {
+        "id": "be-used-to",
+        "prompt": "Complete: I'm used to ___ in a noisy office.",
+        "options": [
+          "to work",
+          "worked",
+          "work",
+          "working"
+        ],
+        "correctIndex": 3,
+        "explanation": "Be used to + -ing."
+      },
+      {
+        "id": "ed-feeling",
+        "prompt": "“Tôi thấy rất hào hứng” in English is…",
+        "options": [
+          "I very excite.",
+          "I'm very excitement.",
+          "I'm very exciting.",
+          "I'm very excited."
+        ],
+        "correctIndex": 3,
+        "explanation": "Your feeling: -ed."
+      },
+      {
+        "id": "ing-cause",
+        "prompt": "Complete: The match was really ___. We were on our feet the whole time.",
+        "options": [
+          "excite",
+          "exciting",
+          "excitement",
+          "excited"
+        ],
+        "correctIndex": 1,
+        "explanation": "The match caused the feeling: -ing."
+      },
+      {
+        "id": "adjective-preposition",
+        "prompt": "Complete: We were disappointed ___ the service.",
+        "options": [
+          "on",
+          "with",
+          "at",
+          "of"
+        ],
+        "correctIndex": 1,
+        "explanation": "Disappointed with."
+      },
+      {
+        "id": "enjoy-ing",
+        "prompt": "Complete: Do you enjoy ___ new people?",
+        "options": [
+          "to meet",
+          "met",
+          "meeting",
+          "meet"
+        ],
+        "correctIndex": 2,
+        "explanation": "Enjoy + -ing."
+      },
+      {
+        "id": "decide-to",
+        "prompt": "Complete: She decided ___ her job.",
+        "options": [
+          "to quit",
+          "quit",
+          "quitted",
+          "quitting"
+        ],
+        "correctIndex": 0,
+        "explanation": "Decide + to."
+      },
+      {
+        "id": "preposition-ing",
+        "prompt": "Complete: Thank you for ___ me.",
+        "options": [
+          "help",
+          "to help",
+          "helped",
+          "helping"
+        ],
+        "correctIndex": 3,
+        "explanation": "After a preposition: -ing."
+      },
+      {
+        "id": "experience-in",
+        "prompt": "Complete: I have five years' experience ___ sales.",
+        "options": [
+          "about",
+          "of",
+          "with",
+          "in"
+        ],
+        "correctIndex": 3,
+        "explanation": "Experience in."
+      },
+      {
+        "id": "indirect-question",
+        "prompt": "Choose the correct question.",
+        "options": [
+          "Could you tell me where the meeting room is?",
+          "Could you tell me where is the meeting room?",
+          "Could you tell me where does the meeting room is?",
+          "Could you tell me is where the meeting room?"
+        ],
+        "correctIndex": 0,
+        "explanation": "Indirect question: subject + verb."
+      },
+      {
+        "id": "indirect-if",
+        "prompt": "Complete: Do you know ___ the shop is open on Sundays?",
+        "options": [
+          "if",
+          "is",
+          "does",
+          "what"
+        ],
+        "correctIndex": 0,
+        "explanation": "Yes / no indirect question: if."
+      },
+      {
+        "id": "writing-to",
+        "prompt": "Choose the best opening for a formal email.",
+        "options": [
+          "I want to know your courses.",
+          "I write to enquire about your courses.",
+          "Hey, tell me about your courses.",
+          "I am writing to enquire about your courses."
+        ],
+        "correctIndex": 3,
+        "explanation": "Formal: I am writing to + base verb."
+      },
+      {
+        "id": "faithfully",
+        "prompt": "An email begins “Dear Sir or Madam”. It ends…",
+        "options": [
+          "Best friend",
+          "Yours sincerely",
+          "Lots of love",
+          "Yours faithfully"
+        ],
+        "correctIndex": 3,
+        "explanation": "No name: Yours faithfully."
+      },
+      {
+        "id": "apologise-for",
+        "prompt": "Complete: We apologise ___ any inconvenience.",
+        "options": [
+          "about",
+          "to",
+          "for",
+          "with"
+        ],
+        "correctIndex": 2,
+        "explanation": "Apologise for."
+      }
+    ]
+  },
+  {
+    "id": "english-b1-unit-3-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "pronoun-middle",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Can you drop me off here?",
+          "Can you drop me here off?",
+          "Can you drop off me here?",
+          "Can you me drop off here?"
+        ],
+        "correctIndex": 0,
+        "explanation": "Pronoun in the middle of the phrasal verb."
+      },
+      {
+        "id": "run-out-of",
+        "prompt": "Complete: We've run ___ coffee. Can you buy some?",
+        "options": [
+          "of",
+          "out",
+          "out of",
+          "off"
+        ],
+        "correctIndex": 2,
+        "explanation": "Run out of + noun."
+      },
+      {
+        "id": "check-out",
+        "prompt": "Complete: We have to ___ of the hotel by 11 a.m.",
+        "options": [
+          "check out",
+          "check in",
+          "get off",
+          "set off"
+        ],
+        "correctIndex": 0,
+        "explanation": "Check out = pay and leave."
+      },
+      {
+        "id": "past-perfect",
+        "prompt": "Complete: When I got to the station, the train ___.",
+        "options": [
+          "leaves",
+          "has left",
+          "had left",
+          "have left"
+        ],
+        "correctIndex": 2,
+        "explanation": "The earlier event: had + past participle."
+      },
+      {
+        "id": "by-the-time",
+        "prompt": "Complete: By the time the police arrived, the thief ___.",
+        "options": [
+          "has escaped",
+          "escapes",
+          "had escaped",
+          "is escaping"
+        ],
+        "correctIndex": 2,
+        "explanation": "By the time + past perfect for the earlier event."
+      },
+      {
+        "id": "pp-reason",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "He was nervous because he hadn't never given a speech.",
+          "He was nervous because he had never given a speech.",
+          "He was nervous because he never gave a speech.",
+          "He was nervous because he has never given a speech."
+        ],
+        "correctIndex": 1,
+        "explanation": "Reason before the past: had + past participle."
+      },
+      {
+        "id": "no-the-country",
+        "prompt": "Complete: My cousin is studying in ___ Canada.",
+        "options": [
+          "an",
+          "the",
+          "(no article)",
+          "a"
+        ],
+        "correctIndex": 2,
+        "explanation": "Most countries: no the."
+      },
+      {
+        "id": "the-uk",
+        "prompt": "Complete: She moved to ___ UK last year.",
+        "options": [
+          "the",
+          "(no article)",
+          "an",
+          "a"
+        ],
+        "correctIndex": 0,
+        "explanation": "The United Kingdom: the."
+      },
+      {
+        "id": "the-river",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Hanoi is on the Red the River.",
+          "Hanoi is on Red River.",
+          "Hanoi is on a Red River.",
+          "Hanoi is on the Red River."
+        ],
+        "correctIndex": 3,
+        "explanation": "Rivers take the."
+      },
+      {
+        "id": "no-the-mountain",
+        "prompt": "Complete: We climbed ___ Mount Kinabalu.",
+        "options": [
+          "an",
+          "the",
+          "(no article)",
+          "a"
+        ],
+        "correctIndex": 2,
+        "explanation": "Single mountains: no the."
+      },
+      {
+        "id": "was-delayed",
+        "prompt": "“Chuyến tàu bị huỷ.” in English is…",
+        "options": [
+          "The train was cancelled.",
+          "The train has cancel.",
+          "The train was cancel.",
+          "The train cancelled."
+        ],
+        "correctIndex": 0,
+        "explanation": "Was + past participle."
+      },
+      {
+        "id": "was-stolen",
+        "prompt": "Complete: Her purse ___ on the bus.",
+        "options": [
+          "stolen",
+          "was stolen",
+          "stole",
+          "was stole"
+        ],
+        "correctIndex": 1,
+        "explanation": "Was + past participle (stolen)."
+      },
+      {
+        "id": "problem-with",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "The heating has problem.",
+          "There's a problem with the heating.",
+          "Have problem with the heating.",
+          "The heating is problem."
+        ],
+        "correctIndex": 1,
+        "explanation": "There's a problem with…"
+      },
+      {
+        "id": "complain-about",
+        "prompt": "Complete: Lots of people complained ___ the long queues.",
+        "options": [
+          "about",
+          "at",
+          "with",
+          "for"
+        ],
+        "correctIndex": 0,
+        "explanation": "Complain about."
+      },
+      {
+        "id": "polite-request",
+        "prompt": "Choose the most polite request.",
+        "options": [
+          "Would it be possible to speak to the manager?",
+          "I must speak to the manager.",
+          "Give me the manager.",
+          "Manager, now."
+        ],
+        "correctIndex": 0,
+        "explanation": "Soft: Would it be possible to…?"
+      }
+    ]
+  },
+  {
+    "id": "english-b1-unit-4-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "first-if",
+        "prompt": "Complete: If it ___ this afternoon, the match will be cancelled.",
+        "options": [
+          "rained",
+          "would rain",
+          "will rain",
+          "rains"
+        ],
+        "correctIndex": 3,
+        "explanation": "If + present simple for a likely future."
+      },
+      {
+        "id": "first-result",
+        "prompt": "Complete: If you study hard, you ___ the exam.",
+        "options": [
+          "passing",
+          "'ll pass",
+          "pass will",
+          "would passed"
+        ],
+        "correctIndex": 1,
+        "explanation": "Result: will + base verb."
+      },
+      {
+        "id": "might",
+        "prompt": "Complete: Take a coat. If you don't, you ___ get cold.",
+        "options": [
+          "would to",
+          "might",
+          "are",
+          "can"
+        ],
+        "correctIndex": 1,
+        "explanation": "Possible result: might, not can."
+      },
+      {
+        "id": "zero",
+        "prompt": "Complete: If you press this button, the machine ___.",
+        "options": [
+          "will stopped",
+          "would stop to",
+          "stopped",
+          "stops"
+        ],
+        "correctIndex": 3,
+        "explanation": "Always true: present in both parts."
+      },
+      {
+        "id": "when-present",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I'll text you when I got there.",
+          "I text you when I'll get there.",
+          "I'll text you when I get there.",
+          "I'll text you when I'll get there."
+        ],
+        "correctIndex": 2,
+        "explanation": "When + present for the future."
+      },
+      {
+        "id": "unless",
+        "prompt": "“Nếu không mặc áo ấm, bạn sẽ bị lạnh.” Choose the best sentence.",
+        "options": [
+          "Unless you will wear a coat, you'll be cold.",
+          "Unless you wear a coat, you'll be cold.",
+          "Unless you wore a coat, you'll be cold.",
+          "Unless you don't wear a coat, you'll be cold."
+        ],
+        "correctIndex": 1,
+        "explanation": "Unless = if … not; no extra not."
+      },
+      {
+        "id": "in-case",
+        "prompt": "Complete: Bring your passport ___ they ask for ID.",
+        "options": [
+          "as soon as",
+          "in case",
+          "until",
+          "unless"
+        ],
+        "correctIndex": 1,
+        "explanation": "A precaution: in case."
+      },
+      {
+        "id": "second-if",
+        "prompt": "Complete: If I ___ a car, I'd drive to work.",
+        "options": [
+          "had",
+          "will have",
+          "have",
+          "would have"
+        ],
+        "correctIndex": 0,
+        "explanation": "Imaginary: if + past simple."
+      },
+      {
+        "id": "no-would-after-if",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "If I had wings, I'll fly to the mountains.",
+          "If I have wings, I'd fly to the mountains.",
+          "If I would have wings, I'd fly to the mountains.",
+          "If I had wings, I'd fly to the mountains."
+        ],
+        "correctIndex": 3,
+        "explanation": "If + past, would; no would after if."
+      },
+      {
+        "id": "first-or-second",
+        "prompt": "You think it's possible your friend will visit. Which is best?",
+        "options": [
+          "If she came, I'd show her the city.",
+          "If she will come, I'll show her the city.",
+          "If she would come, I'd show her the city.",
+          "If she comes, I'll show her the city."
+        ],
+        "correctIndex": 3,
+        "explanation": "A real possibility: first conditional."
+      },
+      {
+        "id": "wish-past",
+        "prompt": "Complete: I wish I ___ in a bigger city.",
+        "options": [
+          "will live",
+          "live",
+          "would live",
+          "lived"
+        ],
+        "correctIndex": 3,
+        "explanation": "Wish + past simple."
+      },
+      {
+        "id": "wish-could",
+        "prompt": "“Ước gì tôi bơi được.” in English is…",
+        "options": [
+          "I wish I could swim.",
+          "I wish I can swim.",
+          "I wish I will swim.",
+          "I wish I swim."
+        ],
+        "correctIndex": 0,
+        "explanation": "Wish + could for abilities."
+      },
+      {
+        "id": "wish-would",
+        "prompt": "Complete: I wish you ___ interrupting me!",
+        "options": [
+          "will stop",
+          "would stop",
+          "stopped to",
+          "stop"
+        ],
+        "correctIndex": 1,
+        "explanation": "Another person's habit: wish + would."
+      },
+      {
+        "id": "if-i-were-you",
+        "prompt": "Complete: If I ___ you, I'd ask for a refund.",
+        "options": [
+          "am",
+          "will be",
+          "were",
+          "would be"
+        ],
+        "correctIndex": 2,
+        "explanation": "Fixed phrase: If I were you."
+      },
+      {
+        "id": "suggest",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "He suggested going by train.",
+          "He suggested go by train.",
+          "He suggested me to go by train.",
+          "He suggested to go by train."
+        ],
+        "correctIndex": 0,
+        "explanation": "Suggest + -ing."
+      }
+    ]
+  },
+  {
+    "id": "english-b1-unit-5-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "present-passive",
+        "prompt": "Complete: Coffee ___ in the Central Highlands.",
+        "options": [
+          "is grown",
+          "grown is",
+          "is grow",
+          "grows by"
+        ],
+        "correctIndex": 0,
+        "explanation": "Present passive: is + past participle."
+      },
+      {
+        "id": "past-passive",
+        "prompt": "Complete: The temple ___ in the 11th century.",
+        "options": [
+          "is build",
+          "was built",
+          "was build",
+          "built"
+        ],
+        "correctIndex": 1,
+        "explanation": "Past passive: was + past participle."
+      },
+      {
+        "id": "by-agent",
+        "prompt": "Complete: This song was written ___ a 15-year-old girl.",
+        "options": [
+          "by",
+          "from",
+          "of",
+          "with"
+        ],
+        "correctIndex": 0,
+        "explanation": "The doer: by."
+      },
+      {
+        "id": "no-passive",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "What happen to your phone?",
+          "What is happened to your phone?",
+          "What happened to your phone?",
+          "What was happened to your phone?"
+        ],
+        "correctIndex": 2,
+        "explanation": "Happen has no passive."
+      },
+      {
+        "id": "told-me",
+        "prompt": "“Cô ấy nói với tôi rằng cô ấy mệt.” in English is…",
+        "options": [
+          "She told me that she was tired.",
+          "She said to me she tired.",
+          "She said me that she was tired.",
+          "She told that she was tired me."
+        ],
+        "correctIndex": 0,
+        "explanation": "Tell + person."
+      },
+      {
+        "id": "will-would",
+        "prompt": "“I'll send it tomorrow.” → He said he ___ send it the next day.",
+        "options": [
+          "is",
+          "will",
+          "can",
+          "would"
+        ],
+        "correctIndex": 3,
+        "explanation": "Will → would."
+      },
+      {
+        "id": "pp-had",
+        "prompt": "“We've finished.” → They said they ___.",
+        "options": [
+          "had finished",
+          "finish",
+          "will finish",
+          "have finished"
+        ],
+        "correctIndex": 0,
+        "explanation": "Present perfect → had + past participle."
+      },
+      {
+        "id": "reported-wh",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "She asked me what time is it?",
+          "She asked me what time did it be.",
+          "She asked me what time it was.",
+          "She asked me what time was it."
+        ],
+        "correctIndex": 2,
+        "explanation": "Normal order: it was."
+      },
+      {
+        "id": "reported-yes-no",
+        "prompt": "“Are you hungry?” → Mum asked ___ I was hungry.",
+        "options": [
+          "are",
+          "that",
+          "what",
+          "if"
+        ],
+        "correctIndex": 3,
+        "explanation": "Yes / no question: if."
+      },
+      {
+        "id": "who",
+        "prompt": "Complete: The doctor ___ treated me was very kind.",
+        "options": [
+          "who",
+          "where",
+          "whose",
+          "which"
+        ],
+        "correctIndex": 0,
+        "explanation": "People: who."
+      },
+      {
+        "id": "where",
+        "prompt": "Complete: That's the hospital ___ I was born.",
+        "options": [
+          "where",
+          "which",
+          "whose",
+          "who"
+        ],
+        "correctIndex": 0,
+        "explanation": "Places: where."
+      },
+      {
+        "id": "whose",
+        "prompt": "Complete: I met a man ___ wife is a famous chef.",
+        "options": [
+          "whose",
+          "who's",
+          "which",
+          "who"
+        ],
+        "correctIndex": 0,
+        "explanation": "Belonging: whose."
+      },
+      {
+        "id": "no-extra-pronoun",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "The cake that she made it was delicious.",
+          "The cake that she made was delicious.",
+          "The cake she made it was delicious.",
+          "The cake who she made was delicious."
+        ],
+        "correctIndex": 1,
+        "explanation": "No extra pronoun."
+      },
+      {
+        "id": "headline-future",
+        "prompt": "“Hanoi to host games in 2030” means…",
+        "options": [
+          "Hanoi wanted to host the games.",
+          "Hanoi hosted the games in 2030.",
+          "Hanoi is going to host the games in 2030.",
+          "Hanoi hosts games every year."
+        ],
+        "correctIndex": 2,
+        "explanation": "Headline to + verb = future."
+      },
+      {
+        "id": "in-my-opinion",
+        "prompt": "“Theo tôi, phim này hay.” in English is…",
+        "options": [
+          "By my opinion, this film is good.",
+          "According to me, this film is good.",
+          "Following me, this film is good.",
+          "In my opinion, this film is good."
+        ],
+        "correctIndex": 3,
+        "explanation": "Your view: In my opinion."
+      }
+    ]
+  },
+  {
+    "id": "english-b1-unit-6-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "uncountable",
+        "prompt": "Complete: There's a lot of ___ in the air.",
+        "options": [
+          "pollutions",
+          "a pollution",
+          "pollution",
+          "many pollution"
+        ],
+        "correctIndex": 2,
+        "explanation": "Pollution is uncountable."
+      },
+      {
+        "id": "should-base",
+        "prompt": "Complete: We should ___ less plastic.",
+        "options": [
+          "to use",
+          "uses",
+          "use",
+          "using"
+        ],
+        "correctIndex": 2,
+        "explanation": "Should + base verb."
+      },
+      {
+        "id": "dont-have-to",
+        "prompt": "“Không cần phải mang theo túi.” in English is…",
+        "options": [
+          "You haven't bring a bag.",
+          "You mustn't bring a bag.",
+          "You don't have to bring a bag.",
+          "You shouldn't to bring a bag."
+        ],
+        "correctIndex": 2,
+        "explanation": "Don't have to = not necessary."
+      },
+      {
+        "id": "too-many",
+        "prompt": "Complete: There are too ___ tourists in the old town.",
+        "options": [
+          "much",
+          "many",
+          "lot",
+          "enough"
+        ],
+        "correctIndex": 1,
+        "explanation": "Plural: too many."
+      },
+      {
+        "id": "too-much",
+        "prompt": "Complete: There's too ___ traffic.",
+        "options": [
+          "much",
+          "many",
+          "enough",
+          "lots"
+        ],
+        "correctIndex": 0,
+        "explanation": "Uncountable: too much."
+      },
+      {
+        "id": "adjective-enough",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "He isn't enough old to drive.",
+          "He isn't too old enough to drive.",
+          "He isn't old to enough drive.",
+          "He isn't old enough to drive."
+        ],
+        "correctIndex": 3,
+        "explanation": "Adjective + enough."
+      },
+      {
+        "id": "enough-noun",
+        "prompt": "Complete: We haven't got ___.",
+        "options": [
+          "time enough of",
+          "too time",
+          "enough of time",
+          "enough time"
+        ],
+        "correctIndex": 3,
+        "explanation": "Enough + noun."
+      },
+      {
+        "id": "must",
+        "prompt": "You've worked all night. You ___ be exhausted.",
+        "options": [
+          "must",
+          "can't",
+          "might not",
+          "mustn't"
+        ],
+        "correctIndex": 0,
+        "explanation": "Almost sure: must."
+      },
+      {
+        "id": "cant",
+        "prompt": "The shop's closed on Sundays. It ___ be open now.",
+        "options": [
+          "might",
+          "can't",
+          "must",
+          "mustn't"
+        ],
+        "correctIndex": 1,
+        "explanation": "Negative guess: can't."
+      },
+      {
+        "id": "might-base",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "She might is at the library.",
+          "She might be at the library.",
+          "She might to be at the library.",
+          "She mights be at the library."
+        ],
+        "correctIndex": 1,
+        "explanation": "Might + base verb."
+      },
+      {
+        "id": "although-no-but",
+        "prompt": "“Mặc dù mệt, nhưng anh ấy vẫn làm việc.” in English is…",
+        "options": [
+          "Although he was tired, but he kept working.",
+          "However he was tired, he kept working.",
+          "Despite he was tired, he kept working.",
+          "Although he was tired, he kept working."
+        ],
+        "correctIndex": 3,
+        "explanation": "Although without but."
+      },
+      {
+        "id": "despite-noun",
+        "prompt": "Complete: ___ the rain, the match continued.",
+        "options": [
+          "Even though",
+          "Although",
+          "Despite",
+          "However"
+        ],
+        "correctIndex": 2,
+        "explanation": "Despite + noun."
+      },
+      {
+        "id": "however",
+        "prompt": "Complete: The room was nice. ___, it was too small.",
+        "options": [
+          "Although",
+          "Even though",
+          "However",
+          "Despite"
+        ],
+        "correctIndex": 2,
+        "explanation": "However starts a new sentence."
+      },
+      {
+        "id": "agree-verb",
+        "prompt": "“Tôi đồng ý với bạn.” in English is…",
+        "options": [
+          "I agree with you.",
+          "I agreeing with you.",
+          "I am agree you.",
+          "I'm agree with you."
+        ],
+        "correctIndex": 0,
+        "explanation": "Agree is a verb."
+      },
+      {
+        "id": "me-neither",
+        "prompt": "“I don't like crowded places.” “___.”",
+        "options": [
+          "Me neither",
+          "So don't I",
+          "So do I",
+          "Me too"
+        ],
+        "correctIndex": 0,
+        "explanation": "Negative: Me neither."
+      }
+    ]
+  },
+  {
+    "id": "english-b2-unit-1-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "pronoun-middle",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "My aunt brought up me.",
+          "My aunt up brought me.",
+          "My aunt brought me on up.",
+          "My aunt brought me up."
+        ],
+        "correctIndex": 3,
+        "explanation": "Pronoun in the middle."
+      },
+      {
+        "id": "three-part",
+        "prompt": "Complete: I can't put up ___ the noise.",
+        "options": [
+          "to",
+          "on",
+          "with",
+          "for"
+        ],
+        "correctIndex": 2,
+        "explanation": "Put up with."
+      },
+      {
+        "id": "look-up-to",
+        "prompt": "“Tôi luôn ngưỡng mộ mẹ tôi.” in English is…",
+        "options": [
+          "I've always looked up my mum.",
+          "I've always looked to my mum up.",
+          "I've always looked up to my mum.",
+          "I've always looked my mum up to."
+        ],
+        "correctIndex": 2,
+        "explanation": "Three-part verbs stay together."
+      },
+      {
+        "id": "make-up",
+        "prompt": "Complete: After the argument, they ___.",
+        "options": [
+          "broke up",
+          "fell up",
+          "made up",
+          "brought up"
+        ],
+        "correctIndex": 2,
+        "explanation": "Make up = become friends again."
+      },
+      {
+        "id": "im-prefix",
+        "prompt": "The opposite of “mature” is…",
+        "options": [
+          "immature",
+          "unmature",
+          "inmature",
+          "dismature"
+        ],
+        "correctIndex": 0,
+        "explanation": "im- before m."
+      },
+      {
+        "id": "ir-prefix",
+        "prompt": "The opposite of “responsible” is…",
+        "options": [
+          "unresponsible",
+          "inresponsible",
+          "disresponsible",
+          "irresponsible"
+        ],
+        "correctIndex": 3,
+        "explanation": "ir- before r."
+      },
+      {
+        "id": "compound-adjective",
+        "prompt": "Complete: She's very ___ about other cultures.",
+        "options": [
+          "open-minded",
+          "open-mind",
+          "opened mind",
+          "open mind"
+        ],
+        "correctIndex": 0,
+        "explanation": "Compound adjective with -ed."
+      },
+      {
+        "id": "always-ing",
+        "prompt": "Complete: You're always ___ my sentences!",
+        "options": [
+          "finish",
+          "finishing",
+          "to finish",
+          "finished"
+        ],
+        "correctIndex": 1,
+        "explanation": "Be always + -ing."
+      },
+      {
+        "id": "used-to-state",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "We would have a garden.",
+          "We were used to have a garden.",
+          "We use to had a garden.",
+          "We used to have a garden."
+        ],
+        "correctIndex": 3,
+        "explanation": "Have (own) is a state: used to."
+      },
+      {
+        "id": "would-action",
+        "prompt": "Complete: Every evening my dad ___ read the newspaper.",
+        "options": [
+          "has",
+          "used",
+          "was",
+          "would"
+        ],
+        "correctIndex": 3,
+        "explanation": "Would + base verb for a past action."
+      },
+      {
+        "id": "look-adjective",
+        "prompt": "Complete: The cake looks ___.",
+        "options": [
+          "as delicious",
+          "delicious",
+          "like delicious",
+          "deliciously"
+        ],
+        "correctIndex": 1,
+        "explanation": "Look + adjective."
+      },
+      {
+        "id": "look-as-if",
+        "prompt": "Complete: You look ___ you need a holiday.",
+        "options": [
+          "like a",
+          "as if",
+          "seem",
+          "as"
+        ],
+        "correctIndex": 1,
+        "explanation": "Look as if + clause."
+      },
+      {
+        "id": "tag-be",
+        "prompt": "Complete: You're from Hue, ___?",
+        "options": [
+          "isn't it",
+          "are you",
+          "aren't you",
+          "don't you"
+        ],
+        "correctIndex": 2,
+        "explanation": "Tag matches you are."
+      },
+      {
+        "id": "tag-past",
+        "prompt": "Complete: He passed the exam, ___?",
+        "options": [
+          "didn't he",
+          "hasn't he",
+          "did he",
+          "wasn't he"
+        ],
+        "correctIndex": 0,
+        "explanation": "Past simple: didn't."
+      },
+      {
+        "id": "echo-question",
+        "prompt": "“I've never seen snow.” “___? You must come to Scotland!”",
+        "options": [
+          "Haven't you",
+          "Didn't you",
+          "Don't you",
+          "Have you"
+        ],
+        "correctIndex": 0,
+        "explanation": "Echo the negative auxiliary."
+      }
+    ]
+  },
+  {
+    "id": "english-b2-unit-2-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "make-mistake",
+        "prompt": "Complete: I ___ a mistake in the email.",
+        "options": [
+          "had",
+          "did",
+          "took",
+          "made"
+        ],
+        "correctIndex": 3,
+        "explanation": "Make a mistake."
+      },
+      {
+        "id": "do-research",
+        "prompt": "“Nghiên cứu về thị trường” in English is…",
+        "options": [
+          "make research into the market",
+          "make a research to the market",
+          "do research into the market",
+          "do researches of the market"
+        ],
+        "correctIndex": 2,
+        "explanation": "Do research (uncountable)."
+      },
+      {
+        "id": "do-favour",
+        "prompt": "Complete: Could you ___ me a favour?",
+        "options": [
+          "do",
+          "make",
+          "give",
+          "have"
+        ],
+        "correctIndex": 0,
+        "explanation": "Do someone a favour."
+      },
+      {
+        "id": "uncountable-advice",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "She gave me some good advices.",
+          "She gave me some good advice.",
+          "She gave me many good advice.",
+          "She gave me a good advice."
+        ],
+        "correctIndex": 1,
+        "explanation": "Advice is uncountable."
+      },
+      {
+        "id": "formal-enquire",
+        "prompt": "Which is the best opening for a formal email?",
+        "options": [
+          "Just wanna ask about the job.",
+          "What's the job like?",
+          "I am writing to enquire about the position.",
+          "Hey, about that job…"
+        ],
+        "correctIndex": 2,
+        "explanation": "Formal words and full forms."
+      },
+      {
+        "id": "look-forward-to",
+        "prompt": "Complete: I look forward to ___ you.",
+        "options": [
+          "met",
+          "meeting",
+          "meet",
+          "be meeting"
+        ],
+        "correctIndex": 1,
+        "explanation": "Look forward to + -ing."
+      },
+      {
+        "id": "indirect-question",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Could you tell me how much does it cost?",
+          "Could you tell me how much it does cost?",
+          "Could you tell me how much costs it?",
+          "Could you tell me how much it costs?"
+        ],
+        "correctIndex": 3,
+        "explanation": "Normal order."
+      },
+      {
+        "id": "future-continuous",
+        "prompt": "Complete: This time next week I'll ___ on holiday.",
+        "options": [
+          "be relaxing",
+          "relaxing",
+          "have relaxed",
+          "relax"
+        ],
+        "correctIndex": 0,
+        "explanation": "In progress: will be + -ing."
+      },
+      {
+        "id": "future-perfect",
+        "prompt": "Complete: By 2030, we ___ the factory.",
+        "options": [
+          "have built",
+          "will build",
+          "will have built",
+          "will be build"
+        ],
+        "correctIndex": 2,
+        "explanation": "Complete before a future time."
+      },
+      {
+        "id": "by-deadline",
+        "prompt": "Complete: Please submit your work ___ Friday.",
+        "options": [
+          "for",
+          "since",
+          "by",
+          "until"
+        ],
+        "correctIndex": 2,
+        "explanation": "By = not later than."
+      },
+      {
+        "id": "why-dont-we",
+        "prompt": "Complete: Why don't we ___ the meeting?",
+        "options": [
+          "postpone",
+          "to postpone",
+          "postponed",
+          "postponing"
+        ],
+        "correctIndex": 0,
+        "explanation": "Why don't we + base verb."
+      },
+      {
+        "id": "how-about",
+        "prompt": "Complete: How about ___ a break?",
+        "options": [
+          "took",
+          "taking",
+          "take",
+          "to take"
+        ],
+        "correctIndex": 1,
+        "explanation": "How about + -ing."
+      },
+      {
+        "id": "talk-about",
+        "prompt": "“Hôm nay tôi sẽ nói về dự án.” in English is…",
+        "options": [
+          "Today I'm going to say about the project.",
+          "Today I'm going to tell about the project.",
+          "Today I'm going to speak the project.",
+          "Today I'm going to talk about the project."
+        ],
+        "correctIndex": 3,
+        "explanation": "Talk about a topic."
+      },
+      {
+        "id": "rise-by",
+        "prompt": "Complete: Profits rose ___ 12% last year.",
+        "options": [
+          "with",
+          "by",
+          "at",
+          "of"
+        ],
+        "correctIndex": 1,
+        "explanation": "By = the size of the change."
+      },
+      {
+        "id": "sharp-rise",
+        "prompt": "Complete: There was a ___ rise in prices.",
+        "options": [
+          "sharp",
+          "sharpen",
+          "sharpness",
+          "sharply"
+        ],
+        "correctIndex": 0,
+        "explanation": "Adjective before the noun rise."
+      }
+    ]
+  },
+  {
+    "id": "english-b2-unit-3-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "causative",
+        "prompt": "“Tôi đi cắt tóc hôm qua.” in English is…",
+        "options": [
+          "I was cut my hair yesterday.",
+          "I had my hair cut yesterday.",
+          "I had cut my hair yesterday.",
+          "I cut my hair yesterday by a hairdresser."
+        ],
+        "correctIndex": 1,
+        "explanation": "Have + object + past participle."
+      },
+      {
+        "id": "causative-order",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "We're having repaired the roof.",
+          "We're having the roof repaired.",
+          "We're had the roof repaired.",
+          "We're repairing the roof by a builder."
+        ],
+        "correctIndex": 1,
+        "explanation": "Object between have and past participle."
+      },
+      {
+        "id": "bad-experience",
+        "prompt": "Complete: She had her phone ___ at the station.",
+        "options": [
+          "stolen",
+          "steal",
+          "stealing",
+          "stole"
+        ],
+        "correctIndex": 0,
+        "explanation": "Past participle."
+      },
+      {
+        "id": "it-is-said",
+        "prompt": "Complete: It ___ that the lake is very deep.",
+        "options": [
+          "is saying",
+          "says",
+          "said",
+          "is said"
+        ],
+        "correctIndex": 3,
+        "explanation": "It is said that."
+      },
+      {
+        "id": "believed-to-be",
+        "prompt": "Complete: The tree is believed ___ 300 years old.",
+        "options": [
+          "that is",
+          "to be",
+          "be",
+          "being"
+        ],
+        "correctIndex": 1,
+        "explanation": "Is believed to be."
+      },
+      {
+        "id": "to-have-pp",
+        "prompt": "Complete: The painter is said ___ blind in later life.",
+        "options": [
+          "to go",
+          "going",
+          "to be go",
+          "to have gone"
+        ],
+        "correctIndex": 3,
+        "explanation": "Earlier: to have + past participle."
+      },
+      {
+        "id": "phrasal-noun",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "I need to back-up my phone.",
+          "I need to back up my phone.",
+          "I need to backing up my phone.",
+          "I need to backup my phone."
+        ],
+        "correctIndex": 1,
+        "explanation": "Verb: two words."
+      },
+      {
+        "id": "remember-to",
+        "prompt": "Complete: Remember ___ the lights before you go.",
+        "options": [
+          "turn off",
+          "to turn off",
+          "turned off",
+          "turning off"
+        ],
+        "correctIndex": 1,
+        "explanation": "A job to do."
+      },
+      {
+        "id": "remember-ing",
+        "prompt": "Complete: I remember ___ my first email in 1998.",
+        "options": [
+          "sending",
+          "to send",
+          "send",
+          "sent"
+        ],
+        "correctIndex": 0,
+        "explanation": "A memory."
+      },
+      {
+        "id": "noun-suffix",
+        "prompt": "Complete: There has been a big ___ in air quality.",
+        "options": [
+          "improvement",
+          "improvation",
+          "improved",
+          "improve"
+        ],
+        "correctIndex": 0,
+        "explanation": "Noun after a big."
+      },
+      {
+        "id": "adjective-suffix",
+        "prompt": "Complete: This app is really ___.",
+        "options": [
+          "useful",
+          "usage",
+          "usefully",
+          "use"
+        ],
+        "correctIndex": 0,
+        "explanation": "Adjective after be."
+      },
+      {
+        "id": "scientific",
+        "prompt": "The adjective from “science” is…",
+        "options": [
+          "sciencey",
+          "sciential",
+          "scientific",
+          "scienceful"
+        ],
+        "correctIndex": 2,
+        "explanation": "-ic."
+      },
+      {
+        "id": "in-addition-to",
+        "prompt": "Complete: In addition to ___ cheap, it's very light.",
+        "options": [
+          "to be",
+          "be",
+          "is",
+          "being"
+        ],
+        "correctIndex": 3,
+        "explanation": "In addition to + -ing."
+      },
+      {
+        "id": "due-to",
+        "prompt": "“Chuyến bay bị hoãn do thời tiết xấu.” in English is…",
+        "options": [
+          "The flight was delayed therefore bad weather.",
+          "The flight was delayed due to bad weather.",
+          "The flight was delayed because of the weather was bad.",
+          "The flight was delayed due to the weather was bad."
+        ],
+        "correctIndex": 1,
+        "explanation": "Due to + noun."
+      },
+      {
+        "id": "as-a-result",
+        "prompt": "Complete: Prices rose. ___, sales fell.",
+        "options": [
+          "In addition to",
+          "Because of",
+          "As a result",
+          "Due to"
+        ],
+        "correctIndex": 2,
+        "explanation": "Result at the start of a sentence."
+      }
+    ]
+  },
+  {
+    "id": "english-b2-unit-4-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "third-if",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "If I would have known, I would have told you.",
+          "If I had knew, I would tell you.",
+          "If I had known, I would have told you.",
+          "If I knew, I would have told you yesterday."
+        ],
+        "correctIndex": 2,
+        "explanation": "No would in the if part."
+      },
+      {
+        "id": "third-result",
+        "prompt": "Complete: If she'd left on time, she ___ the bus.",
+        "options": [
+          "would have caught",
+          "had caught",
+          "will catch",
+          "would catch"
+        ],
+        "correctIndex": 0,
+        "explanation": "Would have + past participle."
+      },
+      {
+        "id": "might-have",
+        "prompt": "Complete: If we'd played better, we ___ won.",
+        "options": [
+          "might",
+          "might has",
+          "might had",
+          "might have"
+        ],
+        "correctIndex": 3,
+        "explanation": "Might have + past participle."
+      },
+      {
+        "id": "mixed-present",
+        "prompt": "Complete: If I hadn't stayed up late, I ___ so tired now.",
+        "options": [
+          "wouldn't have been",
+          "won't be",
+          "hadn't been",
+          "wouldn't be"
+        ],
+        "correctIndex": 3,
+        "explanation": "Present result."
+      },
+      {
+        "id": "mixed-past",
+        "prompt": "Complete: If he ___ so shy, he would have spoken to her.",
+        "options": [
+          "isn't",
+          "hadn't",
+          "wouldn't be",
+          "weren't"
+        ],
+        "correctIndex": 3,
+        "explanation": "Present condition."
+      },
+      {
+        "id": "should-have",
+        "prompt": "“Lẽ ra tôi nên đi ngủ sớm hơn.” in English is…",
+        "options": [
+          "I should went to bed earlier.",
+          "I should of gone to bed earlier.",
+          "I should go to bed earlier yesterday.",
+          "I should have gone to bed earlier."
+        ],
+        "correctIndex": 3,
+        "explanation": "Should have + past participle."
+      },
+      {
+        "id": "shouldnt-have",
+        "prompt": "Complete: You ___ told him. He's upset now.",
+        "options": [
+          "shouldn't have",
+          "should have",
+          "shouldn't",
+          "should had"
+        ],
+        "correctIndex": 0,
+        "explanation": "A past mistake."
+      },
+      {
+        "id": "wish-past",
+        "prompt": "Complete: I wish I ___ to your advice.",
+        "options": [
+          "had listened",
+          "listened",
+          "would listen",
+          "listen"
+        ],
+        "correctIndex": 0,
+        "explanation": "Past regret: past perfect."
+      },
+      {
+        "id": "regret-ing",
+        "prompt": "Complete: I regret ___ my old job.",
+        "options": [
+          "left",
+          "leave",
+          "to leave",
+          "leaving"
+        ],
+        "correctIndex": 3,
+        "explanation": "Regret + -ing."
+      },
+      {
+        "id": "had-better",
+        "prompt": "Complete: You'd better ___ a doctor.",
+        "options": [
+          "saw",
+          "to see",
+          "see",
+          "seeing"
+        ],
+        "correctIndex": 2,
+        "explanation": "Had better + base verb."
+      },
+      {
+        "id": "had-better-not",
+        "prompt": "Complete: We'd better ___ too much noise.",
+        "options": [
+          "not to make",
+          "don't make",
+          "not make",
+          "make not"
+        ],
+        "correctIndex": 2,
+        "explanation": "Had better not + base verb."
+      },
+      {
+        "id": "ought-to",
+        "prompt": "Complete: You ought ___ more water.",
+        "options": [
+          "drank",
+          "to drink",
+          "drinking",
+          "drink"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ought to."
+      },
+      {
+        "id": "idiom-weather",
+        "prompt": "“Hôm nay tôi hơi mệt.” in natural English is…",
+        "options": [
+          "I'm a bit below the weather today.",
+          "I'm a bit under the weather today.",
+          "I'm a bit bad weather today.",
+          "I'm a bit in the weather today."
+        ],
+        "correctIndex": 1,
+        "explanation": "Fixed idiom."
+      },
+      {
+        "id": "idiom-feet",
+        "prompt": "Complete: She'll be back on her ___ soon.",
+        "options": [
+          "foot",
+          "legs",
+          "toes",
+          "feet"
+        ],
+        "correctIndex": 3,
+        "explanation": "Back on your feet."
+      },
+      {
+        "id": "feel-like",
+        "prompt": "Complete: Do you feel like ___ a walk?",
+        "options": [
+          "went for",
+          "going for",
+          "to go for",
+          "go for"
+        ],
+        "correctIndex": 1,
+        "explanation": "Feel like + -ing."
+      }
+    ]
+  },
+  {
+    "id": "english-b2-unit-5-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "past-perfect",
+        "prompt": "Complete: When we arrived, the train ___.",
+        "options": [
+          "has left",
+          "left",
+          "had left",
+          "was leave"
+        ],
+        "correctIndex": 2,
+        "explanation": "Earlier event: past perfect."
+      },
+      {
+        "id": "past-continuous",
+        "prompt": "Complete: It was midnight and it ___ heavily.",
+        "options": [
+          "had snowed",
+          "was snowing",
+          "snowed",
+          "snows"
+        ],
+        "correctIndex": 1,
+        "explanation": "Background: past continuous."
+      },
+      {
+        "id": "past-perfect-continuous",
+        "prompt": "“Tôi mệt vì đã làm việc cả ngày.” in English is…",
+        "options": [
+          "I was tired because I worked all day long before.",
+          "I was tired because I have been working all day.",
+          "I was tired because I had been working all day.",
+          "I was tired because I had been work all day."
+        ],
+        "correctIndex": 2,
+        "explanation": "Had been + -ing."
+      },
+      {
+        "id": "while",
+        "prompt": "Complete: ___ I was cooking, the phone rang.",
+        "options": [
+          "By the time",
+          "Meanwhile",
+          "During",
+          "While"
+        ],
+        "correctIndex": 3,
+        "explanation": "While + clause."
+      },
+      {
+        "id": "during",
+        "prompt": "Complete: Please don't talk ___ the exam.",
+        "options": [
+          "while",
+          "during",
+          "until",
+          "meanwhile"
+        ],
+        "correctIndex": 1,
+        "explanation": "During + noun."
+      },
+      {
+        "id": "by-the-time",
+        "prompt": "Complete: By the time the doctor arrived, he ___.",
+        "options": [
+          "recovered",
+          "has recovered",
+          "recovers",
+          "had recovered"
+        ],
+        "correctIndex": 3,
+        "explanation": "By the time: past perfect."
+      },
+      {
+        "id": "as-soon-as",
+        "prompt": "Complete: ___ the film ended, we left.",
+        "options": [
+          "As soon as",
+          "During",
+          "Until",
+          "Meanwhile"
+        ],
+        "correctIndex": 0,
+        "explanation": "As soon as = immediately after."
+      },
+      {
+        "id": "non-defining-who",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "My father, that is 60, still plays football.",
+          "My father who is 60, still plays football.",
+          "My father, who is 60, still plays football.",
+          "My father, which is 60, still plays football."
+        ],
+        "correctIndex": 2,
+        "explanation": "Commas and who."
+      },
+      {
+        "id": "whose",
+        "prompt": "Complete: Mr Hai, ___ daughter is my friend, is a doctor.",
+        "options": [
+          "whose",
+          "who",
+          "that",
+          "which"
+        ],
+        "correctIndex": 0,
+        "explanation": "Belonging: whose."
+      },
+      {
+        "id": "which-sentence",
+        "prompt": "Complete: She failed the test, ___ surprised everyone.",
+        "options": [
+          "what",
+          "which",
+          "that",
+          "who"
+        ],
+        "correctIndex": 1,
+        "explanation": "Which = the whole sentence."
+      },
+      {
+        "id": "ing-clause",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Looked out of the window, I saw a rainbow.",
+          "Looking out of the window, I saw a rainbow.",
+          "Looking out of the window, a rainbow appeared.",
+          "Look out of the window, I saw a rainbow."
+        ],
+        "correctIndex": 1,
+        "explanation": "Same subject: I."
+      },
+      {
+        "id": "having-pp",
+        "prompt": "Complete: ___ the report, she sent it to her boss.",
+        "options": [
+          "Having written",
+          "Wrote",
+          "Written",
+          "Have written"
+        ],
+        "correctIndex": 0,
+        "explanation": "Having + past participle."
+      },
+      {
+        "id": "turn-out",
+        "prompt": "Complete: The party turned out ___ great fun.",
+        "options": [
+          "be",
+          "to be",
+          "that",
+          "being"
+        ],
+        "correctIndex": 1,
+        "explanation": "Turn out to be."
+      },
+      {
+        "id": "such",
+        "prompt": "Complete: It was ___ a strange experience.",
+        "options": [
+          "very",
+          "such",
+          "too",
+          "so"
+        ],
+        "correctIndex": 1,
+        "explanation": "Such + a + adjective + noun."
+      },
+      {
+        "id": "so",
+        "prompt": "Complete: The story was ___ embarrassing that I went red.",
+        "options": [
+          "so an",
+          "so",
+          "such",
+          "such an"
+        ],
+        "correctIndex": 1,
+        "explanation": "So + adjective + that."
+      }
+    ]
+  },
+  {
+    "id": "english-b2-unit-6-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "suggest-ing",
+        "prompt": "“Cô ấy gợi ý đi xem phim.” in English is…",
+        "options": [
+          "She suggested me to go to the cinema.",
+          "She suggested to go to the cinema me.",
+          "She suggested going to the cinema.",
+          "She suggested go to the cinema."
+        ],
+        "correctIndex": 2,
+        "explanation": "Suggest + -ing."
+      },
+      {
+        "id": "refuse-to",
+        "prompt": "Complete: He refused ___ the form.",
+        "options": [
+          "sign",
+          "for signing",
+          "to sign",
+          "signing"
+        ],
+        "correctIndex": 2,
+        "explanation": "Refuse + to."
+      },
+      {
+        "id": "advise-object",
+        "prompt": "Complete: The lawyer advised her ___ nothing.",
+        "options": [
+          "saying",
+          "say",
+          "to say",
+          "for saying"
+        ],
+        "correctIndex": 2,
+        "explanation": "Advise + object + to."
+      },
+      {
+        "id": "accuse-of",
+        "prompt": "Complete: They accused him ___ the money.",
+        "options": [
+          "stealing",
+          "for steal",
+          "to steal",
+          "of stealing"
+        ],
+        "correctIndex": 3,
+        "explanation": "Accuse of + -ing."
+      },
+      {
+        "id": "apologise-for",
+        "prompt": "Complete: I apologise ___ late.",
+        "options": [
+          "being",
+          "to be",
+          "for being",
+          "of being"
+        ],
+        "correctIndex": 2,
+        "explanation": "Apologise for + -ing."
+      },
+      {
+        "id": "must-have",
+        "prompt": "The streets are wet. It ___ rained.",
+        "options": [
+          "must have",
+          "can't have",
+          "mustn't have",
+          "must"
+        ],
+        "correctIndex": 0,
+        "explanation": "Strong past guess."
+      },
+      {
+        "id": "cant-have",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "She mustn't have seen me. I was hiding.",
+          "She can't have seen me. I was hiding.",
+          "She can't saw me. I was hiding.",
+          "She can't have see me. I was hiding."
+        ],
+        "correctIndex": 1,
+        "explanation": "Can't have + past participle."
+      },
+      {
+        "id": "might-have",
+        "prompt": "Complete: He might ___ his phone at home.",
+        "options": [
+          "has left",
+          "left",
+          "have left",
+          "leave have"
+        ],
+        "correctIndex": 2,
+        "explanation": "Might have + past participle."
+      },
+      {
+        "id": "what-cleft",
+        "prompt": "Rewrite with emphasis: “I need more time.”",
+        "options": [
+          "The thing what I need is more time.",
+          "That I need is more time.",
+          "What I need it is more time.",
+          "What I need is more time."
+        ],
+        "correctIndex": 3,
+        "explanation": "What + subject + verb + is."
+      },
+      {
+        "id": "it-cleft",
+        "prompt": "Complete: It was in Hue ___ my parents met.",
+        "options": [
+          "where",
+          "which",
+          "that",
+          "when"
+        ],
+        "correctIndex": 2,
+        "explanation": "It was … that."
+      },
+      {
+        "id": "seem-active",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "It is seemed that he has left.",
+          "It seems that he has left.",
+          "It seemed that he has leaving.",
+          "It seems he is left."
+        ],
+        "correctIndex": 1,
+        "explanation": "Seem is never passive."
+      },
+      {
+        "id": "likely-to",
+        "prompt": "Complete: Prices are likely ___ again.",
+        "options": [
+          "rise",
+          "that rise",
+          "to rise",
+          "rising"
+        ],
+        "correctIndex": 2,
+        "explanation": "Likely to + verb."
+      },
+      {
+        "id": "to-some-extent",
+        "prompt": "Complete: I agree with you to some ___.",
+        "options": [
+          "extend",
+          "degree of",
+          "level",
+          "extent"
+        ],
+        "correctIndex": 3,
+        "explanation": "To some extent."
+      },
+      {
+        "id": "first-of-all",
+        "prompt": "Which is correct for an essay?",
+        "options": [
+          "First of all, …",
+          "Fistly, …",
+          "Firstly of all, …",
+          "First of, …"
+        ],
+        "correctIndex": 0,
+        "explanation": "First of all / Firstly."
+      },
+      {
+        "id": "point-of-view",
+        "prompt": "“Theo quan điểm của tôi…” in an essay is…",
+        "options": [
+          "According to me, …",
+          "From my point of view, …",
+          "On my view, …",
+          "In my point of view, …"
+        ],
+        "correctIndex": 1,
+        "explanation": "From my point of view."
+      }
+    ]
+  },
+  {
+    "id": "english-c1-unit-1-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "never-inversion",
+        "prompt": "Complete: Never ___ so nervous.",
+        "options": [
+          "I have felt",
+          "I felt",
+          "have I felt",
+          "felt I have"
+        ],
+        "correctIndex": 2,
+        "explanation": "Inversion after never."
+      },
+      {
+        "id": "rarely-do",
+        "prompt": "Complete: Rarely ___ his temper.",
+        "options": [
+          "he does lose",
+          "loses he",
+          "does he lose",
+          "he loses"
+        ],
+        "correctIndex": 2,
+        "explanation": "Rarely + does + subject + verb."
+      },
+      {
+        "id": "no-sooner-than",
+        "prompt": "Complete: No sooner had we left ___ it began to snow.",
+        "options": [
+          "that",
+          "then",
+          "when",
+          "than"
+        ],
+        "correctIndex": 3,
+        "explanation": "No sooner… than."
+      },
+      {
+        "id": "little-did",
+        "prompt": "“Tôi chẳng hề biết rằng cô ấy là sếp mới.” in English is…",
+        "options": [
+          "Little I did know that she was the new boss.",
+          "Little I knew that she was the new boss.",
+          "Little knew I that she was the new boss.",
+          "Little did I know that she was the new boss."
+        ],
+        "correctIndex": 3,
+        "explanation": "Little + did + subject + verb."
+      },
+      {
+        "id": "slim",
+        "prompt": "Which word is a compliment about someone's body?",
+        "options": [
+          "slim",
+          "skinny",
+          "bony",
+          "scrawny"
+        ],
+        "correctIndex": 0,
+        "explanation": "Positive connotation."
+      },
+      {
+        "id": "assertive",
+        "prompt": "Which word is positive?",
+        "options": [
+          "assertive",
+          "bossy",
+          "aggressive",
+          "pushy"
+        ],
+        "correctIndex": 0,
+        "explanation": "Assertive = confident in a good way."
+      },
+      {
+        "id": "a-bit-negative",
+        "prompt": "Choose the most natural sentence.",
+        "options": [
+          "He's a bit kind.",
+          "He's a bit generous.",
+          "He's a bit lovely.",
+          "He's a bit stingy."
+        ],
+        "correctIndex": 3,
+        "explanation": "A bit + negative adjective."
+      },
+      {
+        "id": "heavy-rain",
+        "prompt": "Complete: Flights were cancelled because of ___ rain.",
+        "options": [
+          "strong",
+          "hard",
+          "heavy",
+          "big"
+        ],
+        "correctIndex": 2,
+        "explanation": "Heavy rain."
+      },
+      {
+        "id": "highly-unlikely",
+        "prompt": "Complete: It's ___ unlikely to happen.",
+        "options": [
+          "deeply",
+          "highly",
+          "strongly",
+          "heavily"
+        ],
+        "correctIndex": 1,
+        "explanation": "Highly unlikely."
+      },
+      {
+        "id": "into-account",
+        "prompt": "Complete: Please take my experience ___ account.",
+        "options": [
+          "on",
+          "in",
+          "into",
+          "to"
+        ],
+        "correctIndex": 2,
+        "explanation": "Take into account."
+      },
+      {
+        "id": "far-as-concerned",
+        "prompt": "Complete: ___, money isn't everything.",
+        "options": [
+          "As far as I'm concerned",
+          "As I was saying",
+          "Come to think of it",
+          "As far as I know"
+        ],
+        "correctIndex": 0,
+        "explanation": "Personal opinion."
+      },
+      {
+        "id": "come-to-think",
+        "prompt": "Complete: ___, I did lock the door.",
+        "options": [
+          "Come to think",
+          "Come to think of it",
+          "Coming to think",
+          "To think of it come"
+        ],
+        "correctIndex": 1,
+        "explanation": "Fixed phrase."
+      },
+      {
+        "id": "having-said-that",
+        "prompt": "Complete: It's expensive. ___, it's very good quality.",
+        "options": [
+          "Under no circumstances",
+          "Having said that",
+          "As I was saying",
+          "As far as I know"
+        ],
+        "correctIndex": 1,
+        "explanation": "Contrast."
+      },
+      {
+        "id": "understatement",
+        "prompt": "The most tactful way to say “The meal was awful” is…",
+        "options": [
+          "Nobody liked the meal.",
+          "The meal was disgusting.",
+          "The meal wasn't exactly memorable.",
+          "The meal was awful."
+        ],
+        "correctIndex": 2,
+        "explanation": "Not exactly + positive."
+      },
+      {
+        "id": "distanced-request",
+        "prompt": "Which request is the most polite?",
+        "options": [
+          "You must call me back.",
+          "Call me back.",
+          "I want you to call me back.",
+          "I was wondering if you could call me back."
+        ],
+        "correctIndex": 3,
+        "explanation": "Distanced past form."
+      }
+    ]
+  },
+  {
+    "id": "english-c1-unit-2-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "passive-ing",
+        "prompt": "Complete: I can't stand ___ what to do.",
+        "options": [
+          "be told",
+          "being told",
+          "to tell",
+          "telling"
+        ],
+        "correctIndex": 1,
+        "explanation": "Passive -ing."
+      },
+      {
+        "id": "passive-infinitive",
+        "prompt": "Complete: He expects ___ next month.",
+        "options": [
+          "to promote",
+          "being promote",
+          "to be promoted",
+          "promoting"
+        ],
+        "correctIndex": 2,
+        "explanation": "Passive infinitive."
+      },
+      {
+        "id": "needs-ing",
+        "prompt": "“Văn phòng cần được dọn dẹp.” in English is…",
+        "options": [
+          "The office needs cleaning.",
+          "The office needs to clean.",
+          "The office needs clean.",
+          "The office is needing to clean."
+        ],
+        "correctIndex": 0,
+        "explanation": "Needs + -ing."
+      },
+      {
+        "id": "nominalise",
+        "prompt": "“Costs rose rapidly” as a noun phrase is…",
+        "options": [
+          "a rapid rise in costs",
+          "costs' rapid rising up",
+          "a rapid rising costs",
+          "a rapidly rise of costs"
+        ],
+        "correctIndex": 0,
+        "explanation": "Adjective + noun + in."
+      },
+      {
+        "id": "demand-for",
+        "prompt": "Complete: Demand ___ housing is very high.",
+        "options": [
+          "in",
+          "of",
+          "for",
+          "on"
+        ],
+        "correctIndex": 2,
+        "explanation": "Demand for."
+      },
+      {
+        "id": "decline-in",
+        "prompt": "Complete: There has been a decline ___ visitors.",
+        "options": [
+          "at",
+          "of",
+          "for",
+          "in"
+        ],
+        "correctIndex": 3,
+        "explanation": "Decline in."
+      },
+      {
+        "id": "as-long-as",
+        "prompt": "Complete: As long as you ___ in advance, we'll offer a discount.",
+        "options": [
+          "would pay",
+          "pay",
+          "will pay",
+          "paid"
+        ],
+        "correctIndex": 1,
+        "explanation": "Present tense after as long as."
+      },
+      {
+        "id": "consider-ing",
+        "prompt": "Complete: Would you consider ___ the deadline?",
+        "options": [
+          "extending",
+          "extended",
+          "extend",
+          "to extend"
+        ],
+        "correctIndex": 0,
+        "explanation": "Consider + -ing."
+      },
+      {
+        "id": "prepared-to",
+        "prompt": "Complete: We'd be ___ to offer free delivery.",
+        "options": [
+          "prepare",
+          "prepared",
+          "preparation",
+          "preparing"
+        ],
+        "correctIndex": 1,
+        "explanation": "We'd be prepared to."
+      },
+      {
+        "id": "drawing-board",
+        "prompt": "Complete: The design failed. It's back to the ___.",
+        "options": [
+          "drawing table",
+          "draw board",
+          "drawing board",
+          "drawing desk"
+        ],
+        "correctIndex": 2,
+        "explanation": "Fixed idiom."
+      },
+      {
+        "id": "same-page",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Let's make sure we're on the same pages of book.",
+          "Let's make sure we're on the same page.",
+          "Let's make sure we're in same page.",
+          "Let's make sure we're on a same page."
+        ],
+        "correctIndex": 1,
+        "explanation": "On the same page."
+      },
+      {
+        "id": "call-it-a-day",
+        "prompt": "Complete: We're all tired. Let's call it ___.",
+        "options": [
+          "a day",
+          "day",
+          "the day",
+          "one day"
+        ],
+        "correctIndex": 0,
+        "explanation": "Call it a day."
+      },
+      {
+        "id": "impersonal",
+        "prompt": "Which sentence suits a formal report?",
+        "options": [
+          "It was found that turnover had increased.",
+          "We kind of found more turnover.",
+          "I found that turnover went up loads.",
+          "Turnover is up, I reckon."
+        ],
+        "correctIndex": 0,
+        "explanation": "Impersonal passive."
+      },
+      {
+        "id": "recommend-that",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "We recommend the firm to hire more staff.",
+          "We recommend to the firm hiring more staff to.",
+          "We recommend that the firm to hire more staff.",
+          "We recommend that the firm hire more staff."
+        ],
+        "correctIndex": 3,
+        "explanation": "Recommend that + base verb."
+      },
+      {
+        "id": "data-show",
+        "prompt": "Complete (formal): The data ___ a clear trend.",
+        "options": [
+          "showing",
+          "show",
+          "shows",
+          "is show"
+        ],
+        "correctIndex": 1,
+        "explanation": "Data as plural."
+      }
+    ]
+  },
+  {
+    "id": "english-c1-unit-3-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "was-going-to",
+        "prompt": "“Tôi định gọi cho bạn nhưng lại quên.” in English is…",
+        "options": [
+          "I am going to call you, but I forgot.",
+          "I would call you, but I forget.",
+          "I will call you, but I forgot.",
+          "I was going to call you, but I forgot."
+        ],
+        "correctIndex": 3,
+        "explanation": "Past plan: was going to."
+      },
+      {
+        "id": "would-after-past",
+        "prompt": "Complete: She said she ___ help us.",
+        "options": [
+          "would",
+          "is going",
+          "shall",
+          "will"
+        ],
+        "correctIndex": 0,
+        "explanation": "Would after a past verb."
+      },
+      {
+        "id": "on-the-verge",
+        "prompt": "Complete: They were on the verge ___ a discovery.",
+        "options": [
+          "to",
+          "of",
+          "at",
+          "for"
+        ],
+        "correctIndex": 1,
+        "explanation": "On the verge of."
+      },
+      {
+        "id": "subjunctive-base",
+        "prompt": "Complete: It's essential that he ___ the truth.",
+        "options": [
+          "knows",
+          "knew",
+          "know",
+          "will know"
+        ],
+        "correctIndex": 2,
+        "explanation": "Subjunctive: base verb."
+      },
+      {
+        "id": "insist-that",
+        "prompt": "Complete: The board insisted that the trial ___ stopped.",
+        "options": [
+          "will be",
+          "be",
+          "was being",
+          "is"
+        ],
+        "correctIndex": 1,
+        "explanation": "Insist that + base verb."
+      },
+      {
+        "id": "high-time",
+        "prompt": "Complete: It's high time you ___ to bed.",
+        "options": [
+          "go",
+          "went",
+          "will go",
+          "have gone"
+        ],
+        "correctIndex": 1,
+        "explanation": "It's high time + past simple."
+      },
+      {
+        "id": "would-rather",
+        "prompt": "Complete: I'd rather you ___ here.",
+        "options": [
+          "didn't smoke",
+          "don't smoke",
+          "won't smoke",
+          "not smoke"
+        ],
+        "correctIndex": 0,
+        "explanation": "Would rather + subject + past simple."
+      },
+      {
+        "id": "opposed-to",
+        "prompt": "Complete: Many people are opposed to ___ humans.",
+        "options": [
+          "clone",
+          "cloned",
+          "cloning",
+          "be cloned to"
+        ],
+        "correctIndex": 2,
+        "explanation": "Opposed to + -ing."
+      },
+      {
+        "id": "whether",
+        "prompt": "Complete: The question is ___ it is ethical.",
+        "options": [
+          "that whether",
+          "whether",
+          "that if",
+          "what"
+        ],
+        "correctIndex": 1,
+        "explanation": "The question is whether."
+      },
+      {
+        "id": "neednt-have",
+        "prompt": "I cooked for ten, but only four came. I ___ so much.",
+        "options": [
+          "needn't have cooked",
+          "didn't need cook",
+          "mustn't have cooked",
+          "needn't to cook"
+        ],
+        "correctIndex": 0,
+        "explanation": "Did it unnecessarily."
+      },
+      {
+        "id": "didnt-need-to",
+        "prompt": "The test was cancelled, so I ___ study.",
+        "options": [
+          "didn't need to",
+          "needn't to have",
+          "mustn't",
+          "needn't have"
+        ],
+        "correctIndex": 0,
+        "explanation": "Not necessary; didn't do it."
+      },
+      {
+        "id": "no-point",
+        "prompt": "Complete: There's no point ___ now.",
+        "options": [
+          "complained",
+          "complain",
+          "complaining",
+          "to complain"
+        ],
+        "correctIndex": 2,
+        "explanation": "No point + -ing."
+      },
+      {
+        "id": "albeit",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "The project succeeded, albeit was slowly.",
+          "Albeit slow it was, the project succeeded.",
+          "The project succeeded, albeit it was slow.",
+          "The project succeeded, albeit slowly."
+        ],
+        "correctIndex": 3,
+        "explanation": "Albeit + adverb."
+      },
+      {
+        "id": "despite-fact-that",
+        "prompt": "Complete: Despite the fact ___ it rained, the match went ahead.",
+        "options": [
+          "that",
+          "which",
+          "what",
+          "of"
+        ],
+        "correctIndex": 0,
+        "explanation": "Despite the fact that."
+      },
+      {
+        "id": "granted",
+        "prompt": "Complete: ___, it's risky, but the benefits are huge.",
+        "options": [
+          "Granted",
+          "Albeit",
+          "Despite",
+          "Notwithstanding"
+        ],
+        "correctIndex": 0,
+        "explanation": "Granted…, but…"
+      }
+    ]
+  },
+  {
+    "id": "english-c1-unit-4-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "ed-ing",
+        "prompt": "Complete: I was ___ by the ending.",
+        "options": [
+          "disappointed",
+          "disappointment",
+          "disappoint",
+          "disappointing"
+        ],
+        "correctIndex": 0,
+        "explanation": "-ed for the person."
+      },
+      {
+        "id": "far-fetched",
+        "prompt": "Which word means “very unlikely to be true”?",
+        "options": [
+          "far-sighted",
+          "far-reaching",
+          "far-flung",
+          "far-fetched"
+        ],
+        "correctIndex": 3,
+        "explanation": "Far-fetched."
+      },
+      {
+        "id": "fall-flat",
+        "prompt": "Complete: All his jokes fell ___.",
+        "options": [
+          "flat",
+          "short",
+          "down",
+          "off"
+        ],
+        "correctIndex": 0,
+        "explanation": "Fall flat."
+      },
+      {
+        "id": "adjective-as",
+        "prompt": "Complete: ___ as it may sound, I enjoyed it.",
+        "options": [
+          "Strange",
+          "Strangely",
+          "Although strange",
+          "However strange as"
+        ],
+        "correctIndex": 0,
+        "explanation": "Adjective + as."
+      },
+      {
+        "id": "however-hard",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "However I try hard, I can't paint.",
+          "However hard I try, I can't paint.",
+          "However hardly I try, I can't paint.",
+          "However I hard try, I can't paint."
+        ],
+        "correctIndex": 1,
+        "explanation": "However + adverb + subject + verb."
+      },
+      {
+        "id": "try-as-i-might",
+        "prompt": "Complete: Try as I ___, I couldn't finish it.",
+        "options": [
+          "may",
+          "would",
+          "tried",
+          "might"
+        ],
+        "correctIndex": 3,
+        "explanation": "Try as I might."
+      },
+      {
+        "id": "fronted-place",
+        "prompt": "Complete: In the centre of the square ___ a statue.",
+        "options": [
+          "stands",
+          "stand",
+          "standing",
+          "it stands"
+        ],
+        "correctIndex": 0,
+        "explanation": "Fronted place + verb + subject."
+      },
+      {
+        "id": "out-prefix",
+        "prompt": "Complete: Women ___ men in the orchestra.",
+        "options": [
+          "misnumber",
+          "overnumber",
+          "undernumber",
+          "outnumber"
+        ],
+        "correctIndex": 3,
+        "explanation": "Out- = more than."
+      },
+      {
+        "id": "mis-prefix",
+        "prompt": "Complete: Sorry, I ___ what you said.",
+        "options": [
+          "disheard",
+          "misheard",
+          "unheard",
+          "overheard wrongly"
+        ],
+        "correctIndex": 1,
+        "explanation": "Mis- = wrongly."
+      },
+      {
+        "id": "overrated",
+        "prompt": "“Được đánh giá quá cao” in English is…",
+        "options": [
+          "overrated",
+          "misrated",
+          "underrated",
+          "outrated"
+        ],
+        "correctIndex": 0,
+        "explanation": "Over- = too much."
+      },
+      {
+        "id": "hope-not",
+        "prompt": "“Will it rain tomorrow?” “I ___.”",
+        "options": [
+          "hope no",
+          "don't hope so",
+          "hope not",
+          "not hope"
+        ],
+        "correctIndex": 2,
+        "explanation": "Hope not."
+      },
+      {
+        "id": "afraid-so",
+        "prompt": "“Is the show cancelled?” “I'm afraid ___.”",
+        "options": [
+          "so",
+          "it",
+          "yes",
+          "that"
+        ],
+        "correctIndex": 0,
+        "explanation": "I'm afraid so."
+      },
+      {
+        "id": "one-ones",
+        "prompt": "Complete: I prefer the red shoes to the black ___.",
+        "options": [
+          "one",
+          "them ones",
+          "ones",
+          "it"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ones for a plural noun."
+      },
+      {
+        "id": "a-sea-of",
+        "prompt": "Complete: The singer looked out at ___ sea of faces.",
+        "options": [
+          "the many",
+          "—",
+          "a",
+          "an"
+        ],
+        "correctIndex": 2,
+        "explanation": "A sea of."
+      },
+      {
+        "id": "busy-as-a-bee",
+        "prompt": "Choose the natural English simile.",
+        "options": [
+          "as busy as a bee",
+          "as busy as an ant",
+          "as busy as a fish",
+          "as busy as a horse"
+        ],
+        "correctIndex": 0,
+        "explanation": "English image."
+      }
+    ]
+  },
+  {
+    "id": "english-c1-unit-5-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "had-i-known",
+        "prompt": "“Nếu tôi biết, tôi đã đến.” (formal) in English is…",
+        "options": [
+          "If had I known, I would have come.",
+          "Had I knew, I would have come.",
+          "Had I known, I would have come.",
+          "Have I known, I would come."
+        ],
+        "correctIndex": 2,
+        "explanation": "Had + subject + past participle."
+      },
+      {
+        "id": "were-it-not",
+        "prompt": "Complete: ___ it not for her, we'd be lost.",
+        "options": [
+          "If",
+          "Were",
+          "Had",
+          "Was"
+        ],
+        "correctIndex": 1,
+        "explanation": "Were it not for."
+      },
+      {
+        "id": "should-you",
+        "prompt": "Complete: ___ you have any questions, ask me.",
+        "options": [
+          "Would",
+          "Had",
+          "Did",
+          "Should"
+        ],
+        "correctIndex": 3,
+        "explanation": "Should you have."
+      },
+      {
+        "id": "but-for",
+        "prompt": "Complete: ___ for the traffic, we'd have arrived on time.",
+        "options": [
+          "Without",
+          "Unless",
+          "But",
+          "Except"
+        ],
+        "correctIndex": 2,
+        "explanation": "But for + noun."
+      },
+      {
+        "id": "provided-that",
+        "prompt": "Complete: You can borrow it provided that you ___ it back.",
+        "options": [
+          "would bring",
+          "bring",
+          "will bring",
+          "brought"
+        ],
+        "correctIndex": 1,
+        "explanation": "Present simple after provided that."
+      },
+      {
+        "id": "used-to-habit",
+        "prompt": "Complete: We ___ live in the countryside.",
+        "options": [
+          "used to",
+          "use to",
+          "are used to",
+          "get used to"
+        ],
+        "correctIndex": 0,
+        "explanation": "Finished past habit."
+      },
+      {
+        "id": "be-used-to",
+        "prompt": "Complete: I'm used to ___ on the left.",
+        "options": [
+          "driving",
+          "drive",
+          "drove",
+          "be driving"
+        ],
+        "correctIndex": 0,
+        "explanation": "Be used to + -ing."
+      },
+      {
+        "id": "get-used-to",
+        "prompt": "Complete: She's getting used ___ the cold.",
+        "options": [
+          "at",
+          "for",
+          "to",
+          "with"
+        ],
+        "correctIndex": 2,
+        "explanation": "Get used to."
+      },
+      {
+        "id": "most-people",
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          "Most people agree.",
+          "The most of people agree.",
+          "Most of people agree.",
+          "The most people agree."
+        ],
+        "correctIndex": 0,
+        "explanation": "Most people."
+      },
+      {
+        "id": "few-vs-a-few",
+        "prompt": "“Few people came” means…",
+        "options": [
+          "almost nobody came",
+          "some came, it was fine",
+          "quite a lot came",
+          "everyone came"
+        ],
+        "correctIndex": 0,
+        "explanation": "Few = almost none."
+      },
+      {
+        "id": "great-deal",
+        "prompt": "Complete: It caused a great deal of ___.",
+        "options": [
+          "mistakes",
+          "stress",
+          "problems",
+          "people"
+        ],
+        "correctIndex": 1,
+        "explanation": "A great deal of + uncountable."
+      },
+      {
+        "id": "surely",
+        "prompt": "Complete: ___ you don't agree with him?",
+        "options": [
+          "Certainly",
+          "Surely",
+          "Sure",
+          "Securely"
+        ],
+        "correctIndex": 1,
+        "explanation": "Surely asks for agreement."
+      },
+      {
+        "id": "rule-of-three",
+        "prompt": "Choose the best rule-of-three list.",
+        "options": [
+          "safe, cleaner and more green",
+          "safer, cleaner and it is green",
+          "safer, cleaner and greener",
+          "safety, clean and greener"
+        ],
+        "correctIndex": 2,
+        "explanation": "Same form."
+      },
+      {
+        "id": "stem-from",
+        "prompt": "Complete: Crime often stems ___ poverty.",
+        "options": [
+          "with",
+          "on",
+          "of",
+          "from"
+        ],
+        "correctIndex": 3,
+        "explanation": "Stem from."
+      },
+      {
+        "id": "bridge-gap",
+        "prompt": "“Thu hẹp khoảng cách” in English is…",
+        "options": [
+          "open the gap",
+          "cross the gap",
+          "bridge the gap",
+          "build the gap"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bridge the gap."
+      }
+    ]
+  },
+  {
+    "id": "english-c1-unit-6-assessment",
+    "passPercent": 80,
+    "questions": [
+      {
+        "id": "pass-away",
+        "prompt": "“Qua đời” (polite) in English is…",
+        "options": [
+          "pass off",
+          "pass out",
+          "pass away",
+          "pass by"
+        ],
+        "correctIndex": 2,
+        "explanation": "Pass away."
+      },
+      {
+        "id": "let-go",
+        "prompt": "Complete: Thirty workers were ___ go.",
+        "options": [
+          "got",
+          "made",
+          "sent",
+          "let"
+        ],
+        "correctIndex": 3,
+        "explanation": "Let go."
+      },
+      {
+        "id": "register",
+        "prompt": "Which fits a formal letter?",
+        "options": [
+          "I wanna ask about the job.",
+          "Gimme info on the job.",
+          "Just checking about the job, mate.",
+          "I would like to enquire about the position."
+        ],
+        "correctIndex": 3,
+        "explanation": "Formal register."
+      },
+      {
+        "id": "extreme-adjective",
+        "prompt": "Complete: The food was ___ delicious.",
+        "options": [
+          "absolutely",
+          "slightly",
+          "very very",
+          "fairly"
+        ],
+        "correctIndex": 0,
+        "explanation": "Delicious is extreme."
+      },
+      {
+        "id": "gradable-adjective",
+        "prompt": "Which is wrong?",
+        "options": [
+          "absolutely exhausted",
+          "very exhausted",
+          "really exhausted",
+          "utterly exhausted"
+        ],
+        "correctIndex": 1,
+        "explanation": "Exhausted is extreme."
+      },
+      {
+        "id": "highly-likely",
+        "prompt": "Complete: It's ___ likely to rain.",
+        "options": [
+          "bitterly",
+          "highly",
+          "deeply",
+          "strongly"
+        ],
+        "correctIndex": 1,
+        "explanation": "Highly likely."
+      },
+      {
+        "id": "bitterly",
+        "prompt": "Complete: She was ___ disappointed.",
+        "options": [
+          "strongly",
+          "bitterly",
+          "utterly likely",
+          "highly"
+        ],
+        "correctIndex": 1,
+        "explanation": "Bitterly disappointed."
+      },
+      {
+        "id": "only-position",
+        "prompt": "“I met him once, not more.” Choose the sentence.",
+        "options": [
+          "I have met him only once.",
+          "I only have met him once.",
+          "Only I have met him once.",
+          "Only have I met him once."
+        ],
+        "correctIndex": 0,
+        "explanation": "Only before once."
+      },
+      {
+        "id": "not-only",
+        "prompt": "Complete: Not only ___ fast, but it's also cheap.",
+        "options": [
+          "it's",
+          "is it",
+          "does it be",
+          "it is"
+        ],
+        "correctIndex": 1,
+        "explanation": "Inversion after not only."
+      },
+      {
+        "id": "even-though",
+        "prompt": "Complete: ___ she was tired, she kept going.",
+        "options": [
+          "Even",
+          "Only if",
+          "Even though",
+          "Even if"
+        ],
+        "correctIndex": 2,
+        "explanation": "A fact."
+      },
+      {
+        "id": "nutshell",
+        "prompt": "Complete: In a ___, we need more money.",
+        "options": [
+          "nutcase",
+          "nut",
+          "shell",
+          "nutshell"
+        ],
+        "correctIndex": 3,
+        "explanation": "In a nutshell."
+      },
+      {
+        "id": "paraphrase",
+        "prompt": "Best paraphrase of “Many people lost their jobs”:",
+        "options": [
+          "Lost their jobs many people.",
+          "Many persons lost their works.",
+          "There was a sharp rise in unemployment.",
+          "Many people lost their jobs."
+        ],
+        "correctIndex": 2,
+        "explanation": "Change words and structure."
+      },
+      {
+        "id": "plagiarism",
+        "prompt": "“Đạo văn” in English is…",
+        "options": [
+          "plagiarism",
+          "prejudice",
+          "pluralism",
+          "paraphrase"
+        ],
+        "correctIndex": 0,
+        "explanation": "Plagiarism."
+      },
+      {
+        "id": "essay-opening",
+        "prompt": "Which is the best academic opening?",
+        "options": [
+          "This essay will examine…",
+          "I'm going to talk about…",
+          "So, first of all, guys…",
+          "Let me tell you…"
+        ],
+        "correctIndex": 0,
+        "explanation": "Impersonal."
+      },
+      {
+        "id": "no-contractions",
+        "prompt": "Choose the most academic sentence.",
+        "options": [
+          "The data don't support this claim.",
+          "But the data don't agree.",
+          "You can see the data don't back it up.",
+          "The data do not support this claim."
+        ],
+        "correctIndex": 3,
+        "explanation": "Full forms, impersonal."
+      }
+    ]
   }
 ]

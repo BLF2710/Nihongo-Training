@@ -112,5 +112,347 @@
     ],
     "assessmentId": "english-a2-unit-6-assessment",
     "published": true
+  },
+  {
+    "id": "english-b1-unit-1",
+    "level": "B1",
+    "number": 1,
+    "sequence": 101,
+    "title": "Experiences & Achievements",
+    "titleVi": "Trải nghiệm và thành tựu",
+    "description": "Talk about your experiences and what you have achieved, choosing between the present perfect and the past simple.",
+    "lessonIds": [
+      "english-b1-unit-1-have-you-ever",
+      "english-b1-unit-1-already-just-yet",
+      "english-b1-unit-1-perfect-or-past",
+      "english-b1-unit-1-how-long",
+      "english-b1-unit-1-achievements",
+      "english-b1-unit-1-review"
+    ],
+    "assessmentId": "english-b1-unit-1-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b1-unit-2",
+    "level": "B1",
+    "number": 2,
+    "sequence": 102,
+    "title": "Work & Study",
+    "titleVi": "Công việc và học tập",
+    "description": "Talk about how things used to be, describe feelings with -ed and -ing, and handle interviews and formal emails.",
+    "lessonIds": [
+      "english-b1-unit-2-used-to",
+      "english-b1-unit-2-ed-and-ing",
+      "english-b1-unit-2-gerund-or-infinitive",
+      "english-b1-unit-2-job-interview",
+      "english-b1-unit-2-formal-emails",
+      "english-b1-unit-2-review"
+    ],
+    "assessmentId": "english-b1-unit-2-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b1-unit-3",
+    "level": "B1",
+    "number": 3,
+    "sequence": 103,
+    "title": "Travel & Culture",
+    "titleVi": "Du lịch và văn hoá",
+    "description": "Plan and tell the story of a trip, use the with place names, and deal politely with travel problems.",
+    "lessonIds": [
+      "english-b1-unit-3-travel-phrasal-verbs",
+      "english-b1-unit-3-past-perfect",
+      "english-b1-unit-3-the-with-places",
+      "english-b1-unit-3-travel-problems",
+      "english-b1-unit-3-complaints",
+      "english-b1-unit-3-review"
+    ],
+    "assessmentId": "english-b1-unit-3-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b1-unit-4",
+    "level": "B1",
+    "number": 4,
+    "sequence": 104,
+    "title": "Possibilities & Wishes",
+    "titleVi": "Khả năng và mong ước",
+    "description": "Talk about real and imaginary situations with conditionals, time clauses and wishes, and give advice with If I were you.",
+    "lessonIds": [
+      "english-b1-unit-4-first-conditional",
+      "english-b1-unit-4-time-clauses",
+      "english-b1-unit-4-second-conditional",
+      "english-b1-unit-4-wishes",
+      "english-b1-unit-4-if-i-were-you",
+      "english-b1-unit-4-review"
+    ],
+    "assessmentId": "english-b1-unit-4-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b1-unit-5",
+    "level": "B1",
+    "number": 5,
+    "sequence": 105,
+    "title": "News & Media",
+    "titleVi": "Tin tức và truyền thông",
+    "description": "Understand and pass on the news: the passive, reported statements and questions, and relative clauses.",
+    "lessonIds": [
+      "english-b1-unit-5-the-passive",
+      "english-b1-unit-5-reported-statements",
+      "english-b1-unit-5-reported-questions",
+      "english-b1-unit-5-relative-clauses",
+      "english-b1-unit-5-the-news",
+      "english-b1-unit-5-review"
+    ],
+    "assessmentId": "english-b1-unit-5-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b1-unit-6",
+    "level": "B1",
+    "number": 6,
+    "sequence": 106,
+    "title": "Society & the Environment",
+    "titleVi": "Xã hội và môi trường",
+    "description": "Discuss the environment and city life, guess with must and might, contrast ideas, and agree and disagree politely.",
+    "lessonIds": [
+      "english-b1-unit-6-the-environment",
+      "english-b1-unit-6-too-and-enough",
+      "english-b1-unit-6-deduction",
+      "english-b1-unit-6-contrast",
+      "english-b1-unit-6-agreeing-and-disagreeing",
+      "english-b1-unit-6-review"
+    ],
+    "assessmentId": "english-b1-unit-6-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b2-unit-1",
+    "level": "B2",
+    "number": 1,
+    "sequence": 201,
+    "title": "People & Relationships",
+    "titleVi": "Con người và các mối quan hệ",
+    "description": "Describe people, relationships and habits naturally, with phrasal verbs, personality words and small talk.",
+    "lessonIds": [
+      "english-b2-unit-1-relationship-phrasal-verbs",
+      "english-b2-unit-1-personality",
+      "english-b2-unit-1-habits",
+      "english-b2-unit-1-first-impressions",
+      "english-b2-unit-1-small-talk",
+      "english-b2-unit-1-review"
+    ],
+    "assessmentId": "english-b2-unit-1-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b2-unit-2",
+    "level": "B2",
+    "number": 2,
+    "sequence": 202,
+    "title": "Work & Careers",
+    "titleVi": "Công việc và sự nghiệp",
+    "description": "Use work collocations, switch between formal and informal English, plan ahead, and take part in meetings and presentations.",
+    "lessonIds": [
+      "english-b2-unit-2-make-or-do",
+      "english-b2-unit-2-register",
+      "english-b2-unit-2-future-perfect",
+      "english-b2-unit-2-meetings",
+      "english-b2-unit-2-presentations",
+      "english-b2-unit-2-review"
+    ],
+    "assessmentId": "english-b2-unit-2-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b2-unit-3",
+    "level": "B2",
+    "number": 3,
+    "sequence": 203,
+    "title": "Technology & Science",
+    "titleVi": "Công nghệ và khoa học",
+    "description": "Talk about services and discoveries with the causative and the impersonal passive, build words, and weigh pros and cons.",
+    "lessonIds": [
+      "english-b2-unit-3-have-something-done",
+      "english-b2-unit-3-impersonal-passive",
+      "english-b2-unit-3-tech-phrasal-verbs",
+      "english-b2-unit-3-word-building",
+      "english-b2-unit-3-pros-and-cons",
+      "english-b2-unit-3-review"
+    ],
+    "assessmentId": "english-b2-unit-3-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b2-unit-4",
+    "level": "B2",
+    "number": 4,
+    "sequence": 204,
+    "title": "Health & Lifestyle",
+    "titleVi": "Sức khoẻ và lối sống",
+    "description": "Imagine different pasts with third and mixed conditionals, talk about regrets, give strong advice and use health idioms.",
+    "lessonIds": [
+      "english-b2-unit-4-third-conditional",
+      "english-b2-unit-4-mixed-conditionals",
+      "english-b2-unit-4-regrets",
+      "english-b2-unit-4-had-better",
+      "english-b2-unit-4-health-idioms",
+      "english-b2-unit-4-review"
+    ],
+    "assessmentId": "english-b2-unit-4-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b2-unit-5",
+    "level": "B2",
+    "number": 5,
+    "sequence": 205,
+    "title": "Stories & Experiences",
+    "titleVi": "Câu chuyện và trải nghiệm",
+    "description": "Tell stories well with narrative tenses, time linkers, non-defining relative clauses and participle clauses.",
+    "lessonIds": [
+      "english-b2-unit-5-narrative-tenses",
+      "english-b2-unit-5-time-linkers",
+      "english-b2-unit-5-non-defining-clauses",
+      "english-b2-unit-5-participle-clauses",
+      "english-b2-unit-5-anecdotes",
+      "english-b2-unit-5-review"
+    ],
+    "assessmentId": "english-b2-unit-5-assessment",
+    "published": true
+  },
+  {
+    "id": "english-b2-unit-6",
+    "level": "B2",
+    "number": 6,
+    "sequence": 206,
+    "title": "Ideas & Opinions",
+    "titleVi": "Ý tưởng và quan điểm",
+    "description": "Report what people suggested, guess about the past, add emphasis, sound less certain and write a clear essay.",
+    "lessonIds": [
+      "english-b2-unit-6-reporting-verbs",
+      "english-b2-unit-6-past-deduction",
+      "english-b2-unit-6-emphasis",
+      "english-b2-unit-6-hedging",
+      "english-b2-unit-6-opinion-essays",
+      "english-b2-unit-6-review"
+    ],
+    "assessmentId": "english-b2-unit-6-assessment",
+    "published": true
+  },
+  {
+    "id": "english-c1-unit-1",
+    "level": "C1",
+    "number": 1,
+    "sequence": 301,
+    "title": "Language & Communication",
+    "titleVi": "Ngôn ngữ và giao tiếp",
+    "description": "Add emphasis with inversion, choose words by connotation and collocation, and speak with tact and natural discourse markers.",
+    "lessonIds": [
+      "english-c1-unit-1-negative-inversion",
+      "english-c1-unit-1-connotation",
+      "english-c1-unit-1-strong-collocations",
+      "english-c1-unit-1-discourse-markers",
+      "english-c1-unit-1-tact",
+      "english-c1-unit-1-review"
+    ],
+    "assessmentId": "english-c1-unit-1-assessment",
+    "published": true
+  },
+  {
+    "id": "english-c1-unit-2",
+    "level": "C1",
+    "number": 2,
+    "sequence": 302,
+    "title": "Work & the Economy",
+    "titleVi": "Công việc và kinh tế",
+    "description": "Use advanced passive forms and nominalisation, negotiate, use business idioms and write formal reports.",
+    "lessonIds": [
+      "english-c1-unit-2-advanced-passive",
+      "english-c1-unit-2-nominalisation",
+      "english-c1-unit-2-negotiating",
+      "english-c1-unit-2-business-idioms",
+      "english-c1-unit-2-reports",
+      "english-c1-unit-2-review"
+    ],
+    "assessmentId": "english-c1-unit-2-assessment",
+    "published": true
+  },
+  {
+    "id": "english-c1-unit-3",
+    "level": "C1",
+    "number": 3,
+    "sequence": 303,
+    "title": "Science & Ethics",
+    "titleVi": "Khoa học và đạo đức",
+    "description": "Talk about plans that changed, use the subjunctive, discuss ethics, distinguish needn't have from didn't need to, and link academic ideas.",
+    "lessonIds": [
+      "english-c1-unit-3-future-in-the-past",
+      "english-c1-unit-3-subjunctive",
+      "english-c1-unit-3-ethics",
+      "english-c1-unit-3-neednt-have",
+      "english-c1-unit-3-concession",
+      "english-c1-unit-3-review"
+    ],
+    "assessmentId": "english-c1-unit-3-assessment",
+    "published": true
+  },
+  {
+    "id": "english-c1-unit-4",
+    "level": "C1",
+    "number": 4,
+    "sequence": 304,
+    "title": "Culture & the Arts",
+    "titleVi": "Văn hoá và nghệ thuật",
+    "description": "Write reviews, front ideas for effect, build words with prefixes, avoid repetition and use figurative language.",
+    "lessonIds": [
+      "english-c1-unit-4-reviews",
+      "english-c1-unit-4-fronting",
+      "english-c1-unit-4-prefixes",
+      "english-c1-unit-4-ellipsis",
+      "english-c1-unit-4-figurative-language",
+      "english-c1-unit-4-review"
+    ],
+    "assessmentId": "english-c1-unit-4-assessment",
+    "published": true
+  },
+  {
+    "id": "english-c1-unit-5",
+    "level": "C1",
+    "number": 5,
+    "sequence": 305,
+    "title": "Society & Change",
+    "titleVi": "Xã hội và sự thay đổi",
+    "description": "Use inverted and alternative conditionals, tricky verb patterns and quantifiers, persuade an audience and discuss social issues.",
+    "lessonIds": [
+      "english-c1-unit-5-inverted-conditionals",
+      "english-c1-unit-5-used-to-doing",
+      "english-c1-unit-5-quantifiers",
+      "english-c1-unit-5-persuasion",
+      "english-c1-unit-5-social-issues",
+      "english-c1-unit-5-review"
+    ],
+    "assessmentId": "english-c1-unit-5-assessment",
+    "published": true
+  },
+  {
+    "id": "english-c1-unit-6",
+    "level": "C1",
+    "number": 6,
+    "sequence": 306,
+    "title": "Mastering Style",
+    "titleVi": "Làm chủ văn phong",
+    "description": "Choose the right register and intensifier, place focus adverbs precisely, summarise and paraphrase, and write in academic style.",
+    "lessonIds": [
+      "english-c1-unit-6-euphemism",
+      "english-c1-unit-6-intensifiers",
+      "english-c1-unit-6-focus-adverbs",
+      "english-c1-unit-6-paraphrasing",
+      "english-c1-unit-6-academic-style",
+      "english-c1-unit-6-review"
+    ],
+    "assessmentId": "english-c1-unit-6-assessment",
+    "published": true
   }
 ]

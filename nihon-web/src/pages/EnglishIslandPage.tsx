@@ -12,7 +12,7 @@ import { useActionKey, useWorldWalk } from "../lib/world/useWorldWalk";
 const WALK_MEMORY = { rememberKey: "island:english:place", arrival: null };
 const SCENE_KEY = "island:english";
 
-/** The English island on foot: walk up to the castle, the watchtower, the church school or the tavern to open its page. */
+/** The English learner's home, the English island on foot: walk up to the castle, the watchtower, the church school or the tavern to open its page. */
 export default function EnglishIslandPage() {
   const navigate = useNavigate();
   const { walker, isHolding, isRunning, press, release, setIsRunning } = useWorldWalk(island.layout, true, WALK_MEMORY);
@@ -35,7 +35,7 @@ export default function EnglishIslandPage() {
         </div>
         <p className="sr-only" aria-live="polite">{door ? `${door.label}. Press E to go.` : ""}</p>
         <p className="pointer-events-none absolute bottom-3 left-1/2 z-[800] -translate-x-1/2 village-hint rounded-full px-3 py-1 text-xs font-semibold pointer-coarse:hidden">
-          Walk: WASD or arrow keys · Go in: E · The jetty leads back to the start page
+          Walk: WASD or arrow keys · Go in: E
         </p>
         <TouchControls onPress={press} onRelease={release} onTalk={() => act?.()} canTalk={act !== null}
           talkLabel={door?.action ?? "Enter"} isRunning={isRunning} onRunningChange={setIsRunning} />

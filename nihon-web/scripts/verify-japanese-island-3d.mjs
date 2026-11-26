@@ -32,7 +32,7 @@ import { RowingTraveller } from "../src/components/world3d/rowingBoat.ts";
 import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_PROPS, VILLAGE_SQUARE, villageArrivalFrom } from "../src/data/village/villageSquare.ts";
 import { withHomeSign } from "../src/lib/village/homeSign.ts";
 import { WILD_ROUTES } from "../src/data/world/routes.ts";
-import { isBeyond, snowfallShare } from "../src/lib/world/wintrySide.ts";
+import { isBeyond, liesUnderSnow, snowfallShare } from "../src/lib/world/wintrySide.ts";
 
 const FROM_HOME_ARRIVALS = WILD_ROUTES.filter(route => route.between[0] === "home").map(route => villageArrivalFrom(route.id));
 
@@ -642,10 +642,18 @@ test("the Practice island's west side, facing the way to Fuji, is where winter b
   assert.deepEqual(practice3D.wintry?.side, "west");
 });
 
-test("beyond the Practice island's west edge the far shore grows snowy pines; elsewhere it keeps its bamboo", () => {
+test("beyond the Practice island's west edge the far shore grows snowy pines, a mix along the snowline, and bamboo past it", () => {
   const trees = practice3D.backdrop.filter(({ model }) => model.startsWith("tree:"));
-  const kindsWhere = (isThere) => [...new Set(trees.filter(({ at }) => isThere(at.x)).map(({ model }) => model))];
-  assert.deepEqual([kindsWhere(x => x < 0), kindsWhere(x => x >= 0)], [[snowy(treeModel("pine"))], [treeModel("bamboo")]]);
+  const kindsWhere = (isThere) => [...new Set(trees.filter(({ at }) => isThere(at.x)).map(({ model }) => model))].sort();
+  assert.deepEqual([kindsWhere(x => x < 0), kindsWhere(x => x >= 0 && x < 6), kindsWhere(x => x >= 6)],
+    [[snowy(treeModel("pine"))], [treeModel("bamboo"), snowy(treeModel("pine"))], [treeModel("bamboo")]]);
+});
+
+test("the snowline is ragged: snow lies on every tile past the edge, on some just inside it, and on none further in", () => {
+  const { map } = islandSceneOf("practice").layout;
+  const row = (from, to) => Array.from({ length: to - from }, (_, index) => from + index).flatMap(x => [-6, -12, -20].map(y => liesUnderSnow(map, "west", { x, y })));
+  const along = row(0, 6);
+  assert.deepEqual([row(-8, 0).every(Boolean), along.some(Boolean), along.every(Boolean), row(6, 14).some(Boolean)], [true, true, false, false]);
 });
 
 test("no island but the Practice island has a wintry side", () => {

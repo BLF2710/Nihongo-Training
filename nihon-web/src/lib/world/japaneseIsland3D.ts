@@ -19,7 +19,7 @@ import type { IslandProp, ShrinePropKind } from "./islandProps.ts";
 import { pondsOf } from "./ponds.ts";
 import { exitHref } from "./routes.ts";
 import type { Heading, Mountainside, Travel, WildRoute } from "./routes.ts";
-import { isBeyond } from "./wintrySide.ts";
+import { liesUnderSnow } from "./wintrySide.ts";
 
 /** The learner's own traveller, made from the look they chose in the wardrobe. */
 export const TRAVELLER_MODEL = "traveller";
@@ -224,6 +224,6 @@ function japaneseScene3D(scene: JapaneseScene, lanterns: readonly IslandProp[]):
   if (!side) return { ...island, sea: "water", shore, backdrop: scenery.map(dressed) };
   const shoreTree = look.tree && treeModel(look.tree);
   const wintered = (placement: ModelPlacement): ModelPlacement =>
-    placement.model === shoreTree && isBeyond(map, side, placement.at) ? { ...placement, model: WINTRY_TREE } : placement;
+    placement.model === shoreTree && liesUnderSnow(map, side, placement.at) ? { ...placement, model: WINTRY_TREE } : placement;
   return { ...island, sea: "water", shore, backdrop: scenery.map(wintered).map(dressed), wintry: { side, snow: LYING_SNOW } };
 }

@@ -121,3 +121,7 @@ test("the traveller as drawn jumps straight to a new place far away", () => {
 test("the traveller as drawn stays where they stand once caught up", () => {
   assert.deepEqual(drawnTowards({ x: 3, y: 4 }, { x: 3, y: 4 }, 1 / 60), { x: 3, y: 4 });
 });
+
+test("the English island is the English learner's home, so none of its doors leads back to the home page", () => {
+  assert.deepEqual(ENGLISH_ISLAND.doors.filter(({ href }) => href === "/").map(door => door.id), []);
+});
