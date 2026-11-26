@@ -1,5 +1,5 @@
-// The islands' rocks and the summit behind Fuji, built in code: a rock is a pair of rough boulders with moss on their
-// tops; the summit is a great rough cone of grey rock, white with snow from halfway up. Each is one mesh of coloured
+// The islands' rocks and the summit behind Fuji, built in code: a rock is a pair of rough boulders with moss (or, in
+// snow, snow) on their tops; the summit is a great rough cone of grey rock, white with snow from halfway up. Each is one mesh of coloured
 // parts, its roughness following from where it stands, so it's the same every visit.
 import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
@@ -9,7 +9,7 @@ import type { Palette } from "./shapes.ts";
 
 export type NatureBuilder = (palette: Palette, at: Rect) => THREE.Object3D;
 
-const ROCK = { stone: "#8d877c", light: "#a59f93", moss: "#6f9a48" } as const;
+const ROCK = { stone: "#8d877c", light: "#a59f93", moss: "#6f9a48", snow: "#f2f5f8" } as const;
 const MOUNTAIN = { rock: "#7d8592", snow: "#fbfcfe", snowLine: 0.45, height: 0.55, roughness: 0.08 } as const;
 /** How far up a boulder (as a share of its height) the moss starts. */
 const MOSS_LINE = 0.62;
@@ -56,13 +56,13 @@ export function merged(palette: Palette, parts: readonly THREE.BufferGeometry[])
   return mesh;
 }
 
-/** A big boulder and a small one leaning on it, mossy on top. */
-const rock: NatureBuilder = (palette, { x, y }) => {
+/** A big boulder and a small one leaning on it, `cap` (moss, or snow) lying on top. */
+const rockCappedWith = (cap: string): NatureBuilder => (palette, { x, y }) => {
   const seed = steadyNoise(x, y) * 100;
   const turn = (steadyNoise(y, x) + 1) * Math.PI;
   const boulder = (radius: number, at: { x: number; z: number }, salt: number) => paintedByHeight(
     roughened(new THREE.IcosahedronGeometry(radius, 1), 0.22, seed + salt).scale(1.1, 0.75, 1).rotateY(turn).translate(at.x, radius * 0.5, at.z),
-    { low: salt > 0 ? ROCK.light : ROCK.stone, high: ROCK.moss, line: MOSS_LINE });
+    { low: salt > 0 ? ROCK.light : ROCK.stone, high: cap, line: MOSS_LINE });
   return merged(palette, [boulder(0.36, { x: -0.06, z: -0.04 }, 0), boulder(0.2, { x: 0.25, z: 0.2 }, 1)]);
 };
 
@@ -74,4 +74,4 @@ const mountain: NatureBuilder = (palette, { width }) => {
   return merged(palette, [paintedByHeight(rough, { low: MOUNTAIN.rock, high: MOUNTAIN.snow, line: MOUNTAIN.snowLine })]);
 };
 
-export const NATURE_BUILDERS = { rock, mountain } as const;
+export const NATURE_BUILDERS = { rock: rockCappedWith(ROCK.moss), snowyRock: rockCappedWith(ROCK.snow), mountain } as const;

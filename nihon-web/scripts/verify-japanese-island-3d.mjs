@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import * as THREE from "three";
 import { ISLANDS_IN_3D, ISLAND_SCENES, islandSceneOf } from "../src/data/world/islandScenes.ts";
-import { TRAVELLER_MODEL, buildingModel, castModel, japaneseIsland3D, treeModel, villageSquare3D, wildRoute3D } from "../src/lib/world/japaneseIsland3D.ts";
+import { TRAVELLER_MODEL, buildingModel, castModel, japaneseIsland3D, snowy, treeModel, villageSquare3D, wildRoute3D } from "../src/lib/world/japaneseIsland3D.ts";
 import { canBuild } from "../src/components/world3d/japanese/japaneseModelMaker.ts";
 import { BUILDING_BUILDERS } from "../src/components/world3d/japanese/buildings.ts";
 import { BuiltPerson, chunRig, travellerRig } from "../src/components/world3d/japanese/people.ts";
@@ -27,9 +27,12 @@ import { hakaseRig, hatoRig, konRig, momoRig, tsuruRig } from "../src/components
 import { JAPANESE_BUILDING_BUILDERS } from "../src/components/world3d/japanese/buildingBuilders.ts";
 import { mergedByMaterial } from "../src/components/world3d/mergeStatic.ts";
 import { TallGrass } from "../src/components/world3d/tallGrass.ts";
+import { RoughWater } from "../src/components/world3d/roughWater.ts";
+import { RowingTraveller } from "../src/components/world3d/rowingBoat.ts";
 import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_PROPS, VILLAGE_SQUARE, villageArrivalFrom } from "../src/data/village/villageSquare.ts";
 import { withHomeSign } from "../src/lib/village/homeSign.ts";
 import { WILD_ROUTES } from "../src/data/world/routes.ts";
+import { isBeyond, snowfallShare } from "../src/lib/world/wintrySide.ts";
 
 const FROM_HOME_ARRIVALS = WILD_ROUTES.filter(route => route.between[0] === "home").map(route => villageArrivalFrom(route.id));
 
@@ -457,6 +460,8 @@ test("an instanced mesh is kept whole when its model is merged, every copy where
 // ---- the wild paths in 3D
 
 const WALKED_ROUTES = WILD_ROUTES.filter(({ travel }) => travel === "foot");
+const FERRY = WILD_ROUTES.find(({ travel }) => travel === "boat");
+const ferry3D = wildRoute3D(FERRY);
 /** Open land, where a piece can stand by the way without taking any of the path or the grass. */
 const OPEN_LAND = new Set(["grass", "flowers", "petals", "leaves"]);
 
@@ -505,4 +510,165 @@ test("a tuft of tall grass stands on every tall-grass tile, and on nothing else"
     return `${Math.floor(place.x)},${Math.floor(place.z)}`;
   }));
   assert.deepEqual([...tiles].sort(), ["0,0", "1,2", "2,0", "2,2"]);
+});
+
+/** The tiles an instanced mesh's copies stand on. */
+function tilesUnder(mesh) {
+  const matrix = new THREE.Matrix4(), place = new THREE.Vector3();
+  return new Set(Array.from({ length: mesh.count }, (_, index) => {
+    mesh.getMatrixAt(index, matrix);
+    place.setFromMatrixPosition(matrix);
+    return `${Math.floor(place.x)},${Math.floor(place.z)}`;
+  }));
+}
+
+test("white crests ride on every rough-water tile, and on nothing else", () => {
+  const crests = new RoughWater(parseTownMap(["vs", "sv"]));
+  assert.deepEqual([...tilesUnder(crests.mesh)].sort(), ["0,0", "1,1"]);
+});
+
+test("on the ferry the traveller rows a boat; on a walked path they walk", () => {
+  assert.deepEqual([ferry3D.isAboard, WALKED_ROUTES.some(route => wildRoute3D(route).isAboard)], [true, false]);
+});
+
+test("every model on the ferry, and on its far shore, can be built", () => {
+  const models = [...ferry3D.models, ...ferry3D.backdrop].map(({ model }) => model);
+  assert.deepEqual([...new Set(models)].filter(model => !canBuild(model)), []);
+});
+
+test("Fuji's flank rises beyond the ferry's western edge, its foot reaching the shore", () => {
+  const mountain = ferry3D.backdrop.find(({ model }) => model === MOUNTAIN_MODEL);
+  assert.ok(mountain, "a mountain stands behind the ferry");
+  assert.deepEqual([mountain.at.x < 0, mountain.at.x + mountain.at.width], [true, FERRY.mountainside.inset + 1]);
+});
+
+/** A rower who only counts what they're asked to do. */
+function fakeRower() {
+  return { root: new THREE.Group(), motions: [], play(motion) { this.motions.push(motion); }, standAt() {}, faceAtOnce() {}, update() {} };
+}
+
+test("the boat carries the rower where the traveller goes, the rower sitting low in it", () => {
+  const rower = fakeRower();
+  const boat = new RowingTraveller(rower);
+  boat.standAt({ x: 4, y: 7 }, "left");
+  boat.update(1);
+  const seat = rower.root.getWorldPosition(new THREE.Vector3());
+  assert.deepEqual([Math.round(seat.x), Math.round(seat.z), seat.y < 0], [4, 7, true]);
+});
+
+test("the boat turns to the way it's heading", () => {
+  const boat = new RowingTraveller(fakeRower());
+  boat.faceAtOnce("right");
+  assert.equal(boat.root.rotation.y, Math.PI / 2);
+});
+
+test("rowing, the rower sits still while the oars swing", () => {
+  const rower = fakeRower();
+  const boat = new RowingTraveller(rower);
+  const oarTurns = () => { const turns = []; boat.root.traverse(part => { if (part.type === "Group" && part.parent && part.parent !== boat.root && part.children.length === 2) turns.push(part.rotation.y.toFixed(3)); }); return turns.join(); };
+  boat.play("walk");
+  const before = oarTurns();
+  boat.update(0.2);
+  assert.deepEqual([rower.motions.at(-1), oarTurns() !== before], ["idle", true]);
+});
+
+test("a bridge over a stream flowing past its north and south sides runs east to west, across it", () => {
+  const [span] = bridgeSpans(parseTownMap(["..~~..", "==bb==", "==bb==", "..~~.."]), []);
+  assert.equal(span.runsAlong, "x");
+});
+
+test("a bridge over a stream flowing past its west and east sides runs north to south, across it", () => {
+  const [span] = bridgeSpans(parseTownMap([".==.", "~bb~", "~bb~", ".==."]), []);
+  assert.equal(span.runsAlong, "y");
+});
+
+test("the riverside path's bridge runs along the path, across the stream", () => {
+  const riverside = WILD_ROUTES.find(({ id }) => id === "home-practice");
+  const inner = bridgeSpans(riverside.layout.map, []).filter(({ at }) => at.x > 0 && at.x + at.width < riverside.layout.map.width);
+  assert.deepEqual(inner.map(({ runsAlong }) => runsAlong), ["x"]);
+});
+
+test("on the ferry the shores lie under snow: white land, and pines and rocks capped with snow", () => {
+  const models = new Set([...ferry3D.models, ...ferry3D.backdrop].map(({ model }) => model));
+  assert.deepEqual([models.has(snowy(treeModel("pine"))), models.has(snowy(ROCK_MODEL)), models.has(treeModel("pine")), models.has(ROCK_MODEL), ferry3D.landColours?.grass],
+    [true, true, false, false, "#eef2f5"]);
+});
+
+test("snow leaves bamboo green, and lies on no walked path's trees", () => {
+  const ferryModels = ferry3D.models.map(({ model }) => model);
+  const walkedSnowy = WALKED_ROUTES.flatMap(route => wildRoute3D(route).models).filter(({ model }) => model.endsWith(":snowy"));
+  assert.deepEqual([ferryModels.includes(treeModel("bamboo")), walkedSnowy.length], [true, 0]);
+});
+
+test("out on the ferry the sea runs to the horizon: no land across the water between the coasts, no reef along its edges", () => {
+  const { map } = FERRY.layout;
+  const edgeRocks = [0, map.height - 1].flatMap(y => map.terrain[y].slice(3, map.width - 3)).filter(terrain => terrain === "rock");
+  const acrossTheSea = ferry3D.shore.land.filter(rect => rect.x < map.width - 3 && rect.x + rect.width > 3);
+  assert.deepEqual([ferry3D.sea, edgeRocks.length, acrossTheSea.length, ferry3D.shore.decks.length], ["water", 0, 0, 0]);
+});
+
+const overlaps = (a, b) => a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+
+test("the ferry's coasts run on beyond the map, flush with the land inside it and never over it", () => {
+  const { map } = FERRY.layout;
+  const { land } = ferry3D.shore;
+  const onMap = { x: 0, y: 0, width: map.width, height: map.height };
+  const reaches = (point) => land.some(rect => overlaps(rect, { ...point, width: 1, height: 1 }));
+  const beside = [{ x: -1, y: 3 }, { x: map.width, y: 3 }, { x: 1, y: -1 }, { x: map.width - 2, y: map.height }];
+  assert.deepEqual([land.filter(rect => overlaps(rect, onMap)).length, beside.every(reaches), reaches({ x: 3, y: -1 })], [0, true, false]);
+});
+
+test("the ferry's piers run out from the land, their paths carried on inland at both ends", () => {
+  const { map } = FERRY.layout;
+  const pierRows = map.terrain.flatMap((row, y) => row.includes("pier") ? [y] : []);
+  const landward = ferry3D.shore.paths.map(({ x, y }) => ({ side: x < 0 ? "west" : "east", y }));
+  const startsOnLand = pierRows.every(y => map.terrain[y][0] === "path" && map.terrain[y][map.width - 1] === "path");
+  assert.deepEqual([startsOnLand, landward.filter(({ side }) => side === "west").map(({ y }) => y), landward.filter(({ side }) => side === "east").map(({ y }) => y)],
+    [true, pierRows, pierRows]);
+});
+
+test("the ferry's mainland grows its coasts' own trees: snowy pines by Fuji, bamboo by the Practice island", () => {
+  const trees = ferry3D.backdrop.filter(({ model }) => model.startsWith("tree:"));
+  const kindsOn = (isOnSide) => [...new Set(trees.filter(({ at }) => isOnSide(at.x)).map(({ model }) => model))];
+  assert.deepEqual([kindsOn(x => x < 3), kindsOn(x => x >= FERRY.layout.map.width - 3)], [[snowy(treeModel("pine"))], [treeModel("bamboo")]]);
+});
+
+test("the ferry's mainland trees keep off its paths", () => {
+  const onPath = ferry3D.backdrop.filter(({ model, at }) => model.startsWith("tree:") && ferry3D.shore.paths.some(path => overlaps(path, at)));
+  assert.equal(onPath.length, 0);
+});
+
+test("the Practice island's west side, facing the way to Fuji, is where winter begins", () => {
+  assert.deepEqual(practice3D.wintry?.side, "west");
+});
+
+test("beyond the Practice island's west edge the far shore grows snowy pines; elsewhere it keeps its bamboo", () => {
+  const trees = practice3D.backdrop.filter(({ model }) => model.startsWith("tree:"));
+  const kindsWhere = (isThere) => [...new Set(trees.filter(({ at }) => isThere(at.x)).map(({ model }) => model))];
+  assert.deepEqual([kindsWhere(x => x < 0), kindsWhere(x => x >= 0)], [[snowy(treeModel("pine"))], [treeModel("bamboo")]]);
+});
+
+test("no island but the Practice island has a wintry side", () => {
+  const wintry = [...ISLANDS_IN_3D].filter(id => japaneseIsland3D(islandSceneOf(id)).wintry);
+  assert.deepEqual(wintry, ["practice"]);
+});
+
+test("snow begins to fall as the traveller nears the wintry edge, falling in full at it and none deep inside", () => {
+  const { map } = islandSceneOf("practice").layout;
+  const shares = [20, 10, 6, 2, -3].map(x => snowfallShare(map, "west", { x, y: 7 }));
+  assert.deepEqual([shares[0], shares[3], shares[4], shares[1] < shares[2], shares[1] > 0], [0, 1, 1, true, true]);
+});
+
+test("only what lies past the wintry edge is beyond it", () => {
+  const { map } = islandSceneOf("practice").layout;
+  assert.deepEqual([isBeyond(map, "west", { x: -1, y: 5 }), isBeyond(map, "west", { x: 0, y: 5 }), isBeyond(map, "east", { x: map.width + 1, y: 5 }), isBeyond(map, "north", { x: -5, y: 3 })],
+    [true, false, true, false]);
+});
+
+test("thinning a snowfall lets only that share of its flakes fall", () => {
+  const snow = new FallingPetals(() => 0.5);
+  snow.thinTo(0.5);
+  const half = snow.mesh.count;
+  snow.thinTo(2);
+  assert.deepEqual([half, snow.mesh.count], [130, 260]);
 });

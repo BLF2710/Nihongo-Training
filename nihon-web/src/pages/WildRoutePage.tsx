@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { TouchControls } from "../components/errands/TouchControls";
-import { VillageScene } from "../components/errands/VillageScene";
+import { OUT_OF_THE_GRASS } from "../components/kanaWilds/BattleArena";
 import { BattleOverlay } from "../components/kanaWilds/BattleOverlay";
 import { WildPath3D } from "../components/wilds/WildPath3D";
 import { CHALLENGERS } from "../data/world/challengers";
@@ -17,14 +17,10 @@ import { AFTER_BATTLE, FRESH_GRASS_WALK, stepOnto } from "../lib/world/grassEnco
 import type { GrassWalk } from "../lib/world/grassEncounters";
 import { arrivalOn, exitHref, grassRowsOf, isHeldBack, nearbyExit, OPPOSITE_HEADING, rowNames } from "../lib/world/routes";
 import type { ChallengerId } from "../lib/world/challenges";
-import type { Surroundings } from "../lib/world/sceneTheme";
 import type { GrassKind, RouteExit, Travel, WildRoute } from "../lib/world/routes";
 import { useActionKey, useWorldWalk } from "../lib/world/useWorldWalk";
 
 const random = Math.random;
-const NO_GATES: readonly string[] = [];
-const NO_ONE: readonly never[] = [];
-const ignoreTalk = () => undefined;
 
 /** A wild path from the village to an island; an unknown path id gets a way back to the map. `?from=` names the island
  *  the traveller comes from, so they arrive at that end. */
@@ -70,12 +66,15 @@ const waysOut = ({ heading, between: [start, end] }: WildRoute) =>
   `${capitalised(OPPOSITE_HEADING[heading])}: ${endName(start)}, ${heading}: ${endName(end)}`;
 
 /** Where wild kana live on the way, and how the walking hint puts moving and running. */
-/** What lies beyond a path's edges: the woods going on, or for the ferry the open sea. */
-const SURROUNDINGS_BY_TRAVEL: Readonly<Record<Travel, Surroundings>> = { foot: "woods", boat: "water" };
-
-const TRAVEL_WORDS: Readonly<Record<Travel, { wildPlace: string; controls: string; wildKana: string }>> = {
-  foot: { wildPlace: "the tall grass", controls: "Walk: WASD or arrow keys · Run: hold Shift", wildKana: "Wild kana hide in the tall grass" },
-  boat: { wildPlace: "the rough water", controls: "Row: WASD or arrow keys · Row hard: hold Shift", wildKana: "Wild kana leap from the rough water" },
+const TRAVEL_WORDS: Readonly<Record<Travel, { wildPlace: string; controls: string; wildKana: string; wildOpening: string; back: string }>> = {
+  foot: {
+    wildPlace: "the tall grass", controls: "Walk: WASD or arrow keys · Run: hold Shift", wildKana: "Wild kana hide in the tall grass",
+    wildOpening: OUT_OF_THE_GRASS, back: "Back to the path",
+  },
+  boat: {
+    wildPlace: "the rough water", controls: "Row: WASD or arrow keys · Row hard: hold Shift", wildKana: "Wild kana leap from the rough water",
+    wildOpening: "A wild kana leaps out of the rough water!", back: "Back to the boat",
+  },
 };
 
 /** What the path's sign says lives in grass that isn't the path's own rows. */
@@ -127,18 +126,14 @@ function WildPath({ route, from }: { route: WildRoute; from: string | null }) {
         </p>}
         {isWalking && <TouchControls onPress={press} onRelease={release} onTalk={() => act?.()} canTalk={act !== null} talkLabel="Go"
           isRunning={isRunning} onRunningChange={setIsRunning} />}
-        {!isWalking && <BattleOverlay battles={battles} random={random} backLabel="Back to the path" onBack={backToPath} onCollection={() => navigate("/games/kana-wilds")} />}
+        {!isWalking && <BattleOverlay battles={battles} random={random} backLabel={TRAVEL_WORDS[route.travel].back} onBack={backToPath}
+          onCollection={() => navigate("/games/kana-wilds")} wildOpening={TRAVEL_WORDS[route.travel].wildOpening} />}
   </>;
-  // Walked paths are drawn in 3D; the ferry is still rowed in the 2.5D scene.
   return <div className="flex h-dvh flex-col bg-gray-50 text-gray-900"><Navbar />
     <main className="relative min-h-0 flex-1">
       <h1 className="sr-only">{route.name} ({route.japaneseName}), a wild path</h1>
-      {route.travel === "foot"
-        ? <WildPath3D route={route} position={walker.position} facing={walker.facing} isWalking={isHolding && isWalking} isRunning={isRunning}
-          exit={exit} onAct={() => act?.()}>{overlays}</WildPath3D>
-        : <VillageScene village={route.layout} position={walker.position} facing={walker.facing} isWalking={isHolding && isWalking} isRunning={isRunning}
-        openGateIds={NO_GATES} litLanterns={route.layout.lanterns.length} markedVillagerIds={NO_ONE} nearbyId={null} onTalk={ignoreTalk} theme={route.theme} surroundings={SURROUNDINGS_BY_TRAVEL[route.travel]} mountainside={route.mountainside} isAboard={route.travel === "boat"}
-        nearbyDoor={exit ? { tile: exit.tile, label: exit.label, action: "Go" } : null} onEnterDoor={() => act?.()}>{overlays}</VillageScene>}
+      <WildPath3D route={route} position={walker.position} facing={walker.facing} isWalking={isHolding && isWalking} isRunning={isRunning}
+        exit={exit} onAct={() => act?.()}>{overlays}</WildPath3D>
     </main>
   </div>;
 }

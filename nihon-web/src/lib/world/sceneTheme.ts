@@ -4,6 +4,7 @@
 // for the ferry to it ("mountain"). The village square has none.
 export type SceneTheme = "sakura" | "bamboo" | "festival" | "maple" | "zen" | "mountain" | "summit";
 
-/** What lies beyond a walking scene's edges: the woods going on (the paths and the village square), open water (round
- *  an island, and the sea the ferry crosses), or the sea of clouds below Fuji. */
-export type Surroundings = "woods" | "water" | "clouds";
+/** What lies beyond a walking scene's edges: the woods going on (the paths and the village square), water with land
+ *  across it (round an island), the open sea running out to the horizon (the ferry's), or the sea of clouds below
+ *  Fuji. */
+export type Surroundings = "woods" | "water" | "open-sea" | "clouds";

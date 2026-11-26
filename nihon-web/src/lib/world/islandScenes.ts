@@ -6,7 +6,7 @@ import type { IslandId } from "../islandMap.ts";
 import type { Door } from "../village/villageDoors.ts";
 import type { Vector } from "../errands/movement.ts";
 import type { ChallengerId } from "./challenges.ts";
-import type { RouteId } from "./routes.ts";
+import type { Heading, RouteId } from "./routes.ts";
 import type { SceneTheme, Surroundings } from "./sceneTheme.ts";
 import type { IslandProp } from "./islandProps.ts";
 
@@ -18,6 +18,8 @@ export type IslandScene = {
   island: IslandId; name: string; japaneseName: string; theme: SceneTheme; surroundings: Surroundings;
   layout: VillageLayout; doors: readonly Door[]; challenger: ChallengerId; arrivals: readonly { route: RouteId; tile: Vector }[];
   props: readonly IslandProp[];
+  /** The side facing the way up to Fuji, if the island has one: its far shore lies under snow and snow falls near it. */
+  wintrySide?: Heading;
 };
 
 /** Where the traveller appears coming off the path `routeId`: by its bridge, or at the island's start for any other. */

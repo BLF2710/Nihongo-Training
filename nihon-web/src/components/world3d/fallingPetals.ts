@@ -46,6 +46,11 @@ export class FallingPetals {
     }));
   }
 
+  /** Lets only a share of the petals fall (0 for none, 1 for all), as where snow is only beginning. */
+  thinTo(share: number): void {
+    this.mesh.count = Math.round(this.petals.length * Math.min(1, Math.max(0, share)));
+  }
+
   /** Lets the petals fall for `seconds`, in the air round `focus`. */
   update(seconds: number, focus: THREE.Vector3): void {
     this.time += seconds;

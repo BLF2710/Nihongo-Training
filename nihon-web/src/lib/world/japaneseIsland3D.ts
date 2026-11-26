@@ -11,13 +11,15 @@ import type { Vector } from "../errands/movement.ts";
 import type { IslandScene } from "./islandScenes.ts";
 import { steadyNoise } from "./islandModels.ts";
 import type { Island3D, IslandPerson, ModelPlacement, Weather } from "./islandModels.ts";
-import type { SceneTheme } from "./sceneTheme.ts";
-import { FLAT_DEPTH, WATER_GAP, farShoreAround, flatShoreTiles } from "./farShore.ts";
+import type { SceneTheme, Surroundings } from "./sceneTheme.ts";
+import { FLAT_DEPTH, WATER_GAP, farShoreAround, flatShoreTiles, mainlandBeside } from "./farShore.ts";
+import type { Mainland } from "./farShore.ts";
 import { isWalkedThrough, propModel } from "./islandProps.ts";
 import type { IslandProp, ShrinePropKind } from "./islandProps.ts";
 import { pondsOf } from "./ponds.ts";
 import { exitHref } from "./routes.ts";
-import type { WildRoute } from "./routes.ts";
+import type { Heading, Mountainside, Travel, WildRoute } from "./routes.ts";
+import { isBeyond } from "./wintrySide.ts";
 
 /** The learner's own traveller, made from the look they chose in the wardrobe. */
 export const TRAVELLER_MODEL = "traveller";
@@ -42,13 +44,26 @@ const MOUNTAIN = { distance: 34, size: 44 } as const;
 export const buildingModel = (look: BuildingLook): string => `building:${look}`;
 export const treeModel = (terrain: Terrain): string => `tree:${terrain}`;
 export const castModel = (character: CharacterId): string => `cast:${character}`;
+/** A tree or rock as it stands in snow, under a snowy look. */
+export const snowy = (model: string): string => `${model}:snowy`;
+/** The trees and rocks that stand differently in snow (bamboo, say, stays green). */
+const SNOWED_ON: ReadonlySet<string> = new Set([treeModel("pine"), ROCK_MODEL]);
+const inSnow = (model: string): string => SNOWED_ON.has(model) ? snowy(model) : model;
+const asItIs = (model: string): string => model;
 
 /** Each theme's look in 3D: the trees on its far shore, what falls through its air, the landmark (`model`, its `roof`
- *  colour if it has one) on the flat land facing the island's far side, the kind of lantern its lanterns are, and
- *  any terrain it colours its own way (snow on the summit). */
+ *  colour if it has one) on the flat land facing the island's far side, the kind of lantern its lanterns are, any
+ *  terrain it colours its own way (snow on the summit), and how its trees and rocks are `dressed` (snowy, or as they
+ *  are). */
 type ThemeLook = {
   tree?: Terrain; weather?: Weather; landmark?: { model: string; roof?: RoofColour; size: number }; lantern: ShrinePropKind;
-  landColours?: Partial<Readonly<Record<Terrain, string>>>;
+  landColours?: Partial<Readonly<Record<Terrain, string>>>; dressed?: (model: string) => string;
+};
+/** Snow lying on grassland. */
+const LYING_SNOW = "#eef2f5";
+/** Land under snow: the grass, the ground under the trees, the stony ground and the rocks' ground white, or nearly. */
+const SNOWY_LAND: Partial<Readonly<Record<Terrain, string>>> = {
+  grass: LYING_SNOW, snow: "#fbfcfd", stones: "#eef2f5", rock: "#dfe5ea", flowers: "#eef2f5", pine: "#e8edf1", bamboo: "#e8edf1", tree: "#e8edf1",
 };
 const THEME_LOOKS: Readonly<Record<SceneTheme, ThemeLook>> = {
   sakura: { tree: "sakura", weather: "petals", landmark: { model: buildingModel("pagoda"), roof: "vermilion", size: 3 }, lantern: "stone-lantern" },
@@ -56,7 +71,8 @@ const THEME_LOOKS: Readonly<Record<SceneTheme, ThemeLook>> = {
   festival: { tree: "tree", landmark: { model: propModel("watchtower"), size: 3 }, lantern: "paper-lantern" },
   maple: { tree: "maple", weather: "maple", landmark: { model: propModel("torii"), size: 4 }, lantern: "stone-lantern" },
   zen: { tree: "pine", landmark: { model: buildingModel("pagoda"), roof: "wood", size: 3 }, lantern: "yukimi-lantern" },
-  mountain: { tree: "pine", weather: "snow", lantern: "stone-lantern" },
+  // The ferry's sea, on the way up to Fuji: its shores already deep in snow.
+  mountain: { tree: "pine", weather: "snow", lantern: "stone-lantern", landColours: SNOWY_LAND, dressed: inSnow },
   // High on the mountain the ground is snow, deeper in its drifts.
   summit: { weather: "snow", lantern: "stone-lantern", landColours: { grass: "#eef2f5", snow: "#fbfcfd", stones: "#eef2f5" } },
 };
@@ -88,6 +104,9 @@ const rocksOf = (map: TownMap): ModelPlacement[] => map.terrain.flatMap((row, y)
 
 const isInside = (tile: { x: number; y: number }, rect: Rect) => tile.x >= rect.x && tile.x < rect.x + rect.width && tile.y >= rect.y && tile.y < rect.y + rect.height;
 
+/** Whether a tile of the far shore grows a tree (where its steady noise says so). */
+const growsTree = (tile: { x: number; y: number }) => steadyNoise(tile.x * 3.1, tile.y * 1.7) > SHORE_TREE_THRESHOLD;
+
 /** The far shore's landmark (on the flat land facing the island's far side, in the middle) and its trees, kept off
  *  the paths and the landmark's ground. */
 function shoreScenery(map: TownMap, look: ThemeLook, paths: readonly Rect[]): ModelPlacement[] {
@@ -98,10 +117,23 @@ function shoreScenery(map: TownMap, look: ThemeLook, paths: readonly Rect[]): Mo
   const isFree = (tile: { x: number; y: number }) => !paths.some(path => isInside(tile, path)) && !(landmark && isInside(tile, landmark.at));
   const tree = look.tree;
   const trees = tree ? flatShoreTiles(map)
-    .filter(tile => steadyNoise(tile.x * 3.1, tile.y * 1.7) > SHORE_TREE_THRESHOLD && isFree(tile))
+    .filter(tile => growsTree(tile) && isFree(tile))
     .map(tile => treeAt(tree, { ...tile, width: 1, height: 1 })) : [];
   return landmark ? [landmark, ...trees] : trees;
 }
+
+/** The trees of the mainland's groves, each grove growing the trees of its own coast (pines by a pine coast, bamboo by
+ *  a bamboo one), kept off the paths. */
+function groveTrees({ shore, groves }: Mainland): ModelPlacement[] {
+  const isFree = (tile: { x: number; y: number }) => !shore.paths.some(path => isInside(tile, path));
+  return groves.flatMap(({ coast, tiles }) => {
+    const tree = coast.find(terrain => TREE_TERRAINS.has(terrain));
+    return tree ? tiles.filter(tile => growsTree(tile) && isFree(tile)).map(tile => treeAt(tree, { ...tile, width: 1, height: 1 })) : [];
+  });
+}
+
+/** On the wintry side of an island, the far shore's trees are pines under snow. */
+const WINTRY_TREE = snowy(treeModel("pine"));
 
 /** The summit, far behind an island above the clouds. */
 const summitBehind = (map: TownMap): ModelPlacement => ({
@@ -120,7 +152,7 @@ const lanternsOf = (lanterns: readonly Vector[], kind: ShrinePropKind): IslandPr
 
 /** What a Japanese scene is drawn from: an island's or the village square's ground, buildings, people, doors and
  *  pieces, and its look. */
-export type JapaneseScene = Pick<IslandScene, "layout" | "doors" | "props" | "theme" | "surroundings">;
+export type JapaneseScene = Pick<IslandScene, "layout" | "doors" | "props" | "theme" | "surroundings" | "wintrySide">;
 
 /** An island in 3D, its lanterns of its theme's kind. */
 export const japaneseIsland3D = (scene: IslandScene): Island3D =>
@@ -135,14 +167,35 @@ export const villageSquare3D = (scene: JapaneseScene): Island3D => ({
   }),
 });
 
+/** How wide a mountain rising from the side of a path is, in tiles. */
+const MOUNTAINSIDE_SIZE = 26;
+
+/** Where a mountain rising from a side of a path stands: just beyond that edge, its foot `inset` tiles in, centred
+ *  along the side. */
+function mountainsideAt(map: TownMap, { side, inset }: Mountainside): ModelPlacement {
+  const size = MOUNTAINSIDE_SIZE;
+  const across = { x: map.width / 2 - size / 2, y: map.height / 2 - size / 2 };
+  const corners: Readonly<Record<Heading, Vector>> = {
+    west: { x: inset + 1 - size, y: across.y }, east: { x: map.width - inset - 1, y: across.y },
+    north: { x: across.x, y: inset + 1 - size }, south: { x: across.x, y: map.height - inset - 1 },
+  };
+  return { model: MOUNTAIN_MODEL, scale: BUILT_SCALE, at: { ...corners[side], width: size, height: size } };
+}
+
+/** What lies round a path: water with land across it for a walked one, and the open sea for the ferry. */
+const SURROUNDINGS_BY_TRAVEL: Readonly<Record<Travel, Surroundings>> = { foot: "water", boat: "open-sea" };
+
 /** What leaving a wild path through an exit says. */
 const GO = "Go";
 
-/** A wild path walked in 3D: drawn as an island is, under the look of the island it leads to, its exits doors. */
+/** A wild path in 3D: drawn as an island is, under the look of the island it leads to, its exits doors; the ferry is
+ *  rowed in a boat, and a mountain rises from the side of a path that has one. */
 export function wildRoute3D(route: WildRoute): Island3D {
   const doors = route.exits.map(exit => ({ id: exit.island, tile: exit.tile, href: exitHref(exit, route.id), label: exit.label, action: GO }));
-  const scene: JapaneseScene = { layout: route.layout, doors, props: route.props ?? [], theme: route.theme, surroundings: "water" };
-  return japaneseScene3D(scene, lanternsOf(route.layout.lanterns, THEME_LOOKS[route.theme].lantern));
+  const scene: JapaneseScene = { layout: route.layout, doors, props: route.props ?? [], theme: route.theme, surroundings: SURROUNDINGS_BY_TRAVEL[route.travel] };
+  const path = japaneseScene3D(scene, lanternsOf(route.layout.lanterns, THEME_LOOKS[route.theme].lantern));
+  const mountain = route.mountainside ? [mountainsideAt(route.layout.map, route.mountainside)] : [];
+  return { ...path, backdrop: [...mountain, ...path.backdrop], isAboard: route.travel === "boat" };
 }
 
 /** A scene in 3D, with its `lanterns` standing as the pieces given. */
@@ -154,11 +207,23 @@ function japaneseScene3D(scene: JapaneseScene, lanterns: readonly IslandProp[]):
   }));
   const pieces = [...scene.props, ...lanterns].map(propAt);
   const people = villagers.map(({ id, tile }): IslandPerson => ({ id, model: castModel(id), tile, facing: "down" }));
+  const dressed = (placement: ModelPlacement): ModelPlacement => ({ ...placement, model: (look.dressed ?? asItIs)(placement.model) });
   const island = {
-    map, models: [...standing, ...treesOf(map), ...rocksOf(map), ...pieces], people, traveller: TRAVELLER_MODEL, doors: scene.doors,
+    map, models: [...standing, ...[...treesOf(map), ...rocksOf(map)].map(dressed), ...pieces], people, traveller: TRAVELLER_MODEL, doors: scene.doors,
     weather: look.weather, ponds: pondsOf(map), landColours: look.landColours,
   };
   if (scene.surroundings === "clouds") return { ...island, sea: "clouds", backdrop: [summitBehind(map)] };
+  // Out at sea the land lies only behind the piers at either end, the sea open to the horizon between.
+  if (scene.surroundings === "open-sea") {
+    const mainland = mainlandBeside(map);
+    return { ...island, sea: "water", shore: mainland.shore, backdrop: groveTrees(mainland).map(dressed) };
+  }
   const shore = farShoreAround(map);
-  return { ...island, sea: "water", shore, backdrop: shoreScenery(map, look, shore.paths) };
+  const scenery = shoreScenery(map, look, shore.paths);
+  const side = scene.wintrySide;
+  if (!side) return { ...island, sea: "water", shore, backdrop: scenery.map(dressed) };
+  const shoreTree = look.tree && treeModel(look.tree);
+  const wintered = (placement: ModelPlacement): ModelPlacement =>
+    placement.model === shoreTree && isBeyond(map, side, placement.at) ? { ...placement, model: WINTRY_TREE } : placement;
+  return { ...island, sea: "water", shore, backdrop: scenery.map(wintered).map(dressed), wintry: { side, snow: LYING_SNOW } };
 }

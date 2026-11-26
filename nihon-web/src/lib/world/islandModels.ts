@@ -5,6 +5,7 @@ import type { Direction, Vector } from "../errands/movement.ts";
 import type { Rect, Terrain, TownMap } from "../errands/townMap.ts";
 import type { Door } from "../village/villageDoors.ts";
 import type { RoofColour } from "../errands/village.ts";
+import type { WintrySide } from "./wintrySide.ts";
 
 /** A model standing on the island. `at` is the ground it takes up (nobody walks there unless `isWalkable`); the model
  *  stands centred on it, drawn `scale` tiles to a model unit. `isMirrored` flips it east to west, so a row of the same
@@ -39,6 +40,10 @@ export type Island3D = {
   traveller: string; doors: readonly Door[]; shore?: FarShore; weather?: Weather; sea?: Sea;
   ponds?: readonly (readonly Vector[])[]; landColours?: Partial<Readonly<Record<Terrain, string>>>;
   lanterns?: readonly SwitchedLantern[];
+  /** Whether the traveller goes by boat here, rowing over the water rather than walking. */
+  isAboard?: boolean;
+  /** The side where winter begins, if the island has one (see lib/world/wintrySide). */
+  wintry?: WintrySide;
 };
 
 /** A lantern that can be lit while the scene stands (as the village's are, as the day's errands get done): how it

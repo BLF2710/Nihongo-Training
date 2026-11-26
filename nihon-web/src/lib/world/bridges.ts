@@ -2,7 +2,7 @@
 // over the water to the far shore, and as long again on the far shore as on the island, so it's the same at both
 // ends. The island end is walked on, so it lies flat, and so does the far end; the stretch over the open water, which
 // nobody walks, arches up as a drum bridge does. Pure (no three.js, no browser).
-import type { Rect, TownMap } from "../errands/townMap.ts";
+import type { Rect, Terrain, TownMap } from "../errands/townMap.ts";
 
 /** One bridge: the ground it spans, which way it runs (along x, east to west, or along y, north to south), and where
  *  along that way its arch rises from and comes down to (none if it isn't carried over open water). */
@@ -32,10 +32,28 @@ function boundsOf(tiles: readonly { x: number; y: number }[]): Rect {
   return { x, y, width: Math.max(...xs) - x + 1, height: Math.max(...ys) - y + 1 };
 }
 
-/** A bridge runs out across the edge of the map it touches; one inside the island runs along its longer side. */
-function runOf(map: TownMap, { x, y, width, height }: Rect): "x" | "y" {
+/** What a bridge crosses. */
+const WATERY: ReadonlySet<Terrain> = new Set<Terrain>(["water", "sea", "waves", "goldfish"]);
+
+/** How many of the tiles just beyond a bridge's two sides, along `side` (its north and south rows, or its west and
+ *  east columns), are water. */
+function waterBeside(map: TownMap, { x, y, width, height }: Rect, side: "north-south" | "west-east"): number {
+  const isWater = (tileX: number, tileY: number) => WATERY.has(map.terrain[tileY]?.[tileX] ?? "grass");
+  const beside = side === "north-south"
+    ? Array.from({ length: width }, (_, column) => [{ x: x + column, y: y - 1 }, { x: x + column, y: y + height }]).flat()
+    : Array.from({ length: height }, (_, row) => [{ x: x - 1, y: y + row }, { x: x + width, y: y + row }]).flat();
+  return beside.filter(tile => isWater(tile.x, tile.y)).length;
+}
+
+/** A bridge runs out across the edge of the map it touches. One inside the island runs across the water it spans:
+ *  east to west over a stream flowing past its north and south sides, north to south over one past its west and east
+ *  sides (along its longer side, if that doesn't settle it). */
+function runOf(map: TownMap, bridge: Rect): "x" | "y" {
+  const { x, y, width, height } = bridge;
   if (y === 0 || y + height === map.height) return "y";
   if (x === 0 || x + width === map.width) return "x";
+  const northSouth = waterBeside(map, bridge, "north-south"), westEast = waterBeside(map, bridge, "west-east");
+  if (northSouth !== westEast) return northSouth > westEast ? "x" : "y";
   return height >= width ? "y" : "x";
 }
 

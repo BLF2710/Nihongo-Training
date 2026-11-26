@@ -6,6 +6,8 @@ import type { Rect, Terrain, TownMap } from "../../lib/errands/townMap.ts";
 import { bridgeSpans } from "../../lib/world/bridges.ts";
 import { steadyNoise } from "../../lib/world/islandModels.ts";
 import type { FarShore, Hill } from "../../lib/world/islandModels.ts";
+import { isBeyond } from "../../lib/world/wintrySide.ts";
+import type { WintrySide } from "../../lib/world/wintrySide.ts";
 import { buildBridges } from "./bridges.ts";
 import { groundDetails } from "./groundDetails.ts";
 
@@ -91,32 +93,39 @@ function slab(rect: Rect, colour: string, lift = 0): THREE.Mesh {
   return mesh;
 }
 
-/** A low-poly hill: a dome of grass. */
-function hill({ x, y, radius, height }: Hill): THREE.Mesh {
+/** A low-poly hill: a dome of grass (or whatever covers the land, `colour`). */
+function hill({ x, y, radius, height }: Hill, colour: string): THREE.Mesh {
   const dome = new THREE.SphereGeometry(1, HILL_SEGMENTS.round, HILL_SEGMENTS.up, 0, Math.PI * 2, 0, Math.PI / 2);
-  const mesh = new THREE.Mesh(dome, new THREE.MeshStandardMaterial({ color: HILL_COLOUR, roughness: 1, flatShading: true }));
+  const mesh = new THREE.Mesh(dome, new THREE.MeshStandardMaterial({ color: colour, roughness: 1, flatShading: true }));
   mesh.scale.set(radius, height, radius);
   mesh.position.set(x, 0, y);
   mesh.receiveShadow = true;
   return mesh;
 }
 
-/** The far shore: its land, the paths carrying the island's bridges on, and its hills. */
-function farShore({ land: strips, paths, hills }: FarShore): THREE.Group {
+/** What covers the far shore's land at a point: its grass's colour, or the snow lying there (undefined for the
+ *  shore's own green). */
+type ShoreCover = (point: { x: number; y: number }) => string | undefined;
+
+/** The far shore: its land, the paths carrying the island's bridges on, and its hills, each coloured by what covers
+ *  the land where it lies (as the island's grass is, or white under snow). */
+function farShore({ land: strips, paths, hills }: FarShore, coverAt: ShoreCover): THREE.Group {
   const pathColour = LAND_COLOURS.path ?? DEFAULT_LAND_COLOUR;
+  const middleOf = (rect: Rect) => ({ x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 });
   return new THREE.Group().add(
-    ...strips.map(strip => slab(strip, DEFAULT_LAND_COLOUR)),
+    ...strips.map(strip => slab(strip, coverAt(middleOf(strip)) ?? DEFAULT_LAND_COLOUR)),
     ...paths.map(path => slab(path, pathColour, PATH_LIFT)),
-    ...hills.map(hill),
+    ...hills.map(shape => hill(shape, coverAt(shape) ?? HILL_COLOUR)),
   );
 }
 
 /** The island's whole ground: land (its terrain coloured as `landColours` has it, where it does), bridges carried on
  *  over the water to the far shore, piers, the details lying on it, and the far shore, if it has one (the water is
  *  `LivelyWater`). */
-export function buildGround(map: TownMap, { shore, landColours = {} }: { shore?: FarShore; landColours?: LandColours }): THREE.Group {
+export function buildGround(map: TownMap, { shore, landColours = {}, wintry }: { shore?: FarShore; landColours?: LandColours; wintry?: WintrySide }): THREE.Group {
   const bridges = buildBridges(bridgeSpans(map, shore?.decks ?? []));
   const ground = new THREE.Group().add(land(map, landColours), bridges, piers(map), groundDetails(map));
-  if (shore) ground.add(farShore(shore));
+  const coverAt: ShoreCover = point => wintry && isBeyond(map, wintry.side, point) ? wintry.snow : landColours.grass;
+  if (shore) ground.add(farShore(shore, coverAt));
   return ground;
 }

@@ -9,6 +9,7 @@ import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import type { Rect, Terrain } from "../../../lib/errands/townMap.ts";
 import { steadyNoise } from "../../../lib/world/islandModels.ts";
+import { paintedByHeight } from "./nature.ts";
 import type { Palette } from "./shapes.ts";
 
 export type TreeBuilder = (palette: Palette, at: Rect) => THREE.Object3D;
@@ -150,9 +151,16 @@ function broadleaf(crowns: readonly Crown[], fallenColours: readonly string[]): 
 }
 
 const PINE = { bark: "#6b4a35", needles: { shade: "#2c5232", light: "#5f8f4b" }, height: 1.5, pads: 5, padRadius: 0.34 } as const;
+/** Snow lying on a pad of needles: its colour, and how far up the pad (a share of its height) it starts. */
+const SNOW = { colour: "#f4f7fa", line: 0.45 } as const;
+
+/** How a pine's pads of needles are coloured: green going lighter towards the top, or green under a cap of snow. */
+type NeedlePainter = (needles: THREE.BufferGeometry) => THREE.BufferGeometry;
+const greenNeedles: NeedlePainter = needles => painted(needles, PINE.needles.shade, PINE.needles.light);
+const snowyNeedles: NeedlePainter = needles => paintedByHeight(needles.toNonIndexed(), { low: PINE.needles.shade, high: SNOW.colour, line: SNOW.line });
 
 /** A garden pine: a trunk twisting up in three turns, holding out flat pads of needles on short branches, one on top. */
-const pine: TreeBuilder = (palette, at) => {
+const pineWith = (paintNeedles: NeedlePainter): TreeBuilder => (palette, at) => {
   const size = Math.min(at.width, at.height);
   const random = steadyRandom(at);
   const parts: THREE.BufferGeometry[] = [];
@@ -175,10 +183,11 @@ const pine: TreeBuilder = (palette, at) => {
     if (!isTop) parts.push(...limb(from, to, { from: 0.04 * size, to: 0.025 * size }).map(part => painted(part, PINE.bark)));
     const radius = PINE.padRadius * size * (isTop ? 1.1 : 0.75 + random() * 0.4);
     const needles = new THREE.SphereGeometry(radius, 9, 5).scale(1, 0.38, 1).translate(to.x, to.y + 0.05 * size, to.z);
-    parts.push(painted(needles, PINE.needles.shade, PINE.needles.light));
+    parts.push(paintNeedles(needles));
   }
   return mergedTree(palette, parts);
 };
+const pine = pineWith(greenNeedles);
 
 const CANE = { base: "#5c8f37", top: "#93c25a", joint: "#456f28" } as const;
 const BAMBOO_LEAF = { shade: "#5a9636", light: "#86c04f" } as const;
@@ -241,3 +250,6 @@ const bamboo: TreeBuilder = (palette, at) => {
 export const TREE_BUILDERS: ReadonlyMap<Terrain, TreeBuilder> = new Map<Terrain, TreeBuilder>([
   ["sakura", broadleaf(BLOSSOM, PETALS)], ["tree", broadleaf(LEAVES, [])], ["maple", broadleaf(MAPLE, MAPLE_LEAVES)], ["pine", pine], ["bamboo", bamboo],
 ]);
+
+/** Trees as they stand in snow, where a look is snowy: pines with snow lying on their pads. (Bamboo stays green.) */
+export const SNOWY_TREE_BUILDERS: ReadonlyMap<Terrain, TreeBuilder> = new Map<Terrain, TreeBuilder>([["pine", pineWith(snowyNeedles)]]);

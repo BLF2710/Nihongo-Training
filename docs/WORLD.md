@@ -148,10 +148,6 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
     The camera looks steeply down, so only the top of the screen shows past the map: the card stands just past the
     edge and nothing on it is taller than about 3.5 tiles, or only its foot would show. Colours come from the look
     (`--backdrop-far`, `--backdrop-mid`, `--backdrop-near` and the scene's own), each with a dark-mode value. The page is `/islands/:islandId` (`pages/IslandScenePage.tsx`).
-  - On the ferry, Fuji's flank rising past the west edge (`mountainside` on `WildRoute`, drawn by
-    `components/errands/Elevation.tsx`): a snowy slope with drifts, a few rocks, snowy firs and a path zigzagging up
-    from the pier. It is hinged a tile inside the edge, behind the shore's pines: the camera is always over the map, so
-    a slope rising from the edge itself would lie mostly off screen.
 - **Islands in real 3D:** every Japanese island is listed in `ISLANDS_IN_3D` (`data/world/islandScenes.ts`) and is
   drawn with three.js, like the English island (see `docs/ENGLISH.md`), instead of `VillageScene`.
   `lib/world/japaneseIsland3D.ts` reads the island's own `IslandScene` as a 3D one, so its layout, doors, challenger
@@ -185,6 +181,10 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
     pines and a wooden pagoda) and what falls through the air, round the camera
     (`components/world3d/fallingPetals.ts`): petals, bamboo leaves, maple leaves or snow, none when the system asks
     for reduced motion.
+  - An island may have a wintry side (`wintrySide`, `lib/world/wintrySide.ts`): the Practice island's west, facing
+    the ferry to Fuji. The far shore beyond that edge lies under snow (white land and hills, snowy pines in place of
+    its own trees), and snow starts to fall as the camera nears that edge. Snow is thin about 12 tiles in and falls
+    in full from the bridge on.
   - The water on every 3D island moves (`components/world3d/water.ts`): waves roll across it and catch the light,
     with glints on their crests. It turns turquoise in the shallows, and foam laps along every shore. It knows how
     near land it is from a blurred picture of the land (`lib/world/shallows.ts`). A sharp blur places the foam, so a
@@ -225,7 +225,15 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   shrine piece fits its ground, and that no piece blocks a door or an arrival.
 - **The wild paths in real 3D** (`pages/WildRoutePage.tsx`, `components/wilds/WildPath3D.tsx`): every path walked on
   foot is drawn like an island, by `wildRoute3D` in `lib/world/japaneseIsland3D.ts`, under the look of the island it
-  leads to; the ferry to Fuji is still rowed in the 2.5D scene. Its tall grass stands as tufts of blades swaying in the
+  leads to. The ferry to Fuji is rowed: the traveller sits in a rowing boat (`components/world3d/rowingBoat.ts`, wrapping
+  their own walker), which turns to its heading, bobs and rows; its rough water rides with white crests in lines of
+  chop (`components/world3d/roughWater.ts`), and Fuji's flank rises beyond its western shore (a path's `mountainside`). It's out on the open sea (`open-sea` surroundings: no shore across the water, the sea running to the horizon
+  between). The two islands' coasts at its ends run on past the map's edges as mainland
+  (`mainlandBeside` in `lib/world/farShore.ts`), flush with the land inside the map, with hills and their own trees
+  (snowy pines by Fuji, bamboo by the Practice island). Each pier starts from a path on the land, and the path
+  carries on inland. Its look (`mountain`) is snowy: white land
+  and far shore, and its pines and rocks stand capped with snow (`snowy` models; bamboo stays green).
+  Its tall grass stands as tufts of blades swaying in the
   wind (`components/world3d/tallGrass.ts`, one instanced mesh, swayed on the graphics card; on the islands too). Each
   path's `props` (`data/world/routes.ts`, their ground among its `obstacles`) are in keeping with that island: flowering
   bushes and a prayer-board rack on the way to the Kana island, moss, rocks, stone lanterns and a drum on the way to

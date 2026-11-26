@@ -97,7 +97,7 @@ const KANA = islandScene({
 
 const PRACTICE = islandScene({
   island: "practice", name: "The Practice island", japaneseName: "れんしゅうのしま", challenger: "tama", route: "home-practice", pathName: "the riverside path",
-  theme: "bamboo", bridge: EAST_BRIDGE,
+  theme: "bamboo", bridge: EAST_BRIDGE, wintrySide: "west",
   // A gravel courtyard inside a bamboo grove, kept like a shrine's: two halls at the back, one at the front, and Tama by
   // the pond. The road in from the east passes under a great torii between guardian lions; a roofed gate stands over
   // the way to the west pier, where the ferry leaves for Fuji. Lanterns flank the halls, a taiko drum stands by the

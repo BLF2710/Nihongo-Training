@@ -118,6 +118,8 @@ function footings(span: BridgeSpan, material: THREE.Material): THREE.Mesh[] {
 
 /** Each bridge, as its own group. */
 export function buildBridges(spans: readonly BridgeSpan[]): THREE.Group {
+  // A scene with no bridges (the ferry's) gets an empty group: adding nothing to one is a mistake to three.js.
+  if (spans.length === 0) return new THREE.Group();
   const wood = [new THREE.MeshLambertMaterial({ color: COLOUR.planks }), new THREE.MeshLambertMaterial({ color: COLOUR.planksDark })];
   const vermilion = new THREE.MeshLambertMaterial({ color: COLOUR.vermilion });
   const cap = new THREE.MeshLambertMaterial({ color: COLOUR.cap });

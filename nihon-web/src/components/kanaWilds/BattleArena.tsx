@@ -31,6 +31,8 @@ type Props = {
   round?: ChallengeRound;
   /** Pon's reward: a hidden wild kana shows its stroke count from the start. */
   hasSharpEyes?: boolean;
+  /** How a wild kana's appearance is told: out of the tall grass, unless it's met somewhere else (the rough water). */
+  wildOpening?: string;
 };
 
 const MATCHUP_NOTE = { strong: " It's strong against it!", neutral: "", weak: " It's weak against it…" } as const;
@@ -71,7 +73,10 @@ function cueOf(before: BattleState, after: BattleState): BattleEvent | null {
 }
 
 /** One battle: the scene on top, then the text box (with catch and run) beside the current turn's menu. */
-export function BattleArena({ encounter, kanaLevels, words, pool, practice, random, onEnd, round, hasSharpEyes = false }: Props) {
+/** How a wild kana appears, where the page doesn't say otherwise. */
+export const OUT_OF_THE_GRASS = "A wild kana jumps out of the tall grass!";
+
+export function BattleArena({ encounter, kanaLevels, words, pool, practice, random, onEnd, round, hasSharpEyes = false, wildOpening = OUT_OF_THE_GRASS }: Props) {
   const [state, setState] = useState(() => startBattle(encounter.kana, { isCatchable: encounter.isCatchable, isHidden: !round, kanaLevels, playerHp: round?.playerHp }));
   /** Leaves out `skipped` words when it can: those played this battle, and on a redraw the hand being swapped. */
   const deal = (skipped: Iterable<string>) => dealHand({
@@ -117,7 +122,7 @@ export function BattleArena({ encounter, kanaLevels, words, pool, practice, rand
   const reveal = useEnemyReveal(state, hasSharpEyes);
   const enemyName = reveal.isRevealed ? enemy.kana : "the wild kana";
   const fullName = round ? `${round.challengerName}'s ${enemy.kana}` : `Wild ${enemy.kana}`;
-  const opening = round ? `${round.challengerName} sends out ${enemy.kana}! (kana ${round.number} of ${round.of})` : "A wild kana jumps out of the tall grass!";
+  const opening = round ? `${round.challengerName} sends out ${enemy.kana}! (kana ${round.number} of ${round.of})` : wildOpening;
   return <section className={`${sheet} space-y-3`} aria-label={round ? `Challenge against ${round.challengerName}` : "Battle against a wild kana"} data-animating={isAnimating}>
     {/* While tracing on a phone the kana is in the tracing box, so the scene makes room for it. */}
     <div className={isCatching ? "max-md:hidden" : ""}><BattleField state={state} reveal={reveal} enemyName={fullName} cue={cue} turn={turn} isCompact={isCatching} /></div>

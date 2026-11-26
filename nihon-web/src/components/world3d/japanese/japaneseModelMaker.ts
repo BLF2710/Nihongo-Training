@@ -6,7 +6,7 @@ import type { CharacterId } from "../../../lib/cast.ts";
 import type { TravellerLook } from "../../../lib/travellerLook.ts";
 import type { ModelPlacement } from "../../../lib/world/islandModels.ts";
 import { propModel } from "../../../lib/world/islandProps.ts";
-import { MOUNTAIN_MODEL, ROCK_MODEL, TRAVELLER_MODEL, buildingModel, castModel, treeModel } from "../../../lib/world/japaneseIsland3D.ts";
+import { MOUNTAIN_MODEL, ROCK_MODEL, TRAVELLER_MODEL, buildingModel, castModel, snowy, treeModel } from "../../../lib/world/japaneseIsland3D.ts";
 import { mergedByMaterial } from "../mergeStatic.ts";
 import { standOnGround, castsShadows } from "../models.ts";
 import type { ModelMaker } from "../models.ts";
@@ -16,7 +16,7 @@ import { BuiltPerson, chunRig, tamaRig, travellerRig } from "./people.ts";
 import type { Rig } from "./people.ts";
 import { Palette } from "./shapes.ts";
 import type { PropGround } from "./shapes.ts";
-import { TREE_BUILDERS } from "./trees.ts";
+import { SNOWY_TREE_BUILDERS, TREE_BUILDERS } from "./trees.ts";
 import { PROP_BUILDERS } from "./props.ts";
 import { NATURE_BUILDERS } from "./nature.ts";
 import { kuramaRig, ponRig, senseiRig, zenRig } from "./castRigs.ts";
@@ -45,7 +45,9 @@ const STAND_BUILDERS: ReadonlyMap<string, StandBuilder> = new Map<string, StandB
     (palette, { at, roof = DEFAULT_ROOF, sign }) => build(palette, { width: at.width, depth: at.height, roof, sign })]),
   ...[...TREE_BUILDERS].map(([terrain, build]): [string, StandBuilder] => [treeModel(terrain), (palette, { at }) => build(palette, at)]),
   ...[...PROP_BUILDERS].map(([kind, build]): [string, StandBuilder] => [propModel(kind), (palette, placement) => build(palette, groundAsFacing(placement))]),
+  ...[...SNOWY_TREE_BUILDERS].map(([terrain, build]): [string, StandBuilder] => [snowy(treeModel(terrain)), (palette, { at }) => build(palette, at)]),
   [ROCK_MODEL, (palette, { at }) => NATURE_BUILDERS.rock(palette, at)],
+  [snowy(ROCK_MODEL), (palette, { at }) => NATURE_BUILDERS.snowyRock(palette, at)],
   [MOUNTAIN_MODEL, (palette, { at }) => NATURE_BUILDERS.mountain(palette, at)],
 ]);
 const PERSON_RIGS: ReadonlyMap<string, CastRig> = new Map([...CAST_RIGS].map(([character, rig]) => [castModel(character), rig]));

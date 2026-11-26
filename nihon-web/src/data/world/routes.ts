@@ -350,8 +350,8 @@ const HOME_REVIEW: WildRoute = {
 };
 
 /** わたしぶね, the ferry west from the Practice island to Fuji, the furthest out. Fuji has no bridge on the island map,
- *  so the way is by boat: rowed from the Practice island's pier, past rocks, to Fuji's snowy shore. Its rough water (a
- *  band across at columns 16–19, and a patch to the south-east) holds every row open on the other paths, caught or
+ *  so the way is by boat: rowed out over the open sea from the Practice island's pier, past rocks, to Fuji's snowy
+ *  shore. Its rough water (a band right across at columns 16–19, and a patch to the south-east) holds every row open on the other paths, caught or
  *  not: everything, as Kurama's team is. */
 const PRACTICE_FUJI: WildRoute = {
   id: "practice-fuji",
@@ -365,28 +365,28 @@ const PRACTICE_FUJI: WildRoute = {
   travel: "boat",
   layout: {
     map: parseTownMap([
-      "nPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkBB",
+      "nPkssssssssssssssvvsssssssssssssskBB",
       "nPksskkssssssssssvvsssssssssssssskBB",
       "nPkssssssssssssssvvsssssssssssssskBB",
       "nPkssssssskkssssvvvsssssssssssssskBB",
       "nPksssssssksssssvvvsssssskksssssskBB",
       "nPksssssssssssssvvvsssssssssssssskBB",
-      "jjjjsssssssssssssvvsssssssssssssjjjj",
-      "jjjjsssssssssssssvvsssssssssssssjjjj",
+      "===jjssssssssssssvvssssssssssssjj===",
+      "===jjssssssssssssvvssssssssssssjj===",
       "nPkssssssssssssssvvvssssssssssssskBB",
       "nPkssssssssssssssvvvsssvvvvsssssskBB",
       "nPkssssskksssssssvvvsssvvvvsssssskBB",
       "nPkssssssssssssssvvssssvvvvsssssskBB",
       "nPkssssssssssksssvvssssssssskkssskBB",
-      "nPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkBB",
+      "nPkssssssssssssssvvsssssssssssssskBB",
     ]),
-    start: { x: 28, y: 7 },
+    start: { x: 27, y: 7 },
     lanterns: [],
     ...NOTHING_STANDING,
   },
   exits: [
-    { tile: { x: 31, y: 6 }, arrival: { x: 28, y: 7 }, island: "practice", label: "Step ashore on the Practice island" },
-    { tile: { x: 4, y: 6 }, arrival: { x: 7, y: 7 }, island: "fuji", label: "Step ashore on Fuji" },
+    { tile: { x: 30, y: 6 }, arrival: { x: 27, y: 7 }, island: "practice", label: "Step ashore on the Practice island" },
+    { tile: { x: 5, y: 6 }, arrival: { x: 8, y: 7 }, island: "fuji", label: "Step ashore on Fuji" },
   ],
   grass: "every-open-row",
   wildRows: [],
