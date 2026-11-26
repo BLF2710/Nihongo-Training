@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import { TouchControls } from "../components/errands/TouchControls";
 import { VillageScene } from "../components/errands/VillageScene";
 import { BattleOverlay } from "../components/kanaWilds/BattleOverlay";
+import { WildPath3D } from "../components/wilds/WildPath3D";
 import { CHALLENGERS } from "../data/world/challengers";
 import { islandSceneOf } from "../data/world/islandScenes";
 import { routeById, WILD_ROUTES } from "../data/world/routes";
@@ -114,12 +115,7 @@ function WildPath({ route, from }: { route: WildRoute; from: string | null }) {
   const act = useMemo(() => exit ? () => leave(exit) : null, [exit, leave]);
   useActionKey(act);
 
-  return <div className="flex h-dvh flex-col bg-gray-50 text-gray-900"><Navbar />
-    <main className="relative min-h-0 flex-1">
-      <h1 className="sr-only">{route.name} ({route.japaneseName}), a wild path</h1>
-      <VillageScene village={route.layout} position={walker.position} facing={walker.facing} isWalking={isHolding && isWalking} isRunning={isRunning}
-        openGateIds={NO_GATES} litLanterns={route.layout.lanterns.length} markedVillagerIds={NO_ONE} nearbyId={null} onTalk={ignoreTalk} theme={route.theme} surroundings={SURROUNDINGS_BY_TRAVEL[route.travel]} mountainside={route.mountainside} isAboard={route.travel === "boat"}
-        nearbyDoor={exit ? { tile: exit.tile, label: exit.label, action: "Go" } : null} onEnterDoor={() => act?.()}>
+  const overlays = <>
         <div className="pointer-events-none absolute inset-x-2 top-2 z-[900] flex justify-end sm:inset-x-4 sm:top-4">
           <p className="rounded-xl border border-gray-200 bg-white/95 px-3 py-2 text-right shadow-sm">
             <span className="block text-lg font-black" lang="ja">{route.japaneseName}</span><span className="text-xs text-gray-600">{route.name}: {grassNote(route, beatenChallengers, openRows)}</span>
@@ -132,7 +128,17 @@ function WildPath({ route, from }: { route: WildRoute; from: string | null }) {
         {isWalking && <TouchControls onPress={press} onRelease={release} onTalk={() => act?.()} canTalk={act !== null} talkLabel="Go"
           isRunning={isRunning} onRunningChange={setIsRunning} />}
         {!isWalking && <BattleOverlay battles={battles} random={random} backLabel="Back to the path" onBack={backToPath} onCollection={() => navigate("/games/kana-wilds")} />}
-      </VillageScene>
+  </>;
+  // Walked paths are drawn in 3D; the ferry is still rowed in the 2.5D scene.
+  return <div className="flex h-dvh flex-col bg-gray-50 text-gray-900"><Navbar />
+    <main className="relative min-h-0 flex-1">
+      <h1 className="sr-only">{route.name} ({route.japaneseName}), a wild path</h1>
+      {route.travel === "foot"
+        ? <WildPath3D route={route} position={walker.position} facing={walker.facing} isWalking={isHolding && isWalking} isRunning={isRunning}
+          exit={exit} onAct={() => act?.()}>{overlays}</WildPath3D>
+        : <VillageScene village={route.layout} position={walker.position} facing={walker.facing} isWalking={isHolding && isWalking} isRunning={isRunning}
+        openGateIds={NO_GATES} litLanterns={route.layout.lanterns.length} markedVillagerIds={NO_ONE} nearbyId={null} onTalk={ignoreTalk} theme={route.theme} surroundings={SURROUNDINGS_BY_TRAVEL[route.travel]} mountainside={route.mountainside} isAboard={route.travel === "boat"}
+        nearbyDoor={exit ? { tile: exit.tile, label: exit.label, action: "Go" } : null} onEnterDoor={() => act?.()}>{overlays}</VillageScene>}
     </main>
   </div>;
 }

@@ -8,6 +8,7 @@ import { buildGround } from "./ground";
 import { FallingPetals, PETAL_LOOKS } from "./fallingPetals";
 import { LivelyWater } from "./water";
 import { SwimmingKoi } from "./koi";
+import { TallGrass } from "./tallGrass";
 import { cloudBanks } from "./clouds";
 import { mergedByMaterial } from "./mergeStatic";
 import type { ModelMaker } from "./models";
@@ -100,6 +101,7 @@ export class IslandRenderer {
   private petals: FallingPetals | null = null;
   private readonly koi: SwimmingKoi;
   private readonly water: LivelyWater;
+  private readonly grass: TallGrass;
   /** Whether the water, koi and petals move (not when the learner has asked for less motion). */
   private readonly isMoving = !window.matchMedia(REDUCED_MOTION).matches;
   private readonly island: Island3D;
@@ -120,7 +122,8 @@ export class IslandRenderer {
     this.sun.shadow.normalBias = 0.03;
     this.water = new LivelyWater(island.map, { shore: island.shore, sea: island.sea });
     this.koi = new SwimmingKoi(island.ponds ?? [], Math.random);
-    this.scene.add(this.sun, this.sun.target, this.skyLight, this.water.mesh, this.koi.group,
+    this.grass = new TallGrass(island.map);
+    this.scene.add(this.sun, this.sun.target, this.skyLight, this.water.mesh, this.koi.group, this.grass.mesh,
       mergedByMaterial(buildGround(island.map, { shore: island.shore, landColours: island.landColours })));
     if (island.sea === "clouds") this.scene.add(cloudBanks(island.map));
     // Petals (or leaves) fall where it's their season.
@@ -256,6 +259,7 @@ export class IslandRenderer {
     if (this.isMoving) {
       this.water.update(seconds);
       this.koi.update(seconds);
+      this.grass.update(seconds);
     }
     this.renderer.render(this.scene, this.camera);
     this.onFrame?.();

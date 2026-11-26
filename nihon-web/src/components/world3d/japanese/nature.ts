@@ -15,7 +15,7 @@ const MOUNTAIN = { rock: "#7d8592", snow: "#fbfcfe", snowLine: 0.45, height: 0.5
 const MOSS_LINE = 0.62;
 
 /** Pushes each corner of a shape in or out a little, steadily from `seed`, so it looks rough-hewn. */
-function roughened(geometry: THREE.BufferGeometry, amount: number, seed: number): THREE.BufferGeometry {
+export function roughened(geometry: THREE.BufferGeometry, amount: number, seed: number): THREE.BufferGeometry {
   const flat = geometry.index ? geometry.toNonIndexed() : geometry;
   const positions = flat.getAttribute("position");
   const corner = new THREE.Vector3();
@@ -30,7 +30,7 @@ function roughened(geometry: THREE.BufferGeometry, amount: number, seed: number)
 }
 
 /** Paints a part by height: `low` below `line` (a share of its height), `high` above. */
-function paintedByHeight(geometry: THREE.BufferGeometry, colours: { low: string; high: string; line: number }): THREE.BufferGeometry {
+export function paintedByHeight(geometry: THREE.BufferGeometry, colours: { low: string; high: string; line: number }): THREE.BufferGeometry {
   geometry.computeBoundingBox();
   const box = geometry.boundingBox ?? new THREE.Box3(new THREE.Vector3(), new THREE.Vector3(0, 1, 0));
   const low = new THREE.Color(colours.low), high = new THREE.Color(colours.high);
@@ -46,7 +46,8 @@ function paintedByHeight(geometry: THREE.BufferGeometry, colours: { low: string;
   return geometry;
 }
 
-function merged(palette: Palette, parts: readonly THREE.BufferGeometry[]): THREE.Mesh {
+/** `parts` (each carrying its own colours) as one mesh; the parts are let go. */
+export function merged(palette: Palette, parts: readonly THREE.BufferGeometry[]): THREE.Mesh {
   const mesh = new THREE.Mesh(mergeGeometries(parts.map(part => {
     part.deleteAttribute("uv");
     return part;

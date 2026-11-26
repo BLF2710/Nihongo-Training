@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import * as THREE from "three";
 import { ISLANDS_IN_3D, ISLAND_SCENES, islandSceneOf } from "../src/data/world/islandScenes.ts";
-import { TRAVELLER_MODEL, buildingModel, castModel, japaneseIsland3D, treeModel, villageSquare3D } from "../src/lib/world/japaneseIsland3D.ts";
+import { TRAVELLER_MODEL, buildingModel, castModel, japaneseIsland3D, treeModel, villageSquare3D, wildRoute3D } from "../src/lib/world/japaneseIsland3D.ts";
 import { canBuild } from "../src/components/world3d/japanese/japaneseModelMaker.ts";
 import { BUILDING_BUILDERS } from "../src/components/world3d/japanese/buildings.ts";
 import { BuiltPerson, chunRig, travellerRig } from "../src/components/world3d/japanese/people.ts";
@@ -26,6 +26,7 @@ import { kuramaRig, ponRig, senseiRig, zenRig } from "../src/components/world3d/
 import { hakaseRig, hatoRig, konRig, momoRig, tsuruRig } from "../src/components/world3d/japanese/villageCastRigs.ts";
 import { JAPANESE_BUILDING_BUILDERS } from "../src/components/world3d/japanese/buildingBuilders.ts";
 import { mergedByMaterial } from "../src/components/world3d/mergeStatic.ts";
+import { TallGrass } from "../src/components/world3d/tallGrass.ts";
 import { HOME_BUILDING_ID, VILLAGE_DOORS, VILLAGE_PROPS, VILLAGE_SQUARE, villageArrivalFrom } from "../src/data/village/villageSquare.ts";
 import { withHomeSign } from "../src/lib/village/homeSign.ts";
 import { WILD_ROUTES } from "../src/data/world/routes.ts";
@@ -252,6 +253,7 @@ test("every shrine piece fits on its ground", () => {
   const grounds = {
     torii: { width: 4, depth: 1 }, gate: { width: 4, depth: 1 }, temizuya: { width: 2, depth: 1 }, "bell-tower": { width: 3, depth: 3 },
     watchtower: { width: 3, depth: 3 }, "tea-bench": { width: 2, depth: 2 }, yatai: { width: 2, depth: 2 }, rickshaw: { width: 1, depth: 2 }, "lantern-string": { width: 7, depth: 1 },
+    "rock-large": { width: 2, depth: 2 }, "moss-mound": { width: 2, depth: 1 },
   };
   const overhanging = [...PROP_BUILDERS].flatMap(([kind, build]) => {
     const ground = grounds[kind] ?? { width: 1, depth: 1 };
@@ -450,4 +452,57 @@ test("an instanced mesh is kept whole when its model is merged, every copy where
   instanced.setMatrixAt(1, new THREE.Matrix4().makeTranslation(5, 0, 0));
   const [kept] = mergedByMaterial(new THREE.Group().add(instanced)).children;
   assert.deepEqual([kept === instanced, kept.count], [true, 2]);
+});
+
+// ---- the wild paths in 3D
+
+const WALKED_ROUTES = WILD_ROUTES.filter(({ travel }) => travel === "foot");
+/** Open land, where a piece can stand by the way without taking any of the path or the grass. */
+const OPEN_LAND = new Set(["grass", "flowers", "petals", "leaves"]);
+
+test("every model on the walked paths in 3D, and on their far shores, can be built", () => {
+  const models = WALKED_ROUTES.flatMap(route => { const path = wildRoute3D(route); return [...path.models, ...path.backdrop]; }).map(({ model }) => model);
+  assert.deepEqual([...new Set(models)].filter(model => !canBuild(model)), []);
+});
+
+test("each walked path's pieces stand as models along it, drawn under the look of the island it leads to", () => {
+  const unplaced = WALKED_ROUTES.flatMap(route => (route.props ?? []).filter(prop =>
+    !wildRoute3D(route).models.some(({ model, at }) => model === propModel(prop.kind) && at.x === prop.at.x && at.y === prop.at.y)).map(({ kind }) => `${route.id}: ${kind}`));
+  assert.deepEqual(unplaced, []);
+});
+
+test("the pieces along a path stand only on open land, off the path, the grass, the water and the lanterns", () => {
+  const misplaced = WALKED_ROUTES.flatMap(route => {
+    const lanterns = new Set(route.layout.lanterns.map(({ x, y }) => `${x},${y}`));
+    return (route.props ?? []).flatMap(prop => tilesOf(prop.at).filter(key => {
+      const [x, y] = key.split(",").map(Number);
+      return !OPEN_LAND.has(route.layout.map.terrain[y]?.[x]) || lanterns.has(key);
+    }).map(key => `${route.id}: ${prop.kind} at ${key}`));
+  });
+  assert.deepEqual(misplaced, []);
+});
+
+test("no two pieces along a path share ground, and each blocks its ground for walking", () => {
+  const problems = WALKED_ROUTES.flatMap(route => {
+    const tiles = (route.props ?? []).flatMap(({ at }) => tilesOf(at));
+    const blocked = new Set((route.layout.obstacles ?? []).flatMap(tilesOf));
+    return [...(tiles.length === new Set(tiles).size ? [] : [`${route.id}: overlapping`]), ...tiles.filter(key => !blocked.has(key)).map(key => `${route.id}: ${key} open`)];
+  });
+  assert.deepEqual(problems, []);
+});
+
+test("each walked path leads to its island with pieces of its own along the way", () => {
+  assert.deepEqual(WALKED_ROUTES.filter(({ props }) => (props ?? []).length < 5).map(({ id }) => id), []);
+});
+
+test("a tuft of tall grass stands on every tall-grass tile, and on nothing else", () => {
+  const map = parseTownMap(["w.w", "...", ".ww"]);
+  const grass = new TallGrass(map);
+  const matrix = new THREE.Matrix4(), place = new THREE.Vector3();
+  const tiles = new Set(Array.from({ length: grass.mesh.count }, (_, index) => {
+    grass.mesh.getMatrixAt(index, matrix);
+    place.setFromMatrixPosition(matrix);
+    return `${Math.floor(place.x)},${Math.floor(place.z)}`;
+  }));
+  assert.deepEqual([...tiles].sort(), ["0,0", "1,2", "2,0", "2,2"]);
 });

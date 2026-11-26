@@ -16,6 +16,8 @@ import { FLAT_DEPTH, WATER_GAP, farShoreAround, flatShoreTiles } from "./farShor
 import { isWalkedThrough, propModel } from "./islandProps.ts";
 import type { IslandProp, ShrinePropKind } from "./islandProps.ts";
 import { pondsOf } from "./ponds.ts";
+import { exitHref } from "./routes.ts";
+import type { WildRoute } from "./routes.ts";
 
 /** The learner's own traveller, made from the look they chose in the wardrobe. */
 export const TRAVELLER_MODEL = "traveller";
@@ -132,6 +134,16 @@ export const villageSquare3D = (scene: JapaneseScene): Island3D => ({
     return { lit: propAt({ kind: "paper-lantern", at }), unlit: propAt({ kind: "paper-lantern-unlit", at }) };
   }),
 });
+
+/** What leaving a wild path through an exit says. */
+const GO = "Go";
+
+/** A wild path walked in 3D: drawn as an island is, under the look of the island it leads to, its exits doors. */
+export function wildRoute3D(route: WildRoute): Island3D {
+  const doors = route.exits.map(exit => ({ id: exit.island, tile: exit.tile, href: exitHref(exit, route.id), label: exit.label, action: GO }));
+  const scene: JapaneseScene = { layout: route.layout, doors, props: route.props ?? [], theme: route.theme, surroundings: "water" };
+  return japaneseScene3D(scene, lanternsOf(route.layout.lanterns, THEME_LOOKS[route.theme].lantern));
+}
 
 /** A scene in 3D, with its `lanterns` standing as the pieces given. */
 function japaneseScene3D(scene: JapaneseScene, lanterns: readonly IslandProp[]): Island3D {

@@ -223,6 +223,16 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   2. Add the island to `ISLANDS_IN_3D`.
   `scripts/verify-japanese-island-3d.mjs` checks that every model on a 3D island can be built, that each building and
   shrine piece fits its ground, and that no piece blocks a door or an arrival.
+- **The wild paths in real 3D** (`pages/WildRoutePage.tsx`, `components/wilds/WildPath3D.tsx`): every path walked on
+  foot is drawn like an island, by `wildRoute3D` in `lib/world/japaneseIsland3D.ts`, under the look of the island it
+  leads to; the ferry to Fuji is still rowed in the 2.5D scene. Its tall grass stands as tufts of blades swaying in the
+  wind (`components/world3d/tallGrass.ts`, one instanced mesh, swayed on the graphics card; on the islands too). Each
+  path's `props` (`data/world/routes.ts`, their ground among its `obstacles`) are in keeping with that island: flowering
+  bushes and a prayer-board rack on the way to the Kana island, moss, rocks, stone lanterns and a drum on the way to
+  the Practice island's dojo, a food stall, tea bench and banners on the way to the Games island's festival, a wayside
+  shrine on the way to the Lessons island, and a garden of set rocks and snow-viewing lanterns on the way to the
+  Review island. The wild's own pieces (`japanese/natureKit.ts`: rocks large, middling, small and flat, a rock
+  cluster, a moss mound, a small flowering bush) are our own designs.
 - **The village square in real 3D** (`pages/VillagePage.tsx`, `components/village/VillageSquare3D.tsx`): Home is
   drawn like the islands, by `villageSquare3D` in `lib/world/japaneseIsland3D.ts`, under the sakura look (cherry
   trees and a pagoda on the far shore, falling petals). Its own map (`data/village/villageSquare.ts`) lays it out as

@@ -7,6 +7,7 @@ import { TALK_DISTANCE } from "../errands/movement.ts";
 import type { VillageLayout } from "../errands/village.ts";
 import { HIRAGANA_ROWS } from "../kanaWilds/gojuon.ts";
 import type { ChallengerId } from "./challenges.ts";
+import type { IslandProp } from "./islandProps.ts";
 import type { SceneTheme } from "./sceneTheme.ts";
 
 export type RouteId = "home-kana" | "home-practice" | "home-games" | "home-lessons" | "home-review" | "practice-fuji";
@@ -42,10 +43,12 @@ export type Travel = "foot" | "boat";
  * the way the path runs: the start's end on the opposite side. `wildRows` are the hiragana rows living in its grass
  * from the start; `rewardRows` join them once the player beats a challenger (docs/KANA-BATTLE.md section 9). `theme` is
  * the look of the island it leads to; `mountainside`, where a mountain rises from the map (see `Mountainside`).
+ * `props` are the pieces standing along it, drawn only in 3D, in keeping with that island (the ground they block is
+ * among `layout.obstacles`).
  */
 export type WildRoute = {
   id: RouteId; name: string; japaneseName: string; between: readonly [IslandId, IslandId]; heading: Heading; theme: SceneTheme;
-  travel: Travel; mountainside?: Mountainside; layout: VillageLayout; exits: readonly RouteExit[]; grass: GrassKind; wildRows: readonly string[]; rewardRows?: RewardRows;
+  travel: Travel; mountainside?: Mountainside; layout: VillageLayout; exits: readonly RouteExit[]; props?: readonly IslandProp[]; grass: GrassKind; wildRows: readonly string[]; rewardRows?: RewardRows;
 };
 
 /** Rows held back from a path's grass until the player beats `until`. The API holds the same kana back from catches
