@@ -61,6 +61,18 @@
       "depth": 1.153,
       "height": 2.192
     },
+    "archeryrange": {
+      "file": "archeryrange.gltf",
+      "width": 1.671,
+      "depth": 1.551,
+      "height": 1.792
+    },
+    "abbey": {
+      "file": "abbey.gltf",
+      "width": 1.029,
+      "depth": 1.155,
+      "height": 1.645
+    },
     "fence_stone": {
       "file": "fence_stone.gltf",
       "width": 0.2,

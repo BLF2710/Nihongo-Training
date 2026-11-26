@@ -3,7 +3,7 @@ import type { EnglishWord } from "../../../../shared/course/english/schema.ts";
 import { SpeakButton } from "./SpeakButton";
 
 /** One word in full: its British pronunciation, its meaning in Vietnamese, a short English definition and an example. */
-function WordDetail({ word }: { word: EnglishWord }) {
+export function WordDetail({ word }: { word: EnglishWord }) {
   return <article aria-live="polite" className="rounded-2xl border p-3 sm:p-5">
     <div className="flex items-start justify-between gap-3">
       <div>

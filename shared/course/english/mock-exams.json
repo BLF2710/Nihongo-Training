@@ -1,0 +1,1654 @@
+{
+  "A2": {
+    "id": "english-a2-mock-exam",
+    "level": "A2",
+    "title": "A2 Mock Exam",
+    "minutes": 30,
+    "passPercent": 60,
+    "sectionMinPercent": 40,
+    "sections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary",
+        "titleVi": "Từ vựng",
+        "groups": [
+          {
+            "instruction": "Choose the word that best completes the sentence.",
+            "questions": [
+              {
+                "id": "vocabulary-1",
+                "prompt": "My sister is very ___. She always helps people.",
+                "options": [
+                  "lazy",
+                  "kind",
+                  "rude",
+                  "noisy"
+                ],
+                "correctIndex": 1,
+                "explanation": "Kind = nice to other people."
+              },
+              {
+                "id": "vocabulary-2",
+                "prompt": "Turn ___ at the bank, and the station is on your right.",
+                "options": [
+                  "along",
+                  "behind",
+                  "across",
+                  "left"
+                ],
+                "correctIndex": 3,
+                "explanation": "Turn left / turn right."
+              },
+              {
+                "id": "vocabulary-3",
+                "prompt": "Can I have the ___, please? We'd like to pay.",
+                "options": [
+                  "bill",
+                  "change",
+                  "menu",
+                  "price"
+                ],
+                "correctIndex": 0,
+                "explanation": "Ask for the bill to pay in a restaurant."
+              },
+              {
+                "id": "vocabulary-4",
+                "prompt": "I've got a terrible ___. I need some paracetamol.",
+                "options": [
+                  "headache",
+                  "medicine",
+                  "ankle",
+                  "doctor"
+                ],
+                "correctIndex": 0,
+                "explanation": "Headache = pain in your head."
+              },
+              {
+                "id": "vocabulary-5",
+                "prompt": "These shoes are too small. Do you have a bigger ___?",
+                "options": [
+                  "price",
+                  "size",
+                  "shape",
+                  "colour"
+                ],
+                "correctIndex": 1,
+                "explanation": "Size = how big something is."
+              },
+              {
+                "id": "vocabulary-6",
+                "prompt": "The museum is ___ the bank and the post office.",
+                "options": [
+                  "over",
+                  "between",
+                  "among",
+                  "through"
+                ],
+                "correctIndex": 1,
+                "explanation": "Between two places."
+              },
+              {
+                "id": "vocabulary-7",
+                "prompt": "We ___ a great time on holiday last year.",
+                "options": [
+                  "made",
+                  "took",
+                  "had",
+                  "did"
+                ],
+                "correctIndex": 2,
+                "explanation": "Have a great time."
+              },
+              {
+                "id": "vocabulary-8",
+                "prompt": "I'm going to ___ a table for four at eight o'clock.",
+                "options": [
+                  "buy",
+                  "pay",
+                  "book",
+                  "order"
+                ],
+                "correctIndex": 2,
+                "explanation": "Book a table = reserve it."
+              },
+              {
+                "id": "vocabulary-9",
+                "prompt": "He works in a hospital. He's a ___.",
+                "options": [
+                  "nurse",
+                  "pilot",
+                  "farmer",
+                  "waiter"
+                ],
+                "correctIndex": 0,
+                "explanation": "Nurses work in hospitals."
+              },
+              {
+                "id": "vocabulary-10",
+                "prompt": "It's ___ outside. Take an umbrella.",
+                "options": [
+                  "raining",
+                  "dry",
+                  "sunny",
+                  "warm"
+                ],
+                "correctIndex": 0,
+                "explanation": "You need an umbrella when it rains."
+              },
+              {
+                "id": "vocabulary-11",
+                "prompt": "Could you ___ me the way to the station?",
+                "options": [
+                  "talk",
+                  "say",
+                  "tell",
+                  "speak"
+                ],
+                "correctIndex": 2,
+                "explanation": "Tell someone the way."
+              },
+              {
+                "id": "vocabulary-12",
+                "prompt": "I usually ___ the bus to work.",
+                "options": [
+                  "drive",
+                  "go",
+                  "ride on",
+                  "take"
+                ],
+                "correctIndex": 3,
+                "explanation": "Take the bus."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grammar",
+        "title": "Grammar",
+        "titleVi": "Ngữ pháp",
+        "groups": [
+          {
+            "instruction": "Choose the correct answer.",
+            "questions": [
+              {
+                "id": "grammar-1",
+                "prompt": "She ___ to work every day.",
+                "options": [
+                  "walking",
+                  "is walk",
+                  "walk",
+                  "walks"
+                ],
+                "correctIndex": 3,
+                "explanation": "Present simple: he/she/it + -s."
+              },
+              {
+                "id": "grammar-2",
+                "prompt": "Where ___ you go last weekend?",
+                "options": [
+                  "do",
+                  "were",
+                  "did",
+                  "have"
+                ],
+                "correctIndex": 2,
+                "explanation": "Past simple question: did + base verb."
+              },
+              {
+                "id": "grammar-3",
+                "prompt": "I ___ my keys yesterday.",
+                "options": [
+                  "lose",
+                  "losed",
+                  "have lose",
+                  "lost"
+                ],
+                "correctIndex": 3,
+                "explanation": "Lose → lost (irregular)."
+              },
+              {
+                "id": "grammar-4",
+                "prompt": "Look! It ___.",
+                "options": [
+                  "snows",
+                  "snow",
+                  "is snowing",
+                  "snowing"
+                ],
+                "correctIndex": 2,
+                "explanation": "Present continuous for now."
+              },
+              {
+                "id": "grammar-5",
+                "prompt": "Is there ___ milk in the fridge?",
+                "options": [
+                  "many",
+                  "a",
+                  "some of",
+                  "any"
+                ],
+                "correctIndex": 3,
+                "explanation": "Any in questions with uncountable nouns."
+              },
+              {
+                "id": "grammar-6",
+                "prompt": "How ___ apples do you need?",
+                "options": [
+                  "many",
+                  "lot",
+                  "much",
+                  "any"
+                ],
+                "correctIndex": 0,
+                "explanation": "How many + plural noun."
+              },
+              {
+                "id": "grammar-7",
+                "prompt": "This bag is ___ than that one.",
+                "options": [
+                  "cheaper",
+                  "cheapest",
+                  "cheap",
+                  "more cheap"
+                ],
+                "correctIndex": 0,
+                "explanation": "Short adjective + -er."
+              },
+              {
+                "id": "grammar-8",
+                "prompt": "We ___ visit my grandparents next Sunday.",
+                "options": [
+                  "going to",
+                  "go to",
+                  "will to",
+                  "are going to"
+                ],
+                "correctIndex": 3,
+                "explanation": "Be going to for plans."
+              },
+              {
+                "id": "grammar-9",
+                "prompt": "You ___ see a doctor about that cough.",
+                "options": [
+                  "should",
+                  "shoulds",
+                  "must to",
+                  "should to"
+                ],
+                "correctIndex": 0,
+                "explanation": "Should + base verb for advice."
+              },
+              {
+                "id": "grammar-10",
+                "prompt": "I was cooking when the phone ___.",
+                "options": [
+                  "rang",
+                  "ring",
+                  "rings",
+                  "was ringing"
+                ],
+                "correctIndex": 0,
+                "explanation": "Past continuous + past simple for an interruption."
+              },
+              {
+                "id": "grammar-11",
+                "prompt": "It's the ___ restaurant in town.",
+                "options": [
+                  "better",
+                  "best",
+                  "most good",
+                  "goodest"
+                ],
+                "correctIndex": 1,
+                "explanation": "Good → better → best."
+              },
+              {
+                "id": "grammar-12",
+                "prompt": "I'm meeting Tom ___ Friday.",
+                "options": [
+                  "at",
+                  "on",
+                  "in",
+                  "to"
+                ],
+                "correctIndex": 1,
+                "explanation": "On + day."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": "Reading",
+        "titleVi": "Đọc hiểu",
+        "groups": [
+          {
+            "instruction": "Read the message and answer the questions.",
+            "passage": "Hi Mai,\nThanks for inviting me to your birthday party on Saturday! I'd love to come. I finish work at five, so I'll be there at about half past six. Is it at your flat or at the café near the park? I can bring a cake if you like. I'm making a chocolate one for my mum's birthday too, so it's no trouble.\nSee you soon,\nLucy",
+            "questions": [
+              {
+                "id": "reading-1",
+                "prompt": "What time will Lucy arrive?",
+                "options": [
+                  "at about 5.30",
+                  "at 5.00",
+                  "at 7.00",
+                  "at about 6.30"
+                ],
+                "correctIndex": 3,
+                "explanation": "“I'll be there at about half past six.”"
+              },
+              {
+                "id": "reading-2",
+                "prompt": "What doesn't Lucy know?",
+                "options": [
+                  "what time she finishes work",
+                  "where the party is",
+                  "whose birthday it is",
+                  "what day the party is"
+                ],
+                "correctIndex": 1,
+                "explanation": "She asks if it is at the flat or the café."
+              },
+              {
+                "id": "reading-3",
+                "prompt": "What does Lucy offer to do?",
+                "options": [
+                  "cook dinner",
+                  "bring a cake",
+                  "buy a present for Mai's mum",
+                  "book the café"
+                ],
+                "correctIndex": 1,
+                "explanation": "“I can bring a cake if you like.”"
+              }
+            ]
+          },
+          {
+            "instruction": "Read the notice and answer the questions.",
+            "passage": "GREENFIELD SPORTS CENTRE\nThe swimming pool will be closed from 3rd to 10th June for cleaning. During this time, the gym and tennis courts are open as usual (7 a.m. to 10 p.m.). Members can use the pool at Hillside Leisure Centre for free. Just show your membership card at reception. We are sorry for any problems this may cause.",
+            "questions": [
+              {
+                "id": "reading-4",
+                "prompt": "Why is the pool closed?",
+                "options": [
+                  "because it is broken",
+                  "because of the weather",
+                  "for cleaning",
+                  "for a competition"
+                ],
+                "correctIndex": 2,
+                "explanation": "“closed … for cleaning.”"
+              },
+              {
+                "id": "reading-5",
+                "prompt": "What can members do at Hillside Leisure Centre?",
+                "options": [
+                  "play tennis for free",
+                  "buy a membership card",
+                  "use the gym until 10 p.m.",
+                  "swim for free"
+                ],
+                "correctIndex": 3,
+                "explanation": "“Members can use the pool at Hillside … for free.”"
+              },
+              {
+                "id": "reading-6",
+                "prompt": "What must members take to Hillside?",
+                "options": [
+                  "a swimming lesson ticket",
+                  "their membership card",
+                  "a letter from Greenfield",
+                  "some money"
+                ],
+                "correctIndex": 1,
+                "explanation": "“Show your membership card at reception.”"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "B1": {
+    "id": "english-b1-mock-exam",
+    "level": "B1",
+    "title": "B1 Mock Exam",
+    "minutes": 35,
+    "passPercent": 60,
+    "sectionMinPercent": 40,
+    "sections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary",
+        "titleVi": "Từ vựng",
+        "groups": [
+          {
+            "instruction": "Choose the word or phrase that best completes the sentence.",
+            "questions": [
+              {
+                "id": "vocabulary-1",
+                "prompt": "She ___ for a job at a bank, and they offered it to her.",
+                "options": [
+                  "applied",
+                  "asked",
+                  "worked",
+                  "looked"
+                ],
+                "correctIndex": 0,
+                "explanation": "Apply for a job."
+              },
+              {
+                "id": "vocabulary-2",
+                "prompt": "Our flight was ___ because of the fog, so we waited for three hours.",
+                "options": [
+                  "booked",
+                  "landed",
+                  "delayed",
+                  "missed"
+                ],
+                "correctIndex": 2,
+                "explanation": "Delayed = later than planned."
+              },
+              {
+                "id": "vocabulary-3",
+                "prompt": "I'd like to ___ my English before I study abroad.",
+                "options": [
+                  "increase",
+                  "grow",
+                  "improve",
+                  "rise"
+                ],
+                "correctIndex": 2,
+                "explanation": "Improve a skill."
+              },
+              {
+                "id": "vocabulary-4",
+                "prompt": "Recycling helps to ___ the amount of rubbish we produce.",
+                "options": [
+                  "remove",
+                  "refuse",
+                  "return",
+                  "reduce"
+                ],
+                "correctIndex": 3,
+                "explanation": "Reduce = make smaller."
+              },
+              {
+                "id": "vocabulary-5",
+                "prompt": "He has a lot of ___ in marketing; he's worked in it for ten years.",
+                "options": [
+                  "experiment",
+                  "experiences",
+                  "expert",
+                  "experience"
+                ],
+                "correctIndex": 3,
+                "explanation": "Work experience is uncountable."
+              },
+              {
+                "id": "vocabulary-6",
+                "prompt": "The ___ said that the storm would arrive tonight.",
+                "options": [
+                  "forecast",
+                  "advert",
+                  "review",
+                  "headline"
+                ],
+                "correctIndex": 0,
+                "explanation": "A weather forecast."
+              },
+              {
+                "id": "vocabulary-7",
+                "prompt": "When in Japan, it's polite to take ___ your shoes indoors.",
+                "options": [
+                  "out",
+                  "away",
+                  "off",
+                  "down"
+                ],
+                "correctIndex": 2,
+                "explanation": "Take off your shoes."
+              },
+              {
+                "id": "vocabulary-8",
+                "prompt": "I can't ___ to buy a new car this year.",
+                "options": [
+                  "spend",
+                  "cost",
+                  "pay",
+                  "afford"
+                ],
+                "correctIndex": 3,
+                "explanation": "Can't afford = not have enough money."
+              },
+              {
+                "id": "vocabulary-9",
+                "prompt": "Air ___ is a serious problem in many big cities.",
+                "options": [
+                  "polluting",
+                  "pollute",
+                  "polluted",
+                  "pollution"
+                ],
+                "correctIndex": 3,
+                "explanation": "Noun: pollution."
+              },
+              {
+                "id": "vocabulary-10",
+                "prompt": "She ___ her driving test on the first try!",
+                "options": [
+                  "passed",
+                  "achieved",
+                  "succeeded",
+                  "won"
+                ],
+                "correctIndex": 0,
+                "explanation": "Pass a test."
+              },
+              {
+                "id": "vocabulary-11",
+                "prompt": "The government plans to ___ more trees in the city centre.",
+                "options": [
+                  "plant",
+                  "build",
+                  "put up",
+                  "grow up"
+                ],
+                "correctIndex": 0,
+                "explanation": "Plant trees."
+              },
+              {
+                "id": "vocabulary-12",
+                "prompt": "I'm looking ___ to the holidays.",
+                "options": [
+                  "after",
+                  "for",
+                  "forward",
+                  "up"
+                ],
+                "correctIndex": 2,
+                "explanation": "Look forward to."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grammar",
+        "title": "Grammar",
+        "titleVi": "Ngữ pháp",
+        "groups": [
+          {
+            "instruction": "Choose the correct answer.",
+            "questions": [
+              {
+                "id": "grammar-1",
+                "prompt": "I ___ to Paris three times.",
+                "options": [
+                  "have been",
+                  "have gone to",
+                  "went",
+                  "was"
+                ],
+                "correctIndex": 0,
+                "explanation": "Present perfect for experiences: have been."
+              },
+              {
+                "id": "grammar-2",
+                "prompt": "She has lived here ___ 2019.",
+                "options": [
+                  "for",
+                  "from",
+                  "since",
+                  "during"
+                ],
+                "correctIndex": 2,
+                "explanation": "Since + a point in time."
+              },
+              {
+                "id": "grammar-3",
+                "prompt": "If it rains tomorrow, we ___ at home.",
+                "options": [
+                  "stay",
+                  "'ll stay",
+                  "would stay",
+                  "stayed"
+                ],
+                "correctIndex": 1,
+                "explanation": "First conditional: if + present, will."
+              },
+              {
+                "id": "grammar-4",
+                "prompt": "If I ___ more time, I'd learn the guitar.",
+                "options": [
+                  "would have",
+                  "have",
+                  "had",
+                  "will have"
+                ],
+                "correctIndex": 2,
+                "explanation": "Second conditional: if + past simple."
+              },
+              {
+                "id": "grammar-5",
+                "prompt": "I wish I ___ speak French.",
+                "options": [
+                  "am able",
+                  "will",
+                  "could",
+                  "can"
+                ],
+                "correctIndex": 2,
+                "explanation": "Wish + could for an ability you don't have."
+              },
+              {
+                "id": "grammar-6",
+                "prompt": "The bridge ___ in 1890.",
+                "options": [
+                  "is built",
+                  "was built",
+                  "has built",
+                  "built"
+                ],
+                "correctIndex": 1,
+                "explanation": "Past passive."
+              },
+              {
+                "id": "grammar-7",
+                "prompt": "He said that he ___ tired.",
+                "options": [
+                  "has",
+                  "was",
+                  "be",
+                  "is being"
+                ],
+                "correctIndex": 1,
+                "explanation": "Reported speech: is → was."
+              },
+              {
+                "id": "grammar-8",
+                "prompt": "She asked me where I ___.",
+                "options": [
+                  "do I live",
+                  "did live",
+                  "live I",
+                  "lived"
+                ],
+                "correctIndex": 3,
+                "explanation": "Reported question: no question order."
+              },
+              {
+                "id": "grammar-9",
+                "prompt": "This is the woman ___ helped me.",
+                "options": [
+                  "who",
+                  "which",
+                  "whose",
+                  "what"
+                ],
+                "correctIndex": 0,
+                "explanation": "Who for people."
+              },
+              {
+                "id": "grammar-10",
+                "prompt": "You ___ wear a seat belt. It's the law.",
+                "options": [
+                  "must",
+                  "might",
+                  "don't have to",
+                  "mustn't"
+                ],
+                "correctIndex": 0,
+                "explanation": "Must = it is necessary."
+              },
+              {
+                "id": "grammar-11",
+                "prompt": "I've ___ finished my homework. Can I go out?",
+                "options": [
+                  "just",
+                  "yet",
+                  "ever",
+                  "since"
+                ],
+                "correctIndex": 0,
+                "explanation": "Just = a very short time ago."
+              },
+              {
+                "id": "grammar-12",
+                "prompt": "We're used ___ in a big city now.",
+                "options": [
+                  "to living",
+                  "live",
+                  "to live",
+                  "living"
+                ],
+                "correctIndex": 0,
+                "explanation": "Be used to + -ing."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": "Reading",
+        "titleVi": "Đọc hiểu",
+        "groups": [
+          {
+            "instruction": "Read the article and answer the questions.",
+            "passage": "Last year, the small town of Kirkby decided to close its main street to cars on Saturdays. Many shop owners were worried at first. They thought fewer people would come if they couldn't park outside. In fact, the opposite happened. Families started to walk and cycle into town, and cafés put tables outside. After six months, most shops reported higher sales on Saturdays than before. The town council now plans to close the street on Sundays too, although some older residents say it is harder for them to get to the shops.",
+            "questions": [
+              {
+                "id": "reading-1",
+                "prompt": "Why were shop owners worried?",
+                "options": [
+                  "Rents would go up.",
+                  "They thought fewer customers would come.",
+                  "They had to close on Saturdays.",
+                  "Cafés would take their customers."
+                ],
+                "correctIndex": 1,
+                "explanation": "They thought fewer people would come if they couldn't park."
+              },
+              {
+                "id": "reading-2",
+                "prompt": "What happened after six months?",
+                "options": [
+                  "Most shops closed.",
+                  "Cars came back to the street.",
+                  "Cafés stopped putting tables outside.",
+                  "Most shops sold more on Saturdays."
+                ],
+                "correctIndex": 3,
+                "explanation": "“most shops reported higher sales on Saturdays.”"
+              },
+              {
+                "id": "reading-3",
+                "prompt": "Who is unhappy with the plan for Sundays?",
+                "options": [
+                  "some older residents",
+                  "families with children",
+                  "the town council",
+                  "café owners"
+                ],
+                "correctIndex": 0,
+                "explanation": "“some older residents say it is harder for them.”"
+              }
+            ]
+          },
+          {
+            "instruction": "Read the email and answer the questions.",
+            "passage": "Dear Mr Evans,\nI am writing to apply for the summer job as a tour guide that I saw on your website. I am a second-year history student, and I have worked at the city museum as a volunteer for two years, so I know the old town very well. I speak English and Vietnamese fluently, and I am learning Spanish. I am available from 1st July to 31st August. I have attached my CV, and I would be happy to come for an interview at any time.\nYours sincerely,\nNguyen Thi Ha",
+            "questions": [
+              {
+                "id": "reading-4",
+                "prompt": "Why is Ha writing?",
+                "options": [
+                  "to arrange a holiday",
+                  "to book a tour",
+                  "to apply for a job",
+                  "to complain about a museum"
+                ],
+                "correctIndex": 2,
+                "explanation": "“I am writing to apply for the summer job.”"
+              },
+              {
+                "id": "reading-5",
+                "prompt": "How does Ha know the old town well?",
+                "options": [
+                  "She studies Spanish there.",
+                  "She has volunteered at the museum.",
+                  "She was born there.",
+                  "She has worked as a tour guide."
+                ],
+                "correctIndex": 1,
+                "explanation": "She has been a volunteer at the city museum for two years."
+              },
+              {
+                "id": "reading-6",
+                "prompt": "Which language is Ha still learning?",
+                "options": [
+                  "Spanish",
+                  "History",
+                  "English",
+                  "Vietnamese"
+                ],
+                "correctIndex": 0,
+                "explanation": "“I am learning Spanish.”"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "B2": {
+    "id": "english-b2-mock-exam",
+    "level": "B2",
+    "title": "B2 Mock Exam",
+    "minutes": 40,
+    "passPercent": 60,
+    "sectionMinPercent": 40,
+    "sections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary",
+        "titleVi": "Từ vựng",
+        "groups": [
+          {
+            "instruction": "Choose the word or phrase that best completes the sentence.",
+            "questions": [
+              {
+                "id": "vocabulary-1",
+                "prompt": "My brother and I fell ___ last year, but we've made up now.",
+                "options": [
+                  "over",
+                  "off",
+                  "down",
+                  "out"
+                ],
+                "correctIndex": 3,
+                "explanation": "Fall out = stop being friendly after an argument."
+              },
+              {
+                "id": "vocabulary-2",
+                "prompt": "Could you ___ me a favour and post this letter?",
+                "options": [
+                  "do",
+                  "make",
+                  "give",
+                  "take"
+                ],
+                "correctIndex": 0,
+                "explanation": "Do someone a favour."
+              },
+              {
+                "id": "vocabulary-3",
+                "prompt": "The company ___ a profit for the first time this year.",
+                "options": [
+                  "made",
+                  "did",
+                  "won",
+                  "earned up"
+                ],
+                "correctIndex": 0,
+                "explanation": "Make a profit."
+              },
+              {
+                "id": "vocabulary-4",
+                "prompt": "She's very ___: she never gives up, however hard things get.",
+                "options": [
+                  "reserved",
+                  "moody",
+                  "determined",
+                  "stubborn"
+                ],
+                "correctIndex": 2,
+                "explanation": "Determined = keeps trying (positive)."
+              },
+              {
+                "id": "vocabulary-5",
+                "prompt": "Please ___ up your work regularly so you don't lose it.",
+                "options": [
+                  "give",
+                  "set",
+                  "take",
+                  "back"
+                ],
+                "correctIndex": 3,
+                "explanation": "Back up = make a copy of files."
+              },
+              {
+                "id": "vocabulary-6",
+                "prompt": "The new phone is ___ to be released next month.",
+                "options": [
+                  "thought it",
+                  "believing",
+                  "said it",
+                  "expected"
+                ],
+                "correctIndex": 3,
+                "explanation": "Impersonal passive: X is expected to…"
+              },
+              {
+                "id": "vocabulary-7",
+                "prompt": "Eating too much sugar can ___ to health problems.",
+                "options": [
+                  "result",
+                  "make",
+                  "lead",
+                  "cause"
+                ],
+                "correctIndex": 2,
+                "explanation": "Lead to = cause."
+              },
+              {
+                "id": "vocabulary-8",
+                "prompt": "I'm feeling a bit under the ___ today, so I'll stay at home.",
+                "options": [
+                  "cloud",
+                  "rain",
+                  "weather",
+                  "sky"
+                ],
+                "correctIndex": 2,
+                "explanation": "Under the weather = slightly ill."
+              },
+              {
+                "id": "vocabulary-9",
+                "prompt": "After a ___ start, the story becomes really exciting.",
+                "options": [
+                  "low",
+                  "lazy",
+                  "slow",
+                  "late"
+                ],
+                "correctIndex": 2,
+                "explanation": "A slow start."
+              },
+              {
+                "id": "vocabulary-10",
+                "prompt": "The manager ___ that the report was finished by Friday.",
+                "options": [
+                  "suggested to",
+                  "told",
+                  "demanded on",
+                  "insisted"
+                ],
+                "correctIndex": 3,
+                "explanation": "Insist that…"
+              },
+              {
+                "id": "vocabulary-11",
+                "prompt": "There are pros and ___ to working from home.",
+                "options": [
+                  "contras",
+                  "againsts",
+                  "minuses",
+                  "cons"
+                ],
+                "correctIndex": 3,
+                "explanation": "Pros and cons."
+              },
+              {
+                "id": "vocabulary-12",
+                "prompt": "Her speech was so ___ that half the audience fell asleep.",
+                "options": [
+                  "dulled",
+                  "lively",
+                  "dull",
+                  "gripping"
+                ],
+                "correctIndex": 2,
+                "explanation": "Dull = boring."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grammar",
+        "title": "Grammar",
+        "titleVi": "Ngữ pháp",
+        "groups": [
+          {
+            "instruction": "Choose the correct answer.",
+            "questions": [
+              {
+                "id": "grammar-1",
+                "prompt": "If I had left earlier, I ___ the train.",
+                "options": [
+                  "would have caught",
+                  "had caught",
+                  "will have caught",
+                  "would catch"
+                ],
+                "correctIndex": 0,
+                "explanation": "Third conditional: would have + past participle."
+              },
+              {
+                "id": "grammar-2",
+                "prompt": "If I had studied medicine, I ___ a doctor now.",
+                "options": [
+                  "had been",
+                  "would be",
+                  "would have been",
+                  "will be"
+                ],
+                "correctIndex": 1,
+                "explanation": "Mixed conditional: past condition, present result."
+              },
+              {
+                "id": "grammar-3",
+                "prompt": "By the time we arrived, the film ___.",
+                "options": [
+                  "has started",
+                  "was starting",
+                  "had started",
+                  "started"
+                ],
+                "correctIndex": 2,
+                "explanation": "Past perfect for the earlier action."
+              },
+              {
+                "id": "grammar-4",
+                "prompt": "I'm having my car ___ tomorrow.",
+                "options": [
+                  "to repair",
+                  "repaired",
+                  "repairing",
+                  "repair"
+                ],
+                "correctIndex": 1,
+                "explanation": "Have something + past participle."
+              },
+              {
+                "id": "grammar-5",
+                "prompt": "By next June, I ___ here for ten years.",
+                "options": [
+                  "will work",
+                  "will have worked",
+                  "am working",
+                  "have worked"
+                ],
+                "correctIndex": 1,
+                "explanation": "Future perfect."
+              },
+              {
+                "id": "grammar-6",
+                "prompt": "You'd better ___ now, or you'll miss the bus.",
+                "options": [
+                  "leaving",
+                  "leave",
+                  "to leave",
+                  "left"
+                ],
+                "correctIndex": 1,
+                "explanation": "Had better + base verb."
+              },
+              {
+                "id": "grammar-7",
+                "prompt": "She ___ have left already: her coat isn't here.",
+                "options": [
+                  "must",
+                  "can't",
+                  "mustn't",
+                  "should"
+                ],
+                "correctIndex": 0,
+                "explanation": "Must have = I'm sure it happened."
+              },
+              {
+                "id": "grammar-8",
+                "prompt": "My grandfather, ___ is ninety, still swims every day.",
+                "options": [
+                  "whom he",
+                  "who",
+                  "that",
+                  "which"
+                ],
+                "correctIndex": 1,
+                "explanation": "Non-defining clause: who, never that."
+              },
+              {
+                "id": "grammar-9",
+                "prompt": "___ the email, she realised she had made a mistake.",
+                "options": [
+                  "Having read",
+                  "Read having",
+                  "Have read",
+                  "Being read"
+                ],
+                "correctIndex": 0,
+                "explanation": "Perfect participle clause."
+              },
+              {
+                "id": "grammar-10",
+                "prompt": "He accused me ___ his phone.",
+                "options": [
+                  "that I took",
+                  "for taking",
+                  "to take",
+                  "of taking"
+                ],
+                "correctIndex": 3,
+                "explanation": "Accuse someone of + -ing."
+              },
+              {
+                "id": "grammar-11",
+                "prompt": "If only I ___ so much last night!",
+                "options": [
+                  "didn't eat",
+                  "wouldn't eat",
+                  "hadn't eaten",
+                  "haven't eaten"
+                ],
+                "correctIndex": 2,
+                "explanation": "If only + past perfect for past regrets."
+              },
+              {
+                "id": "grammar-12",
+                "prompt": "What I need ___ a long holiday.",
+                "options": [
+                  "it is",
+                  "is",
+                  "that is",
+                  "are"
+                ],
+                "correctIndex": 1,
+                "explanation": "Cleft sentence: What I need is…"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": "Reading",
+        "titleVi": "Đọc hiểu",
+        "groups": [
+          {
+            "instruction": "Read the article and answer the questions.",
+            "passage": "For years, experts have told us to aim for 10,000 steps a day. But where does the number come from? Surprisingly, it was not discovered by scientists. In the 1960s, a Japanese company sold a step counter whose name meant \"10,000 steps\", simply because the number sounded good. Recent studies suggest that the real benefits start much earlier: people who walk around 7,000 steps a day appear to live longer than those who walk 4,000, and the extra gain above 10,000 seems small. Even so, researchers point out that any movement is better than none, and that a brisk walk counts for more than a slow one.",
+            "questions": [
+              {
+                "id": "reading-1",
+                "prompt": "Where does the 10,000-step target come from?",
+                "options": [
+                  "the name of a product",
+                  "a scientific study",
+                  "a government report",
+                  "a Japanese doctor's advice"
+                ],
+                "correctIndex": 0,
+                "explanation": "A company's step counter was named “10,000 steps”."
+              },
+              {
+                "id": "reading-2",
+                "prompt": "What do recent studies suggest?",
+                "options": [
+                  "Benefits begin at a lower number of steps.",
+                  "Slow walking is best.",
+                  "10,000 steps is the minimum.",
+                  "Nobody needs to walk at all."
+                ],
+                "correctIndex": 0,
+                "explanation": "Around 7,000 steps already seems to help."
+              },
+              {
+                "id": "reading-3",
+                "prompt": "In the last sentence, “brisk” most likely means…",
+                "options": [
+                  "short and easy",
+                  "careful and safe",
+                  "long and slow",
+                  "quick and energetic"
+                ],
+                "correctIndex": 3,
+                "explanation": "It is contrasted with a slow walk."
+              }
+            ]
+          },
+          {
+            "instruction": "Read the review and answer the questions.",
+            "passage": "Anna Clarke's second novel, The Glass House, tells the story of two sisters who inherit their grandmother's crumbling house in Cornwall. The first half is beautifully written: the descriptions of the sea and the old house are vivid, and the sisters' relationship feels real. Unfortunately, the second half loses its way. A sudden mystery about a missing painting feels far-fetched, and the ending is rushed. Fans of Clarke's first book will still find much to enjoy, but this is not the masterpiece some critics have called it.",
+            "questions": [
+              {
+                "id": "reading-4",
+                "prompt": "What does the reviewer like most?",
+                "options": [
+                  "the first half",
+                  "the ending",
+                  "the mystery",
+                  "the painting"
+                ],
+                "correctIndex": 0,
+                "explanation": "“The first half is beautifully written.”"
+              },
+              {
+                "id": "reading-5",
+                "prompt": "What does the reviewer say about the mystery?",
+                "options": [
+                  "It is very moving.",
+                  "It is too long.",
+                  "It is the best part.",
+                  "It is hard to believe."
+                ],
+                "correctIndex": 3,
+                "explanation": "Far-fetched = hard to believe."
+              },
+              {
+                "id": "reading-6",
+                "prompt": "What is the reviewer's overall opinion?",
+                "options": [
+                  "A perfect novel.",
+                  "A complete failure.",
+                  "Good in parts, but overrated.",
+                  "Better than her first book."
+                ],
+                "correctIndex": 2,
+                "explanation": "Much to enjoy, but not a masterpiece."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "C1": {
+    "id": "english-c1-mock-exam",
+    "level": "C1",
+    "title": "C1 Mock Exam",
+    "minutes": 45,
+    "passPercent": 60,
+    "sectionMinPercent": 40,
+    "sections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary",
+        "titleVi": "Từ vựng",
+        "groups": [
+          {
+            "instruction": "Choose the word or phrase that best completes the sentence.",
+            "questions": [
+              {
+                "id": "vocabulary-1",
+                "prompt": "After the heavy ___, the roads were flooded.",
+                "options": [
+                  "weather",
+                  "rain",
+                  "water",
+                  "storming"
+                ],
+                "correctIndex": 1,
+                "explanation": "Heavy rain is a strong collocation."
+              },
+              {
+                "id": "vocabulary-2",
+                "prompt": "She's not skinny; she's ___ and elegant.",
+                "options": [
+                  "weedy",
+                  "slender",
+                  "scrawny",
+                  "bony"
+                ],
+                "correctIndex": 1,
+                "explanation": "Slender has a positive connotation."
+              },
+              {
+                "id": "vocabulary-3",
+                "prompt": "The plan failed, so it's back to the drawing ___.",
+                "options": [
+                  "room",
+                  "table",
+                  "board",
+                  "line"
+                ],
+                "correctIndex": 2,
+                "explanation": "Back to the drawing board = start again."
+              },
+              {
+                "id": "vocabulary-4",
+                "prompt": "Let's meet each other ___ and split the difference.",
+                "options": [
+                  "at middle",
+                  "midway",
+                  "in the half",
+                  "halfway"
+                ],
+                "correctIndex": 3,
+                "explanation": "Meet someone halfway = compromise."
+              },
+              {
+                "id": "vocabulary-5",
+                "prompt": "The results were positive, ___ limited.",
+                "options": [
+                  "although",
+                  "even",
+                  "albeit",
+                  "despite"
+                ],
+                "correctIndex": 2,
+                "explanation": "Albeit + adjective."
+              },
+              {
+                "id": "vocabulary-6",
+                "prompt": "Critics accused the scientists of playing ___.",
+                "options": [
+                  "God",
+                  "games",
+                  "the fool",
+                  "doctor"
+                ],
+                "correctIndex": 0,
+                "explanation": "Play God."
+              },
+              {
+                "id": "vocabulary-7",
+                "prompt": "In my view, the film is ___: it's good, but not that good.",
+                "options": [
+                  "overrated",
+                  "misrated",
+                  "underrated",
+                  "outrated"
+                ],
+                "correctIndex": 0,
+                "explanation": "Overrated = thought better than it is."
+              },
+              {
+                "id": "vocabulary-8",
+                "prompt": "Free schooling helps to ___ the gap between rich and poor.",
+                "options": [
+                  "bridge",
+                  "build",
+                  "cross",
+                  "jump"
+                ],
+                "correctIndex": 0,
+                "explanation": "Bridge the gap."
+              },
+              {
+                "id": "vocabulary-9",
+                "prompt": "We are ___ concerned about the latest figures.",
+                "options": [
+                  "bitterly",
+                  "strongly",
+                  "deeply",
+                  "highly"
+                ],
+                "correctIndex": 2,
+                "explanation": "Deeply concerned."
+              },
+              {
+                "id": "vocabulary-10",
+                "prompt": "It is ___ unlikely that the law will change this year.",
+                "options": [
+                  "highly",
+                  "heavily",
+                  "deeply",
+                  "bitterly"
+                ],
+                "correctIndex": 0,
+                "explanation": "Highly unlikely."
+              },
+              {
+                "id": "vocabulary-11",
+                "prompt": "The minister was rather economical with the ___.",
+                "options": [
+                  "money",
+                  "words",
+                  "facts",
+                  "truth"
+                ],
+                "correctIndex": 3,
+                "explanation": "Economical with the truth = not fully honest."
+              },
+              {
+                "id": "vocabulary-12",
+                "prompt": "I didn't follow every detail, but I got the ___ of it.",
+                "options": [
+                  "core of",
+                  "gist",
+                  "point out",
+                  "heart"
+                ],
+                "correctIndex": 1,
+                "explanation": "Get the gist = understand the main idea."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grammar",
+        "title": "Grammar",
+        "titleVi": "Ngữ pháp",
+        "groups": [
+          {
+            "instruction": "Choose the correct answer.",
+            "questions": [
+              {
+                "id": "grammar-1",
+                "prompt": "Never ___ such a beautiful sunset.",
+                "options": [
+                  "did I saw",
+                  "I saw",
+                  "I have seen",
+                  "have I seen"
+                ],
+                "correctIndex": 3,
+                "explanation": "Negative inversion: auxiliary before subject."
+              },
+              {
+                "id": "grammar-2",
+                "prompt": "It is essential that every candidate ___ the form.",
+                "options": [
+                  "complete",
+                  "completes",
+                  "completed",
+                  "will complete"
+                ],
+                "correctIndex": 0,
+                "explanation": "Subjunctive: base verb."
+              },
+              {
+                "id": "grammar-3",
+                "prompt": "It's high time we ___ a decision.",
+                "options": [
+                  "made",
+                  "make",
+                  "will make",
+                  "have made"
+                ],
+                "correctIndex": 0,
+                "explanation": "It's high time + past simple."
+              },
+              {
+                "id": "grammar-4",
+                "prompt": "___ I known about the problem, I would have helped.",
+                "options": [
+                  "Should",
+                  "Were",
+                  "If",
+                  "Had"
+                ],
+                "correctIndex": 3,
+                "explanation": "Inverted third conditional."
+              },
+              {
+                "id": "grammar-5",
+                "prompt": "You needn't ___ a taxi; I could have driven you.",
+                "options": [
+                  "taken",
+                  "have taken",
+                  "to take",
+                  "had taken"
+                ],
+                "correctIndex": 1,
+                "explanation": "Needn't have + past participle."
+              },
+              {
+                "id": "grammar-6",
+                "prompt": "Strange ___ it may seem, I enjoyed the exam.",
+                "options": [
+                  "although",
+                  "however",
+                  "as",
+                  "despite"
+                ],
+                "correctIndex": 2,
+                "explanation": "Adjective + as + clause."
+              },
+              {
+                "id": "grammar-7",
+                "prompt": "I'm not used to ___ so early.",
+                "options": [
+                  "get up",
+                  "got up",
+                  "getting up",
+                  "be getting up"
+                ],
+                "correctIndex": 2,
+                "explanation": "Be used to + -ing."
+              },
+              {
+                "id": "grammar-8",
+                "prompt": "Not only ___ late, but he also forgot his notes.",
+                "options": [
+                  "he was",
+                  "did he",
+                  "was he",
+                  "he is"
+                ],
+                "correctIndex": 2,
+                "explanation": "Inversion after a fronted not only."
+              },
+              {
+                "id": "grammar-9",
+                "prompt": "I hate ___ when I'm speaking.",
+                "options": [
+                  "interrupting me",
+                  "be interrupted",
+                  "to interrupt",
+                  "being interrupted"
+                ],
+                "correctIndex": 3,
+                "explanation": "Passive -ing form."
+              },
+              {
+                "id": "grammar-10",
+                "prompt": "“Will it rain tomorrow?” “I ___.”",
+                "options": [
+                  "don't hope so",
+                  "hope no",
+                  "not hope",
+                  "hope not"
+                ],
+                "correctIndex": 3,
+                "explanation": "Hope not, never don't hope so."
+              },
+              {
+                "id": "grammar-11",
+                "prompt": "I was ___ to call you, but my phone died.",
+                "options": [
+                  "about",
+                  "willing",
+                  "going",
+                  "would"
+                ],
+                "correctIndex": 2,
+                "explanation": "Was going to for a plan that didn't happen."
+              },
+              {
+                "id": "grammar-12",
+                "prompt": "After the marathon, I was absolutely ___.",
+                "options": [
+                  "exhausted",
+                  "sleepy",
+                  "tired",
+                  "weary a bit"
+                ],
+                "correctIndex": 0,
+                "explanation": "Absolutely + extreme adjective."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": "Reading",
+        "titleVi": "Đọc hiểu",
+        "groups": [
+          {
+            "instruction": "Read the extract from an essay and answer the questions.",
+            "passage": "It is widely assumed that remote working has improved employees' lives. The evidence, however, is more mixed than this suggests. Granted, the vast majority of workers report saving time and money on commuting. Nonetheless, a significant proportion also describe feeling isolated, and younger staff in particular say they have fewer chances to learn from experienced colleagues. It can therefore be argued that the question is not whether remote working is good or bad, but how organisations can combine its benefits with the informal learning that an office provides.",
+            "questions": [
+              {
+                "id": "reading-1",
+                "prompt": "What is the writer's main point?",
+                "options": [
+                  "Remote working should be banned.",
+                  "The effects of remote working are mixed.",
+                  "Offices are no longer needed.",
+                  "Commuting has become more expensive."
+                ],
+                "correctIndex": 1,
+                "explanation": "“The evidence … is more mixed than this suggests.”"
+              },
+              {
+                "id": "reading-2",
+                "prompt": "Which group, according to the text, misses out most?",
+                "options": [
+                  "commuters",
+                  "managers",
+                  "experienced colleagues",
+                  "younger staff"
+                ],
+                "correctIndex": 3,
+                "explanation": "They have fewer chances to learn from colleagues."
+              },
+              {
+                "id": "reading-3",
+                "prompt": "What is the function of “Granted” in the text?",
+                "options": [
+                  "to give an example",
+                  "to conclude the argument",
+                  "to add a stronger point",
+                  "to admit a point before arguing against it"
+                ],
+                "correctIndex": 3,
+                "explanation": "Granted concedes a point."
+              }
+            ]
+          },
+          {
+            "instruction": "Read the review and answer the questions.",
+            "passage": "Rarely does a debut album arrive as fully formed as Mira Lowe's Northern Lights. Gripping from the first track, it blends folk melodies with electronic beats in a way that should feel forced but never does. Lowe's lyrics, full of vivid imagery of the sea and the city, reward repeated listening. If there is a weakness, it is that the final three songs are somewhat predictable, as if she ran out of time. Still, were it not for those, this would be a near-perfect record.",
+            "questions": [
+              {
+                "id": "reading-4",
+                "prompt": "How does the reviewer feel about the album overall?",
+                "options": [
+                  "very positive, with a small criticism",
+                  "unsure what to think",
+                  "bored by it",
+                  "completely negative"
+                ],
+                "correctIndex": 0,
+                "explanation": "Near-perfect, apart from the last songs."
+              },
+              {
+                "id": "reading-5",
+                "prompt": "What is the weakness of the album?",
+                "options": [
+                  "The beats feel forced.",
+                  "The first track is weak.",
+                  "The lyrics are dull.",
+                  "The last songs are predictable."
+                ],
+                "correctIndex": 3,
+                "explanation": "“the final three songs are somewhat predictable.”"
+              },
+              {
+                "id": "reading-6",
+                "prompt": "“Were it not for those” means…",
+                "options": [
+                  "Even with those songs",
+                  "If it weren't for those songs",
+                  "Unless those songs were longer",
+                  "Because of those songs"
+                ],
+                "correctIndex": 1,
+                "explanation": "Inverted conditional."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -153,8 +153,14 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
             <div className="mb-4">{sectionButton("Learn", "learn")}{sectionsOpen.learn && <div className="mt-1 space-y-1">
               <button onClick={() => go("/levels")} className={`${navItem} ${active(location.pathname === "/levels")}`}><span aria-hidden="true">🏰</span> Level <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">{englishLevel} · Change</span></button>
               {link("/lessons", "📖", "Lessons", location.pathname.startsWith("/lessons"))}
+              {link("/english/vocabulary", "🧠", "Vocabulary", location.pathname === "/english/vocabulary")}
+              {link("/english/grammar", "✍️", "Grammar", location.pathname === "/english/grammar")}
             </div>}</div>
             <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
+              {link("/english/flashcards", "🗂️", "Flashcards", location.pathname === "/english/flashcards")}
+              {link("/english/review", "🔄", "Review", location.pathname === "/english/review")}
+              {link("/english/mock-exam", "📝", "Mock exam", location.pathname === "/english/mock-exam")}
+              {link("/mistakes", "📒", "Mistake notebook", location.pathname === "/mistakes")}
               {link("/arcade", "🧩", "English Arcade", location.pathname.startsWith("/arcade"))}
             </div>}</div>
           </>}

@@ -14,7 +14,7 @@ const PARTS = [{ id: "rule", label: "Rule" }, { id: "examples", label: "Examples
 type Part = typeof PARTS[number]["id"];
 
 /** One grammar point: its pattern and explanation, then its examples in both languages and the mistake it fixes. */
-function GrammarPointPanel({ point }: { point: GrammarPoint }) {
+export function GrammarPointPanel({ point }: { point: GrammarPoint }) {
   const [shownPart, setShownPart] = useState<Part>("rule");
   const visibility = (part: Part) => part === shownPart ? "" : "hidden md:block";
   return <div>

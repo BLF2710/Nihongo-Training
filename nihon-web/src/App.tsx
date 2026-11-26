@@ -41,6 +41,11 @@ const KanjiFlashcardsPage = lazy(() => import("./pages/KanjiFlashcardsPage"));
 const StudyReferencePage = lazy(() => import("./pages/StudyReferencePage"));
 const JapaneseN5LessonPage = lazy(() => import("./pages/JapaneseN5LessonPage"));
 const EnglishLessonPage = lazy(() => import("./pages/EnglishLessonPage"));
+const EnglishVocabularyPage = lazy(() => import("./pages/english/EnglishVocabularyPage"));
+const EnglishGrammarPage = lazy(() => import("./pages/english/EnglishGrammarPage"));
+const EnglishFlashcardsPage = lazy(() => import("./pages/english/EnglishFlashcardsPage"));
+const EnglishReviewPage = lazy(() => import("./pages/english/EnglishReviewPage"));
+const EnglishMockExamPage = lazy(() => import("./pages/english/EnglishMockExamPage"));
 const LessonsPage = lazy(() => import("./pages/LessonsPage"));
 const UnitAssessmentPage = lazy(() => import("./pages/UnitAssessmentPage"));
 const UnitReviewPage = lazy(() => import("./pages/UnitReviewPage"));
@@ -146,6 +151,11 @@ function App() {
           <Route path="/wilds/:routeId" element={signedInLazy("Loading the wild path…", <WildRoutePage />)} />
           <Route path="/islands/:islandId" element={signedInLazy("Loading the island…", <IslandScenePage />)} />
           <Route path="/english/island" element={signedInLazy("Loading the island…", <EnglishIslandPage />)} />
+          <Route path="/english/vocabulary" element={signedInLazy("Loading vocabulary…", <EnglishVocabularyPage />)} />
+          <Route path="/english/grammar" element={signedInLazy("Loading grammar…", <EnglishGrammarPage />)} />
+          <Route path="/english/flashcards" element={signedInLazy("Loading your flashcards…", <EnglishFlashcardsPage />)} />
+          <Route path="/english/review" element={signedInLazy("Loading review…", <EnglishReviewPage />)} />
+          <Route path="/english/mock-exam" element={signedInLazy("Loading the mock exam…", <EnglishMockExamPage />)} />
           <Route path="/traveller" element={signedInLazy("Loading the wardrobe…", <WardrobePage />)} />
           <Route path="/games/english" element={signedIn(<EnglishArcadePage />)} />
           <Route path="/statistics" element={signedIn(<StatisticsPage />)} />

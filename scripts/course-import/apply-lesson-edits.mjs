@@ -36,6 +36,9 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const result = applyLessonEdits(JSON.parse(readFileSync(lessonsFile, "utf8")), exported.lessons);
   console.log(`Applied: ${result.applied.length ? result.applied.join(", ") : "none"}`);
   if (result.missing.length) console.log(`Edit by hand (Units 1–3 in nihon-web/src/data): ${result.missing.join(", ")}`);
+  // English lessons are written as TypeScript in docs/curriculum/english and imported from there, so their edits are copied by hand.
+  const englishIds = Object.keys(exported.englishLessons ?? {});
+  if (englishIds.length) console.log(`English, copy into docs/curriculum/english by hand, then re-import: ${englishIds.join(", ")}`);
   if (process.argv.includes("--dry-run")) console.log("Dry run: nothing written.");
   else if (result.applied.length) writeFileSync(lessonsFile, `${JSON.stringify(result.lessons, null, 2)}\n`);
 }

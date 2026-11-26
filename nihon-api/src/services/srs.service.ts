@@ -2,7 +2,8 @@ import { withTransaction } from "../db/transaction";
 import { isSrsGrade, MATURE_INTERVAL_DAYS, previewIntervals, scheduleReview } from "../learning/srsScheduler";
 import { listCompletedLessonIds } from "../repositories/lesson-progress.repository";
 import * as srsRepository from "../repositories/srs.repository";
-import type { SrsCard, SrsItemType } from "../repositories/srs.repository";
+import { isSrsCourse } from "../repositories/srs.repository";
+import type { SrsCard, SrsCourse, SrsItemType } from "../repositories/srs.repository";
 import { recordActivity } from "../repositories/streak.repository";
 import { HttpError } from "../utils/http-error";
 import { rewardActivity } from "./gamification.service";
@@ -51,12 +52,20 @@ export async function enrollItems(userId: number, items: unknown) {
   return { added, ignored: references.length - accepted.length };
 }
 
-async function newCardAllowance(userId: number) {
-  return Math.max(0, MAX_NEW_PER_DAY - await srsRepository.countNewReviewedToday(userId));
+/** The course a request asks about (`?course=`); none means the whole deck. */
+export function parseCourse(value: unknown): SrsCourse | undefined {
+  if (value === undefined) return undefined;
+  if (!isSrsCourse(value)) throw new HttpError(400, "The course must be japanese or english.");
+  return value;
 }
 
-export async function getSummary(userId: number) {
-  const [counts, allowance] = await Promise.all([srsRepository.getCardCounts(userId, REVIEW_AHEAD_HOURS), newCardAllowance(userId)]);
+/** Each course has its own allowance of new cards a day; without a course, the allowance covers both. */
+async function newCardAllowance(userId: number, course?: SrsCourse) {
+  return Math.max(0, MAX_NEW_PER_DAY - await srsRepository.countNewReviewedToday(userId, course));
+}
+
+export async function getSummary(userId: number, course?: SrsCourse) {
+  const [counts, allowance] = await Promise.all([srsRepository.getCardCounts(userId, REVIEW_AHEAD_HOURS, course), newCardAllowance(userId, course)]);
   const newToday = Math.min(counts.newCards, allowance);
   return { ...counts, newToday, dueTotal: counts.dueNow + newToday };
 }
@@ -67,13 +76,14 @@ const presentCard = (card: SrsCard, now: Date) => ({
 });
 
 /** Today's session: due reviews first, then new cards up to the daily limit. Reviewing ahead: cards due soon. */
-export async function getQueue(userId: number, options: { ahead?: boolean } = {}, now = new Date()) {
+export async function getQueue(userId: number, options: { ahead?: boolean; course?: SrsCourse } = {}, now = new Date()) {
+  const { course } = options;
   if (options.ahead) {
-    const soon = await srsRepository.listCardsDueSoon(userId, REVIEW_AHEAD_HOURS, MAX_AHEAD_IN_QUEUE);
+    const soon = await srsRepository.listCardsDueSoon(userId, REVIEW_AHEAD_HOURS, MAX_AHEAD_IN_QUEUE, course);
     return { cards: soon.map(card => presentCard(card, now)), newLimit: MAX_NEW_PER_DAY };
   }
-  const allowance = await newCardAllowance(userId);
-  const [due, fresh] = await Promise.all([srsRepository.listDueCards(userId, MAX_DUE_IN_QUEUE), srsRepository.listNewCards(userId, allowance)]);
+  const allowance = await newCardAllowance(userId, course);
+  const [due, fresh] = await Promise.all([srsRepository.listDueCards(userId, MAX_DUE_IN_QUEUE, course), srsRepository.listNewCards(userId, allowance, course)]);
   return { cards: [...due, ...fresh].map(card => presentCard(card, now)), newLimit: MAX_NEW_PER_DAY };
 }
 
@@ -111,8 +121,8 @@ const deckStatus = (card: SrsCard): DeckStatus =>
   card.isSuspended ? "suspended" : card.isNew ? "new" : card.intervalDays >= MATURE_INTERVAL_DAYS ? "mature" : "learning";
 
 /** Every card in the learner's deck with its status and next review, for browsing and suspending. */
-export async function getDeck(userId: number) {
-  const cards = await srsRepository.listDeck(userId, MAX_DECK_LISTED);
+export async function getDeck(userId: number, course?: SrsCourse) {
+  const cards = await srsRepository.listDeck(userId, MAX_DECK_LISTED, course);
   return {
     cards: cards.map(card => ({
       itemType: card.itemType, itemId: card.itemId, status: deckStatus(card), dueAt: card.isNew ? null : card.dueAt,

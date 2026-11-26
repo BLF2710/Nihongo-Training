@@ -17,6 +17,13 @@ const toCard = (row: CardRow): SrsCard => ({
 });
 const CARD_COLUMNS = "item_type, item_id, ease, interval_days, repetitions, lapses, due_at, last_reviewed_at, suspended_at";
 
+/** Each course keeps its own deck in the same table: English words have ids starting `english-`, everything else
+ *  (Japanese words and Kanji) is the Japanese deck. Without a course, a query covers both. */
+export type SrsCourse = "japanese" | "english";
+export const isSrsCourse = (value: unknown): value is SrsCourse => value === "japanese" || value === "english";
+const COURSE_FILTERS: Record<SrsCourse, string> = { english: "AND item_id LIKE 'english-%'", japanese: "AND item_id NOT LIKE 'english-%'" };
+const courseFilter = (course?: SrsCourse) => course ? COURSE_FILTERS[course] : "";
+
 /** Adds cards the learner doesn't have yet; returns how many were added. */
 export async function insertCards(userId: number, items: { itemType: SrsItemType; itemId: string }[]): Promise<number> {
   if (!items.length) return 0;
@@ -28,31 +35,31 @@ export async function insertCards(userId: number, items: { itemType: SrsItemType
   return result.rowCount ?? 0;
 }
 
-export async function countNewReviewedToday(userId: number): Promise<number> {
-  const result = await pool.query(`SELECT COUNT(*)::int AS count FROM srs_reviews WHERE user_id = $1 AND was_new AND reviewed_at >= ${startOfToday}`, [userId]);
+export async function countNewReviewedToday(userId: number, course?: SrsCourse): Promise<number> {
+  const result = await pool.query(`SELECT COUNT(*)::int AS count FROM srs_reviews WHERE user_id = $1 AND was_new AND reviewed_at >= ${startOfToday} ${courseFilter(course)}`, [userId]);
   return result.rows[0].count;
 }
 
 /** Cards already studied that are due now, earliest first. */
-export async function listDueCards(userId: number, limit: number): Promise<SrsCard[]> {
+export async function listDueCards(userId: number, limit: number, course?: SrsCourse): Promise<SrsCard[]> {
   const result = await pool.query(
-    `SELECT ${CARD_COLUMNS} FROM srs_cards WHERE user_id = $1 AND suspended_at IS NULL AND last_reviewed_at IS NOT NULL AND due_at <= NOW()
+    `SELECT ${CARD_COLUMNS} FROM srs_cards WHERE user_id = $1 AND suspended_at IS NULL AND last_reviewed_at IS NOT NULL AND due_at <= NOW() ${courseFilter(course)}
       ORDER BY due_at LIMIT $2`, [userId, limit]);
   return result.rows.map(toCard);
 }
 
 /** Studied cards not due yet but due within the next `hours`, earliest first ("review ahead"). */
-export async function listCardsDueSoon(userId: number, hours: number, limit: number): Promise<SrsCard[]> {
+export async function listCardsDueSoon(userId: number, hours: number, limit: number, course?: SrsCourse): Promise<SrsCard[]> {
   const result = await pool.query(
     `SELECT ${CARD_COLUMNS} FROM srs_cards WHERE user_id = $1 AND suspended_at IS NULL AND last_reviewed_at IS NOT NULL
-        AND due_at > NOW() AND due_at <= NOW() + make_interval(hours => $2)
+        AND due_at > NOW() AND due_at <= NOW() + make_interval(hours => $2) ${courseFilter(course)}
       ORDER BY due_at LIMIT $3`, [userId, hours, limit]);
   return result.rows.map(toCard);
 }
 
 /** Every card in the deck, suspended ones included, in the order they were added. */
-export async function listDeck(userId: number, limit: number): Promise<SrsCard[]> {
-  const result = await pool.query(`SELECT ${CARD_COLUMNS} FROM srs_cards WHERE user_id = $1 ORDER BY created_at, item_id LIMIT $2`, [userId, limit]);
+export async function listDeck(userId: number, limit: number, course?: SrsCourse): Promise<SrsCard[]> {
+  const result = await pool.query(`SELECT ${CARD_COLUMNS} FROM srs_cards WHERE user_id = $1 ${courseFilter(course)} ORDER BY created_at, item_id LIMIT $2`, [userId, limit]);
   return result.rows.map(toCard);
 }
 
@@ -65,10 +72,10 @@ export async function setSuspended(userId: number, itemType: SrsItemType, itemId
 }
 
 /** Cards never studied, in the order they were added (lesson order). */
-export async function listNewCards(userId: number, limit: number): Promise<SrsCard[]> {
+export async function listNewCards(userId: number, limit: number, course?: SrsCourse): Promise<SrsCard[]> {
   if (limit <= 0) return [];
   const result = await pool.query(
-    `SELECT ${CARD_COLUMNS} FROM srs_cards WHERE user_id = $1 AND suspended_at IS NULL AND last_reviewed_at IS NULL ORDER BY created_at, item_id LIMIT $2`, [userId, limit]);
+    `SELECT ${CARD_COLUMNS} FROM srs_cards WHERE user_id = $1 AND suspended_at IS NULL AND last_reviewed_at IS NULL ${courseFilter(course)} ORDER BY created_at, item_id LIMIT $2`, [userId, limit]);
   return result.rows.map(toCard);
 }
 
@@ -95,7 +102,7 @@ export type SrsCounts = { total: number; newCards: number; dueNow: number; dueTo
  * Card counts for the dashboard and statistics. Suspended cards count only in `total` and `suspended`; "due soon"
  * cards are not due yet but due within `soonHours` (they can be reviewed ahead).
  */
-export async function getCardCounts(userId: number, soonHours: number): Promise<SrsCounts> {
+export async function getCardCounts(userId: number, soonHours: number, course?: SrsCourse): Promise<SrsCounts> {
   const active = "suspended_at IS NULL";
   const result = await pool.query(
     `SELECT COUNT(*)::int AS total,
@@ -106,8 +113,8 @@ export async function getCardCounts(userId: number, soonHours: number): Promise<
             COUNT(*) FILTER (WHERE ${active} AND repetitions > 0)::int AS learned,
             COUNT(*) FILTER (WHERE ${active} AND interval_days >= $3)::int AS mature,
             COUNT(*) FILTER (WHERE suspended_at IS NOT NULL)::int AS suspended,
-            (SELECT COUNT(*)::int FROM srs_reviews WHERE user_id = $1 AND reviewed_at >= ${startOfToday}) AS reviewed_today
-       FROM srs_cards WHERE user_id = $1`, [userId, soonHours, MATURE_INTERVAL_DAYS]);
+            (SELECT COUNT(*)::int FROM srs_reviews WHERE user_id = $1 AND reviewed_at >= ${startOfToday} ${courseFilter(course)}) AS reviewed_today
+       FROM srs_cards WHERE user_id = $1 ${courseFilter(course)}`, [userId, soonHours, MATURE_INTERVAL_DAYS]);
   const row = result.rows[0];
   return {
     total: row.total, newCards: row.new_cards, dueNow: row.due_now, dueToday: row.due_today, dueSoon: row.due_soon,

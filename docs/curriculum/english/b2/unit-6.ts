@@ -56,7 +56,7 @@ export const unit: UnitSource = {
       ],
       mistake: {
         wrong: "He apologised to be late.", right: "He apologised for being late.",
-        why: { english: "Apologise for + -ing.", vietnamese: "Apologise for + -ing." },
+        why: { english: "Apologise for + -ing.", vietnamese: "Apologise đi với for + -ing." },
       },
     }],
     examples: [

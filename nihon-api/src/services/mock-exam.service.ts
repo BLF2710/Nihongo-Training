@@ -1,3 +1,4 @@
+import englishExams from "../../../shared/course/english/mock-exams.json";
 import exams from "../../../shared/course/mock-exams.json";
 import { withTransaction } from "../db/transaction";
 import { gradeMockExam, parseMockAnswers, questionsOf } from "../learning/mockExamGrading";
@@ -13,19 +14,23 @@ import type { ActivityReward } from "./gamification.service";
 import { mistakeKeys } from "./mistake.service";
 import { getUserUnits } from "./unit.service";
 
-const EXAMS: Partial<Record<string, MockExam>> = exams;
+// Japanese levels (N5–N1) and English levels (A2–C1) never share a name, so one table holds both courses' exams.
+const EXAMS: Partial<Record<string, MockExam>> = { ...exams, ...englishExams };
+const LEVEL = /^(N[1-5]|A2|B1|B2|C1)$/;
+/** Units of a level have ids like `japanese-n5-unit-3` or `english-b1-unit-3`. */
+const unitPrefixOf = (level: string) => `${level.startsWith("N") ? "japanese" : "english"}-${level.toLowerCase()}-unit-`;
 const RESULTS_PER_HOUR = 20;
 const HISTORY_LENGTH = 20;
 
 function examFor(level: unknown): MockExam {
-  const exam = typeof level === "string" && /^N[1-5]$/.test(level) ? EXAMS[level] : undefined;
+  const exam = typeof level === "string" && LEVEL.test(level) ? EXAMS[level] : undefined;
   if (!exam) throw new HttpError(404, "There is no mock exam for this level.");
   return exam;
 }
 
 /** A level's mock exam opens once every unit of the level has been reached, as on the exam page. */
 async function requireLevelReached(userId: number, level: string) {
-  const prefix = `japanese-${level.toLowerCase()}-unit-`;
+  const prefix = unitPrefixOf(level);
   const units = (await getUserUnits(userId)).filter(unit => unit.id.startsWith(prefix));
   if (!units.length || !units.every(unit => unit.allowed)) throw new HttpError(403, `Reach every ${level} unit to take its mock exam.`);
 }

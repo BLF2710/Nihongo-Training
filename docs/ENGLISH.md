@@ -90,11 +90,11 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
   4. Food & Shopping
   5. Plans & the Future
   6. Health & Advice
-- **Phase 4, started:** the English Isle on foot is the English learner's home page (`/`, which `pages/HomePage.tsx`
+- **Phase 4:** the English Isle on foot is the English learner's home page (`/`, which `pages/HomePage.tsx`
   sends to `pages/EnglishIslandPage.tsx`; also at `/english/island`; data in `data/world/englishIsland.ts`). Its doors
   open the level picker (castle), English statistics (watchtower), lessons (church school) and the arcade (tavern),
-  everything the old English home page linked to. Still to come: the rest of the island's places (market town,
-  fields, abbey) and the Phase 5 tools they'll open.
+  everything the old English home page linked to, and the Phase 5 tools: vocabulary (the market), grammar (the abbey,
+  a green church), flashcards (the windmill's fields), review (the blacksmith) and the mock exam (the archery range).
   - **Look:** real 3D with three.js, not the 2.5D CSS engine. A camera looks down at the 2.5D scenes' angle (40°
     above the ground) and follows the traveller, at the same tile size as `VillageScene`. The land is raised tiles
     over a water plane, and the models stand in sunlight with real shadows
@@ -126,6 +126,30 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
     - every door can be walked to;
     - every model and person has been prepared.
 
+- **Phase 5:** the study tools, each for the level chosen on `/levels` and, where it helps, one unit of it
+  (`?unit=`). They reuse the lessons' own content (`lib/englishStudy.ts`); review lessons are left out, so each word
+  and grammar point appears once, under the lesson that teaches it.
+  - `/english/vocabulary`: every word, searchable in English or Vietnamese (tone marks optional), beside the chosen
+    word in full. `/english/grammar`: every grammar point beside its explanation. On a phone the list and the chosen
+    item take turns.
+  - `/english/flashcards`: spaced repetition over the words of completed lessons. The cards share `srs_cards` with
+    Japanese (ids `<lesson id>:<word>`); the SRS endpoints take `?course=english|japanese`, and each course has its
+    own daily allowance of new cards.
+  - `/english/review`: rounds of ten questions drawn from the practice and challenge questions of completed lessons;
+    wrong answers go to the mistake notebook.
+  - `/english/mock-exam`: a timed end-of-level exam (vocabulary, grammar, reading), open once the level's units are
+    open. Sources are `docs/curriculum/english/<level>/mock-exam.ts`, built into `shared/course/english/mock-exams.json`
+    by the importer; the server grades it again and saves the result. **Migration `039_english_mock_exams.sql`** lets
+    `mock_exam_results` hold A2–C1 results: run `npm run migrate` in `nihon-api` before deploying.
+  - English statistics (`/statistics/english`) show lessons and units done per level, flashcards and best mock exam
+    scores.
+- **Admin lesson editing:** the lesson editor has a Japanese / English switch. English lessons are edited with
+  English fields (each word's IPA, part of speech, Vietnamese, definition and example; examples and conversation in
+  both languages; questions; grammar as JSON) and checked on the server by the English rules
+  (`nihon-api/src/content/englishLessonContent.ts`). Published English edits reach the site with the Japanese ones
+  (`/site/lesson-edits` → `englishLessons`) and are applied when the English course loads. An export lists them, but
+  English edits are copied into `docs/curriculum/english` by hand, then re-imported.
+
 ## Writing a unit
 
 1. Copy the lesson keys and titles for the unit from `docs/curriculum/english/<level>/blueprint.ts`.
@@ -139,11 +163,4 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
 
 ## Not yet for English
 
-These are Phase 5:
-- vocabulary and grammar reference pages;
-- the SRS deck;
-- the review bank;
-- mock exams;
-- the dashboard and statistics.
-
-Lesson editing in the admin area also accepts only the Japanese lesson format so far.
+- An English dashboard page of its own: the island and English statistics play that part for now.

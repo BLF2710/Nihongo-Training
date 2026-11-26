@@ -56,3 +56,46 @@ test("an export applied to the course files replaces the edited fields and lists
   assert.equal(result.lessons[1], second, "other lessons are untouched");
   assert.deepEqual([result.applied, result.missing], [[first.id], ["japanese-n5-unit-1-introductions"]]);
 });
+
+// English lessons, checked by the English course's rules.
+const englishLessons = require("../../shared/course/english/lessons.json");
+const { ENGLISH_PARTS_OF_SPEECH, isEnglishLessonId, parseEnglishLessonContent } = require("../src/content/englishLessonContent");
+const ENGLISH_EDITABLE = ["title", "titleVi", "objectives", "vocabulary", "grammar", "examples", "dialogue", "practice", "challenge"];
+const englishSample = () => structuredClone(Object.fromEntries(ENGLISH_EDITABLE.map(key => [key, englishLessons[0][key]])));
+const englishErrorsOf = content => { const result = parseEnglishLessonContent(content); assert.equal(result.ok, false); return result.errors; };
+
+test("every English lesson in the course is valid content as it stands", () => {
+  const failures = englishLessons.map(lesson => [lesson.id, parseEnglishLessonContent(Object.fromEntries(ENGLISH_EDITABLE.map(key => [key, lesson[key]])))]).filter(([, result]) => !result.ok);
+  assert.deepEqual(failures.map(([id, result]) => [id, result.errors.slice(0, 3)]), []);
+});
+
+test("English lessons are told apart by their id", () => {
+  assert.deepEqual([isEnglishLessonId(englishLessons[0].id), isEnglishLessonId(lessons[0].id)], [true, false]);
+});
+
+// Read as text: the schema is an ES module, which this CommonJS test can't require.
+test("the API's parts of speech are the English course's", () => {
+  const schema = require("node:fs").readFileSync(require("node:path").join(__dirname, "../../shared/course/english/schema.ts"), "utf8");
+  const list = schema.match(/PARTS_OF_SPEECH = \[([^\]]*)\]/)[1];
+  assert.deepEqual([...ENGLISH_PARTS_OF_SPEECH], [...list.matchAll(/"([^"]+)"/g)].map(match => match[1]));
+});
+
+test("an English word needs IPA between slashes and a known part of speech", () => {
+  const content = englishSample(); content.vocabulary[0].ipa = "kæsl"; content.vocabulary[0].partOfSpeech = "thing";
+  assert.deepEqual(englishErrorsOf(content), ["word 1: IPA: must be written between slashes, like /ˈkæsl/", `word 1: part of speech: must be one of: ${ENGLISH_PARTS_OF_SPEECH.join(", ")}`]);
+});
+
+test("an English example's Vietnamese must not just repeat the English", () => {
+  const content = englishSample(); content.examples[0].vietnamese = content.examples[0].english;
+  assert.deepEqual(englishErrorsOf(content), ["example 1: the Vietnamese is the same as the English"]);
+});
+
+test("an English question has three or four options", () => {
+  const content = englishSample(); content.practice[0].options = [content.practice[0].correct, "other"];
+  assert.deepEqual(englishErrorsOf(content), ["practice 1: options: needs 3 or 4"]);
+});
+
+test("an English lesson needs four practice and five challenge questions", () => {
+  const content = englishSample(); content.practice = content.practice.slice(0, 3); content.challenge = content.challenge.slice(0, 4);
+  assert.deepEqual(englishErrorsOf(content), ["practice: needs at least 4", "challenge: needs at least 5"]);
+});

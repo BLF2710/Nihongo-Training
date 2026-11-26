@@ -1,5 +1,6 @@
 import { withTransaction } from "../db/transaction";
 import { parseLessonContent } from "../content/lessonContent";
+import { isEnglishLessonId, parseEnglishLessonContent } from "../content/englishLessonContent";
 import { LESSONS } from "../data/lessons";
 import { clearDraft, findLessonEdit, listLessonEdits, listPublishedEdits, publish, saveDraft, unpublish } from "../repositories/lesson-edit.repository";
 import type { LessonEditRow } from "../repositories/lesson-edit.repository";
@@ -13,8 +14,9 @@ function requireLesson(rawId: unknown): string {
   return lesson.id;
 }
 
-function parseOrFail(content: unknown) {
-  const result = parseLessonContent(content);
+/** English lessons are checked by the English course's rules, the rest by the Japanese course's. */
+function parseOrFail(lessonId: string, content: unknown) {
+  const result = isEnglishLessonId(lessonId) ? parseEnglishLessonContent(content) : parseLessonContent(content);
   if (!result.ok) throw new HttpError(400, "The lesson has problems to fix before it can be saved.", { errors: result.errors });
   return result.content;
 }
@@ -43,7 +45,7 @@ export async function getLessonEdit(rawId: unknown) {
 /** Saves work in progress. Learners don't see a draft; it is checked the same way as a published lesson. */
 export async function saveLessonDraft(adminId: number, rawId: unknown, content: unknown) {
   const lessonId = requireLesson(rawId);
-  await saveDraft(lessonId, parseOrFail(content), adminId);
+  await saveDraft(lessonId, parseOrFail(lessonId, content), adminId);
   return getLessonEdit(lessonId);
 }
 
@@ -64,7 +66,7 @@ export async function publishLessonDraft(adminId: number, rawId: unknown) {
   await withTransaction(async client => {
     const row = await findLessonEdit(client, lessonId, true);
     if (!row?.draft) throw new HttpError(404, "Save a draft before publishing.");
-    const content = parseOrFail(row.draft);
+    const content = parseOrFail(lessonId, row.draft);
     await publish(client, lessonId, content, adminId);
     await recordAdminAction(client, { actorId: adminId, action: "lesson.published", targetRef: lessonId, details: { title: content.title, replaced: row.published !== null } });
   });
@@ -85,11 +87,19 @@ export async function revertLesson(adminId: number, rawId: unknown) {
 
 /** Every published edit, to write into the course files with scripts/course-import/apply-lesson-edits.mjs. */
 export async function exportPublishedLessonEdits() {
-  return { exportedAt: new Date().toISOString(), lessons: (await getPublishedLessonEdits()).lessons };
+  const { lessons, englishLessons } = await getPublishedLessonEdits();
+  return { exportedAt: new Date().toISOString(), lessons, englishLessons };
 }
 
-/** What the site applies over the built-in lessons when it starts. */
+/** What the site applies over the built-in lessons when it starts: Japanese lessons and English lessons apart, since
+ *  their content differs and the English course is only loaded by the English pages. */
 export async function getPublishedLessonEdits() {
   const { revision, lessons } = await listPublishedEdits();
-  return { revision, lessons: Object.fromEntries(lessons.filter(row => LESSONS.some(lesson => lesson.id === row.lesson_id)).map(row => [row.lesson_id, row.published])) };
+  const current = lessons.filter(row => LESSONS.some(lesson => lesson.id === row.lesson_id));
+  const entriesOf = (rows: typeof current) => Object.fromEntries(rows.map(row => [row.lesson_id, row.published]));
+  return {
+    revision,
+    lessons: entriesOf(current.filter(row => !isEnglishLessonId(row.lesson_id))),
+    englishLessons: entriesOf(current.filter(row => isEnglishLessonId(row.lesson_id))),
+  };
 }

@@ -21,7 +21,7 @@ function readCache(): PublishedLessonEdits | null {
 // Nothing is stored while nothing is published, so most visitors' browsers keep no copy at all.
 function writeCache(edits: PublishedLessonEdits) {
   try {
-    if (Object.keys(edits.lessons).length) localStorage.setItem(CACHE_KEY, JSON.stringify(edits));
+    if (Object.keys(edits.lessons).length || Object.keys(edits.englishLessons ?? {}).length) localStorage.setItem(CACHE_KEY, JSON.stringify(edits));
     else localStorage.removeItem(CACHE_KEY);
   }
   catch { /* storage full or blocked: the edits still apply to this visit */ }

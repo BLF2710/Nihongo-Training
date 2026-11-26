@@ -1,8 +1,9 @@
 // The English island on foot (docs/ENGLISH.md, phase 4): a shire round a castle, built from KayKit models (CC0, Kay
 // Lousberg; scripts/world-models) and drawn in real 3D. Content only. North, behind a castle green, the castle (your
-// level) and its watchtower (your progress); a river across the middle with a bridge; south of it the village square,
-// with the church school (lessons) and the tavern (word games), and cottages along a lane by the shore. Hills and
-// mountains rise from the sea beyond.
+// level) and its watchtower (your progress), with the abbey (grammar) to the west, the archery range (mock exams) to the
+// east, and the windmill's fields (flashcards) and the blacksmith (review) below them; a river across the middle with a
+// bridge; south of it the market town, with the church school (lessons), the tavern (word games) and the market
+// (vocabulary), and cottages along a lane by the shore. Hills and mountains rise from the sea beyond.
 import { parseTownMap } from "../../lib/errands/townMap.ts";
 import type { Vector } from "../../lib/errands/movement.ts";
 import type { VillageLayout } from "../../lib/errands/village.ts";
@@ -19,6 +20,7 @@ const CASTLE_SCALE = 0.85;
 const FIELD_SCALE = 0.7;
 const COPSE_SCALE = 0.8;
 const MARKET_SCALE = 0.8;
+const RANGE_SCALE = 0.8;
 /** The forest pack's trees are modelled bigger than the medieval pack's buildings. */
 const FOREST_SCALE = 0.3;
 const BUSH_SCALE = 0.4;
@@ -30,16 +32,21 @@ const castle = place("castle", { x: 15, y: 2 }, { scale: CASTLE_SCALE });
 const watchtower = place("tower_A", { x: 9, y: 5 });
 const church = place("church", { x: 6, y: 18 });
 const tavern = place("tavern", { x: 24, y: 17 });
+const market = place("market", { x: 19, y: 18 }, { scale: MARKET_SCALE });
+const windmill = place("windmill", { x: 3, y: 8 });
+const blacksmith = place("blacksmith", { x: 27, y: 8 });
+const abbey = place("abbey", { x: 4, y: 2 });
+const archeryRange = place("archeryrange", { x: 27, y: 2 }, { scale: RANGE_SCALE });
 
 const MODELS: readonly ModelPlacement[] = [
   castle, watchtower, place("tower_A", { x: 23, y: 5 }, { isMirrored: true }),
   place("fence_stone", { x: 12, y: 7 }), place("fence_stone", { x: 20, y: 7 }),
   place("flag_blue", { x: 14, y: 9 }, { isWalkable: true }), place("flag_blue", { x: 19, y: 9 }, { isWalkable: true }),
-  place("trees_A_medium", { x: 2, y: 1 }), place("trees_B_medium", { x: 27, y: 1 }),
-  place("windmill", { x: 3, y: 8 }), place("grain", { x: 4, y: 11 }, { scale: FIELD_SCALE }), place("wheelbarrow", { x: 8, y: 13 }),
+  abbey, archeryRange, place("trees_A_small", { x: 1, y: 1 }, { scale: COPSE_SCALE }), place("tree_single_B", { x: 31, y: 2 }),
+  windmill, place("grain", { x: 4, y: 11 }, { scale: FIELD_SCALE }), place("wheelbarrow", { x: 8, y: 13 }),
   place("trees_A_small", { x: 11, y: 11 }, { scale: COPSE_SCALE }), place("tree_single_A", { x: 23, y: 10 }),
-  place("blacksmith", { x: 27, y: 8 }), place("rock_single_C", { x: 31, y: 12 }), place("resource_lumber", { x: 30, y: 13 }),
-  church, tavern, place("market", { x: 19, y: 18 }, { scale: MARKET_SCALE }), place("well", { x: 13, y: 21 }),
+  blacksmith, place("rock_single_C", { x: 31, y: 12 }), place("resource_lumber", { x: 30, y: 13 }),
+  church, tavern, market, place("well", { x: 13, y: 21 }),
   place("barrel", { x: 28, y: 21 }), place("barrel", { x: 29, y: 21 }), place("crate_open", { x: 18, y: 22 }), place("sack", { x: 19, y: 22 }, { isWalkable: true }),
   place("tree_single_B", { x: 1, y: 20 }), place("tree_single_A", { x: 31, y: 19 }, { isMirrored: true }),
   place("home_A", { x: 3, y: 24 }), place("home_B", { x: 7, y: 24 }), place("forest_tree_3_a", { x: 11, y: 24 }, { scale: FOREST_SCALE }),
@@ -74,6 +81,11 @@ const DOORS: readonly Door[] = [
   { id: "watchtower", label: "The watchtower: your progress", href: "/statistics/english", tile: doorTile(watchtower) },
   { id: "church", label: "The church school: lessons", href: "/lessons", tile: doorTile(church) },
   { id: "tavern", label: "The tavern: word games", href: "/arcade", tile: doorTile(tavern) },
+  { id: "market", label: "The market: vocabulary", href: "/english/vocabulary", tile: doorTile(market) },
+  { id: "abbey", label: "The abbey: grammar", href: "/english/grammar", tile: doorTile(abbey) },
+  { id: "windmill", label: "The windmill fields: flashcards", href: "/english/flashcards", tile: doorTile(windmill) },
+  { id: "blacksmith", label: "The blacksmith: review", href: "/english/review", tile: doorTile(blacksmith) },
+  { id: "archery-range", label: "The archery range: mock exam", href: "/english/mock-exam", tile: doorTile(archeryRange) },
 ];
 
 const MAP = parseTownMap([

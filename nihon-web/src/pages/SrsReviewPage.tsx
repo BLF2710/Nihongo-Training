@@ -13,17 +13,13 @@ import { formatInterval } from "../lib/srsIntervals";
 import { speakJapanese, supportsJapaneseSpeech } from "../services/japaneseSpeech";
 import { IslandBoard } from "../components/theme/IslandBoard";
 import { SessionStart } from "../components/cast/SessionStart";
+import { SRS_GRADES } from "../components/srs/srsGrades";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600";
 const primary = `rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 ${focus}`;
 const button = `rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold hover:bg-gray-100 ${focus}`;
 const card = "notice-sheet p-6 pt-7 sm:p-8";
-const GRADES: { grade: SrsGrade; label: string; hint: string; tone: string }[] = [
-  { grade: "again", label: "Again", hint: "Forgot it", tone: "border-red-200 bg-red-50 text-red-900 hover:bg-red-100" },
-  { grade: "hard", label: "Hard", hint: "Remembered with effort", tone: "border-amber-200 bg-amber-50 text-amber-950 hover:bg-amber-100" },
-  { grade: "good", label: "Good", hint: "Remembered", tone: "border-emerald-200 bg-emerald-50 text-emerald-900 hover:bg-emerald-100" },
-  { grade: "easy", label: "Easy", hint: "Knew it at once", tone: "border-sky-200 bg-sky-50 text-sky-950 hover:bg-sky-100" },
-];
+const GRADES = SRS_GRADES;
 
 type QueuedCard = { queued: SrsQueueCard; content: DeckCard };
 /** `ahead`: reviewing cards due within the next day, after today's are done. */

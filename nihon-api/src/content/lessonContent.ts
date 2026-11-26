@@ -20,10 +20,11 @@ export type LessonContent = {
 };
 export type LessonContentResult = { ok: true; content: LessonContent } | { ok: false; errors: string[] };
 
-const LIMITS = { shortText: 300, longText: 3000, listItems: 40, questions: 20, minOptions: 2, maxOptions: 6 } as const;
+export const LIMITS = { shortText: 300, longText: 3000, listItems: 40, questions: 20, minOptions: 2, maxOptions: 6 } as const;
 
 // Collects every problem with a path such as "practice 2: correct answer", so the editor can show them all at once.
-class Checker {
+// The English course's lessons are checked with it too (englishLessonContent.ts).
+export class Checker {
   readonly errors: string[] = [];
   fail(path: string, message: string) { this.errors.push(`${path}: ${message}`); }
 

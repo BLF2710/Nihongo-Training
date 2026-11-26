@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { lazy, Suspense, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { fetchLessonEditExport } from '../../api/lessonEdits';
 import type { LessonEditStatus } from '../../api/lessonEdits';
@@ -7,6 +7,11 @@ import { originalLessonSummary } from '../../data/lessonEdits';
 import { toPlain } from '../../lib/furigana';
 import AdminLessonEditor from './AdminLessonEditor';
 import { adminError, button, card, input, useAdminData } from './adminData';
+import { isEnglishCourseChosen } from './lessonCourse';
+import { LessonCourseSwitch } from './LessonCourseSwitch';
+
+// The English course is large and only some administrators edit it, so its lessons load when they are chosen.
+const AdminEnglishLessons = lazy(() => import('./AdminEnglishLessons'));
 
 const levelOf = (lesson: (typeof N5_LESSONS)[number]) => lesson.level ?? 'N5';
 const unitKey = (lesson: (typeof N5_LESSONS)[number]) => `${levelOf(lesson)} Unit ${lesson.unitNumber ?? 1}`;
@@ -17,6 +22,7 @@ const LEVELS = [...new Set(N5_LESSONS.map(levelOf))].sort().reverse();
 export default function AdminLessons() {
   const [params] = useSearchParams();
   const lessonId = params.get('lesson');
+  if (isEnglishCourseChosen(params)) return <Suspense fallback={<section className={card}><p role="status">Loading the English course…</p></section>}><AdminEnglishLessons /></Suspense>;
   return lessonId ? <AdminLessonEditor key={lessonId} lessonId={lessonId} /> : <LessonList />;
 }
 
@@ -47,7 +53,8 @@ function LessonList() {
     return [...byUnit];
   }, [search, level]);
   return <section className={card} aria-labelledby="lessons-heading">
-    <h2 id="lessons-heading" className="text-xl font-black">Lesson editor</h2>
+    <LessonCourseSwitch />
+    <h2 id="lessons-heading" className="mt-3 text-xl font-black">Lesson editor</h2>
     <p className="text-sm text-gray-600">Edit a lesson's text, vocabulary, conversation and questions. Changes are saved as a draft and reach learners when you publish them; Restore original brings back the course-file version.</p>
     {publishedCount > 0 && <div className="mt-3 rounded-xl bg-gray-50 p-3 text-sm">
       <button className={button} onClick={() => { setExportError(''); downloadExport().catch(failure => setExportError(adminError(failure))); }}>Export published edits ({publishedCount})</button>

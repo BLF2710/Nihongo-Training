@@ -8,13 +8,17 @@ export type MockGroup = { instruction: string; passage?: string; questions: Mock
 export type MockSection = { id: string; title: string; titleJp: string; groups: MockGroup[] };
 export type MockExam = { id: string; level: string; title: string; minutes: number; passPercent: number; sectionMinPercent: number; sections: MockSection[] };
 
+/** What grading needs, so the English course's exams (shared/course/english/mock-exams.json) are graded the same way. */
+type GradableSection = { id: string; title: string; groups: readonly { questions: readonly { id: string; correctIndex: number }[] }[] };
+type GradableExam = { passPercent: number; sectionMinPercent: number; sections: readonly GradableSection[] };
+
 export const getMockExam = (level: CourseLevel) => (exams as Partial<Record<CourseLevel, MockExam>>)[level];
 /** True once every unit of the level has been reached, which is when its mock exam opens. */
 export const levelReached = (units: CourseUnit[]) => units.length > 0 && units.every(unit => unit.allowed);
-export const questionsOf = (section: MockSection) => section.groups.flatMap(group => group.questions);
+export const questionsOf = <S extends GradableSection>(section: S): S["groups"][number]["questions"][number][] => section.groups.flatMap(group => group.questions);
 
 /** Questions are numbered straight through the exam: question id -> number. */
-export const questionNumbers = (exam: MockExam) => new Map(exam.sections.flatMap(questionsOf).map((question, index) => [question.id, index + 1]));
+export const questionNumbers = (exam: GradableExam) => new Map(exam.sections.flatMap(questionsOf).map((question, index) => [question.id, index + 1]));
 
 export type MockResult = {
   correct: number; total: number; percent: number; passed: boolean;
@@ -22,7 +26,7 @@ export type MockResult = {
 };
 
 /** Passing needs the overall target and the minimum in every section, like the exam this one prepares for. */
-export function gradeMockExam(exam: MockExam, answers: Record<string, number>): MockResult {
+export function gradeMockExam(exam: GradableExam, answers: Record<string, number>): MockResult {
   const percentOf = (correct: number, total: number) => Math.round(correct * 100 / total);
   const sections = exam.sections.map(section => {
     const questions = questionsOf(section);

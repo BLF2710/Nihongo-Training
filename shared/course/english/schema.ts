@@ -50,3 +50,12 @@ export type EnglishUnit = {
 /** Assessment questions keep their answer on the server (nihon-api/src/data/imported-english-assessments.json). */
 export type EnglishAssessmentQuestion = { id: string; prompt: string; options: readonly string[]; correctIndex: number; explanation: string };
 export type EnglishAssessment = { id: string; passPercent: number; questions: readonly EnglishAssessmentQuestion[] };
+
+/** An end-of-level practice exam (shared/course/english/mock-exams.json). Its answers are public, like the lessons':
+ *  the server grades it only so the result and its mistakes are saved. */
+export type EnglishMockQuestion = { id: string; prompt: string; options: readonly string[]; correctIndex: number; explanation: string };
+export type EnglishMockGroup = { instruction: string; passage?: string; questions: readonly EnglishMockQuestion[] };
+export type EnglishMockSection = { id: string; title: string; titleVi: string; groups: readonly EnglishMockGroup[] };
+export type EnglishMockExam = {
+  id: string; level: EnglishLevel; title: string; minutes: number; passPercent: number; sectionMinPercent: number; sections: readonly EnglishMockSection[];
+};

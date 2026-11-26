@@ -10,6 +10,8 @@ const CHARACTERS = "kaykit-adventurers/extracted/KayKit_Adventurers_2.0_FREE/Cha
 const ANIMATIONS = "kaykit-character-animations/extracted/KayKit_Character_Animations_1.1/Animations/gltf/Rig_Medium";
 
 const building = (name: string): ModelSource => ({ id: name, source: `${MEDIEVAL}/buildings/blue/building_${name}_blue.gltf` });
+/** A building in another colour of the pack, for a second building of the same kind or one the blue set lacks. */
+const coloured = (id: string, name: string, colour: string): ModelSource => ({ id, source: `${MEDIEVAL}/buildings/${colour}/building_${name}_${colour}.gltf` });
 const neutral = (id: string, name = id): ModelSource => ({ id, source: `${MEDIEVAL}/buildings/neutral/${name}.gltf` });
 const nature = (id: string): ModelSource => ({ id, source: `${MEDIEVAL}/decoration/nature/${id}.gltf` });
 const prop = (id: string): ModelSource => ({ id, source: `${MEDIEVAL}/decoration/props/${id}.gltf` });
@@ -18,7 +20,8 @@ const forest = (name: string): ModelSource => ({ id: `forest_${name.toLowerCase(
 const character = (id: string, name: string): ModelSource => ({ id, source: `${CHARACTERS}/${name}.glb` });
 
 export const MODELS: readonly ModelSource[] = [
-  ...["castle", "church", "tavern", "market", "home_A", "home_B", "blacksmith", "windmill", "well", "tower_A"].map(building),
+  ...["castle", "church", "tavern", "market", "home_A", "home_B", "blacksmith", "windmill", "well", "tower_A", "archeryrange"].map(building),
+  coloured("abbey", "church", "green"),
   neutral("fence_stone", "fence_stone_straight"), neutral("grain", "building_grain"),
   ...["tree_single_A", "tree_single_B", "trees_A_small", "trees_A_medium", "trees_B_medium", "rock_single_C", "mountain_A_grass_trees", "mountain_B_grass_trees", "mountain_C_grass", "hills_A_trees", "hills_B_trees", "cloud_big", "cloud_small"].map(nature),
   ...["barrel", "crate_open", "sack", "wheelbarrow", "flag_blue", "resource_lumber"].map(prop),

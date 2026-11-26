@@ -1,19 +1,11 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
-import type { Question } from '../../data/japaneseN5Lessons';
-import { button, input } from './adminData';
-
-const small = button.replace('px-4 py-2', 'px-2 py-1');
-
-function move<T>(items: readonly T[], from: number, to: number): T[] {
-  if (to < 0 || to >= items.length) return [...items];
-  const next = [...items]; const [item] = next.splice(from, 1); next.splice(to, 0, item);
-  return next;
-}
-const replace = <T,>(items: readonly T[], index: number, item: T) => items.map((current, at) => at === index ? item : current);
+import { input } from './adminData';
+import { editableQuestion, move, replace, small } from './lessonEditorLists';
+import type { EditableQuestion, QuestionShape } from './lessonEditorLists';
 
 /** Move up, move down and remove for one row of a list. */
-function RowControls<T>({ items, index, onChange, label }: { items: readonly T[]; index: number; onChange: (items: T[]) => void; label: string }) {
+export function RowControls<T>({ items, index, onChange, label }: { items: readonly T[]; index: number; onChange: (items: T[]) => void; label: string }) {
   return <div className="flex shrink-0 gap-1">
     <button type="button" className={small} disabled={index === 0} onClick={() => onChange(move(items, index, index - 1))} aria-label={`Move ${label} up`}>↑</button>
     <button type="button" className={small} disabled={index === items.length - 1} onClick={() => onChange(move(items, index, index + 1))} aria-label={`Move ${label} down`}>↓</button>
@@ -26,7 +18,7 @@ export function Section({ title, children }: { title: string; children: ReactNod
 }
 
 /** A list of single lines (objectives, concept examples). */
-export function TextList({ label, items, onChange }: { label: string; items: string[]; onChange: (items: string[]) => void }) {
+export function TextList({ label, items, onChange }: { label: string; items: readonly string[]; onChange: (items: string[]) => void }) {
   return <div className="grid gap-2">
     {items.map((item, index) => <div key={index} className="flex items-center gap-2">
       <input className={input + ' mt-0'} aria-label={`${label} ${index + 1}`} value={item} onChange={event => onChange(replace(items, index, event.target.value))} />
@@ -50,13 +42,13 @@ export function TupleTable<T extends string[]>({ label, columns, rows, onChange 
 }
 
 /** Multiple-choice questions: prompt, options, the correct option and an explanation. */
-export function QuestionList({ label, questions, onChange }: { label: string; questions: Question[]; onChange: (questions: Question[]) => void }) {
-  const update = (index: number, change: Partial<Question>) => onChange(replace(questions, index, { ...questions[index], ...change }));
+export function QuestionList({ label, questions, onChange }: { label: string; questions: readonly QuestionShape[]; onChange: (questions: EditableQuestion[]) => void }) {
+  const update = (index: number, change: Partial<EditableQuestion>) => onChange(questions.map((question, at) => ({ ...editableQuestion(question), ...(at === index ? change : {}) })));
   return <div className="grid gap-3">
     {questions.map((question, index) => {
       const name = `${label} ${index + 1}`;
       return <div key={index} className="grid gap-2 rounded-xl bg-gray-50 p-3" role="group" aria-label={name}>
-        <div className="flex items-center justify-between gap-2"><p className="font-bold">{name}</p><RowControls items={questions} index={index} onChange={onChange} label={name} /></div>
+        <div className="flex items-center justify-between gap-2"><p className="font-bold">{name}</p><RowControls items={questions} index={index} onChange={items => onChange(items.map(editableQuestion))} label={name} /></div>
         <label className="text-sm font-semibold">Prompt<textarea className={input} rows={2} value={question.prompt} onChange={event => update(index, { prompt: event.target.value })} /></label>
         <p className="text-sm font-semibold">Options (choose the correct one)</p>
         {question.options.map((option, at) => <div key={at} className="flex items-center gap-2">
@@ -69,7 +61,7 @@ export function QuestionList({ label, questions, onChange }: { label: string; qu
         <label className="text-sm font-semibold">Explanation<textarea className={input} rows={2} value={question.explanation} onChange={event => update(index, { explanation: event.target.value })} /></label>
       </div>;
     })}
-    <button type="button" className={small + ' justify-self-start'} onClick={() => onChange([...questions, { prompt: '', options: ['', ''], correct: '', explanation: '' }])}>+ Add {label.toLowerCase()} question</button>
+    <button type="button" className={small + ' justify-self-start'} onClick={() => onChange([...questions.map(editableQuestion), { prompt: '', options: ['', ''], correct: '', explanation: '' }])}>+ Add {label.toLowerCase()} question</button>
   </div>;
 }
 

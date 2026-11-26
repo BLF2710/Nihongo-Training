@@ -9,6 +9,7 @@ import { apiErrorMessage, isUnauthorized } from "../api/errors";
 import { fetchStatistics as loadStatistics } from "../api/statistics";
 import type { StatisticsResponse } from "../api/statistics";
 import type { CharacterStat } from "../lib/kanaReview";
+import { EnglishCourseProgress } from "../components/englishStudy/EnglishCourseProgress";
 
 const EMPTY_CHARACTERS: CharacterStat[] = [];
 
@@ -408,6 +409,7 @@ function StatisticsView({ jpSection }: { jpSection: Section }) {
               {/* ============================================= */}
               {langTab === "english" && (
                 <>
+                  <EnglishCourseProgress />
                   {!engStats || engStats.totalGames === 0 ? (
                     <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-12 text-center max-w-lg mx-auto">
                       <div className="text-5xl mb-4">🎮</div>

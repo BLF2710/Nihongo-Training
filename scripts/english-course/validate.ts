@@ -57,7 +57,7 @@ function correctEnglishOf(lesson: LessonSource): string[] {
 export function lessonErrors(lesson: LessonSource, path: string): string[] {
   const bilinguals: [Bilingual, string][] = [
     ...lesson.vocabulary.map((word, index): [Bilingual, string] => [word.example, `${path}.vocabulary[${index}].example`]),
-    ...lesson.grammar.flatMap((point, index): [Bilingual, string][] => [[point.explanation, `${path}.grammar[${index}].explanation`], ...point.examples.map((example, at): [Bilingual, string] => [example, `${path}.grammar[${index}].examples[${at}]`])]),
+    ...lesson.grammar.flatMap((point, index): [Bilingual, string][] => [[point.explanation, `${path}.grammar[${index}].explanation`], ...point.examples.map((example, at): [Bilingual, string] => [example, `${path}.grammar[${index}].examples[${at}]`]), ...(point.mistake ? [[point.mistake.why, `${path}.grammar[${index}].mistake.why`] satisfies [Bilingual, string]] : [])]),
     ...lesson.examples.map((example, index): [Bilingual, string] => [example, `${path}.examples[${index}]`]),
     ...lesson.dialogue.map((line, index): [Bilingual, string] => [line, `${path}.dialogue[${index}]`]),
   ];

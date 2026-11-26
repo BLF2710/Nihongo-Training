@@ -1,5 +1,6 @@
 import type { PublishedLessonEdits } from "../api/lessonEdits";
 import { N5_LESSONS, type LessonBody, type LessonSummary } from "./japaneseN5Lessons";
+import { receivePublishedEnglishEdits } from "./englishLessonEdits";
 
 // Lesson content published from the admin area replaces the built-in content. It is applied once, before the app's
 // pages load, by changing the shared lesson objects in place, so every page derived from them shows the edit.
@@ -23,6 +24,7 @@ export function applyPublishedLessonEdits(edits: PublishedLessonEdits) {
     Object.assign(lesson, pick(content, SUMMARY_FIELDS));
     bodyOverrides.set(lessonId, pick(content, BODY_FIELDS));
   }
+  receivePublishedEnglishEdits(edits.englishLessons ?? {});
 }
 
 /** The published lesson-page content of an edited lesson, if it has been edited. */

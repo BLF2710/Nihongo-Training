@@ -13,23 +13,27 @@ export type SrsSummary = {
   newToday: number; dueTotal: number;
 };
 
+/** Each course has its own deck: English words, or Japanese words and Kanji. */
+export type SrsCourse = "japanese" | "english";
+
 /** The server accepts at most this many cards per request. */
 const ENROLMENT_BATCH = 500;
 
-export async function fetchSrsSummary(signal?: AbortSignal) {
-  return (await api.get<SrsSummary>("/srs/summary", { signal })).data;
+export async function fetchSrsSummary(signal?: AbortSignal, course: SrsCourse = "japanese") {
+  return (await api.get<SrsSummary>("/srs/summary", { signal, params: { course } })).data;
 }
 
 /** Today's cards, or with `ahead` the studied cards due within the next day. */
-export async function fetchSrsQueue(signal?: AbortSignal, options: { ahead?: boolean } = {}) {
-  return (await api.get<{ cards: SrsQueueCard[]; newLimit: number }>("/srs/queue", { signal, params: options.ahead ? { ahead: 1 } : {} })).data;
+export async function fetchSrsQueue(signal?: AbortSignal, options: { ahead?: boolean; course?: SrsCourse } = {}) {
+  const params = { course: options.course ?? "japanese", ...(options.ahead ? { ahead: 1 } : {}) };
+  return (await api.get<{ cards: SrsQueueCard[]; newLimit: number }>("/srs/queue", { signal, params })).data;
 }
 
 export type DeckStatus = "new" | "learning" | "mature" | "suspended";
 export type DeckCardState = SrsItem & { status: DeckStatus; dueAt: string | null; intervalDays: number; repetitions: number; lapses: number };
 
-export async function fetchSrsDeck(signal?: AbortSignal) {
-  return (await api.get<{ cards: DeckCardState[] }>("/srs/cards", { signal })).data.cards;
+export async function fetchSrsDeck(signal?: AbortSignal, course: SrsCourse = "japanese") {
+  return (await api.get<{ cards: DeckCardState[] }>("/srs/cards", { signal, params: { course } })).data.cards;
 }
 
 /** Hides a card from reviews (it stays in the deck with its progress) or shows it again. */

@@ -26,7 +26,7 @@ function baked(mesh: THREE.Mesh): THREE.BufferGeometry {
   const geometry = mesh.geometry.index ? mesh.geometry.toNonIndexed() : mesh.geometry.clone();
   geometry.applyMatrix4(mesh.matrixWorld);
   if (mesh.matrixWorld.determinant() < 0) reverseWinding(geometry);
-  for (const name of Object.keys(geometry.morphAttributes)) delete geometry.morphAttributes[name];
+  geometry.morphAttributes = {};
   geometry.clearGroups();
   return geometry;
 }
@@ -47,7 +47,7 @@ export function mergedByMaterial(model: THREE.Object3D): THREE.Group {
     const geometry = baked(part);
     part.geometry.dispose();
     const key = [part.material.uuid, part.castShadow, part.receiveShadow, Object.keys(geometry.attributes).sort().join()].join("|");
-    const bucket = buckets.get(key) ?? { material: part.material, castShadow: part.castShadow, receiveShadow: part.receiveShadow, geometries: [] };
+    const bucket: Bucket = buckets.get(key) ?? { material: part.material, castShadow: part.castShadow, receiveShadow: part.receiveShadow, geometries: [] };
     bucket.geometries.push(geometry);
     buckets.set(key, bucket);
   });
