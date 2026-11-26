@@ -1,10 +1,12 @@
 // The ground of an island drawn in 3D: each tile of land a block standing out of the water (its top coloured by what
-// it is: grass, path, gravel), bridges plank decks with rails, and any far shore across the water (its land, paths,
-// decks and hills). Tiles are world units: x east, z south, y up, the land's top at y = 0.
+// it is: grass, path, gravel), its bridges (see bridges.ts) and piers, and any far shore across the water (its land,
+// paths and hills; the bridges carry on over the water to it). Tiles are world units: x east, z south, y up, the land's top at y = 0.
 import * as THREE from "three";
 import type { Rect, Terrain, TownMap } from "../../lib/errands/townMap.ts";
+import { bridgeSpans } from "../../lib/world/bridges.ts";
 import { steadyNoise } from "../../lib/world/islandModels.ts";
 import type { FarShore, Hill } from "../../lib/world/islandModels.ts";
+import { buildBridges } from "./bridges.ts";
 import { groundDetails } from "./groundDetails.ts";
 
 /** Terrain with no land: water, a goldfish pool, and the sea of clouds below the summit. */
@@ -36,7 +38,7 @@ const HILL_COLOUR = "#79ad55";
 const HILL_SEGMENTS = { round: 12, up: 5 } as const;
 
 const landTiles = (map: TownMap) => map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => WATERY.has(terrain) || PLANKED.has(terrain) ? [] : [{ x, y, terrain }]));
-const deckTiles = (map: TownMap) => map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => PLANKED.has(terrain) ? [{ x, y }] : []));
+const pierTiles = (map: TownMap) => map.terrain.flatMap((row, y) => row.flatMap((terrain, x) => terrain === "pier" ? [{ x, y }] : []));
 
 /** One block per tile of land: earth below, its terrain's colour on top (as `colours` has it, or as usual). */
 function land(map: TownMap, colours: LandColours): THREE.Group {
@@ -63,12 +65,12 @@ function rail(wood: THREE.Material, at: { x: number; z: number }, { width, depth
   return mesh;
 }
 
-/** Plank decks over the water, with a rail along each side that has water beside it. */
-function decks(map: TownMap): THREE.Group {
+/** The piers' plank decks over the water, with a rail along each side that has water beside it. */
+function piers(map: TownMap): THREE.Group {
   const wood = new THREE.MeshLambertMaterial({ color: WOOD_COLOUR });
   const group = new THREE.Group();
   const isWaterAt = (x: number, y: number) => WATERY.has(map.terrain[y]?.[x] ?? "grass");
-  for (const { x, y } of deckTiles(map)) {
+  for (const { x, y } of pierTiles(map)) {
     const deck = new THREE.Mesh(new THREE.BoxGeometry(1, DECK_DEPTH, 1), wood);
     deck.position.set(x + 0.5, -DECK_DEPTH / 2, y + 0.5);
     deck.receiveShadow = true;
@@ -99,38 +101,22 @@ function hill({ x, y, radius, height }: Hill): THREE.Mesh {
   return mesh;
 }
 
-/** A deck carrying a bridge on over the water, `rect` long, with rails along both its long sides. */
-function deckAcross(rect: Rect, wood: THREE.Material): THREE.Group {
-  const deck = new THREE.Mesh(new THREE.BoxGeometry(rect.width, DECK_DEPTH, rect.height), wood);
-  deck.position.set(rect.x + rect.width / 2, -DECK_DEPTH / 2, rect.y + rect.height / 2);
-  deck.receiveShadow = true;
-  const group = new THREE.Group().add(deck);
-  const isAlongX = rect.width > rect.height;
-  for (const side of [-1, 1]) {
-    const at = isAlongX
-      ? { x: rect.x + rect.width / 2, z: rect.y + rect.height / 2 + side * (0.5 - RAIL_WIDTH / 2) }
-      : { x: rect.x + rect.width / 2 + side * (0.5 - RAIL_WIDTH / 2), z: rect.y + rect.height / 2 };
-    group.add(rail(wood, at, isAlongX ? { width: rect.width, depth: RAIL_WIDTH } : { width: RAIL_WIDTH, depth: rect.height }));
-  }
-  return group;
-}
-
-/** The far shore: its land, the paths and decks carrying the island's bridges on, and its hills. */
-function farShore({ land: strips, paths, decks: carried, hills }: FarShore): THREE.Group {
-  const wood = new THREE.MeshLambertMaterial({ color: WOOD_COLOUR });
+/** The far shore: its land, the paths carrying the island's bridges on, and its hills. */
+function farShore({ land: strips, paths, hills }: FarShore): THREE.Group {
   const pathColour = LAND_COLOURS.path ?? DEFAULT_LAND_COLOUR;
   return new THREE.Group().add(
     ...strips.map(strip => slab(strip, DEFAULT_LAND_COLOUR)),
     ...paths.map(path => slab(path, pathColour, PATH_LIFT)),
-    ...carried.map(deck => deckAcross(deck, wood)),
     ...hills.map(hill),
   );
 }
 
-/** The island's whole ground: land (its terrain coloured as `landColours` has it, where it does), bridges, the
- *  details lying on it, and the far shore, if it has one (the water is `LivelyWater`). */
+/** The island's whole ground: land (its terrain coloured as `landColours` has it, where it does), bridges carried on
+ *  over the water to the far shore, piers, the details lying on it, and the far shore, if it has one (the water is
+ *  `LivelyWater`). */
 export function buildGround(map: TownMap, { shore, landColours = {} }: { shore?: FarShore; landColours?: LandColours }): THREE.Group {
-  const ground = new THREE.Group().add(land(map, landColours), decks(map), groundDetails(map));
+  const bridges = buildBridges(bridgeSpans(map, shore?.decks ?? []));
+  const ground = new THREE.Group().add(land(map, landColours), bridges, piers(map), groundDetails(map));
   if (shore) ground.add(farShore(shore));
   return ground;
 }

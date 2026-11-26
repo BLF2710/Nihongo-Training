@@ -19,6 +19,8 @@ import { tamaRig } from "../src/components/world3d/japanese/people.ts";
 import { groundBlockedBy, propModel } from "../src/lib/world/islandProps.ts";
 import { blockedTiles, tileKey } from "../src/lib/errands/townMap.ts";
 import { pondsOf } from "../src/lib/world/ponds.ts";
+import { bridgeSpans } from "../src/lib/world/bridges.ts";
+import { deckHeightAt } from "../src/components/world3d/bridges.ts";
 import { MOUNTAIN_MODEL, ROCK_MODEL } from "../src/lib/world/japaneseIsland3D.ts";
 import { kuramaRig, ponRig, senseiRig, zenRig } from "../src/components/world3d/japanese/castRigs.ts";
 
@@ -308,4 +310,29 @@ test("each challenger stands about a tile or a tile and a half tall", () => {
     return height > 0.9 && height < 1.7 ? [] : [`${name}: ${height.toFixed(2)}`];
   });
   assert.deepEqual(outOfRange, []);
+});
+
+test("a bridge off the island is one span with the deck carrying it on, arching over the open water", () => {
+  const spans = bridgeSpans(kana.layout.map, farShoreAround(kana.layout.map).decks);
+  assert.deepEqual(spans.map(({ runsAlong, arch }) => ({ runsAlong, arch })), [{ runsAlong: "x", arch: { from: -WATER_GAP, to: 0 } }]);
+});
+
+test("a bridge reaches as far onto the far shore as onto the island, so its two ends match", () => {
+  const [{ at, arch }] = bridgeSpans(kana.layout.map, farShoreAround(kana.layout.map).decks);
+  assert.deepEqual([arch.from - at.x, at.x + at.width - arch.to], [3, 3]);
+});
+
+test("a north-running bridge reaches onto the far shore northwards", () => {
+  const [{ at }] = bridgeSpans(islandSceneOf("games").layout.map, farShoreAround(islandSceneOf("games").layout.map).decks);
+  assert.deepEqual(at, { x: 14, y: -WATER_GAP - 2, width: 2, height: WATER_GAP + 4 });
+});
+
+test("a bridge lies flat where it's walked on the island and rises over the water", () => {
+  const [span] = bridgeSpans(kana.layout.map, farShoreAround(kana.layout.map).decks);
+  assert.deepEqual([deckHeightAt(span, 1.5), deckHeightAt(span, -WATER_GAP), deckHeightAt(span, -WATER_GAP / 2) > 0.5], [0, 0, true]);
+});
+
+test("a bridge with nothing carrying it on stays flat", () => {
+  const [span] = bridgeSpans(parseTownMap(["~~~", "~b~", "~b~"]), []);
+  assert.deepEqual(span.arch, null);
 });

@@ -177,7 +177,9 @@ How Kana Wilds becomes part of the island map. The battles themselves are in `KA
   - a far shore (`lib/world/farShore.ts`) lies a few tiles across the water all round, except on Fuji, which floats
     on a sea of clouds (`components/world3d/clouds.ts`) with the snowy summit rising behind it. It is flat land near the water
     with hills behind, none on the near side, where they'd block the camera. The island's bridges are carried on
-    over the water to it, and a path continues from each.
+    over the water to it, and a path continues from each. Each bridge is one span (`lib/world/bridges.ts`): flat
+    where it's walked on the island, arching up as a drum bridge over the open water beyond, with vermilion railings
+    capped in green at the ends and stone footings (`components/world3d/bridges.ts`).
   - The island's theme (`THEME_LOOKS`) gives the far shore its trees and landmark (sakura: cherry trees and a pagoda;
     bamboo: bamboo and a bell tower; festival: garden trees and a watchtower; maple: maples and a great torii; zen:
     pines and a wooden pagoda) and what falls through the air, round the camera
