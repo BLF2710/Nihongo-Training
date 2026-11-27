@@ -22,3 +22,18 @@ export async function fetchLevelReviewQuestions(level: string, signal?: AbortSig
 export async function checkReviewAnswer(unitId: string, questionId: string, answer: ReviewAnswer) {
   return (await api.post<ReviewGrade>(`/review/units/${encodeURIComponent(unitId)}/check`, { questionId, answer })).data;
 }
+
+/** A question of the English review (/english/review), drawn by the server from the learner's completed English
+ *  lessons, without its answer. */
+export type EnglishReviewQuestion = { id: string; prompt: string; options: string[]; lessonId: string; lessonTitle: string; level: string; unitNumber: number };
+export type EnglishReviewGrade = { correct: boolean; solution: string; explanation: string };
+
+/** A round for an English unit (`english-a2-unit-3`) or a whole level (`english-a2`); empty before any lesson there is completed. */
+export async function fetchEnglishReviewRound(scope: string, signal?: AbortSignal) {
+  return (await api.get<{ questions: EnglishReviewQuestion[] }>(`/review/english/${encodeURIComponent(scope)}/questions`, { signal })).data.questions;
+}
+
+/** Grades one answer; the server also notes it in the English mistake notebook. */
+export async function checkEnglishReviewAnswer(questionId: string, answer: string) {
+  return (await api.post<EnglishReviewGrade>("/review/english/check", { questionId, answer })).data;
+}

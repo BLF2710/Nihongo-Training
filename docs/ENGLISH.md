@@ -136,8 +136,12 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
     Japanese (ids `<lesson id>:<word>`); the SRS endpoints take `?course=english|japanese`, and each course has its
     own daily allowance of new cards.
   - `/english/review`: rounds of ten questions drawn from the practice and challenge questions of completed lessons
-    and the meanings of their words; with All units it is the level's cumulative review. Wrong answers go to the
-    mistake notebook.
+    and the meanings of their words; with All units it is the level's cumulative review. The server draws and grades
+    them (`nihon-api/src/learning/englishReview.ts`, `GET /review/english/:scope/questions` without answers,
+    `POST /review/english/check` per answer), from the lessons as the site shows them (published edits applied).
+    Each answer goes to the mistake notebook as a review mistake (key `review:<question id>`), and a finished round
+    is a practice session of kind `review` (10 XP, the quiz rule). **Migration `040_review_practice.sql`** allows
+    that kind: run `npm run migrate` in `nihon-api` before deploying.
   - `/english/grammar/summary`: every grammar point of the level, one unit per tab; printing prints the whole level.
   - `/english/listening` and `/english/speaking` (`lib/englishSkillRounds.ts`): words, example sentences and
     conversation exchanges of completed lessons, heard and said in British English. Speech is compared word by word
@@ -148,8 +152,9 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
     open. Sources are `docs/curriculum/english/<level>/mock-exam.ts`, built into `shared/course/english/mock-exams.json`
     by the importer; the server grades it again and saves the result. **Migration `039_english_mock_exams.sql`** lets
     `mock_exam_results` hold A2–C1 results: run `npm run migrate` in `nihon-api` before deploying.
-  - English statistics (`/statistics/english`) show lessons and units done per level, flashcards and best mock exam
-    scores.
+  - English statistics (`/statistics/english`) show lessons and units done per level, listening, speaking and review
+    rounds per level with their accuracy (`GET /statistics/english-practice`), flashcards and best mock exam scores.
+    The Japanese statistics' practice figures leave English sessions out.
   - `/dashboard` for English learners (`pages/english/EnglishDashboard.tsx`, `lib/englishDashboard.ts`): the study
     desk for learners who would rather study than walk the island. It shows the next lesson or unit test of the
     chosen level, today's plan (next step, flashcards when due, a review of the unit in progress, and listening or
@@ -195,5 +200,4 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
 
 ## Not yet for English
 
-- Nothing from the plan's phases. Later ideas: listening and speaking in English statistics, and a server-side English
-  review bank.
+- Nothing from the plan's phases.

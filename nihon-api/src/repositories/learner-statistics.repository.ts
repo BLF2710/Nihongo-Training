@@ -20,12 +20,25 @@ export async function countCompletedLessons(userId: number): Promise<number> {
   return result.rows[0].count;
 }
 
-/** Listening, speaking, reading and mock-exam sessions, per kind. */
+/** The Japanese course's listening, speaking, reading, mock-exam and game sessions, per kind (English ones are
+ *  summarized by `summarizeEnglishPractice`). */
 export async function summarizePracticeSessions(userId: number): Promise<{ kind: string; sessions: number; answered: number; correct: number }[]> {
   const result = await pool.query(
     `SELECT kind, COUNT(*)::int AS sessions, SUM(answered)::int AS answered, SUM(correct)::int AS correct
-       FROM practice_sessions WHERE user_id = $1 GROUP BY kind ORDER BY kind`, [userId]);
+       FROM practice_sessions WHERE user_id = $1 AND scope NOT LIKE 'english-%' GROUP BY kind ORDER BY kind`, [userId]);
   return result.rows;
+}
+
+export type EnglishPracticeRow = { kind: string; level: string; sessions: number; answered: number; correct: number; lastPractisedAt: Date };
+
+/** The English course's practice sessions (listening, speaking, review rounds) per kind and level (A2–C1). */
+export async function summarizeEnglishPractice(userId: number): Promise<EnglishPracticeRow[]> {
+  const result = await pool.query(
+    `SELECT kind, UPPER(SUBSTRING(scope FROM '^english-(a2|b1|b2|c1)')) AS level, COUNT(*)::int AS sessions,
+            SUM(answered)::int AS answered, SUM(correct)::int AS correct, MAX(created_at) AS last_practised_at
+       FROM practice_sessions WHERE user_id = $1 AND scope ~ '^english-(a2|b1|b2|c1)'
+      GROUP BY kind, level ORDER BY level, kind`, [userId]);
+  return result.rows.map(row => ({ kind: row.kind, level: row.level, sessions: row.sessions, answered: row.answered, correct: row.correct, lastPractisedAt: row.last_practised_at }));
 }
 
 /** Speaking test attempts per level: how many, the best score and how many tasks reached their target. */

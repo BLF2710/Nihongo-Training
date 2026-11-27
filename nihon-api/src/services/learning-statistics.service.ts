@@ -32,6 +32,11 @@ async function getKanjiMastery(userId: number) {
   return { total: catalog.kanji.length, mastered, learning, untested: catalog.kanji.length - mastered - learning };
 }
 
+/** The English course's listening, speaking and review rounds, per kind and level. */
+export async function getEnglishPractice(userId: number) {
+  return { sessions: await learnerStatistics.summarizeEnglishPractice(userId) };
+}
+
 /** Everything the statistics page shows beyond Kana: study time, lessons, tests, Kanji, reviews, mistakes and practice. */
 export async function getLearningOverview(userId: number) {
   const [studyDays, goalMinutes, lessonWeeks, lessonsCompleted, assessments, kanji, srs, srsDays, mistakes, mockExams, practice, speaking] = await Promise.all([

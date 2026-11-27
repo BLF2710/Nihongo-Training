@@ -38,7 +38,7 @@ const COURSES: Record<CourseLanguage, NotebookCourse> = {
   },
   english: {
     // English reviews record their answers as their lessons' questions, so they are listed under Lessons.
-    id: "english", sources: ["lesson", "assessment", "mock_exam"], tabs: ["open", "resolved"],
+    id: "english", sources: ["lesson", "review", "assessment", "mock_exam"], tabs: ["open", "resolved"],
     // The list scrolls inside the page, so the notebook fits one screen like the other English study pages.
     card: "rounded-2xl border border-gray-200 bg-white p-5 shadow-sm", list: "mt-3 max-h-[calc(100vh-32rem)] space-y-3 overflow-y-auto pr-1 sm:max-h-[calc(100vh-27rem)]", madeIn: "English lessons, reviews, unit tests and mock exams",
     reviewHref: "/english/review", alsoFrom: "unit tests and mock exams",

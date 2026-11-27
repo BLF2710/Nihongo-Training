@@ -20,6 +20,8 @@ export const mistakeKeys = {
   lesson: (lessonId: string, prompt: string) => `lesson:${lessonId}:${createHash("sha256").update(prompt).digest("hex").slice(0, 16)}`,
   kana: (script: string, kanaId: number) => `kana:${script}:${kanaId}`,
   kanji: (kanjiId: string, kind: string) => `kanji:${kanjiId}:${kind}`,
+  /** An English review question, by its id (`<lesson id>:practice-<n>`, see learning/englishReview). */
+  englishReview: (questionId: string) => `review:${questionId}`,
 };
 
 const assessmentOf = (mistake: Mistake) => mistake.source === "assessment" ? mistake.itemKey.split(":")[1] : undefined;

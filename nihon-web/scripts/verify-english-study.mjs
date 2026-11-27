@@ -2,7 +2,7 @@
 // and the English mock exams' import rules (scripts/english-course/mockExam.ts). Run with --experimental-strip-types.
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { englishDeckItemIds, englishProgressByLevel, englishWordId, foldForSearch, pickRandom, searchWords, studyGrammarOf, studyQuestionsOf, studyWordsOf, unitsOfLevel, wordQuestionsOf } from "../src/lib/englishStudy.ts";
+import { englishDeckItemIds, englishPracticeOfLevel, englishProgressByLevel, englishWordId, foldForSearch, searchWords, studyGrammarOf, studyWordsOf, unitsOfLevel } from "../src/lib/englishStudy.ts";
 import { matchEnglishSpeech, speechScore, speechWords } from "../src/lib/englishSpeechMatch.ts";
 import { buildEnglishListeningRound, buildEnglishSpeakingRound, ENGLISH_ROUND_SIZE, hasSkillMaterial, skillMaterialOf } from "../src/lib/englishSkillRounds.ts";
 import { editableEnglishLesson, ENGLISH_EDITABLE_FIELDS, withEnglishEdit } from "../src/data/englishLessonEdits.ts";
@@ -46,15 +46,6 @@ test("a search finds words by their English, Vietnamese or definition", () => {
 test("the flashcard deck holds the words of completed lessons only", () => {
   const second = lesson("english-a2-unit-1-family", { vocabulary: [word("mother")] });
   assert.deepEqual(englishDeckItemIds([first, second], new Set([second.id])), [englishWordId(second.id, "mother")]);
-});
-
-test("review questions come from practice and challenge, each with a stable id", () => {
-  assert.deepEqual(studyQuestionsOf([first]).map(item => item.id), [`${first.id}:practice-1`, `${first.id}:challenge-1`]);
-});
-
-test("a random pick takes the number asked for without repeating, or all there are", () => {
-  const picked = pickRandom([1, 2, 3, 4, 5], 3, () => 0.5);
-  assert.deepEqual([picked.length, new Set(picked).size, pickRandom([1, 2], 5).length], [3, 3, 2]);
 });
 
 test("a level's units are its published ones, in course order", () => {
@@ -166,11 +157,6 @@ test("a section without material is reported as empty", () => {
   assert.equal(hasSkillMaterial(skillMaterialOf([first]), "dialogue"), false);
 });
 
-test("a word question asks the meaning and offers it among other words' meanings", () => {
-  const [question] = wordQuestionsOf([talking], () => 0.4);
-  assert.ok(question.prompt.includes("castle") && question.correct === "nghĩa 0" && question.options.includes("nghĩa 0") && question.options.length === 4 && question.lessonId === talking.id);
-});
-
 // The English study dashboard (lib/englishDashboard.ts).
 import { englishFocusUnit, englishNextStep, englishTodayPlan, englishUnitsOfLevel } from "../src/lib/englishDashboard.ts";
 
@@ -212,4 +198,13 @@ test("today's plan has the next lesson, flashcards, a review and a skill that ch
 
 test("flashcards are left out of the plan when none are due", () => {
   assert.equal(englishTodayPlan({ kind: "nothing-open", href: "/lessons" }, undefined, 0, 0).length, 0);
+});
+
+test("a level's practice lists listening, speaking and review in order, with accuracy", () => {
+  const rows = [{ kind: "review", level: "A2", sessions: 2, answered: 20, correct: 15 }, { kind: "listening", level: "A2", sessions: 1, answered: 8, correct: 8 }, { kind: "speaking", level: "B1", sessions: 3, answered: 15, correct: 9 }];
+  assert.deepEqual(englishPracticeOfLevel(rows, "A2"), [{ kind: "listening", sessions: 1, accuracyPercent: 100 }, { kind: "review", sessions: 2, accuracyPercent: 75 }]);
+});
+
+test("a level with no practice lists none", () => {
+  assert.deepEqual(englishPracticeOfLevel([{ kind: "listening", level: "B1", sessions: 1, answered: 5, correct: 5 }], "C1"), []);
 });

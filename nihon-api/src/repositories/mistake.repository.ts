@@ -5,11 +5,11 @@ export type MistakeSource = "lesson" | "review" | "assessment" | "mock_exam" | "
 /** The course a mistake belongs to. Each course has its own notebook; `null` lists both. */
 export type MistakeCourse = "japanese" | "english";
 /**
- * Keys of English mistakes: English lessons and unit tests (`english-…` ids) and the A2–C1 mock exams. Every other
+ * Keys of English mistakes: English lessons, reviews and unit tests (`english-…` ids) and the A2–C1 mock exams. Every other
  * key (Japanese lessons, tests, reviews, N5–N1 mock exams, kana, kanji) is Japanese. The pattern is valid in both
  * Postgres and JavaScript.
  */
-export const ENGLISH_MISTAKE_KEY = "^((lesson|assessment):english-|mock:(A2|B1|B2|C1):)";
+export const ENGLISH_MISTAKE_KEY = "^((lesson|assessment|review):english-|mock:(A2|B1|B2|C1):)";
 /** SQL condition: the mistake is in the course held by query parameter `$<parameter>` (NULL: any course). */
 const inCourse = (parameter: number) => {
   const course = `$${parameter}::text`;

@@ -49,13 +49,19 @@ test("English listening and speaking may be saved for a unit or a whole level", 
   assert.deepEqual(["english-a2-unit-3", "english-c1", "japanese-n5-unit-1", "english-x9", "N5"].map(scope => isPracticeScope("listening", scope)), [true, true, true, false, false]);
 });
 
+test("an English review round may be saved for an English unit or level, never a Japanese one", () => {
+  const { isPracticeScope } = require("../src/services/practice-activity.service");
+  assert.deepEqual(["english-b1-unit-2", "english-b1", "japanese-n5-unit-1", "N5"].map(scope => isPracticeScope("review", scope)), [true, true, false, false]);
+});
+
 const { ENGLISH_MISTAKE_KEY } = require("../src/repositories/mistake.repository");
 const { mistakeKeys, toMistakeCourse } = require("../src/services/mistake.service");
 
 test("English lesson, unit test and A2–C1 mock exam mistakes go to the English notebook", () => {
   const isEnglish = key => new RegExp(ENGLISH_MISTAKE_KEY).test(key);
-  const english = [mistakeKeys.lesson("english-a2-unit-1-introductions", "Hello"), mistakeKeys.assessment("english-b1-unit-2-assessment", "q1"), mistakeKeys.mockExam("C1", "q3")];
-  assert.deepEqual(english.map(isEnglish), [true, true, true]);
+  const english = [mistakeKeys.lesson("english-a2-unit-1-introductions", "Hello"), mistakeKeys.assessment("english-b1-unit-2-assessment", "q1"), mistakeKeys.mockExam("C1", "q3"),
+    mistakeKeys.englishReview("english-a2-unit-1-introductions:word-2")];
+  assert.deepEqual(english.map(isEnglish), [true, true, true, true]);
 });
 
 test("Japanese lesson, test, review, mock exam, kana and kanji mistakes stay in the Japanese notebook", () => {

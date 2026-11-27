@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { getStatistics, getStatisticsOverview }
+import { getEnglishPracticeStatistics, getStatistics, getStatisticsOverview }
 from "../controllers/statistics.controller";
 
 import { authenticate }
@@ -15,5 +15,6 @@ router.get(
 );
 
 router.get("/overview", authenticate, getStatisticsOverview);
+router.get("/english-practice", authenticate, getEnglishPracticeStatistics);
 
 export default router;

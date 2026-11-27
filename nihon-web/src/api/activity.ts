@@ -2,7 +2,7 @@ import api, { API_URL } from "./axios";
 import { getToken, hasSession } from "../lib/authStorage";
 import { announceReward, readReward } from "../lib/xpRewards";
 
-export type PracticeKind = "listening" | "speaking" | "reading" | "mock-exam" | "particles" | "errands" | "battle";
+export type PracticeKind = "listening" | "speaking" | "reading" | "mock-exam" | "particles" | "errands" | "battle" | "review";
 export type DailyGoalProgress = { secondsToday: number; minutesToday: number; goalMinutes: number; isGoalMet: boolean };
 
 /**

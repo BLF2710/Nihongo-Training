@@ -1,4 +1,4 @@
-import { getLearningOverview } from "../services/learning-statistics.service";
+import { getEnglishPractice, getLearningOverview } from "../services/learning-statistics.service";
 import * as statisticsService from "../services/statistics.service";
 import { action } from "../utils/action";
 import { getUserId } from "../utils/request-user";
@@ -9,3 +9,6 @@ export const getStatistics = action(async (req, res) => {
 
 export const getStatisticsOverview = action(async (req, res) => res.json(await getLearningOverview(getUserId(req))),
   { label: "getStatisticsOverview", message: "Could not load your statistics." });
+
+export const getEnglishPracticeStatistics = action(async (req, res) => res.json(await getEnglishPractice(getUserId(req))),
+  { label: "getEnglishPracticeStatistics", message: "Could not load your English practice." });

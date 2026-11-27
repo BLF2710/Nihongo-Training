@@ -1,4 +1,5 @@
 import api from "./axios";
+import type { EnglishPracticeRow } from "../lib/englishStudy";
 import type { CharacterStat } from "../lib/kanaReview";
 import type { MistakeCounts } from "./mistakes";
 import type { SavedMockResult } from "./mockExams";
@@ -67,4 +68,9 @@ export type LearningOverview = {
 
 export async function fetchLearningOverview(signal?: AbortSignal) {
   return (await api.get<LearningOverview>("/statistics/overview", { signal })).data;
+}
+
+/** The English course's listening, speaking and review rounds, per kind and level. */
+export async function fetchEnglishPractice(signal?: AbortSignal) {
+  return (await api.get<{ sessions: EnglishPracticeRow[] }>("/statistics/english-practice", { signal })).data.sessions;
 }
