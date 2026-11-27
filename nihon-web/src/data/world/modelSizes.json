@@ -67,6 +67,24 @@
       "depth": 1.551,
       "height": 1.792
     },
+    "tower_B": {
+      "file": "tower_B.gltf",
+      "width": 1.197,
+      "depth": 1.383,
+      "height": 2.485
+    },
+    "barracks": {
+      "file": "barracks.gltf",
+      "width": 1.44,
+      "depth": 1.566,
+      "height": 1.64
+    },
+    "tower_catapult": {
+      "file": "tower_catapult.gltf",
+      "width": 0.93,
+      "depth": 1.303,
+      "height": 1.964
+    },
     "abbey": {
       "file": "abbey.gltf",
       "width": 1.029,
@@ -84,6 +102,30 @@
       "width": 1.874,
       "depth": 2.094,
       "height": 0.394
+    },
+    "wall_straight": {
+      "file": "wall_straight.gltf",
+      "width": 2,
+      "depth": 0.8,
+      "height": 1.1
+    },
+    "wall_straight_gate": {
+      "file": "wall_straight_gate.gltf",
+      "width": 2,
+      "depth": 0.896,
+      "height": 1.414
+    },
+    "wall_corner_A_outside": {
+      "file": "wall_corner_A_outside.gltf",
+      "width": 1.76,
+      "depth": 1.432,
+      "height": 1.1
+    },
+    "stage": {
+      "file": "stage.gltf",
+      "width": 1.047,
+      "depth": 0.875,
+      "height": 0.286
     },
     "tree_single_A": {
       "file": "tree_single_A.gltf",
@@ -198,6 +240,54 @@
       "width": 0.686,
       "depth": 0.33,
       "height": 0.21
+    },
+    "flag_yellow": {
+      "file": "flag_yellow.gltf",
+      "width": 0.055,
+      "depth": 0.264,
+      "height": 0.277
+    },
+    "flag_red": {
+      "file": "flag_red.gltf",
+      "width": 0.055,
+      "depth": 0.264,
+      "height": 0.277
+    },
+    "tent": {
+      "file": "tent.gltf",
+      "width": 0.516,
+      "depth": 0.516,
+      "height": 0.516
+    },
+    "target": {
+      "file": "target.gltf",
+      "width": 0.239,
+      "depth": 0.142,
+      "height": 0.302
+    },
+    "weaponrack": {
+      "file": "weaponrack.gltf",
+      "width": 0.2,
+      "depth": 0.13,
+      "height": 0.24
+    },
+    "crate_A_big": {
+      "file": "crate_A_big.gltf",
+      "width": 0.21,
+      "depth": 0.21,
+      "height": 0.21
+    },
+    "bucket_water": {
+      "file": "bucket_water.gltf",
+      "width": 0.14,
+      "depth": 0.14,
+      "height": 0.105
+    },
+    "resource_stone": {
+      "file": "resource_stone.gltf",
+      "width": 0.421,
+      "depth": 0.358,
+      "height": 0.28
     },
     "forest_tree_1_a": {
       "file": "forest_tree_1_a.gltf",

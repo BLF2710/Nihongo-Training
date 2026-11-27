@@ -17,10 +17,13 @@ const LEVEL_KINDS: ReadonlySet<PracticeKind> = new Set(["mock-exam", "particles"
 const REWARD_SOURCE: Record<PracticeKind, ActivitySource | null> = { listening: "practice", speaking: "practice", reading: "practice", "mock-exam": null, particles: "game", errands: "game", battle: "game" };
 const MAX_ANSWERED = 200;
 const SESSIONS_PER_HOUR = 60;
-const UNIT_SCOPE = /^japanese-n[1-5]-unit-\d{1,2}$/;
+// A Japanese unit, an English unit, or a whole English level (`english-a2`), which English practice may cover at once.
+const UNIT_SCOPE = /^(japanese-n[1-5]-unit-\d{1,2}|english-(a2|b1|b2|c1)(-unit-\d{1,2})?)$/;
 const LEVEL_SCOPE = /^N[1-5]$/;
 
 const isKind = (value: unknown): value is PracticeKind => KINDS.some(kind => kind === value);
+/** Whether `scope` names what a session of `kind` covers: a course level, or a unit (or, for English, a level). */
+export const isPracticeScope = (kind: PracticeKind, scope: unknown) => typeof scope === "string" && (LEVEL_KINDS.has(kind) ? LEVEL_SCOPE.test(scope) : UNIT_SCOPE.test(scope));
 const whole = (value: unknown) => typeof value === "number" && Number.isInteger(value) ? value : NaN;
 
 /** Saves a finished practice session and counts today toward the learner's streak. */
@@ -28,8 +31,7 @@ export async function recordPracticeSession(userId: number, input: { kind?: unkn
   const { kind, scope } = input;
   const answered = whole(input.answered), correct = whole(input.correct);
   if (!isKind(kind)) throw new HttpError(400, "Unknown practice kind.");
-  const scopeOk = typeof scope === "string" && (LEVEL_KINDS.has(kind) ? LEVEL_SCOPE.test(scope) : UNIT_SCOPE.test(scope));
-  if (!scopeOk) throw new HttpError(400, LEVEL_KINDS.has(kind) ? "Give the level, such as N5." : "Give the unit practised.");
+  if (!isPracticeScope(kind, scope)) throw new HttpError(400, LEVEL_KINDS.has(kind) ? "Give the level, such as N5." : "Give the unit practised.");
   if (!(answered >= MIN_ANSWERED[kind] && answered <= MAX_ANSWERED)) throw new HttpError(400, `A ${kind} session needs at least ${MIN_ANSWERED[kind]} answers.`);
   if (!(correct >= 0 && correct <= answered)) throw new HttpError(400, "Correct answers must be between 0 and the number answered.");
   if (await countRecentPracticeSessions(userId, 3600) >= SESSIONS_PER_HOUR) throw new HttpError(429, "Too many practice sessions in an hour. Please slow down.");

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { facingOf, walk } from "../errands/movement";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { facingOf, fitsAt, walk } from "../errands/movement";
 import type { Direction, Vector } from "../errands/movement";
 import { isBlocked } from "../errands/townMap";
 import { blockedTilesWithOpenGates } from "../errands/village";
@@ -32,8 +32,9 @@ export function useVillageWalk(layout: VillageLayout, rememberKey: string | null
   const [place, setPlace] = useState<Place>(() => {
     if (arrival) return { position: arrival, facing: "down" };
     const recalled = rememberKey ? recallPlace(rememberKey) : null;
-    // A spot remembered from before the village changed can be inside a building now.
-    const isStandable = recalled && !isBlocked(layout.map, blocked, Math.floor(recalled.position.x), Math.floor(recalled.position.y));
+    // A spot remembered from before the village changed can be inside a building now, or touching someone, where the
+    // traveller couldn't move at all: the whole of their feet must fit there.
+    const isStandable = recalled && fitsAt(recalled.position, (x, y) => isBlocked(layout.map, blocked, x, y));
     return recalled && isStandable ? recalled : { position: layout.start, facing: "down" };
   });
   useEffect(() => {
@@ -41,6 +42,15 @@ export function useVillageWalk(layout: VillageLayout, rememberKey: string | null
     const timer = setTimeout(() => rememberPlace(rememberKey, place), REMEMBER_DELAY_MS);
     return () => clearTimeout(timer);
   }, [place, rememberKey]);
+  // Leaving the page (through a door, say) right after a step would cancel that step's save above, and coming back
+  // would find an older spot, or none: so the spot is also saved as the page closes.
+  const latest = useRef(place);
+  useEffect(() => { latest.current = place; }, [place]);
+  useEffect(() => {
+    if (!rememberKey) return;
+    const spot = latest;
+    return () => rememberPlace(rememberKey, spot.current);
+  }, [rememberKey]);
   return {
     ...place,
     walkBy(direction: Vector, seconds: number, speed: number) {

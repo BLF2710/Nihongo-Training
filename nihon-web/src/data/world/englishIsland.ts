@@ -2,18 +2,16 @@
 // Lousberg; scripts/world-models) and drawn in real 3D. Content only. North, behind a castle green, the castle (your
 // level) and its watchtower (your progress), with the abbey (grammar) to the west, the archery range (mock exams) to the
 // east, and the windmill's fields (flashcards) and the blacksmith (review) below them; a river across the middle with a
-// bridge; south of it the market town, with the church school (lessons), the tavern (word games) and the market
-// (vocabulary), and cottages along a lane by the shore. Hills and mountains rise from the sea beyond.
+// bridge; south of it the market town, with the church school (lessons), the tavern (word games), the market
+// (vocabulary) and the bell tower (listening and speaking), and cottages along a lane by the shore, which runs east
+// between two banners to the market square. The castle's door opens its courtyard. Hills and mountains rise from the sea beyond.
 import { parseTownMap } from "../../lib/errands/townMap.ts";
-import type { Vector } from "../../lib/errands/movement.ts";
-import type { VillageLayout } from "../../lib/errands/village.ts";
 import type { Door } from "../../lib/village/villageDoors.ts";
 import { groundTakenBy, tilesOfPeople } from "../../lib/world/islandModels.ts";
-import type { Island3D, IslandPerson, ModelPlacement } from "../../lib/world/islandModels.ts";
+import type { IslandPerson, ModelPlacement } from "../../lib/world/islandModels.ts";
 import { place } from "./islandModelArt.ts";
-
-/** An island walked in 3D: `localName` is its name in the learner's own language; `layout` is what walking needs. */
-export type ModelIsland = { name: string; localName: string; scene: Island3D; layout: VillageLayout; doors: readonly Door[] };
+import { doorTile } from "./modelIsland.ts";
+import type { ModelIsland } from "./modelIsland.ts";
 
 /** Small enough that the whole castle shows on a laptop with the traveller at its gate. */
 const CASTLE_SCALE = 0.85;
@@ -21,6 +19,8 @@ const FIELD_SCALE = 0.7;
 const COPSE_SCALE = 0.8;
 const MARKET_SCALE = 0.8;
 const RANGE_SCALE = 0.8;
+/** Slimmer than the castle's towers, so the bell tower reads as the village's own. */
+const BELL_TOWER_SCALE = 0.75;
 /** The forest pack's trees are modelled bigger than the medieval pack's buildings. */
 const FOREST_SCALE = 0.3;
 const BUSH_SCALE = 0.4;
@@ -37,6 +37,8 @@ const windmill = place("windmill", { x: 3, y: 8 });
 const blacksmith = place("blacksmith", { x: 27, y: 8 });
 const abbey = place("abbey", { x: 4, y: 2 });
 const archeryRange = place("archeryrange", { x: 27, y: 2 }, { scale: RANGE_SCALE });
+// The pack has no bell tower; its slim tower stands in for one.
+const bellTower = place("tower_B", { x: 1, y: 17 }, { scale: BELL_TOWER_SCALE });
 
 const MODELS: readonly ModelPlacement[] = [
   castle, watchtower, place("tower_A", { x: 23, y: 5 }, { isMirrored: true }),
@@ -46,14 +48,16 @@ const MODELS: readonly ModelPlacement[] = [
   windmill, place("grain", { x: 4, y: 11 }, { scale: FIELD_SCALE }), place("wheelbarrow", { x: 8, y: 13 }),
   place("trees_A_small", { x: 11, y: 11 }, { scale: COPSE_SCALE }), place("tree_single_A", { x: 23, y: 10 }),
   blacksmith, place("rock_single_C", { x: 31, y: 12 }), place("resource_lumber", { x: 30, y: 13 }),
-  church, tavern, market, place("well", { x: 13, y: 21 }),
+  church, tavern, market, bellTower, place("well", { x: 13, y: 21 }),
   place("barrel", { x: 28, y: 21 }), place("barrel", { x: 29, y: 21 }), place("crate_open", { x: 18, y: 22 }), place("sack", { x: 19, y: 22 }, { isWalkable: true }),
-  place("tree_single_B", { x: 1, y: 20 }), place("tree_single_A", { x: 31, y: 19 }, { isMirrored: true }),
+  place("tree_single_B", { x: 1, y: 22 }), place("tree_single_A", { x: 31, y: 19 }, { isMirrored: true }),
   place("home_A", { x: 3, y: 24 }), place("home_B", { x: 7, y: 24 }), place("forest_tree_3_a", { x: 11, y: 24 }, { scale: FOREST_SCALE }),
   place("forest_tree_1_a", { x: 20, y: 24 }, { scale: FOREST_SCALE }), place("home_A", { x: 24, y: 24 }, { isMirrored: true }), place("home_B", { x: 28, y: 24 }, { isMirrored: true }),
   place("forest_tree_2_a", { x: 29, y: 17 }, { scale: FOREST_SCALE }), place("forest_bush_3_a", { x: 3, y: 21 }, { scale: BUSH_SCALE }),
   place("forest_bush_3_a", { x: 14, y: 25 }, { scale: BUSH_SCALE, isMirrored: true }), place("forest_bush_3_a", { x: 18, y: 25 }, { scale: BUSH_SCALE }),
   ...[{ x: 24, y: 12 }, { x: 4, y: 17 }, { x: 22, y: 13 }, { x: 6, y: 6 }].map(corner => place("forest_grass_1_a", corner, { scale: GRASS_SCALE, isWalkable: true })),
+  // The banners either side of the lane's east end, where it leads on to the market square.
+  place("flag_yellow", { x: 31, y: 26 }, { isWalkable: true }), place("flag_yellow", { x: 31, y: 28 }, { isWalkable: true }),
 ];
 
 /** The adventurers who live on the island, each at a door or a landmark. */
@@ -73,11 +77,9 @@ const BACKDROP: readonly ModelPlacement[] = [
   place("hills_B_trees", { x: -14, y: 14 }, { scale: MOUNTAIN_SCALE * 0.5 }),
 ];
 
-/** The tile in front of the middle of a model's front, where its door is. */
-const doorTile = ({ at }: ModelPlacement): Vector => ({ x: at.x + Math.floor(at.width / 2), y: at.y + at.height });
-
 const DOORS: readonly Door[] = [
-  { id: "castle", label: "The castle: choose your level", href: "/levels", tile: doorTile(castle) },
+  // In the castle courtyard, the great hall chooses the level and opens the study dashboard.
+  { id: "castle", label: "The castle courtyard", href: "/english/castle", tile: doorTile(castle) },
   { id: "watchtower", label: "The watchtower: your progress", href: "/statistics/english", tile: doorTile(watchtower) },
   { id: "church", label: "The church school: lessons", href: "/lessons", tile: doorTile(church) },
   { id: "tavern", label: "The tavern: word games", href: "/arcade", tile: doorTile(tavern) },
@@ -85,7 +87,9 @@ const DOORS: readonly Door[] = [
   { id: "abbey", label: "The abbey: grammar", href: "/english/grammar", tile: doorTile(abbey) },
   { id: "windmill", label: "The windmill fields: flashcards", href: "/english/flashcards", tile: doorTile(windmill) },
   { id: "blacksmith", label: "The blacksmith: review", href: "/english/review", tile: doorTile(blacksmith) },
+  { id: "bell-tower", label: "The bell tower: listening and speaking", href: "/english/listening", tile: doorTile(bellTower) },
   { id: "archery-range", label: "The archery range: mock exam", href: "/english/mock-exam", tile: doorTile(archeryRange) },
+  { id: "market-square", label: "The lane to the market square", href: "/english/market-square", tile: { x: 31, y: 27 }, action: "Go" },
 ];
 
 const MAP = parseTownMap([
@@ -122,7 +126,7 @@ const MAP = parseTownMap([
 ]);
 
 export const ENGLISH_ISLAND: ModelIsland = {
-  name: "The English Isle", localName: "Đảo Tiếng Anh", doors: DOORS,
+  name: "The English Isle", localName: "Đảo Tiếng Anh", doors: DOORS, townsfolk: [],
   scene: { map: MAP, models: MODELS, people: PEOPLE, backdrop: BACKDROP, traveller: "rogue", doors: DOORS },
   layout: {
     map: MAP, start: { x: 17, y: 24 }, buildings: [], gates: [], lanterns: [], villagers: [],

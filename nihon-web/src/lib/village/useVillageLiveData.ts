@@ -43,7 +43,7 @@ export function useVillageLiveData(): { data: VillageLiveData; isLoading: boolea
       streak: gamification.streak.current,
       today: { hasFinishedLesson: earnedToday(gamification, "lesson_completion"), hasPractised: earnedToday(gamification, "practice") },
     })).catch(() => { /* today's errands and the streak stay unknown */ }).finally(settle);
-    fetchMistakes("open", signal).then(notebook => update({ openMistakes: notebook.counts.open })).catch(() => { /* see above */ }).finally(settle);
+    fetchMistakes("open", "japanese", signal).then(notebook => update({ openMistakes: notebook.counts.open })).catch(() => { /* see above */ }).finally(settle);
     return () => controller.abort();
   }, [level]);
   const data: VillageLiveData = {

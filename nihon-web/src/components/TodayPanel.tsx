@@ -26,7 +26,7 @@ export default function TodayPanel({ units }: { units: CourseUnit[] | null }) {
   }, [units]);
   useEffect(() => {
     const controller = new AbortController();
-    fetchMistakes("open", controller.signal).then(notebook => setOpenMistakes(notebook.counts.open)).catch(() => { /* the tile shows a dash */ });
+    fetchMistakes("open", "japanese", controller.signal).then(notebook => setOpenMistakes(notebook.counts.open)).catch(() => { /* the tile shows a dash */ });
     return () => controller.abort();
   }, []);
 

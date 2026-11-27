@@ -2,6 +2,19 @@ import { pool } from "../config/db";
 import type { Queryable } from "../db/transaction";
 
 export type MistakeSource = "lesson" | "review" | "assessment" | "mock_exam" | "kana" | "kanji";
+/** The course a mistake belongs to. Each course has its own notebook; `null` lists both. */
+export type MistakeCourse = "japanese" | "english";
+/**
+ * Keys of English mistakes: English lessons and unit tests (`english-…` ids) and the A2–C1 mock exams. Every other
+ * key (Japanese lessons, tests, reviews, N5–N1 mock exams, kana, kanji) is Japanese. The pattern is valid in both
+ * Postgres and JavaScript.
+ */
+export const ENGLISH_MISTAKE_KEY = "^((lesson|assessment):english-|mock:(A2|B1|B2|C1):)";
+/** SQL condition: the mistake is in the course held by query parameter `$<parameter>` (NULL: any course). */
+const inCourse = (parameter: number) => {
+  const course = `$${parameter}::text`;
+  return `(${course} IS NULL OR (item_key ~ '${ENGLISH_MISTAKE_KEY}') = (${course} = 'english'))`;
+};
 /** What the notebook shows: the question as the learner saw it, the right answer and what they chose. */
 export type MistakePayload = { label: string; prompt: string; options?: string[]; answer: string; given?: string; explanation?: string };
 /** One graded answer: a wrong one is noted (or noted again); a right one counts toward clearing an open mistake. */
@@ -56,10 +69,10 @@ export async function recordPracticeAnswer(userId: number, id: number, correct: 
   return result.rows[0] && toMistake(result.rows[0]);
 }
 
-export async function listMistakes(userId: number, resolved: boolean): Promise<Mistake[]> {
+export async function listMistakes(userId: number, resolved: boolean, course: MistakeCourse | null): Promise<Mistake[]> {
   const result = await pool.query(
-    `SELECT ${COLUMNS} FROM mistakes WHERE user_id = $1 AND (resolved_at IS NOT NULL) = $2
-      ORDER BY ${resolved ? "resolved_at" : "last_wrong_at"} DESC LIMIT $3`, [userId, resolved, MAX_MISTAKES_LISTED]);
+    `SELECT ${COLUMNS} FROM mistakes WHERE user_id = $1 AND (resolved_at IS NOT NULL) = $2 AND ${inCourse(4)}
+      ORDER BY ${resolved ? "resolved_at" : "last_wrong_at"} DESC LIMIT $3`, [userId, resolved, MAX_MISTAKES_LISTED, course]);
   return result.rows.map(toMistake);
 }
 
@@ -75,10 +88,10 @@ export async function deleteMistake(userId: number, id: number): Promise<boolean
 
 export type MistakeCounts = { open: number; resolved: number; bySource: Record<MistakeSource, number> };
 
-export async function countMistakes(userId: number): Promise<MistakeCounts> {
+export async function countMistakes(userId: number, course: MistakeCourse | null): Promise<MistakeCounts> {
   const result = await pool.query(
     `SELECT source, COUNT(*) FILTER (WHERE resolved_at IS NULL)::int AS open, COUNT(*) FILTER (WHERE resolved_at IS NOT NULL)::int AS resolved
-       FROM mistakes WHERE user_id = $1 GROUP BY source`, [userId]);
+       FROM mistakes WHERE user_id = $1 AND ${inCourse(2)} GROUP BY source`, [userId, course]);
   const bySource: Record<MistakeSource, number> = { lesson: 0, review: 0, assessment: 0, mock_exam: 0, kana: 0, kanji: 0 };
   let open = 0, resolved = 0;
   const rows: { source: MistakeSource; open: number; resolved: number }[] = result.rows;

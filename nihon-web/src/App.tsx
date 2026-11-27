@@ -45,6 +45,8 @@ const EnglishVocabularyPage = lazy(() => import("./pages/english/EnglishVocabula
 const EnglishGrammarPage = lazy(() => import("./pages/english/EnglishGrammarPage"));
 const EnglishFlashcardsPage = lazy(() => import("./pages/english/EnglishFlashcardsPage"));
 const EnglishReviewPage = lazy(() => import("./pages/english/EnglishReviewPage"));
+const EnglishSkillPage = lazy(() => import("./pages/english/EnglishSkillPage"));
+const EnglishGrammarSummaryPage = lazy(() => import("./pages/english/EnglishGrammarSummaryPage"));
 const EnglishMockExamPage = lazy(() => import("./pages/english/EnglishMockExamPage"));
 const LessonsPage = lazy(() => import("./pages/LessonsPage"));
 const UnitAssessmentPage = lazy(() => import("./pages/UnitAssessmentPage"));
@@ -69,6 +71,7 @@ const VillagePage = lazy(() => import("./pages/VillagePage"));
 const WildRoutePage = lazy(() => import("./pages/WildRoutePage"));
 const IslandScenePage = lazy(() => import("./pages/IslandScenePage"));
 const EnglishIslandPage = lazy(() => import("./pages/EnglishIslandPage"));
+const EnglishTownPage = lazy(() => import("./pages/english/EnglishTownPage"));
 const WardrobePage = lazy(() => import("./pages/WardrobePage"));
 const SrsDeckPage = lazy(() => import("./pages/SrsDeckPage"));
 const SpeakingTestPage = lazy(() => import("./pages/SpeakingTestPage"));
@@ -151,10 +154,15 @@ function App() {
           <Route path="/wilds/:routeId" element={signedInLazy("Loading the wild path…", <WildRoutePage />)} />
           <Route path="/islands/:islandId" element={signedInLazy("Loading the island…", <IslandScenePage />)} />
           <Route path="/english/island" element={signedInLazy("Loading the island…", <EnglishIslandPage />)} />
+          <Route path="/english/castle" element={signedInLazy("Loading the castle…", <EnglishTownPage key="castle" placeId="castle" />)} />
+          <Route path="/english/market-square" element={signedInLazy("Loading the market square…", <EnglishTownPage key="market-square" placeId="market-square" />)} />
           <Route path="/english/vocabulary" element={signedInLazy("Loading vocabulary…", <EnglishVocabularyPage />)} />
           <Route path="/english/grammar" element={signedInLazy("Loading grammar…", <EnglishGrammarPage />)} />
           <Route path="/english/flashcards" element={signedInLazy("Loading your flashcards…", <EnglishFlashcardsPage />)} />
           <Route path="/english/review" element={signedInLazy("Loading review…", <EnglishReviewPage />)} />
+          <Route path="/english/listening" element={signedInLazy("Loading listening…", <EnglishSkillPage key="listening" skill="listening" />)} />
+          <Route path="/english/speaking" element={signedInLazy("Loading speaking…", <EnglishSkillPage key="speaking" skill="speaking" />)} />
+          <Route path="/english/grammar/summary" element={signedInLazy("Loading grammar summary…", <EnglishGrammarSummaryPage />)} />
           <Route path="/english/mock-exam" element={signedInLazy("Loading the mock exam…", <EnglishMockExamPage />)} />
           <Route path="/traveller" element={signedInLazy("Loading the wardrobe…", <WardrobePage />)} />
           <Route path="/games/english" element={signedIn(<EnglishArcadePage />)} />

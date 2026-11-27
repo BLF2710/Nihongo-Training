@@ -120,7 +120,7 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
         <div className="h-full overflow-y-auto p-4 flex flex-col">
           <div className="mb-5"><p className="px-3 text-[11px] font-bold tracking-wider uppercase text-gray-400">Navigation</p>
             <button onClick={() => go("/")} className={`mt-2 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/")}`}>{language === "japanese" ? <><span aria-hidden="true">🏝</span> Island map</> : <><span>⌂</span> Home</>}</button>
-            {language === "japanese" && <button onClick={() => go("/dashboard")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/dashboard")}`}><span>⌂</span> Dashboard</button>}
+            {(language === "japanese" || language === "english") && <button onClick={() => go("/dashboard")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/dashboard")}`}><span>⌂</span> Dashboard</button>}
             <button onClick={() => go("/village")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname === "/village")}`}><span aria-hidden="true">🏮</span> Village square</button>
             <button onClick={() => go("/achievements")} className={`mt-1 w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition cursor-pointer ${active(location.pathname.startsWith("/achievements"))}`}><span aria-hidden="true">🏆</span> Achievements</button>
             {currentLanguage && <p className="mt-3 px-3 text-sm font-bold text-gray-800"><span aria-hidden="true">{currentLanguage.flag} </span>{currentLanguage.name}</p>}
@@ -155,9 +155,12 @@ export default function Navbar({ back, island }: { back?: BackTarget; island?: I
               {link("/lessons", "📖", "Lessons", location.pathname.startsWith("/lessons"))}
               {link("/english/vocabulary", "🧠", "Vocabulary", location.pathname === "/english/vocabulary")}
               {link("/english/grammar", "✍️", "Grammar", location.pathname === "/english/grammar")}
+              {link("/english/grammar/summary", "🧾", "Grammar summary", location.pathname === "/english/grammar/summary")}
             </div>}</div>
             <div>{sectionButton("Practice", "practice")}{sectionsOpen.practice && <div className="mt-1 space-y-1">
               {link("/english/flashcards", "🗂️", "Flashcards", location.pathname === "/english/flashcards")}
+              {link("/english/listening", "🎧", "Listening", location.pathname === "/english/listening")}
+              {link("/english/speaking", "🎤", "Speaking", location.pathname === "/english/speaking")}
               {link("/english/review", "🔄", "Review", location.pathname === "/english/review")}
               {link("/english/mock-exam", "📝", "Mock exam", location.pathname === "/english/mock-exam")}
               {link("/mistakes", "📒", "Mistake notebook", location.pathname === "/mistakes")}

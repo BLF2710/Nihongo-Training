@@ -1,40 +1,30 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { apiErrorMessage } from "../../api/errors";
 import { recordLessonAnswers } from "../../api/mistakes";
-import { fetchUnits } from "../../api/units";
 import { QuestionCard } from "../../components/englishLesson/QuestionCard";
 import { EmptyNotice, EnglishStudyFrame, focusRing, UnitChooser } from "../../components/englishStudy/EnglishStudyFrame";
 import { useActivityTitle } from "../../context/ActivityContext";
-import { pickRandom, studyQuestionsOf } from "../../lib/englishStudy";
+import { pickRandom, studyQuestionsOf, wordQuestionsOf } from "../../lib/englishStudy";
 import type { StudyQuestion } from "../../lib/englishStudy";
+import { useCompletedLessonIds } from "./useCompletedLessonIds";
 import { useEnglishStudyScope } from "./useEnglishStudyScope";
 
 // The English review bank (/english/review): a round of questions drawn from the practice and challenge of the
-// learner's completed lessons, for one unit or the whole level. Answers are marked at once, and the round's answers
-// go to the mistake notebook like a lesson's challenge.
+// learner's completed lessons and the meanings of their words, for one unit or, as a cumulative review, the whole
+// level. Answers are marked at once, and the round's answers go to the mistake notebook like a lesson's challenge.
 const QUESTIONS_PER_ROUND = 10;
 const primary = `rounded-xl bg-emerald-600 px-5 py-2.5 font-bold text-white hover:bg-emerald-700 disabled:opacity-50 ${focusRing}`;
-
-function useCompletedLessonIds() {
-  const [completed, setCompleted] = useState<ReadonlySet<string> | null>(null);
-  const [error, setError] = useState("");
-  useEffect(() => {
-    const controller = new AbortController();
-    fetchUnits(controller.signal).then(units => setCompleted(new Set(units.flatMap(unit => unit.lessons.filter(lesson => lesson.completed).map(lesson => lesson.id)))))
-      .catch(failure => { if (!controller.signal.aborted) setError(apiErrorMessage(failure, "Your progress could not be loaded.")); });
-    return () => controller.abort();
-  }, []);
-  return { completed, error };
-}
 
 export default function EnglishReviewPage() {
   useActivityTitle("English review");
   const { level, units, unitId, lessons, chooseUnit } = useEnglishStudyScope();
   const { completed, error } = useCompletedLessonIds();
-  const bank = useMemo(() => completed ? studyQuestionsOf(lessons.filter(lesson => completed.has(lesson.id))) : [], [completed, lessons]);
+  const bank = useMemo(() => {
+    const done = completed ? lessons.filter(lesson => completed.has(lesson.id)) : [];
+    return [...studyQuestionsOf(done), ...wordQuestionsOf(done)];
+  }, [completed, lessons]);
   const [round, setRound] = useState(0);
-  return <EnglishStudyFrame title="Review" titleVi="Ôn tập" level={level} intro="Mixed questions from the lessons you have completed."
+  return <EnglishStudyFrame title="Review" titleVi="Ôn tập" level={level} intro={unitId === "all" ? `A cumulative review: questions and words from every ${level} lesson you have completed.` : "Questions and words from this unit's completed lessons."}
     controls={<UnitChooser units={units} value={unitId} onChange={id => { chooseUnit(id); setRound(value => value + 1); }} />}>
     {error && <p role="alert" className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{error}</p>}
     {!completed && !error && <p role="status" className="text-gray-500">Loading your lessons…</p>}

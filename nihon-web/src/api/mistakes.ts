@@ -14,8 +14,9 @@ export type Notebook = { mistakes: Mistake[]; counts: MistakeCounts; correctInAR
 /** One challenge question from a finished lesson. */
 export type LessonAnswer = { prompt: string; options: string[]; answer: string; given: string; correct: boolean; explanation?: string };
 
-export async function fetchMistakes(status: "open" | "resolved", signal?: AbortSignal) {
-  return (await api.get<Notebook>("/mistakes", { params: { status }, signal })).data;
+/** One course's notebook: Japanese and English mistakes are kept apart. */
+export async function fetchMistakes(status: "open" | "resolved", course: "japanese" | "english", signal?: AbortSignal) {
+  return (await api.get<Notebook>("/mistakes", { params: { status, course }, signal })).data;
 }
 
 type CharacterProgress = { correctCount: number; wrongCount: number; total: number; accuracy: number; status: "untested" | "learning" | "mastered" };

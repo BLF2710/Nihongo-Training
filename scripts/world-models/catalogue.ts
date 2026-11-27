@@ -20,11 +20,14 @@ const forest = (name: string): ModelSource => ({ id: `forest_${name.toLowerCase(
 const character = (id: string, name: string): ModelSource => ({ id, source: `${CHARACTERS}/${name}.glb` });
 
 export const MODELS: readonly ModelSource[] = [
-  ...["castle", "church", "tavern", "market", "home_A", "home_B", "blacksmith", "windmill", "well", "tower_A", "archeryrange"].map(building),
+  ...["castle", "church", "tavern", "market", "home_A", "home_B", "blacksmith", "windmill", "well", "tower_A", "archeryrange", "tower_B", "barracks", "tower_catapult"].map(building),
   coloured("abbey", "church", "green"),
   neutral("fence_stone", "fence_stone_straight"), neutral("grain", "building_grain"),
+  // The castle courtyard's curtain wall, and the market square's stage.
+  neutral("wall_straight"), neutral("wall_straight_gate"), neutral("wall_corner_A_outside"), neutral("stage", "building_stage_A"),
   ...["tree_single_A", "tree_single_B", "trees_A_small", "trees_A_medium", "trees_B_medium", "rock_single_C", "mountain_A_grass_trees", "mountain_B_grass_trees", "mountain_C_grass", "hills_A_trees", "hills_B_trees", "cloud_big", "cloud_small"].map(nature),
-  ...["barrel", "crate_open", "sack", "wheelbarrow", "flag_blue", "resource_lumber"].map(prop),
+  ...["barrel", "crate_open", "sack", "wheelbarrow", "flag_blue", "resource_lumber",
+    "flag_yellow", "flag_red", "tent", "target", "weaponrack", "crate_A_big", "bucket_water", "resource_stone"].map(prop),
   ...["Tree_1_A", "Tree_2_A", "Tree_3_A", "Bush_3_A", "Grass_1_A"].map(forest),
   character("rogue", "Rogue"), character("knight", "Knight"), character("barbarian", "Barbarian"), character("mage", "Mage"),
   character("ranger", "Ranger"), character("rogue_hooded", "Rogue_Hooded"),

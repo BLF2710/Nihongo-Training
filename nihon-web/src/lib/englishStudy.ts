@@ -60,6 +60,20 @@ export function studyQuestionsOf(lessons: readonly (EnglishLessonSummary & { pra
   ]);
 }
 
+const WORD_QUESTION_OPTIONS = 4;
+
+/** A "What does … mean?" question for every word the lessons teach, its other options the meanings of other words
+ *  among them, so a review covers the words as well as the lessons' own questions. */
+export function wordQuestionsOf(lessons: readonly EnglishLessonSummary[], random: () => number = Math.random): StudyQuestion[] {
+  const words = studyWordsOf(lessons);
+  const meanings = [...new Set(words.map(word => word.vietnamese))];
+  return words.map(({ lessonId, lessonSlug, lessonTitle, lessonNumber, unitId, unitNumber, level, ...word }) => ({
+    lessonId, lessonSlug, lessonTitle, lessonNumber, unitId, unitNumber, level, id: `${lessonId}:word:${word.word}`,
+    prompt: `What does “${word.word}” mean?`, correct: word.vietnamese, explanation: `${word.word} ${word.ipa}: ${word.definition}`,
+    options: pickRandom([word.vietnamese, ...pickRandom(meanings.filter(meaning => meaning !== word.vietnamese), WORD_QUESTION_OPTIONS - 1, random)], WORD_QUESTION_OPTIONS, random),
+  }));
+}
+
 /** A random selection of `count` items, in random order; `random` returns numbers in [0, 1). */
 export function pickRandom<T>(items: readonly T[], count: number, random: () => number = Math.random): T[] {
   const pool = [...items];

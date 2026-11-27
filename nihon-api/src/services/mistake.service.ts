@@ -4,7 +4,7 @@ import { LESSONS } from "../data/lessons";
 import { listAssessmentProgress } from "../repositories/assessment.repository";
 import { isLessonCompleted } from "../repositories/lesson-progress.repository";
 import * as mistakeRepository from "../repositories/mistake.repository";
-import type { AnswerOutcome, Mistake, MistakePayload } from "../repositories/mistake.repository";
+import type { AnswerOutcome, Mistake, MistakeCourse, MistakePayload } from "../repositories/mistake.repository";
 import { HttpError } from "../utils/http-error";
 import { rewardActivity } from "./gamification.service";
 
@@ -43,9 +43,22 @@ async function passedAssessmentIds(userId: number) {
   return new Set((await listAssessmentProgress(userId)).filter(row => row.passed_at !== null).map(row => row.assessment_id));
 }
 
-export async function getNotebook(userId: number, status: unknown) {
+const MISTAKE_COURSES: readonly MistakeCourse[] = ["japanese", "english"];
+
+/** `?course=`: one course's notebook; without it, both (as before the courses were split). */
+export function toMistakeCourse(value: unknown): MistakeCourse | null {
+  if (value === undefined) return null;
+  const course = MISTAKE_COURSES.find(item => item === value);
+  if (!course) throw new HttpError(400, "Unknown course.");
+  return course;
+}
+
+export async function getNotebook(userId: number, status: unknown, courseQuery?: unknown) {
   const resolved = status === "resolved";
-  const [mistakes, counts, passed] = await Promise.all([mistakeRepository.listMistakes(userId, resolved), mistakeRepository.countMistakes(userId), passedAssessmentIds(userId)]);
+  const course = toMistakeCourse(courseQuery);
+  const [mistakes, counts, passed] = await Promise.all([
+    mistakeRepository.listMistakes(userId, resolved, course), mistakeRepository.countMistakes(userId, course), passedAssessmentIds(userId),
+  ]);
   return { mistakes: mistakes.map(mistake => presentMistake(mistake, passed)), counts, correctInARowToResolve: mistakeRepository.CORRECT_IN_A_ROW_TO_RESOLVE };
 }
 

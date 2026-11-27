@@ -3,7 +3,7 @@ import { getWeakCharacters as listWeakCharacters } from "../services/weak-charac
 import { action } from "../utils/action";
 import { getUserId } from "../utils/request-user";
 
-export const getMistakes = action(async (req, res) => res.json(await mistakeService.getNotebook(getUserId(req), req.query.status)),
+export const getMistakes = action(async (req, res) => res.json(await mistakeService.getNotebook(getUserId(req), req.query.status, req.query.course)),
   { label: "getMistakes", message: "Could not load your mistakes." });
 
 export const getWeakCharacters = action(async (req, res) => res.json(await listWeakCharacters(getUserId(req))),

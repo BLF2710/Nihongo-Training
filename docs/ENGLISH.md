@@ -135,14 +135,46 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
   - `/english/flashcards`: spaced repetition over the words of completed lessons. The cards share `srs_cards` with
     Japanese (ids `<lesson id>:<word>`); the SRS endpoints take `?course=english|japanese`, and each course has its
     own daily allowance of new cards.
-  - `/english/review`: rounds of ten questions drawn from the practice and challenge questions of completed lessons;
-    wrong answers go to the mistake notebook.
+  - `/english/review`: rounds of ten questions drawn from the practice and challenge questions of completed lessons
+    and the meanings of their words; with All units it is the level's cumulative review. Wrong answers go to the
+    mistake notebook.
+  - `/english/grammar/summary`: every grammar point of the level, one unit per tab; printing prints the whole level.
+  - `/english/listening` and `/english/speaking` (`lib/englishSkillRounds.ts`): words, example sentences and
+    conversation exchanges of completed lessons, heard and said in British English. Speech is compared word by word
+    after writing out contractions and small numbers and making American spellings British
+    (`lib/englishSpeechMatch.ts`); 80% of the words, in order, counts as said. A finished round counts toward the
+    streak (practice scope `english-<level>` or the unit id).
   - `/english/mock-exam`: a timed end-of-level exam (vocabulary, grammar, reading), open once the level's units are
     open. Sources are `docs/curriculum/english/<level>/mock-exam.ts`, built into `shared/course/english/mock-exams.json`
     by the importer; the server grades it again and saves the result. **Migration `039_english_mock_exams.sql`** lets
     `mock_exam_results` hold A2–C1 results: run `npm run migrate` in `nihon-api` before deploying.
   - English statistics (`/statistics/english`) show lessons and units done per level, flashcards and best mock exam
     scores.
+  - `/dashboard` for English learners (`pages/english/EnglishDashboard.tsx`, `lib/englishDashboard.ts`): the study
+    desk for learners who would rather study than walk the island. It shows the next lesson or unit test of the
+    chosen level, today's plan (next step, flashcards when due, a review of the unit in progress, and listening or
+    speaking on alternate days), progress figures and every study tool. On a phone, Today, Progress and Study tools
+    are tabs. The great hall in the castle courtyard opens the level picker with `?next=/dashboard`, so choosing a
+    level lands here.
+  - `/mistakes` for English learners is the English mistake notebook: only mistakes from English lessons, reviews,
+    unit tests and A2–C1 mock exams (`GET /mistakes?course=english`; the course is read from the mistake's key, see
+    `ENGLISH_MISTAKE_KEY` in `mistake.repository.ts`), in the English study frame, with no weak-characters tab.
+    Japanese learners see only Japanese mistakes; without `course` the API lists both.
+  - Island doors: the bell tower (`tower_B`, standing in for a bell tower, since the packs have none) opens
+    listening and speaking, which link to each other.
+- **Scenes on foot** (`pages/english/EnglishTownPage.tsx`, walked with `components/englishTown/EnglishPlaceWalk`, as the
+  island is):
+  - `/english/castle`, the castle courtyard (`data/world/englishCourtyard.ts`), through the castle door: the great
+    hall (choose your level, then the dashboard), the barracks (unit tests), the tower (statistics) and the training
+    yard (mock exam), with Sir Edmund, the castle knight.
+  - `/english/market-square` (`data/world/englishMarketSquare.ts`), at the east end of the island's shore lane: the
+    tavern (games), the market stalls (vocabulary), the scribe's tent (grammar) and the stage (speaking), with Bran,
+    Kit, Morwen and Wren.
+  - The townsfolk (`lib/englishTown`) are the island's adventurers. Walk up and press E to hear their news from your
+    English study, in English with Vietnamese: the next step (the knight), flashcards (Bran), listening and speaking
+    (Wren), the daily goal and streak (Morwen), and messages and mistakes (Kit). A "!" marks news. They also give the
+    day's errands, listed on the market square's board, and its eight banners turn from blue to gold as they get done,
+    as the village square's lanterns light.
 - **Admin lesson editing:** the lesson editor has a Japanese / English switch. English lessons are edited with
   English fields (each word's IPA, part of speech, Vietnamese, definition and example; examples and conversation in
   both languages; questions; grammar as JSON) and checked on the server by the English rules
@@ -163,4 +195,5 @@ Each phase is usable when it lands; phases 1–3 come first because the world ne
 
 ## Not yet for English
 
-- An English dashboard page of its own: the island and English statistics play that part for now.
+- Nothing from the plan's phases. Later ideas: listening and speaking in English statistics, and a server-side English
+  review bank.

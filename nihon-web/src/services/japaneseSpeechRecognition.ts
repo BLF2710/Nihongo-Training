@@ -26,15 +26,20 @@ const ERROR_MESSAGES: Record<string, string> = {
 };
 export const recognitionErrorMessage = (code: string) => ERROR_MESSAGES[code] ?? "Speech recognition stopped unexpectedly. Please try again.";
 
+export type RecognitionHandlers = { onResult: (alternatives: string[]) => void; onError: (code: string) => void; onEnd: () => void };
+
+/** Listens for one Japanese utterance; see recognizeSpeech. */
+export const recognizeJapanese = (handlers: RecognitionHandlers) => recognizeSpeech("ja-JP", handlers);
+
 /**
- * Listens for one Japanese utterance. `onResult` receives the recogniser's guesses, best first;
- * `onEnd` always fires last. Returns a function that cancels listening.
+ * Listens for one utterance in `lang` (a BCP 47 tag such as "en-GB"). `onResult` receives the recogniser's guesses,
+ * best first; `onEnd` always fires last. Returns a function that cancels listening.
  */
-export function recognizeJapanese(handlers: { onResult: (alternatives: string[]) => void; onError: (code: string) => void; onEnd: () => void }): () => void {
+export function recognizeSpeech(lang: string, handlers: RecognitionHandlers): () => void {
   const Constructor = recognitionConstructor();
   if (!Constructor) { handlers.onError("unsupported"); handlers.onEnd(); return () => undefined; }
   const recognition = new Constructor();
-  recognition.lang = "ja-JP";
+  recognition.lang = lang;
   recognition.interimResults = false;
   recognition.maxAlternatives = 5;
   recognition.onresult = event => handlers.onResult(Array.from(event.results[0] ?? [], alternative => alternative.transcript));

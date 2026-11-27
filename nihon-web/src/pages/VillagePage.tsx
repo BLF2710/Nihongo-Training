@@ -69,7 +69,8 @@ export default function VillagePage() {
       <VillageSquare3D square={square} litLanterns={litLanterns} position={walker.position} facing={walker.facing} isWalking={isHolding} isRunning={isRunning}
         nearbyId={nearbyId} nearbyDoor={nearbyDoor} markedIds={markedIds} onAct={actOnNearby}>
         <div className="pointer-events-none absolute inset-x-2 top-2 z-[900] flex items-start justify-between gap-2 sm:inset-x-4 sm:top-4">
-          <DailyErrandsBoard errands={errands} status={isLoading ? "loading" : data.today === null ? "unavailable" : "ready"} />
+          <DailyErrandsBoard errands={errands.map(errand => ({ ...errand, giverName: CAST[errand.giver].name }))} status={isLoading ? "loading" : data.today === null ? "unavailable" : "ready"}
+            allDoneText="All done: the lanterns are lit! 🏮" />
           <p className="rounded-xl border border-gray-200 bg-white/95 px-3 py-2 text-right shadow-sm max-sm:hidden">
             <span className="block text-lg font-black" lang="ja">ひろば</span><span className="text-xs text-gray-600">Village square</span>
           </p>

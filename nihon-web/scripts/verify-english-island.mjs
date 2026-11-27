@@ -1,12 +1,15 @@
-// The English island in real 3D: where its models stand and the ground they take up, how its people turn and how far
+// The English island, its castle courtyard and its market square in real 3D: where its models stand and the ground they take up, how its people turn and how far
 // back the camera stands, and that the island can be walked. Run with --experimental-strip-types (see package.json).
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { cameraDistance, centreOf, drawnTowards, facingAngle, groundTakenBy, personPosition, tileSize, tilesOfPeople, turnTowards } from "../src/lib/world/islandModels.ts";
 import { hasModel, place } from "../src/data/world/islandModelArt.ts";
 import { ENGLISH_ISLAND } from "../src/data/world/englishIsland.ts";
+import { ENGLISH_COURTYARD } from "../src/data/world/englishCourtyard.ts";
+import { ENGLISH_MARKET_SQUARE } from "../src/data/world/englishMarketSquare.ts";
 import { blockedTilesWithOpenGates } from "../src/lib/errands/village.ts";
 import { isBlocked, terrainAt, tilesOf } from "../src/lib/errands/townMap.ts";
+import { fitsAt } from "../src/lib/errands/movement.ts";
 
 const at = { x: 4, y: 6, width: 2, height: 3 };
 
@@ -59,11 +62,12 @@ test("the camera stands back far enough to show the screen's height in tiles", (
   assert.ok(Math.abs(shown - 768 / 64) < 1e-9);
 });
 
-const { layout, scene } = ENGLISH_ISLAND;
+const PLACES = [["English island", ENGLISH_ISLAND], ["castle courtyard", ENGLISH_COURTYARD], ["market square", ENGLISH_MARKET_SQUARE]];
 
-/** Every tile the traveller can walk to from `start`. */
-function reachableFrom(start) {
+/** Every tile the traveller can walk to from `start` in a place. */
+function reachableFrom({ layout }, { x: startX, y: startY }) {
   const blocked = blockedTilesWithOpenGates(layout, []);
+  const start = { x: Math.floor(startX), y: Math.floor(startY) };
   const seen = new Set([`${start.x},${start.y}`]), queue = [start];
   while (queue.length) {
     const { x, y } = queue.shift();
@@ -76,33 +80,67 @@ function reachableFrom(start) {
   return seen;
 }
 
-test("every model and person on the English island has been prepared", () => {
-  const names = [...scene.models, ...scene.backdrop].map(({ model }) => model).concat(scene.people.map(({ model }) => model), scene.traveller);
-  assert.deepEqual(names.filter(name => !hasModel(name)), []);
+for (const [name, place] of PLACES) {
+  const { layout, scene } = place;
+  const lanterns = (scene.lanterns ?? []).flatMap(({ lit, unlit }) => [lit, unlit]);
+
+  test(`every model and person in the ${name} has been prepared`, () => {
+    const names = [...scene.models, ...scene.backdrop, ...lanterns].map(({ model }) => model).concat(scene.people.map(({ model }) => model), scene.traveller);
+    assert.deepEqual(names.filter(model => !hasModel(model)), []);
+  });
+
+  test(`no two models or people in the ${name} stand on the same ground`, () => {
+    const owners = new Map();
+    const things = [...scene.models.map(({ model, at }) => ({ name: model, at })), ...(scene.lanterns ?? []).map(({ lit }) => ({ name: "banner", at: lit.at })),
+      ...scene.people.map(({ id, tile }) => ({ name: id, at: { ...tile, width: 1, height: 1 } }))];
+    const clashes = things.flatMap(({ name: thing, at }) => tilesOf(at).flatMap(key => {
+      const owner = owners.get(key);
+      owners.set(key, thing);
+      return owner ? [`${owner}/${thing} at ${key}`] : [];
+    }));
+    assert.deepEqual(clashes, []);
+  });
+
+  test(`nothing in the ${name} stands in the water, on a bridge or off the map`, () => {
+    const wet = [...scene.models, ...lanterns].flatMap(({ model, at }) => tilesOf(at).filter(key => {
+      const [x, y] = key.split(",").map(Number);
+      return x < 0 || y < 0 || x >= layout.map.width || y >= layout.map.height || ["water", "bridge", "pier"].includes(terrainAt(layout.map, x, y));
+    }).map(key => `${model} at ${key}`));
+    assert.deepEqual(wet, []);
+  });
+
+  test(`every door in the ${name} can be walked to from where the traveller starts`, () => {
+    const reachable = reachableFrom(place, layout.start);
+    assert.deepEqual(place.doors.filter(({ tile }) => !reachable.has(`${tile.x},${tile.y}`)).map(door => door.id), []);
+  });
+
+  test(`every townsperson in the ${name} can be walked up to and talked to`, () => {
+    const reachable = reachableFrom(place, layout.start);
+    const besideOf = ({ x, y }) => [[1, 0], [-1, 0], [0, 1], [0, -1]].map(([dx, dy]) => `${x + dx},${y + dy}`);
+    assert.deepEqual(place.townsfolk.filter(({ tile }) => !besideOf(tile).some(key => reachable.has(key))).map(({ id }) => id), []);
+  });
+
+  test(`every townsperson in the ${name} is drawn there`, () => {
+    assert.deepEqual(place.townsfolk.filter(({ id }) => !scene.people.some(person => person.id === id)).map(({ id }) => id), []);
+  });
+}
+
+test("the castle door opens the courtyard and the shore lane leads to the market square", () => {
+  const hrefs = ENGLISH_ISLAND.doors.map(({ href }) => href);
+  assert.ok(hrefs.includes("/english/castle") && hrefs.includes("/english/market-square"));
 });
 
-test("no two models or people on the English island stand on the same ground", () => {
-  const owners = new Map();
-  const things = [...scene.models.map(({ model, at }) => ({ name: model, at })), ...scene.people.map(({ id, tile }) => ({ name: id, at: { ...tile, width: 1, height: 1 } }))];
-  const clashes = things.flatMap(({ name, at }) => tilesOf(at).flatMap(key => {
-    const owner = owners.get(key);
-    owners.set(key, name);
-    return owner ? [`${owner}/${name} at ${key}`] : [];
-  }));
-  assert.deepEqual(clashes, []);
+test("the courtyard and the market square each have a way back to the island", () => {
+  assert.deepEqual([ENGLISH_COURTYARD, ENGLISH_MARKET_SQUARE].map(({ doors }) => doors.some(({ href }) => href === "/english/island")), [true, true]);
 });
 
-test("nothing on the English island stands in the water or on a bridge", () => {
-  const wet = scene.models.flatMap(({ model, at }) => tilesOf(at).filter(key => {
-    const [x, y] = key.split(",").map(Number);
-    return ["water", "bridge", "pier"].includes(terrainAt(layout.map, x, y));
-  }).map(key => `${model} at ${key}`));
-  assert.deepEqual(wet, []);
+test("choosing a level in the courtyard's great hall opens the study dashboard", () => {
+  assert.equal(ENGLISH_COURTYARD.doors.find(({ id }) => id === "great-hall")?.href, "/levels?next=/dashboard");
 });
 
-test("every door on the English island can be walked to from where the traveller starts", () => {
-  const reachable = reachableFrom(layout.start);
-  assert.deepEqual(ENGLISH_ISLAND.doors.filter(({ tile }) => !reachable.has(`${tile.x},${tile.y}`)).map(door => door.id), []);
+test("a model turned east or west takes up its footprint turned too", () => {
+  const facingSouth = place("wall_straight", { x: 0, y: 0 }), facingEast = place("wall_straight", { x: 0, y: 0 }, { facing: "right" });
+  assert.deepEqual([facingEast.at.width, facingEast.at.height], [facingSouth.at.height, facingSouth.at.width]);
 });
 
 test("the traveller as drawn eases after their steps, so steps that arrive unevenly still draw evenly", () => {
@@ -124,4 +162,19 @@ test("the traveller as drawn stays where they stand once caught up", () => {
 
 test("the English island is the English learner's home, so none of its doors leads back to the home page", () => {
   assert.deepEqual(ENGLISH_ISLAND.doors.filter(({ href }) => href === "/").map(door => door.id), []);
+});
+
+test("the courtyard can only be left through its gate: nothing south of the wall can be walked to", () => {
+  const { layout } = ENGLISH_COURTYARD;
+  const wallRow = 14;
+  const outside = [...reachableFrom(ENGLISH_COURTYARD, layout.start)].filter(key => Number(key.split(",")[1]) >= wallRow);
+  assert.deepEqual(outside, []);
+});
+
+test("the traveller can move from where they start in every place (their feet fit there, touching no one)", () => {
+  const stuck = PLACES.filter(([, { layout }]) => {
+    const blocked = blockedTilesWithOpenGates(layout, []);
+    return !fitsAt(layout.start, (x, y) => isBlocked(layout.map, blocked, x, y));
+  }).map(([name]) => name);
+  assert.deepEqual(stuck, []);
 });

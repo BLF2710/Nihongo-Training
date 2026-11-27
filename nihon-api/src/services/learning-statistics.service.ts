@@ -37,7 +37,7 @@ export async function getLearningOverview(userId: number) {
   const [studyDays, goalMinutes, lessonWeeks, lessonsCompleted, assessments, kanji, srs, srsDays, mistakes, mockExams, practice, speaking] = await Promise.all([
     listDailySeconds(userId, STUDY_DAYS), getDailyGoalMinutes(userId), learnerStatistics.listWeeklyLessons(userId, LESSON_WEEKS),
     learnerStatistics.countCompletedLessons(userId), getAssessmentResults(userId), getKanjiMastery(userId), getSrsSummary(userId),
-    listDailyReviews(userId, STUDY_DAYS), countMistakes(userId), listMockResults(userId, RECENT_MOCK_EXAMS),
+    listDailyReviews(userId, STUDY_DAYS), countMistakes(userId, "japanese"), listMockResults(userId, RECENT_MOCK_EXAMS),
     learnerStatistics.summarizePracticeSessions(userId), learnerStatistics.summarizeSpeakingByLevel(userId),
   ]);
   return {

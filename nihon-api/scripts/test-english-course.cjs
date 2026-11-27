@@ -43,3 +43,29 @@ test("every live English unit has its assessment", () => {
 test("course levels are read from Japanese and English ids alike", () => {
   assert.deepEqual(["japanese-n5-unit-4", "english-b2-unit-1-…", "practice"].map(courseLevelOf), ["N5", "B2", ""]);
 });
+
+test("English listening and speaking may be saved for a unit or a whole level", () => {
+  const { isPracticeScope } = require("../src/services/practice-activity.service");
+  assert.deepEqual(["english-a2-unit-3", "english-c1", "japanese-n5-unit-1", "english-x9", "N5"].map(scope => isPracticeScope("listening", scope)), [true, true, true, false, false]);
+});
+
+const { ENGLISH_MISTAKE_KEY } = require("../src/repositories/mistake.repository");
+const { mistakeKeys, toMistakeCourse } = require("../src/services/mistake.service");
+
+test("English lesson, unit test and A2–C1 mock exam mistakes go to the English notebook", () => {
+  const isEnglish = key => new RegExp(ENGLISH_MISTAKE_KEY).test(key);
+  const english = [mistakeKeys.lesson("english-a2-unit-1-introductions", "Hello"), mistakeKeys.assessment("english-b1-unit-2-assessment", "q1"), mistakeKeys.mockExam("C1", "q3")];
+  assert.deepEqual(english.map(isEnglish), [true, true, true]);
+});
+
+test("Japanese lesson, test, review, mock exam, kana and kanji mistakes stay in the Japanese notebook", () => {
+  const isEnglish = key => new RegExp(ENGLISH_MISTAKE_KEY).test(key);
+  const japanese = [mistakeKeys.lesson("japanese-n5-unit-1-greetings", "こんにちは"), mistakeKeys.assessment("japanese-n5-unit-1-assessment", "q1"),
+    mistakeKeys.bank(12), mistakeKeys.mockExam("N5", "q3"), mistakeKeys.kana("hiragana", 4), mistakeKeys.kanji("k1", "meaning")];
+  assert.deepEqual(japanese.map(isEnglish), [false, false, false, false, false, false]);
+});
+
+test("the notebook's course is japanese, english, or both when not given; anything else is refused", () => {
+  assert.deepEqual([toMistakeCourse("english"), toMistakeCourse("japanese"), toMistakeCourse(undefined)], ["english", "japanese", null]);
+  assert.throws(() => toMistakeCourse("french"), /Unknown course/);
+});
